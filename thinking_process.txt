@@ -28,6 +28,22 @@ Training:
 - How will I use GRPO on each of the separate systems?
 
 
+
+First SFT Training Round:
+Dataset format:
+{
+    "instruction":
+    "input":
+    "output"
+}
+
+We will have to create data similar to this format for each model:
+- Deductive Reasoning
+- Question Generation
+- Counter Deductive Reasoning
+- Information summarization/Vignette generation after each question
+- Top 5/10 diagnosis
+
 GRPO Reward/Punishment System:
 
 1. Deductive Reasoning Block:
