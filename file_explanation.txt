@@ -4,4 +4,3 @@ THIS IS AN EXPLANATION OF THE FILES
 run_biollama70b- DO NOT Run
 sft_trainer - for supervised fine tuning - has specific parameters - General SFT is done - just need to get fine-tuned data through doctorpoc folder
 test - testing biollama8b for it
-
