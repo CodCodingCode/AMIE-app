@@ -1,11 +1,14 @@
 .venv
 
-
+# Files with sensitive information
+generate_input.py
+**/generate_input.py
+*.env
+.env*
 
 # Folders
 AMIE-App
 amie-app2
-datasets
 doctorpoc
 sft_output
 medical_dataset
