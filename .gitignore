@@ -2,7 +2,6 @@
 
 # Files with sensitive information
 generate_input.py
-**/generate_input.py
 *.env
 .env*
 
