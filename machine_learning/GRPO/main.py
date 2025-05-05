@@ -16,17 +16,42 @@ dataset = load_dataset(
 )
 
 
-# === Define Custom Reward Function ===
-def reward_func(completions, ground_truth=None, **kwargs):
-    """Reward 1 if completion matches ground truth exactly, else 0."""
-    return [
-        1.0 if c.strip() == gt.strip() else 0.0
-        for c, gt in zip(completions, ground_truth)
-    ]
 
 
-# === Load SFT Fine-Tuned BioLLaMA Model (Half-Precision) ===
-# Note: No BitsAndBytesConfig needed if loading a non-quantized, fine-tuned model
+similarity_model = MODEL #Use a model like Llama Maverick
+
+def reward_func_questions(completions, ground_truth=None, **kwargs):
+    """Reward based on semantic similarity to the ground truth question."""
+    if ground_truth is None:
+        # Handle cases where ground_truth might not be provided (shouldn't happen with your dataset)
+        return [0.0] * len(completions)
+
+    # Ensure inputs are lists of strings
+    completions_str = [str(c).strip() for c in completions]
+    ground_truth_str = [str(gt).strip() for gt in ground_truth] # Assuming ground_truth is passed correctly
+
+    # Compute embeddings
+    # Handle potential empty strings
+    completions_str = [s if s else "[PAD]" for s in completions_str]
+    ground_truth_str = [s if s else "[PAD]" for s in ground_truth_str]
+
+    try:
+        comp_embeddings = similarity_model.encode(completions_str, convert_to_tensor=True)
+        gt_embeddings = similarity_model.encode(ground_truth_str, convert_to_tensor=True)
+
+        # Compute cosine similarity
+        cosine_scores = util.cos_sim(comp_embeddings, gt_embeddings)
+
+        # Extract the diagonal scores (similarity of each completion with its corresponding ground truth)
+        # Clamp scores between 0 and 1 (optional, but good practice for rewards)
+        rewards = [max(0.0, min(1.0, cosine_scores[i, i].item())) for i in range(len(completions))]
+    except Exception as e:
+        print(f"Error during reward calculation: {e}")
+        print(f"Completions: {completions_str}")
+        print(f"Ground Truth: {ground_truth_str}")
+        rewards = [0.0] * len(completions) # Return zero reward on error
+
+    return rewards
 
 # Determine the appropriate dtype (bfloat16 if supported, otherwise float16)
 compute_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
@@ -48,10 +73,6 @@ tokenizer = AutoTokenizer.from_pretrained(
     trust_remote_code=True,  # If required by the tokenizer
 )
 tokenizer.pad_token = tokenizer.eos_token  # Required for left padding
-
-# Note: No need to load a separate PEFT adapter if the SFT model already includes it
-# or if it was fully fine-tuned. If the SFT *was* a PEFT adapter, you'd load the base
-# model first (potentially quantized or not) and then apply the adapter.
 
 
 # === Configure GRPO ===
