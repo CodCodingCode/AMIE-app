@@ -2,7 +2,7 @@ import { initializeApp, getApps } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyBXrD1PiR_p8lspftggU0sTJz-OuyPH0Bw",
   authDomain: "doctorweb-14489.firebaseapp.com",
   projectId: "doctorweb-14489",
   storageBucket: "doctorweb-14489.firebasestorage.app",
