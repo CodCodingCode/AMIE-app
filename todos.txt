@@ -1,0 +1,3 @@
+Deploy GPT/test it on an actual dataset
+Test out GRPO on my own computer (or maybe rent a A10 GPU again)
+Wait for Jerry to get the datasets, combine the datasets
