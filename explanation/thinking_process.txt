@@ -1,0 +1,102 @@
+Data:
+
+Model:
+Llama 8B
+
+What Model has to do:
+- Be IGN
+- Use Deductive reasoning (block)
+- Use Counter deductive reasoning (block)
+- Question Generation (block)
+- Be the Patient
+- Be the moderator
+
+IGN:
+- Specific special prompt
+
+Deductive Reasoning:
+- Input: the current information availabl e about the patient (in a patient vignette format)
+
+Thinking Process of the model:
+- First gets the Question
+- Then thinks about the information currently available at hand
+- Using this information, it decides which model is best suited for the task
+- uses deductive reasoning or counter deductive, or an average question generation block
+
+Training:
+- Will try to use GRPO
+- How will I use GRPO on each of the separate systems?
+
+
+
+First SFT Training Round:
+Dataset format:
+{
+    "instruction":
+    "input":
+    "output"
+}
+
+We will have to create data similar to this format for each model:
+- Deductive Reasoning
+- Question Generation
+- Counter Deductive Reasoning
+- Information summarization/Vignette generation after each question
+- Top 5/10 diagnosis
+
+GRPO Reward/Punishment System:
+
+1. Deductive Reasoning Block:
+   - Reward: +1 for each logical step that correctly connects symptoms to possible diagnoses
+   - Reward: +2 for identifying the correct diagnosis based on available information
+   - Reward: +1 for appropriate use of medical knowledge and principles
+   - Punish: -2 for conclusions that contradict established medical facts
+   - Punish: -1 for each symptom ignored in the reasoning process
+   - Punish: -2 for overconfidence when data is insufficient (>90% confidence with <70% information)
+
+2. Counter-deductive Reasoning Block:
+   - Reward: +2 for identifying valid alternative diagnoses missed by deductive reasoning
+   - Reward: +1 for correctly challenging assumptions that lead to better diagnosis
+   - Reward: +1 for finding relevant exceptions to common diagnostic patterns
+   - Punish: -1 for generating alternatives without medical basis
+   - Punish: -2 for contradicting valid reasoning without justification
+   - Punish: -1 for suggesting irrelevant differential diagnoses
+
+3. Question Generation Block:
+   - Reward: +2 for questions that efficiently narrow down possible diagnoses
+   - Reward: +1 for questions that reveal previously unknown critical information
+   - Reward: +1 for context-appropriate follow-up questions
+   - Punish: -1 for redundant questions that don't provide new information
+   - Punish: -2 for clinically irrelevant questions
+   - Punish: -1 for questions that are too broad to advance diagnosis
+
+4. Meta-Model Decision System:
+   - Reward: +2 for selecting the most appropriate block for the current diagnostic stage
+   - Reward: +1 for effectively switching strategies when progress stalls
+   - Reward: +1 for maintaining diagnostic efficiency (fewer steps to correct diagnosis)
+   - Punish: -2 for block selection that leads to diagnostic dead-ends
+   - Punish: -1 for unnecessary switching between blocks
+   - Punish: -1 for failing to adapt to new patient information
+
+5. Patient Agent:
+   - Reward: +2 for consistent symptom presentation aligned with the underlying condition
+   - Reward: +1 for realistic emotional responses to questions and diagnoses
+   - Reward: +1 for providing relevant medical history when specifically asked
+   - Reward: +1 for appropriate variability in symptom descriptions (not too clinical)
+   - Punish: -2 for contradicting previously stated symptoms without explanation
+   - Punish: -2 for revealing diagnostic information without being asked
+   - Punish: -1 for unrealistic knowledge of medical terminology
+   - Punish: -1 for implausible symptom combinations
+
+6. Moderator:
+   - Reward: +2 for appropriate intervention when conversation becomes unproductive
+   - Reward: +2 for ensuring diagnostic process follows clinical best practices
+   - Reward: +1 for maintaining balanced discussion between competing hypotheses
+   - Reward: +1 for highlighting overlooked symptoms or information
+   - Reward: +1 for summarizing critical findings at appropriate intervals
+   - Punish: -2 for unnecessary interruptions that disrupt diagnostic flow
+   - Punish: -2 for biasing the diagnostic process toward specific conditions
+   - Punish: -1 for failing to intervene when discussion becomes circular
+   - Punish: -1 for allowing excessive focus on irrelevant details
+   - Punish: -1 for not enforcing time management in the diagnostic process
+
