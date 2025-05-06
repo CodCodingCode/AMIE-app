@@ -1,39 +1,54 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from openai import OpenAI
-import os
+from api_key import key
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)
 
 # Initialize OpenAI client
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+client = OpenAI(api_key=key)
+
+# Medical system prompt
+MEDICAL_SYSTEM_PROMPT = """You are Dr. MediChat, a virtual healthcare assistant. Your role is to:
+1. Provide general medical information and guidance
+2. Help users understand their symptoms
+3. Ask relevant follow-up questions
+4. Maintain a professional and empathetic tone
+5. Always remind users that you're not a substitute for professional medical advice
+6. Encourage users to consult healthcare providers for serious concerns
+
+Remember to:
+- Be clear about the limitations of virtual medical advice
+- Never make definitive diagnoses
+- Always prioritize user safety
+- Use simple, understandable language
+- Show empathy while maintaining professionalism"""
 
 @app.route('/chat', methods=['POST'])
 def chat():
     try:
         data = request.get_json()
-        user_message = data.get('message', '')
         
-        if not user_message:
-            return jsonify({'error': 'No message provided'}), 400
+        messages = [{"role": "system", "content": MEDICAL_SYSTEM_PROMPT}]
+        
+        # Add conversation history if available
+        if 'history' in data:
+            messages.extend(data['history'])
+        
+        # Add current user message
+        messages.append({"role": "user", "content": data['message']})
 
         # Call OpenAI API
         response = client.chat.completions.create(
             model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": user_message}
-            ],
+            messages=messages,
             temperature=0.7,
             max_tokens=1000
         )
 
-        # Extract the response
-        assistant_message = response.choices[0].message.content
-
         return jsonify({
-            'response': assistant_message
+            'response': response.choices[0].message.content
         })
 
     except Exception as e:

@@ -1,26 +1,170 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Color palette from image 1 */
+  --white: #FFFFFF;
+  --ash-gray: #9DB5B2;
+  --outer-space: #464F51;
+  --black: #000009;
+  --light-cyan: #DAF0EE;
+  
+  --background: var(--white);
+  --foreground: var(--black);
+  
+  /* Animation duration variables */
+  --fade-duration: 0.6s;
+  --stagger-delay: 0.2s;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: 'Playfair Display Variable', serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--black);
+    --foreground: var(--white);
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
+
+/* Override default focus styles */
+*:focus-visible {
+  outline: 2px solid var(--outer-space);
+  outline-offset: 2px;
+}
+
+/* Custom button styles */
+.btn-primary {
+  background-color: var(--black);
+  color: var(--white);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--outer-space);
+}
+
+.btn-secondary {
+  background-color: var(--light-cyan);
+  color: var(--black);
+}
+
+.btn-secondary:hover {
+  background-color: var(--ash-gray);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+button, a, [role="button"] {
+  cursor: pointer;
+}
+
+/* menu-button.css */
+.menu-btn-background {
+  border: 2px solid #222;
+  background: #f5f5f5;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10);
+  backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 9999px;
+  transition: background 0.2s;
+}
+.menu-btn-background:hover {
+  background: rgba(74, 74, 74, 0.18);
+}
+.menu__icon {
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+  transition: transform .4s;
+}
+.menu-btn-background:hover .menu__icon {
+  transform: rotate(-90deg);
+}
+.menu__icon span {
+  width: 100%;
+  height: 0.25rem;
+  border-radius: 0.125rem;
+  background-color: rgb(0, 122, 255);
+  box-shadow: 0 .5px 2px 0 hsla(0, 0%, 0%, .2);
+  transition: width .4s, transform .4s, background-color .4s;
+}
+.menu__icon :nth-child(2) {
+  width: 75%;
+}
+.menu__icon :nth-child(3) {
+  width: 50%;
+}
+.menu-btn-background:hover .menu__icon span {
+  width: .25rem;
+  transform: translateX(-10px);
+  background-color: rgb(255, 59, 48);
+}
+
+/* Basic fade-in animation */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.animate-fade-in {
+  animation: fade-in var(--fade-duration) ease;
+}
+
+/* Animation variants for Framer Motion */
+.fade-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--fade-duration) ease, 
+              transform var(--fade-duration) ease;
+}
+
+/* Helper classes for staggered animations */
+.stagger-container {
+  position: relative;
+}
+
+.stagger-item:nth-child(1) { transition-delay: calc(var(--stagger-delay) * 0); }
+.stagger-item:nth-child(2) { transition-delay: calc(var(--stagger-delay) * 1); }
+.stagger-item:nth-child(3) { transition-delay: calc(var(--stagger-delay) * 2); }
+.stagger-item:nth-child(4) { transition-delay: calc(var(--stagger-delay) * 3); }
+.stagger-item:nth-child(5) { transition-delay: calc(var(--stagger-delay) * 4); }
+.stagger-item:nth-child(6) { transition-delay: calc(var(--stagger-delay) * 5); }
+
+/* Interactive button animations */
+.btn-scale {
+  transition: transform 0.2s ease;
+}
+
+.btn-scale:hover {
+  transform: scale(1.05);
+}
+
+.btn-scale:active {
+  transform: scale(0.95);
 }
