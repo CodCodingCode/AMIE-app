@@ -1,14 +1,14 @@
-import type { NextConfig } from 'next'
+import { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
+const config: NextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/chat',
-        destination: 'http://localhost:5000/chat',
+        source: '/api/:path*',
+        destination: 'http://localhost:5001/:path*',
       },
     ]
   },
 }
 
-export default nextConfig
+export default config
