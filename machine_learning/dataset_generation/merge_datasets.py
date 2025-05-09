@@ -1,102 +1,74 @@
 import json
 import os
 
+# Input folder containing all JSON files
+input_folder = "/Users/owner/Downloads/coding projects/AMIE-app/datasets"
 
-def load_vignette_dataset(file_path):
-    """Load the vignette instruction dataset."""
-    with open(file_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    print(f"Loaded {len(data)} entries from vignette dataset")
-    return data
+# Output JSONL file path
+output_jsonl_path = (
+    "/Users/owner/Downloads/coding projects/AMIE-app/datasets/combined_dataset.jsonl"
+)
 
 
-def load_medical_diagnostic_dataset(file_path):
-    """Load the medical diagnostic dataset from JSONL."""
+def load_json_file(file_path):
+    """Load a JSON or JSONL file and return its data."""
     data = []
     with open(file_path, "r", encoding="utf-8") as f:
-        for line in f:
-            if line.strip():
-                data.append(json.loads(line))
-    print(f"Loaded {len(data)} entries from medical diagnostic dataset")
+        if file_path.endswith(".jsonl"):
+            for line in f:
+                if line.strip():
+                    data.append(json.loads(line))
+        elif file_path.endswith(".json"):
+            data = json.load(f)
+    print(f"Loaded {len(data)} entries from {file_path}")
     return data
 
 
-def load_full_dataset(file_path):
-    """Load the full dataset with Q&A format."""
-    with open(file_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    print(f"Loaded {len(data)} entries from full dataset")
-    return data
+def format_entry(entry):
+    """Ensure each entry has the required 'instruction', 'input', and 'output' fields."""
+    # Default values for missing fields
+    instruction = entry.get("instruction", "")
+    input_text = entry.get("input", "")
+    output_text = entry.get("output", "")
 
-
-def format_diagnostic_entry(entry):
-    """Format a diagnostic entry to match the instruction format."""
-    # Create a comprehensive instruction
-    instruction = "You are a medical assistant. Based on the patient's symptoms, determine the correct diagnosis."
-
-    # Combine the case information with the patient statement
-    input_text = f"Case information: {entry['input']}\n\nPatient states: {entry['patient_statement']}"
-
-    # Create output that includes the diagnosis
-    output_text = f"Based on the symptoms and medical history, the diagnosis is {entry['target_diagnosis']}."
-
-    return {"instruction": instruction, "input": input_text, "output": output_text}
-
-
-def format_medical_entry(entry):
-    """Format a medical diagnostic entry to match the instruction format."""
-    # Already in the right format, just return as is
+    # Return the formatted entry
     return {
-        "instruction": entry["instruction"],
-        "input": entry["input"],
-        "output": entry["target_diagnosis"]
+        "instruction": instruction,
+        "input": input_text,
+        "output": output_text,
     }
 
 
-def format_full_dataset_entry(entry):
-    """Format a Q&A style entry to match the instruction format."""
-    return {
-        "instruction": entry["instruction"],
-        "input": entry["input"],
-        "output": entry["output"]
-    }
-
-
-def merge_datasets(medical_data, full_data):
-    """Merge the two datasets into a unified format."""
+def merge_datasets(input_folder, output_jsonl_path):
+    """Merge all JSON and JSONL files in the input folder into a single JSONL file."""
     combined_data = []
 
-    # Add medical diagnostic data
-    for entry in medical_data:
-        formatted_entry = format_medical_entry(entry)
-        combined_data.append(formatted_entry)
+    # Iterate through all files in the input folder
+    for file_name in os.listdir(input_folder):
+        file_path = os.path.join(input_folder, file_name)
 
-    # Add full dataset data
-    for entry in full_data:
-        formatted_entry = format_full_dataset_entry(entry)
-        combined_data.append(formatted_entry)
+        # Skip non-JSON/JSONL files
+        if not (file_name.endswith(".json") or file_name.endswith(".jsonl")):
+            print(f"Skipping non-JSON file: {file_name}")
+            continue
 
-    print(f"Created combined dataset with {len(combined_data)} entries")
-    return combined_data
+        # Load the data from the file
+        data = load_json_file(file_path)
 
+        # Format and add each entry to the combined dataset
+        for entry in data:
+            formatted_entry = format_entry(entry)
+            combined_data.append(formatted_entry)
 
-def main():
-    medical_path = "/Users/owner/Downloads/coding projects/AMIE-app/datasets/medical_blind_diagnostic_format.jsonl"
-    full_dataset_path = "/Users/owner/Downloads/coding projects/AMIE-app/datasets/full_dataset.json"
-    output_path = "/Users/owner/Downloads/coding projects/AMIE-app/datasets/combined_sft_dataset.json"
+    # Write the combined data to a JSONL file
+    with open(output_jsonl_path, "w", encoding="utf-8") as f:
+        for entry in combined_data:
+            f.write(json.dumps(entry) + "\n")
 
-    medical_data = load_medical_diagnostic_dataset(medical_path)
-    full_data = load_full_dataset(full_dataset_path)
-
-    combined_data = merge_datasets(medical_data, full_data)
-
-    # Save the combined dataset
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(combined_data, f, indent=2)
-
-    print(f"Saved combined dataset to {output_path}")
+    print(
+        f"Combined dataset saved to {output_jsonl_path} with {len(combined_data)} entries"
+    )
 
 
 if __name__ == "__main__":
-    main()
+    merge_datasets(input_folder, output_jsonl_path)
