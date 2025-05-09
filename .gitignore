@@ -11,3 +11,11 @@ amie-app2
 doctorpoc
 sft_output
 medical_dataset
+
+
+#datasets
+datasets/generalize2.json
+datasets/generalize1.json
+datasets/combined_dataset.jsonl
+datasets/icliniq.json
+datasets_for_dataGen
