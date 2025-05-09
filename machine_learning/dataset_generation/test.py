@@ -270,7 +270,6 @@ def save_cases(cases, filename="medical_cases.json"):
     with open(filename, "w") as f:
         json.dump(cases, f, indent=2)
 
-
 def load_cases(filename="medical_cases.json"):
     """Load existing cases from JSON file"""
     try:
