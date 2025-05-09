@@ -78,4 +78,4 @@ output_file = "datasets/openai_finetune_format.jsonl"
 
 # --- Run Conversion ---
 if __name__ == "__main__":
-    convert_sft_to_openai_format(input_file, output_file
+    convert_sft_to_openai_format(input_file, output_file)
