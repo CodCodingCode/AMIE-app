@@ -4,7 +4,6 @@ import { auth, db } from "../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { onAuthStateChanged, User } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import { TypewriterEffect } from "../../components/chattype";
 import { motion } from "framer-motion";
 
 interface Message {
@@ -57,26 +56,29 @@ export default function Chat() {
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim() || isLoading || !user) return;
+    
+    const messageToSend = inputMessage; // Store the message before clearing input
+    setInputMessage(''); // Clear input field immediately before processing
     setIsLoading(true);
 
     // Add user message to Firestore and local state
     const userMsg = {
       role: 'user' as const,
-      content: inputMessage,
+      content: messageToSend,
       timestamp: serverTimestamp()
     };
     await addDoc(
       collection(db, "users", user.uid, "chats", "default", "messages"),
       userMsg
     );
-    setMessages(prev => [...prev, { role: 'user', content: inputMessage }]);
+    setMessages(prev => [...prev, { role: 'user', content: messageToSend }]);
 
     // Send to Flask backend
     const response = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        message: inputMessage,
+        message: messageToSend,
         history: messages
       }),
     });
@@ -94,7 +96,6 @@ export default function Chat() {
     );
     setMessages(prev => [...prev, { role: 'assistant', content: data.response }]);
 
-    setInputMessage('');
     setIsLoading(false);
   };
 
@@ -178,28 +179,9 @@ export default function Chat() {
             </div>
           </motion.div>
 
-          {/* Category buttons like Claude */}
-          <motion.div 
-            className="flex gap-4 mt-8"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-          >
-            <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 transition">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-              </svg>
-              Health Advice
-            </button>
-            <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 transition">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Medical Records
-            </button>
-          </motion.div>
         </motion.div>
       ) : (
+        
         // Regular chat interface once conversation has started
         <div className="flex-1 flex flex-col w-full h-full">
           {/* Header - always visible, centered */}
@@ -212,7 +194,8 @@ export default function Chat() {
           {/* Messages area - full width and height */}
           <div className="flex-1 flex items-center justify-center overflow-hidden">
             <div className="w-full max-w-4xl flex flex-col h-full">
-              <div className="flex-1 overflow-y-auto p-6">
+              {/* Added custom scrollbar styling to hide the scrollbar but keep functionality */}
+              <div className="flex-1 overflow-y-auto p-6 scrollbar-hide">
                 <div className="space-y-4">
                   {messages.map((msg, idx) => (
                     <div
@@ -320,6 +303,20 @@ export default function Chat() {
           </div>
         </div>
       )}
+
+      {/* Add CSS to hide scrollbars */}
+      <style jsx global>{`
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .scrollbar-hide {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+        }
+      `}</style>
     </div>
   );
 }
