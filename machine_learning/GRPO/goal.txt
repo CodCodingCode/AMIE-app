@@ -1,0 +1,10 @@
+Can you give me code using chatgpt to generate a good list of prompts for:
+
+Generating qurstions:         "instruction": "You are a medical expert. You are given a doctor's vignette and your job is to generate the best possible question to ask the patient to help lead to the correct diagnosis.",
+
+Generating potential diagnoses 
+
+Generating genral medical knowledge
+
+
+Please give me the generating questions code first
