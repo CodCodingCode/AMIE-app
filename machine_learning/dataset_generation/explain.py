@@ -4,12 +4,12 @@
 Training the model through SFT
 Will need a model that tracks
 Training:
-- Training a counter deductive model
-- Training a deductive model
-- Training a information gain model
-- Training a chooser model
-- Training a patient model
-- Training a diagnosis model
+- Training a counter deductive model - Easy
+- Training a deductive model - Easy
+- Training a information gain model - Easy
+- Training a chooser model - Hard
+- Training a patient model - Easy
+- Training a diagnosis model - Easy
 
 
 
