@@ -14,9 +14,8 @@ medical_dataset
 
 
 #datasets
-datasets/generalize2.json
-datasets/generalize1.json
-datasets/combined_dataset.jsonl
+datasets/SFT/generalize2.json
+datasets/SFT/generalize1.json
+datasets/SFT/combined_dataset.jsonl
 datasets/icliniq.json
 datasets_for_dataGen
-machine_learning/GRPO/another_file.py
