@@ -11,11 +11,16 @@ from transformers import (
     TrainingArguments,
     Trainer,
     DataCollatorForLanguageModeling,
+    BitsAndBytesConfig,
 )
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+from accelerate import infer_auto_device_map
 
 # Memory cleanup
 gc.collect()
+import torch
+
+torch.cuda.empty_cache()
 if torch.cuda.is_available():
     print(f"CUDA is available. GPU: {torch.cuda.get_device_name(0)}")
     torch.cuda.empty_cache()
@@ -27,12 +32,23 @@ else:
 model_name = "meta-llama/Llama-4-Scout-17B-16E-Instruct"
 print(f"Loading model: {model_name} using FP16")
 
+# Use bitsandbytes for 8-bit quantization
+bnb_config = BitsAndBytesConfig(
+    load_in_8bit=True,
+    llm_int8_threshold=6.0,
+)
+
+# Load model with device map
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
     torch_dtype=torch.float16,
     device_map="auto",
-    trust_remote_code=True,  # Ensure custom MoE architecture is loaded
+    quantization_config=bnb_config,
+    trust_remote_code=True,
 )
+
+# Enable gradient checkpointing
+model.gradient_checkpointing_enable()
 
 # Prepare model for PEFT
 model = prepare_model_for_kbit_training(model)
@@ -53,9 +69,12 @@ lora_config = LoraConfig(
 model = get_peft_model(model, lora_config)
 model.print_trainable_parameters()
 
+# Load tokenizer
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 if tokenizer.pad_token is None:
     tokenizer.pad_token = tokenizer.eos_token
+
+print("Model and tokenizer loaded successfully.")
 
 dataset_path = "combined_dataset.jsonl"
 dataset = load_dataset("json", data_files=dataset_path, split="train")
@@ -79,8 +98,8 @@ tokenized_dataset = dataset.map(
 
 training_args = TrainingArguments(
     output_dir="./h100_fp16_peft_output",
-    per_device_train_batch_size=1,  # Reduce batch size for large models
-    gradient_accumulation_steps=8,  # Increase gradient accumulation
+    per_device_train_batch_size=1,  # Keep batch size small
+    gradient_accumulation_steps=32,  # Increase gradient accumulation
     num_train_epochs=1,
     save_strategy="epoch",
     logging_steps=10,
@@ -111,10 +130,10 @@ def training_step_with_cleanup(*args, **kwargs):
         memory_cleanup()
     return original_training_step(*args, **kwargs)
 
-
 print("Starting training...")
 original_training_step = trainer.training_step
 trainer.training_step = training_step_with_cleanup
+
 
 try:
     train_result = trainer.train()
