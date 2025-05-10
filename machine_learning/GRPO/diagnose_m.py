@@ -9,7 +9,7 @@ print("🔧 Loading and formatting prompts...")
 with open("medical_case.json", "r") as f:
     medical_cases = json.load(f)
 
-instruction = "You are a medical expert. You are given a doctor's vignette and your job is to generate the best possible question to ask the patient to help lead to the correct diagnosis."
+instruction = "You are a medical expert. You are given a doctor's vignette and your job is to generate the 10 most probably diagnoses in this scenario."
 formatted_data = []
 
 for case in medical_cases:

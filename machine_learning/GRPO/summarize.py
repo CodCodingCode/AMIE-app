@@ -1,0 +1,1 @@
+# We need a file specifically for converting conversations into a Patient Vignette
