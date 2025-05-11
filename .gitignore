@@ -4,6 +4,8 @@
 generate_input.py
 *.env
 .env*
+__pycache__
+
 
 # Folders
 AMIE-App
