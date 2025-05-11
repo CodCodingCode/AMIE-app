@@ -22,3 +22,4 @@ def add_instruction_to_inputs(input_path, output_path):
 
 # Example usage
 add_instruction_to_inputs("vignettes_as_input.json", "vignettes_with_instruction.json")
+

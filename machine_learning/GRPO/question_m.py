@@ -20,7 +20,7 @@ for case in medical_cases:
             {"role": "user", "content": f"Doctor's Vignette: {vignette}"}
         ]
     })
-    
+
 
 # Convert to Hugging Face Dataset
 dataset = Dataset.from_list(formatted_data)
@@ -75,3 +75,5 @@ print("💾 Saving final PPO-finetuned model...")
 ppo_trainer.model.save_pretrained("ppo-finetuned-model")
 tokenizer.save_pretrained("ppo-finetuned-model")
 print("✅ Done. Model saved to 'ppo-finetuned-model'")
+
+# export PYTORCH_CUDA_ALLOC_CONF=garbage_collection_threshold:0.6,max_split_size_mb:128
