@@ -2,7 +2,7 @@ import json
 import os
 
 # Input folder containing all JSON files
-input_folder = "/Users/owner/Downloads/coding projects/AMIE-app/datasets"
+input_folder = "/Users/owner/Downloads/coding projects/AMIE-app/datasets/SFT"
 
 # Output JSONL file path
 output_jsonl_path = (
@@ -37,6 +37,7 @@ def format_entry(entry):
         "input": input_text,
         "output": output_text,
     }
+
 
 
 def merge_datasets(input_folder, output_jsonl_path):

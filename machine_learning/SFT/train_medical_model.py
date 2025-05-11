@@ -1,146 +1,164 @@
-# ✅ H100-optimized PEFT training without bitsandbytes (FP16-based)
-
 import os
 import gc
-import time
+import json
 import torch
-from datasets import load_dataset
+from datasets import Dataset
 from transformers import (
-    AutoModelForCausalLM,
     AutoTokenizer,
     TrainingArguments,
     Trainer,
     DataCollatorForLanguageModeling,
+    GenerationConfig,
+    BitsAndBytesConfig,
 )
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+from trl import AutoModelForCausalLMWithValueHead
 
-# Memory cleanup
+# ────────────────────────────────────────────────────────────────────────────────
+# 1) Memory cleanup & GPU check
+# ────────────────────────────────────────────────────────────────────────────────
 gc.collect()
-if torch.cuda.is_available():
-    print(f"CUDA is available. GPU: {torch.cuda.get_device_name(0)}")
-    torch.cuda.empty_cache()
-else:
-    print("CUDA not available. Cannot continue without GPU.")
+torch.cuda.empty_cache()
+if not torch.cuda.is_available():
+    print("No GPU detected, exiting.")
     exit()
+print(f"CUDA available: {torch.cuda.get_device_name(0)}")
 
-# Model config
+# ────────────────────────────────────────────────────────────────────────────────
+# 2) Load & prepare model for LoRA + Value Head + 4-bit quantization
+# ────────────────────────────────────────────────────────────────────────────────
 model_name = "aaditya/Llama3-OpenBioLLM-8B"
-print(f"Loading model: {model_name} using FP16")
+print(f"Loading value-headed model in 4-bit for PPO compatibility: {model_name}")
 
-model = AutoModelForCausalLM.from_pretrained(
+bnb_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_quant_type="nf4",
+    bnb_4bit_use_double_quant=True,
+    bnb_4bit_compute_dtype=torch.float16,
+)
+
+model = AutoModelForCausalLMWithValueHead.from_pretrained(
     model_name,
-    torch_dtype=torch.float16,
+    quantization_config=bnb_config,
     device_map="auto",
-    trust_remote_code=True,
 )
 
 model = prepare_model_for_kbit_training(model)
-
-lora_config = LoraConfig(
+lora_cfg = LoraConfig(
     r=16,
     lora_alpha=32,
-    target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],
+    target_modules=["q_proj","k_proj","v_proj","o_proj"],
     lora_dropout=0.05,
     bias="none",
     task_type="CAUSAL_LM",
 )
-lora_config.use_rslora = False  # <== ✅ prevent BNB fallback
-model = get_peft_model(model, lora_config)
+model = get_peft_model(model, lora_cfg)
+
+model.gradient_checkpointing_enable()
+model.config.use_cache = False
+
 model.print_trainable_parameters()
+model.generation_config = GenerationConfig(**model.config.to_dict())
 
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-if tokenizer.pad_token is None:
-    tokenizer.pad_token = tokenizer.eos_token
+# ────────────────────────────────────────────────────────────────────────────────
+# 3) Tokenizer
+# ────────────────────────────────────────────────────────────────────────────────
+tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False)
+if tokenizer.pad_token_id is None:
+    tokenizer.pad_token_id = tokenizer.eos_token_id
 
-dataset_path = "combined_dataset.jsonl"
-dataset = load_dataset("json", data_files=dataset_path, split="train")
-print(f"Loaded {len(dataset)} training examples.")
+# ────────────────────────────────────────────────────────────────────────────────
+# 4) Load, clean & preprocess your JSONL
+# ────────────────────────────────────────────────────────────────────────────────
+records = []
+with open("combined_dataset_clean.jsonl","r") as f:
+    for i, line in enumerate(f, start=1):
+        try:
+            rec = json.loads(line)
+        except json.JSONDecodeError:
+            print(f"⚠️  Skipping malformed JSON at line {i}")
+            continue
+        out = rec.get("output")
+        if not out:
+            continue
+        records.append({"text": f"Diagnosis: {out.strip()}\n"})
 
+print(f"✅ Loaded {len(records)} valid examples.")
 
-def format_example(example):
-    return {"text": f"Diagnosis: {example['output'].strip()}\n"}
+ds = Dataset.from_list(records)
 
+def tokenize_fn(ex):
+    tokens = tokenizer(
+        ex["text"],
+        truncation=True,
+        padding="max_length",
+        max_length=64,
+    )
+    tokens["labels"] = tokens["input_ids"].copy()
+    return tokens
 
-dataset = dataset.map(format_example)
-
-
-def tokenize_function(examples):
-    return tokenizer(examples["text"], truncation=True, max_length=64)
-
-
-tokenized_dataset = dataset.map(
-    tokenize_function, batched=True, remove_columns=["output"]
+tokenized = ds.map(
+    tokenize_fn,
+    batched=False,
+    remove_columns=["text"],
 )
 
+# ────────────────────────────────────────────────────────────────────────────────
+# 5) Custom Trainer (accepts extra kwargs in compute_loss)
+# ────────────────────────────────────────────────────────────────────────────────
+from torch.nn import CrossEntropyLoss
+
+class SFTTrainer(Trainer):
+    def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
+        labels = inputs.pop("labels")
+        outputs = model.pretrained_model(**inputs, return_dict=True)
+        logits = outputs.logits
+
+        # shift so that tokens < n predict n
+        shift_logits = logits[..., :-1, :].contiguous()
+        shift_labels = labels[..., 1:].contiguous()
+
+        # figure out a safe ignore_index
+        pad_id = model.config.pad_token_id
+        if pad_id is None:
+            pad_id = -100
+
+        loss_fct = CrossEntropyLoss(ignore_index=pad_id)
+        loss = loss_fct(
+            shift_logits.view(-1, shift_logits.size(-1)),
+            shift_labels.view(-1),
+        )
+
+        return (loss, outputs) if return_outputs else loss
+
+# ────────────────────────────────────────────────────────────────────────────────
+# 6) Training setup
+# ────────────────────────────────────────────────────────────────────────────────
 training_args = TrainingArguments(
-    output_dir="./h100_fp16_peft_output",
-    per_device_train_batch_size=2,
-    gradient_accumulation_steps=2,
+    output_dir="./ppo_ready_output",
+    per_device_train_batch_size=1,
+    gradient_accumulation_steps=1,
+    gradient_checkpointing=True,
     num_train_epochs=1,
     save_strategy="epoch",
-    logging_steps=10,
-    learning_rate=2e-4,
-    weight_decay=0.01,
-    fp16=True,  # Use native mixed precision
-    bf16=False,  # disable bf16 here unless you explicitly want it
+    fp16=True,
 )
 
 data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
 
-trainer = Trainer(
+trainer = SFTTrainer(
     model=model,
     args=training_args,
-    train_dataset=tokenized_dataset,
+    train_dataset=tokenized,
     data_collator=data_collator,
 )
 
+print("Starting fine-tuning with LoRA in 4-bit…")
+trainer.train()
 
-def memory_cleanup():
-    gc.collect()
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
-
-
-def training_step_with_cleanup(*args, **kwargs):
-    if trainer.state.global_step > 0 and trainer.state.global_step % 50 == 0:
-        memory_cleanup()
-    return original_training_step(*args, **kwargs)
-
-
-print("Starting training...")
-original_training_step = trainer.training_step
-trainer.training_step = training_step_with_cleanup
-
-try:
-    train_result = trainer.train()
-    print("Training complete.", train_result)
-
-    model.save_pretrained("./h100_fp16_peft_output")
-    tokenizer.save_pretrained("./h100_fp16_peft_output")
-
-    print("\nTesting trained model:")
-    test_text = "What is the diagnosis for a patient with severe fatigue, joint pain, and butterfly rash on the face?"
-    model.eval()
-    inputs = tokenizer(test_text, return_tensors="pt").to(model.device)
-
-    with torch.no_grad():
-        outputs = model.generate(
-            **inputs,
-            max_new_tokens=50,
-            num_return_sequences=1,
-            temperature=0.7,
-            do_sample=True,
-            pad_token_id=tokenizer.eos_token_id,
-        )
-
-    response = tokenizer.decode(outputs[0], skip_special_tokens=True)
-    if response.startswith(test_text):
-        response = response[len(test_text) :].strip()
-
-    print(f"\nPrompt: {test_text}\nResponse: {response}")
-
-except Exception as e:
-    import traceback
-
-    print("Training error:", str(e))
-    traceback.print_exc()
+# ────────────────────────────────────────────────────────────────────────────────
+# 7) Save the PPO-ready model & tokenizer
+# ────────────────────────────────────────────────────────────────────────────────
+model.save_pretrained("./ppo_ready_output")
+tokenizer.save_pretrained("./ppo_ready_output")
+print("✅ Model with value head + LoRA saved and ready for PPO.") 

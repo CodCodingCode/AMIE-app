@@ -6,34 +6,36 @@ from transformers import (
     AutoModelForCausalLM,
     GenerationConfig,
 )
-from trl import PPOConfig, PPOTrainer, AutoModelForCausalLMWithValueHead
+from trl import AutoModelForCausalLMWithValueHead, PPOConfig, PPOTrainer
 
-# ── 1) Load & format prompts ─────────────────────────────────────────────────────
-print("🔧 Loading and formatting prompts...")
+# ── 0) Paths & model IDs ────────────────────────────────────────────────────────
+policy_ckpt        = "/home/ubuntu/project/llama-medical-diagnosis/checkpoint-42462"
+base_tokenizer_id  = "aaditya/Llama3-OpenBioLLM-8B"
+reward_model_id    = "meta-llama/Llama-3.1-8B-Instruct"
+device             = "cuda"  # or "cpu"
+
+# ── 1) Load & format your prompts ───────────────────────────────────────────────
+print("🔧 Loading and formatting prompts…")
 with open("medical_case.json", "r") as f:
-    medical_cases = json.load(f)
+    cases = json.load(f)
 
 instruction = (
     "You are a medical expert. You are given a doctor's vignette and your job "
     "is to generate the best possible question to ask the patient to help lead "
     "to the correct diagnosis."
 )
-
-formatted = []
-for case in medical_cases:
-    formatted.append(
-        {
-            "messages": [
-                {"role": "system", "content": instruction},
-                {"role": "user", "content": case["doctor_vignette"]},
-            ]
-        }
-    )
-
+formatted = [
+    {
+        "messages": [
+            {"role": "system", "content": instruction},
+            {"role": "user",   "content": c["doctor_vignette"]},
+        ]
+    }
+    for c in cases
+]
 dataset = Dataset.from_list(formatted)
 
-
-# ── 2) PPO hyperparameters ───────────────────────────────────────────────────────
+# ── 2) PPO hyperparameters ─────────────────────────────────────────────────────
 ppo_config = PPOConfig(
     learning_rate=1.41e-5,
     batch_size=1,
@@ -41,63 +43,65 @@ ppo_config = PPOConfig(
     gradient_accumulation_steps=4,
 )
 
-
-# ── 3) Tokenizer & policy+value on GPU ────────────────────────────────────────────
-policy_tokenizer_name = "aaditya/Llama3-OpenBioLLM-8B"
-print(f"🧠 Loading tokenizer from {policy_tokenizer_name}…")
+# ── 3) Tokenizer & policy+value on GPU ─────────────────────────────────────────
+print(f"🧠 Loading tokenizer from {base_tokenizer_id}…")
 tokenizer = AutoTokenizer.from_pretrained(
-    policy_tokenizer_name,
+    base_tokenizer_id,
     use_fast=False,
     local_files_only=True,
 )
-tokenizer.pad_token_id = tokenizer.eos_token_id
+# ensure a pad token
+if tokenizer.pad_token_id is None:
+    tokenizer.pad_token_id = tokenizer.eos_token_id
 
-# **IMPORTANT**: use a relative path here so HF treats it as a folder, not a repo ID
-policy_ckpt = "./llama-medical-diagnosis/checkpoint-42462"
-print(f"🧠 Loading SFT+ValueHead from {policy_ckpt} onto GPU…")
+print(f"🧠 Loading your SFT+LoRA checkpoint (policy) from {policy_ckpt}…")
 policy_model: AutoModelForCausalLMWithValueHead = (
-    AutoModelForCausalLMWithValueHead.from_pretrained(
+    AutoModelForCausalLMWithValueHead
+    .from_pretrained(
         policy_ckpt,
         torch_dtype=torch.float16,
         device_map="auto",
         local_files_only=True,
-    ).eval()
+    )
+    .eval()
 )
-
-# Inject a minimal GenerationConfig so PPOTrainer can read/write eos_token_id
+# give it the bare‐minimum GenerationConfig so PPOTrainer can set eos_token_id
 policy_model.generation_config = GenerationConfig(**policy_model.config.to_dict())
 
-
-# ── 4) Frozen reference policy on CPU ─────────────────────────────────────────────
-print("🖥️  Loading CPU‐only reference model…")
+# ── 4) Frozen reference policy on CPU ───────────────────────────────────────────
+print("🖥️  Loading CPU‐only reference policy…")
 ref_model: AutoModelForCausalLMWithValueHead = (
-    AutoModelForCausalLMWithValueHead.from_pretrained(
+    AutoModelForCausalLMWithValueHead
+    .from_pretrained(
         policy_ckpt,
         torch_dtype=torch.float16,
         device_map={"": "cpu"},
         local_files_only=True,
-    ).eval()
+    )
+    .eval()
 )
 ref_model.generation_config = policy_model.generation_config
 
-
-# ── 5) Reward network on CPU ─────────────────────────────────────────────────────
-reward_name = "meta-llama/Llama-3.1-8B-Instruct"
-print(f"🏅 Loading reward model {reward_name} onto CPU…")
+# ── 5) Reward network on CPU ────────────────────────────────────────────────────
+print(f"🏅 Loading reward LM {reward_model_id} onto CPU…")
 reward_tokenizer = AutoTokenizer.from_pretrained(
-    reward_name,
+    reward_model_id,
     use_fast=False,
     local_files_only=True,
 )
-reward_model = AutoModelForCausalLM.from_pretrained(
-    reward_name,
-    torch_dtype=torch.float16,
-    device_map={"": "cpu"},
-    local_files_only=True,
-).eval()
-
+reward_model = (
+    AutoModelForCausalLM
+    .from_pretrained(
+        reward_model_id,
+        torch_dtype=torch.float16,
+        device_map={"": "cpu"},
+        local_files_only=True,
+    )
+    .eval()
+)
 
 def get_reward(query: str, response: str) -> float:
+    # use next‐token logit average as a simple scalar reward
     with torch.no_grad():
         toks = reward_tokenizer(
             query + response,
@@ -108,31 +112,31 @@ def get_reward(query: str, response: str) -> float:
         logits = reward_model(**toks).logits
         return float(logits[:, -1].mean())
 
-
-# ── 6) Build PPOTrainer (positional API) ─────────────────────────────────────────
+# ── 6) Initialize PPOTrainer (positional API) ──────────────────────────────────
 print("🚀 Initializing PPOTrainer…")
 ppo_trainer = PPOTrainer(
-    ppo_config,  # 1) PPOConfig
-    tokenizer,  # 2) tokenizer
-    policy_model,  # 3) actor+critic on GPU
-    ref_model,  # 4) frozen reference on CPU
-    reward_model,  # 5) reward network on CPU
-    dataset,  # 6) HF dataset
-    policy_model,  # 7) value_model (re‐use its value head)
+    ppo_config,     # 1) PPOConfig
+    tokenizer,      # 2) tokenizer
+    policy_model,   # 3) actor+critic
+    ref_model,      # 4) frozen reference
+    reward_model,   # 5) reward network
+    dataset,        # 6) HF dataset
+    policy_model,   # 7) value_model (re‐use attached value head)
 )
 
-
-# ── 7) PPO training loop ─────────────────────────────────────────────────────────
+# ── 7) PPO loop ───────────────────────────────────────────────────────────────
 print("🚀 Starting PPO loop…")
 for sample in dataset:
-    system_msg = sample["messages"][0]["content"]
-    user_msg = sample["messages"][1]["content"]
-    prompt = (
-        "<|system|>\n" f"{system_msg}\n" "<|user|>\n" f"{user_msg}\n" "<|assistant|>\n"
+    sys_msg = sample["messages"][0]["content"]
+    usr_msg = sample["messages"][1]["content"]
+    prompt  = (
+        "<|system|>\n" + sys_msg +
+        "\n<|user|>\n" + usr_msg +
+        "\n<|assistant|>\n"
     )
 
-    # generate on GPU
-    inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
+    # generate
+    inputs  = tokenizer(prompt, return_tensors="pt").to(device)
     gen_ids = policy_model.generate(
         **inputs,
         max_new_tokens=64,
@@ -141,16 +145,13 @@ for sample in dataset:
     text_out = tokenizer.decode(gen_ids[0], skip_special_tokens=True)
     response = text_out.replace(prompt, "")
 
-    # compute reward & step
+    # score & update
     r = get_reward(prompt, response)
     print(f"[REWARD={r:.4f}] {response}")
     ppo_trainer.step([prompt], [response], [r])
 
-
-# ── 8) Save fine‐tuned policy ────────────────────────────────────────────────────
+# ── 8) Save your fine‐tuned policy ───────────────────────────────────────────────
 print("💾 Saving final PPO‐finetuned model…")
 policy_model.save_pretrained("ppo-finetuned-model")
 tokenizer.save_pretrained("ppo-finetuned-model")
 print("✅ Done.")
-
-# THis is a change

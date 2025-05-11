@@ -1,170 +1,137 @@
-# ✅ H100-optimized PEFT training without bitsandbytes (FP16-based)
+# h100_fp16_peft_then_grpo.py
 
 import os
 import gc
-import time
 import torch
 from datasets import load_dataset
 from transformers import (
-    AutoModelForCausalLM,
     AutoTokenizer,
     TrainingArguments,
     Trainer,
     DataCollatorForLanguageModeling,
-    BitsAndBytesConfig,
+    GenerationConfig,
 )
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
-from accelerate import infer_auto_device_map
+from trl import (
+    AutoModelForCausalLMWithValueHead,
+    PPOConfig,
+    PPOTrainer,
+)
 
-# Memory cleanup
+# 1) ----------------------------------------------------------------------------
+# SFT LoRA on a value-head model
+# -----------------------------------------------------------------------------
 gc.collect()
-import torch
-
 torch.cuda.empty_cache()
-if torch.cuda.is_available():
-    print(f"CUDA is available. GPU: {torch.cuda.get_device_name(0)}")
-    torch.cuda.empty_cache()
-else:
-    print("CUDA not available. Cannot continue without GPU.")
-    exit()
 
-# Model config
-model_name = "meta-llama/Llama-4-Scout-17B-16E-Instruct"
-print(f"Loading model: {model_name} using FP16")
+model_name = "aaditya/Llama3-OpenBioLLM-8B"
+tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False)
+if tokenizer.pad_token_id is None:
+    tokenizer.pad_token_id = tokenizer.eos_token_id
 
-# Use bitsandbytes for 8-bit quantization
-bnb_config = BitsAndBytesConfig(
-    load_in_8bit=True,
-    llm_int8_threshold=6.0,
+# 1a) load value-head LM
+sft_model = AutoModelForCausalLMWithValueHead.from_pretrained(
+    model_name, torch_dtype=torch.float16, device_map="auto"
 )
-
-# Load model with device map
-model = AutoModelForCausalLM.from_pretrained(
-    model_name,
-    torch_dtype=torch.float16,
-    device_map="auto",
-    quantization_config=bnb_config,
-    trust_remote_code=True,
+# 1b) prepare + attach LoRA
+sft_model = prepare_model_for_kbit_training(sft_model)
+lora_cfg = LoraConfig(
+    r=16, lora_alpha=32, target_modules=["q_proj","k_proj","v_proj","o_proj"],
+    lora_dropout=0.05, bias="none", task_type="CAUSAL_LM"
 )
+sft_model = get_peft_model(sft_model, lora_cfg)
+sft_model.print_trainable_parameters()
 
-# Enable gradient checkpointing
-model.gradient_checkpointing_enable()
+# 1c) dataset & tokenization
+raw = load_dataset("json", data_files="combined_dataset.jsonl")["train"]
+def format_ex(x):
+    return {"text": f"Diagnosis: {x['output'].strip()}\n"}
+ds = raw.map(format_ex)
+def tok_fn(x):
+    return tokenizer(x["text"], truncation=True, max_length=64)
+tokenized = ds.map(tok_fn, batched=True, remove_columns=["output"])
 
-# Prepare model for PEFT
-model = prepare_model_for_kbit_training(model)
-
-lora_config = LoraConfig(
-    r=16,
-    lora_alpha=32,
-    target_modules=[
-        "q_proj",
-        "k_proj",
-        "v_proj",
-        "o_proj",
-    ],  # Ensure compatibility with MoE
-    lora_dropout=0.05,
-    bias="none",
-    task_type="CAUSAL_LM",
-)
-model = get_peft_model(model, lora_config)
-model.print_trainable_parameters()
-
-# Load tokenizer
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-if tokenizer.pad_token is None:
-    tokenizer.pad_token = tokenizer.eos_token
-
-print("Model and tokenizer loaded successfully.")
-
-dataset_path = "combined_dataset.jsonl"
-dataset = load_dataset("json", data_files=dataset_path, split="train")
-print(f"Loaded {len(dataset)} training examples.")
-
-
-def format_example(example):
-    return {"text": f"Diagnosis: {example['output'].strip()}\n"}
-
-
-dataset = dataset.map(format_example)
-
-
-def tokenize_function(examples):
-    return tokenizer(examples["text"], truncation=True, max_length=64)
-
-
-tokenized_dataset = dataset.map(
-    tokenize_function, batched=True, remove_columns=["output"]
-)
-
-training_args = TrainingArguments(
-    output_dir="./h100_fp16_peft_output",
-    per_device_train_batch_size=1,  # Keep batch size small
-    gradient_accumulation_steps=32,  # Increase gradient accumulation
+# 1d) SFT Trainer
+sft_args = TrainingArguments(
+    output_dir="./sft_output",
+    per_device_train_batch_size=2,
+    gradient_accumulation_steps=2,
     num_train_epochs=1,
     save_strategy="epoch",
-    logging_steps=10,
-    learning_rate=2e-4,
-    weight_decay=0.01,
-    fp16=True,  # Use FP16 for memory efficiency
-    bf16=False,  # Disable BF16 unless explicitly supported
+    fp16=True,
 )
-
-data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
-
-trainer = Trainer(
-    model=model,
-    args=training_args,
-    train_dataset=tokenized_dataset,
-    data_collator=data_collator,
+collator = DataCollatorForLanguageModeling(tokenizer, mlm=False)
+sft_trainer = Trainer(
+    model=sft_model,
+    args=sft_args,
+    train_dataset=tokenized,
+    data_collator=collator,
 )
+sft_trainer.train()
+sft_trainer.save_model("./sft_output")
+tokenizer.save_pretrained("./sft_output")
+
+# Free up all GPU memory before RL
+del sft_trainer, raw, ds, tokenized, collator
+gc.collect(); torch.cuda.empty_cache()
 
 
-def memory_cleanup():
-    gc.collect()
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
+# 2) ----------------------------------------------------------------------------
+# GRPO on your freshly SFT’d model
+# -----------------------------------------------------------------------------
 
+# 2a) reload policy + value-head from SFT output
+policy = AutoModelForCausalLMWithValueHead.from_pretrained(
+    "./sft_output", torch_dtype=torch.float16, device_map="auto"
+)
+# inject minimal generation_config so .generate() works
+policy.generation_config = GenerationConfig(**policy.config.to_dict())
 
-def training_step_with_cleanup(*args, **kwargs):
-    if trainer.state.global_step > 0 and trainer.state.global_step % 50 == 0:
-        memory_cleanup()
-    return original_training_step(*args, **kwargs)
+# 2b) frozen reference (same base, no LoRA)
+ref = AutoModelForCausalLMWithValueHead.from_pretrained(
+    model_name, torch_dtype=torch.float16, device_map="cpu"
+)
+ref.generation_config = policy.generation_config
 
-print("Starting training...")
-original_training_step = trainer.training_step
-trainer.training_step = training_step_with_cleanup
+# 2c) reward model (example: same as your SFT LM, but could be any)
+reward_model = AutoModelForCausalLMWithValueHead.from_pretrained(
+    model_name, torch_dtype=torch.float16, device_map="cpu"
+).eval()
+reward_tok = tokenizer
 
-
-try:
-    train_result = trainer.train()
-    print("Training complete.", train_result)
-
-    model.save_pretrained("./h100_fp16_peft_output")
-    tokenizer.save_pretrained("./h100_fp16_peft_output")
-
-    print("\nTesting trained model:")
-    test_text = "What is the diagnosis for a patient with severe fatigue, joint pain, and butterfly rash on the face?"
-    model.eval()
-    inputs = tokenizer(test_text, return_tensors="pt").to(model.device)
-
+def get_reward(query, response):
     with torch.no_grad():
-        outputs = model.generate(
-            **inputs,
-            max_new_tokens=50,
-            num_return_sequences=1,
-            temperature=0.7,
-            do_sample=True,
-            pad_token_id=tokenizer.eos_token_id,
-        )
+        toks = reward_tok(query + response, return_tensors="pt", truncation=True, max_length=1024).to("cpu")
+        logits = reward_model(**toks).logits
+        return float(logits[:, -1].mean())
 
-    response = tokenizer.decode(outputs[0], skip_special_tokens=True)
-    if response.startswith(test_text):
-        response = response[len(test_text) :].strip()
+# 2d) PPOTrainer for GRPO
+rl_prompts = [ "Patient has a fever and cough, what question do you ask?" ]  # replace with your real prompts
+ppo_cfg = PPOConfig(
+    learning_rate=1e-5,
+    batch_size=1,
+    mini_batch_size=1,
+)
 
-    print(f"\nPrompt: {test_text}\nResponse: {response}")
+ppo_trainer = PPOTrainer(
+    ppo_cfg,
+    tokenizer,
+    policy,
+    ref,
+    reward_model,
+    rl_prompts,
+    policy,
+)
 
-except Exception as e:
-    import traceback
+# 2e) GRPO loop
+for q in rl_prompts:
+    input_ids = tokenizer(q, return_tensors="pt").input_ids.to(policy.device)
+    gen_ids    = policy.generate(input_ids, max_new_tokens=64, pad_token_id=tokenizer.pad_token_id)
+    resp       = tokenizer.decode(gen_ids[0][input_ids.shape[-1]:], skip_special_tokens=True)
+    r          = get_reward(q, resp)
+    print(f"[REWARD={r:.4f}] {resp}")
+    ppo_trainer.step([q], [resp], [r])
 
-    print("Training error:", str(e))
-    traceback.print_exc()
+# 2f) save final policy
+policy.save_pretrained("./grpo_output")
+tokenizer.save_pretrained("./grpo_output")
