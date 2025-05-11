@@ -21,12 +21,14 @@ instruction = (
 
 formatted = []
 for case in medical_cases:
-    formatted.append({
-        "messages": [
-            {"role": "system",  "content": instruction},
-            {"role": "user",    "content": case["doctor_vignette"]},
-        ]
-    })
+    formatted.append(
+        {
+            "messages": [
+                {"role": "system", "content": instruction},
+                {"role": "user", "content": case["doctor_vignette"]},
+            ]
+        }
+    )
 
 dataset = Dataset.from_list(formatted)
 
@@ -54,14 +56,12 @@ tokenizer.pad_token_id = tokenizer.eos_token_id
 policy_ckpt = "./llama-medical-diagnosis/checkpoint-42462"
 print(f"🧠 Loading SFT+ValueHead from {policy_ckpt} onto GPU…")
 policy_model: AutoModelForCausalLMWithValueHead = (
-    AutoModelForCausalLMWithValueHead
-    .from_pretrained(
+    AutoModelForCausalLMWithValueHead.from_pretrained(
         policy_ckpt,
         torch_dtype=torch.float16,
         device_map="auto",
         local_files_only=True,
-    )
-    .eval()
+    ).eval()
 )
 
 # Inject a minimal GenerationConfig so PPOTrainer can read/write eos_token_id
@@ -71,14 +71,12 @@ policy_model.generation_config = GenerationConfig(**policy_model.config.to_dict(
 # ── 4) Frozen reference policy on CPU ─────────────────────────────────────────────
 print("🖥️  Loading CPU‐only reference model…")
 ref_model: AutoModelForCausalLMWithValueHead = (
-    AutoModelForCausalLMWithValueHead
-    .from_pretrained(
+    AutoModelForCausalLMWithValueHead.from_pretrained(
         policy_ckpt,
         torch_dtype=torch.float16,
         device_map={"": "cpu"},
         local_files_only=True,
-    )
-    .eval()
+    ).eval()
 )
 ref_model.generation_config = policy_model.generation_config
 
@@ -91,16 +89,13 @@ reward_tokenizer = AutoTokenizer.from_pretrained(
     use_fast=False,
     local_files_only=True,
 )
-reward_model = (
-    AutoModelForCausalLM
-    .from_pretrained(
-        reward_name,
-        torch_dtype=torch.float16,
-        device_map={"": "cpu"},
-        local_files_only=True,
-    )
-    .eval()
-)
+reward_model = AutoModelForCausalLM.from_pretrained(
+    reward_name,
+    torch_dtype=torch.float16,
+    device_map={"": "cpu"},
+    local_files_only=True,
+).eval()
+
 
 def get_reward(query: str, response: str) -> float:
     with torch.no_grad():
@@ -117,13 +112,13 @@ def get_reward(query: str, response: str) -> float:
 # ── 6) Build PPOTrainer (positional API) ─────────────────────────────────────────
 print("🚀 Initializing PPOTrainer…")
 ppo_trainer = PPOTrainer(
-    ppo_config,      # 1) PPOConfig
-    tokenizer,       # 2) tokenizer
-    policy_model,    # 3) actor+critic on GPU
-    ref_model,       # 4) frozen reference on CPU
-    reward_model,    # 5) reward network on CPU
-    dataset,         # 6) HF dataset
-    policy_model,    # 7) value_model (re‐use its value head)
+    ppo_config,  # 1) PPOConfig
+    tokenizer,  # 2) tokenizer
+    policy_model,  # 3) actor+critic on GPU
+    ref_model,  # 4) frozen reference on CPU
+    reward_model,  # 5) reward network on CPU
+    dataset,  # 6) HF dataset
+    policy_model,  # 7) value_model (re‐use its value head)
 )
 
 
@@ -131,18 +126,14 @@ ppo_trainer = PPOTrainer(
 print("🚀 Starting PPO loop…")
 for sample in dataset:
     system_msg = sample["messages"][0]["content"]
-    user_msg   = sample["messages"][1]["content"]
+    user_msg = sample["messages"][1]["content"]
     prompt = (
-        "<|system|>\n"
-        f"{system_msg}\n"
-        "<|user|>\n"
-        f"{user_msg}\n"
-        "<|assistant|>\n"
+        "<|system|>\n" f"{system_msg}\n" "<|user|>\n" f"{user_msg}\n" "<|assistant|>\n"
     )
 
     # generate on GPU
-    inputs   = tokenizer(prompt, return_tensors="pt").to("cuda")
-    gen_ids  = policy_model.generate(
+    inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
+    gen_ids = policy_model.generate(
         **inputs,
         max_new_tokens=64,
         pad_token_id=tokenizer.pad_token_id,
@@ -161,3 +152,5 @@ print("💾 Saving final PPO‐finetuned model…")
 policy_model.save_pretrained("ppo-finetuned-model")
 tokenizer.save_pretrained("ppo-finetuned-model")
 print("✅ Done.")
+
+# THis is a change
