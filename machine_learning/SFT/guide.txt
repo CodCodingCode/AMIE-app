@@ -1,0 +1,7 @@
+Command shift P
+Search up open SSH configuration file
+Copy and paste 
+Access the code 
+Go to main directory
+Create new training folder
+Train model in folder using a Venv

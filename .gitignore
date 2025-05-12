@@ -1,5 +1,6 @@
 # Python
 .venv
+<<<<<<< jerry-branch
 __pycache__/
 *.py[cod]
 *$py.class
@@ -138,6 +139,17 @@ pycache
 
 
 
+=======
+
+# Files with sensitive information
+generate_input.py
+*.env
+.env*
+__pycache__
+
+
+# Folders
+>>>>>>> main
 AMIE-App
 amie-app2
 doctorpoc

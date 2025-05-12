@@ -1,0 +1,14 @@
+# Use the PyTorch CUDA12.8 wheels for H100
+-f https://download.pytorch.org/whl/cu128
+
+torch>=2.8.0.dev20250510+cu128
+torchvision>=0.22.0.dev20250510+cu128
+torchaudio>=2.6.0.dev20250510+cu128
+
+transformers>=4.32.0
+trl>=0.17.0
+datasets>=2.18.0
+accelerate>=0.28.0
+peft>=0.15.2
+safetensors>=0.6.0
+huggingface_hub>=0.31.1
