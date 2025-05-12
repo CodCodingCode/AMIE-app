@@ -20,38 +20,59 @@ AMIE-app/
 ├── .gitignore
 ├── README.md
 ├── todos.txt
-├── aci-bench/                  # Benchmarking suite for clinical NLP tasks
+├── doctor_oriented_qa_with_ids.jsonl # Doctor-patient dialogue dataset
+├── doctor_patient_qa.jsonl         # Doctor-patient dialogue dataset (potentially different format/source)
+├── aci-bench/                      # Benchmarking suite for clinical NLP tasks (e.g., Automatic Clinical Impression)
 │   ├── README.md
 │   ├── SETUP.md
-│   ├── baselines/              # Baseline model implementations
-│   ├── data/                   # Benchmark datasets
-│   └── evaluation/             # Evaluation scripts
-├── datasets/                   # Datasets for training and experimentation
-│   ├── SFT/                    # Datasets for Supervised Fine-Tuning
-│   │   ├── counter_d.json
-│   │   ├── augmented_clinical_notes_qa.jsonl
-│   │   └── combined_dataset.jsonl
-│   └── icliniq.json
-├── doctorpoc/                  # Proof-of-concept or components for "doctor" functionality
+│   ├── baselines/                  # Baseline model implementations for the benchmark
+│   ├── data/                       # Datasets for the aci-bench benchmark
+│   ├── evaluation/                 # Evaluation scripts for the benchmark
+│   ├── metric/                     # Custom metrics for evaluation
+│   ├── results/                    # Stored results from benchmark runs
+│   └── tables/                     # Formatted tables of benchmark results
+├── datasets/                       # General datasets for model training and experimentation
+│   ├── SFT/                        # Datasets specifically for Supervised Fine-Tuning
+│   │   ├── counter_d.json          # Dataset for counter-deductive reasoning questions
+│   │   ├── augmented_clinical_notes_qa.jsonl # (If present) Augmented QA from clinical notes
+│   │   └── combined_dataset.jsonl    # (If present) A combined dataset for SFT
+│   ├── icliniq.json                # (If present) Dataset from iCliniq
+│   ├── prompts_gpto1mini_0912_toshare.json # Dataset of prompts
+│   └── other/                      # Other miscellaneous datasets
+├── doctorpoc/                      # Proof-of-concept for the "AI Doctor" diagnostic process
 │   └── src/
 │       ├── __init__.py
-│       └── models/
-│           └── __init__.py
+│       ├── agents/
+│       │   └── probability_agent.py # Agent for managing disease probabilities
+│       ├── models/
+│       │   ├── __init__.py
+│       │   ├── blocks.py           # Defines different diagnostic questioning blocks (early, late, expanding)
+│       │   └── case.py             # Defines patient case structures and example cases
+│       ├── runners/
+│       │   ├── __init__.py
+│       │   ├── diagnostic_utils.py # Utilities for the diagnostic process
+│       │   ├── run_counter.py      # Runner for counter-deductive questions
+│       │   ├── run_deductive.py    # Runner for deductive/elimination questions
+│       │   ├── run_expand.py       # Runner for expanding disease hypotheses
+│       │   ├── run_gpt.py          # Runner for GPT-based doctor benchmark
+│       │   └── run_info_gain.py    # Runner for information gain based questions
+│       ├── benchmark_main.py       # Main script for running benchmarks on the diagnostic process
+│       └── working.py              # Main script for running/testing the modular diagnostic process
 ├── explanation/
-│   └── file_explanation.txt    # Explanations of different project files
+│   └── file_explanation.txt        # Developer notes and explanations of various project files
 ├── machine_learning/
-│   ├── SFT/                    # Scripts and guides for Supervised Fine-Tuning
-│   │   ├── guide.txt
-│   │   ├── train_llama_maverick.py  # Example SFT training script (if present)
-│   │   └── iCliniq/                 # iCliniq specific SFT processing
-│   │       └── add.py
-│   ├── dataset_generation/     # Scripts for generating or processing datasets
+│   ├── SFT/                        # Scripts and resources for Supervised Fine-Tuning
+│   │   ├── guide.txt               # Guide or notes on SFT process
+│   │   └── train_llama_maverick.py # Training script for SFT (e.g., on Llama3-OpenBioLLM)
+│   ├── dataset_generation/         # Scripts for creating or transforming datasets
+│   │   ├── patient_GRPO.py         # Script to transform prompts for GRPO/PPO
 │   │   └── SFT/
 │   │       └── iCliniq/
-│   │           └── add.py      # Script to process iCliniq data (from your active file)
-│   └── ... (other_ml_components)/
-├── sft_output/                 # Default output directory for SFT models (from .gitignore)
-└── ... (other_project_files_or_directories)/
+│   │           └── add.py          # Script to convert iCliniq data to instruction format
+│   └── GRPO/                       # Scripts and resources for GRPO/PPO
+│       └── perform_grpo.py         # Script to perform GRPO (combines SFT and PPO)
+├── sft_output/                     # Default output directory for SFT models
+└── ... (other_project_files_or_directories)/ # Placeholder for any other top-level items
 ```
 
 ## Machine Learning Approach
