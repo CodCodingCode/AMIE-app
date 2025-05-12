@@ -1,4 +1,145 @@
+# Python
 .venv
+<<<<<<< jerry-branch
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Node/Next.js
+node_modules/
+.next/
+out/
+build/
+.DS_Store
+*.pem
+.env*.local
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+datasets
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts 
+
+firebase.ts
+
+api_key.py
+
+# Add more specific paths
+3d/Frontend/node_modules/
+3d/Frontend/.next/
+3d/backend/api_key.py
+
+.venv
+
+Files with sensitive information
+generate_input.py
+.env
+.env
+pycache
+
+
+Folders
+AMIE-App
+amie-app2
+doctorpoc
+sft_output
+medical_dataset
+
+
+#datasets
+datasets/SFT/generalize2.json
+datasets/SFT/generalize1.json
+datasets/SFT/augmented_clinical_notes_qa.jsonl
+datasets/SFT/combined_dataset.jsonl
+datasets/icliniq.json
+datasets_for_dataGen
+datasets/other
+.venv
+
+
+generate_input.py
+.env
+.env
+pycache
+
+
+
+=======
 
 # Files with sensitive information
 generate_input.py
@@ -8,6 +149,7 @@ __pycache__
 
 
 # Folders
+>>>>>>> main
 AMIE-App
 amie-app2
 doctorpoc
