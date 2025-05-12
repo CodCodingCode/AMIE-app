@@ -46,7 +46,7 @@ export default function LoadingPage() {
       if (currentTime < endTime) {
         requestAnimationFrame(updateProgress)
       } else {
-        // Navigate to destination when loading is complete
+        // Navigate to chat when loading is complete
         setTimeout(() => {
           router.push('/chat')
         }, 200)

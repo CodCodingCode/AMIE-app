@@ -3,25 +3,27 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { 
-  PerspectiveCamera, 
   Stars, 
   useGLTF, 
   Preload,
-  Text
+  Text,
+  PerspectiveCamera,
+  OrbitControls
 } from '@react-three/drei';
 import { useRouter } from 'next/navigation';
 import { 
   Mesh, 
-  Group
+  Group,
 } from 'three';
 
 // Preload the 3D model
 useGLTF.preload('/boxattempt1.glb');
 
 // Box 3D Model
-const Box3D = ({ onClick }: { onClick?: () => void }) => {
+const Box3D = ({ onZoomComplete }: { onZoomComplete: () => void }) => {
   const { scene } = useGLTF('/boxattempt1.glb');
   const boxRef = useRef<Group>(null);
+  const [isZooming, setIsZooming] = useState(false);
   
   useEffect(() => {
     if (boxRef.current) {
@@ -43,12 +45,10 @@ const Box3D = ({ onClick }: { onClick?: () => void }) => {
     };
   }, [scene]);
 
-  useFrame(({ clock }) => {
-    if (boxRef.current) {
-      boxRef.current.position.y = Math.sin(clock.getElapsedTime() * 0.3) * 0.1;
-      boxRef.current.rotation.y = Math.PI * 1.25 + Math.sin(clock.getElapsedTime() * 0.1) * 0.05;
-    }
-  });
+  const handleClick = () => {
+    if (isZooming) return;
+    setIsZooming(true);
+  };
 
   return (
     <primitive 
@@ -56,7 +56,7 @@ const Box3D = ({ onClick }: { onClick?: () => void }) => {
       object={scene} 
       position={[3, 0, 0]} 
       scale={0.5} 
-      onClick={onClick}
+      onClick={handleClick}
       cursor="pointer"
     />
   );
@@ -72,7 +72,7 @@ const BasicLights = () => {
         intensity={1.2}
         color="#ffffff"
         castShadow
-        shadow-mapSize={512}
+        shadow-mapSize={256}  // Reduced shadow quality
       />
       <directionalLight 
         position={[-5, 3, 0]} 
@@ -83,7 +83,7 @@ const BasicLights = () => {
   );
 };
 
-// Animated stars component
+// Animated stars component - optimized
 const AnimatedStars = () => {
   const starsRef = useRef<Group>(null);
 
@@ -95,52 +95,53 @@ const AnimatedStars = () => {
 
   return (
     <group ref={starsRef}>
-      <Stars radius={50} depth={30} count={2000} factor={3} saturation={0.5} fade speed={0.5} />
+      <Stars radius={40} depth={20} count={1000} factor={2} saturation={0.5} fade speed={0.3} />
     </group>
   );
 };
 
-// Floor to catch shadows
+// Simplified floor component
 const Floor = () => {
   return (
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -2, 0]}>
-      <planeGeometry args={[50, 50]} />
+      <planeGeometry args={[30, 30]} />
       <meshStandardMaterial 
         color="#070b34" 
         transparent
         opacity={0.7}
-        roughness={0.7} 
-        metalness={0.1}
+        roughness={0.7}
       />
     </mesh>
   );
 };
 
 // Scene content component
-const SceneContent = () => {
+const SceneContent = ({ setIsFadingOut }: { setIsFadingOut: (value: boolean) => void }) => {
   const router = useRouter();
   
-  const handlePortalClick = () => {
-    try {
-      router.push('/loading');
-    } catch (error) {
-      console.error("Navigation error:", error);
-      window.location.href = '/loading';
-    }
+  const handleZoomComplete = () => {
+    // Trigger fade out effect
+    setIsFadingOut(true);
+    
+    // Navigate directly to chat after fade animation
+    setTimeout(() => {
+      router.push('/chat');
+    }, 800);
   };
   
   return (
     <>
-      <Box3D onClick={handlePortalClick} />
+      <Box3D onZoomComplete={handleZoomComplete} />
       <Floor />
       <AnimatedStars />
       <BasicLights />
       <Text
         position={[-4.5, 1.5, 0]} // ⬆️ Floating above the Box
-        fontSize={0.5}
+        fontSize={0.4}  // Reduced font size
         color="#ffffff"
         anchorX="center"
         anchorY="middle"
+        characters="abcdefghijklmnopqrstuvwxyz0123456789!➡"  // Limited character set
       >
         Enter the Bluebox ➡
       </Text>
@@ -148,8 +149,9 @@ const SceneContent = () => {
   );
 };
 
-// The main scene component
+// The main scene component with improved WebGL context handling
 const PortalScene = () => {
+  const [isFadingOut, setIsFadingOut] = useState(false);
   const [key, setKey] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -173,25 +175,24 @@ const PortalScene = () => {
   }, []);
 
   return (
-    <div className="h-screen w-full bg-black">
-      <Canvas
+    <div className="h-screen w-full bg-black relative">
+      <Canvas 
         key={key}
-        shadows
-        gl={{
-          antialias: true,
-          powerPreference: "high-performance",
-          preserveDrawingBuffer: true
-        }}
-        // Add event handlers to the underlying canvas element
         onCreated={({ gl }) => {
           canvasRef.current = gl.domElement;
         }}
       >
+        <OrbitControls />
         <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={75} />
-        <fog attach="fog" args={['#070b34', 10, 50]} />
-        <SceneContent />
+        <fog attach="fog" args={['#070b34', 10, 30]} />
+        <SceneContent setIsFadingOut={setIsFadingOut} />
         <Preload all />
       </Canvas>
+      
+      {/* Overlay for transition effect */}
+      <div 
+        className={`fixed inset-0 bg-white z-50 pointer-events-none transition-opacity duration-1000 ease-in-out ${isFadingOut ? 'opacity-100' : 'opacity-0'}`}
+      />
     </div>
   );
 };

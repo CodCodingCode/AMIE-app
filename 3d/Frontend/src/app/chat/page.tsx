@@ -1,30 +1,49 @@
 'use client';
 import { useState, useEffect, useRef } from "react";
+import { auth, db, provider } from "../firebase";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { onAuthStateChanged, User, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+// Import AuthModal dynamically to avoid hydration issues
+const AuthModal = dynamic(() => import("../components/AuthModal"), {
+  ssr: false,
+});
 
 interface Message {
   role: 'user' | 'assistant';
   content: string;
 }
 
-// Mock user data to replace Firebase auth
-interface MockUser {
-  displayName: string;
-  photoURL: string | null;
-}
-
 export default function Chat() {
-  // Replace Firebase user with simple state
-  const [user, setUser] = useState<MockUser>({ displayName: 'Guest User', photoURL: null });
+  const [user, setUser] = useState<User | null>(null);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [conversationStarted, setConversationStarted] = useState(false);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [authChecked, setAuthChecked] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
+
+  // Auth state
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setAuthChecked(true);
+      if (firebaseUser) {
+        setUser(firebaseUser);
+        setShowAuthModal(false);
+      } else {
+        // Show auth modal instead of redirecting
+        setShowAuthModal(true);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
 
   // Check if conversation has already started
   useEffect(() => {
@@ -38,50 +57,117 @@ export default function Chat() {
 
   // Focus input on component mount and handle initial fade-in
   useEffect(() => {
-    const timer = setTimeout(() => {
-      inputRef.current?.focus();
-      setIsInitialLoad(false);
-    }, 1000);
-    
-    return () => clearTimeout(timer);
-  }, []);
+    if (user) { // Only focus input if user is logged in
+      const timer = setTimeout(() => {
+        inputRef.current?.focus();
+        setIsInitialLoad(false);
+      }, 1000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [user]);
+
+  const handleSignIn = async () => {
+    try {
+      await signInWithPopup(auth, provider);
+      // Auth state listener will handle the rest
+    } catch (error) {
+      console.error("Google login error:", error);
+    }
+  };
+
+  const handleCloseAuthModal = () => {
+    router.push('/');
+  };
 
   const handleSendMessage = async () => {
-    if (!inputMessage.trim() || isLoading) return;
+    if (!inputMessage.trim() || isLoading || !user) return;
     
     const messageToSend = inputMessage; // Store the message before clearing input
     setInputMessage(''); // Clear input field immediately before processing
     setIsLoading(true);
 
-    // Add user message to local state
-    setMessages(prev => [...prev, { role: 'user', content: messageToSend }]);
-
-    // Send to backend API
     try {
+      // Add user message to Firestore and local state
+      const userMsg = {
+        role: 'user' as const,
+        content: messageToSend,
+        timestamp: serverTimestamp()
+      };
+      await addDoc(
+        collection(db, "users", user.uid, "chats", "default", "messages"),
+        userMsg
+      );
+      setMessages(prev => [...prev, { role: 'user', content: messageToSend }]);
+
+      // Format message history for the backend
+      const historyFormatted = messages.map(msg => ({
+        role: msg.role,
+        content: msg.content
+      }));
+
+      // Send to Flask backend
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message: messageToSend,
-          history: messages
+          history: historyFormatted
         }),
       });
-      
+
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+
       const data = await response.json();
 
-      // Add assistant message to local state
+      // Add assistant message to Firestore and local state
+      const assistantMsg = {
+        role: 'assistant' as const,
+        content: data.response,
+        timestamp: serverTimestamp()
+      };
+      await addDoc(
+        collection(db, "users", user.uid, "chats", "default", "messages"),
+        assistantMsg
+      );
       setMessages(prev => [...prev, { role: 'assistant', content: data.response }]);
     } catch (error) {
-      console.error('Error sending message:', error);
-      // Fallback response if API call fails
-      setMessages(prev => [...prev, { 
-        role: 'assistant', 
-        content: "I'm sorry, I'm having trouble connecting to the server. Please try again later." 
-      }]);
+      console.error("Error in chat:", error);
+      // Display error to user
+      setMessages(prev => [
+        ...prev, 
+        { 
+          role: 'assistant', 
+          content: "I'm sorry, I'm having trouble connecting right now. Please try again later."
+        }
+      ]);
+    } finally {
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   };
+
+  // Show loading state before auth is checked
+  if (!authChecked) {
+    return (
+      <div className="h-screen w-full flex items-center justify-center bg-gray-900">
+        <div className="animate-pulse text-white text-xl">Loading...</div>
+      </div>
+    );
+  }
+
+  // If auth modal should be shown
+  if (showAuthModal) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-purple-900 to-black">
+        <AuthModal isOpen={true} onClose={handleCloseAuthModal} isEmbeddedInChat={true} />
+      </div>
+    );
+  }
+
+  // If user is not authenticated and auth modal is not shown, this shouldn't happen
+  if (!user) return null;
 
   return (
     <div className="flex flex-col h-screen bg-slate-50">
@@ -107,7 +193,7 @@ export default function Chat() {
                     src={user.photoURL} 
                     alt="User" 
                     className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
+                    referrerPolicy="no-referrer" // This fixes Google profile images not loading
                   />
                 ) : (
                   <span className="text-blue-600 font-semibold">{user?.displayName?.charAt(0) || "U"}</span>
@@ -115,7 +201,7 @@ export default function Chat() {
               </div>
             </div>
             <h2 className="text-2xl font-medium text-gray-800">
-              Welcome to AI Doctor Chat!
+              {user?.displayName ? `${user.displayName} returns!` : "Welcome back!"}
             </h2>
           </motion.div>
 
@@ -167,11 +253,6 @@ export default function Chat() {
         // Regular chat interface once conversation has started
         <div className="flex-1 flex flex-col w-full h-full">
           {/* Header - always visible, centered */}
-          <div className="py-6 text-center animate-fade-in bg-white shadow-sm z-10">
-            <h1 className="text-2xl font-bold text-blue-800">
-              Chat to your personal AI Doctor today.
-            </h1>
-          </div>
 
           {/* Messages area - full width and height */}
           <div className="flex-1 flex items-center justify-center overflow-hidden">
@@ -279,7 +360,7 @@ export default function Chat() {
                 </button>
               </div>
               <p className="text-xs text-center text-gray-500 mt-2">
-                AI Doctor is here to assist with health-related questions.
+                Your chats are saved to improve your experience.
               </p>
             </div>
           </div>
