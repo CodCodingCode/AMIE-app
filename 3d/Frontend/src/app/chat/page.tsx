@@ -140,7 +140,7 @@ export default function Chat() {
         ...prev, 
         { 
           role: 'assistant', 
-          content: "I'm sorry, I'm having trouble connecting right now. Please try again later."
+          content: "I'm sorry, I'm having trouble connecting to the backend server. Please check that your backend is running at http://10.139.145.27:5001 or update the API URL in the code."
         }
       ]);
     } finally {

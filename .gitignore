@@ -95,3 +95,10 @@ yarn-error.log*
 next-env.d.ts 
 
 firebase.ts
+
+api_key.py
+
+# Add more specific paths
+3d/Frontend/node_modules/
+3d/Frontend/.next/
+3d/backend/api_key.py

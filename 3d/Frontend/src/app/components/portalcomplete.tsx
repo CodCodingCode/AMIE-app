@@ -182,7 +182,6 @@ const PortalScene = () => {
           canvasRef.current = gl.domElement;
         }}
       >
-        <OrbitControls />
         <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={75} />
         <fog attach="fog" args={['#070b34', 10, 30]} />
         <SceneContent setIsFadingOut={setIsFadingOut} />
