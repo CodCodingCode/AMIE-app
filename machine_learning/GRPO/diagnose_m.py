@@ -34,7 +34,6 @@ ppo_config = PPOConfig(
     gradient_accumulation_steps=4,
 )
 
-
 # Step 3: Load SFT model with value head
 sft_model_name = (
     "CodCodingCode/llama-medical-diagnosis"  # Replace with your actual SFT model name
