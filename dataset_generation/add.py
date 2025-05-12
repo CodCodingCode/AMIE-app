@@ -14,9 +14,7 @@ def clean_output(text):
 def convert_case_to_instruction(case):
     return {
         "instruction": (
-            "You are a medical expert tasked with creating a counter deductive reasoning question. "
-            "Your goal is to formulate a question that would help INCREASE the probability of this disease. "
-            "Make your question specific, clinically relevant, and targeted towards increasing the probability of the specified disease."
+            "You are a patient. Based off of the doctors questions, please respond accordingly."
         ),
         "input": (f"{case['doctor_vignette']}\n\n"),
         "output": clean_output(case["ruling_out_question"]),
@@ -35,10 +33,9 @@ def convert_file(input_path, output_path):
     print(f"✅ Converted {len(data)} cases from {input_path} to {output_path}")
 
 
-
 # Example usage
 if __name__ == "__main__":
-    input_files = ["datasets/SFT/counter_d.json"]
+    input_files = ["aci_vignette_qa.jsonl"]
     for fname in input_files:
         output_name = f"converted_{os.path.basename(fname)}"
         convert_file(fname, output_name)
