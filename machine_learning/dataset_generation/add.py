@@ -35,6 +35,7 @@ def convert_file(input_path, output_path):
     print(f"✅ Converted {len(data)} cases from {input_path} to {output_path}")
 
 
+
 # Example usage
 if __name__ == "__main__":
     input_files = ["datasets/SFT/counter_d.json"]
