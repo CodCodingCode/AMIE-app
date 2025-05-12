@@ -47,7 +47,7 @@ model = prepare_model_for_kbit_training(model)
 lora_cfg = LoraConfig(
     r=16,
     lora_alpha=32,
-    target_modules=["q_proj","k_proj","v_proj","o_proj"],
+    target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],
     lora_dropout=0.05,
     bias="none",
     task_type="CAUSAL_LM",
@@ -71,7 +71,7 @@ if tokenizer.pad_token_id is None:
 # 4) Load, clean & preprocess your JSONL
 # ────────────────────────────────────────────────────────────────────────────────
 records = []
-with open("combined_dataset_clean.jsonl","r") as f:
+with open("combined_dataset_clean.jsonl", "r") as f:
     for i, line in enumerate(f, start=1):
         try:
             rec = json.loads(line)
@@ -87,6 +87,7 @@ print(f"✅ Loaded {len(records)} valid examples.")
 
 ds = Dataset.from_list(records)
 
+
 def tokenize_fn(ex):
     tokens = tokenizer(
         ex["text"],
@@ -96,6 +97,7 @@ def tokenize_fn(ex):
     )
     tokens["labels"] = tokens["input_ids"].copy()
     return tokens
+
 
 tokenized = ds.map(
     tokenize_fn,
@@ -107,6 +109,7 @@ tokenized = ds.map(
 # 5) Custom Trainer (accepts extra kwargs in compute_loss)
 # ────────────────────────────────────────────────────────────────────────────────
 from torch.nn import CrossEntropyLoss
+
 
 class SFTTrainer(Trainer):
     def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
@@ -130,6 +133,7 @@ class SFTTrainer(Trainer):
         )
 
         return (loss, outputs) if return_outputs else loss
+
 
 # ────────────────────────────────────────────────────────────────────────────────
 # 6) Training setup
@@ -156,9 +160,12 @@ trainer = SFTTrainer(
 print("Starting fine-tuning with LoRA in 4-bit…")
 trainer.train()
 
+
 # ────────────────────────────────────────────────────────────────────────────────
 # 7) Save the PPO-ready model & tokenizer
 # ────────────────────────────────────────────────────────────────────────────────
 model.save_pretrained("./ppo_ready_output")
 tokenizer.save_pretrained("./ppo_ready_output")
-print("✅ Model with value head + LoRA saved and ready for PPO.") 
+print("✅ Model with value head + LoRA saved and ready for PPO.")
+
+
