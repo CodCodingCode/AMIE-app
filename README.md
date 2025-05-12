@@ -52,4 +52,20 @@ AMIE-app/
 │   └── ... (other_ml_components)/
 ├── sft_output/                 # Default output directory for SFT models (from .gitignore)
 └── ... (other_project_files_or_directories)/
+```
+
+## Machine Learning Approach
+
+Our core machine learning strategy involves a two-stage process to develop a highly capable medical AI:
+
+1.  **Supervised Fine-Tuning (SFT):**
+    *   We plan to start by fine-tuning powerful pre-trained language models. The primary candidates for this stage are **BioLlama 8B** (a Llama model specialized for the biomedical domain) or **Llama 4 Maverick**.
+    *   SFT will be performed using curated medical datasets, including question-answer pairs, clinical notes, and medical dialogues, to adapt the base model to understand and generate clinically relevant text. The datasets in the `datasets/SFT/` directory are intended for this purpose.
+
+2.  **Reinforcement Learning (RL) for Response Optimization:**
+    *   Following SFT, we intend to further refine the model's responses using reinforcement learning techniques.
+    *   Specifically, we are exploring methods like **GRPO (Generative Reinforcement Policy Optimization)** or **PPO (Proximal Policy Optimization)**.
+    *   The goal of this RL stage is to improve the quality, safety, and helpfulness of the model's outputs by training it against a reward model that scores responses based on medical accuracy, clarity, and adherence to clinical guidelines. This will help in generating more nuanced and contextually appropriate medical advice or diagnostic questions.
+
+This iterative approach of SFT followed by RL aims to create a robust and reliable AI doctor.
 
