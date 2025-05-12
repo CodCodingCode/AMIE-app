@@ -18,6 +18,8 @@ medical_dataset
 #datasets
 datasets/SFT/generalize2.json
 datasets/SFT/generalize1.json
+datasets/SFT/augmented_clinical_notes_qa.jsonl
 datasets/SFT/combined_dataset.jsonl
 datasets/icliniq.json
 datasets_for_dataGen
+datasets/other
