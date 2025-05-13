@@ -28,6 +28,8 @@ for entry in data["data"]:
             )
 
 
+
+
 # Save as JSONL
 with open("aci_vignette_qa.jsonl", "w") as out:
     for item in qa_data:

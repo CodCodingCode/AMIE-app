@@ -39,7 +39,6 @@ def format_entry(entry):
     }
 
 
-
 def merge_datasets(input_folder, output_jsonl_path):
     """Merge all JSON and JSONL files in the input folder into a single JSONL file."""
     combined_data = []

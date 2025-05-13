@@ -3,13 +3,13 @@ from openai import OpenAI
 import time
 
 # Load your merged CSV
-df = pd.read_csv("dataset_generation/datasets_for_dataGen/clef_taskC_test3_merged.csv")
+df = pd.read_csv("dataset_generation/SFT/ACI-Bench/clef_taskC_test3_merged_all.csv")
 
 # Only fill string-type columns to avoid dtype warnings
 df = df.fillna(value={col: "" for col in df.select_dtypes(include=["object"]).columns})
 
 # OpenAI client setup (new SDK style)
-api_key = "api"  # your actual key
+api_key = "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"  # your actual key
 client = OpenAI(api_key=api_key)
 
 
@@ -26,12 +26,12 @@ You are a clinical summarizer. Write a patient vignette based on the following s
 - Clinical Note: {row['note']}
 - Dialogue Transcript: {row['dialogue']}
 
-Please generate a concise, readable vignette that captures the clinical picture, suitable for use in a medical case review or clinical reasoning dataset.
+Please generate a concise, readable vignette that captures the clinical picture, suitable for use in a medical case review or clinical reasoning dataset. Please make the vignette in paragraph format. 
 """
 
 
 # ChatGPT call with new SDK (OpenAI client)
-def get_chatgpt_vignette(prompt, model="gpt-4", max_retries=3):
+def get_chatgpt_vignette(prompt, model="gpt-4.1-mini", max_retries=3):
     for _ in range(max_retries):
         try:
             response = client.chat.completions.create(
@@ -56,5 +56,5 @@ for idx, row in df.iterrows():
 
 # Save to CSV
 df["vignette"] = vignettes
-df.to_csv("clef_taskC_test3_with_chatgpt_vignettes.csv", index=False)
+df.to_csv("clef_taskC_test3_with_chatgpt_vignettes2.csv", index=False)
 print("✅ All vignettes saved to clef_taskC_test3_with_chatgpt_vignettes.csv")
