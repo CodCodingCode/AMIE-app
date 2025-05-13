@@ -3,27 +3,21 @@ import os
 
 
 def clean_output(text):
-    # Strip wrapping quotes like "\"example\""
     if text.startswith('"') and text.endswith('"'):
         text = text[1:-1]
-
-    # Replace escaped quotes with normal quotes
     return text.replace('\\"', '"').strip()
-
 
 def convert_case_to_instruction(case):
     return {
-        "instruction": (
-            "You are a patient. Based off of the doctors questions, please respond accordingly."
-        ),
-        "input": (f"{case['doctor_vignette']}\n\n"),
-        "output": clean_output(case["ruling_out_question"]),
+        "instruction": "You are a patient. Based off of the doctors questions, please respond accordingly.",  # Doctor's question becomes instruction
+        "input": f"""Doctor Vignette: {clean_output(case["instruction"])}, Question: {clean_output(case["input"])}""",  # Vignette as optional context
+        "output": clean_output(case["output"]),  # Patient's response
     }
-
 
 def convert_file(input_path, output_path):
     with open(input_path, "r") as infile:
-        data = json.load(infile)
+        # Read JSONL lines
+        data = [json.loads(line) for line in infile]
 
     converted_data = [convert_case_to_instruction(case) for case in data]
 
@@ -39,5 +33,3 @@ if __name__ == "__main__":
     for fname in input_files:
         output_name = f"converted_{os.path.basename(fname)}"
         convert_file(fname, output_name)
-
-        

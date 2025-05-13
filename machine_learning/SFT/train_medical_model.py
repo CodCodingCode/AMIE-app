@@ -8,11 +8,11 @@ from transformers import (
     TrainingArguments,
     Trainer,
     DataCollatorForLanguageModeling,
-    GenerationConfig,
     BitsAndBytesConfig,
 )
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
-from trl import AutoModelForCausalLMWithValueHead
+from transformers import AutoModelForCausalLM
+from torch.nn import CrossEntropyLoss
 
 # ────────────────────────────────────────────────────────────────────────────────
 # 1) Memory cleanup & GPU check
@@ -25,10 +25,10 @@ if not torch.cuda.is_available():
 print(f"CUDA available: {torch.cuda.get_device_name(0)}")
 
 # ────────────────────────────────────────────────────────────────────────────────
-# 2) Load & prepare model for LoRA + Value Head + 4-bit quantization
+# 2) Load & prepare model for LoRA in 4-bit
 # ────────────────────────────────────────────────────────────────────────────────
 model_name = "aaditya/Llama3-OpenBioLLM-8B"
-print(f"Loading value-headed model in 4-bit for PPO compatibility: {model_name}")
+print(f"Loading model in 4-bit for SFT: {model_name}")
 
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
@@ -37,7 +37,7 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_compute_dtype=torch.float16,
 )
 
-model = AutoModelForCausalLMWithValueHead.from_pretrained(
+model = AutoModelForCausalLM.from_pretrained(
     model_name,
     quantization_config=bnb_config,
     device_map="auto",
@@ -56,9 +56,7 @@ model = get_peft_model(model, lora_cfg)
 
 model.gradient_checkpointing_enable()
 model.config.use_cache = False
-
 model.print_trainable_parameters()
-model.generation_config = GenerationConfig(**model.config.to_dict())
 
 # ────────────────────────────────────────────────────────────────────────────────
 # 3) Tokenizer
@@ -87,7 +85,6 @@ print(f"✅ Loaded {len(records)} valid examples.")
 
 ds = Dataset.from_list(records)
 
-
 def tokenize_fn(ex):
     tokens = tokenizer(
         ex["text"],
@@ -98,7 +95,6 @@ def tokenize_fn(ex):
     tokens["labels"] = tokens["input_ids"].copy()
     return tokens
 
-
 tokenized = ds.map(
     tokenize_fn,
     batched=False,
@@ -106,22 +102,17 @@ tokenized = ds.map(
 )
 
 # ────────────────────────────────────────────────────────────────────────────────
-# 5) Custom Trainer (accepts extra kwargs in compute_loss)
+# 5) Custom Trainer
 # ────────────────────────────────────────────────────────────────────────────────
-from torch.nn import CrossEntropyLoss
-
-
 class SFTTrainer(Trainer):
     def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
         labels = inputs.pop("labels")
-        outputs = model.pretrained_model(**inputs, return_dict=True)
+        outputs = model(**inputs, return_dict=True)
         logits = outputs.logits
 
-        # shift so that tokens < n predict n
         shift_logits = logits[..., :-1, :].contiguous()
         shift_labels = labels[..., 1:].contiguous()
 
-        # figure out a safe ignore_index
         pad_id = model.config.pad_token_id
         if pad_id is None:
             pad_id = -100
@@ -134,18 +125,19 @@ class SFTTrainer(Trainer):
 
         return (loss, outputs) if return_outputs else loss
 
-
 # ────────────────────────────────────────────────────────────────────────────────
 # 6) Training setup
 # ────────────────────────────────────────────────────────────────────────────────
 training_args = TrainingArguments(
-    output_dir="./ppo_ready_output",
+    output_dir="./sft_output",
     per_device_train_batch_size=1,
     gradient_accumulation_steps=1,
     gradient_checkpointing=True,
     num_train_epochs=1,
     save_strategy="epoch",
     fp16=True,
+    logging_dir="./sft_output/logs",
+    logging_steps=50
 )
 
 data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
@@ -157,15 +149,15 @@ trainer = SFTTrainer(
     data_collator=data_collator,
 )
 
-print("Starting fine-tuning with LoRA in 4-bit…")
+print("🚀 Starting Supervised Fine-Tuning (SFT)...")
 trainer.train()
 
-
 # ────────────────────────────────────────────────────────────────────────────────
-# 7) Save the PPO-ready model & tokenizer
+# 7) Save SFT model & tokenizer
 # ────────────────────────────────────────────────────────────────────────────────
-model.save_pretrained("./ppo_ready_output")
-tokenizer.save_pretrained("./ppo_ready_output")
-print("✅ Model with value head + LoRA saved and ready for PPO.")
-
-
+try:
+    model.save_pretrained("./sft_output")
+    tokenizer.save_pretrained("./sft_output")
+    print("✅ SFT model saved successfully.")
+except Exception as e:
+    print(f"❌ Saving failed: {e}")
