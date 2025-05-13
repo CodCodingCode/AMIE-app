@@ -35,9 +35,7 @@ def convert_file(input_path, output_path):
 
 # Example usage
 if __name__ == "__main__":
-    input_files = ["datasets/SFT/augmented_clinical_notes_qa.jsonl"]
+    input_files = ["aci_vignette_qa.jsonl"]
     for fname in input_files:
         output_name = f"converted_{os.path.basename(fname)}"
         convert_file(fname, output_name)
-
-        

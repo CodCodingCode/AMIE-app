@@ -48,4 +48,3 @@ def append_to_combined_dataset(combined_path, new_path):
 
 # Run the function
 append_to_combined_dataset(combined_dataset_path, new_dataset_path)
-

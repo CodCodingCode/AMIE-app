@@ -9,7 +9,7 @@ df = pd.read_csv("dataset_generation/datasets_for_dataGen/clef_taskC_test3_merge
 df = df.fillna(value={col: "" for col in df.select_dtypes(include=["object"]).columns})
 
 # OpenAI client setup (new SDK style)
-api_key = "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"  # your actual key
+api_key = "api"  # your actual key
 client = OpenAI(api_key=api_key)
 
 

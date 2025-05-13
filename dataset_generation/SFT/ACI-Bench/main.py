@@ -26,7 +26,8 @@ for entry in data["data"]:
                     "output": patient_a,
                 }
             )
-            
+
+
 # Save as JSONL
 with open("aci_vignette_qa.jsonl", "w") as out:
     for item in qa_data:
