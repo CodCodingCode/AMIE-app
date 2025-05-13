@@ -29,12 +29,12 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <div className={`stagger-container ${isLoaded ? "" : "opacity-0"}`}>
         <Navigation />
-        <section className="h-screen">
+        <section id = "Home" className="h-screen">
           <PortalScene />
         </section>
         
         {/* About Section */}
-        <section className="py-16">
+        <section id = "about" className="py-16 pt-64">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-start gap-12 px-4">
           {/* Left: Heading and Paragraph */}
           <div className="flex-1">
@@ -51,17 +51,24 @@ export default function Home() {
               Bluebox.ai is your trusted AI companion for health, productivity, and life. Our mission is to bridge minds and healthcare, making advanced AI accessible and helpful for everyone.
             </motion.p>
           </div>
-          {/* Right: Image placeholder */}
+          {/* Right: Image container */}
           <div className="flex-1 flex items-center justify-center">
-            <div className="w-full aspect-square rounded-xl border border-dashed border-[var(--ash-gray)] flex items-center justify-center text-[var(--ash-gray)] bg-[var(--beige)]">
-              <span className="text-lg">Image coming soon</span>
+            <div className="w-full h-full max-w-[800px] rounded-xl overflow-hidden">
+              <Image 
+                src="/about.jpg" 
+                alt="Doctor Image" 
+                width={1200} 
+                height={800}
+                className="w-full h-full object-cover object-center"
+                priority
+              />
             </div>
           </div>
         </div>
       </section>
       
       {/* BENCHMARKS SECTION */}
-      <section className="py-16 px-4">
+      <section id = "benchmarks" className="py-16 pb-48 px-4">
         <motion.h2 
           className="text-4xl font-bold mb-12 text-[var(--outer-space)] text-center font-serif"
           {...fadeInUp}
