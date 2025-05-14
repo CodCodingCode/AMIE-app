@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import {
   Stars,
@@ -8,9 +8,7 @@ import {
   Preload,
   Text,
   PerspectiveCamera,
-  Grid,
   useHelper,
-  OrbitControls,
 } from '@react-three/drei';
 import { useRouter } from 'next/navigation';
 import {
@@ -18,35 +16,31 @@ import {
   Group,
   DirectionalLight,
   DirectionalLightHelper,
-  Vector3,
 } from 'three';
 import * as THREE from 'three';
-import FakeGlowMaterial from './fakeglowmaterial';
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
 
-{/* Parallax Code */}
 const CameraMouseEffect = () => {
   const { camera } = useThree();
   const [mousePos, setMousePos] = useState([0, 0]);
-  
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      // Convert mouse position to normalized coordinates (-1 to 1)
       const x = (e.clientX / window.innerWidth) * 2 - 1;
       const y = (e.clientY / window.innerHeight) * 2 - 1;
       setMousePos([x, y]);
     };
-    
+
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-  
+
   useFrame(() => {
-    // Apply subtle tilt based on mouse position
     camera.position.x += (mousePos[0] * 0.5 - camera.position.x) * 0.10;
     camera.position.y += (-mousePos[1] * 0.5 - camera.position.y) * 0.10;
-    camera.lookAt(0, 0, 0); // Always look at the center
+    camera.lookAt(0, 0, 0);
   });
-  
+
   return null;
 };
 
@@ -55,20 +49,25 @@ useGLTF.preload('/boxattempt1.glb');
 const Box3D = ({ onZoomComplete, initialPosition = [4, 0, 0] }: { onZoomComplete: () => void, initialPosition?: [number, number, number] }) => {
   const { scene } = useGLTF('/boxattempt1.glb');
   const boxRef = useRef<Group>(null);
+  const materialRefs = useRef<THREE.MeshStandardMaterial[]>([]);
   const [isZooming, setIsZooming] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const initialRotation = useRef(Math.PI * 1.25);
-  
-  // Glowing toruses that will appear on hover
-  const torus1Ref = useRef<Mesh>(null);
-  const torus2Ref = useRef<Mesh>(null);
-  const torus3Ref = useRef<Mesh>(null);
-  
+
   useEffect(() => {
     if (boxRef.current) {
       boxRef.current.rotation.y = initialRotation.current;
       boxRef.current.position.set(initialPosition[0], initialPosition[1], initialPosition[2]);
     }
+
+    scene.traverse((child) => {
+      if (child instanceof Mesh && child.material) {
+        const mat = child.material as THREE.MeshStandardMaterial;
+        mat.emissive = new THREE.Color(0x000000);
+        mat.emissiveIntensity = 0;
+        materialRefs.current.push(mat);
+      }
+    });
 
     return () => {
       scene.traverse(child => {
@@ -92,34 +91,15 @@ const Box3D = ({ onZoomComplete, initialPosition = [4, 0, 0] }: { onZoomComplete
     const targetY = isHovered ? 0.3 : 0;
     boxRef.current.position.y += (targetY - boxRef.current.position.y) * 0.1;
 
-    // Update all torus references when hovered
-    const time = state.clock.getElapsedTime();
-    
-    // Only show and animate glowing toruses when hovered
-    if (torus1Ref.current && torus2Ref.current && torus3Ref.current) {
-      // Set all torus positions to match the box
-      const boxPosition = new Vector3();
-      if (boxRef.current) {
-        boxRef.current.getWorldPosition(boxPosition);
-        
-        // First torus - horizontal around the middle
-        torus1Ref.current.position.copy(boxPosition);
-        torus1Ref.current.rotation.x = Math.PI / 2;
-        torus1Ref.current.rotation.y += 0.005;
-        torus1Ref.current.scale.setScalar(isHovered ? 0.9 + Math.sin(time * 2) * 0.05 : 0.01);
-        
-        // Second torus - vertical around the box
-        torus2Ref.current.position.copy(boxPosition);
-        torus2Ref.current.rotation.y += 0.008;
-        torus2Ref.current.scale.setScalar(isHovered ? 0.85 + Math.sin(time * 1.5 + 1) * 0.05 : 0.01);
-        
-        // Third torus - at an angle
-        torus3Ref.current.position.copy(boxPosition);
-        torus3Ref.current.rotation.x = Math.PI / 4;
-        torus3Ref.current.rotation.z += 0.006;
-        torus3Ref.current.scale.setScalar(isHovered ? 0.95 + Math.sin(time * 1.8 + 2) * 0.05 : 0.01);
+    // Emissive glow effect
+    materialRefs.current.forEach((mat) => {
+      if (isHovered) {
+        mat.emissive = new THREE.Color('#3daef5');
+        mat.emissiveIntensity += (1.5 - mat.emissiveIntensity) * 0.1;
+      } else {
+        mat.emissiveIntensity += (0 - mat.emissiveIntensity) * 0.1;
       }
-    }
+    });
 
     if (isHovered) {
       boxRef.current.rotation.y = initialRotation.current + Math.sin(state.clock.elapsedTime * 2) * 0.05;
@@ -136,50 +116,8 @@ const Box3D = ({ onZoomComplete, initialPosition = [4, 0, 0] }: { onZoomComplete
     onZoomComplete();
   };
 
-  // Create torus geometries with different parameters for variety
-  const torus1Geometry = useMemo(() => new THREE.TorusGeometry(1.2, 0.08, 16, 100), []);
-  const torus2Geometry = useMemo(() => new THREE.TorusGeometry(1.3, 0.06, 16, 100), []);
-  const torus3Geometry = useMemo(() => new THREE.TorusGeometry(1.25, 0.07, 16, 100), []);
-
   return (
     <group>
-      {/* First glowing torus - horizontal */}
-      <mesh ref={torus1Ref} scale={0.5} position={initialPosition}>
-        <primitive object={torus1Geometry} />
-        <FakeGlowMaterial 
-          glowColor="#51a4de" 
-          falloff={0.2}
-          glowInternalRadius={6.0}
-          glowSharpness={1.2}
-          opacity={0.8}
-        />
-      </mesh>
-
-      {/* Second glowing torus - vertical */}
-      <mesh ref={torus2Ref} scale={0.5} position={initialPosition}>
-        <primitive object={torus2Geometry} />
-        <FakeGlowMaterial 
-          glowColor="#36ccf5" 
-          falloff={0.15}
-          glowInternalRadius={5.5}
-          glowSharpness={1.0}
-          opacity={0.8}
-        />
-      </mesh>
-
-      {/* Third glowing torus - angled */}
-      <mesh ref={torus3Ref} scale={0.5} position={initialPosition}>
-        <primitive object={torus3Geometry} />
-        <FakeGlowMaterial 
-          glowColor="#2a7de8" 
-          falloff={0.18}
-          glowInternalRadius={5.8}
-          glowSharpness={1.1}
-          opacity={0.8}
-        />
-      </mesh>
-
-      {/* Original box model */}
       <primitive
         ref={boxRef}
         object={scene}
@@ -216,15 +154,6 @@ const BasicLights = () => {
         position={[-5, 3, 0]} 
         intensity={0.5} 
         color="#4d71ff"
-      />
-      <Grid 
-        infiniteGrid 
-        cellSize={1} 
-        cellThickness={0.5} 
-        sectionSize={3} 
-        sectionThickness={1}
-        fadeDistance={30}
-        fadeStrength={1}
       />
     </>
   );
@@ -289,12 +218,23 @@ const PortalScene = () => {
         onCreated={({ gl }) => {
           canvasRef.current = gl.domElement;
           gl.toneMapping = THREE.ACESFilmicToneMapping;
-          gl.toneMappingExposure = 1.0;
+          gl.toneMappingExposure = 1.5;
         }}
       >
         <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={75} />
         <fog attach="fog" args={['#070b34', 10, 30]} />
         <SceneContent />
+
+        {/* 🌟 Add bloom effect */}
+        <EffectComposer>
+          <Bloom
+            intensity={1.5}
+            luminanceThreshold={0.2}
+            luminanceSmoothing={0.9}
+            mipmapBlur
+          />
+        </EffectComposer>
+
         <Preload all />
       </Canvas>
     </div>
@@ -302,4 +242,3 @@ const PortalScene = () => {
 };
 
 export default PortalScene;
-
