@@ -17,9 +17,9 @@ medical_dataset
 
 #datasets
 datasets/SFT/chatdoctor5k.json
-datasets/SFT/generalize2.json
-datasets/SFT/generalize1.json
-datasets/SFT/converted_augmented_clinical_notes_qa.jsonl
+datasets/SFT-FUTURE/generalize2.json
+datasets/SFT-FUTURE/generalize1.json
+datasets/SFT-FUTURE/converted_augmented_clinical_notes_qa.jsonl
 datasets/combined_dataset.jsonl
 datasets/icliniq.json
 datasets_for_dataGen

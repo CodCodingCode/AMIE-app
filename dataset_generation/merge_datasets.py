@@ -48,6 +48,7 @@ def format_entry(entry):
         "output":      entry.get("output", ""),
     }
 
+
 def merge_datasets(input_folder, output_jsonl_path):
     combined_data = []
     for file_name in os.listdir(input_folder):
