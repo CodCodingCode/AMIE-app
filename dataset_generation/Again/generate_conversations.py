@@ -1,6 +1,7 @@
 import json
 from openai import OpenAI
 import time
+from concurrent.futures import ThreadPoolExecutor
 
 # Load JSON list of vignettes
 with open("patient_vignette.json", "r") as f:
@@ -9,6 +10,7 @@ with open("patient_vignette.json", "r") as f:
 # Initialize OpenAI client
 client = OpenAI(api_key=key)
 model = "gpt-4.1-mini"
+
 
 # === NEW: Role Responder Class ===
 class RoleResponder:
@@ -25,12 +27,19 @@ class RoleResponder:
         ]
         response = client.chat.completions.create(model=model, messages=messages)
         return response.choices[0].message.content.strip()
-    
+
+
 # === Use the Class for Roles ===
 patient = RoleResponder("You are a patient continuing a conversation with your doctor")
-summarizer = RoleResponder("You are a clinical summarizer. Convert the conversational chain into a clean medical vignette and explain any reasoning you infer")
-diagnoser = RoleResponder("You are a physician. Given this vignette, provide your most likely diagnosis and explain your reasoning")
-questioner = RoleResponder("You are a physician. Ask the next best question to refine your diagnosis and explain why")
+summarizer = RoleResponder(
+    "You are a clinical summarizer. Convert the conversational chain into a clean medical vignette and explain any reasoning you infer"
+)
+diagnoser = RoleResponder(
+    "You are a physician. Given this vignette, provide your most likely diagnosis and explain your reasoning"
+)
+questioner = RoleResponder(
+    "You are a physician. Ask the next best question to refine your diagnosis and explain why"
+)
 
 # === Store all transcripts ===
 summarizer_outputs = []
@@ -39,8 +48,10 @@ questioning_doctor_outputs = []
 patient_response = []
 conversation = []
 
+
 # === Loop over each vignette ===
-for idx, vignette_text in enumerate(vignette_list):
+def process_vignette(idx, vignette_text):
+    global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs
     if idx == 0:
         initial_prompt = "What brings you in today?"
         patient_history = vignette_text
@@ -57,10 +68,11 @@ for idx, vignette_text in enumerate(vignette_list):
 
         conversation.append(f"DOCTOR: {initial_prompt}")
 
-        patient_response = patient.ask(f"{vignette_text}. Reply realistically to their follow-up question: {initial_prompt}")
+        patient_response = patient.ask(
+            f"{vignette_text}. Reply realistically to their follow-up question: {initial_prompt}"
+        )
         print("🗣️ Patient's Reply:", patient_followup)
         conversation.append(f"PATIENT: {patient_response}")
-        continue
 
     summarizer_messages = [
         {
@@ -72,7 +84,11 @@ for idx, vignette_text in enumerate(vignette_list):
     vignette_summary = summarizer.ask(f"Here is the converation: {conversation}")
     print("🧾 Vignette:", vignette_summary)
     summarizer_outputs.append(
-        {"vignette_index": idx, "input": patient_response, "output": vignette_summary}
+        {
+            "vignette_index": idx,
+            "input": patient_response,
+            "output": vignette_summary,
+        }
     )
 
     # Step 3: Diagnosis
@@ -100,7 +116,9 @@ for idx, vignette_text in enumerate(vignette_list):
             "content": f"Vignette:\n{vignette_summary}\n Diagnosis: {diagnosis} PLEASE FIRST OUTPUT YOUR REASONING using: THINKING: <your reasoning> and then output your answer using: ANSWER: <your answer>",
         },
     ]
-    followup_question = questioner.ask(f"Vignette:\n{vignette_summary}\nDiagnosis: {diagnosis}")
+    followup_question = questioner.ask(
+        f"Vignette:\n{vignette_summary}\nDiagnosis: {diagnosis}"
+    )
     print("❓ Follow-up:", followup_question)
     questioning_doctor_outputs.append(
         {"vignette_index": idx, "input": diagnosis, "output": followup_question}
@@ -118,7 +136,9 @@ for idx, vignette_text in enumerate(vignette_list):
             "content": f"{vignette_text}. Reply realistically to their follow-up question: {initial_prompt}. PLEASE FIRST OUTPUT YOUR REASONING using: THINKING: <your reasoning> and then output your answer using: ANSWER: <your answer>",
         },
     ]
-    patient_followup = patient.ask(f"{vignette_text}. Reply realistically to their follow-up question: {initial_prompt}")
+    patient_followup = patient.ask(
+        f"{vignette_text}. Reply realistically to their follow-up question: {initial_prompt}"
+    )
     print("🗣️ Patient:", patient_followup)
     conversation.append(f"PATIENT: {patient_response}")
     patient_response.append(
@@ -129,7 +149,11 @@ for idx, vignette_text in enumerate(vignette_list):
         }
     )
 
-    time.sleep(1.2)
+    time.sleep(0.1)
+
+
+with ThreadPoolExecutor(max_workers=10) as executor:
+    executor.map(lambda args: process_vignette(*args), enumerate(vignette_list))
 
 # === Save role-specific outputs ===
 with open("summarizer_outputs.json", "w") as f:
