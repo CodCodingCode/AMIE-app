@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 
 // Import AuthModal dynamically to avoid hydration issues
-const AuthModal = dynamic(() => import("../components/AuthModal"), {
+const AuthModal = dynamic(() => import("./AuthModal"), {
   ssr: false,
 });
 

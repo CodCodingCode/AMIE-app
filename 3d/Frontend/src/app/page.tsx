@@ -10,7 +10,7 @@ import { fadeInUp } from './animations/fades'
 
 // Import portal scene dynamically
 const PortalScene = dynamic(
-  () => import('./components/portalcomplete'),
+  () => import('./portalcomps/portalcomplete'),
   { 
     ssr: false,
     loading: () => <div className="h-screen w-full bg-black" />
