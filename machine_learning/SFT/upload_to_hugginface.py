@@ -1,28 +1,50 @@
-from huggingface_hub import HfApi, HfFolder, upload_folder, create_repo
+# save.py
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from peft import PeftModel
+import torch
 
-# Define repository details
-username = "CodCodingCode"  # Replace with your Hugging Face username
-repo_name = "llama-medical-diagnosis"  # Replace with your desired repository name
-repo_id = f"{username}/{repo_name}"  # Full repository ID
-local_dir = "./h100_fp16_peft_output"  # Path to your trained model directory
+BASE = "deepseek-ai/DeepSeek-V2-Lite"  # remote base you fine-tuned against
+ADAPTER = "sft_output"  # your local LoRA+value-head folder
+OUT = "full_model"  # where to dump the merged model
+REPO = "CodCodingCode/DeepSeek-V2-med"  # Hub repo (create in advance)
 
-# Ensure the repository exists
-api = HfApi()
-try:
-    api.create_repo(repo_id=repo_id, repo_type="model", exist_ok=True)
-    print(f"Repository {repo_id} is ready.")
-except Exception as e:
-    print(f"Failed to create or access the repository: {e}")
-    exit(1)
+# 1) load remote base
+base = AutoModelForCausalLM.from_pretrained(
+    BASE,
+    torch_dtype=torch.float16,
+    device_map="auto",
+    trust_remote_code=True,
+)
 
-# Upload the model directory to Hugging Face
-try:
-    upload_folder(
-        folder_path=local_dir,
-        repo_id=repo_id,
-        repo_type="model",  # Use "model" for model repositories
-        token=HfFolder.get_token(),  # Automatically uses your logged-in token
-    )
-    print(f"Model uploaded to https://huggingface.co/{repo_id}")
-except Exception as e:
-    print(f"Failed to upload the model: {e}")
+# 2) reload your local tokenizer (100 002 tokens)
+tokenizer = AutoTokenizer.from_pretrained(
+    ADAPTER,
+    use_fast=False,
+    trust_remote_code=True,
+)
+tokenizer.pad_token_id = tokenizer.pad_token_id or tokenizer.eos_token_id
+
+# 3) resize the base’s embeddings to match your tokenizer
+base.resize_token_embeddings(len(tokenizer))
+
+# 4) load your LoRA adapter on top of that resized base
+model = PeftModel.from_pretrained(
+    base,
+    ADAPTER,
+    torch_dtype=torch.float16,
+    device_map="auto",
+    trust_remote_code=True,
+)
+
+# 5) merge LoRA weights back into the base
+merged = model.merge_and_unload()
+
+# 6) save locally
+merged.save_pretrained(OUT)
+tokenizer.save_pretrained(OUT)
+
+# 7) push to Hugging Face
+merged.push_to_hub(REPO, use_auth_token=True)
+tokenizer.push_to_hub(REPO, use_auth_token=True)
+
+print(f"✅ merged model + tokenizer pushed to https://huggingface.co/{REPO}")
