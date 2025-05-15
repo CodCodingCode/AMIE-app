@@ -9,7 +9,6 @@ new_dataset_path = (
     "/Users/owner/Downloads/coding projects/AMIE-app/datasets/new_dataset.jsonl"
 )
 
-
 def append_to_combined_dataset(combined_path, new_path):
     """
     Append a new dataset to the combined dataset.
