@@ -13,7 +13,7 @@ with open(
 
 # Initialize OpenAI client
 client = OpenAI(
-    api_key="api_key_here",  # Replace with your actual key
+    api_key="api-key-here"
 )  # Replace with your actual key
 model = "gpt-4.1-mini"
 
