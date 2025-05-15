@@ -25,7 +25,7 @@ class RoleResponder:
         ]
         response = client.chat.completions.create(model=model, messages=messages)
         return response.choices[0].message.content.strip()
-
+    
 # === Use the Class for Roles ===
 patient = RoleResponder("You are a patient continuing a conversation with your doctor")
 summarizer = RoleResponder("You are a clinical summarizer. Convert the conversational chain into a clean medical vignette and explain any reasoning you infer")

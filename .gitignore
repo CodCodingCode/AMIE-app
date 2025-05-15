@@ -25,3 +25,4 @@ datasets/icliniq.json
 datasets_for_dataGen
 datasets/other
 
+.DS_Store
