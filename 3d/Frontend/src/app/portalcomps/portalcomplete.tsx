@@ -1,67 +1,23 @@
 'use client';
 
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Canvas, useThree, useFrame } from '@react-three/fiber';
-import {Stars, Preload, Text, PerspectiveCamera, OrbitControls} from '@react-three/drei';
-import { useRouter } from 'next/navigation';
-import { Group } from 'three';
+import React, { useState, useRef, useEffect } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { PerspectiveCamera, Text } from '@react-three/drei';
 import * as THREE from 'three';
-import { EffectComposer, Bloom } from '@react-three/postprocessing';
-import { Physics } from '@react-three/rapier';
+import { EffectComposer, Bloom, GodRays } from '@react-three/postprocessing';
 import Box3D from './Box3D';
 import MouseParallax from './MouseParallax';
-
-// Background stars with subtle animation
-const AnimatedStars = () => {
-  const starsRef = useRef<Group>(null);
-  useFrame(() => starsRef.current && (starsRef.current.rotation.y += 0.0005));
-  
-  return (
-    <group ref={starsRef}>
-      <Stars radius={40} depth={20} count={1000} factor={2} saturation={0.5} fade speed={0.3} />
-    </group>
-  );
-};
-
-// Scene lighting
-const BasicLights = () => (
-  <>
-    <ambientLight intensity={0.4} color="#b9d5ff" />
-    <directionalLight position={[5, 8, 5]} intensity={1.2} color="#ffffff" castShadow shadow-mapSize={256} />
-    <directionalLight position={[-5, 3, 0]} intensity={0.5} color="#4d71ff" />
-  </>
-);
-
-// Main scene content
-const SceneContent = () => {
-  const router = useRouter();
-  const [isZooming, setIsZooming] = useState(false);
-  
-  const handleZoomComplete = useCallback(() => {
-    router.push('/chat');
-  }, [router]);
-  
-  // Create a handler to be notified when Box3D starts zooming
-  const handleZoomStart = useCallback(() => {
-    setIsZooming(true);
-  }, []);
-  
-  return (
-    <>
-      <MouseParallax isEnabled={!isZooming} strength={0.5} dampingFactor={0.10} />
-      <Physics>
-        <Box3D onZoomComplete={handleZoomComplete} onZoomStart={handleZoomStart} />
-      </Physics>
-      <AnimatedStars />
-      <BasicLights />
-    </>
-  );
-};
+import AnimatedStars from './stars';
+import BasicLights from './lights';
+import Platform from './cube';
+import { BlendFunction, KernelSize } from 'postprocessing';
 
 // Main component with canvas setup
 const PortalScene = () => {
   const [key, setKey] = useState(0);
+  const [isZooming, setIsZooming] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const sunRef = useRef<THREE.Mesh>(null!);
 
   // Handle WebGL context loss
   useEffect(() => {
@@ -86,12 +42,58 @@ const PortalScene = () => {
           gl.toneMappingExposure = 1.5;
         }}
       >
-        <OrbitControls />
         <PerspectiveCamera makeDefault position={[0, 0, 15]} fov={60} />
-        <SceneContent />
-        <EffectComposer>
-          <Bloom intensity={1.5} luminanceThreshold={0.2} luminanceSmoothing={0.9} mipmapBlur />
-        </EffectComposer>
+        
+        {/* Scene Content */}
+        <MouseParallax isEnabled={!isZooming} strength={0.5} dampingFactor={0.10} />
+        
+        {/* Platform beneath the box */}
+        <Platform 
+          position={[17, -37, -40]} 
+          rotation={Math.PI * 2.25}
+          width={24}
+          height={50}
+          length={40}
+          color="#555555"
+        />
+        <Platform
+          position={[12, -42, -35]}
+          rotation={Math.PI * 2.25}
+          width={24}
+          height={50}
+          length={40}
+          color="#555555"
+        />
+        <Platform
+          position={[7, -47, -30]}
+          rotation={Math.PI * 2.25}
+          width={24}
+          height={50}
+          length={40}
+          color="#555555"
+        />
+        <Platform
+          position={[2, -52, -25]}
+          rotation={Math.PI * 2.25}
+          width={24}
+          height={50}
+          length={40}
+          color="#555555"
+        />
+        
+        <Box3D onZoomStart={() => setIsZooming(true)} />
+        <AnimatedStars />
+        <BasicLights />
+
+      <Text
+        position={[-6.5, 0, 0]} // Adjust position to where you want the text
+        fontSize={1}
+        color="white"
+        anchorX="center"
+        anchorY="middle"
+      >
+        Enter the Bluebox
+      </Text>
       </Canvas>
     </div>
   );

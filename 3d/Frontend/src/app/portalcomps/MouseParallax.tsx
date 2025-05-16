@@ -44,8 +44,8 @@ const MouseParallax: React.FC<MouseParallaxProps> = ({
     if (!isEnabled) return;
   
     // Calculate target position based on mouse movement and initial camera position
-    const targetX = initialCameraPosition.x + mousePos[0] * strength;
-    const targetY = initialCameraPosition.y - mousePos[1] * strength;
+    const targetX = initialCameraPosition.x - mousePos[0] * strength;
+    const targetY = initialCameraPosition.y + mousePos[1] * strength;
 
     // Apply smooth damping to camera movement
     camera.position.x += (targetX - camera.position.x) * dampingFactor;

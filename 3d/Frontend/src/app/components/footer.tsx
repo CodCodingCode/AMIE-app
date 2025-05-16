@@ -19,7 +19,7 @@ const Footer = () => {
         {/* Left side - Logo and mission */}
         <div className="md:w-1/3 mb-12 md:mb-0 pr-8">
           <div className="mb-6">
-            <Image src="/logo.png" alt="Bluebox Logo" width={100} height={40} />
+            <Image src="/reallogo.png" alt="Bluebox Logo" width={100} height={40} />
           </div>
           <p className="text-base mb-8 leading-relaxed">
             Our mission is to democratize computational intelligence

@@ -1,383 +1,205 @@
 'use client';
-import { useState, useEffect, useRef } from "react";
-import { auth, db, provider } from "../firebase";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { onAuthStateChanged, User, signInWithPopup } from "firebase/auth";
-import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
 
-// Import AuthModal dynamically to avoid hydration issues
-const AuthModal = dynamic(() => import("./AuthModal"), {
-  ssr: false,
-});
+import React, { useState, useRef, useEffect } from 'react';
 
 interface Message {
-  role: 'user' | 'assistant';
-  content: string;
+  text: string;
+  sender: 'user' | 'assistant';
 }
 
 export default function Chat() {
-  const [user, setUser] = useState<User | null>(null);
-  const [inputMessage, setInputMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
-  const [conversationStarted, setConversationStarted] = useState(false);
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
-  const [showAuthModal, setShowAuthModal] = useState(false);
-  const [authChecked, setAuthChecked] = useState(false);
+  const [input, setInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const [isFirstMessage, setIsFirstMessage] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const router = useRouter();
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
+  const chatHistoryRef = useRef<Array<{role: string, content: string}>>([]);
 
-  // Auth state
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      setAuthChecked(true);
-      if (firebaseUser) {
-        setUser(firebaseUser);
-        setShowAuthModal(false);
-      } else {
-        // Show auth modal instead of redirecting
-        setShowAuthModal(true);
-      }
-    });
-    return () => unsubscribe();
-  }, []);
-
-  // Check if conversation has already started
-  useEffect(() => {
-    setConversationStarted(messages.length > 0);
-  }, [messages]);
-
-  // Auto-scroll to bottom when messages change
+  // Scroll to bottom when messages change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+  }, [messages, isTyping]);
 
-  // Focus input on component mount and handle initial fade-in
-  useEffect(() => {
-    if (user) { // Only focus input if user is logged in
-      const timer = setTimeout(() => {
-        inputRef.current?.focus();
-        setIsInitialLoad(false);
-      }, 1000);
-      
-      return () => clearTimeout(timer);
-    }
-  }, [user]);
+  const handleSendMessage = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (input.trim() === '') return;
 
-  const handleSignIn = async () => {
-    try {
-      await signInWithPopup(auth, provider);
-      // Auth state listener will handle the rest
-    } catch (error) {
-      console.error("Google login error:", error);
-    }
-  };
-
-  const handleCloseAuthModal = () => {
-    router.push('/');
-  };
-
-  const handleSendMessage = async () => {
-    if (!inputMessage.trim() || isLoading || !user) return;
+    const userMessage: Message = { text: input.trim(), sender: 'user' };
+    setMessages(prev => [...prev, userMessage]);
+    setInput('');
     
-    const messageToSend = inputMessage; // Store the message before clearing input
-    setInputMessage(''); // Clear input field immediately before processing
-    setIsLoading(true);
+    // Add to chat history
+    const messageObj = {
+      role: "user",
+      content: userMessage.text
+    };
+    chatHistoryRef.current.push(messageObj);
+    
+    // Set first message to false to transition UI
+    if (isFirstMessage) {
+      setIsFirstMessage(false);
+    }
+    
+    setIsTyping(true);
 
     try {
-      // Add user message to Firestore and local state
-      const userMsg = {
-        role: 'user' as const,
-        content: messageToSend,
-        timestamp: serverTimestamp()
-      };
-      await addDoc(
-        collection(db, "users", user.uid, "chats", "default", "messages"),
-        userMsg
-      );
-      setMessages(prev => [...prev, { role: 'user', content: messageToSend }]);
-
-      // Format message history for the backend
-      const historyFormatted = messages.map(msg => ({
-        role: msg.role,
-        content: msg.content
-      }));
-
-      // Send to Flask backend
-      const response = await fetch('/api/chat', {
+      // Connect to Flask backend
+      const response = await fetch('http://localhost:5001/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: messageToSend,
-          history: historyFormatted
+        body: JSON.stringify({ 
+          message: userMessage.text,
+          history: chatHistoryRef.current.slice(0, -1) // Send history without current message
         }),
       });
 
+      setIsTyping(false);
+
       if (!response.ok) {
-        throw new Error(`API error: ${response.status}`);
+        throw new Error('Network response was not ok');
       }
 
       const data = await response.json();
-
-      // Add assistant message to Firestore and local state
-      const assistantMsg = {
-        role: 'assistant' as const,
-        content: data.response,
-        timestamp: serverTimestamp()
+      const assistantMessage: Message = { 
+        text: data.response, 
+        sender: 'assistant' 
       };
-      await addDoc(
-        collection(db, "users", user.uid, "chats", "default", "messages"),
-        assistantMsg
-      );
-      setMessages(prev => [...prev, { role: 'assistant', content: data.response }]);
+      
+      setMessages(prev => [...prev, assistantMessage]);
+      
+      // Add to chat history
+      chatHistoryRef.current.push({
+        role: "assistant",
+        content: data.response
+      });
     } catch (error) {
-      console.error("Error in chat:", error);
-      // Display error to user
+      console.error('Error:', error);
+      setIsTyping(false);
       setMessages(prev => [
         ...prev, 
         { 
-          role: 'assistant', 
-          content: "I'm sorry, I'm having trouble connecting to the backend server. Please check that your backend is running at http://10.139.145.27:5001 or update the API URL in the code."
+          text: 'Sorry, I encountered an error. Please try again later.', 
+          sender: 'assistant' 
         }
       ]);
-    } finally {
-      setIsLoading(false);
     }
   };
 
-  // Show loading state before auth is checked
-  if (!authChecked) {
-    return (
-      <div className="h-screen w-full flex items-center justify-center bg-gray-900">
-        <div className="animate-pulse text-white text-xl">Loading...</div>
-      </div>
-    );
-  }
-
-  // If auth modal should be shown
-  if (showAuthModal) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-purple-900 to-black">
-        <AuthModal isOpen={true} onClose={handleCloseAuthModal} isEmbeddedInChat={true} />
-      </div>
-    );
-  }
-
-  // If user is not authenticated and auth modal is not shown, this shouldn't happen
-  if (!user) return null;
-
   return (
-    <div className="flex flex-col h-screen bg-slate-50">
-      {/* Claude-like interface when no conversation started */}
-      {!conversationStarted ? (
-        <motion.div 
-          className="flex flex-col items-center justify-center h-full w-full px-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
-          {/* User greeting with proper profile image */}
-          <motion.div 
-            className="mb-8 text-center"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >
-            <div className="flex items-center justify-center mb-3">
-              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center overflow-hidden">
-                {user?.photoURL ? (
-                  <img 
-                    src={user.photoURL} 
-                    alt="User" 
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer" // This fixes Google profile images not loading
-                  />
-                ) : (
-                  <span className="text-blue-600 font-semibold">{user?.displayName?.charAt(0) || "U"}</span>
-                )}
-              </div>
-            </div>
-            <h2 className="text-2xl font-medium text-gray-800">
-              {user?.displayName ? `${user.displayName} returns!` : "Welcome back!"}
-            </h2>
-          </motion.div>
-
-          {/* Main chat input - centered like Claude */}
-          <motion.div 
-            className="w-full max-w-xl bg-white rounded-xl shadow-lg overflow-hidden"
-            initial={{ y: 20, opacity: 0, scale: 0.95 }}
-            animate={{ y: 0, opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-          >
-            <div className="px-4 py-4 border-b border-gray-100">
-              <h3 className="text-lg font-semibold text-gray-800 text-center">Chat with your AI Doctor</h3>
-            </div>
-            <div className="p-4">
-              <textarea
-                ref={inputRef as any}
-                className="w-full p-4 border-none outline-none bg-gray-50 rounded-lg text-gray-800 resize-none min-h-[120px]"
-                placeholder="How can I help you today?"
-                value={inputMessage}
-                onChange={e => setInputMessage(e.target.value)}
-                onKeyDown={e => {
-                  if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    handleSendMessage();
-                  }
-                }}
-              />
-              <div className="flex justify-between items-center mt-4">
-                <div className="text-sm text-gray-500">AI Doctor at your service</div>
-                <button
-                  onClick={handleSendMessage}
-                  disabled={isLoading || !inputMessage.trim()}
-                  className={`
-                    px-4 py-2 rounded-lg
-                    ${inputMessage.trim() ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-300'} 
-                    text-white transition-all duration-200
-                    disabled:opacity-50 disabled:cursor-not-allowed
-                  `}
-                >
-                  Send
-                </button>
-              </div>
-            </div>
-          </motion.div>
-
-        </motion.div>
-      ) : (
+    <div className="flex flex-col h-screen bg-[#faf9f6]">
+      <header className="text-center py-6">
+        <h1 className="text-3xl font-semibold text-[#444444]">AI Doctor</h1>
+      </header>
+      
+      <div className="flex-1 flex flex-col max-w-4xl mx-auto w-full px-4 relative">
+        {/* Welcome Screen - visible when no messages */}
+        {isFirstMessage && (
+          <div className={`welcome-container flex flex-col items-center justify-center h-full text-center transition-opacity duration-500 ${!isFirstMessage ? 'opacity-0' : 'opacity-100'}`}>
+            <h2 className="text-3xl font-semibold mb-4 text-[#333333]">AI Doctor Assistant</h2>
+            <p className="text-lg text-[#666666] max-w-lg">
+              I can answer health questions, help you understand symptoms, and recommend when to see a doctor. How can I help you today?
+            </p>
+          </div>
+        )}
         
-        // Regular chat interface once conversation has started
-        <div className="flex-1 flex flex-col w-full h-full">
-          {/* Header - always visible, centered */}
+        {/* Messages Container */}
+        <div 
+          ref={messagesContainerRef}
+          className={`flex-1 overflow-y-auto py-4 ${isFirstMessage ? 'hidden' : 'block'}`}
+        >
+          {messages.map((message, i) => (
+            <div
+              key={i}
+              className={`message flex mb-6 animate-fadeIn ${
+                message.sender === 'user' 
+                  ? 'justify-end' 
+                  : 'justify-start'
+              }`}
+            >
+              <div 
+                className={`max-w-[80%] p-4 rounded-xl ${
+                  message.sender === 'user'
+                    ? 'bg-[#4A6FA5] text-white rounded-br-sm'
+                    : 'bg-[#F0F2F5] text-[#333333] rounded-bl-sm'
+                }`}
+              >
+                {message.text}
+              </div>
+            </div>
+          ))}
 
-          {/* Messages area - full width and height */}
-          <div className="flex-1 flex items-center justify-center overflow-hidden">
-            <div className="w-full max-w-4xl flex flex-col h-full">
-              {/* Added custom scrollbar styling to hide the scrollbar but keep functionality */}
-              <div className="flex-1 overflow-y-auto p-6 scrollbar-hide">
-                <div className="space-y-4">
-                  {messages.map((msg, idx) => (
-                    <div
-                      key={idx}
-                      className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-fadeIn`}
-                    >
-                      <div className={`
-                        max-w-[80%] rounded-xl p-3.5 
-                        ${msg.role === 'user' 
-                          ? 'bg-blue-500 text-white' 
-                          : 'bg-gray-100 text-gray-800'}
-                        transform transition-all duration-300 ease-out
-                      `}
-                      style={{
-                        animation: `fadeSlide${msg.role === 'user' ? 'Left' : 'Right'} 0.3s ease-out forwards`
-                      }}
-                      >
-                        {msg.role === 'assistant' && (
-                          <div className="flex items-center mb-1">
-                            <div className="w-6 h-6 rounded-full bg-purple-600 flex items-center justify-center mr-2">
-                              <span className="text-white text-xs">AI</span>
-                            </div>
-                            <span className="text-xs font-medium text-gray-500">Assistant</span>
-                          </div>
-                        )}
-                        {msg.role === 'user' && (
-                          <div className="flex items-center justify-end mb-1">
-                            <span className="text-xs font-medium text-blue-200">You</span>
-                            {user?.photoURL ? (
-                              <img 
-                                src={user.photoURL} 
-                                alt="Profile" 
-                                className="w-6 h-6 rounded-full ml-2 object-cover" 
-                                referrerPolicy="no-referrer"
-                              />
-                            ) : (
-                              <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center ml-2">
-                                <span className="text-white text-xs">{user?.displayName?.charAt(0) || "U"}</span>
-                              </div>
-                            )}
-                          </div>
-                        )}
-                        <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
-                      </div>
-                    </div>
-                  ))}
-                  
-                  {isLoading && (
-                    <div className="flex justify-start animate-fadeIn">
-                      <div className="bg-gray-100 text-gray-800 rounded-xl p-3.5 transform transition-all duration-300 ease-out"
-                        style={{ animation: 'fadeSlideRight 0.3s ease-out forwards' }}>
-                        <div className="flex items-center mb-1">
-                          <div className="w-6 h-6 rounded-full bg-purple-600 flex items-center justify-center mr-2">
-                            <span className="text-white text-xs">AI</span>
-                          </div>
-                          <span className="text-xs font-medium text-gray-500">Assistant</span>
-                        </div>
-                        <div className="flex space-x-2 px-2 py-1">
-                          <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce"></div>
-                          <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                          <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                  <div ref={messagesEndRef} />
+          {isTyping && (
+            <div className="flex justify-start mb-6">
+              <div className="bg-[#F0F2F5] p-4 rounded-xl rounded-bl-sm">
+                <div className="flex space-x-2">
+                  <div className="w-2 h-2 rounded-full bg-[#888888] opacity-60 animate-bounce"></div>
+                  <div className="w-2 h-2 rounded-full bg-[#888888] opacity-60 animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                  <div className="w-2 h-2 rounded-full bg-[#888888] opacity-60 animate-bounce" style={{animationDelay: '0.4s'}}></div>
                 </div>
               </div>
             </div>
-          </div>
-          
-          {/* Input area */}
-          <div className="p-4 bg-white border-t border-gray-100 shadow-inner">
-            <div className="max-w-4xl mx-auto transition-all duration-500">
-              <div className="flex items-center space-x-2">
-                <input
-                  type="text"
-                  className="flex-1 border border-gray-300 rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-black"
-                  placeholder="Message your AI Doctor..."
-                  value={inputMessage}
-                  onChange={e => setInputMessage(e.target.value)}
-                  onKeyDown={e => e.key === 'Enter' && handleSendMessage()}
-                  disabled={isLoading}
-                />
-                <button
-                  onClick={handleSendMessage}
-                  disabled={isLoading || !inputMessage.trim()}
-                  className={`
-                    rounded-full p-3
-                    ${inputMessage.trim() ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-300'} 
-                    text-white transition-all duration-200 transform hover:scale-105 
-                    disabled:opacity-50 disabled:cursor-not-allowed
-                    shadow-md hover:shadow-lg
-                  `}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-                  </svg>
-                </button>
-              </div>
-              <p className="text-xs text-center text-gray-500 mt-2">
-                Your chats are saved to improve your experience.
-              </p>
-            </div>
-          </div>
+          )}
+          <div ref={messagesEndRef} />
         </div>
-      )}
 
-      {/* Add CSS to hide scrollbars */}
+        {/* Input form */}
+        <div className="py-6">
+          <form
+            onSubmit={handleSendMessage}
+            className="flex bg-white border border-[#E0E0E0] rounded-xl p-1 shadow-sm focus-within:shadow-md transition-shadow duration-300"
+          >
+            <textarea
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              onKeyDown={e => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault();
+                  if (input.trim() !== '') handleSendMessage(e);
+                }
+              }}
+              placeholder="Ask your health question..."
+              className="flex-1 py-3 px-4 focus:outline-none text-gray-700 resize-none max-h-40"
+              style={{ minHeight: '56px' }}
+              rows={1}
+            />
+            <button 
+              type="submit" 
+              className="bg-[#4A6FA5] text-white rounded-lg p-2 m-1 w-10 h-10 flex items-center justify-center disabled:bg-[#CCCCCC] disabled:cursor-not-allowed"
+              disabled={input.trim() === ''}
+              aria-label="Send message"
+            >
+              <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 2L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <footer className="text-center py-4 text-sm text-[#888888]">
+        <p>AI Doctor is not a replacement for professional medical advice, diagnosis, or treatment.</p>
+      </footer>
+      
       <style jsx global>{`
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .scrollbar-hide {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
+        .animate-fadeIn {
+          animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        textarea {
+          overflow-y: auto;
         }
       `}</style>
     </div>

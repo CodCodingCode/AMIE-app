@@ -1,28 +1,26 @@
-import React, { useState, useRef, useEffect, createRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
-import { Mesh, Group, Vector3, Plane } from 'three';
+import { Mesh, Group } from 'three';
 import * as THREE from 'three';
 import gsap from 'gsap';
-
-// Preload models
-useGLTF.preload('/blueboxreal.glb');
+import { useRouter } from 'next/navigation';
 
 type Box3DProps = {
   initialPosition?: [number, number, number];
-  onZoomComplete?: () => void;
   onZoomStart?: () => void;
 };
 
 // Interactive 3D box
-const Box3D = ({ initialPosition = [30, 0, 0], onZoomComplete, onZoomStart }: Box3DProps) => {
+const Box3D = ({ initialPosition = [30, 0, 0], onZoomStart }: Box3DProps) => {
+  const router = useRouter();
   const { scene } = useGLTF('/blueboxreal.glb');
   const boxRef = useRef<Group>(null);
   const materialRefs = useRef<THREE.MeshStandardMaterial[]>([]);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isZooming, setIsZooming] = useState(false);
   const initialRotation = useRef(Math.PI * 2.25);
   const { camera } = useThree();
+  const isHovered = useRef(false);
+  const isZooming = useRef(false);
   
   // References for sliding doors
   const leftDoorRef = useRef<Mesh | null>(null);
@@ -42,7 +40,7 @@ const Box3D = ({ initialPosition = [30, 0, 0], onZoomComplete, onZoomStart }: Bo
     
     // Set initial position and rotation
     boxRef.current.rotation.y = initialRotation.current;
-    boxRef.current.position.set(...initialPosition);
+    boxRef.current.position.set(initialPosition[0], initialPosition[1], initialPosition[2]);
 
     // Find and set up sliding doors
     scene.traverse((child) => {
@@ -75,39 +73,22 @@ const Box3D = ({ initialPosition = [30, 0, 0], onZoomComplete, onZoomStart }: Bo
 
   // Animate box based on hover state
   useFrame((state) => {
-    if (!boxRef.current || isZooming) return;
+    if (!boxRef.current || isZooming.current) return;
 
     // Handle position, material, and rotation updates
     const box = boxRef.current;
-    const { clock } = state;
     
     // Position animation
-    box.position.y += ((isHovered ? 0.3 : 0) - box.position.y) * 0.1;
+    box.position.y += ((isHovered.current ? 3 : 0) - box.position.y) * 0.1;
     
-    // Material animation
-    materialRefs.current.forEach((mat) => {
-      if (isHovered) mat.emissive.set('#3daef5');
-      mat.emissiveIntensity += ((isHovered ? 1.5 : 0) - mat.emissiveIntensity) * 0.1;
-    });
-    
-    // Rotation animation
-    if (isHovered) {
-      box.rotation.y = initialRotation.current + Math.sin(clock.elapsedTime * 2) * 0.05;
-      box.rotation.z = Math.sin(clock.elapsedTime * 1.5) * 0.02;
-    } else {
-      box.rotation.y += (initialRotation.current - box.rotation.y) * 0.1;
-      box.rotation.z += (0 - box.rotation.z) * 0.1;
-    }
   });
 
   // Handle both door opening and camera zoom animations
   const handleZoom = () => {
-    if (isZooming) return;
+    if (isZooming.current) return;
+    isZooming.current = true;
     
-    // Set zooming state
-    setIsZooming(true);
-    
-    // Notify parent component that zooming has started
+    // Notify parent component that zooming has started (if provided)
     if (onZoomStart) {
       onZoomStart();
     }
@@ -115,10 +96,8 @@ const Box3D = ({ initialPosition = [30, 0, 0], onZoomComplete, onZoomStart }: Bo
     // Create a single timeline for all animations
     const tl = gsap.timeline({
       onComplete: () => {
-        // Call the provided callback when animation is complete
-        if (onZoomComplete) {
-          onZoomComplete();
-        }
+        // Just navigate directly
+        router.push('/chat');
       }
     });
     
@@ -142,45 +121,39 @@ const Box3D = ({ initialPosition = [30, 0, 0], onZoomComplete, onZoomStart }: Bo
         ease: "power2.out"
       }, 0);
       
-      // Logo animations
-      if (logoOuterRef.current && logoOuterInitialPos.current) {
+      // Logo animations - combined for inner and outer logo
+      if (logoOuterRef.current && logoInnerRef.current && 
+          logoOuterInitialPos.current && logoInnerInitialPos.current) {
+        
+        // Animate both logo positions
         tl.to(logoOuterRef.current.position, {
           y: logoOuterInitialPos.current.y + 0.1,
           duration: 0.8,
           ease: "power2.out"
         }, 0);
         
-        const matOuter = logoOuterRef.current.material as THREE.MeshStandardMaterial;
-        tl.to(matOuter, {
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          onUpdate: () => {
-            if (matOuter.transparent === false) {
-              matOuter.transparent = true;
-            }
-          }
-        }, 0);
-      }
-      
-      if (logoInnerRef.current && logoInnerInitialPos.current) {
         tl.to(logoInnerRef.current.position, {
           y: logoInnerInitialPos.current.y + 0.2,
           duration: 0.8,
           ease: "power2.out"
         }, 0);
         
+        // Fade out both logo materials
+        const matOuter = logoOuterRef.current.material as THREE.MeshStandardMaterial;
         const matInner = logoInnerRef.current.material as THREE.MeshStandardMaterial;
-        tl.to(matInner, {
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          onUpdate: () => {
-            if (matInner.transparent === false) {
-              matInner.transparent = true;
+        
+        [matOuter, matInner].forEach(mat => {
+          tl.to(mat, {
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            onUpdate: () => {
+              if (mat.transparent === false) {
+                mat.transparent = true;
+              }
             }
-          }
-        }, 0);
+          }, 0);
+        });
       }
     }
     
@@ -213,8 +186,8 @@ const Box3D = ({ initialPosition = [30, 0, 0], onZoomComplete, onZoomStart }: Bo
         object={scene}
         scale={8.0}
         onClick={handleZoom}
-        onPointerOver={() => setIsHovered(true)}
-        onPointerOut={() => setIsHovered(false)}
+        onPointerOver={() => { isHovered.current = true; }}
+        onPointerOut={() => { isHovered.current = false; }}
         cursor="pointer"
       />
     </>

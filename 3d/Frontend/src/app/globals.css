@@ -2,14 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import EB Garamond font */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
+
 :root {
   --white: #FFFFFF;
-  --ash-gray: #9DB5B2;
   --outer-space: #464F51;
   --black: #000009;
-  --light-cyan: #DAF0EE;
-  --snow-drift: #FAF9F6;
   --beige: #F5F5DC;
+  --navy: #0d2847;
+  --light-blue: #edf2f7;
+  --border-color: #e2e8f0;
+  --text-primary: #2d3748;
+  --assistant-bg: var(--navy);
+  --assistant-text: white;
+  --user-bg: var(--light-blue);
+  --user-text: var(--text-primary);
+  --font-family-rich: 'EB Garamond', serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,34 +37,42 @@ body {
     rgb(var(--background-end-rgb))
   )
   rgb(var(--background-start-rgb));
+  font-family: var(--font-family-rich);
 }
+
+@layer components {
+    /* Simple navbar styles */
+  .navbar {
+    background-color: var(--black);
+    border: 1px solid var(--beige);
+    border-radius: 9999px;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .navbar-item {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    color: var(--white);
+  }
+
+  .navbar-item:hover {
+    opacity: 0.7;
+  }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
+}}
 
-/* Simple navbar styles */
-.navbar {
-  background-color: var(--black);
-  border: 1px solid var(--beige);
-  border-radius: 9999px;
-  padding: 0.75rem 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.navbar-item {
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-  color: var(--white);
-}
-
-.navbar-item:hover {
-  opacity: 0.7;
+/* Optional: Used by motion/animation */
+@keyframes messageEnter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
