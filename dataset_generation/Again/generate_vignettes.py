@@ -3,6 +3,7 @@ import os
 import json
 import time
 from openai import OpenAI
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # Load dataset
 import kagglehub
@@ -17,27 +18,29 @@ unique_diseases = df["diseases"].dropna().unique()
 
 # Initialize OpenAI client
 client = OpenAI(
-    api_key=key
+    api_key="api-key-here"
 )
 model = "gpt-4.1-mini"
 
 # Output storage
 all_vignettes = {}
 
-prev_responses = []
-# Generation loop
-for disease in unique_diseases:
-    for i in range(10):
+
+# Function to generate a vignette for a disease
+def generate_vignette(disease):
+    local_vignettes = []
+    prev_responses = []
+    for _ in range(10):
         prompt = f"""
-    You are a medical expert. Generate a detailed and realistic patient vignettes for the following disease: **{disease}**.
+You are a medical expert. Generate a detailed and realistic patient vignette for the following disease: **{disease}**.
 
-    Each vignette should:
-    - Be 8 sentences long
-    - Include symptoms, age, gender (random), and clinical context
-    - Be medically plausible
-    - Avoid repeating the vignettes from previous iterations: {prev_responses}
+Each vignette should:
+- Be 8 sentences long
+- Include symptoms, age, gender (random), and clinical context
+- Be medically plausible
+- Avoid repeating the vignettes from previous iterations: {prev_responses}
 
-    Format your response as a numbered list.
+Format your response as a numbered list.
         """
 
         response = client.chat.completions.create(
@@ -51,16 +54,23 @@ for disease in unique_diseases:
             ],
         )
         vignettes_text = response.choices[0].message.content
-        all_vignettes[disease] = vignettes_text
-
+        local_vignettes.append(vignettes_text)
         prev_responses.append(vignettes_text)
+    return disease, local_vignettes
 
-        print(f"✅ Generated for: {disease}")
-        time.sleep(1.2)  # Respect rate limits
-    prev_responses = []
 
-# Save all to JSON
-with open("disease_vignettes.json", "w") as f:
-    json.dump(all_vignettes, f, indent=2)
+# Use ThreadPoolExecutor to run in parallel
+with ThreadPoolExecutor(max_workers=12) as executor:
+    futures = [
+        executor.submit(generate_vignette, disease) for disease in unique_diseases
+    ]
+    for future in as_completed(futures):
+        disease, vignettes = future.result()
+        all_vignettes[disease] = vignettes
+
+        # Immediately dump after each disease's vignettes
+        with open("disease_vignettes.json", "w") as f:
+            json.dump(all_vignettes, f, indent=2)
+        print(f"✅ Completed: {disease}")
 
 print("🎉 Vignettes saved to 'disease_vignettes.json'")
