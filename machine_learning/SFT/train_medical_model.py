@@ -27,7 +27,7 @@ print(f"CUDA available: {torch.cuda.get_device_name(0)}")
 # ────────────────────────────────────────────────────────────────────────────────
 # 2) Load & prepare model for LoRA + Value Head + 4-bit quantization
 # ────────────────────────────────────────────────────────────────────────────────
-model_name = "aaditya/Llama3-OpenBioLLM-8B"
+model_name = "Qwen/Qwen-7B"
 print(f"Loading value-headed model in 4-bit for PPO compatibility: {model_name}")
 
 bnb_config = BitsAndBytesConfig(
@@ -42,6 +42,7 @@ model = AutoModelForCausalLMWithValueHead.from_pretrained(
     model_name,
     quantization_config=bnb_config,
     device_map="auto",
+    trust_remote_code=True,
 )
 
 model = prepare_model_for_kbit_training(model)
@@ -59,20 +60,20 @@ model.gradient_checkpointing_enable()
 model.config.use_cache = False
 
 model.print_trainable_parameters()
-model.generation_config = GenerationConfig(**model.config.to_dict())
+model.generation_config = model.generation_config or GenerationConfig()
 
 # ────────────────────────────────────────────────────────────────────────────────
 # 3) Tokenizer
 # ────────────────────────────────────────────────────────────────────────────────
-tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False)
+tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 if tokenizer.pad_token_id is None:
     tokenizer.pad_token_id = tokenizer.eos_token_id
 
 # ────────────────────────────────────────────────────────────────────────────────
-# 4) Load, clean & preprocess your JSONL
+# 4) Load, clean & preprocess your JSONL (512-token limit)
 # ────────────────────────────────────────────────────────────────────────────────
 records = []
-with open("combined_dataset_clean.jsonl", "r") as f:
+with open("combined_conversations.json", "r") as f:
     for i, line in enumerate(f, start=1):
         try:
             rec = json.loads(line)
@@ -94,7 +95,7 @@ def tokenize_fn(ex):
         ex["text"],
         truncation=True,
         padding="max_length",
-        max_length=64,
+        max_length=512,
     )
     tokens["labels"] = tokens["input_ids"].copy()
     return tokens
@@ -115,7 +116,7 @@ from torch.nn import CrossEntropyLoss
 class SFTTrainer(Trainer):
     def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
         labels = inputs.pop("labels")
-        outputs = model.pretrained_model(**inputs, return_dict=True)
+        outputs = model(**inputs, return_dict=True)
         logits = outputs.logits
 
         # shift so that tokens < n predict n
@@ -168,5 +169,3 @@ trainer.train()
 model.save_pretrained("./ppo_ready_output")
 tokenizer.save_pretrained("./ppo_ready_output")
 print("✅ Model with value head + LoRA saved and ready for PPO.")
-
-

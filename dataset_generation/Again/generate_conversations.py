@@ -1,13 +1,16 @@
+import os
 import json
 from openai import OpenAI
 import time
+import multiprocessing
 
 # Initialize OpenAI client
 client = OpenAI(
-    api_key="api-key-here"  # Replace with your actual API key  
-)
+    api_key=""
+)  # Replace with your actual API key
 model = "gpt-4.1-mini"
 
+treatment_plans = []
 
 class RoleResponder:
     def __init__(self, role_instruction):
@@ -48,8 +51,8 @@ conversation = []
 
 
 # === Loop over each vignette ===
-def process_vignette(idx, vignette_text):
-    global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs
+def process_vignette(idx, vignette_text, gold_label):
+    global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs, treatment_plans
     initial_prompt = "What brings you in today?"
     conversation.clear()
     conversation.append(f"DOCTOR: {initial_prompt}")
@@ -81,6 +84,13 @@ Doctor's question: {initial_prompt}"""
         patient_response_text = raw_patient
     print("🗣️ Patient's Reply:", patient_response_text)
     conversation.append(f"PATIENT: {patient_response_text}")
+    patient_response.append(
+        {
+            "vignette_index": idx,
+            "input": f"{vignette_text}\n{initial_prompt}",
+            "output": patient_response_text,
+        }
+    )
     turn_count = 0  # Doctor + patient
     diagnosis_complete = False
     prev_vignette_summary = ""
@@ -89,14 +99,18 @@ Doctor's question: {initial_prompt}"""
         joined_conversation = "\\n".join(conversation)
         vignette_summary = summarizer.ask(
             f"""You are a clinical summarizer trained to extract structured vignettes from doctor–patient dialogues.
-Your task is to summarize only newly emerged clinical information. If there are no meaningful updates since the previous vignette, respond with:
 
+Use the gold diagnosis only to assess whether the patient's reported symptoms are consistent or missing anything important — DO NOT use it to hallucinate or invent new symptoms.
+
+Gold Diagnosis: {gold_label}
+
+Your task is to summarize only newly emerged clinical information. If nothing new has appeared, respond with:
 ANSWER: [No significant update since last summary.]
 
-Otherwise, identify the patient's age, gender (if known), chief complaint, new symptoms, and how the physician's clinical reasoning has evolved based on the most recent interaction.
+Only summarize confirmed facts explicitly stated by the patient or the doctor. Do not speculate.
 
-THINKING: <summarizer reasoning about whether clinical content changed and how>. 
-ANSWER: <updated vignette summary, or indicate 'No significant update'>.
+THINKING: <Your reasoning about whether the conversation introduced new clinical details>. 
+ANSWER: <Newly updated vignette, or indicate no update>.
 
 Latest conversation:
 {joined_conversation}
@@ -114,9 +128,6 @@ Previous vignette summary:
             }
         )
 
-        with open("summarizer_outputs.json", "w") as f:
-            json.dump(summarizer_outputs, f, indent=2)
-
         prev_vignette_summary = vignette_summary
 
         if "ANSWER:" in vignette_summary:
@@ -126,22 +137,30 @@ Previous vignette summary:
 
         # Step 3: Diagnosis
         diagnosis = diagnoser.ask(
-            f"""You are a board-certified diagnostician. Given the vignette, simulate how you would reason through the diagnosis in a real clinical setting. 
-    List the most possible condition, justify it with supporting symptoms and findings, and explain why less likely options can be ruled out. 
+            f"""You are a board-certified diagnostician.
 
-    THINKING: <your step-by-step diagnostic reasoning, including uncertainties>. GIVE ALL THINKING HERE
-    ANSWER: <your final diagnosis>. GIVE NO OTHER INFORMATION OTHER THAN THE FINAL DIAGNOSIS
+You are provided the known gold-standard diagnosis for this patient: **{gold_label}**
+Use this information as a reference to guide your diagnostic reasoning and see if the presented vignette aligns with this diagnosis — but **do NOT assume it's correct** unless supported by the vignette.
 
-    End your response by clearly stating END (exactly like END with the capitalization and all) ONLY IF:
-    1. You are extremely confident in a **single specific diagnosis**, AND
-    2. There is **no meaningful diagnostic uncertainty remaining**, AND
-    3. At least 10 conversation turns have occurred (not including summarizer turns), AND
-    4. No further testing, clarification, or follow-up is necessary based on the vignette.
+Your job is to:
+- Think through alternative plausible diagnoses
+- Justify why some are more likely or less likely
+- Compare the gold diagnosis to your working impression based on the vignette alone
 
-    If any of these conditions are NOT met, do NOT write END in ANY PART OF THE OUTPUT. Continue reasoning or request further clarification.
+THINKING: <Your full reasoning, including how closely this matches the gold label or not>.
 
-    Vignette:\n{vignette_summary}
-    Turn count: {turn_count}"""
+If you believe the dialogue should end, explicitly confirm each of the following in your THINKING (checklist style):
+- Does the vignette fully support the gold label?
+- Is there no meaningful diagnostic uncertainty remaining?
+- Has the conversation had at least 8 total turns (excluding summaries)?
+- Is any further clarification, lab, or follow-up unnecessary?
+
+If all of these are clearly true, you MUST output END after your diagnosis.
+
+ANSWER: <Your most likely diagnosis, or END if all above conditions are met>.
+
+Vignette:\n{vignette_summary}
+Turn count: {turn_count}"""
         )
 
         print("Turn count:", turn_count)
@@ -151,15 +170,32 @@ Previous vignette summary:
             {"vignette_index": idx, "input": vignette_summary, "output": diagnosis}
         )
 
-        with open("summarizer_outputs.json", "w") as f:
-            json.dump(summarizer_outputs, f, indent=2)
-        with open("diagnosing_doctor_outputs.json", "w") as f:
-            json.dump(diagnosing_doctor_outputs, f, indent=2)
+        # Handle END signal explicitly
+        if "END" in diagnosis:
+            if turn_count >= 8:
+                print(f"✅ Reached END for vignette {idx}. Moving to next.\n")
+                diagnosis_complete = True
+                break
+            else:
+                print(
+                    f"⚠️ Model said END before 10 turns. Ignoring END due to insufficient conversation length."
+                )
 
-        if "END" in diagnosis and turn_count >= 10:
-            print(f"✅ Reached END for vignette {idx}. Moving to next.\n")
-            diagnosis_complete = True
-            break
+        # Step 3.5: Generate Treatment Plan
+        treatment = diagnoser.ask(
+            f"""You are a board-certified clinician. Based on the diagnosis provided below, suggest a concise treatment plan that could realistically be initiated by a primary care physician or psychiatrist.
+
+Diagnosis: {diagnosis}
+
+Include both non-pharmacological and pharmacological interventions if appropriate. Limit your plan to practical, real-world guidance.
+
+Output ONLY the treatment plan. Do not explain your reasoning.
+"""
+        )
+        print("💊 Treatment Plan:", treatment)
+        treatment_plans.append(
+            {"vignette_index": idx, "input": diagnosis, "output": treatment}
+        )
 
         # Limit to last 3–5 doctor questions
         previous_questions = [
@@ -169,20 +205,20 @@ Previous vignette summary:
         ][-5:]
 
         # Step 4: Ask follow-up
-        raw_followup = raw_followup = questioner.ask(
-            f"""You are a physician refining your differential diagnosis. Based on the current case, ask the single most informative NEW question to either confirm or rule out a major possibility.
+        raw_followup = questioner.ask(
+            f"""You are a physician refining your differential diagnosis. 
+
+The gold-standard diagnosis is: **{gold_label}**
+Use this to avoid redundant or unnecessary questions. 
+Ask a NEW question **only if** it would significantly clarify the case or help confirm/rule out {gold_label} in a realistic clinical setting.
 
 Previously asked questions: {json.dumps(previous_questions)}
 
-Frame your reasoning in terms of diagnostic value — how would the answer change your thinking?
-
-THINKING: <why this question has high diagnostic yield and what each possible answer would imply>.
-ANSWER: <your follow-up question in plain language>
-
-Try to add new information not covered within the vignette. Do NOT repeat the same question or ask for information already provided.
+THINKING: <Why this question adds diagnostic value>.
+ANSWER: <Your next question, or say: 'No further useful question available at this point.'>
 
 Vignette:\n{vignette_summary}
-Current Esimtated Diagnosis: {diagnosis}
+Current Estimated Diagnosis: {diagnosis}
 """
         )
         if "ANSWER:" in raw_followup:
@@ -216,23 +252,87 @@ Current Esimtated Diagnosis: {diagnosis}
 
         turn_count += 2
 
-        # === Save role-specific outputs ===
-        with open("questioning_doctor_outputs.json", "w") as f:
-            json.dump(questioning_doctor_outputs, f, indent=2)
-        with open("patient_followups.json", "w") as f:
-            json.dump(patient_response, f, indent=2)
+    with open(f"summarizer_outputs/summarizer_{idx}.json", "w") as f:
+        json.dump(summarizer_outputs, f, indent=2)
+    with open(f"patient_followups/patient_{idx}.json", "w") as f:
+        json.dump(patient_response, f, indent=2)
+    with open(f"diagnosing_doctor_outputs/diagnoser_{idx}.json", "w") as f:
+        json.dump(diagnosing_doctor_outputs, f, indent=2)
+    with open(f"questioning_doctor_outputs/questioner_{idx}.json", "w") as f:
+        json.dump(questioning_doctor_outputs, f, indent=2)
+    with open(f"treatment_plans/treatment_{idx}.json", "w") as f:
+        json.dump(treatment_plans, f, indent=2)
+
+    return {
+        "vignette_index": idx,
+        "patient_response": patient_response,
+        "summarizer_outputs": summarizer_outputs,
+        "diagnosing_doctor_outputs": diagnosing_doctor_outputs,
+        "questioning_doctor_outputs": questioning_doctor_outputs,
+        "treatment_plans": treatment_plans,
+    }
 
 
-# === Load and Flatten JSON ===
-with open("dataset_generation/Again/disease_vignettes.json", "r") as f:
-    vignette_dict = json.load(f)
+def run_vignette_task(args):
+    idx, vignette_text, disease = args
+    global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs, treatment_plans
+    conversation = []
+    patient_response = []
+    summarizer_outputs = []
+    diagnosing_doctor_outputs = []
+    questioning_doctor_outputs = []
+    treatment_plans = []
+    return process_vignette(idx, vignette_text, disease)
 
-flattened_vignettes = []
-for disease, vignettes in vignette_dict.items():
-    for vignette in vignettes:
-        flattened_vignettes.append((disease, vignette))
 
-for idx, (disease, vignette_text) in enumerate(flattened_vignettes):
-    process_vignette(idx, vignette_text)
+if __name__ == "__main__":
+    os.makedirs("summarizer_outputs", exist_ok=True)
+    os.makedirs("patient_followups", exist_ok=True)
+    os.makedirs("diagnosing_doctor_outputs", exist_ok=True)
+    os.makedirs("questioning_doctor_outputs", exist_ok=True)
+    os.makedirs("treatment_plans", exist_ok=True)
 
-print("\n✅ All role outputs saved.")
+    with open("dataset_generation/Again/disease_vignettes.json", "r") as f:
+        vignette_dict = json.load(f)
+
+    flattened_vignettes = []
+    for disease, vignettes in vignette_dict.items():
+        for vignette in vignettes[:2]:  # Only take the first 2
+            flattened_vignettes.append((disease, vignette))
+
+    # Launch multiprocessing pool with 10 workers
+    with multiprocessing.Pool(processes=10) as pool:
+        results = pool.map(
+            run_vignette_task,
+            [
+                (idx, vignette_text, disease)
+                for idx, (disease, vignette_text) in enumerate(flattened_vignettes)
+            ],
+        )
+
+    # Aggregate and save all results to JSON
+    all_patient_followups = []
+    all_summarizer_outputs = []
+    all_diagnosing_doctor_outputs = []
+    all_questioning_doctor_outputs = []
+    all_treatment_plans = []
+
+    for result in results:
+        all_patient_followups.extend(result["patient_response"])
+        all_summarizer_outputs.extend(result["summarizer_outputs"])
+        all_diagnosing_doctor_outputs.extend(result["diagnosing_doctor_outputs"])
+        all_questioning_doctor_outputs.extend(result["questioning_doctor_outputs"])
+        all_treatment_plans.extend(result["treatment_plans"])
+
+    with open("patient_followups.json", "w") as f:
+        json.dump(all_patient_followups, f, indent=2)
+    with open("summarizer_outputs.json", "w") as f:
+        json.dump(all_summarizer_outputs, f, indent=2)
+    with open("diagnosing_doctor_outputs.json", "w") as f:
+        json.dump(all_diagnosing_doctor_outputs, f, indent=2)
+    with open("questioning_doctor_outputs.json", "w") as f:
+        json.dump(all_questioning_doctor_outputs, f, indent=2)
+    with open("treatment_plans.json", "w") as f:
+        json.dump(all_treatment_plans, f, indent=2)
+
+    print("\n✅ All role outputs saved.")

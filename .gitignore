@@ -24,5 +24,10 @@ datasets/combined_dataset.jsonl
 datasets/icliniq.json
 datasets_for_dataGen
 datasets/other
+# second iteration of datasets
+patient_followups
+questioning_doctor_outputs
+summarizer_outputs
+diagnosing_doctor_outputs
 
 .DS_Store
