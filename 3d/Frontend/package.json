@@ -22,7 +22,7 @@
     "camera-controls": "^2.10.1",
     "clsx": "^2.1.1",
     "firebase": "^11.7.1",
-    "framer-motion": "^11.0.3",
+    "framer-motion": "^11.18.2",
     "gsap": "^3.13.0",
     "i": "^0.3.7",
     "leva": "^0.10.0",
@@ -34,6 +34,7 @@
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-textarea-autosize": "^8.5.9",
     "tailwind-merge": "^3.3.0",
     "three": "^0.176.0"
   },

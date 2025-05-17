@@ -20,9 +20,16 @@ const config: Config = {
         dukeBlue: '#0d2847',        // Duke blue (replaces navy)
         trueBlue: '#edf2f7',        // True Blue (replaces lightBlue)
       },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 }
 
 export default config 

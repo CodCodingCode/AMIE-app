@@ -2,7 +2,8 @@
 import { cn } from "../lib/utils";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import { IconBrandTabler, IconMenu2, IconUserBolt, IconX } from "@tabler/icons-react";
+import Image from "next/image";
 
 interface Links {
   label: string;
@@ -13,12 +14,9 @@ interface Links {
 interface SidebarContextProps {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  animate: boolean;
 }
 
-const SidebarContext = createContext<SidebarContextProps | undefined>(
-  undefined
-);
+const SidebarContext = createContext<SidebarContextProps | undefined>(undefined);
 
 export const useSidebar = () => {
   const context = useContext(SidebarContext);
@@ -32,12 +30,10 @@ export const SidebarProvider = ({
   children,
   open: openProp,
   setOpen: setOpenProp,
-  animate = true,
 }: {
   children: React.ReactNode;
   open?: boolean;
   setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-  animate?: boolean;
 }) => {
   const [openState, setOpenState] = useState(false);
 
@@ -45,7 +41,7 @@ export const SidebarProvider = ({
   const setOpen = setOpenProp !== undefined ? setOpenProp : setOpenState;
 
   return (
-    <SidebarContext.Provider value={{ open, setOpen, animate: animate }}>
+    <SidebarContext.Provider value={{ open, setOpen }}>
       {children}
     </SidebarContext.Provider>
   );
@@ -55,15 +51,13 @@ export const Sidebar = ({
   children,
   open,
   setOpen,
-  animate,
 }: {
   children: React.ReactNode;
   open?: boolean;
   setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-  animate?: boolean;
 }) => {
   return (
-    <SidebarProvider open={open} setOpen={setOpen} animate={animate}>
+    <SidebarProvider open={open} setOpen={setOpen}>
       {children}
     </SidebarProvider>
   );
@@ -83,16 +77,20 @@ export const DesktopSidebar = ({
   children,
   ...props
 }: React.ComponentProps<typeof motion.div>) => {
-  const { open, setOpen, animate } = useSidebar();
+  const { open, setOpen } = useSidebar();
   return (
     <>
       <motion.div
         className={cn(
-          "h-full px-4 py-4 hidden  md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 w-[300px] shrink-0",
+          "h-full hidden md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 relative",
           className
         )}
         animate={{
-          width: animate ? (open ? "300px" : "60px") : "300px",
+          width: open ? "300px" : "80px",
+        }}
+        transition={{
+          duration: 0.3,
+          ease: "easeInOut"
         }}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
@@ -114,7 +112,7 @@ export const MobileSidebar = ({
     <>
       <div
         className={cn(
-          "h-10 px-4 py-4 flex flex-row md:hidden  items-center justify-between bg-neutral-100 dark:bg-neutral-800 w-full"
+          "h-10 px-4 py-4 flex flex-row md:hidden items-center justify-between bg-neutral-100 dark:bg-neutral-800 w-full"
         )}
         {...props}
       >
@@ -162,27 +160,108 @@ export const SidebarLink = ({
   link: Links;
   className?: string;
 }) => {
-  const { open, animate } = useSidebar();
+  const { open } = useSidebar();
+  
   return (
     <a
       href={link.href}
       className={cn(
-        "flex items-center justify-start gap-2  group/sidebar py-2",
+        "flex items-center group/sidebar relative h-12",
         className
       )}
       {...props}
     >
-      {link.icon}
-
-      <motion.span
-        animate={{
-          display: animate ? (open ? "inline-block" : "none") : "inline-block",
-          opacity: animate ? (open ? 1 : 0) : 1,
-        }}
-        className="text-neutral-700 dark:text-neutral-200 text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
-      >
-        {link.label}
-      </motion.span>
+      {/* Icon container - fixed position regardless of sidebar state */}
+      <div className="absolute left-0 w-20 flex justify-center items-center h-full">
+        <div className="scale-[1.2]">{link.icon}</div>
+      </div>
+      
+      {/* Text container - appears on hover */}
+      <AnimatePresence>
+        {open && (
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="absolute left-20 text-neutral-700 dark:text-neutral-200 text-base font-medium whitespace-nowrap overflow-hidden"
+          >
+            {link.label}
+          </motion.span>
+        )}
+      </AnimatePresence>
     </a>
+  );
+};
+
+export const Logo = () => {
+  const { open } = useSidebar();
+  
+  return (
+    <div className="relative h-16 flex items-center">
+      {/* Logo is always centered in the collapsed sidebar width */}
+      <div className="absolute left-0 w-20 flex justify-center">
+        <div className="flex-shrink-0">
+          <Image src="/reallogo.png" alt="Bluebox" width={40} height={40} />
+        </div>
+      </div>
+      
+      {/* Text appears on hover */}
+      <AnimatePresence>
+        {open && (
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="absolute left-20 font-medium whitespace-nowrap text-black dark:text-white text-lg overflow-hidden"
+          >
+            Explore the Bluebox!
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+export const SidebarMenu = () => {
+  // Simplified set of links
+  const menuLinks = [
+    {
+      label: "New chat",
+      href: "#",
+      icon: <IconBrandTabler className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+    },
+    {
+      label: "Past chats",
+      href: "#",
+      icon: <IconUserBolt className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+    },
+  ];
+  
+  return (
+    <SidebarBody className="justify-between flex-col">
+      <div className="flex flex-1 flex-col">
+        <Logo />
+        <div className="mt-10 flex flex-col">
+          {menuLinks.map((link, idx) => (
+            <SidebarLink key={idx} link={link} />
+          ))}
+        </div>
+      </div>
+      <div className="mt-auto">
+        <SidebarLink
+          link={{
+            label: "Your Profile",
+            href: "#",
+            icon: (
+              <div className="h-8 w-8 shrink-0 rounded-full bg-neutral-300 dark:bg-neutral-600 grid place-items-center">
+                <span className="text-xs text-neutral-700 dark:text-neutral-200">N</span>
+              </div>
+            ),
+          }}
+        />
+      </div>
+    </SidebarBody>
   );
 };
