@@ -6,7 +6,6 @@ generate_input.py
 .env*
 __pycache__
 
-
 # Folders
 AMIE-App
 amie-app2
@@ -14,6 +13,20 @@ doctorpoc
 sft_output
 medical_dataset
 
+# All conversation outputs
+*_outputs.json
+*_followups.json
+*_plans.json
+all_*.json
+conversation_outputs/
+
+# Dataset directories
+patient_followups/
+questioning_doctor_outputs/
+summarizer_outputs/
+diagnosing_doctor_outputs/
+treatment_plans/
+2*/
 
 #datasets
 datasets/SFT/chatdoctor5k.json
@@ -24,27 +37,11 @@ datasets/combined_dataset.jsonl
 datasets/icliniq.json
 datasets_for_dataGen
 datasets/other
-# second iteration of datasets
-patient_followups
-questioning_doctor_outputs
-summarizer_outputs
-diagnosing_doctor_outputs
-treatment_plans
 
-
-# Third iteration of datasets
-2diagnosing_doctor_outputs
-2patient_followups
-2questioning_doctor_outputs
-2summarizer_outputs
-2treatment_plans
 #random files
 validated_disease_vignettes.json
 edited_file.jsonl
 combined_conversations.json
-all_summarizer_outputs.json
-all_questioning_doctor_outputs.json
-all_patient_followups.json
-all_diagnosing_doctor_outputs.json
 
+# OS generated files
 .DS_Store
