@@ -77,7 +77,7 @@ const Footer = () => {
       </div>
       
       {/* Footer bottom - Copyright and links */}
-      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-black-900 flex flex-col md:flex-row justify-between items-center">
+      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-black flex flex-col md:flex-row justify-between items-center">
         <div className="text-sm opacity-70 mb-4 md:mb-0">
           Copyright 2024© bluebox.ai All Rights Reserved
         </div>
