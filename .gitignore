@@ -13,12 +13,21 @@ doctorpoc
 sft_output
 medical_dataset
 
-# All conversation outputs
+# Large files - specific exclusions
+combined_conversations.json
+all_diagnosing_doctor_outputs.json
+all_patient_followups.json
+all_questioning_doctor_outputs.json
+all_summarizer_outputs.json
+all_treatment_plans.json
+
+# Output files - pattern matching
 *_outputs.json
 *_followups.json
 *_plans.json
 all_*.json
 conversation_outputs/
+2*.json
 
 # Dataset directories
 patient_followups/
@@ -41,7 +50,6 @@ datasets/other
 #random files
 validated_disease_vignettes.json
 edited_file.jsonl
-combined_conversations.json
 
 # OS generated files
 .DS_Store

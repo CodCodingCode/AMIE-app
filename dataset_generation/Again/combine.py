@@ -8,6 +8,7 @@ files = {
     "You are a clinical summarizer trained to extract structured vignettes from doctor–patient dialogues.": "all_summarizer_outputs.json",
     "You are a board-certified diagnostician that diagnoses patients.": "all_diagnosing_doctor_outputs.json",
     "You are a physician asking questions to diagnose a patient.": "all_questioning_doctor_outputs.json",
+    "You are a board-certified clinician. Based on the diagnosis and patient vignette provided below, suggest a concise treatment plan that could realistically be initiated by a primary care physician or psychiatrist.": "all_treatment_outputs.json",
 }
 
 combined_data = []
@@ -20,11 +21,13 @@ for instruction, filename in files.items():
     with open(filename, "r") as f:
         entries = json.load(f)
         for entry in entries:
-            combined_data.append({
-                "instruction": instruction,
-                "input": re.sub(r"^\s*\d+\.\s*", "", entry.get("input", "")),
-                "output": entry.get("output", "")
-            })
+            combined_data.append(
+                {
+                    "instruction": instruction,
+                    "input": re.sub(r"^\s*\d+\.\s*", "", entry.get("input", "")),
+                    "output": entry.get("output", ""),
+                }
+            )
 
 # Save combined output
 with open("combined_conversations.json", "w") as f:

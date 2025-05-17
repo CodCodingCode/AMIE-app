@@ -3,10 +3,11 @@ import json
 
 # Define the folders and their corresponding output filenames
 folders = {
-    "diagnosing_doctor_outputs": "all_diagnosing_doctor_outputs.json",
-    "patient_followups": "all_patient_followups.json",
-    "questioning_doctor_outputs": "all_questioning_doctor_outputs.json",
-    "summarizer_outputs": "all_summarizer_outputs.json",
+    "2diagnosing_doctor_outputs": "all_diagnosing_doctor_outputs.json",
+    "2patient_followups": "all_patient_followups.json",
+    "2questioning_doctor_outputs": "all_questioning_doctor_outputs.json",
+    "2summarizer_outputs": "all_summarizer_outputs.json",
+    "2treatment_plans": "all_treatment_outputs.json",
 }
 
 for folder, output_file in folders.items():
