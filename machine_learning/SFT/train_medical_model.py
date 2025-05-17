@@ -27,7 +27,7 @@ print(f"CUDA available: {torch.cuda.get_device_name(0)}")
 # ────────────────────────────────────────────────────────────────────────────────
 # 2) Load & prepare model for LoRA + Value Head + 4-bit quantization
 # ────────────────────────────────────────────────────────────────────────────────
-model_name = "aaditya/Llama3-OpenBioLLM-8B"
+model_name = "Qwen/Qwen-7B"
 print(f"Loading value-headed model in 4-bit for PPO compatibility: {model_name}")
 
 bnb_config = BitsAndBytesConfig(
@@ -42,6 +42,7 @@ model = AutoModelForCausalLMWithValueHead.from_pretrained(
     model_name,
     quantization_config=bnb_config,
     device_map="auto",
+    trust_remote_code=True,
 )
 
 model = prepare_model_for_kbit_training(model)
@@ -64,7 +65,7 @@ model.generation_config = GenerationConfig(**model.config.to_dict())
 # ────────────────────────────────────────────────────────────────────────────────
 # 3) Tokenizer
 # ────────────────────────────────────────────────────────────────────────────────
-tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False)
+tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 if tokenizer.pad_token_id is None:
     tokenizer.pad_token_id = tokenizer.eos_token_id
 

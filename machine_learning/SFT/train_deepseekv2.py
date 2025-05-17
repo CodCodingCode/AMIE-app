@@ -68,7 +68,13 @@ model.print_trainable_parameters()
 records = []
 with open("combined_dataset_clean.jsonl", "r") as f:
     for line in f:
-        rec = json.loads(line)
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            rec = json.loads(line)
+        except json.JSONDecodeError:
+            continue
         instr, inp, out = (
             rec.get("instruction", "").strip(),
             rec.get("input", "").strip(),
@@ -149,5 +155,3 @@ trainer.train()
 model.save_pretrained("./sft_output")
 tokenizer.save_pretrained("./sft_output")
 print("✅ Model saved to ./sft_output")
-
-
