@@ -4,20 +4,17 @@ from openai import OpenAI
 import time
 import multiprocessing
 import shutil
-import argparse
-from pathlib import Path
 
-# Set up argument parser
-parser = argparse.ArgumentParser(description='Generate medical conversations from vignettes')
-parser.add_argument('--dataset', type=str, required=True, help='Path to the dataset JSON file')
-parser.add_argument('--output-dir', type=str, default='conversation_outputs', help='Directory for output files')
-parser.add_argument('--model', type=str, default='gpt-4.1-nano', help='OpenAI model to use')
-parser.add_argument('--max-vignettes-per-condition', type=int, default=5, help='Maximum number of vignettes to process per condition')
-args = parser.parse_args()
+# === Configuration (hard-coded, no CLI arguments) ===
+dataset_path = "validated_disease_vignettes.json"  # <-- change to your actual file path
+output_dir = "conversation_outputs"
+model = "gpt-4.1-nano"  # Or another OpenAI model string
+max_vignettes_per_condition = 5
 
 # Initialize OpenAI client
-client = OpenAI(api_key="api")  # Replace with your actual API key
-model = args.model
+client = OpenAI(
+    api_key="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"
+)  # Replace with your actual API key
 
 treatment_plans = []
 
@@ -69,7 +66,7 @@ def process_vignette(idx, vignette_text, gold_label, output_dir):
 
     # Clean the vignette text by removing the numerical prefix if present
     vignette_text = vignette_text.strip()
-    if vignette_text[0].isdigit() and vignette_text[1] == '.':
+    if vignette_text[0].isdigit() and vignette_text[1] == ".":
         vignette_text = vignette_text[2:].strip()
 
     raw_patient = patient.ask(
@@ -94,7 +91,7 @@ ANSWER: <your vague, real-patient-style reply to the doctor>
 Patient background: {vignette_text}
 Doctor's question: {initial_prompt}"""
     )
-    
+
     if "ANSWER:" in raw_patient:
         patient_response_text = raw_patient.split("ANSWER:")[1].strip()
     else:
@@ -310,14 +307,16 @@ Doctor's question: {initial_prompt}"""
     os.makedirs(f"{output_dir}/diagnosing_doctor_outputs", exist_ok=True)
     os.makedirs(f"{output_dir}/questioning_doctor_outputs", exist_ok=True)
     os.makedirs(f"{output_dir}/treatment_plans", exist_ok=True)
-    
+
     with open(f"{output_dir}/summarizer_outputs/summarizer_{idx}.json", "w") as f:
         json.dump(summarizer_outputs, f, indent=2)
     with open(f"{output_dir}/patient_followups/patient_{idx}.json", "w") as f:
         json.dump(patient_response, f, indent=2)
     with open(f"{output_dir}/diagnosing_doctor_outputs/diagnoser_{idx}.json", "w") as f:
         json.dump(diagnosing_doctor_outputs, f, indent=2)
-    with open(f"{output_dir}/questioning_doctor_outputs/questioner_{idx}.json", "w") as f:
+    with open(
+        f"{output_dir}/questioning_doctor_outputs/questioner_{idx}.json", "w"
+    ) as f:
         json.dump(questioning_doctor_outputs, f, indent=2)
     with open(f"{output_dir}/treatment_plans/treatment_{idx}.json", "w") as f:
         json.dump(treatment_plans, f, indent=2)
@@ -347,14 +346,12 @@ def run_vignette_task(args):
 
 if __name__ == "__main__":
     # Create output directory structure
-    output_dir = args.output_dir
-    
     # Remove and recreate output directories to start empty
     if os.path.exists(output_dir):
         shutil.rmtree(output_dir)
-    
+
     os.makedirs(output_dir, exist_ok=True)
-    
+
     # Create subdirectories
     for subdir in [
         "summarizer_outputs",
@@ -366,7 +363,6 @@ if __name__ == "__main__":
         os.makedirs(f"{output_dir}/{subdir}", exist_ok=True)
 
     # Load the dataset from the specified path
-    dataset_path = args.dataset
     with open(dataset_path, "r") as f:
         try:
             vignette_dict = json.load(f)
@@ -376,7 +372,7 @@ if __name__ == "__main__":
 
     flattened_vignettes = []
     total_idx = 0
-    
+
     # Process each condition and its vignettes
     for disease, vignettes in vignette_dict.items():
         print(f"Processing condition: {disease}")
@@ -384,17 +380,19 @@ if __name__ == "__main__":
         if not isinstance(vignettes, list):
             print(f"Warning: Skipping {disease} as its value is not a list.")
             continue
-            
+
         # Limit the number of vignettes per condition if specified
-        max_vignettes = min(len(vignettes), args.max_vignettes_per_condition)
+        max_vignettes = min(len(vignettes), max_vignettes_per_condition)
         for vignette in vignettes[:max_vignettes]:
             flattened_vignettes.append((total_idx, vignette, disease, output_dir))
             total_idx += 1
 
     # Launch multiprocessing pool with the available cores
     num_workers = min(multiprocessing.cpu_count(), len(flattened_vignettes))
-    print(f"Starting processing with {num_workers} workers for {len(flattened_vignettes)} vignettes...")
-    
+    print(
+        f"Starting processing with {num_workers} workers for {len(flattened_vignettes)} vignettes..."
+    )
+
     with multiprocessing.Pool(processes=num_workers) as pool:
         results = pool.map(run_vignette_task, flattened_vignettes)
 
@@ -429,11 +427,13 @@ if __name__ == "__main__":
         "total_vignettes_processed": len(flattened_vignettes),
         "conditions": list(vignette_dict.keys()),
         "model_used": model,
-        "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")
+        "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
     }
-    
+
     with open(f"{output_dir}/metadata.json", "w") as f:
         json.dump(metadata, f, indent=2)
 
     print(f"\n✅ All role outputs saved to {output_dir}/")
-    print(f"✅ Processed {len(flattened_vignettes)} vignettes across {len(vignette_dict)} conditions.")
+    print(
+        f"✅ Processed {len(flattened_vignettes)} vignettes across {len(vignette_dict)} conditions."
+    )
