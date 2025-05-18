@@ -103,6 +103,7 @@ api_key.py
 3d/Frontend/node_modules/
 3d/Frontend/.next/
 3d/backend/api_key.py
+3d/Frontend/src/app/api/chat/route.ts
 
 .venv
 

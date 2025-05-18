@@ -1,5 +1,4 @@
 import { OpenAI } from 'openai';
-import { streamText } from 'ai';
 
 // Initialize OpenAI client with API key
 const openai = new OpenAI({
