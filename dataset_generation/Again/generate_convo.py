@@ -12,9 +12,7 @@ model = "gpt-4.1-nano"  # Or another OpenAI model string
 max_vignettes_per_condition = 5
 
 # Initialize OpenAI client
-client = OpenAI(
-    api_key="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"
-)  # Replace with your actual API key
+client = OpenAI(api_key="api")  # Replace with your actual API key
 
 treatment_plans = []
 
