@@ -14,7 +14,7 @@ const Footer = () => {
   if (hideOnPaths.includes(pathname)) return null;
 
   return (
-    <footer className="w-full px-8 md:px-16 bg-black text-white">
+    <section id = "footer" className="w-full px-8 md:px-16 bg-white text-black">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between">
         {/* Left side - Logo and mission */}
         <div className="md:w-1/3 mb-12 md:mb-0 pr-8">
@@ -77,7 +77,7 @@ const Footer = () => {
       </div>
       
       {/* Footer bottom - Copyright and links */}
-      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-black flex flex-col md:flex-row justify-between items-center">
+      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-black flex flex-col md:flex-row justify-between items-center mb-16">
         <div className="text-sm opacity-70 mb-4 md:mb-0">
           Copyright 2024© bluebox.ai All Rights Reserved
         </div>
@@ -86,7 +86,7 @@ const Footer = () => {
           <Link href="/terms" className="hover:opacity-100">Terms & Conditions</Link>
         </div>
       </div>
-    </footer>
+    </section>
   );
 };
 

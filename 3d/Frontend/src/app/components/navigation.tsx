@@ -9,6 +9,7 @@ export const Navigation = () => {
         <Link href='#Home' className="navbar-item">Home</Link>
         <Link href="#about" className="navbar-item">About</Link>
         <Link href="#benchmarks" className="navbar-item">Benchmarks</Link>
+        <Link href="#footer" className="navbar-item">Contact</Link>
       </nav>
     </div>
   );

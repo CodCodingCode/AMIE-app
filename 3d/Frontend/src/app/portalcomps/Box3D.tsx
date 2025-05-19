@@ -214,4 +214,4 @@ const Box3D = ({ initialPosition = [30, 0, 0], onZoomStart }: Box3DProps) => {
   );
 };
 
-export default Box3D; 
+export default Box3D;

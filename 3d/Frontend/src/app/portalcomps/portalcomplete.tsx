@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera, Text } from '@react-three/drei';
@@ -15,7 +14,6 @@ const PortalScene = () => {
   const [isZooming, setIsZooming] = useState(false);
   const [boxKey, setBoxKey] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
   const pathname = usePathname();
 
   useEffect(() => {
@@ -30,7 +28,6 @@ const PortalScene = () => {
       e.preventDefault();
       setCanvasResetKey(prev => prev + 1);
     };
-
     const canvas = canvasRef.current;
     canvas?.addEventListener('webglcontextlost', handleContextLost);
     return () => canvas?.removeEventListener('webglcontextlost', handleContextLost);
@@ -38,9 +35,11 @@ const PortalScene = () => {
 
   return (
     <div className="h-screen w-full bg-white relative">
-      <Canvas
+      <Canvas 
         key={canvasResetKey}
-        gl={{ antialias: true }}
+        gl={{ 
+          antialias: true
+        }}
         onCreated={({ gl }) => {
           canvasRef.current = gl.domElement;
           gl.toneMapping = THREE.ACESFilmicToneMapping;
@@ -51,21 +50,23 @@ const PortalScene = () => {
         
         <MouseParallax isEnabled={!isZooming} strength={0.5} dampingFactor={0.10} />
         
+        {/* Don't wrap Box3D in another mesh, as it already contains meshes */}
         <Box3D key={boxKey} onZoomStart={() => setIsZooming(true)} />
+        
         <BasicLights />
-
-      <Text
-        position={[-6.5, 0, 0]}
-        fontSize={1}
-        color="black"
-        anchorX="center"
-        anchorY="middle"
-      >
-        Enter the Bluebox
-      </Text>
+        
+        <Text
+          position={[-6.5, 0, 0]}
+          fontSize={1}
+          color="black"
+          anchorX="center"
+          anchorY="middle"
+        >
+          Enter the Bluebox
+        </Text>
       </Canvas>
     </div>
   );
 };
 
-export default PortalScene; 
+export default PortalScene;

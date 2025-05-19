@@ -1,14 +1,25 @@
 'use client'
 
+import About from './components/about'
 import PortalScene from './portalcomps/portalcomplete'
+import Benchmarks from './components/benchmarks'
+import Footer from './components/footer'
+import Navigation from './components/navigation'
 
 export default function Home() {
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <section id = "Home" className="h-screen">
+    <div className="flex flex-col">
+      <Navigation />
+      <section id="Home">
         <PortalScene />
       </section>
+      <section id="About">
+        <About />
+      </section>
+      <section id="Benchmarks">
+        <Benchmarks />
+      </section>
+      <Footer />
     </div>
-  )
+  );
 }
