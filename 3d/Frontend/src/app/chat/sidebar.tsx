@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "../lib/utils";
+import { cn } from "@/app/lib/utils";
 import React, { useState, createContext, useContext, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IconMenu2, IconX, IconPlus, IconSettings, IconEdit, IconDiamond } from "@tabler/icons-react";
@@ -12,6 +12,7 @@ declare global {
   interface Window {
     createNewChat?: () => void;
     loadChat?: (chatId: string) => void;
+    refreshChatList?: () => void;
   }
 }
 
@@ -57,9 +58,9 @@ export const DesktopSidebar = ({ className, children, ...props }: React.Componen
   const hoverRef = useRef<NodeJS.Timeout | null>(null);
   return (
     <motion.div
-      className={cn("h-full hidden md:flex md:flex-col bg-neutral-900 border-r border-neutral-700 z-10 no-scrollbar", className)}
+      className={cn("h-full hidden md:flex md:flex-col bg-white border-r border-mountbattenPink z-10 no-scrollbar", className)}
       style={{ pointerEvents: 'auto' }}
-      animate={{ width: open ? 300 : 80 }}
+      animate={{ width: open ? 200 : 80 }}
       transition={{ duration: 0.2, ease: 'easeInOut' }}
       onMouseEnter={() => { hoverRef.current && clearTimeout(hoverRef.current); setOpen(true); }}
       onMouseLeave={() => { hoverRef.current = setTimeout(() => setOpen(false), 300); }}
@@ -73,8 +74,8 @@ export const DesktopSidebar = ({ className, children, ...props }: React.Componen
 export const MobileSidebar = ({ className, children, ...props }: React.ComponentProps<'div'>) => {
   const { open, setOpen } = useSidebar();
   return (
-    <div className={cn("h-10 flex items-center justify-between md:hidden px-4 py-4 bg-neutral-900 w-full", className)} {...props}>
-      <IconMenu2 onClick={() => setOpen(!open)} className="text-neutral-200" />
+    <div className={cn("h-10 flex items-center justify-between md:hidden px-4 py-4 bg-white w-full", className)} {...props}>
+      <IconMenu2 onClick={() => setOpen(!open)} className="text-dukeBlue" />
       <AnimatePresence>
         {open && (
           <motion.div
@@ -82,9 +83,9 @@ export const MobileSidebar = ({ className, children, ...props }: React.Component
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: '-100%', opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-neutral-900 p-10 flex flex-col justify-between"
+            className="fixed inset-0 z-50 bg-white p-10 flex flex-col justify-between"
           >
-            <IconX onClick={() => setOpen(false)} className="absolute top-4 right-4 text-neutral-200" />
+            <IconX onClick={() => setOpen(false)} className="absolute top-4 right-4 text-dukeBlue" />
             {children}
           </motion.div>
         )}
@@ -103,21 +104,6 @@ export const Logo = () => {
         <div onClick={() => router.push('/')} className="cursor-pointer">
           <Image src="/reallogo.png" alt="Bluebox" width={32} height={32} />
         </div>
-        <AnimatePresence>
-          {open && (
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="font-medium text-xl text-white"
-              onClick={() => router.push('/')}
-              style={{ cursor: 'pointer' }}
-            >
-              Explore the Bluebox!
-            </motion.span>
-          )}
-        </AnimatePresence>
       </div>
     </div>
   );
@@ -140,12 +126,12 @@ const SidebarItem = ({
     <div 
       className={cn(
         "flex items-center h-10 px-5 cursor-pointer rounded-md mx-2",
-        active ? "bg-neutral-800" : "hover:bg-neutral-800"
+        active ? "bg-trueBlue text-dukeBlue" : "hover:bg-trueBlue"
       )}
       onClick={onClick}
     >
       <div className="flex items-center gap-5">
-        <Icon className="h-5 w-5 text-neutral-400" />
+        <Icon className={cn("h-5 w-5", active ? "text-dukeBlue" : "text-mountbattenPink")} />
         <AnimatePresence>
           {open && (
             <motion.span
@@ -153,7 +139,7 @@ const SidebarItem = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="text-sm text-neutral-300 whitespace-nowrap"
+              className={cn("text-sm whitespace-nowrap", active ? "text-dukeBlue" : "text-mountbattenPink")}
             >
               {text}
             </motion.span>
@@ -170,7 +156,7 @@ const SidebarSection = ({ title, children }: { title?: string; children: React.R
   return (
     <div className="mt-5">
       {title && open && (
-        <div className="px-7 py-1 text-xs text-neutral-500 uppercase">
+        <div className="px-7 py-1 text-xs text-mountbattenPink uppercase">
           {title}
         </div>
       )}
@@ -187,6 +173,7 @@ export const SidebarMenu = () => {
   const router = useRouter();
   const [chats, setChats] = useState<Chat[]>([]);
   const [loading, setLoading] = useState(false);
+  const [currentMessages, setCurrentMessages] = useState<number>(0);
 
   useEffect(() => {
     if (!user) return;
@@ -194,8 +181,43 @@ export const SidebarMenu = () => {
     chatService.getUserChats(user).then(setChats).finally(() => setLoading(false));
   }, [user]);
 
+  // Listen for refresh events to update chat list
+  useEffect(() => {
+    const handleRefreshChatList = async () => {
+      if (!user) return;
+      setLoading(true);
+      try {
+        const updatedChats = await chatService.getUserChats(user);
+        setChats(updatedChats);
+      } catch (error) {
+        console.error('Error refreshing chat list:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('refreshChatList', handleRefreshChatList);
+      
+      // Create custom event listener to track current message count
+      const handleMessageCountUpdate = (event: CustomEvent) => {
+        setCurrentMessages(event.detail.count);
+      };
+      
+      window.addEventListener('messageCountUpdate', handleMessageCountUpdate as EventListener);
+      
+      return () => {
+        window.removeEventListener('refreshChatList', handleRefreshChatList);
+        window.removeEventListener('messageCountUpdate', handleMessageCountUpdate as EventListener);
+      };
+    }
+  }, [user]);
+
   const handleNewChat = () => {
-    window.createNewChat?.();
+    // Only trigger new chat if we have messages in the current chat
+    if (currentMessages > 0) {
+      window.createNewChat?.();
+    }
   };
 
   return (
@@ -207,14 +229,15 @@ export const SidebarMenu = () => {
           <SidebarItem 
             icon={IconEdit} 
             text="New chat" 
-            onClick={handleNewChat} 
+            onClick={handleNewChat}
+            active={currentMessages === 0} // Highlight when we're already in a new chat
           />
         </SidebarSection>
         
-        <SidebarSection title={open ? "Recent" : undefined}>
+        <SidebarSection >
           {loading ? (
             <div className={cn(
-              "px-7 py-2 text-sm text-neutral-500",
+              "px-7 py-2 text-sm text-mountbattenPink",
               !open && "text-center"
             )}>
               {open ? "Loading..." : "..."}
@@ -225,7 +248,7 @@ export const SidebarMenu = () => {
                 <div 
                   key={chat.id}
                   onClick={() => window.loadChat?.(chat.id)}
-                  className="flex items-center h-10 px-5 cursor-pointer hover:bg-neutral-800 rounded-md mx-2"
+                  className="flex items-center h-10 px-5 cursor-pointer hover:bg-trueBlue rounded-md mx-2"
                 >
                   <AnimatePresence>
                     {open && (
@@ -234,14 +257,14 @@ export const SidebarMenu = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="truncate max-w-[240px] text-sm text-neutral-300"
+                        className="truncate max-w-[240px] text-sm text-mountbattenPink"
                       >
-                        {chat.title}
+                        {chat.title || "New Chat"}
                       </motion.span>
                     )}
                     {!open && (
                       <div className="w-5 h-5 flex items-center justify-center">
-                        <div className="w-2 h-2 rounded-full bg-neutral-500"></div>
+                        <div className="w-2 h-2 rounded-full bg-mountbattenPink"></div>
                       </div>
                     )}
                   </AnimatePresence>
@@ -257,11 +280,7 @@ export const SidebarMenu = () => {
               text="Settings & help" 
               onClick={() => router.push('/settings')}
             />
-          ) : (
-            <div className="px-5">
-              <AuthButton />
-            </div>
-          )}
+          ) : null}
         </SidebarSection>
       </div>
     </SidebarBody>

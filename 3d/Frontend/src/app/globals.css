@@ -32,7 +32,7 @@ body {
 }
 
 @layer components {
-    /* Simple navbar styles */
+  /* Simple navbar styles */
   .navbar {
     background-color: var(--black);
     border: 1px solid var(--beige);
@@ -61,15 +61,15 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-  
+
   /* Hide scrollbar but still allow scrolling */
   .no-scrollbar {
     -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    scrollbar-width: none;     /* Firefox */
   }
-  
+
   .no-scrollbar::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;             /* Chrome, Safari, Opera */
   }
 }
 
@@ -79,15 +79,20 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Scrollbar */
-::-webkit-scrollbar-thumb {
-  background-color: #bdbdbd; /* Scrollbar handle color */
-  border-radius: 4px;
-  border: none;
+/* Hide scrollbar completely for WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  display: none;
 }
 
-/* Firefox */
+/* Hide scrollbar completely for Firefox */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: #bdbdbd transparent;
+  scrollbar-width: none;
+  /* The existing scrollbar-color property will also be overridden or become irrelevant */
+  /* Retaining the original rule and letting `scrollbar-width: none` take precedence */
+  scrollbar-color: rgba(128, 128, 128, 0.3) transparent;
+}
+
+/* Ensure this Firefox rule for scrollbar-width: none has higher specificity or is the last one if conflicting */
+html {
+    scrollbar-width: none; /* More specific for Firefox if needed */
 }

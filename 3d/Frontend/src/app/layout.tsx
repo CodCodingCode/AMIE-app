@@ -9,6 +9,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Bluebox",
+  icons: {
+    icon: "/reallogo.png",
+  },
   description: "Get instant, reliable medical guidance anytime, anywhere with Bluebox",
 };
 

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useMemo } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
 import { Mesh, Group } from 'three';
@@ -14,7 +14,12 @@ type Box3DProps = {
 // Interactive 3D box
 const Box3D = ({ initialPosition = [30, 0, 0], onZoomStart }: Box3DProps) => {
   const router = useRouter();
-  const { scene } = useGLTF('/blueboxreal.glb');
+  const gltf = useGLTF('/blueboxreal.glb'); // Load GLTF data
+
+  // Create a memoized deep clone of the scene. This ensures Box3D works with its own copy.
+  // This runs once when gltf.scene is first available for this component instance.
+  const scene = useMemo(() => gltf.scene.clone(true), [gltf.scene]);
+
   const boxRef = useRef<Group>(null);
   const materialRefs = useRef<THREE.MeshStandardMaterial[]>([]);
   const initialRotation = useRef(Math.PI * 2.25);
@@ -38,14 +43,35 @@ const Box3D = ({ initialPosition = [30, 0, 0], onZoomStart }: Box3DProps) => {
   useEffect(() => {
     if (!boxRef.current) return;
     
-    // Set initial position and rotation
+    // Initialize the cloned scene's properties
     boxRef.current.rotation.y = initialRotation.current;
     boxRef.current.position.set(initialPosition[0], initialPosition[1], initialPosition[2]);
 
-    // Find and set up sliding doors
+    // Clear previous refs to avoid issues on potential fast re-renders/HMR
+    leftDoorRef.current = null;
+    rightDoorRef.current = null;
+    logoOuterRef.current = null;
+    logoInnerRef.current = null;
+    leftDoorInitialPos.current = null;
+    rightDoorInitialPos.current = null;
+    logoOuterInitialPos.current = null;
+    logoInnerInitialPos.current = null;
+    materialRefs.current = [];
+
+    // Traverse THIS INSTANCE'S CLONED scene to set initial states and get refs
     scene.traverse((child) => {
-      if (child instanceof Mesh) {
-        // Store references to specific doors
+      if (child instanceof Mesh && child.material) {
+        const mat = child.material as THREE.MeshStandardMaterial;
+
+        // Reset common material properties to default/initial state
+        mat.emissive = new THREE.Color(0x000000); 
+        mat.emissiveIntensity = 0;
+        mat.opacity = 1.0; 
+        mat.transparent = false; // Animations might set this to true, so reset
+        // If a material needs to start transparent, it should be handled specifically
+
+        // Store references to specific doors/logos from THIS CLONED SCENE
+        // Their positions will be the original positions from the GLTF data
         if (child.name === 'Cube') {
           leftDoorRef.current = child;
           leftDoorInitialPos.current = child.position.clone();
@@ -60,16 +86,10 @@ const Box3D = ({ initialPosition = [30, 0, 0], onZoomStart }: Box3DProps) => {
           logoInnerInitialPos.current = child.position.clone();
         }
         
-        // Setup materials for all meshes
-        if (child.material) {
-          const mat = child.material as THREE.MeshStandardMaterial;
-          mat.emissive = new THREE.Color(0x000000);
-          mat.emissiveIntensity = 0;
-          materialRefs.current.push(mat);
-        }
+        materialRefs.current.push(mat);
       }
     });
-  }, [scene, initialPosition]);
+  }, [scene, initialPosition]); // Depend on the cloned scene and initialPosition
 
   // Animate box based on hover state
   useFrame((state) => {
@@ -183,7 +203,7 @@ const Box3D = ({ initialPosition = [30, 0, 0], onZoomStart }: Box3DProps) => {
     <>
       <primitive
         ref={boxRef}
-        object={scene}
+        object={scene} // IMPORTANT: Use the cloned scene here
         scale={8.0}
         onClick={handleZoom}
         onPointerOver={() => { isHovered.current = true; }}

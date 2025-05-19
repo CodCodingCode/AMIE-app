@@ -1,6 +1,6 @@
 'use client';
 
-import { db } from '../firebase';
+import { db } from '@/app/firebase';
 import { collection, addDoc, getDocs, query, where, orderBy, doc, updateDoc, arrayUnion, getDoc, Timestamp } from 'firebase/firestore';
 import { User } from 'firebase/auth';
 

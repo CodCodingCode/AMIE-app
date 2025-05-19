@@ -4,26 +4,31 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera, Text } from '@react-three/drei';
 import * as THREE from 'three';
-import { EffectComposer, Bloom, GodRays } from '@react-three/postprocessing';
 import Box3D from './Box3D';
 import MouseParallax from './MouseParallax';
-import AnimatedStars from './stars';
 import BasicLights from './lights';
-import Platform from './cube';
-import { BlendFunction, KernelSize } from 'postprocessing';
+import { usePathname } from 'next/navigation';
 
 // Main component with canvas setup
 const PortalScene = () => {
-  const [key, setKey] = useState(0);
+  const [canvasResetKey, setCanvasResetKey] = useState(0);
   const [isZooming, setIsZooming] = useState(false);
+  const [boxKey, setBoxKey] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const sunRef = useRef<THREE.Mesh>(null!);
 
-  // Handle WebGL context loss
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname === '/') {
+      setBoxKey(prevKey => prevKey + 1);
+      setIsZooming(false);
+    }
+  }, [pathname]);
+
   useEffect(() => {
     const handleContextLost = (e: Event) => {
       e.preventDefault();
-      setKey(prev => prev + 1);
+      setCanvasResetKey(prev => prev + 1);
     };
 
     const canvas = canvasRef.current;
@@ -32,9 +37,9 @@ const PortalScene = () => {
   }, []);
 
   return (
-    <div className="h-screen w-full bg-black relative">
+    <div className="h-screen w-full bg-white relative">
       <Canvas
-        key={key}
+        key={canvasResetKey}
         gl={{ antialias: true }}
         onCreated={({ gl }) => {
           canvasRef.current = gl.domElement;
@@ -44,51 +49,15 @@ const PortalScene = () => {
       >
         <PerspectiveCamera makeDefault position={[0, 0, 15]} fov={60} />
         
-        {/* Scene Content */}
         <MouseParallax isEnabled={!isZooming} strength={0.5} dampingFactor={0.10} />
         
-        {/* Platform beneath the box */}
-        <Platform 
-          position={[17, -37, -40]} 
-          rotation={Math.PI * 2.25}
-          width={24}
-          height={50}
-          length={40}
-          color="#555555"
-        />
-        <Platform
-          position={[12, -42, -35]}
-          rotation={Math.PI * 2.25}
-          width={24}
-          height={50}
-          length={40}
-          color="#555555"
-        />
-        <Platform
-          position={[7, -47, -30]}
-          rotation={Math.PI * 2.25}
-          width={24}
-          height={50}
-          length={40}
-          color="#555555"
-        />
-        <Platform
-          position={[2, -52, -25]}
-          rotation={Math.PI * 2.25}
-          width={24}
-          height={50}
-          length={40}
-          color="#555555"
-        />
-        
-        <Box3D onZoomStart={() => setIsZooming(true)} />
-        <AnimatedStars />
+        <Box3D key={boxKey} onZoomStart={() => setIsZooming(true)} />
         <BasicLights />
 
       <Text
-        position={[-6.5, 0, 0]} // Adjust position to where you want the text
+        position={[-6.5, 0, 0]}
         fontSize={1}
-        color="white"
+        color="black"
         anchorX="center"
         anchorY="middle"
       >

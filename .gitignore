@@ -191,3 +191,12 @@ all_patient_followups.json
 all_diagnosing_doctor_outputs.json
 
 .DS_Store
+
+
+#3d
+3d/Frontend/node_modules/
+3d/Frontend/.next/
+3d/backend/api_key.py
+3d/Frontend/src/app/api/chat/route.ts
+3d/Frontend/src/app/firebase.ts
+3d/Frontend/src/app/lib/utils.ts

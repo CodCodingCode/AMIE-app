@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "motion/react";
 
-export function ColourfulText({ text }: { text: string }) {
+export function ColourfulText({ text, size = "default" }: { text: string; size?: "default" | "large" | "small" }) {
  const colors = [
    "rgb(131, 179, 32)",
    "rgb(47, 195, 106)",
@@ -29,6 +29,18 @@ export function ColourfulText({ text }: { text: string }) {
    return () => clearInterval(interval);
  }, []);
 
+ // Determine the font size based on the size prop
+ const getFontSize = () => {
+   switch (size) {
+     case "small":
+       return "3em";
+     case "large":
+       return "6em";
+     default:
+       return "5em";
+   }
+ };
+
  return text.split("").map((char, index) => (
    <motion.span
      key={`${char}-${count}-${index}`}
@@ -47,7 +59,7 @@ export function ColourfulText({ text }: { text: string }) {
        delay: index * 0.05,
      }}
      className="inline-block whitespace-pre tracking-tight"
-     style={{ fontSize: '5em' }}
+     style={{ fontSize: getFontSize() }}
    >
      {char}
    </motion.span>

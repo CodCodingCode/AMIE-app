@@ -7,13 +7,12 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 // - useEffect: for side effects like scrolling
 // - useCallback: for optimizing function performance
 
-import { IconSend, IconBrandGoogle } from '@tabler/icons-react'; // Importing icons
+import { IconSend } from '@tabler/icons-react'; // Importing icons
 import { ColourfulText } from './colourful';
 import TextareaAutosize from 'react-textarea-autosize';
 import { motion } from 'framer-motion';
 import { useAuth, AuthButton } from './Auth';
 import { chatService } from './chatService';
-import { useRouter } from 'next/navigation';
 
 // Defining TypeScript types for our messages
 type MessageSender = 'user' | 'assistant'; // Message can be from user or assistant
@@ -26,7 +25,6 @@ type ApiMessage = {
 
 export default function ChatWindow() {
   const { user, loading: authLoading } = useAuth();
-  const router = useRouter();
   
   // State management for our chat application
   const [chatState, setChatState] = useState<{
@@ -36,7 +34,8 @@ export default function ChatWindow() {
     partialResponse: string;
     inputHeight: number;
     isProcessing: boolean;
-    isLoading: boolean;
+    isLoading: boolean;           // used for initial app load
+    isChatLoading: boolean;       // NEW: used for switching between chats
     currentChatId: string | null;
   }>({
     messages: [],
@@ -45,7 +44,8 @@ export default function ChatWindow() {
     partialResponse: '',
     inputHeight: 56,
     isProcessing: false,
-    isLoading: false,
+    isLoading: false,       // for overall app
+    isChatLoading: false,   // for switching chats
     currentChatId: null
   });
 
@@ -55,7 +55,7 @@ export default function ChatWindow() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
   
   // Destructuring our state for easier access
-  const { messages, input, isTyping, partialResponse, inputHeight, isProcessing, isLoading, currentChatId } = chatState;
+  const { messages, input, isTyping, partialResponse, inputHeight, isProcessing, isLoading, currentChatId, isChatLoading } = chatState;
 
   // Load most recent chat on initial load if user is authenticated
   useEffect(() => {
@@ -95,12 +95,22 @@ export default function ChatWindow() {
     }
   }, [user, authLoading]);
 
+  // Notify sidebar of message count changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const event = new CustomEvent('messageCountUpdate', { 
+        detail: { count: messages.length } 
+      });
+      window.dispatchEvent(event);
+    }
+  }, [messages.length]);
+
   // Auto-scroll effect
   useEffect(() => {
-    if (messagesEndRef.current) {
+    if (messagesEndRef.current && !isChatLoading) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [messages, isTyping, partialResponse]);
+  }, [messages, isTyping, partialResponse, isChatLoading]);
 
   // Handle changes to the input textarea
   const handleInputChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -114,16 +124,29 @@ export default function ChatWindow() {
 
   // Function to create new chat
   const createNewChat = useCallback(async () => {
-    if (!user) return;
+    // If we already have an empty chat (no messages), don't create a new one
+    if (messages.length === 0) {
+      return; // Already in a fresh chat, no need to create a new one
+    }
+    
+    if (!user) {
+      // For non-authenticated users, just clear the messages
+      setChatState(prev => ({
+        ...prev,
+        messages: [],
+        currentChatId: null
+      }));
+      return;
+    }
     
     try {
       // Create a new chat in Firebase
       const newChatId = await chatService.createNewChat(user);
       
-      // Update local state
+      // Update local state but don't delete existing chats
       setChatState(prev => ({
         ...prev,
-        messages: [],
+        messages: [], // Clear only the messages for the new chat
         currentChatId: newChatId
       }));
       
@@ -135,7 +158,7 @@ export default function ChatWindow() {
     } catch (error) {
       console.error('Error creating new chat:', error);
     }
-  }, [user]);
+  }, [user, messages]);
 
   // Handle sending a message and receiving a response
   const handleSendMessage = useCallback(async () => {
@@ -161,13 +184,22 @@ export default function ChatWindow() {
         // Create new chat if we don't have one
         if (!activeChatId) {
           activeChatId = await chatService.createNewChat(user);
-          setChatState(prev => ({ ...prev, currentChatId: activeChatId }));
+          setChatState(prev => ({ 
+            ...prev, 
+            currentChatId: activeChatId 
+          }));
+          
+          // Refresh chat list
+          if (typeof window !== 'undefined') {
+            const event = new CustomEvent('refreshChatList');
+            window.dispatchEvent(event);
+          }
         }
         
         // Store message in Firestore
         await chatService.addMessageToChat(activeChatId, userMessage);
         
-        // Add this:
+        // Refresh chat list to update chat titles
         if (typeof window !== 'undefined') {
           const event = new CustomEvent('refreshChatList');
           window.dispatchEvent(event);
@@ -255,7 +287,7 @@ export default function ChatWindow() {
     if (!user) return;
     
     try {
-      setChatState(prev => ({ ...prev, isLoading: true }));
+      setChatState(prev => ({ ...prev, isChatLoading: true }));
       
       const chat = await chatService.getChat(chatId);
       if (chat) {
@@ -266,14 +298,14 @@ export default function ChatWindow() {
             sender: msg.sender
           })),
           currentChatId: chatId,
-          isLoading: false
+          isChatLoading: false
         }));
       } else {
-        setChatState(prev => ({ ...prev, isLoading: false }));
+        setChatState(prev => ({ ...prev, isChatLoading: false }));
       }
     } catch (error) {
       console.error('Error loading chat:', error);
-      setChatState(prev => ({ ...prev, isLoading: false }));
+      setChatState(prev => ({ ...prev, isChatLoading: false }));
     }
   }, [user]);
 
@@ -296,13 +328,13 @@ export default function ChatWindow() {
       }`}
     >
       {message.sender === 'user' ? (
-        // User message - displayed in dark bubble at top right
-        <div className="max-w-xs bg-gray-800 text-white p-4 rounded-2xl rounded-tr-sm shadow-sm">
+        // User message - displayed in blue bubble at top right
+        <div className="max-w-xs bg-dukeBlue text-white p-4 rounded-2xl rounded-tr-sm shadow-sm">
           <p className="text-sm whitespace-pre-wrap">{message.text}</p>
         </div>
       ) : (
         // Assistant message - displayed differently
-        <div className="max-w-full text-gray-800 dark:text-gray-200 py-2 text-lg leading-relaxed">
+        <div className="max-w-full text-mountbattenPink dark:text-mountbattenPink py-2 text-lg leading-relaxed">
           <p className="whitespace-pre-wrap">{message.text}</p>
         </div>
       )}
@@ -317,8 +349,8 @@ export default function ChatWindow() {
       >
         {/* Display sign-in prompt for unauthenticated users */}
         {!user && !authLoading && (
-          <div className="bg-blue-50 dark:bg-blue-900/30 rounded-lg p-4 mb-4 mt-4 flex items-center justify-between">
-            <p className="text-sm text-blue-800 dark:text-blue-200">
+          <div className="bg-trueBlue dark:bg-trueBlue rounded-lg p-4 mb-4 mt-4 flex items-center justify-between">
+            <p className="text-sm text-dukeBlue dark:text-dukeBlue">
               Sign in to save your chat history
             </p>
             <div className="flex-shrink-0">
@@ -327,10 +359,14 @@ export default function ChatWindow() {
           </div>
         )}
         
-        <div className="flex-1 overflow-y-auto pb-32 scrollbar-hide">
+        <div className="flex-1 overflow-y-auto pb-32 pt-12">
           {isLoading ? (
             <div className="flex items-center justify-center h-full">
-              <div className="w-4 h-4 bg-gray-300 rounded-full animate-pulse"></div>
+              <div className="w-4 h-4 bg-mountbattenPink rounded-full animate-pulse"></div>
+            </div>
+          ) : isChatLoading ? (
+            <div className="flex items-center justify-center h-full">
+              <p className="text-mountbattenPink dark:text-mountbattenPink text-sm animate-pulse">Loading chat...</p>
             </div>
           ) : (
             <>
@@ -338,14 +374,14 @@ export default function ChatWindow() {
 
               {messages.length === 0 && (
                 <div className="text-center fixed top-1/3 left-0 right-0 z-0 pointer-events-none">
-                  <h1 className="font-bold" style={{ fontSize: '5em' }}> Welcome to the </h1>
+                  <h1 className="font-bold text-mountbattenPink" style={{ fontSize: '5em' }}> Welcome to the </h1>
                   <ColourfulText text="Bluebox" />
                 </div>
               )}
 
               {partialResponse && (
                 <div className="message mb-6 animate-fadeIn">
-                  <div className="max-w-full text-gray-800 dark:text-gray-200 py-2 text-lg leading-relaxed">
+                  <div className="max-w-full text-mountbattenPink dark:text-mountbattenPink py-2 text-lg leading-relaxed">
                     <p className="whitespace-pre-wrap">{partialResponse}</p>
                   </div>
                 </div>
@@ -357,7 +393,7 @@ export default function ChatWindow() {
                     {[0, 0.2, 0.4].map((delay, i) => (
                       <div
                         key={i}
-                        className="w-2 h-2 rounded-full bg-gray-400 animate-bounce"
+                        className="w-2 h-2 rounded-full bg-mountbattenPink animate-bounce"
                         style={{ animationDelay: delay ? `${delay}s` : undefined }}
                       />
                     ))}
@@ -369,59 +405,50 @@ export default function ChatWindow() {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Message input area - fixed at bottom of screen */}
-        <div className="fixed bottom-0 left-0 right-0 z-10">
-          <div className="max-w-5xl mx-auto px-4">
-            <motion.div
-              className="mb-6 bg-gray-100 dark:bg-neutral-900 w-full rounded-t-xl pt-6"
-              style={{
-                transformOrigin: "bottom",
-                position: "relative"
-              }}
-            >
-              <div className="flex bg-white dark:bg-neutral-800 border border-black dark:border-neutral-600 rounded-3xl shadow-sm focus-within:shadow-md transition-shadow duration-300 px-4">
-                <div className="flex-1 flex flex-col justify-end">
-                  <TextareaAutosize
-                    ref={inputRef}
-                    value={input}
-                    onChange={handleInputChange}
-                    onHeightChange={handleHeightChange}
-                    onKeyDown={e => {
-                      if (e.key === 'Enter' && !e.shiftKey) {
-                        e.preventDefault();
-                        handleSendMessage();
-                      }
-                    }}
-                    placeholder="Ask your health question..."
-                    className="py-4 px-2 bg-transparent focus:outline-none resize-none text-black dark:text-white min-h-[144px] max-h-[200px] overflow-auto"
-                    minRows={1}
-                    maxRows={8}
-                    disabled={isProcessing}
-                  />
-                </div>
-
-                {/* Send button pinned to bottom */}
-                <div className="flex items-end pb-4 pl-2">
-                  <button
-                    onClick={handleSendMessage}
-                    disabled={!input.trim() || isProcessing}
-                    className={`p-2 rounded-full ${
-                      !input.trim() || isProcessing
-                        ? 'text-gray-400'
-                        : 'text-blue-500 hover:bg-blue-50 dark:hover:bg-neutral-700'
-                    } transition-colors`}
-                  >
-                    {isProcessing ? (
-                      <div className="h-6 w-6 flex items-center justify-center">
-                        <div className="w-4 h-4 bg-gray-300 rounded-full animate-pulse"></div>
-                      </div>
-                    ) : (
-                      <IconSend className="h-6 w-6" />
-                    )}
-                  </button>
-                </div>
+        {/* Message input area - fixed at bottom of screen - REVAMPED */}
+        <div className="fixed bottom-0 left-0 right-0 z-10 bg-white"> {/* Solid background for the entire fixed bar */}
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"> {/* Responsive padding */}
+            
+            {/* Input container */}
+            <div className="bg-trueBlue rounded-xl border border-mountbattenPink p-1.5 sm:p-2 flex items-end mb-3 sm:mb-4 shadow-lg">
+                <TextareaAutosize
+                  ref={inputRef}
+                  value={input}
+                  onChange={handleInputChange}
+                  onHeightChange={handleHeightChange}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                      e.preventDefault();
+                      handleSendMessage();
+                    }
+                  }}
+                  placeholder="What brings you in today?"
+                  className="py-2.5 px-3 mr-2 bg-transparent focus:outline-none resize-none text-mountbattenPink flex-1 min-h-[96px] max-h-[200px] placeholder-mountbattenPink text-base"
+                  minRows={1}
+                  maxRows={8}
+                  disabled={isProcessing || isLoading || isChatLoading}
+                />
+              
+              <div className="flex-shrink-0">
+                <button
+                  onClick={handleSendMessage}
+                  disabled={!input.trim() || isProcessing || isLoading || isChatLoading}
+                  className={`p-2.5 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-dukeBlue focus:ring-opacity-50 ${
+                    !input.trim() || isProcessing || isLoading || isChatLoading
+                      ? 'text-mountbattenPink bg-beige cursor-not-allowed'
+                      : 'text-white bg-dukeBlue hover:bg-trueBlue hover:text-dukeBlue active:bg-trueBlue'
+                  }`}
+                >
+                  {isProcessing ? (
+                    <div className="h-5 w-5 flex items-center justify-center">
+                      <div className="w-3.5 h-3.5 bg-mountbattenPink rounded-full animate-pulse"></div>
+                    </div>
+                  ) : (
+                    <IconSend className="h-5 w-5" />
+                  )}
+                </button>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
