@@ -22,6 +22,7 @@ client = OpenAI(
 )
 model = "gpt-4.1-mini"
 
+
 # Output storage
 all_vignettes = {}
 
