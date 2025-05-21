@@ -6,7 +6,7 @@ LOCAL_FOLDER = "outputs/full_finetune"  # path to your fine-tuned model director
 REPO_ID = "CodCodingCode/llama-3.1-8b-clinical"  # target HF repo (create if needed)
 
 # 2) Authenticate (reads from env var)
-token = "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"
+token = "token"
 if not token:
     raise ValueError(
         "Please set the HUGGINGFACE_HUB_TOKEN environment variable before running this script."
