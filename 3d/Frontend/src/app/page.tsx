@@ -5,6 +5,7 @@ import PortalScene from './portalcomps/portalcomplete'
 import Benchmarks from './components/benchmarks'
 import Footer from './components/footer'
 import Navigation from './components/navigation'
+import Videopage from './components/videopage'
 
 export default function Home() {
   return (
@@ -12,6 +13,9 @@ export default function Home() {
       <Navigation />
       <section id="Home">
         <PortalScene />
+      </section>
+      <section>
+        <Videopage />
       </section>
       <section id="About">
         <About />

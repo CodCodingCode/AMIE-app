@@ -1,6 +1,6 @@
 'use client';
 
-import { db } from '@/app/firebase';
+import { db } from '../firebase';
 import { collection, addDoc, getDocs, query, where, orderBy, doc, updateDoc, arrayUnion, getDoc, Timestamp } from 'firebase/firestore';
 import { User } from 'firebase/auth';
 
@@ -20,14 +20,20 @@ export type Chat = {
 };
 
 export const chatService = {
-  async createNewChat(user: User): Promise<string> {
+  async createNewChat(user: User, initialMessages: Omit<ChatMessage, 'timestamp'>[] = []): Promise<string> {
     try {
+      const messagesWithTimestamp = initialMessages.map(msg => ({
+        ...msg,
+        timestamp: Timestamp.now()
+      }));
+
       const chatRef = await addDoc(collection(db, 'chats'), {
         userId: user.uid,
-        title: 'New Chat',
+        title: initialMessages.length > 0 && initialMessages[0].sender === 'assistant' ? 
+               initialMessages[0].text.substring(0,30) + (initialMessages[0].text.length > 30 ? '...':'') : 'New Chat',
         createdAt: Timestamp.now(),
         updatedAt: Timestamp.now(),
-        messages: []
+        messages: messagesWithTimestamp
       });
       return chatRef.id;
     } catch (error) {
