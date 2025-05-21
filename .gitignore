@@ -53,3 +53,4 @@ edited_file.jsonl
 
 # OS generated files
 .DS_Store
+checkpoint-45000/ # prevent future LFS pointers
