@@ -1,4 +1,38 @@
-# Python
+
+
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Node/Next.js
+node_modules/
+.next/
+out/
+build/
+.DS_Store
+*.pem
+.env*.local
+.vercel
+*.tsbuildinfo
 .venv
 __pycache__/
 *.py[cod]
@@ -140,11 +174,19 @@ pycache
 
 
 
+
+generate_input.py
+.env
+.env
+pycache
+
+
 # Files with sensitive information
 generate_input.py
 *.env
 .env*
 __pycache__
+
 
 # Folders
 AMIE-App
@@ -193,12 +235,3 @@ edited_file.jsonl
 
 # OS generated files
 .DS_Store
-
-
-#3d
-3d/Frontend/node_modules/
-3d/Frontend/.next/
-3d/backend/api_key.py
-3d/Frontend/src/app/api/chat/route.ts
-3d/Frontend/src/app/firebase.ts
-3d/Frontend/src/app/lib/utils.ts
