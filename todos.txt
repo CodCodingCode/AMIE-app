@@ -6,3 +6,6 @@ Need to ground the model
 
 
 Jerry
+Finish creating a solid frontend app (with google auth, deployed, good UI, etc)
+Make datasets for Information Gain, Counter Deductive, Deductive Reasoning Questions
+Prepare datasets for Diagnosis model and find out how to determine probabilities in this diagnosis model

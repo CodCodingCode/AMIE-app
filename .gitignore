@@ -1,5 +1,39 @@
 
 
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Node/Next.js
+node_modules/
+.next/
+out/
+build/
+.DS_Store
+*.pem
+.env*.local
+.vercel
+*.tsbuildinfo
+.venv
 __pycache__/
 *.py[cod]
 *$py.class
@@ -138,6 +172,15 @@ generate_input.py
 pycache
 
 
+
+
+
+generate_input.py
+.env
+.env
+pycache
+
+
 # Files with sensitive information
 generate_input.py
 *.env
@@ -192,28 +235,3 @@ edited_file.jsonl
 
 # OS generated files
 .DS_Store
-checkpoint-45000/ # prevent future LFS pointers
-
-
-
-.venv/
-
-# Sensitive & API key files
-checkpoint-45000/ # prevent future LFS pointers
-
-
-
-.venv/
-
-# Sensitive & API key files
-generate_input.py
-api_key.py
-*.env
-
-# Hugging Face checkpoint folder
-checkpoint-45000/
-
-# Dataset & output directories
-datasets/
-sft_output/
-medical_dataset/
