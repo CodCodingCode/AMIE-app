@@ -1,8 +1,0 @@
-huggingface_hub==0.25.2
-transformers>=4.38.0
-torch>=2.1.0
-peft>=0.9.0
-accelerate>=0.24.0
-bitsandbytes
-safetensors
-gradio
