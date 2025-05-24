@@ -7,6 +7,7 @@ import Box3D from './Box3D';
 import MouseParallax from './MouseParallax';
 import BasicLights from './lights';
 import { usePathname } from 'next/navigation';
+import EnterText from './entertext';
 
 // Main component with canvas setup
 const PortalScene = () => {
@@ -54,16 +55,7 @@ const PortalScene = () => {
         <Box3D key={boxKey} onZoomStart={() => setIsZooming(true)} />
         
         <BasicLights />
-        
-        <Text
-          position={[-6.5, 0, 0]}
-          fontSize={1}
-          color="black"
-          anchorX="center"
-          anchorY="middle"
-        >
-          Enter the Bluebox
-        </Text>
+        <EnterText />
       </Canvas>
     </div>
   );

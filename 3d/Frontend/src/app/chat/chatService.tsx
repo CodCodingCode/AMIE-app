@@ -1,7 +1,7 @@
 'use client';
 
 import { db } from '../firebase';
-import { collection, addDoc, getDocs, query, where, orderBy, doc, updateDoc, arrayUnion, getDoc, Timestamp } from 'firebase/firestore';
+import { collection, addDoc, getDocs, query, where, orderBy, doc, updateDoc, arrayUnion, getDoc, Timestamp, deleteDoc } from 'firebase/firestore';
 import { User } from 'firebase/auth';
 
 export type ChatMessage = {
@@ -117,6 +117,17 @@ export const chatService = {
     } catch (error) {
       console.error('Error adding message to chat:', error);
       throw error;
+    }
+  },
+
+  async deleteChat(chatId: string): Promise<void> {
+    try {
+      const chatRef = doc(db, 'chats', chatId);
+      await deleteDoc(chatRef); // Firebase function to delete a document
+      console.log(`Chat with ID: ${chatId} deleted successfully.`);
+    } catch (error) {
+      console.error('Error deleting chat:', error);
+      throw error; // Re-throw the error to be caught by the calling function
     }
   }
 };

@@ -11,8 +11,7 @@ import { IconSend, IconTrash } from '@tabler/icons-react'; // Added IconTrash fo
 import { ColourfulText } from './colourful';
 import TextareaAutosize from 'react-textarea-autosize';
 import { useAuth, AuthButton } from './Auth';
-import { chatService } from './chatService';
-import { useEhr } from '../contexts/EhrContext'; // Import useEhr
+import { chatService, ChatMessage as ServiceChatMessage } from './chatService'; // Renamed to avoid conflict
 
 // Defining TypeScript types for our messages
 type MessageSender = 'user' | 'assistant'; // Message can be from user or assistant
@@ -25,7 +24,6 @@ type ApiMessage = {
 
 export default function ChatWindow() {
   const { user, loading: authLoading } = useAuth();
-  const { consumeEhrSummary } = useEhr();
   
   const [chatState, setChatState] = useState<{
     messages: Message[];
@@ -33,13 +31,12 @@ export default function ChatWindow() {
     isTyping: boolean;
     partialResponse: string;
     inputHeight: number;
-    isProcessing: boolean;
-    isLoading: boolean; 
-    isChatLoading: boolean; // This might be redundant if isLoading covers new chat creation too
+    isProcessing: boolean; // For sending a message
+    isLoadingNewChat: boolean; // For initial new chat creation on load
+    isChatLoading: boolean;    // For loading an existing chat from sidebar
     currentChatId: string | null;
-    initialSystemMessage: string | null;
-    isDeleteDialogOpen: boolean; // State for delete confirmation dialog
-    isDeleting: boolean; // State for deletion in progress
+    isDeleteDialogOpen: boolean;
+    isDeleting: boolean;
   }>({
     messages: [],
     input: '',
@@ -47,10 +44,9 @@ export default function ChatWindow() {
     partialResponse: '',
     inputHeight: 56,
     isProcessing: false,
-    isLoading: true, // Start with loading true to trigger new chat creation
+    isLoadingNewChat: true, // Start by attempting to load/create a new chat
     isChatLoading: false,
     currentChatId: null,
-    initialSystemMessage: null,
     isDeleteDialogOpen: false,
     isDeleting: false,
   });
@@ -68,30 +64,62 @@ export default function ChatWindow() {
     partialResponse, 
     inputHeight, 
     isProcessing, 
-    isLoading, 
-    currentChatId, 
+    isLoadingNewChat, 
     isChatLoading, 
-    initialSystemMessage,
+    currentChatId, 
     isDeleteDialogOpen,
     isDeleting
   } = chatState;
 
-  // Effect to prime state for a new chat on load or user change
-  useEffect(() => {
-    if (authLoading) {
-      return; // Wait for auth to resolve
+  // Function to create a new chat
+  const createNewChat = useCallback(async () => {
+    setChatState(prev => ({ ...prev, isLoadingNewChat: true }));
+    let newChatIdFromService: string | null = null;
+
+    if (!user) {
+      // For guest users, just reset local state for a new chat
+      setChatState(prev => ({
+        ...prev,
+        messages: [],
+        currentChatId: null,
+        isLoadingNewChat: false,
+      }));
+      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('refreshChatList'));
+      return null;
     }
-    const summaryFromContext = consumeEhrSummary();
-    console.log("ChatWindow: Priming for new chat. EHR Summary from context:", summaryFromContext);
-    setChatState(prev => ({
-      ...prev,
-      messages: [], 
-      currentChatId: null, 
-      initialSystemMessage: summaryFromContext, // Use summary from context, will be null if none
-      isLoading: true, // Signal that a new chat setup is pending
-      isChatLoading: false // Not loading an existing chat from list
-    }));
-  }, [user, authLoading, consumeEhrSummary]);
+    
+    try {
+      newChatIdFromService = await chatService.createNewChat(user, []); // No initial messages by default now
+      setChatState(prev => ({
+        ...prev,
+        messages: [],
+        currentChatId: newChatIdFromService,
+        isLoadingNewChat: false,
+      }));
+      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('refreshChatList'));
+      return newChatIdFromService;
+    } catch (error) {
+      console.error('Error creating new chat:', error);
+      setChatState(prev => ({ ...prev, isLoadingNewChat: false }));
+      return null;
+    }
+  }, [user]);
+
+  // Effect to initialize a new chat on page load or user change
+  useEffect(() => {
+    if (!authLoading) { // Only proceed if auth state is resolved
+        console.log("ChatWindow: Auth resolved. Triggering new chat creation.");
+        createNewChat();
+    }
+  }, [user, authLoading, createNewChat]); // createNewChat added as dependency
+
+  // Notify sidebar of message count changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const event = new CustomEvent('messageCountUpdate', { detail: { count: messages.length } });
+      window.dispatchEvent(event);
+    }
+  }, [messages.length]);
 
   // Auto-scroll effect
   useEffect(() => {
@@ -110,75 +138,12 @@ export default function ChatWindow() {
     setChatState(prev => ({ ...prev, inputHeight: height }));
   }, []);
 
-  // createNewChat function (ensure dependencies are correct, especially if it modifies `messages`)
-  const createNewChat = useCallback(async (summaryForNewChat?: string) => {
-    if (messages.length === 0 && !summaryForNewChat && currentChatId !== null) {
-        // If already in a fresh chat (currentChatId is set, messages empty, no new summary), do nothing further to avoid loops.
-        // However, the priming useEffect above will always set currentChatId to null to force this.
-    }
-
-    let newChatInitialMessages: Message[] = [];
-    if (summaryForNewChat) {
-      const systemText = `EHR Summary for context: ${summaryForNewChat}`;
-      // Decide if this system message should be visually added or only for API
-      // For now, let's assume it's added to initialMessages if chatService stores it.
-      // If chatService doesn't store it, then it should only be added to historyForApi in handleSendMessage.
-      // Based on current chatService, it *does* store initialMessages.
-      newChatInitialMessages.push({ text: systemText, sender: 'assistant' }); // Marked as assistant for display/storage for now
-      console.log("createNewChat: Preparing new chat with EHR summary.");
-    }    
-    
-    if (!user) {
-      setChatState(prev => ({
-        ...prev,
-        messages: newChatInitialMessages, 
-        currentChatId: null, // Guest chats are local only
-        initialSystemMessage: null // Consumed
-      }));
-      // For guest users, newChatId will be null, no backend call.
-      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('refreshChatList')); // update sidebar if needed
-      return null; // No backend ID for guest chats typically
-    }
-    
-    try {
-      // Ensure user is not null before calling service that expects User type
-      const newChatIdFromService = await chatService.createNewChat(user, newChatInitialMessages);
-      setChatState(prev => ({
-        ...prev,
-        messages: newChatInitialMessages,
-        currentChatId: newChatIdFromService,
-        initialSystemMessage: null // Consumed
-      }));
-      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('refreshChatList'));
-      return newChatIdFromService;
-    } catch (error) {
-      console.error('Error creating new chat in service:', error);
-      setChatState(prev => ({ ...prev, initialSystemMessage: null })); // Clear summary even on error
-      return null;
-    }
-  }, [user, messages]); // Keep `messages` dependency for the initial check, though primer effect mostly controls flow
-
-  // Effect to trigger createNewChat when state is primed
-  useEffect(() => {
-    if (chatState.isLoading && chatState.currentChatId === null) {
-      console.log("ChatWindow: Triggering createNewChat. isLoading is true, currentChatId is null. Summary:", chatState.initialSystemMessage);
-      createNewChat(chatState.initialSystemMessage || undefined)
-        .finally(() => {
-          setChatState(prev => ({ ...prev, isLoading: false }));
-        });
-    }
-  }, [chatState.isLoading, chatState.currentChatId, chatState.initialSystemMessage, createNewChat]);
-
   // Handle sending a message and receiving a response
   const handleSendMessage = useCallback(async () => {
     if (!input.trim() || isProcessing) return;
 
-    const userMessage = { text: input.trim(), sender: 'user' as const };
+    const userMessage: Message = { text: input.trim(), sender: 'user' };
     let activeChatId = currentChatId;
-    let historyForApi: ApiMessage[] = messages.map(msg => ({
-      role: msg.sender as 'user' | 'assistant',
-      content: msg.text
-    }));
 
     setChatState(prev => ({
       ...prev,
@@ -186,136 +151,106 @@ export default function ChatWindow() {
       input: '',
       isTyping: true,
       partialResponse: '',
-      inputHeight: 56,
-      isProcessing: true,
-      initialSystemMessage: null // Clear summary once a message is sent in this flow
+      isProcessing: true
     }));
     
-    // Check if this is the first message in a new chat session and if there was an initial EHR summary
-    // This logic has been mostly moved to createNewChat, triggered by useEffect
-    // but we ensure activeChatId is set here if it was just created.
-
     try {
       if (user) {
         if (!activeChatId) {
-          // If a summary was pending, createNewChat would have been called by useEffect
-          // If not, create a standard new chat.
-          const newId = await createNewChat(chatState.initialSystemMessage || undefined);
+          const newId = await createNewChat(); // This will also set currentChatId in state
           if (newId) activeChatId = newId;
           else {
-            // Failed to create new chat, maybe show error and bail
             setChatState(prev => ({ ...prev, isTyping: false, isProcessing: false }));
-            return;
+            console.error("Failed to create new chat before sending message.");
+            return; // Early exit if chat creation failed
           }
         }
-        await chatService.addMessageToChat(activeChatId!, userMessage);
+        // Ensure activeChatId from service.createNewChat is used if it was just created
+        // The state `currentChatId` might not have updated yet due to async nature if createNewChat wasn't awaited properly before.
+        // However, createNewChat now updates state directly.
+        await chatService.addMessageToChat(activeChatId!, userMessage as Omit<ServiceChatMessage, 'timestamp'>);
         if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('refreshChatList'));
       }
 
-      // Prepare history for API, including the system message if it was for this new chat
-      if (chatState.initialSystemMessage && messages.length === 0) { // Current `messages` is before adding `userMessage`
-         // This implies the chat was just created with the system message implicitly
-         // The createNewChat should handle passing this to the chatService if needed
-         // For the direct API call here, we might need to prepend it if not already part of `messages`.
-         // A better way: ensure `createNewChat` already sets up the context in Firebase if possible,
-         // or the API call itself knows how to look for an initial system message based on chat ID state.
-         // For now, if initialSystemMessage was set, and we are sending the first user message, prepend it.
-         historyForApi.unshift({ role: 'system', content: `EHR Summary for context: ${chatState.initialSystemMessage}` })
-      }
+      const historyForApi: ApiMessage[] = [...messages, userMessage].map(msg => ({
+        role: msg.sender,
+        content: msg.text
+      }));
 
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: userMessage.text,
-          history: historyForApi // historyForApi now includes the system message if applicable
-        }),
+        body: JSON.stringify({ message: userMessage.text, history: historyForApi }),
       });
 
       if (!response.ok || !response.body) {
         throw new Error(`Server error: ${response.status}`);
       }
 
-      // Process the stream
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
       let accumulatedText = '';
 
       while (true) {
         const { done, value } = await reader.read();
-        
         if (done) {
-          // Create assistant message
-          const assistantMessage = { 
-            text: accumulatedText, 
-            sender: 'assistant' as const 
-          };
-          
-          // Store in Firestore for authenticated users
+          const assistantMessage: Message = { text: accumulatedText, sender: 'assistant' };
           if (user && activeChatId) {
-            await chatService.addMessageToChat(activeChatId, assistantMessage);
-            
-            // Add this:
-            if (typeof window !== 'undefined') {
-              const event = new CustomEvent('refreshChatList');
-              window.dispatchEvent(event);
-            }
+            await chatService.addMessageToChat(activeChatId, assistantMessage as Omit<ServiceChatMessage, 'timestamp'>);
+            if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('refreshChatList'));
           }
-          
-          // Update UI
           setChatState(prev => ({
             ...prev,
-            messages: [...prev.messages, assistantMessage],
+            messages: [...prev.messages, userMessage, assistantMessage], // Add userMessage again? NO, it was already added
             isTyping: false,
             partialResponse: '',
             isProcessing: false
           }));
+          // Corrected state update for assistant message:
+          setChatState(prev => {
+            const finalMessages = [...prev.messages.slice(0, -1), userMessage, assistantMessage]; // Assuming userMessage was added before API call
+            // Let's re-evaluate: userMessage is added to state *before* API call. So we just add assistantMessage to the latest state.
+            return {
+                ...prev,
+                messages: [...prev.messages, assistantMessage],
+                isTyping: false,
+                partialResponse: '',
+                isProcessing: false
+            };
+          });
           break;
         }
-        
-        // Update partial response
         const chunkText = decoder.decode(value, { stream: true });
         accumulatedText += chunkText;
-        
-        setChatState(prev => ({
-          ...prev,
-          partialResponse: accumulatedText
-        }));
+        setChatState(prev => ({ ...prev, partialResponse: accumulatedText }));
       }
     } catch (error) {
       console.error('Error sending message:', error);
-      setChatState(prev => ({
-        ...prev,
-        isTyping: false,
-        isProcessing: false
-      }));
+      setChatState(prev => ({ ...prev, isTyping: false, isProcessing: false }));
     }
-  }, [input, messages, isProcessing, user, currentChatId, initialSystemMessage]);
+  }, [input, messages, isProcessing, user, currentChatId, createNewChat]);
 
   // Function to load a specific chat
   const loadChat = useCallback(async (chatId: string) => {
-    if (!user) return;
-    
+    if (!user) return; // Should not happen if UI hides load options for guests
+    setChatState(prev => ({ ...prev, isChatLoading: true, messages: [], currentChatId: null })); // Clear current before loading
     try {
-      setChatState(prev => ({ ...prev, isChatLoading: true }));
-      
       const chat = await chatService.getChat(chatId);
       if (chat) {
         setChatState(prev => ({
           ...prev,
-          messages: chat.messages.map(msg => ({
-            text: msg.text,
-            sender: msg.sender
-          })),
+          messages: chat.messages.map(msg => ({ text: msg.text, sender: msg.sender as MessageSender })),
           currentChatId: chatId,
-          isChatLoading: false
+          isChatLoading: false,
+          isLoadingNewChat: false, // Loaded an existing chat
         }));
       } else {
-        setChatState(prev => ({ ...prev, isChatLoading: false }));
+        console.error("Failed to load chat, or chat does not exist.");
+        setChatState(prev => ({ ...prev, isChatLoading: false, isLoadingNewChat: true })); // Fallback to new chat logic
       }
     } catch (error) {
       console.error('Error loading chat:', error);
-      setChatState(prev => ({ ...prev, isChatLoading: false }));
+      setChatState(prev => ({ ...prev, isChatLoading: false, isLoadingNewChat: true })); // Fallback
     }
   }, [user]);
 
@@ -332,65 +267,40 @@ export default function ChatWindow() {
   // Function to delete the current chat
   const handleDeleteChat = useCallback(async () => {
     if (!user || !currentChatId || isDeleting) return;
-    
+    setChatState(prev => ({ ...prev, isDeleting: true }));
     try {
-      setChatState(prev => ({ ...prev, isDeleting: true }));
-      
-      // Call the chatService to delete the chat
       await chatService.deleteChat(currentChatId);
-      
-      // Create a new chat after deletion
-      setChatState(prev => ({
-        ...prev,
-        messages: [],
-        currentChatId: null,
-        isDeleteDialogOpen: false,
-        isDeleting: false,
-        isLoading: true // This will trigger the createNewChat effect
-      }));
-      
-      // Refresh chat list in sidebar
-      if (typeof window !== 'undefined') {
-        window.dispatchEvent(new CustomEvent('refreshChatList'));
-      }
+      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('refreshChatList'));
+      // Trigger creation of a new chat, which will reset state
+      createNewChat(); 
+      // Explicitly close dialog and reset deleting flag, though createNewChat also resets state
+      setChatState(prev => ({ ...prev, isDeleteDialogOpen: false, isDeleting: false})); 
     } catch (error) {
       console.error('Error deleting chat:', error);
-      setChatState(prev => ({ 
-        ...prev, 
-        isDeleteDialogOpen: false, 
-        isDeleting: false 
-      }));
+      setChatState(prev => ({ ...prev, isDeleteDialogOpen: false, isDeleting: false }));
     }
-  }, [user, currentChatId, isDeleting]);
+  }, [user, currentChatId, isDeleting, createNewChat]);
 
   // Make loadChat and createNewChat available globally
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      // @ts-ignore
-      window.loadChat = loadChat;
-      // @ts-ignore
-      window.createNewChat = () => createNewChat(consumeEhrSummary() || undefined);
-      // @ts-ignore
-      window.deleteCurrentChat = () => {
-        if (currentChatId) {
+      (window as any).loadChat = loadChat;
+      (window as any).createNewChat = createNewChat; // No EHR summary to pass now
+      (window as any).deleteCurrentChat = () => {
+        if (currentChatId && user) { // Only allow delete if a chat is active and user is logged in
           handleOpenDeleteDialog();
         }
       };
     }
-  }, [loadChat, createNewChat, consumeEhrSummary, currentChatId, handleOpenDeleteDialog]);
-
-  // Expose createNewChat globally for the sidebar, potentially passing the summary
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      (window as any).createNewChat = () => createNewChat(consumeEhrSummary() || undefined);
-    }
-    // Cleanup
+    // Cleanup global assignments
     return () => {
       if (typeof window !== 'undefined') {
+        delete (window as any).loadChat;
         delete (window as any).createNewChat;
+        delete (window as any).deleteCurrentChat;
       }
     };
-  }, [createNewChat, consumeEhrSummary]); // Add consumeEhrSummary to dependencies
+  }, [loadChat, createNewChat, currentChatId, user, handleOpenDeleteDialog]); // Added user here
 
   // Function to render each message bubble
   const renderMessage = useCallback((message: Message, index: number) => (
@@ -437,10 +347,10 @@ export default function ChatWindow() {
           <div className="absolute top-0 right-0 mt-4 mr-4 z-10">
             <button
               onClick={handleOpenDeleteDialog}
-              disabled={isDeleting}
+              disabled={isDeleting || isLoadingNewChat || isChatLoading} // Disable if any loading is happening
               title="Delete this chat"
               className={`p-2 rounded-full text-dukeBlue hover:bg-trueBlue focus:outline-none focus:ring-2 focus:ring-dukeBlue transition-colors ${
-                isDeleting ? 'opacity-50 cursor-not-allowed' : ''
+                (isDeleting || isLoadingNewChat || isChatLoading) ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >
               <IconTrash className="h-5 w-5" />
@@ -449,19 +359,18 @@ export default function ChatWindow() {
         )}
         
         <div className="flex-1 overflow-y-auto pb-32 pt-12">
-          {isLoading ? (
+          {(isLoadingNewChat || isChatLoading) ? (
             <div className="flex items-center justify-center h-full">
               <div className="w-4 h-4 bg-mountbattenPink rounded-full animate-pulse"></div>
-            </div>
-          ) : isChatLoading ? (
-            <div className="flex items-center justify-center h-full">
-              <p className="text-mountbattenPink dark:text-mountbattenPink text-sm animate-pulse">Loading chat...</p>
+              <p className="ml-2 text-mountbattenPink dark:text-mountbattenPink text-sm animate-pulse">
+                {(isLoadingNewChat && !currentChatId) ? "Starting new chat..." : "Loading chat..."}
+              </p>
             </div>
           ) : (
             <>
               {messages.map(renderMessage)}
 
-              {messages.length === 0 && (
+              {messages.length === 0 && !isTyping && !partialResponse && (
                 <div className="text-center fixed top-1/3 left-0 right-0 z-0 pointer-events-none">
                   <h1 className="font-bold text-mountbattenPink" style={{ fontSize: '5em' }}> Welcome to the </h1>
                   <ColourfulText text="Bluebox" />
@@ -515,17 +424,15 @@ export default function ChatWindow() {
                   className="py-2.5 px-3 mr-2 bg-transparent focus:outline-none resize-none text-mountbattenPink flex-1 min-h-[96px] max-h-[200px] placeholder-mountbattenPink text-base"
                   minRows={1}
                   maxRows={8}
-                  disabled={isProcessing || isLoading || isChatLoading}
+                  disabled={isProcessing || isLoadingNewChat || isChatLoading}
                 />
               
               <div className="flex-shrink-0">
                 <button
                   onClick={handleSendMessage}
-                  disabled={!input.trim() || isProcessing || isLoading || isChatLoading}
+                  disabled={!input.trim() || isProcessing || isLoadingNewChat || isChatLoading}
                   className={`p-2.5 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-dukeBlue focus:ring-opacity-50 ${
-                    !input.trim() || isProcessing || isLoading || isChatLoading
-                      ? 'text-mountbattenPink bg-beige cursor-not-allowed'
-                      : 'text-white bg-dukeBlue hover:bg-trueBlue hover:text-dukeBlue active:bg-trueBlue'
+                    (!input.trim() || isProcessing || isLoadingNewChat || isChatLoading) ? 'text-mountbattenPink bg-beige cursor-not-allowed' : 'text-white bg-dukeBlue hover:bg-trueBlue hover:text-dukeBlue active:bg-trueBlue'
                   }`}
                 >
                   {isProcessing ? (

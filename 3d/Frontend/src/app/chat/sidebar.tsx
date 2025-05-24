@@ -306,125 +306,129 @@ export const SidebarMenu = () => {
    }
  };
 
- return (
-   <SidebarBody className="flex flex-col">
-     <div className="flex-1 flex flex-col">
-       <Logo />
-      
-       <SidebarSection>
-         <SidebarItem
-           icon={IconEdit}
-           text="New chat"
-           onClick={handleNewChat}
-           active={currentMessages === 0} // Highlight when we're already in a new chat
-         />
-       </SidebarSection>
-      
-       <SidebarSection>
-         {loading ? (
-           <div className={cn(
-             "px-7 py-2 text-sm text-mountbattenPink",
-             !open && "text-center"
-           )}>
-             {open ? "Loading..." : "..."}
-           </div>
-         ) : (
-           <div className="flex flex-col overflow-y-auto max-h-[calc(100vh-220px)] no-scrollbar">
-             {chats.map(chat => (
-               <div
-                 key={chat.id}
-                 className="flex items-center justify-between h-10 px-5 cursor-pointer hover:bg-trueBlue rounded-md mx-2 group"
-               >
-                 <div 
-                   className="flex-1 flex items-center h-full" 
-                   onClick={() => handleChatClick(chat.id)}
-                 >
-                   <AnimatePresence>
-                     {open && (
-                       <motion.span
-                         initial={{ opacity: 0 }}
-                         animate={{ opacity: 1 }}
-                         exit={{ opacity: 0 }}
-                         transition={{ duration: 0.2 }}
-                         className="truncate max-w-[180px] text-sm text-mountbattenPink"
-                       >
-                         {chat.title || "New Chat"}
-                       </motion.span>
-                     )}
-                     {!open && (
-                       <div className="w-5 h-5 flex items-center justify-center">
-                         <div className="w-2 h-2 rounded-full bg-mountbattenPink"></div>
-                       </div>
-                     )}
-                   </AnimatePresence>
-                 </div>
-                 {open && (
-                   <div 
-                     className="opacity-0 group-hover:opacity-100 transition-opacity"
-                     onClick={(e) => handleDeleteClick(e, chat.id)}
-                   >
-                     <IconTrash className="h-4 w-4 text-mountbattenPink hover:text-red-500" />
-                   </div>
-                 )}
-               </div>
-             ))}
-           </div>
-         )}
-       </SidebarSection>
-       <SidebarSection>
-         <SidebarItem
-           icon={IconEdit}
-           text="Manage Consultations"
-           onClick={handleConsultations}
-         />
-       </SidebarSection>
-       <SidebarSection>
-         <SidebarItem
-           icon={IconEdit}
-           text="EHR"
-           onClick={() => router.push('/ehr')}
-         />
-        </SidebarSection>
-        <SidebarSection>
-         {user ? (
-           <SidebarItem
-             icon={IconSettings}
-             text="Settings & help"
-             onClick={() => router.push('/settings')}
-           />
-         ) : null}
-       </SidebarSection>
-     </div>
+  return (
+    <SidebarBody className="flex flex-col">
+      <div className="flex-1 flex flex-col pb-8">
+        <Logo />
 
-     {/* Delete Confirmation Dialog */}
-     {isDeleteDialogOpen && (
-       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-         <div className="bg-white rounded-lg p-6 max-w-sm mx-4 shadow-xl">
-           <h3 className="text-lg font-medium text-dukeBlue mb-4">Delete Chat</h3>
-           <p className="text-sm text-mountbattenPink mb-6">
-             Are you sure you want to delete this chat? This action cannot be undone.
-           </p>
-           <div className="flex justify-end space-x-3">
-             <button
-               onClick={handleCloseDeleteDialog}
-               disabled={isDeleting}
-               className="px-4 py-2 text-sm font-medium text-mountbattenPink bg-trueBlue rounded-md hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-dukeBlue"
-             >
-               Cancel
-             </button>
-             <button
-               onClick={handleDeleteConfirm}
-               disabled={isDeleting}
-               className={`px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 ${
-                 isDeleting ? 'opacity-50 cursor-not-allowed' : ''
-               }`}
-             >
-               {isDeleting ? 'Deleting...' : 'Delete'}
-             </button>
-           </div>
-         </div>
-       </div>
-     )}
-   </SidebarBody>
- );
+        {/* Top Section */}
+        <SidebarSection>
+          <SidebarItem
+            icon={IconEdit}
+            text="New chat"
+            onClick={handleNewChat}
+            active={currentMessages === 0}
+          />
+        </SidebarSection>
+
+        {/* Chat List Section */}
+        <SidebarSection>
+          {loading ? (
+            <div
+              className={cn(
+                "px-7 py-2 text-sm text-mountbattenPink",
+                !open && "text-center"
+              )}
+            >
+              {open ? "Loading..." : "..."}
+            </div>
+          ) : (
+            <div className="flex flex-col overflow-y-auto max-h-[calc(100vh-220px)] no-scrollbar">
+              {chats.map((chat) => (
+                <div
+                  key={chat.id}
+                  className="flex items-center justify-between h-10 px-5 cursor-pointer hover:bg-trueBlue rounded-md mx-2 group"
+                >
+                  <div
+                    className="flex-1 flex items-center h-full"
+                    onClick={() => handleChatClick(chat.id)}
+                  >
+                    <AnimatePresence>
+                      {open ? (
+                        <motion.span
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="truncate max-w-[180px] text-sm text-mountbattenPink"
+                        >
+                          {chat.title || "New Chat"}
+                        </motion.span>
+                      ) : (
+                        <div className="w-5 h-5 flex items-center justify-center">
+                          <div className="w-2 h-2 rounded-full bg-mountbattenPink"></div>
+                        </div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                  {open && (
+                    <div
+                      className="opacity-0 group-hover:opacity-100 transition-opacity"
+                      onClick={(e) => handleDeleteClick(e, chat.id)}
+                    >
+                      <IconTrash className="h-4 w-4 text-mountbattenPink hover:text-red-500" />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </SidebarSection>
+
+        {/* Bottom Section (Sticky) */}
+        <div className="mt-auto">
+          <SidebarSection>
+            <SidebarItem
+              icon={IconEdit}
+              text="Manage Consultations"
+              onClick={handleConsultations}
+            />
+            <SidebarItem
+              icon={IconEdit}
+              text="EHR"
+              onClick={() => router.push("/ehr")}
+            />
+            {user && (
+              <SidebarItem
+                icon={IconSettings}
+                text="Settings & help"
+                onClick={() => router.push("/settings")}
+              />
+            )}
+          </SidebarSection>
+        </div>
+      </div>
+
+      {/* Delete Confirmation Dialog */}
+      {isDeleteDialogOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg p-6 max-w-sm mx-4 shadow-xl">
+            <h3 className="text-lg font-medium text-dukeBlue mb-4">Delete Chat</h3>
+            <p className="text-sm text-mountbattenPink mb-6">
+              Are you sure you want to delete this chat? This action cannot be undone.
+            </p>
+            <div className="flex justify-end space-x-3">
+              <button
+                onClick={handleCloseDeleteDialog}
+                disabled={isDeleting}
+                className="px-4 py-2 text-sm font-medium text-mountbattenPink bg-trueBlue rounded-md hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-dukeBlue"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleDeleteConfirm}
+                disabled={isDeleting}
+                className={`px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 ${
+                  isDeleting ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+              >
+                {isDeleting ? "Deleting..." : "Delete"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </SidebarBody>
+  );
+
 };
