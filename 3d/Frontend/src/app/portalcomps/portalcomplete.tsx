@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { PerspectiveCamera, Text } from '@react-three/drei';
+import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import Box3D from './Box3D';
 import MouseParallax from './MouseParallax';
@@ -13,6 +13,7 @@ import EnterText from './entertext';
 const PortalScene = () => {
   const [canvasResetKey, setCanvasResetKey] = useState(0);
   const [isZooming, setIsZooming] = useState(false);
+  const [initiateTextFade, setInitiateTextFade] = useState(false);
   const [boxKey, setBoxKey] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pathname = usePathname();
@@ -21,6 +22,7 @@ const PortalScene = () => {
     if (pathname === '/') {
       setBoxKey(prevKey => prevKey + 1);
       setIsZooming(false);
+      setInitiateTextFade(false);
     }
   }, [pathname]);
 
@@ -51,11 +53,19 @@ const PortalScene = () => {
         
         <MouseParallax isEnabled={!isZooming} strength={0.5} dampingFactor={0.10} />
         
-        {/* Don't wrap Box3D in another mesh, as it already contains meshes */}
-        <Box3D key={boxKey} onZoomStart={() => setIsZooming(true)} />
+        <Box3D 
+          key={boxKey} 
+          onZoomStart={() => setIsZooming(true)} 
+          onBoxClicked={() => setInitiateTextFade(true)}
+        />
         
         <BasicLights />
-        <EnterText />
+        <EnterText 
+          startFade={initiateTextFade} 
+          position={[-6, 2, 0]}
+          rotation={[Math.PI/2, 0, 0]}
+          scale={1.05}
+        />
       </Canvas>
     </div>
   );

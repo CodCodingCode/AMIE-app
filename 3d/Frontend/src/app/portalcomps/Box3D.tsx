@@ -9,9 +9,10 @@ import { useRouter } from 'next/navigation';
 type Box3DProps = {
   initialPosition?: [number, number, number];
   onZoomStart?: () => void;
+  onBoxClicked?: () => void;
 };
 
-const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart }: Box3DProps) => {
+const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked }: Box3DProps) => {
   const router = useRouter();
   const gltf = useGLTF('/blueboxrealagain.glb');
 
@@ -89,6 +90,7 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart }: Box3DProps) => {
         materialRefs.current.push(mat);
       }
     });
+
   }, [scene, initialPosition]);
 
   useFrame(() => {
@@ -102,6 +104,10 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart }: Box3DProps) => {
   const handleZoom = () => {
     if (isZooming.current) return;
     isZooming.current = true;
+
+    if (onBoxClicked) {
+      onBoxClicked();
+    }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
