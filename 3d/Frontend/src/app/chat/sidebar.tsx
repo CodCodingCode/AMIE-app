@@ -2,11 +2,22 @@
 import { cn } from "@/app/lib/utils";
 import React, { useState, createContext, useContext, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { IconMenu2, IconX, IconPlus, IconSettings, IconEdit, IconDiamond, IconTrash } from "@tabler/icons-react";
-import Image from "next/image";
-import { useAuth, AuthButton } from "./Auth";
+import { 
+  IconX, 
+  IconPlus, 
+  IconSettings, 
+  IconTrash,
+  IconPin,
+  IconMenu2,
+  IconMessageCircle,
+  IconCalendar,
+  IconFileText,
+  IconPinned
+} from "@tabler/icons-react";
+import { useAuth } from "./Auth";
 import { chatService, Chat } from "./chatService";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 declare global {
   interface Window {
@@ -15,12 +26,15 @@ declare global {
     refreshChatList?: () => void;
     deleteCurrentChat?: () => void;
     deleteChat?: (chatId: string) => void;
+    cleanupEmptyChats?: () => void;
   }
 }
 
 interface SidebarContextProps {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isPinned: boolean;
+  setIsPinned: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const SidebarContext = createContext<SidebarContextProps | undefined>(undefined);
@@ -37,9 +51,14 @@ export const SidebarProvider = ({ children, open: openProp, setOpen: setOpenProp
   setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const [stateOpen, setStateOpen] = useState(false);
+  const [isPinned, setIsPinned] = useState(false);
   const open = openProp ?? stateOpen;
   const setOpen = setOpenProp ?? setStateOpen;
-  return <SidebarContext.Provider value={{ open, setOpen }}>{children}</SidebarContext.Provider>;
+  return (
+    <SidebarContext.Provider value={{ open, setOpen, isPinned, setIsPinned }}>
+      {children}
+    </SidebarContext.Provider>
+  );
 };
 
 export const Sidebar = ({ children, open, setOpen }: {
@@ -48,46 +67,121 @@ export const Sidebar = ({ children, open, setOpen }: {
   setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }) => <SidebarProvider open={open} setOpen={setOpen}>{children}</SidebarProvider>;
 
-export const SidebarBody = (props: React.ComponentProps<typeof motion.div>) => (
+export const SidebarBody = ({ children, ...props }: { children: React.ReactNode } & React.ComponentProps<typeof motion.div>) => (
   <>
-    <DesktopSidebar {...props} />
-    <MobileSidebar {...(props as React.ComponentProps<'div'>)} />
+    <DesktopSidebar {...props}>{children}</DesktopSidebar>
+    <MobileSidebar {...(props as React.ComponentProps<'div'>)}>{children}</MobileSidebar>
   </>
 );
 
-export const DesktopSidebar = ({ className, children, ...props }: React.ComponentProps<typeof motion.div>) => {
-  const { open, setOpen } = useSidebar();
+export const DesktopSidebar = ({ className, children, ...props }: {
+  className?: string;
+  children: React.ReactNode;
+} & Omit<React.ComponentProps<typeof motion.div>, 'children'>) => {
+  const { open, setOpen, isPinned, setIsPinned } = useSidebar();
   const hoverRef = useRef<NodeJS.Timeout | null>(null);
+  
+  const handleMouseEnter = () => {
+    if (hoverRef.current) {
+      clearTimeout(hoverRef.current);
+    }
+    if (!isPinned) {
+      setOpen(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isPinned) {
+      hoverRef.current = setTimeout(() => setOpen(false), 300);
+    }
+  };
+
+  const handlePinToggle = () => {
+    if (isPinned) {
+      setIsPinned(false);
+    } else {
+      setIsPinned(true);
+      setOpen(true);
+      if (hoverRef.current) {
+        clearTimeout(hoverRef.current);
+      }
+    }
+  };
+
   return (
-    <motion.div
-      className={cn("h-full hidden md:flex md:flex-col bg-neutral-900 border-r border-neutral-700 z-10 no-scrollbar", className)}
-      style={{ pointerEvents: 'auto' }}
-      animate={{ width: open ? 200 : 80 }}
-      transition={{ duration: 0.2, ease: 'easeInOut' }}
-      onMouseEnter={() => { hoverRef.current && clearTimeout(hoverRef.current); setOpen(true); }}
-      onMouseLeave={() => { hoverRef.current = setTimeout(() => setOpen(false), 300); }}
-      {...props}
-    >
-      {children}
-    </motion.div>
+    <>
+      <motion.div
+        className={cn(
+          "h-full hidden md:flex md:flex-col bg-slate-900/95 backdrop-blur-sm border-r border-slate-700/50 z-10 no-scrollbar shadow-lg relative", 
+          className
+        )}
+        style={{ pointerEvents: 'auto' }}
+        animate={{ width: open ? 260 : 68 }}
+        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        {...props}
+      >
+        {/* Remove the logo section from here */}
+        
+        {/* Main Content */}
+        <div className="flex-1 flex flex-col">
+          {children}
+        </div>
+        
+        {/* Pin/Unpin Button - Only show when sidebar is open */}
+        <AnimatePresence>
+          {open && (
+            <motion.button
+              onClick={handlePinToggle}
+              className={cn(
+                "absolute top-4 right-4 w-8 h-8 rounded-lg flex items-center justify-center transition-colors z-20",
+                isPinned 
+                  ? "bg-blue-600/20 text-blue-400 hover:bg-blue-600/30 border border-blue-500/30" 
+                  : "bg-slate-800/60 text-slate-400 hover:bg-slate-700 hover:text-slate-200"
+              )}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.2 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              title={isPinned ? "Unpin sidebar (will close on mouse leave)" : "Pin sidebar (keep open)"}
+            >
+              {isPinned ? (
+                <IconPinned className="w-4 h-4" />
+              ) : (
+                <IconPin className="w-4 h-4" />
+              )}
+            </motion.button>
+          )}
+        </AnimatePresence>
+      </motion.div>
+    </>
   );
 };
 
 export const MobileSidebar = ({ className, children, ...props }: React.ComponentProps<'div'>) => {
   const { open, setOpen } = useSidebar();
   return (
-    <div className={cn("h-10 flex items-center justify-between md:hidden px-4 py-4 bg-neutral-900 w-full", className)} {...props}>
-      <IconMenu2 onClick={() => setOpen(!open)} className="text-neutral-200" />
+    <div className={cn("h-14 flex items-center justify-between md:hidden px-4 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700/50 w-full", className)} {...props}>
+      <IconMenu2 onClick={() => setOpen(!open)} className="text-slate-200 hover:text-white transition-colors cursor-pointer" size={20} />
       <AnimatePresence>
         {open && (
           <motion.div
             initial={{ x: '-100%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: '-100%', opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-neutral-900 p-10 flex flex-col justify-between"
+            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            className="fixed inset-0 z-50 bg-slate-900/98 backdrop-blur-md p-6 flex flex-col"
           >
-            <IconX onClick={() => setOpen(false)} className="absolute top-4 right-4 text-neutral-200" />
+            <div className="flex justify-end mb-6">
+              <IconX 
+                onClick={() => setOpen(false)} 
+                className="text-slate-200 hover:text-white transition-colors cursor-pointer" 
+                size={24} 
+              />
+            </div>
             {children}
           </motion.div>
         )}
@@ -101,10 +195,33 @@ export const Logo = () => {
   const router = useRouter();
 
   return (
-    <div className="flex items-center px-5 h-16">
-      <div className="flex items-center gap-3">
-        <div onClick={() => router.push('/')} className="cursor-pointer">
-          <Image src="/reallogo.png" alt="Bluebox" width={32} height={32} />
+    <div className="flex items-center px-4 h-16 border-b border-slate-700/30">
+      <div 
+        className="flex items-center cursor-pointer" 
+        onClick={() => router.push('/')}
+      >
+        <div className="relative flex-shrink-0">
+          <Image 
+            src="/reallogo.png" 
+            alt="Bluebox" 
+            width={32} 
+            height={32} 
+            className="flex-shrink-0"
+          />
+        </div>
+        <div className="overflow-hidden ml-3">
+          <motion.div
+            initial={false}
+            animate={{ 
+              opacity: open ? 1 : 0,
+              x: open ? 0 : -10,
+              width: open ? 'auto' : 0
+            }}
+            transition={{ duration: 0.2 }}
+            className="text-white font-semibold text-lg whitespace-nowrap"
+          >
+            Bluebox
+          </motion.div>
         </div>
       </div>
     </div>
@@ -115,38 +232,73 @@ const SidebarItem = ({
   icon: Icon, 
   text,
   onClick,
-  active = false
+  active = false,
+  isNew = false
 }: { 
-  icon: React.FC<{ className?: string }>;
+  icon: React.FC<{ className?: string; size?: number }>;
   text: string; 
   onClick?: () => void;
   active?: boolean;
+  isNew?: boolean;
 }) => {
   const { open } = useSidebar();
   
   return (
     <div 
       className={cn(
-        "flex items-center h-10 px-5 cursor-pointer rounded-md mx-2",
-        active ? "bg-neutral-800 text-blue-400" : "hover:bg-neutral-800"
+        "group flex items-center h-11 px-3 cursor-pointer rounded-lg mx-2 transition-all duration-200 relative",
+        active 
+          ? "bg-gradient-to-r from-blue-600/20 to-blue-500/10 text-blue-400 shadow-sm border border-blue-500/20" 
+          : "hover:bg-slate-800/60 text-slate-300 hover:text-white"
       )}
       onClick={onClick}
     >
-      <div className="flex items-center gap-5">
-        <Icon className={cn("h-5 w-5", active ? "text-blue-400" : "text-neutral-400")} />
-        <AnimatePresence>
-          {open && (
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className={cn("text-sm whitespace-nowrap", active ? "text-blue-400" : "text-neutral-300")}
-            >
+      <div className="flex items-center gap-3 w-full min-w-0">
+        <div className={cn(
+          "flex-shrink-0 transition-colors",
+          active ? "text-blue-400" : "text-slate-400 group-hover:text-slate-200"
+        )}>
+          <Icon size={18} />
+        </div>
+        <div className="overflow-hidden flex-1">
+          <motion.div
+            initial={false}
+            animate={{ 
+              opacity: open ? 1 : 0,
+              width: open ? 'auto' : 0
+            }}
+            transition={{ duration: 0.2 }}
+            className="min-w-0"
+          >
+            <span className={cn(
+              "text-sm font-medium whitespace-nowrap block truncate",
+              active ? "text-blue-400" : "text-slate-300 group-hover:text-white"
+            )}>
               {text}
-            </motion.span>
-          )}
-        </AnimatePresence>
+            </span>
+          </motion.div>
+        </div>
+        {isNew && (
+          <div className="overflow-hidden">
+            <motion.div 
+              initial={false}
+              animate={{ 
+                opacity: open ? 1 : 0,
+                scale: open ? 1 : 0.8
+              }}
+              transition={{ duration: 0.2 }}
+              className="flex-shrink-0"
+            >
+              <IconPlus 
+                size={14} 
+                className={cn(
+                  "transition-colors",
+                  active ? "text-blue-400" : "text-slate-500 group-hover:text-slate-300"
+                )} 
+              />
+            </motion.div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -156,14 +308,93 @@ const SidebarSection = ({ title, children }: { title?: string; children: React.R
   const { open } = useSidebar();
   
   return (
-    <div className="mt-5">
-      {title && open && (
-        <div className="px-7 py-1 text-xs text-neutral-500 uppercase">
-          {title}
+    <div className="mt-6">
+      {title && (
+        <div className="overflow-hidden">
+          <motion.div
+            initial={false}
+            animate={{ 
+              opacity: open ? 1 : 0,
+              height: open ? 'auto' : 0
+            }}
+            transition={{ duration: 0.2 }}
+            className="px-5 py-2 text-xs text-slate-500 uppercase font-semibold tracking-wider"
+          >
+            {title}
+          </motion.div>
         </div>
       )}
-      <div className="mt-1 flex flex-col gap-1">
+      <div className="mt-2 flex flex-col gap-1">
         {children}
+      </div>
+    </div>
+  );
+};
+
+const ChatItem = ({ 
+  chat, 
+  onClick, 
+  onDelete, 
+  isActive = false 
+}: { 
+  chat: Chat; 
+  onClick: () => void; 
+  onDelete: (e: React.MouseEvent) => void;
+  isActive?: boolean;
+}) => {
+  const { open } = useSidebar();
+  
+  return (
+    <div
+      className={cn(
+        "group flex items-center justify-between h-10 px-3 cursor-pointer rounded-lg mx-2 transition-all duration-200",
+        isActive 
+          ? "bg-gradient-to-r from-blue-600/15 to-blue-500/5 border border-blue-500/20" 
+          : "hover:bg-slate-800/50"
+      )}
+    >
+      <div
+        className="flex-1 flex items-center h-full min-w-0"
+        onClick={onClick}
+      >
+        <div className="flex items-center gap-3 w-full min-w-0">
+          <div className="overflow-hidden flex-1">
+            <motion.div
+              initial={false}
+              animate={{ 
+                opacity: open ? 1 : 0,
+                width: open ? 'auto' : 0
+              }}
+              transition={{ duration: 0.2 }}
+              className="min-w-0"
+            >
+              <span 
+                className={cn(
+                  "text-sm block truncate max-w-[180px] transition-colors",
+                  isActive ? "text-blue-300" : "text-slate-300 group-hover:text-white"
+                )}
+                title={chat.title || "New Chat"}
+              >
+                {chat.title || "New Chat"}
+              </span>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+      <div className="overflow-hidden">
+        <motion.div
+          initial={false}
+          animate={{
+            opacity: open ? 0 : 0,
+            scale: open ? 1 : 0.8
+          }}
+          whileHover={{ opacity: 1, scale: 1.1 }}
+          transition={{ duration: 0.15 }}
+          className="flex-shrink-0 ml-2 p-1 rounded-md hover:bg-red-500/20 group-hover:opacity-100"
+          onClick={onDelete}
+        >
+          <IconTrash className="h-3.5 w-3.5 text-slate-400 hover:text-red-400 transition-colors" />
+        </motion.div>
       </div>
     </div>
   );
@@ -181,10 +412,28 @@ export const SidebarMenu = () => {
   const [chatToDelete, setChatToDelete] = useState<string | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
 
+
   useEffect(() => {
     if (!user) return;
     setLoading(true);
-    chatService.getUserChats(user).then(setChats).finally(() => setLoading(false));
+    
+    // Clean up empty chats when user logs in, then load chats
+    const loadChats = async () => {
+      try {
+        await chatService.cleanupEmptyChats(user);
+        const userChats = await chatService.getUserChats(user);
+        setChats(userChats);
+      } catch (error) {
+        console.error('Error loading chats:', error);
+        // Fallback to just loading chats without cleanup
+        const userChats = await chatService.getUserChats(user);
+        setChats(userChats);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadChats();
   }, [user]);
 
   // Listen for refresh events to update chat list
@@ -226,25 +475,41 @@ export const SidebarMenu = () => {
     }
   }, [user]);
 
-  // Register global delete function
+  // Register global functions including the new cleanup function
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      // Cleanup function
+      window.cleanupEmptyChats = async () => {
+        if (!user) return;
+        
+        try {
+          await chatService.cleanupEmptyChats(user);
+          // Refresh the chat list after cleanup
+          const updatedChats = await chatService.getUserChats(user);
+          setChats(updatedChats);
+          
+          // Dispatch refresh event for other components
+          window.dispatchEvent(new CustomEvent('refreshChatList'));
+        } catch (error) {
+          console.error('Error during cleanup:', error);
+        }
+      };
+
       window.deleteChat = (chatId: string) => {
         setChatToDelete(chatId);
         setIsDeleteDialogOpen(true);
       };
 
       return () => {
+        delete window.cleanupEmptyChats;
         delete window.deleteChat;
       };
     }
-  }, []);
+  }, [user]);
 
   const handleNewChat = () => {
-    // Only trigger new chat if we have messages in the current chat
-    if (currentMessages > 0) {
-      window.createNewChat?.();
-    }
+    // Simply create a new chat when user clicks "New Chat"
+    window.createNewChat?.();
   };
 
   const handleConsultations = () => {
@@ -295,87 +560,124 @@ export const SidebarMenu = () => {
     }
   };
 
+  // Filter out empty chats from display (chats with messageCount of 0)
+  const displayChats = chats.filter(chat => {
+    return chat.messages.length > 0 || chat.id === currentChatId;
+  });
+
   return (
     <SidebarBody className="flex flex-col">
-      <div className="flex-1 flex flex-col pb-8">
+      <div className="flex-1 flex flex-col">
         <Logo />
 
-        {/* Top Section */}
+        {/* Main Navigation */}
         <SidebarSection>
           <SidebarItem
-            icon={IconEdit}
+            icon={IconMessageCircle}
             text="New chat"
             onClick={handleNewChat}
-            active={currentMessages === 0}
+            active={false}
+            isNew={true}
           />
           <SidebarItem
-            icon={IconEdit}
+            icon={IconCalendar}
             text="Manage Consultations"
             onClick={handleConsultations}
           />
           <SidebarItem
-            icon={IconEdit}
+            icon={IconFileText}
             text="EHR"
             onClick={() => router.push("/ehr")}
           />
         </SidebarSection>
 
-        {/* Chat List Section */}
+        {/* Chat History - Removed "Recent Chats" title */}
         <SidebarSection>
           {loading ? (
-            <div
-              className={cn(
-                "px-7 py-2 text-sm text-neutral-500",
-                !open && "text-center"
-              )}
-            >
-              {open ? "Loading..." : "..."}
+            <div className="px-5 py-3 text-center">
+              <div className="flex items-center justify-center gap-2">
+                <div className="w-2 h-2 bg-slate-500 rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-slate-500 rounded-full animate-pulse delay-75"></div>
+                <div className="w-2 h-2 bg-slate-500 rounded-full animate-pulse delay-150"></div>
+              </div>
+              <div className="overflow-hidden">
+                <motion.span 
+                  initial={false}
+                  animate={{ 
+                    opacity: open ? 1 : 0,
+                    height: open ? 'auto' : 0
+                  }}
+                  transition={{ duration: 0.2 }}
+                  className="text-xs text-slate-500 mt-2 block"
+                >
+                  Loading chats...
+                </motion.span>
+              </div>
             </div>
           ) : (
-            <div className="flex flex-col overflow-y-auto max-h-[calc(100vh-220px)] no-scrollbar">
-              {chats.map((chat) => (
-                <div
+            <div className="flex flex-col max-h-[calc(100vh-280px)] overflow-y-auto no-scrollbar">
+              {displayChats.slice(0, 15).map((chat) => (
+                <ChatItem
                   key={chat.id}
-                  className="flex items-center justify-between h-10 px-5 cursor-pointer hover:bg-neutral-800 rounded-md mx-2 group"
-                >
-                  <div
-                    className="flex-1 flex items-center h-full"
-                    onClick={() => handleChatClick(chat.id)}
-                  >
-                    <AnimatePresence>
-                      {open ? (
-                        <motion.span
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="truncate max-w-[180px] text-sm text-neutral-300"
-                        >
-                          {chat.title || "New Chat"}
-                        </motion.span>
-                      ) : (
-                        <div className="w-5 h-5 flex items-center justify-center">
-                          <div className="w-2 h-2 rounded-full bg-neutral-500"></div>
-                        </div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                  {open && (
-                    <div
-                      className="opacity-0 group-hover:opacity-100 transition-opacity"
-                      onClick={(e) => handleDeleteClick(e, chat.id)}
-                    >
-                      <IconTrash className="h-4 w-4 text-neutral-400 hover:text-red-500" />
-                    </div>
-                  )}
-                </div>
+                  chat={chat}
+                  onClick={() => handleChatClick(chat.id)}
+                  onDelete={(e) => handleDeleteClick(e, chat.id)}
+                  isActive={chat.id === currentChatId}
+                />
               ))}
+              {displayChats.length > 15 && (
+                <div
+                  className="flex items-center justify-center h-10 px-3 mx-2 text-slate-500 hover:text-slate-300 transition-colors cursor-pointer rounded-lg hover:bg-slate-800/40"
+                  onClick={() => router.push('/chat-history')}
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-1">
+                      <div className="w-1 h-1 rounded-full bg-slate-500"></div>
+                      <div className="w-1 h-1 rounded-full bg-slate-500"></div>
+                      <div className="w-1 h-1 rounded-full bg-slate-500"></div>
+                    </div>
+                    <div className="overflow-hidden">
+                      <motion.span
+                        initial={false}
+                        animate={{ 
+                          opacity: open ? 1 : 0,
+                          width: open ? 'auto' : 0
+                        }}
+                        transition={{ duration: 0.2 }}
+                        className="text-xs font-medium whitespace-nowrap"
+                      >
+                        {displayChats.length - 15} more chats
+                      </motion.span>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {displayChats.length === 0 && !loading && (
+                <div className="px-5 py-6 text-center">
+                  <div className="text-slate-500 text-sm">
+                    {open ? "No chats yet" : "Empty"}
+                  </div>
+                  <div className="overflow-hidden">
+                    <motion.div 
+                      initial={false}
+                      animate={{ 
+                        opacity: open ? 1 : 0,
+                        height: open ? 'auto' : 0
+                      }}
+                      transition={{ duration: 0.2 }}
+                      className="text-xs text-slate-600 mt-1"
+                    >
+                      Start a conversation to see your chat history
+                    </motion.div>
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </SidebarSection>
 
-        {/* Bottom Section (Settings only) */}
-        <div className="mt-auto">
+        {/* Bottom Section */}
+        <div className="mt-auto border-t border-slate-700/30 pt-4">
           <SidebarSection>
             {user && (
               <SidebarItem
@@ -387,36 +689,63 @@ export const SidebarMenu = () => {
           </SidebarSection>
         </div>
       </div>
-  
-      {/* Delete Confirmation Dialog */}
-      {isDeleteDialogOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg p-6 max-w-sm mx-4 shadow-xl">
-            <h3 className="text-lg font-medium text-gray-900 mb-4">Delete Chat</h3>
-            <p className="text-sm text-gray-600 mb-6">
-              Are you sure you want to delete this chat? This action cannot be undone.
-            </p>
-            <div className="flex justify-end space-x-3">
-              <button
-                onClick={handleCloseDeleteDialog}
-                disabled={isDeleting}
-                className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleDeleteConfirm}
-                disabled={isDeleting}
-                className={`px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 ${
-                  isDeleting ? "opacity-50 cursor-not-allowed" : ""
-                }`}
-              >
-                {isDeleting ? "Deleting..." : "Delete"}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+
+      {/* Enhanced Delete Confirmation Dialog */}
+      <AnimatePresence>
+        {isDeleteDialogOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+          >
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ duration: 0.2 }}
+              className="bg-white rounded-xl p-6 max-w-sm mx-4 shadow-2xl border border-gray-200"
+            >
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                  <IconTrash className="w-5 h-5 text-red-600" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Delete Chat</h3>
+                  <p className="text-sm text-gray-600 mb-6">
+                    Are you sure you want to delete this chat? This action cannot be undone and all messages will be permanently removed.
+                  </p>
+                  <div className="flex justify-end space-x-3">
+                    <button
+                      onClick={handleCloseDeleteDialog}
+                      disabled={isDeleting}
+                      className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors disabled:opacity-50"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      onClick={handleDeleteConfirm}
+                      disabled={isDeleting}
+                      className={`px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors ${
+                        isDeleting ? "opacity-50 cursor-not-allowed" : ""
+                      }`}
+                    >
+                      {isDeleting ? (
+                        <span className="flex items-center gap-2">
+                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          Deleting...
+                        </span>
+                      ) : (
+                        "Delete"
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </SidebarBody>
   );
 };

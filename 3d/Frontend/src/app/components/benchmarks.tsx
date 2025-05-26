@@ -4,9 +4,9 @@ import { fadeInUp } from "../animations/fades"
 
 export default function Benchmarks() {
     return (
-    <section id = "benchmarks" className="bg-white py-16 pb-48 px-4">
+    <section id = "benchmarks" className="bg-neutral-900 py-16 pb-48 px-4">
         <motion.h2 
-            className="text-4xl font-bold mb-12 text-black text-center font-serif"
+            className="text-4xl font-bold mb-12 text-white text-center font-serif"
             {...fadeInUp}
             >
         Benchmark Results

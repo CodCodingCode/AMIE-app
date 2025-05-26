@@ -83,9 +83,12 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTe
           cube005Ref.current = child;
           cube005MaterialRef.current = mat;
 
-          // Always light up Cube005
-          mat.emissive = new THREE.Color(0x00ffff); // Cyan color
-          mat.emissiveIntensity = 50;
+          // Make Cube005 emissive black - creates a dark glow effect
+          mat.color = new THREE.Color(0x000000); // Set base color to black
+          mat.emissive = new THREE.Color(0x000000); // Black emissive color
+          mat.emissiveIntensity = 1.5; // Intensity for the dark glow
+          mat.metalness = 0.1; // Reduce metalness for better emissive effect
+          mat.roughness = 0.8; // Increase roughness for softer appearance
         }
 
         materialRefs.current.push(mat);

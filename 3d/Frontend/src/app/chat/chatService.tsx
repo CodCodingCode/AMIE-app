@@ -118,5 +118,21 @@ export const chatService = {
       console.error('Error deleting chat:', error);
       throw error;
     }
+  },
+
+  async cleanupEmptyChats(user: User): Promise<void> {
+    try {
+      const chats = await this.getUserChats(user);
+      const emptyChats = chats.filter(chat => chat.messages.length === 0);
+      
+      // Delete all empty chats
+      const deletePromises = emptyChats.map(chat => this.deleteChat(chat.id));
+      await Promise.all(deletePromises);
+      
+      console.log(`Cleaned up ${emptyChats.length} empty chats`);
+    } catch (error) {
+      console.error('Error cleaning up empty chats:', error);
+      throw error;
+    }
   }
 };

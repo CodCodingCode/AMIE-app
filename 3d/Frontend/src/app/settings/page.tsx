@@ -47,13 +47,13 @@ export default function SettingsPage() {
 
   return (
     <motion.div 
-      className="min-h-screen bg-white text-smokyBlack"
+      className="min-h-screen bg-neutral-900 text-white"
       initial="hidden"
       animate="visible"
       variants={pageAnimationVariants}
     >
       {/* Header */}
-      <header className="bg-white border-b border-trueBlue p-4 flex items-center">
+      <header className="bg-neutral-900 border-b border-trueBlue p-4 flex items-center">
         <button 
           onClick={handleBack}
           className="flex items-center text-mountbattenPink hover:text-dukeBlue transition-colors"

@@ -19,10 +19,23 @@ export default function ConsultationsPage () {
    return (
        <motion.div>
            <div className="flex items-center justify-between">
-               <button onClick={handleBack}>
-                   <IconArrowLeft />
-               </button>
-               <h1>Consultations</h1>
+           <button 
+            onClick={handleBack}
+            className="flex items-center text-mountbattenPink hover:text-dukeBlue transition-colors"
+            >
+            <IconArrowLeft size={20} className="mr-2" />
+            <span>Back</span>
+            </button>
+               <h1 className="text-2xl font-serif text-dukeBlue font-semibold mx-auto pr-10">
+          Consultations
+        </h1>
+        <button 
+          onClick={handleBack}
+          className="flex items-center text-mountbattenPink hover:text-dukeBlue transition-colors"
+        >
+          <IconArrowLeft size={20} className="mr-2" />
+          <span>Back</span>
+        </button>
            </div>
        </motion.div>
    )

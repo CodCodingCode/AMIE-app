@@ -4,18 +4,18 @@ import { fadeInUp } from "../animations/fades"
 
 export default function About() {
     return (
-        <section id = "about" className="bg-white py-16">
+        <section id = "about" className="bg-neutral-900 pt-24 pb-16">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-start gap-12 px-4">
         {/* Left: Heading and Paragraph */}
         <div className="flex-1">
             <motion.h2 
-            className="text-5xl font-bold mb-6 text-black font-serif"
+            className="text-5xl font-bold mb-6 text-white font-serif"
             {...fadeInUp}
             >
             About<br/>Bluebox.ai
             </motion.h2>
             <motion.p 
-            className="text-xl text-black leading-relaxed"
+            className="text-xl text-white leading-relaxed"
             {...fadeInUp}
             >
             Bluebox.ai is your trusted AI companion for health, productivity, and life. Our mission is to bridge minds and healthcare, making advanced AI accessible and helpful for everyone.

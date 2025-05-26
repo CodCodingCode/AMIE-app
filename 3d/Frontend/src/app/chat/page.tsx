@@ -7,26 +7,7 @@ import { motion } from 'framer-motion';
 
 // Simple page that shows the chat interface for all users
 export default function ChatPage() {
-  // Force create a new chat whenever the chat page is loaded directly (not from another chat)
-  useEffect(() => {
-    // Only create a new chat if we're coming from outside the app
-    // and not from another chat
-    if (typeof window !== 'undefined' && window.createNewChat) {
-      // Check if we're navigating directly to the chat page
-      // without coming from another chat
-      const referrer = document.referrer;
-      const isDirectNavigation = !referrer || !referrer.includes('/chat');
-      
-      if (isDirectNavigation) {
-        // Short delay to ensure the chat window is fully loaded
-        const timer = setTimeout(() => {
-          window.createNewChat?.();
-        }, 100);
-        
-        return () => clearTimeout(timer);
-      }
-    }
-  }, []);
+  // Removed auto-creation of new chat on page load - only create when user clicks "New Chat"
 
   // Animation variants for fade-in
   const pageAnimationVariants = {
@@ -56,27 +37,27 @@ export default function ChatPage() {
 
   return (
     <motion.div 
-      className="flex h-screen bg-gray-100 dark:bg-neutral-900"
+      className="relative h-screen bg-neutral-900 overflow-hidden"
       initial="hidden"
       animate="visible"
       variants={pageAnimationVariants}
     >
-      {/* Sidebar with absolute positioning to prevent affecting main content */}
+      {/* Main content takes full width */}
       <motion.div 
-        className="absolute h-full z-10"
+        className="w-full h-full"
+        variants={childAnimationVariants}
+      >
+        <ChatWindow />
+      </motion.div>
+      
+      {/* Sidebar overlays on top with fixed positioning */}
+      <motion.div 
+        className="fixed top-0 left-0 h-full z-50"
         variants={childAnimationVariants}
       >
         <Sidebar>
           <SidebarMenu />
         </Sidebar>
-      </motion.div>
-      
-      {/* Main content with fixed position and width */}
-      <motion.div 
-        className="flex-1 h-full overflow-hidden ml-[80px] md:ml-[80px]"
-        variants={childAnimationVariants}
-      >
-        <ChatWindow />
       </motion.div>
     </motion.div>
   );

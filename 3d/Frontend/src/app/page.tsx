@@ -14,7 +14,7 @@ export default function Home() {
       <section id="Home">
         <PortalScene />
       </section>
-      <section>
+      <section id="Video">
         <Videopage />
       </section>
       <section id="About">

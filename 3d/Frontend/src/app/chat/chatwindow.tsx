@@ -45,7 +45,7 @@ export default function ChatWindow() {
     partialResponse: '',
     inputHeight: 56,
     isProcessing: false,
-    isLoadingNewChat: true, // Start by attempting to load/create a new chat
+    isLoadingNewChat: false, // Don't auto-create, wait for user action
     isChatLoading: false,
     currentChatId: null,
     isDeleteDialogOpen: false,
@@ -106,13 +106,7 @@ export default function ChatWindow() {
     }
   }, [user]);
 
-  // Effect to initialize a new chat on page load or user change
-  useEffect(() => {
-    if (!authLoading) { // Only proceed if auth state is resolved
-        console.log("ChatWindow: Auth resolved. Triggering new chat creation.");
-        createNewChat();
-    }
-  }, [user, authLoading, createNewChat]); // createNewChat added as dependency
+  // Removed auto-creation of new chat on page load - only create when explicitly requested
 
   // Notify sidebar of message count changes
   useEffect(() => {
@@ -240,43 +234,11 @@ export default function ChatWindow() {
     }
   }, [user]);
 
-  // Function to handle opening delete confirmation dialog
-  const handleOpenDeleteDialog = useCallback(() => {
-    setChatState(prev => ({ ...prev, isDeleteDialogOpen: true }));
-  }, []);
-
-  // Function to handle closing delete confirmation dialog
-  const handleCloseDeleteDialog = useCallback(() => {
-    setChatState(prev => ({ ...prev, isDeleteDialogOpen: false }));
-  }, []);
-
-  // Function to delete the current chat
-  const handleDeleteChat = useCallback(async () => {
-    if (!user || !currentChatId || isDeleting) return;
-    setChatState(prev => ({ ...prev, isDeleting: true }));
-    try {
-      await chatService.deleteChat(currentChatId);
-      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('refreshChatList'));
-      // Trigger creation of a new chat, which will reset state
-      createNewChat(); 
-      // Explicitly close dialog and reset deleting flag, though createNewChat also resets state
-      setChatState(prev => ({ ...prev, isDeleteDialogOpen: false, isDeleting: false})); 
-    } catch (error) {
-      console.error('Error deleting chat:', error);
-      setChatState(prev => ({ ...prev, isDeleteDialogOpen: false, isDeleting: false }));
-    }
-  }, [user, currentChatId, isDeleting, createNewChat]);
-
   // Make loadChat and createNewChat available globally
   useEffect(() => {
     if (typeof window !== 'undefined') {
       (window as any).loadChat = loadChat;
       (window as any).createNewChat = createNewChat; // No EHR summary to pass now
-      (window as any).deleteCurrentChat = () => {
-        if (currentChatId && user) { // Only allow delete if a chat is active and user is logged in
-          handleOpenDeleteDialog();
-        }
-      };
     }
     // Cleanup global assignments
     return () => {
@@ -286,7 +248,7 @@ export default function ChatWindow() {
         delete (window as any).deleteCurrentChat;
       }
     };
-  }, [loadChat, createNewChat, currentChatId, user, handleOpenDeleteDialog]); // Added user here
+  }, [loadChat, createNewChat, currentChatId, user]); // Added user here
 
   // Function to render each message bubble
   const renderMessage = useCallback((message: Message, index: number) => (
@@ -325,22 +287,6 @@ export default function ChatWindow() {
             <div className="flex-shrink-0">
               <AuthButton />
             </div>
-          </div>
-        )}
-        
-        {/* Add Delete Chat Button if user is authenticated and there's a current chat */}
-        {user && currentChatId && messages.length > 0 && (
-          <div className="absolute top-0 right-0 mt-4 mr-4 z-10">
-            <button
-              onClick={handleOpenDeleteDialog}
-              disabled={isDeleting || isLoadingNewChat || isChatLoading} // Disable if any loading is happening
-              title="Delete this chat"
-              className={`p-2 rounded-full text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors ${
-                (isDeleting || isLoadingNewChat || isChatLoading) ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-            >
-              <IconTrash className="h-5 w-5" />
-            </button>
           </div>
         )}
         
@@ -445,14 +391,12 @@ export default function ChatWindow() {
             </p>
             <div className="flex justify-end space-x-3">
               <button
-                onClick={handleCloseDeleteDialog}
                 disabled={isDeleting}
                 className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500"
               >
                 Cancel
               </button>
               <button
-                onClick={handleDeleteChat}
                 disabled={isDeleting}
                 className={`px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 ${
                   isDeleting ? 'opacity-50 cursor-not-allowed' : ''

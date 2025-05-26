@@ -8,20 +8,29 @@ type SimplePlatformProps = {
   height?: number;
   length?: number;
   color?: string;
+  opacity?: number;
 };
 
 const Platform = ({
   position,
   rotation,
-  width,
-  height,
-  length,
-  color
+  width = 1,
+  height = 1,
+  length = 1,
+  color = '#ffffff',
+  opacity = 1
 }: SimplePlatformProps) => {
   return (
     <mesh position={position} rotation={[0, rotation || 0, 0]} castShadow receiveShadow>
       <boxGeometry args={[width, height, length]} />
-      <meshStandardMaterial color={color} />
+      <meshStandardMaterial
+        color={color}
+        transparent={opacity < 1}
+        opacity={opacity}
+        polygonOffset
+        polygonOffsetFactor={-1}
+        polygonOffsetUnits={-1}
+      />
     </mesh>
   );
 };
