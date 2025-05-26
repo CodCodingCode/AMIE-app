@@ -10,9 +10,10 @@ type Box3DProps = {
   initialPosition?: [number, number, number];
   onZoomStart?: () => void;
   onBoxClicked?: () => void;
+  getTextAnimationControls?: () => any;
 };
 
-const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked }: Box3DProps) => {
+const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTextAnimationControls }: Box3DProps) => {
   const router = useRouter();
   const gltf = useGLTF('/blueboxrealagain.glb');
 
@@ -119,6 +120,14 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked }: Box
           router.push('/chat');
         }
       });
+
+      // Fade out the enter text if available
+      if (getTextAnimationControls) {
+        const textControls = getTextAnimationControls();
+        if (textControls && textControls.animateFade) {
+          textControls.animateFade(tl, 0);
+        }
+      }
 
       if (leftDoorRef.current && rightDoorRef.current &&
           leftDoorInitialPos.current && rightDoorInitialPos.current) {

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { auth, provider } from '../firebase';
+import { auth, provider } from '@/app/firebase';
 import { signInWithPopup, signOut, onAuthStateChanged, User } from 'firebase/auth';
 import { IconBrandGoogle } from '@tabler/icons-react';
 

@@ -1,7 +1,7 @@
 'use client';
 
-import { db } from '../firebase';
-import { collection, addDoc, getDocs, query, where, orderBy, doc, updateDoc, arrayUnion, getDoc, Timestamp, deleteDoc } from 'firebase/firestore';
+import { db } from '@/app/firebase';
+import { collection, addDoc, getDocs, query, where, orderBy, doc, updateDoc, arrayUnion, getDoc, deleteDoc, Timestamp } from 'firebase/firestore';
 import { User } from 'firebase/auth';
 
 export type ChatMessage = {
@@ -20,20 +20,14 @@ export type Chat = {
 };
 
 export const chatService = {
-  async createNewChat(user: User, initialMessages: Omit<ChatMessage, 'timestamp'>[] = []): Promise<string> {
+  async createNewChat(user: User): Promise<string> {
     try {
-      const messagesWithTimestamp = initialMessages.map(msg => ({
-        ...msg,
-        timestamp: Timestamp.now()
-      }));
-
       const chatRef = await addDoc(collection(db, 'chats'), {
         userId: user.uid,
-        title: initialMessages.length > 0 && initialMessages[0].sender === 'assistant' ? 
-               initialMessages[0].text.substring(0,30) + (initialMessages[0].text.length > 30 ? '...':'') : 'New Chat',
+        title: 'New Chat',
         createdAt: Timestamp.now(),
         updatedAt: Timestamp.now(),
-        messages: messagesWithTimestamp
+        messages: []
       });
       return chatRef.id;
     } catch (error) {
@@ -99,17 +93,14 @@ export const chatService = {
     try {
       const chatRef = doc(db, 'chats', chatId);
       
-      // Create message with timestamp
       const messageWithTimestamp = {
         ...message,
         timestamp: Timestamp.now()
       };
       
-      // Update the chat document
       await updateDoc(chatRef, {
         messages: arrayUnion(messageWithTimestamp),
         updatedAt: Timestamp.now(),
-        // Always update title with user messages for better identification in sidebar
         ...(message.sender === 'user' && messageWithTimestamp.text.length > 0 
           ? { title: messageWithTimestamp.text.slice(0, 30) + (messageWithTimestamp.text.length > 30 ? '...' : '') } 
           : {})
@@ -122,12 +113,10 @@ export const chatService = {
 
   async deleteChat(chatId: string): Promise<void> {
     try {
-      const chatRef = doc(db, 'chats', chatId);
-      await deleteDoc(chatRef); // Firebase function to delete a document
-      console.log(`Chat with ID: ${chatId} deleted successfully.`);
+      await deleteDoc(doc(db, 'chats', chatId));
     } catch (error) {
       console.error('Error deleting chat:', error);
-      throw error; // Re-throw the error to be caught by the calling function
+      throw error;
     }
   }
 };

@@ -7,22 +7,24 @@ import Box3D from './Box3D';
 import MouseParallax from './MouseParallax';
 import BasicLights from './lights';
 import { usePathname } from 'next/navigation';
-import EnterText from './entertext';
+import EnterText, { EnterTextHandles } from './entertext';
+import AnimatedStars from './stars';
+
+interface PortalSceneProps {}
 
 // Main component with canvas setup
-const PortalScene = () => {
+const PortalScene = (props: PortalSceneProps) => {
   const [canvasResetKey, setCanvasResetKey] = useState(0);
   const [isZooming, setIsZooming] = useState(false);
-  const [initiateTextFade, setInitiateTextFade] = useState(false);
   const [boxKey, setBoxKey] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const enterTextRef = useRef<EnterTextHandles>(null);
   const pathname = usePathname();
 
   useEffect(() => {
     if (pathname === '/') {
       setBoxKey(prevKey => prevKey + 1);
       setIsZooming(false);
-      setInitiateTextFade(false);
     }
   }, [pathname]);
 
@@ -56,16 +58,19 @@ const PortalScene = () => {
         <Box3D 
           key={boxKey} 
           onZoomStart={() => setIsZooming(true)} 
-          onBoxClicked={() => setInitiateTextFade(true)}
+          getTextAnimationControls={() => enterTextRef.current}
         />
-        
+
         <BasicLights />
         <EnterText 
-          startFade={initiateTextFade} 
-          position={[-6, 2, 0]}
-          rotation={[Math.PI/2, 0, 0]}
+          ref={enterTextRef}
+          position={[-5.5, 0.5, 0]}
+          rotation={[Math.PI/1.9, 0, -Math.PI/10]}
           scale={1.05}
         />
+
+        <AnimatedStars />
+
       </Canvas>
     </div>
   );
