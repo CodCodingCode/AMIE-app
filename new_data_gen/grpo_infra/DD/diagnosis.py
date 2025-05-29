@@ -9,6 +9,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 # Your normal ChatGPT client
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
+
 # ─── Reward function using ChatGPT via `client` ────────────────
 def openai_reward_fn(prompts: list[str], generations: list[str]) -> list[float]:
     rewards = []
@@ -27,7 +28,7 @@ def openai_reward_fn(prompts: list[str], generations: list[str]) -> list[float]:
             model="gpt-4.1-nano",
             messages=[
                 {"role": "system", "content": "You are a strict numeric grader."},
-                {"role": "user",   "content": eval_prompt},
+                {"role": "user", "content": eval_prompt},
             ],
             temperature=0.0,
             max_tokens=4,
@@ -42,20 +43,21 @@ def openai_reward_fn(prompts: list[str], generations: list[str]) -> list[float]:
         rewards.append(max(0.0, min(1.0, score)))
     return rewards
 
+
 # ─── Load your base model & tokenizer ──────────────────────────
 model_name = "CodCodingCode/llama-3.1-8b-clinical"
 tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False)
-model     = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
+model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
 
 # ─── Configure and launch your PPO/GRPO trainer ────────────────
 config = PPOConfig(
     model_name=model_name,
     batch_size=4,
     learning_rate=1e-5,
-    ppo_epochs=1,    # for GRPO use group_size instead
+    ppo_epochs=1,  # for GRPO use group_size instead
 )
 
-trainer = PPOTrainer(
+trainer = GRPOTrainer(
     model=model,
     tokenizer=tokenizer,
     config=config,

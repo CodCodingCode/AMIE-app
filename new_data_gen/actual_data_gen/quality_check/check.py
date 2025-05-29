@@ -11,6 +11,7 @@ def extract_answers_from_json(json_path):
         data = json.load(f)
 
     extracted_answers = []
+    valid_entries = []
     missing_entries = []
 
     for entry in data:
@@ -28,8 +29,12 @@ def extract_answers_from_json(json_path):
                     "answer": answer_text,
                 }
             )
+            valid_entries.append(entry)
         else:
             missing_entries.append(entry.get("vignette_index"))
+    # Overwrite the file with only valid entries
+    with open(json_path, "w", encoding="utf-8") as f:
+        json.dump(valid_entries, f, indent=2, ensure_ascii=False)
 
     print(f"Total entries missing either THINKING or ANSWER: {len(missing_entries)}")
     print("Missing entry indices:", missing_entries)
@@ -49,7 +54,7 @@ def split_by_letter(json_path):
             split_data[letter].append(entry)
 
     for letter, entries in split_data.items():
-        with open(f"split_outputs_{letter}.json", "w", encoding="utf-8") as f_out:
+        with open(f"split_outputs_DD_{letter}.json", "w", encoding="utf-8") as f_out:
             json.dump(entries, f_out, indent=2, ensure_ascii=False)
 
 
@@ -60,10 +65,14 @@ list_of_outputs = [
     "all_treatment_outputs.json",
 ]
 
+# split_by_letter("all_questioning_doctor_outputs.json")
+split_by_letter("all_diagnosing_doctor_outputs.json")
+
+"""
 for output_file in list_of_outputs:
 
     answers = extract_answers_from_json(output_file)
 
 # Call the new function to split the dataset
 # split_by_letter("all_questioning_doctor_outputs.json")
-print("total missing entries:", missing_count)
+print("total missing entries:", missing_count)"""
