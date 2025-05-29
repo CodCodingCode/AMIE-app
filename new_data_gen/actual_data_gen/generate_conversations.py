@@ -4,9 +4,12 @@ from openai import OpenAI
 import time
 import multiprocessing
 import shutil
+from itertools import islice
 
 # Initialize OpenAI client
-client = OpenAI(api_key="api")  # Replace with your actual API key
+client = OpenAI(
+    api_key="api"
+)  # Replace with your actual API key
 model = "gpt-4.1-nano"
 
 treatment_plans = []
@@ -53,6 +56,7 @@ conversation = []
 # === Loop over each vignette ===
 def process_vignette(idx, vignette_text, gold_label):
     global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs, treatment_plans
+    previous_questions = []
     initial_prompt = "What brings you in today?"
     conversation.clear()
     conversation.append(f"DOCTOR: {initial_prompt}")

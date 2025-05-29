@@ -209,7 +209,6 @@ all_treatment_plans.json
 *_plans.json
 all_*.json
 conversation_outputs/
-2*.json
 
 # Dataset directories
 patient_followups/
@@ -217,7 +216,6 @@ questioning_doctor_outputs/
 summarizer_outputs/
 diagnosing_doctor_outputs/
 treatment_plans/
-2*/
 
 #datasets
 datasets/SFT/chatdoctor5k.json

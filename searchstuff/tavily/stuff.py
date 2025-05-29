@@ -3,8 +3,8 @@ from tavily import TavilyClient
 from openai import OpenAI
 
 # Set your API keys
-TAVILY_API_KEY = "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"
-OPENAI_API_KEY = "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"
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Initialize Tavily client
 tavily = TavilyClient(api_key=TAVILY_API_KEY)
