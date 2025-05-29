@@ -5,7 +5,12 @@
 
 AMIE (Artificial Medical Intelligence Engine) is the most accurate AI doctor, designed to provide medical diagnostics with unparalleled precision and reliability.
 
+## NEIGHBOURHOOD INFORMATION:
+
+Here is my model please use for the medical-test repo! ![Model](ttps://huggingface.co/spaces/CodCodingCode/medical-test/tree/main)
+
 ## Table of Contents
+
 - [Overview](#overview)
 - [Features](#features)
 - [Installation](#installation)
@@ -32,6 +37,7 @@ This application leverages advanced machine learning models trained on comprehen
 ## Installation
 
 ### Prerequisites
+
 - Python 3.8+
 - PyTorch 1.13+
 - Hugging Face Transformers library
@@ -173,19 +179,21 @@ AMIE-app/
 Our core machine learning strategy involves a two-stage process to develop a highly capable medical AI:
 
 1.  **Supervised Fine-Tuning (SFT):**
-    *   We plan to start by fine-tuning powerful pre-trained language models. The primary candidates for this stage are **BioLlama 8B** (a Llama model specialized for the biomedical domain) or **Llama 4 Maverick**.
-    *   SFT will be performed using curated medical datasets, including question-answer pairs, clinical notes, and medical dialogues, to adapt the base model to understand and generate clinically relevant text. The datasets in the `datasets/SFT/` directory are intended for this purpose.
+
+    - We plan to start by fine-tuning powerful pre-trained language models. The primary candidates for this stage are **BioLlama 8B** (a Llama model specialized for the biomedical domain) or **Llama 4 Maverick**.
+    - SFT will be performed using curated medical datasets, including question-answer pairs, clinical notes, and medical dialogues, to adapt the base model to understand and generate clinically relevant text. The datasets in the `datasets/SFT/` directory are intended for this purpose.
 
 2.  **Reinforcement Learning (RL) for Response Optimization:**
-    *   Following SFT, we intend to further refine the model's responses using reinforcement learning techniques.
-    *   Specifically, we are exploring methods like **GRPO (Generative Reinforcement Policy Optimization)** or **PPO (Proximal Policy Optimization)**.
-    *   The goal of this RL stage is to improve the quality, safety, and helpfulness of the model's outputs by training it against a reward model that scores responses based on medical accuracy, clarity, and adherence to clinical guidelines. This will help in generating more nuanced and contextually appropriate medical advice or diagnostic questions.
+    - Following SFT, we intend to further refine the model's responses using reinforcement learning techniques.
+    - Specifically, we are exploring methods like **GRPO (Generative Reinforcement Policy Optimization)** or **PPO (Proximal Policy Optimization)**.
+    - The goal of this RL stage is to improve the quality, safety, and helpfulness of the model's outputs by training it against a reward model that scores responses based on medical accuracy, clarity, and adherence to clinical guidelines. This will help in generating more nuanced and contextually appropriate medical advice or diagnostic questions.
 
 This iterative approach of SFT followed by RL aims to create a robust and reliable AI doctor.
 
 ## Roadmap
 
 ### Short-term Goals
+
 - Add treatment plan output capabilities to both dataset and model
 - Implement grounding mechanisms to prevent hallucinations
 - Complete frontend application with Google authentication
@@ -193,6 +201,7 @@ This iterative approach of SFT followed by RL aims to create a robust and reliab
 - Develop automated patient vignette generation from conversations
 
 ### Long-term Goals
+
 - Enhance diagnostic accuracy through iterative model improvements
 - Expand support for multiple medical specialties
 - Develop mobile applications for broader accessibility
@@ -214,4 +223,3 @@ For major changes, please open an issue first to discuss what you would like to 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
