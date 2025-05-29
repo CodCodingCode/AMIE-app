@@ -25,7 +25,6 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTe
   const { camera } = useThree();
   const isHovered = useRef(false);
   const isZooming = useRef(false);
-
   const leftDoorRef = useRef<Mesh | null>(null);
   const rightDoorRef = useRef<Mesh | null>(null);
   const logoOuterRef = useRef<Mesh | null>(null);
@@ -39,12 +38,15 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTe
   const logoOuterInitialPos = useRef<THREE.Vector3 | null>(null);
   const logoInnerInitialPos = useRef<THREE.Vector3 | null>(null);
 
+  // Initialize box and handle cleanup
   useEffect(() => {
     if (!boxRef.current) return;
-
+    
+    // Set initial position and rotation
     boxRef.current.rotation.y = initialRotation.current;
-    boxRef.current.position.set(...initialPosition);
+    boxRef.current.position.set(initialPosition[0], initialPosition[1], initialPosition[2]);
 
+    // Reset all refs
     leftDoorRef.current = null;
     rightDoorRef.current = null;
     logoOuterRef.current = null;
@@ -57,16 +59,18 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTe
     logoInnerInitialPos.current = null;
     materialRefs.current = [];
 
+    // Find and set up sliding doors and materials
     scene.traverse((child) => {
       if (child instanceof Mesh && child.material) {
         const mat = child.material as THREE.MeshStandardMaterial;
 
         // Reset default material state
-        mat.emissive = new THREE.Color(0x000000);
+        mat.emissive = new THREE.Color("#171717");
         mat.emissiveIntensity = 0;
         mat.opacity = 1.0;
         mat.transparent = false;
 
+        // Store references to specific doors and objects
         if (child.name === 'Cube') {
           leftDoorRef.current = child;
           leftDoorInitialPos.current = child.position.clone();
@@ -94,7 +98,6 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTe
         materialRefs.current.push(mat);
       }
     });
-
   }, [scene, initialPosition]);
 
   useFrame(() => {

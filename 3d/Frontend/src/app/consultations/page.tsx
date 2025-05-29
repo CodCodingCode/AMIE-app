@@ -1,44 +1,24 @@
 'use client';
 
-
 import React from 'react';
-import { useRouter } from 'next/navigation';
-import { useAuth } from '../chat/Auth';
-import { IconLogout, IconArrowLeft } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
-
+import BackButton from '../components/backbutton';
 
 export default function ConsultationsPage () {
-   const router = useRouter();
-
-   const handleBack = () => {
-       router.back();
-   }
-
-
    return (
-       <motion.div>
-           <div className="flex items-center justify-between">
-           <button 
-            onClick={handleBack}
-            className="flex items-center text-mountbattenPink hover:text-dukeBlue transition-colors"
-            >
-            <IconArrowLeft size={20} className="mr-2" />
-            <span>Back</span>
-            </button>
+       <motion.div className="min-h-screen bg-neutral-900 text-white">
+           {/* Header matching settings page */}
+           <header className="bg-neutral-900 border-b border-trueBlue p-4 flex items-center">
+               <BackButton />
                <h1 className="text-2xl font-serif text-dukeBlue font-semibold mx-auto pr-10">
-          Consultations
-        </h1>
-        <button 
-          onClick={handleBack}
-          className="flex items-center text-mountbattenPink hover:text-dukeBlue transition-colors"
-        >
-          <IconArrowLeft size={20} className="mr-2" />
-          <span>Back</span>
-        </button>
-           </div>
-       </motion.div>
-   )
-  
-}
+                   Consultations
+               </h1>
+           </header>
 
+           {/* Main content placeholder */}
+           <main className="max-w-2xl mx-auto p-6">
+               {/* Content goes here */}
+           </main>
+       </motion.div>
+   );
+}

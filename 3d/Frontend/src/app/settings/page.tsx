@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '../chat/Auth';
 import { IconLogout, IconArrowLeft } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
+import BackButton from '../components/backbutton';
 
 export default function SettingsPage() {
   const { user, logOut } = useAuth();
@@ -12,10 +13,6 @@ export default function SettingsPage() {
 
   const handleSignOut = async () => {
     await logOut();
-    router.push('/chat');
-  };
-
-  const handleBack = () => {
     router.push('/chat');
   };
 
@@ -54,13 +51,7 @@ export default function SettingsPage() {
     >
       {/* Header */}
       <header className="bg-neutral-900 border-b border-trueBlue p-4 flex items-center">
-        <button 
-          onClick={handleBack}
-          className="flex items-center text-mountbattenPink hover:text-dukeBlue transition-colors"
-        >
-          <IconArrowLeft size={20} className="mr-2" />
-          <span>Back</span>
-        </button>
+        <BackButton />
         <h1 className="text-2xl font-serif text-dukeBlue font-semibold mx-auto pr-10">
           Settings
         </h1>

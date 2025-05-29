@@ -236,3 +236,6 @@ edited_file.jsonl
 # OS generated files
 .DS_Store
 medical-test
+
+sct2_Description_Full-en_INT_20250501.txt
+output.csv

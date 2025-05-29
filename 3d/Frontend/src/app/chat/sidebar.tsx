@@ -652,26 +652,6 @@ export const SidebarMenu = () => {
                   </div>
                 </div>
               )}
-              {displayChats.length === 0 && !loading && (
-                <div className="px-5 py-6 text-center">
-                  <div className="text-slate-500 text-sm">
-                    {open ? "No chats yet" : "Empty"}
-                  </div>
-                  <div className="overflow-hidden">
-                    <motion.div 
-                      initial={false}
-                      animate={{ 
-                        opacity: open ? 1 : 0,
-                        height: open ? 'auto' : 0
-                      }}
-                      transition={{ duration: 0.2 }}
-                      className="text-xs text-slate-600 mt-1"
-                    >
-                      Start a conversation to see your chat history
-                    </motion.div>
-                  </div>
-                </div>
-              )}
             </div>
           )}
         </SidebarSection>

@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
@@ -10,6 +11,7 @@ import { usePathname } from 'next/navigation';
 import EnterText, { EnterTextHandles } from './entertext';
 import AnimatedStars from './stars';
 import Platform from './cube';
+import { motion } from 'framer-motion';
 
 interface PortalSceneProps {}
 
@@ -39,7 +41,7 @@ const PortalScene = (props: PortalSceneProps) => {
   }, []);
 
   return (
-    <div className="h-screen w-full bg-neutral-900 relative">
+    <div className="relative h-screen w-full bg-neutral-900">
       <Canvas 
         key={canvasResetKey}
         gl={{ antialias: true }}
@@ -50,64 +52,35 @@ const PortalScene = (props: PortalSceneProps) => {
         }}
       >
         <PerspectiveCamera makeDefault position={[0, 0, 15]} fov={60} />
-
         <MouseParallax isEnabled={!isZooming} strength={0.5} dampingFactor={0.10} />
-
         <Box3D 
           key={boxKey} 
           onZoomStart={() => setIsZooming(true)} 
           getTextAnimationControls={() => enterTextRef.current}
         />
-
         <BasicLights />
-
-        <EnterText 
-          ref={enterTextRef}
-          position={[-5.5, 0.5, 0]}
-          rotation={[Math.PI / 1.9, 0, -Math.PI / 10]}
-          scale={1.05}
-        />
-
         <AnimatedStars />
-
-        {/* Fading Platforms with adjusted spacing and depth */}
-        <Platform 
-          position={[17, -35, -40]} 
-          rotation={Math.PI * 2.25}
-          width={24}
-          height={50}
-          length={40}
-          color="#555555"
-          opacity={0.6}
-        />
-        <Platform
-          position={[12, -43, -39.5]}
-          rotation={Math.PI * 2.25}
-          width={24}
-          height={50}
-          length={40}
-          color="#555555"
-          opacity={0.4}
-        />
-        <Platform
-          position={[7, -51, -39]}
-          rotation={Math.PI * 2.25}
-          width={24}
-          height={50}
-          length={40}
-          color="#555555"
-          opacity={0.2}
-        />
-        <Platform
-          position={[2, -59, -38.5]}
-          rotation={Math.PI * 2.25}
-          width={24}
-          height={50}
-          length={40}
-          color="#555555"
-          opacity={0}
-        />
       </Canvas>
+      <div className="absolute top-0 left-0 h-full w-full flex items-center justify-start z-10 px-4 pointer-events-none">
+        <div className="text-left ml-auto mr-auto" style={{ marginLeft: '5%', marginRight: 'auto' }}>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 font-serif"
+          >
+            Your Personal AI Doctor
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-md"
+          >
+            24/7 medical guidance powered by advanced AI technology
+          </motion.p>
+        </div>
+      </div>
     </div>
   );
 };
