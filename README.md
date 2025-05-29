@@ -7,7 +7,7 @@ AMIE (Artificial Medical Intelligence Engine) is the most accurate AI doctor, de
 
 ## NEIGHBOURHOOD INFORMATION:
 
-Here is my model please use for the medical-test repo! ![Model](ttps://huggingface.co/spaces/CodCodingCode/medical-test/tree/main)
+Here is my model please use for the medical-test repo! [Model](ttps://huggingface.co/spaces/CodCodingCode/medical-test/tree/main)
 
 ## Table of Contents
 
