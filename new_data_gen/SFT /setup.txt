@@ -1,0 +1,41 @@
+# 1) System prerequisites (you’ve already got these):
+#    • NVIDIA driver ≥ 535 (you have 570.124.06)
+#    • CUDA 12.8 + cuDNN (confirmed)
+
+# 2) Create & activate a Python venv
+cd ~/project
+python3 -m venv llama3-ft
+source llama3-ft/bin/activate
+pip install --upgrade pip setuptools wheel
+
+# 3) Install PyTorch (with CUDA 12.8 support)
+pip install torch torchvision torchaudio \
+    --index-url https://download.pytorch.org/whl/cu128 \
+    --extra-index-url https://download.pytorch.org/whl/nightly/cu128
+
+# 4) Install Hugging Face & related tooling
+pip install \
+  transformers \
+  datasets \
+  accelerate \
+  tokenizers \
+  safetensors \
+  sentencepiece
+
+# 5) Fix the TF-Keras import error
+# Option A: Install the backwards-compatible tf-keras package
+pip install tf-keras
+
+# Option B (if you want to drop all TF bits):
+# pip uninstall -y keras
+# pip install "transformers[torch]"
+
+# 6) (Optional) Tune your env vars
+export OMP_NUM_THREADS=4
+export MKL_NUM_THREADS=4
+export HF_HOME=~/.cache/huggingface
+export TRANSFORMERS_CACHE=~/.cache/huggingface
+
+# 7) Smoke test
+python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
+python -c "import transformers; print(transformers.__version__)"
