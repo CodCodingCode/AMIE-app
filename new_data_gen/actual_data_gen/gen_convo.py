@@ -1345,7 +1345,7 @@ if __name__ == "__main__":
         os.makedirs(directory, exist_ok=True)
 
     with open(
-        "new_data_gen/actual_data_gen/validated_disease_vignettes.json",
+        "new_data_gen/actual_data_gen/medical_vignettes_100_diseases.json",
         "r",
     ) as f:
         vignette_dict = json.load(f)
@@ -1355,11 +1355,11 @@ if __name__ == "__main__":
         # Only process if we have a list of vignettes
         if not isinstance(vignettes, list):
             continue
-        for vignette in vignettes[:2]:  # Only take the first 2
+        for vignette in vignettes:  # Only take the first 2
             flattened_vignettes.append((disease, vignette))
 
     # Launch multiprocessing pool with 12 workers
-    with multiprocessing.Pool(processes=1) as pool:
+    with multiprocessing.Pool(processes=12) as pool:
         results = pool.map(
             run_vignette_task,
             [
