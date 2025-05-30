@@ -8,7 +8,6 @@ import Box3D from './Box3D';
 import MouseParallax from './MouseParallax';
 import BasicLights from './lights';
 import { usePathname } from 'next/navigation';
-import EnterText, { EnterTextHandles } from './entertext';
 import AnimatedStars from './stars';
 import Platform from './cube';
 import { motion } from 'framer-motion';
@@ -20,7 +19,6 @@ const PortalScene = (props: PortalSceneProps) => {
   const [isZooming, setIsZooming] = useState(false);
   const [boxKey, setBoxKey] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const enterTextRef = useRef<EnterTextHandles>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -56,11 +54,12 @@ const PortalScene = (props: PortalSceneProps) => {
         <Box3D 
           key={boxKey} 
           onZoomStart={() => setIsZooming(true)} 
-          getTextAnimationControls={() => enterTextRef.current}
         />
         <BasicLights />
         <AnimatedStars />
       </Canvas>
+      
+      {/* Overlay Content - Moved more to the right */}
       <div className="absolute top-0 left-0 h-full w-full flex items-center justify-start z-10 px-4 pointer-events-none">
         <div className="text-left ml-auto mr-auto" style={{ marginLeft: '5%', marginRight: 'auto' }}>
           <motion.h1 

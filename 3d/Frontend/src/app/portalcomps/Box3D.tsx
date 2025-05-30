@@ -127,14 +127,18 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTe
         }
       });
 
-      // Fade out the enter text if available
+      // Fade out the enter text immediately when box is clicked
       if (getTextAnimationControls) {
         const textControls = getTextAnimationControls();
         if (textControls && textControls.animateFade) {
-          textControls.animateFade(tl, 0);
+          // Start text fade immediately (at time 0) with a duration of 0.5 seconds
+          tl.call(() => {
+            textControls.animateFade(0); // Fade to opacity 0
+          }, [], 0);
         }
       }
 
+      // Door animation starts slightly after text begins fading
       if (leftDoorRef.current && rightDoorRef.current &&
           leftDoorInitialPos.current && rightDoorInitialPos.current) {
         
@@ -145,14 +149,15 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTe
           z: leftDoorInitialPos.current.z + leftOpenOffset.z,
           duration: 0.8,
           ease: 'power2.out'
-        }, 0);
+        }, 0.2); // Start door animation 0.2 seconds after text fade
 
         tl.to(rightDoorRef.current.position, {
           z: rightDoorInitialPos.current.z + rightOpenOffset.z,
           duration: 0.8,
           ease: 'power2.out'
-        }, 0);
+        }, 0.2);
 
+        // Logo animation
         if (logoOuterRef.current && logoInnerRef.current &&
             logoOuterInitialPos.current && logoInnerInitialPos.current) {
 
@@ -160,13 +165,13 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTe
             y: logoOuterInitialPos.current.y + 0.1,
             duration: 0.8,
             ease: 'power2.out'
-          }, 0);
+          }, 0.2);
 
           tl.to(logoInnerRef.current.position, {
             y: logoInnerInitialPos.current.y + 0.2,
             duration: 0.8,
             ease: 'power2.out'
-          }, 0);
+          }, 0.2);
 
           const matOuter = logoOuterRef.current.material as THREE.MeshStandardMaterial;
           const matInner = logoInnerRef.current.material as THREE.MeshStandardMaterial;
@@ -179,16 +184,17 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTe
               onUpdate: () => {
                 if (!mat.transparent) mat.transparent = true;
               }
-            }, 0);
+            }, 0.2);
           });
         }
       }
 
+      // Camera animation
       tl.to(camera.position, {
         x: -40, y: 1, z: 20,
         duration: 1,
         ease: 'power2.inOut',
-      }, 0);
+      }, 0.2);
 
       tl.to(camera.rotation, {
         x: 0,
@@ -196,7 +202,7 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTe
         z: 0,
         duration: 1,
         ease: 'power2.inOut',
-      }, 0);
+      }, 0.2);
 
       tl.to(camera.position, {
         x: 13, y: 0, z: -35,

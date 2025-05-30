@@ -1,0 +1,168 @@
+{
+  "name":"disease-or-syndrome-relationships",
+  "title":"Disease or Syndrome Relationships",
+  "description":"This dataset provides the information on relationships between concepts or atoms known to the Metathesaurus for the semantic type \"Disease or Syndrome\". In the dataset, for asymmetrical relationships there is one row for each direction of the relationship.",
+  "documentation":"The UMLS, or Unified Medical Language System, is a set of files and software that brings together many health and biomedical vocabularies and standards to enable interoperability between computer systems. One powerful use of the UMLS is linking health information, medical terms, drug names, and billing codes across different computer systems. Some examples of this are:\n- Linking terms and codes between your doctor, your pharmacy, and your insurance company\n- Patient care coordination among several departments within a hospital\nThe UMLS has many other uses, including search engine retrieval, data mining, public health statistics reporting, and terminology research.\nThe UMLS has three tools (Knowledge Sources):\n- Metathesaurus: Terms and codes from many vocabularies, including CPT, ICD-10-CM, LOINC, MeSH, RxNorm, and SNOMED CT\n- Semantic Network: Broad categories (semantic types) and their relationships (semantic relations)\n- SPECIALIST Lexicon and Lexical Tools: Natural language processing tools\n\nThe 2024AA Metathesaurus contains approximately 3.44 million concepts and 13.7 million unique concept names from 199 source vocabularies. The Metathesaurus is a very large, multi-purpose, and multi-lingual vocabulary database that contains information about biomedical and health related concepts, their various names, and the relationships among them. It is built from the electronic versions of many different thesauri, classifications, code sets, and lists of controlled terms used in patient care, health services billing, public health statistics, indexing and cataloging biomedical literature, and /or basic, clinical, and health services research. In this documentation, these are referred to as the \"\"source vocabularies\"\" of the Metathesaurus. In the Metathesaurus, all the source vocabularies are available in a single, fully-specified database format.\n\nThe Metathesaurus is organized by concept or meaning. In essence, its purpose is to link alternative names and views of the same concept together and to identify useful relationships between different concepts. All concepts in the Metathesaurus are assigned to at least one semantic type from the Semantic Network. This provides consistent categorization of all concepts in the Metathesaurus at the relatively general level represented in the Semantic Network.\nThe purpose of the Semantic Network is to provide a consistent categorization of all concepts represented in the UMLS Metathesaurus and to provide a set of useful relationships between these concepts. All information about specific concepts is found in the Metathesaurus; the Network provides information about the set of basic semantic types, or categories, which may be assigned to these concepts, and it defines the set of relationships that may hold between the semantic types. The current release of the Semantic Network contains 125 semantic types and 54 relationships. The Semantic Network serves as an authority for the semantic types that are assigned to concepts in the Metathesaurus. The Network defines these types, both with textual descriptions and by means of the information inherent in its hierarchies.\n\nOf the fifty-four semantic relationships, the primary link between most of the semantic types is the \u2018isa\u2019 (is a) relationship. These semantic relationships may or may not hold at the concept level. One of the more important relationships within the Semantic Network is the Parent-Child, or Broader-Narrower, relationship. This relationship illustrates the hierarchies that exist between biomedical concepts. Child (narrower) relationships can be thought of as a subtype. For example, the semantic type Biologic Function is the parent of, or broader than, the semantic type Physiologic Function.",
+  "date_created":"2009-07-29",
+  "last_updated":"2024-05-06",
+  "version":"2024AA",
+  "update_frequency":"Semiannual",
+  "temporal_coverage":"N/A",
+  "spatial_coverage":"N/A",
+  "complexity":"Complex",
+  "license":"John Snow Labs Standard License",
+  "sources":[
+    {
+      "title":"John Snow Labs"
+    },
+    {
+      "title":"U.S. National Library of Medicine (NLM)"
+    }
+  ],
+  "contributors":[
+    {
+      "title":"John Snow Labs",
+      "email":"support@JohnSnowLabs.com",
+      "uri":"http://www.JohnSnowLabs.com",
+      "role":"author"
+    }
+  ],
+  "source_license_requirements":"Reporting Requirements",
+  "citation":"N/A",
+  "keywords":[
+    "UMLS",
+    "Metathesaurus",
+    "UMLS concepts",
+    "Semantic Type",
+    "RRF",
+    "NLM",
+    "Metathesaurus Relationships"
+  ],
+  "other_titles":[
+    "Metathesaurus Concepts and Their Relationships",
+    "Processes Disease or Syndrome Relationships",
+    "MRREL"
+  ],
+  "resources":[
+    {
+      "path":"data.csv",
+      "name":"disease-or-syndrome-relationships-csv",
+      "format":"csv",
+      "mediatype":"text/csv",
+      "schema":{
+        "fields":[
+          {
+            "name":"Concept_Unique_Identifier_1",
+            "description":"Unique identifier of first concept",
+            "type":"string",
+            "constraints":{
+              "required":true
+            }
+          },
+          {
+            "name":"Atom_Unique_Identifier_1",
+            "description":"Unique identifier of first atom",
+            "type":"string"
+          },
+          {
+            "name":"Relationship_Column_Name_1",
+            "description":"The name of the column in \"Disease or Syndrome Concepts and Types\" that contains the first identifier to which the relationship is attached",
+            "type":"string",
+            "constraints":{
+              "required":true
+            }
+          },
+          {
+            "name":"Relationship_Label",
+            "description":"Relationship of second concept or atom to first concept or atom",
+            "type":"string",
+            "constraints":{
+              "required":true
+            }
+          },
+          {
+            "name":"Concept_Unique_Identifier_2",
+            "description":"Unique identifier of second concept",
+            "type":"string",
+            "constraints":{
+              "required":true
+            }
+          },
+          {
+            "name":"Atom_Unique_Identifier_2",
+            "description":"Unique identifier of second atom",
+            "type":"string"
+          },
+          {
+            "name":"Relationship_Column_Name_2",
+            "description":"The name of the column in \"Disease or Syndrome Concepts and Types\" that contains the second identifier to which the relationship is attached",
+            "type":"string",
+            "constraints":{
+              "required":true
+            }
+          },
+          {
+            "name":"Additional_Relationship_Label",
+            "description":"Additional (more specific) relationship label (optional)",
+            "type":"string"
+          },
+          {
+            "name":"Relationship_Unique_Identifier",
+            "description":"Unique identifier of relationship",
+            "type":"string",
+            "constraints":{
+              "required":true
+            }
+          },
+          {
+            "name":"Source_Relationship_Identifier",
+            "description":"Source attributed relationship identifier",
+            "type":"string"
+          },
+          {
+            "name":"Source_Abbreviation",
+            "description":"Source vocabulary abbreviation",
+            "type":"string",
+            "constraints":{
+              "required":true
+            }
+          },
+          {
+            "name":"Source_Relationship_Label",
+            "description":"Source of relationship labels",
+            "type":"string"
+          },
+          {
+            "name":"Relationship_Group",
+            "description":"The group that the relationship belongs to",
+            "type":"integer",
+            "constraints":{
+              "level":"Nominal"
+            }
+          },
+          {
+            "name":"Is_Source_Directionality_Flag",
+            "description":"Indicates if it is a source asserted directionality flag. True indicates that this is the direction of the relationship in its source; false indicates that it is not; a blank indicates that it is not important or has not yet been determined",
+            "type":"boolean"
+          },
+          {
+            "name":"Suppressible_Flag",
+            "description":"In the UMLS Metathesaurus terms can be marked as \"suppressible\", these terms can then be removed from the subset. These terms are most often identified as suppressible because of ambiguity in meaning or lack of face validity. Suppressible flag. Values = E:  Suppressible due to editor decision, N: Not suppressible, O: Obsolete, Y: Suppressible due to SAB",
+            "type":"string",
+            "constraints":{
+              "required":true
+            }
+          },
+          {
+            "name":"Content_View_Flag",
+            "description":"Content View Flag. Bit field used to flag rows included in Content View. This field is a varchar field to maximize the number of bits available for use.",
+            "type":"integer",
+            "constraints":{
+              "level":"Nominal"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
