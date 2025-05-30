@@ -1,91 +1,260 @@
-import os
-import json
-from openai import OpenAI
-from concurrent.futures import ThreadPoolExecutor, as_completed
+# 100-Disease Training Dataset for Medical AI
+priority_diseases = {
+    "common_primary_care": 50,  # 2x from 25
+    "emergency_conditions": 30,  # 2x from 15
+    "commonly_misdiagnosed": 20,  # 2x from 10
+}
 
-# Initialize OpenAI client
-client = OpenAI(api_key="api-key-here")
-model = "gpt-4.1-mini"
+# ===== COMMON PRIMARY CARE (50 diseases) =====
+common_primary_care = [
+    # Cardiovascular (12)
+    "Hypertension",
+    "Diabetes Mellitus, Type 2",
+    "Diabetes Mellitus, Type 1",
+    "Hyperlipidemia",
+    "Atrial Fibrillation",
+    "Heart Failure",
+    "Coronary Artery Disease",
+    "Peripheral Artery Disease",
+    "Venous Thromboembolism",
+    "Varicose Veins",
+    "Mitral Valve Prolapse",
+    "Hypertensive Heart Disease",
+    # Respiratory (8)
+    "Asthma",
+    "COPD",
+    "Upper Respiratory Infection",
+    "Bronchitis",
+    "Allergic Rhinitis",
+    "Sinusitis",
+    "Sleep Apnea",
+    "Chronic Cough",
+    # Gastrointestinal (8)
+    "Gastroesophageal Reflux Disease",
+    "Peptic Ulcer Disease",
+    "Irritable Bowel Syndrome",
+    "Gastroenteritis",
+    "Constipation",
+    "Hemorrhoids",
+    "Diverticulosis",
+    "Gallstones",
+    # Musculoskeletal (6)
+    "Osteoarthritis",
+    "Low Back Pain",
+    "Rheumatoid Arthritis",
+    "Osteoporosis",
+    "Gout",
+    "Carpal Tunnel Syndrome",
+    # Mental Health (5)
+    "Depression",
+    "Anxiety Disorders",
+    "Panic Disorder",
+    "Insomnia",
+    "Bipolar Disorder",
+    # Endocrine (4)
+    "Hypothyroidism",
+    "Hyperthyroidism",
+    "Metabolic Syndrome",
+    "Obesity",
+    # Dermatologic (3)
+    "Eczema",
+    "Psoriasis",
+    "Acne",
+    # Urologic/Reproductive (4)
+    "Urinary Tract Infection",
+    "Benign Prostatic Hyperplasia",
+    "Kidney Stones",
+    "Erectile Dysfunction",
+]
 
-# Load diseases from malacards-diseases.json
-with open("malacards-diseases.json", "r") as f:
-    json_data = json.load(f)
+# ===== EMERGENCY CONDITIONS (30 diseases) =====
+emergency_conditions = [
+    # Cardiovascular Emergencies (8)
+    "Myocardial Infarction",
+    "Acute Coronary Syndrome",
+    "Pulmonary Embolism",
+    "Aortic Dissection",
+    "Cardiac Arrest",
+    "Hypertensive Crisis",
+    "Acute Heart Failure",
+    "Pericarditis",
+    # Neurological Emergencies (7)
+    "Stroke",
+    "Transient Ischemic Attack",
+    "Subarachnoid Hemorrhage",
+    "Meningitis",
+    "Encephalitis",
+    "Status Epilepticus",
+    "Acute Spinal Cord Injury",
+    # Respiratory Emergencies (5)
+    "Pneumonia",
+    "Acute Asthma Exacerbation",
+    "Pneumothorax",
+    "Acute Respiratory Distress Syndrome",
+    "Anaphylaxis",
+    # Gastrointestinal Emergencies (5)
+    "Appendicitis",
+    "Acute Cholangitis",
+    "Gastrointestinal Bleeding",
+    "Bowel Obstruction",
+    "Acute Pancreatitis",
+    # Infectious/Systemic (3)
+    "Sepsis",
+    "Septic Shock",
+    "Diabetic Ketoacidosis",
+    # Trauma/Other (2)
+    "Acute Abdomen",
+    "Ectopic Pregnancy",
+]
 
-# Output storage
-all_vignettes = {}
+# ===== COMMONLY MISDIAGNOSED (20 diseases) =====
+commonly_misdiagnosed = [
+    # Autoimmune/Rheumatologic (6)
+    "Systemic Lupus Erythematosus",
+    "Fibromyalgia",
+    "Multiple Sclerosis",
+    "Polymyalgia Rheumatica",
+    "Giant Cell Arteritis",
+    "Sjogren's Syndrome",
+    # Endocrine (4)
+    "Adrenal Insufficiency",
+    "Diabetes Insipidus",
+    "Polycystic Ovary Syndrome",
+    "Cushing's Syndrome",
+    # Psychiatric presenting as medical (3)
+    "Conversion Disorder",
+    "Somatization Disorder",
+    "Chronic Fatigue Syndrome",
+    # Infectious (2)
+    "Lyme Disease",
+    "Tuberculosis",
+    # Gastrointestinal (3)
+    "Celiac Disease",
+    "Inflammatory Bowel Disease",
+    "Gastroparesis",
+    # Neurological (2)
+    "Migraine",
+    "Trigeminal Neuralgia",
+]
 
 
-def check_and_generate_vignettes(disease):
-    # Step 1: Ask GPT if it's a real disease
-    check_prompt = f"Is '{disease}' a medically recognized disease or disorder? Answer only 'Yes' or 'No'."
-    try:
-        check_response = client.chat.completions.create(
-            model=model,
-            messages=[
-                {"role": "system", "content": "You are a medical expert."},
-                {"role": "user", "content": check_prompt},
-            ],
-        )
-        is_valid = (
-            check_response.choices[0].message.content.strip().lower().startswith("yes")
-        )
-    except Exception as e:
-        print(f"❌ Error checking disease '{disease}': {e}")
-        return disease, "NO"
+# ===== COMPLETE DATASET SUMMARY =====
+def print_dataset_summary():
+    print("🏥 MEDICAL AI TRAINING DATASET - 100 DISEASES")
+    print("=" * 60)
 
-    if not is_valid:
-        return disease, "NO"
+    print(f"\n📊 DATASET BREAKDOWN:")
+    print(f"   Common Primary Care: {len(common_primary_care)} diseases")
+    print(f"   Emergency Conditions: {len(emergency_conditions)} diseases")
+    print(f"   Commonly Misdiagnosed: {len(commonly_misdiagnosed)} diseases")
+    print(
+        f"   TOTAL: {len(common_primary_care) + len(emergency_conditions) + len(commonly_misdiagnosed)} diseases"
+    )
 
-    # Step 2: Generate 10 vignettes
-    local_vignettes = []
-    prev_responses = []
-    for _ in range(4):
-        prompt = f"""
-You are a medical expert. Generate a detailed and realistic patient vignette for the following disease: **{disease}**.
+    print(f"\n🎯 TRAINING DATA ESTIMATES:")
+    print(f"   4-5 conversations per disease = 400-500 total conversations")
+    print(f"   Multiple patient behaviors per disease")
+    print(f"   Comprehensive diagnostic reasoning coverage")
 
-Each vignette should:
-- Be 8 sentences long
-- Include symptoms, age, gender (random), and clinical context
-- Be medically plausible
-- Avoid repeating the vignettes from previous iterations: {prev_responses}
-
-Format your response as a numbered list.
-        """
-        try:
-            response = client.chat.completions.create(
-                model=model,
-                messages=[
-                    {
-                        "role": "system",
-                        "content": "You are an expert medical diagnostician.",
-                    },
-                    {"role": "user", "content": prompt},
-                ],
-            )
-            vignette_text = response.choices[0].message.content
-            local_vignettes.append(vignette_text)
-            prev_responses.append(vignette_text)
-        except Exception as e:
-            print(f"❌ Error generating vignette for '{disease}': {e}")
-            return disease, "NO"
-    return disease, local_vignettes
+    print(f"\n📈 CLINICAL COVERAGE:")
+    print(f"   ✅ Primary care (80% of patient encounters)")
+    print(f"   ✅ Emergency medicine (high-stakes decisions)")
+    print(f"   ✅ Complex diagnostics (challenging cases)")
+    print(f"   ✅ Multi-specialty representation")
 
 
-# Run in parallel
-with ThreadPoolExecutor(max_workers=12) as executor:
-    futures = [
-        executor.submit(check_and_generate_vignettes, item["disease"])
-        for item in json_data
-    ]
-    for future in as_completed(futures):
-        disease, result = future.result()
-        all_vignettes[disease] = result
+# ===== EXPORT FUNCTIONS =====
+def get_all_diseases():
+    """Return complete list of all 100 diseases"""
+    return common_primary_care + emergency_conditions + commonly_misdiagnosed
 
-        # Save incrementally
-        with open("validated_disease_vignettes.json", "w") as f:
-            json.dump(all_vignettes, f, indent=2)
-        print(
-            f"✅ Processed: {disease} ({'vignettes generated' if result != 'NO' else 'invalid disease'})"
-        )
 
-print("🎉 All results saved to 'validated_disease_vignettes.json'")
+def get_diseases_by_category():
+    """Return diseases organized by category"""
+    return {
+        "common_primary_care": common_primary_care,
+        "emergency_conditions": emergency_conditions,
+        "commonly_misdiagnosed": commonly_misdiagnosed,
+    }
+
+
+def export_to_json(filename="medical_training_diseases_100.json"):
+    """Export dataset to JSON file"""
+    import json
+
+    dataset = {
+        "metadata": {
+            "total_diseases": len(get_all_diseases()),
+            "categories": {
+                "common_primary_care": len(common_primary_care),
+                "emergency_conditions": len(emergency_conditions),
+                "commonly_misdiagnosed": len(commonly_misdiagnosed),
+            },
+            "description": "Curated 100-disease dataset for medical AI training",
+            "version": "1.0",
+        },
+        "diseases_by_category": get_diseases_by_category(),
+        "all_diseases": get_all_diseases(),
+    }
+
+    with open(filename, "w") as f:
+        json.dump(dataset, f, indent=2)
+
+    print(f"💾 Dataset exported to {filename}")
+
+
+# ===== DISEASE VALIDATION =====
+def validate_dataset():
+    """Check for duplicates and validate dataset integrity"""
+    all_diseases = get_all_diseases()
+
+    # Check for duplicates
+    duplicates = []
+    seen = set()
+    for disease in all_diseases:
+        if disease in seen:
+            duplicates.append(disease)
+        seen.add(disease)
+
+    print(f"\n🔍 DATASET VALIDATION:")
+    print(f"   Total unique diseases: {len(seen)}")
+    print(f"   Expected diseases: 100")
+    print(f"   Duplicates found: {len(duplicates)}")
+
+    if duplicates:
+        print(f"   ⚠️  Duplicate diseases: {duplicates}")
+    else:
+        print(f"   ✅ No duplicates found")
+
+    # Check category counts
+    expected_counts = {
+        "common_primary_care": 50,
+        "emergency_conditions": 30,
+        "commonly_misdiagnosed": 20,
+    }
+    actual_counts = {
+        cat: len(diseases) for cat, diseases in get_diseases_by_category().items()
+    }
+
+    print(f"\n📊 CATEGORY VALIDATION:")
+    for category, expected in expected_counts.items():
+        actual = actual_counts[category]
+        status = "✅" if actual == expected else "⚠️"
+        print(f"   {status} {category}: {actual}/{expected}")
+
+
+# ===== USAGE EXAMPLES =====
+if __name__ == "__main__":
+    # Print summary
+    print_dataset_summary()
+
+    # Validate dataset
+    validate_dataset()
+
+    # Export to JSON
+    export_to_json()
+
+    print(f"\n🚀 READY FOR TRAINING!")
+    print(f"   Use get_all_diseases() to get the complete list")
+    print(f"   Use get_diseases_by_category() for organized access")
+    print(f"   Dataset covers major medical specialties and complexity levels")
