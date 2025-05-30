@@ -3,11 +3,36 @@
 import os
 import re
 from openai import OpenAI
-from trl import PPOTrainer, PPOConfig  # or GRPOTrainer/GRPOConfig
+from trl import GRPOTrainer, GRPOConfig  # or GRPOTrainer/GRPOConfig
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 # Your normal ChatGPT client
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+
+from pydantic import BaseModel
+from typing import List
+
+
+class DiseaseCheck(BaseModel):
+    count: int
+    diseases: List[str]
+    reasoning: str
+
+
+DISEASE_CHECK_PROMPT = """
+You are a medical QA assistant. 
+
+Given the list of diseases below, do the following:
+1. Count how many diseases are in the list.
+2. Return that count under the key `count`.
+3. Return the list of diseases under the key `diseases`.
+4. Provide a short explanation of your reasoning under the key `reasoning`.
+
+Input diseases:
+{diseases}
+
+Respond ONLY in JSON matching the Pydantic model `DiseaseCheck`.
+"""
 
 
 # ─── Reward function using ChatGPT via `client` ────────────────
@@ -50,7 +75,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False)
 model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
 
 # ─── Configure and launch your PPO/GRPO trainer ────────────────
-config = PPOConfig(
+config = GRPOConfig(
     model_name=model_name,
     batch_size=4,
     learning_rate=1e-5,
