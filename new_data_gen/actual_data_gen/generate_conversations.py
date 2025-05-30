@@ -7,9 +7,7 @@ import shutil
 from itertools import islice
 
 # Initialize OpenAI client
-client = OpenAI(
-    api_key="api"
-)  # Replace with your actual API key
+client = OpenAI(api_key="api")  # Replace with your actual API key
 model = "gpt-4.1-nano"
 
 treatment_plans = []
@@ -151,6 +149,10 @@ Previous vignette summary:
                     Please respond in the following format:
 
                     THINKING:
+                    - Consider the vignettes details
+                    - Identify key symptoms, demographics, and clinical context
+
+                    ANSWER:
                     1. Diagnosis: <Diagnosis Name>
                     Justification: <Reasoning for inclusion>
                     2. Diagnosis: <Diagnosis Name>
@@ -158,9 +160,6 @@ Previous vignette summary:
                     ...
                     10. Diagnosis: <Diagnosis Name>
                         Justification: <Reasoning for inclusion>
-
-                    ANSWER:
-                    List of 10 potential diagnoses with justifications as above.
                     """
             )
 
@@ -182,16 +181,17 @@ Previous vignette summary:
                     Please respond in the following format:
 
                     THINKING:
+                    - Consider the vignettes details
+                    - Identify key symptoms, demographics, and clinical context
+                    
+                    ANSWER:
                     1. Diagnosis: <Diagnosis Name>
-                    Justification: <Detailed reasoning>
+                    Justification: <Reasoning for inclusion>
                     2. Diagnosis: <Diagnosis Name>
-                    Justification: <Detailed reasoning>
+                    Justification: <Reasoning for inclusion>
                     ...
                     5. Diagnosis: <Diagnosis Name>
-                    Justification: <Detailed reasoning>
-
-                    ANSWER:
-                    Refined list of 5 probable diagnoses with detailed justifications as above.
+                        Justification: <Reasoning for inclusion>
                     """
             )
         if turn_count >= 11:
@@ -217,6 +217,9 @@ Previous vignette summary:
                     THINKING:
                     Diagnosis: <Diagnosis Name>
                     Justification: <Comprehensive reasoning>
+                    - Consider the vignettes details
+                    - Identify key symptoms, demographics, and clinical context
+                    
                     Checklist:
                     - No diagnostic uncertainty remaining: <Yes/No>
                     - No further clarification needed: <Yes/No>

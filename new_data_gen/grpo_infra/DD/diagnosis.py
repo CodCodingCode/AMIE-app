@@ -1,93 +1,111 @@
-# This file is to improve the quality of the diagnosis model through GRPO
-
 import os
 import re
 from openai import OpenAI
-from trl import GRPOTrainer, GRPOConfig  # or GRPOTrainer/GRPOConfig
-from transformers import AutoTokenizer, AutoModelForCausalLM
-
-# Your normal ChatGPT client
-client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
-
-from pydantic import BaseModel
+from pydantic import BaseModel, ValidationError
 from typing import List
 
+# ─── OpenAI client ───────────────────────────────────────────────
+client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
+# ─── Your fixed reference for formatting (must be length 10) ─────
+reference_diseases = [
+    "Asthma",
+    "COPD",
+    "Pneumonia",
+    "Bronchitis",
+    "Tuberculosis",
+    "Emphysema",
+    "Cystic fibrosis",
+    "Lung cancer",
+    "Pulmonary edema",
+    "Sarcoidosis",
+]
+
+
+# ─── Pydantic models ─────────────────────────────────────────────
 class DiseaseCheck(BaseModel):
     count: int
     diseases: List[str]
     reasoning: str
 
 
-DISEASE_CHECK_PROMPT = """
-You are a medical QA assistant. 
+def parse_disease_check(resp_text: str) -> DiseaseCheck:
+    try:
+        return DiseaseCheck.parse_raw(resp_text)
+    except ValidationError:
+        return DiseaseCheck(count=0, diseases=[], reasoning="invalid response")
 
-Given the list of diseases below, do the following:
-1. Count how many diseases are in the list.
-2. Return that count under the key `count`.
-3. Return the list of diseases under the key `diseases`.
-4. Provide a short explanation of your reasoning under the key `reasoning`.
 
-Input diseases:
-{diseases}
+class ReferenceList(BaseModel):
+    diseases: List[str]
 
-Respond ONLY in JSON matching the Pydantic model `DiseaseCheck`.
+
+# ─── Prompt for ChatGPT to produce its own 10 diagnoses ───────────
+DIAGNOSIS_LIST_PROMPT = """
+You are a board-certified clinician.
+Given the patient vignette below, list the 10 most likely diagnoses.
+Return ONLY a JSON object with key "diseases" mapping to an array of 10 diagnosis strings.
+
+Patient vignette:
+{vignette}
 """
 
 
-# ─── Reward function using ChatGPT via `client` ────────────────
-def openai_reward_fn(prompts: list[str], generations: list[str]) -> list[float]:
-    rewards = []
-    for instruction, response in zip(prompts, generations):
-        # build the evaluation prompt
-        eval_prompt = (
-            "You are a strict grader.  "
-            "On a scale from 0.0 to 1.0, how well does this response "
-            "follow the instruction?  Reply with a single number.\n\n"
-            f"Instruction:\n{instruction}\n\n"
-            f"Response:\n{response}\n\n"
-            "Score:"
-        )
-        # call your OpenAI client
+# ─── Combined 50/50 reward function ──────────────────────────────
+def combined_openai_reward_fn(
+    prompts: List[str], generations: List[str]
+) -> List[List[float]]:
+    all_rewards: List[List[float]] = []
+    expected_count = len(reference_diseases)
+    ref_lower = [d.lower() for d in reference_diseases]
+
+    for vignette, gen_json in zip(prompts, generations):
+        # ── 1) Formatting check ──────────────────────────────────
+        dc = parse_disease_check(gen_json)
+        gen_lower = [d.strip().lower() for d in dc.diseases]
+
+        # penalty if not exactly 10
+        factor = max(0.0, min(1.0, dc.count / expected_count))
+
+        # exact‐match per index
+        fmt_pairs = list(zip(ref_lower, gen_lower))
+        f_rewards = [1.0 if ref == gen else 0.0 for ref, gen in fmt_pairs]
+        if len(f_rewards) < expected_count:
+            f_rewards += [0.0] * (expected_count - len(f_rewards))
+        else:
+            f_rewards = f_rewards[:expected_count]
+        # apply count penalty
+        f_rewards = [r * factor for r in f_rewards]
+
+        # ── 2) Diagnostic accuracy check ────────────────────────
         chat_resp = client.chat.completions.create(
             model="gpt-4.1-nano",
             messages=[
-                {"role": "system", "content": "You are a strict numeric grader."},
-                {"role": "user", "content": eval_prompt},
+                {"role": "system", "content": "You are a board-certified clinician."},
+                {
+                    "role": "user",
+                    "content": DIAGNOSIS_LIST_PROMPT.format(vignette=vignette),
+                },
             ],
             temperature=0.0,
-            max_tokens=4,
+            max_tokens=200,
         )
-        text = chat_resp.choices[0].message.content.strip()
-        # parse float, fallback to regex
         try:
-            score = float(text)
-        except ValueError:
-            m = re.search(r"0\.\d+|1\.0|1", text)
-            score = float(m.group(0)) if m else 0.0
-        rewards.append(max(0.0, min(1.0, score)))
-    return rewards
+            ref_list = ReferenceList.parse_raw(chat_resp.choices[0].message.content)
+            ref_sample_lower = [d.strip().lower() for d in ref_list.diseases]
+        except ValidationError:
+            ref_sample_lower = []
 
+        # compare ChatGPT’s list to the model’s
+        diag_pairs = list(zip(ref_sample_lower, gen_lower))
+        d_rewards = [1.0 if ref == gen else 0.0 for ref, gen in diag_pairs]
+        if len(d_rewards) < expected_count:
+            d_rewards += [0.0] * (expected_count - len(d_rewards))
+        else:
+            d_rewards = d_rewards[:expected_count]
 
-# ─── Load your base model & tokenizer ──────────────────────────
-model_name = "CodCodingCode/llama-3.1-8b-clinical"
-tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False)
-model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
+        # ── 3) Combine 50/50 ───────────────────────────────────
+        combined = [0.5 * f + 0.5 * d for f, d in zip(f_rewards, d_rewards)]
+        all_rewards.append(combined)
 
-# ─── Configure and launch your PPO/GRPO trainer ────────────────
-config = GRPOConfig(
-    model_name=model_name,
-    batch_size=4,
-    learning_rate=1e-5,
-    ppo_epochs=1,  # for GRPO use group_size instead
-)
-
-trainer = GRPOTrainer(
-    model=model,
-    tokenizer=tokenizer,
-    config=config,
-    dataset=your_tokenized_dataset,
-    compute_rewards=openai_reward_fn,  # your ChatGPT-based reward
-)
-
-trainer.train()
+    return all_rewards
