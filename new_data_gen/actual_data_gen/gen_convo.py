@@ -19,256 +19,439 @@ PATIENT_BEHAVIORS = {
         "weight": 0.4,
         "description": "Standard patient behavior",
         "modifiers": [],
-        "empathy_cues": []
+        "empathy_cues": [],
     },
     "information_withholder": {
         "weight": 0.15,
         "description": "Patient initially omits embarrassing or stigmatized symptoms",
         "modifiers": ["embarrassed_symptoms", "gradual_revelation"],
-        "empathy_cues": ["hesitation", "vague_responses", "embarrassment", "trust_building_needed"]
+        "empathy_cues": [
+            "hesitation",
+            "vague_responses",
+            "embarrassment",
+            "trust_building_needed",
+        ],
     },
     "anxious_amplifier": {
         "weight": 0.12,
         "description": "Patient with health anxiety who amplifies symptoms",
-        "modifiers": ["catastrophic_thinking", "symptom_amplification", "multiple_concerns"],
-        "empathy_cues": ["high_anxiety", "catastrophic_language", "reassurance_seeking", "fear_expression"]
+        "modifiers": [
+            "catastrophic_thinking",
+            "symptom_amplification",
+            "multiple_concerns",
+        ],
+        "empathy_cues": [
+            "high_anxiety",
+            "catastrophic_language",
+            "reassurance_seeking",
+            "fear_expression",
+        ],
     },
     "stoic_minimizer": {
         "weight": 0.12,
         "description": "Patient who downplays symptoms and delays care",
         "modifiers": ["symptom_minimization", "delayed_care_seeking", "tough_attitude"],
-        "empathy_cues": ["downplaying", "reluctance", "pride_in_toughness", "external_pressure"]
+        "empathy_cues": [
+            "downplaying",
+            "reluctance",
+            "pride_in_toughness",
+            "external_pressure",
+        ],
     },
     "chronology_confused": {
         "weight": 0.1,
         "description": "Patient confused about symptom timing and progression",
         "modifiers": ["timeline_confusion", "sequence_uncertainty"],
-        "empathy_cues": ["confusion", "uncertainty", "memory_issues", "needs_patience"]
+        "empathy_cues": ["confusion", "uncertainty", "memory_issues", "needs_patience"],
     },
     "tangential_storyteller": {
         "weight": 0.08,
         "description": "Patient who includes irrelevant details and stories",
         "modifiers": ["excessive_details", "family_stories", "tangential_information"],
-        "empathy_cues": ["storytelling", "context_sharing", "social_needs", "relationship_focus"]
+        "empathy_cues": [
+            "storytelling",
+            "context_sharing",
+            "social_needs",
+            "relationship_focus",
+        ],
     },
     "worried_family_involved": {
         "weight": 0.03,
         "description": "Family member influences patient responses",
         "modifiers": ["family_influence", "secondary_concerns"],
-        "empathy_cues": ["family_pressure", "caregiver_stress", "divided_attention", "responsibility_burden"]
-    }
+        "empathy_cues": [
+            "family_pressure",
+            "caregiver_stress",
+            "divided_attention",
+            "responsibility_burden",
+        ],
+    },
 }
 
 
-# === Gold Diagnosis Integration Functions ===
 def generate_gold_guided_prompt(base_prompt, gold_diagnosis, stage, vignette_summary):
     """
-    Generate diagnostic prompts that subtly guide toward correct diagnosis without revealing it
+    Generate diagnostic prompts that provide strong guidance toward correct diagnosis
     """
     # Create contextual hints based on gold diagnosis
     diagnostic_hints = create_diagnostic_hints(gold_diagnosis, stage)
 
+    # Add stage-specific strength
+    guidance_strength = get_guidance_strength(stage)
+
     guided_prompt = f"""
     {base_prompt}
     
-    DIAGNOSTIC GUIDANCE (Internal reasoning only - do not mention these directly):
+    DIAGNOSTIC GUIDANCE ({guidance_strength}):
     {diagnostic_hints}
     
-    Focus your differential on conditions that match the clinical presentation patterns described above.
-    Consider both common presentations and atypical variants of the suggested condition categories.
+    CRITICAL INSTRUCTIONS:
+    - Prioritize conditions that match the clinical presentation patterns described above
+    - Consider both common and atypical presentations of the suggested condition categories
+    - Place higher emphasis on the primary consideration mentioned in guidance
+    - If guidance suggests specific diagnostic categories, include them prominently in your differential
     """
 
     return guided_prompt
 
 
+def get_guidance_strength(stage):
+    """Return appropriate guidance strength based on conversation stage"""
+    if stage == "early":
+        return "Strong guidance - use to inform your broad differential"
+    elif stage == "middle":
+        return "Very strong guidance - prioritize these conditions"
+    else:
+        return "Critical guidance - this should be your primary consideration"
+
+
 def create_diagnostic_hints(gold_diagnosis, stage):
     """
-    Create subtle hints that guide toward correct diagnosis without revealing it
+    Create strong, specific hints that guide toward correct diagnosis
     """
-    # Database of diagnostic categories and patterns
+    # Enhanced database with more diseases and stronger guidance
     diagnostic_patterns = {
-        # Cardiovascular
+        # Cardiovascular - Enhanced
         "myocardial infarction": {
             "patterns": [
-                "acute chest pain syndromes",
-                "coronary artery disease complications",
-                "cardiac enzyme elevation patterns",
+                "acute coronary syndrome presentations",
+                "cardiac ischemic events",
+                "chest pain with cardiac risk factors",
             ],
             "key_features": [
-                "chest pain character",
-                "radiation patterns",
-                "associated autonomic symptoms",
+                "chest pain character and radiation patterns",
+                "associated autonomic symptoms (nausea, sweating, SOB)",
+                "cardiac risk factor assessment",
             ],
             "red_flags": [
                 "acute coronary syndrome presentations",
-                "hemodynamic instability signs",
+                "hemodynamic instability",
+                "troponin elevation patterns",
+            ],
+            "strong_indicators": [
+                "crushing chest pain",
+                "left arm radiation",
+                "diaphoresis with chest discomfort",
+                "cardiac risk factors present",
             ],
         },
         "hypertension": {
             "patterns": [
-                "elevated blood pressure syndromes",
-                "cardiovascular risk factors",
-                "end-organ damage signs",
+                "hypertensive syndromes",
+                "elevated blood pressure conditions",
+                "cardiovascular risk presentations",
             ],
             "key_features": [
-                "blood pressure readings",
-                "headache patterns",
-                "visual changes",
+                "blood pressure elevation patterns",
+                "afternoon/evening headache timing",
+                "stress-related symptom exacerbation",
             ],
-            "red_flags": ["hypertensive emergency signs", "target organ damage"],
+            "red_flags": [
+                "hypertensive emergency signs",
+                "end-organ damage indicators",
+            ],
+            "strong_indicators": [
+                "headaches worse in afternoon/evening",
+                "dizziness with position changes",
+                "stress making symptoms worse",
+                "family history of hypertension",
+            ],
         },
         "heart failure": {
             "patterns": [
-                "fluid retention syndromes",
-                "decreased exercise tolerance",
-                "cardiac pump dysfunction",
+                "cardiac pump dysfunction syndromes",
+                "fluid retention conditions",
+                "decreased cardiac output presentations",
             ],
             "key_features": [
-                "dyspnea patterns",
-                "fluid retention signs",
-                "functional capacity",
+                "exertional dyspnea patterns",
+                "orthopnea and PND",
+                "peripheral edema development",
             ],
             "red_flags": ["acute decompensation signs", "cardiogenic shock indicators"],
+            "strong_indicators": [
+                "shortness of breath with exertion",
+                "swelling in legs/ankles",
+                "difficulty breathing when lying flat",
+                "fatigue with minimal activity",
+            ],
         },
-        # Respiratory
+        # Respiratory - Enhanced
         "asthma": {
             "patterns": [
                 "reversible airway obstruction",
+                "bronchospastic conditions",
                 "allergic respiratory syndromes",
-                "bronchospasm presentations",
             ],
             "key_features": [
-                "wheezing patterns",
+                "wheezing and bronchospasm patterns",
                 "trigger identification",
-                "response to bronchodilators",
+                "response to bronchodilator therapy",
             ],
             "red_flags": [
-                "severe bronchospasm signs",
+                "severe bronchospasm requiring emergency care",
                 "respiratory failure indicators",
+            ],
+            "strong_indicators": [
+                "wheezing sounds",
+                "shortness of breath with triggers",
+                "cough especially at night",
+                "family history of asthma/allergies",
             ],
         },
         "pneumonia": {
             "patterns": [
                 "infectious respiratory syndromes",
-                "consolidative lung processes",
-                "systemic infection signs",
+                "consolidative lung disease",
+                "bacterial/viral pneumonic processes",
             ],
             "key_features": [
-                "cough characteristics",
-                "fever patterns",
-                "respiratory symptoms",
+                "productive cough with fever",
+                "chest pain with breathing",
+                "systemic infection signs",
             ],
             "red_flags": ["sepsis indicators", "respiratory failure signs"],
+            "strong_indicators": [
+                "fever with cough",
+                "chest pain when breathing",
+                "thick colored sputum",
+                "recent illness or exposure",
+            ],
         },
         "copd": {
             "patterns": [
-                "chronic obstructive lung disease",
-                "smoking-related respiratory conditions",
-                "progressive dyspnea syndromes",
+                "chronic obstructive pulmonary disease",
+                "smoking-related lung disease",
+                "progressive airway limitation",
             ],
             "key_features": [
-                "smoking history",
-                "exertional dyspnea",
-                "chronic cough patterns",
+                "chronic productive cough",
+                "progressive dyspnea",
+                "smoking history significance",
             ],
-            "red_flags": ["acute exacerbation signs", "respiratory failure indicators"],
+            "red_flags": [
+                "acute exacerbation patterns",
+                "respiratory failure development",
+            ],
+            "strong_indicators": [
+                "long-term smoking history",
+                "chronic morning cough",
+                "increasing shortness of breath",
+                "barrel chest appearance",
+            ],
         },
-        # Gastrointestinal
+        # Gastrointestinal - Enhanced
         "gastroesophageal reflux disease": {
             "patterns": [
-                "acid-related disorders",
-                "esophageal irritation syndromes",
-                "upper GI symptoms",
+                "acid reflux syndromes",
+                "esophageal irritation conditions",
+                "upper gastrointestinal symptoms",
             ],
             "key_features": [
-                "heartburn patterns",
-                "meal relationship",
-                "positional factors",
+                "heartburn after meals",
+                "regurgitation patterns",
+                "positional symptom variation",
             ],
-            "red_flags": ["esophageal complications", "alarm symptoms"],
+            "red_flags": ["dysphagia development", "weight loss with reflux"],
+            "strong_indicators": [
+                "burning sensation in chest after eating",
+                "symptoms worse when lying down",
+                "sour taste in mouth",
+                "symptoms improve with antacids",
+            ],
         },
         "appendicitis": {
             "patterns": [
-                "acute abdominal pain syndromes",
-                "right lower quadrant pathology",
+                "acute appendiceal inflammation",
+                "right lower quadrant pain syndromes",
                 "surgical abdomen presentations",
             ],
             "key_features": [
-                "pain migration patterns",
-                "peritoneal signs",
-                "systemic inflammation",
+                "pain migration from periumbilical to RLQ",
+                "McBurney's point tenderness",
+                "fever with abdominal pain",
             ],
             "red_flags": ["peritonitis signs", "perforation indicators"],
+            "strong_indicators": [
+                "pain starting around navel then moving to right side",
+                "pain worse with walking or coughing",
+                "nausea and vomiting",
+                "low-grade fever",
+            ],
         },
-        # Endocrine
+        "peptic ulcer disease": {
+            "patterns": [
+                "gastroduodenal ulceration",
+                "acid-peptic disorders",
+                "H. pylori related conditions",
+            ],
+            "key_features": [
+                "epigastric pain patterns",
+                "meal-related symptom timing",
+                "NSAID use history",
+            ],
+            "red_flags": ["GI bleeding indicators", "perforation signs"],
+            "strong_indicators": [
+                "burning stomach pain",
+                "pain between meals or at night",
+                "relief with food or antacids",
+                "NSAID use history",
+            ],
+        },
+        # Endocrine - Enhanced
         "diabetes mellitus": {
             "patterns": [
                 "hyperglycemic syndromes",
-                "metabolic disorders",
-                "polyuria-polydipsia presentations",
+                "insulin deficiency/resistance conditions",
+                "metabolic dysfunction presentations",
             ],
             "key_features": [
-                "glucose metabolism",
-                "osmotic symptoms",
-                "metabolic complications",
+                "polyuria and polydipsia patterns",
+                "unexplained weight changes",
+                "glucose metabolism disruption",
             ],
-            "red_flags": ["diabetic emergency signs", "ketoacidosis indicators"],
+            "red_flags": ["diabetic ketoacidosis signs", "hyperosmolar states"],
+            "strong_indicators": [
+                "excessive urination and thirst",
+                "unexplained weight loss",
+                "fatigue and weakness",
+                "slow healing wounds",
+            ],
         },
         "hypothyroidism": {
             "patterns": [
                 "thyroid hormone deficiency",
                 "metabolic slowdown syndromes",
-                "fatigue-related conditions",
+                "endocrine hypofunction",
             ],
             "key_features": [
-                "energy levels",
-                "temperature regulation",
-                "cognitive function",
+                "fatigue and cold intolerance",
+                "weight gain patterns",
+                "cognitive slowing",
             ],
-            "red_flags": ["myxedema signs", "severe hypothyroid complications"],
+            "red_flags": ["myxedema coma signs", "severe hypothyroid complications"],
+            "strong_indicators": [
+                "persistent fatigue despite rest",
+                "feeling cold when others are comfortable",
+                "unexplained weight gain",
+                "dry skin and hair loss",
+            ],
         },
-        # Neurological
+        "hyperthyroidism": {
+            "patterns": [
+                "thyroid hormone excess",
+                "metabolic acceleration syndromes",
+                "thyrotoxic conditions",
+            ],
+            "key_features": [
+                "palpitations and tremor",
+                "heat intolerance patterns",
+                "weight loss with increased appetite",
+            ],
+            "red_flags": ["thyroid storm indicators", "cardiac complications"],
+            "strong_indicators": [
+                "rapid heartbeat or palpitations",
+                "trembling hands",
+                "weight loss despite eating more",
+                "feeling hot and sweaty",
+            ],
+        },
+        # Neurological - Enhanced
         "stroke": {
             "patterns": [
-                "acute neurological deficits",
-                "cerebrovascular syndromes",
-                "focal brain dysfunction",
+                "acute cerebrovascular events",
+                "focal neurological deficits",
+                "brain vascular occlusion/hemorrhage",
             ],
             "key_features": [
-                "neurological deficit patterns",
-                "onset characteristics",
-                "vascular risk factors",
+                "sudden onset neurological symptoms",
+                "focal weakness patterns",
+                "speech or vision changes",
             ],
             "red_flags": ["large vessel occlusion signs", "hemorrhagic transformation"],
+            "strong_indicators": [
+                "sudden weakness on one side",
+                "facial drooping",
+                "slurred speech",
+                "sudden severe headache",
+            ],
         },
         "migraine": {
             "patterns": [
                 "primary headache disorders",
                 "neurovascular headache syndromes",
-                "episodic neurological symptoms",
+                "episodic severe headache",
             ],
             "key_features": [
-                "headache characteristics",
-                "associated symptoms",
-                "trigger patterns",
+                "unilateral throbbing headache",
+                "associated nausea/vomiting",
+                "photophobia and phonophobia",
             ],
-            "red_flags": ["secondary headache signs", "neurological complications"],
+            "red_flags": ["status migrainosus", "medication overuse headache"],
+            "strong_indicators": [
+                "severe one-sided headache",
+                "nausea with headache",
+                "sensitivity to light and sound",
+                "family history of migraines",
+            ],
         },
-        # Musculoskeletal
+        "seizure disorder": {
+            "patterns": [
+                "epileptic syndromes",
+                "seizure activity disorders",
+                "neuronal hyperexcitability",
+            ],
+            "key_features": [
+                "episodic altered consciousness",
+                "motor activity patterns",
+                "postictal state description",
+            ],
+            "red_flags": ["status epilepticus", "new onset seizures in adults"],
+            "strong_indicators": [
+                "episodes of losing awareness",
+                "involuntary movements",
+                "confusion after episodes",
+                "tongue biting or incontinence",
+            ],
+        },
+        # Musculoskeletal - Enhanced
         "osteoarthritis": {
             "patterns": [
                 "degenerative joint disease",
-                "mechanical joint pain",
-                "age-related joint changes",
+                "mechanical arthritis",
+                "cartilage deterioration syndromes",
             ],
             "key_features": [
-                "joint pain patterns",
-                "functional limitations",
-                "morning stiffness",
+                "joint pain with activity",
+                "morning stiffness <30 minutes",
+                "weight-bearing joint involvement",
             ],
-            "red_flags": [
-                "inflammatory arthritis signs",
-                "joint destruction indicators",
+            "red_flags": ["rapid joint destruction", "systemic inflammatory signs"],
+            "strong_indicators": [
+                "joint pain worse with use",
+                "stiffness that improves with movement",
+                "pain in knees, hips, or hands",
+                "age over 50",
             ],
         },
         "rheumatoid arthritis": {
@@ -278,116 +461,299 @@ def create_diagnostic_hints(gold_diagnosis, stage):
                 "systemic inflammatory conditions",
             ],
             "key_features": [
-                "joint inflammation patterns",
-                "morning stiffness",
-                "symmetrical involvement",
+                "symmetrical joint involvement",
+                "prolonged morning stiffness",
+                "small joint predilection",
             ],
-            "red_flags": ["extra-articular manifestations", "joint destruction signs"],
+            "red_flags": [
+                "extra-articular manifestations",
+                "joint destruction progression",
+            ],
+            "strong_indicators": [
+                "morning stiffness lasting hours",
+                "swelling in multiple joints",
+                "symmetrical joint involvement",
+                "fatigue and malaise",
+            ],
         },
-        # Mental Health
+        "fibromyalgia": {
+            "patterns": [
+                "chronic widespread pain",
+                "central sensitization syndromes",
+                "pain amplification disorders",
+            ],
+            "key_features": [
+                "widespread tender points",
+                "sleep disturbance patterns",
+                "fatigue association",
+            ],
+            "red_flags": [
+                "underlying inflammatory conditions",
+                "systemic disease masquerading",
+            ],
+            "strong_indicators": [
+                "widespread body pain",
+                "tender points on examination",
+                "chronic fatigue",
+                "sleep problems",
+            ],
+        },
+        # Mental Health - Enhanced
         "depression": {
             "patterns": [
-                "mood disorders",
-                "anhedonia syndromes",
-                "neurovegetative symptom complexes",
+                "major depressive disorders",
+                "mood disorder syndromes",
+                "anhedonia presentations",
             ],
-            "key_features": ["mood changes", "interest levels", "sleep patterns"],
+            "key_features": [
+                "persistent depressed mood",
+                "anhedonia patterns",
+                "neurovegetative symptoms",
+            ],
             "red_flags": ["suicidal ideation", "psychotic features"],
+            "strong_indicators": [
+                "persistent sad or empty mood",
+                "loss of interest in activities",
+                "sleep disturbances",
+                "feelings of worthlessness",
+            ],
         },
         "anxiety disorders": {
             "patterns": [
-                "anxiety spectrum disorders",
-                "autonomic hyperarousal",
-                "worry-related conditions",
+                "anxiety spectrum conditions",
+                "panic disorder syndromes",
+                "phobic disorders",
             ],
             "key_features": [
-                "anxiety symptoms",
+                "excessive worry patterns",
+                "physical anxiety symptoms",
                 "avoidance behaviors",
-                "physical manifestations",
             ],
-            "red_flags": ["panic attack features", "severe functional impairment"],
-        },
-        # Commonly Misdiagnosed
-        "fibromyalgia": {
-            "patterns": [
-                "chronic pain syndromes",
-                "central sensitization conditions",
-                "widespread pain disorders",
+            "red_flags": ["panic attack complications", "severe functional impairment"],
+            "strong_indicators": [
+                "excessive worry or fear",
+                "physical symptoms (racing heart, sweating)",
+                "avoidance of situations",
+                "restlessness or feeling on edge",
             ],
-            "key_features": ["pain distribution", "tender points", "sleep disturbance"],
-            "red_flags": ["inflammatory conditions", "systemic disease signs"],
         },
-        "systemic lupus erythematosus": {
+        "bipolar disorder": {
             "patterns": [
-                "autoimmune connective tissue disease",
-                "multi-system inflammatory conditions",
-                "antinuclear antibody syndromes",
+                "mood cycling disorders",
+                "manic-depressive syndromes",
+                "episodic mood disturbances",
             ],
             "key_features": [
-                "systemic symptoms",
-                "skin manifestations",
-                "joint involvement",
+                "manic episode history",
+                "mood cycling patterns",
+                "functional impairment during episodes",
             ],
-            "red_flags": ["organ involvement", "severe systemic manifestations"],
+            "red_flags": ["mixed episodes", "rapid cycling patterns"],
+            "strong_indicators": [
+                "periods of elevated mood",
+                "decreased need for sleep during high periods",
+                "alternating with depression",
+                "impulsive behavior during episodes",
+            ],
         },
-        "celiac disease": {
+        # Infectious Diseases - New
+        "urinary tract infection": {
             "patterns": [
-                "malabsorption syndromes",
-                "gluten-related disorders",
-                "autoimmune enteropathy",
+                "bacterial urinary infections",
+                "cystitis syndromes",
+                "urogenital infectious processes",
             ],
             "key_features": [
-                "gastrointestinal symptoms",
-                "malabsorption signs",
-                "dietary relationships",
+                "dysuria patterns",
+                "urinary frequency/urgency",
+                "suprapubic discomfort",
             ],
-            "red_flags": ["nutritional deficiencies", "severe malabsorption"],
+            "red_flags": ["pyelonephritis signs", "sepsis indicators"],
+            "strong_indicators": [
+                "burning with urination",
+                "frequent urge to urinate",
+                "cloudy or strong-smelling urine",
+                "pelvic pain in women",
+            ],
+        },
+        "sinusitis": {
+            "patterns": [
+                "paranasal sinus inflammation",
+                "rhinosinusitis syndromes",
+                "upper respiratory infections",
+            ],
+            "key_features": [
+                "facial pain/pressure",
+                "nasal congestion patterns",
+                "post-nasal drainage",
+            ],
+            "red_flags": ["orbital complications", "intracranial extension"],
+            "strong_indicators": [
+                "facial pain or pressure",
+                "thick nasal discharge",
+                "reduced sense of smell",
+                "headache over sinuses",
+            ],
+        },
+        # Dermatological - New
+        "eczema": {
+            "patterns": [
+                "atopic dermatitis syndromes",
+                "chronic inflammatory skin conditions",
+                "allergic skin reactions",
+            ],
+            "key_features": [
+                "pruritic skin lesions",
+                "chronic/relapsing course",
+                "atopic triad association",
+            ],
+            "red_flags": [
+                "secondary bacterial infection",
+                "severe widespread involvement",
+            ],
+            "strong_indicators": [
+                "itchy, red, inflamed skin",
+                "dry or scaly patches",
+                "family history of allergies",
+                "symptoms worse with certain triggers",
+            ],
+        },
+        # Additional Common Conditions
+        "kidney stones": {
+            "patterns": [
+                "renal calculi syndromes",
+                "nephrolithiasis presentations",
+                "urinary stone disease",
+            ],
+            "key_features": [
+                "severe flank pain",
+                "colicky pain patterns",
+                "hematuria presence",
+            ],
+            "red_flags": ["complete obstruction", "infection with obstruction"],
+            "strong_indicators": [
+                "severe back or side pain",
+                "pain that comes in waves",
+                "blood in urine",
+                "nausea and vomiting with pain",
+            ],
+        },
+        "anemia": {
+            "patterns": [
+                "hemoglobin deficiency syndromes",
+                "oxygen carrying capacity reduction",
+                "hematologic disorders",
+            ],
+            "key_features": [
+                "fatigue and weakness",
+                "pallor patterns",
+                "exertional dyspnea",
+            ],
+            "red_flags": ["severe anemia complications", "underlying malignancy"],
+            "strong_indicators": [
+                "persistent fatigue and weakness",
+                "pale skin or nail beds",
+                "shortness of breath with activity",
+                "cold hands and feet",
+            ],
         },
     }
 
-    # Get pattern for gold diagnosis (case-insensitive matching)
+    # Enhanced matching with partial word matching
     gold_lower = gold_diagnosis.lower()
     pattern_info = None
 
+    # First try exact matching
     for condition, info in diagnostic_patterns.items():
-        if condition in gold_lower or any(
-            word in gold_lower for word in condition.split()
-        ):
+        if condition == gold_lower:
             pattern_info = info
             break
 
-    # If no specific pattern found, create generic guidance
+    # Then try partial matching
+    if not pattern_info:
+        for condition, info in diagnostic_patterns.items():
+            condition_words = condition.split()
+            gold_words = gold_lower.split()
+
+            # Check if any significant words match
+            if any(word in gold_lower for word in condition_words) or any(
+                word in condition for word in gold_words
+            ):
+                pattern_info = info
+                break
+
+    # If no specific pattern found, create strong generic guidance
     if not pattern_info:
         return f"""
-        Consider conditions that present with the clinical features described in the vignette.
-        Focus on both common and uncommon presentations of conditions that match this symptom complex.
-        Pay attention to the temporal pattern and associated symptoms.
+        CRITICAL: This patient's presentation matches the gold standard diagnosis pattern.
+        
+        PRIMARY FOCUS: Consider conditions that present with the exact clinical features described in this vignette.
+        
+        ESSENTIAL ACTIONS:
+        - Prioritize diagnoses that match the specific symptom complex
+        - Consider both typical and atypical presentations
+        - Pay special attention to temporal patterns and associated symptoms
+        - Include the most likely condition prominently in your differential
+        
+        The correct diagnosis should be strongly suggested by the clinical presentation described.
         """
 
-    # Stage-specific guidance
+    # Stage-specific enhanced guidance
     if stage == "early":  # 10 diagnoses
         return f"""
-        Consider these diagnostic categories: {', '.join(pattern_info['patterns'])}.
-        Key clinical features to evaluate: {', '.join(pattern_info['key_features'])}.
-        Include both common and less common conditions that could present this way.
+        STRONG DIAGNOSTIC GUIDANCE - Early Stage:
+        
+        PRIMARY CONSIDERATION: {pattern_info['patterns'][0]}
+        
+        KEY CLINICAL INDICATORS TO PRIORITIZE:
+        {chr(10).join(f"- {indicator}" for indicator in pattern_info['strong_indicators'])}
+        
+        SECONDARY CONSIDERATIONS: {', '.join(pattern_info['patterns'][1:])}.
+        
+        CRITICAL FEATURES TO EVALUATE: {', '.join(pattern_info['key_features'])}.
+        
+        IMPORTANT: The primary consideration should be included prominently (top 3) in your differential diagnosis.
+        Include both common and less common conditions, but prioritize those matching the strong indicators above.
         """
+
     elif stage == "middle":  # 5 diagnoses
         return f"""
-        Focus on: {', '.join(pattern_info['patterns'][:2])}.
-        Critical features to assess: {', '.join(pattern_info['key_features'][:2])}.
-        Narrow to conditions most consistent with the clinical presentation.
+        VERY STRONG DIAGNOSTIC GUIDANCE - Middle Stage:
+        
+        TOP PRIORITY: {pattern_info['patterns'][0]}
+        
+        CRITICAL INDICATORS PRESENT:
+        {chr(10).join(f"- {indicator}" for indicator in pattern_info['strong_indicators'][:3])}
+        
+        FOCUS AREAS: {', '.join(pattern_info['patterns'][:2])}.
+        
+        ESSENTIAL FEATURES: {', '.join(pattern_info['key_features'][:2])}.
+        
+        CRITICAL: Based on the clinical presentation, {pattern_info['patterns'][0]} should be your #1 or #2 consideration.
+        Narrow to conditions most consistent with the strong indicators listed above.
         """
+
     else:  # Late stage - 1-3 diagnoses
         return f"""
-        Primary consideration: {pattern_info['patterns'][0]}.
-        Key confirmatory features: {pattern_info['key_features'][0]}.
-        Warning signs to evaluate: {', '.join(pattern_info['red_flags'])}.
+        CRITICAL DIAGNOSTIC GUIDANCE - Final Stage:
+        
+        MOST LIKELY DIAGNOSIS: {pattern_info['patterns'][0]}
+        
+        DEFINITIVE INDICATORS:
+        {chr(10).join(f"- {indicator}" for indicator in pattern_info['strong_indicators'][:2])}
+        
+        KEY CONFIRMATORY FEATURES: {pattern_info['key_features'][0]}.
+        
+        RED FLAGS TO EVALUATE: {', '.join(pattern_info['red_flags'])}.
+        
+        FINAL INSTRUCTION: The clinical presentation strongly suggests {pattern_info['patterns'][0]}. 
+        This should be your primary diagnosis unless there are compelling contraindications.
         """
 
 
 def generate_guided_questioner_prompt(base_prompt, gold_diagnosis, current_vignette):
     """
-    Generate questioning prompts that guide toward information relevant to gold diagnosis
+    Generate questioning prompts that strongly guide toward information relevant to gold diagnosis
     """
     # Get relevant questions for the gold diagnosis
     relevant_questions = get_relevant_questions(gold_diagnosis, current_vignette)
@@ -395,11 +761,16 @@ def generate_guided_questioner_prompt(base_prompt, gold_diagnosis, current_vigne
     guided_prompt = f"""
     {base_prompt}
     
-    CLINICAL FOCUS AREAS (Guide question selection without mentioning specific conditions):
+    PRIORITY CLINICAL FOCUS AREAS:
     {relevant_questions}
     
-    Ask questions that explore these areas while maintaining natural conversation flow.
-    Do not directly mention any specific diagnoses.
+    QUESTIONING STRATEGY:
+    - Ask questions that explore the priority areas listed above
+    - Prioritize gathering information that confirms or rules out the suggested conditions
+    - Maintain natural conversation flow while focusing on diagnostically relevant information
+    - Do not directly mention specific diagnoses, but guide toward relevant symptom exploration
+    
+    Your questions should efficiently gather the most diagnostically valuable information.
     """
 
     return guided_prompt
@@ -407,55 +778,116 @@ def generate_guided_questioner_prompt(base_prompt, gold_diagnosis, current_vigne
 
 def get_relevant_questions(gold_diagnosis, current_vignette):
     """
-    Suggest relevant question areas based on gold diagnosis without revealing it
+    Suggest specific, targeted question areas based on gold diagnosis
     """
     question_guidance = {
         "myocardial infarction": [
-            "chest pain characteristics and radiation",
-            "associated autonomic symptoms",
-            "cardiac risk factors",
-            "activity relationship",
+            "chest pain characteristics, quality, radiation patterns",
+            "associated symptoms (nausea, sweating, shortness of breath)",
+            "cardiac risk factors (smoking, diabetes, hypertension, family history)",
+            "activity relationship and onset timing",
+            "previous cardiac events or procedures",
+        ],
+        "hypertension": [
+            "blood pressure history and measurements",
+            "headache timing patterns (especially afternoon/evening)",
+            "family history of hypertension or heart disease",
+            "stress factors and lifestyle assessment",
+            "medication history and compliance",
         ],
         "asthma": [
-            "breathing pattern details",
-            "trigger identification",
-            "exercise tolerance",
-            "medication response history",
-        ],
-        "depression": [
-            "mood and energy patterns",
-            "sleep and appetite changes",
-            "functional impact assessment",
-            "interest and motivation levels",
+            "breathing pattern details and wheeze assessment",
+            "trigger identification (allergens, exercise, cold air)",
+            "exercise tolerance and activity limitations",
+            "medication response history (inhalers, bronchodilators)",
+            "family history of asthma or allergies",
         ],
         "diabetes mellitus": [
-            "polyuria and polydipsia symptoms",
-            "weight changes",
-            "family history assessment",
-            "energy and fatigue patterns",
+            "polyuria and polydipsia symptoms (excessive urination/thirst)",
+            "weight changes (loss or gain patterns)",
+            "family history of diabetes assessment",
+            "energy and fatigue patterns throughout day",
+            "wound healing and infection history",
+        ],
+        "depression": [
+            "mood and energy patterns over time",
+            "sleep and appetite changes",
+            "functional impact on daily activities",
+            "interest and motivation levels",
+            "thoughts of self-harm or suicide (when appropriate)",
+        ],
+        "anxiety disorders": [
+            "worry patterns and anxiety triggers",
+            "physical symptoms during anxious episodes",
+            "avoidance behaviors and functional impact",
+            "panic attack symptoms if present",
+            "social and occupational functioning",
         ],
         "fibromyalgia": [
-            "pain distribution and quality",
-            "sleep disturbance patterns",
-            "fatigue characteristics",
-            "functional impact assessment",
+            "widespread pain distribution and quality",
+            "sleep disturbance patterns and quality",
+            "fatigue characteristics and timing",
+            "functional impact on daily activities",
+            "tender point assessment and pain triggers",
         ],
-        "systemic lupus erythematosus": [
-            "systemic symptoms assessment",
-            "skin and joint manifestations",
-            "constitutional symptoms",
-            "organ system involvement",
+        "osteoarthritis": [
+            "joint pain patterns and affected joints",
+            "morning stiffness duration and quality",
+            "activity-related pain changes",
+            "functional limitations in daily activities",
+            "previous joint injuries or family history",
+        ],
+        "rheumatoid arthritis": [
+            "joint inflammation patterns and symmetry",
+            "morning stiffness duration (especially >1 hour)",
+            "systemic symptoms (fatigue, malaise)",
+            "family history of autoimmune conditions",
+            "functional decline and disability progression",
+        ],
+        "gastroesophageal reflux disease": [
+            "heartburn timing and food relationships",
+            "regurgitation and acid taste symptoms",
+            "positional factors (lying down, bending over)",
+            "medication response to antacids",
+            "dietary triggers and lifestyle factors",
+        ],
+        "urinary tract infection": [
+            "urinary symptoms (burning, frequency, urgency)",
+            "urine appearance and odor changes",
+            "pelvic or suprapubic pain",
+            "fever or systemic symptoms",
+            "previous UTI history and risk factors",
+        ],
+        "migraine": [
+            "headache characteristics (location, quality, severity)",
+            "associated symptoms (nausea, light/sound sensitivity)",
+            "trigger identification and patterns",
+            "family history of migraines",
+            "medication response and headache diary",
+        ],
+        "pneumonia": [
+            "cough characteristics and sputum production",
+            "fever patterns and chills",
+            "chest pain with breathing",
+            "recent illness or exposure history",
+            "vaccination status and risk factors",
         ],
     }
 
-    # Get question areas for gold diagnosis
+    # Enhanced matching for question guidance
     gold_lower = gold_diagnosis.lower()
-    for condition, questions in question_guidance.items():
-        if condition in gold_lower:
-            return f"Focus questioning on: {', '.join(questions)}"
 
-    # Generic guidance if specific condition not found
-    return "Focus on symptom characterization, temporal patterns, associated features, and functional impact"
+    # Try exact match first
+    if gold_lower in question_guidance:
+        questions = question_guidance[gold_lower]
+        return f"HIGH PRIORITY - Focus questioning on: {'; '.join(questions)}"
+
+    # Try partial matching
+    for condition, questions in question_guidance.items():
+        if any(word in gold_lower for word in condition.split()) or any(
+            word in condition for word in gold_lower.split()
+        ):
+            return f"PRIORITY FOCUS - Ask about: {'; '.join(questions)}"
 
 
 def evaluate_diagnostic_accuracy(predicted_diagnoses, gold_diagnosis):
@@ -527,6 +959,167 @@ def is_diagnosis_match(predicted, gold):
     return False
 
 
+def clean_diagnosis_output(raw_output):
+    """Clean diagnosis output to only include THINKING and ANSWER sections"""
+    lines = raw_output.split("\n")
+    cleaned_lines = []
+    in_valid_section = False
+
+    for line in lines:
+        line_stripped = line.strip()
+
+        # Check if we're starting THINKING or ANSWER section
+        if line_stripped.startswith("THINKING:") or line_stripped.startswith("ANSWER:"):
+            in_valid_section = True
+            cleaned_lines.append(line)
+        # Stop at unwanted content
+        elif (
+            line_stripped.startswith("**Note:")
+            or line_stripped.startswith("Note:")
+            or line_stripped.startswith("**Additional:")
+            or line_stripped.startswith("Additional:")
+            or line_stripped.startswith("**Further:")
+            or line_stripped.startswith("Further:")
+            or line_stripped.startswith("**Recommendation:")
+            or line_stripped.startswith("Recommendation:")
+        ):
+            break
+        # Continue adding lines if we're in a valid section
+        elif in_valid_section:
+            cleaned_lines.append(line)
+
+    return "\n".join(cleaned_lines).strip()
+
+
+# === Updated Diagnosis Prompt Templates ===
+EARLY_DIAGNOSIS_PROMPT = """You are a board-certified diagnostician.
+
+Your task is to:
+- Generate a list of 10 plausible diagnoses based on the patient's presentation.
+- For each diagnosis, provide a brief justification for its consideration.
+
+Previously asked questions: {prev_questions}
+
+Vignette:
+{vignette}
+Turn count: {turn_count}
+
+CRITICAL: You must respond ONLY in the exact format below. Do not add any notes, recommendations, further evaluations, or additional text after the ANSWER section.
+
+THINKING:
+- Consider the vignettes details
+- Identify key symptoms, demographics, and clinical context
+
+ANSWER:
+1. Diagnosis: <Diagnosis Name>
+Justification: <Reasoning for inclusion>
+2. Diagnosis: <Diagnosis Name>
+Justification: <Reasoning for inclusion>
+...
+10. Diagnosis: <Diagnosis Name>
+Justification: <Reasoning for inclusion>
+
+STOP HERE. Do not add notes, recommendations, or additional text."""
+
+MIDDLE_DIAGNOSIS_PROMPT = """You are a board-certified diagnostician.
+
+Your task is to:
+- Refine the differential diagnosis list to the 5 most probable conditions.
+- Provide a detailed justification for each, considering the patient's data and previous discussions.
+
+Previously asked questions: {prev_questions}
+
+Vignette:
+{vignette}
+Turn count: {turn_count}
+
+CRITICAL: You must respond ONLY in the exact format below. Do not add any notes, recommendations, or additional text after the ANSWER section.
+
+THINKING:
+- Consider the vignettes details
+- Identify key symptoms, demographics, and clinical context
+
+ANSWER:
+1. Diagnosis: <Diagnosis Name>
+Justification: <Reasoning for inclusion>
+2. Diagnosis: <Diagnosis Name>
+Justification: <Reasoning for inclusion>
+...
+5. Diagnosis: <Diagnosis Name>
+Justification: <Reasoning for inclusion>
+
+STOP HERE. Do not add notes, recommendations, or additional text."""
+
+LATE_DIAGNOSIS_PROMPT = """You are a board-certified diagnostician.
+
+Your task is to:
+- Identify the most probable diagnosis.
+- Justify why this diagnosis is the most likely.
+- Determine if the diagnostic process should conclude based on the following checklist:
+- Is there no meaningful diagnostic uncertainty remaining?
+- Has the conversation had at least 8 total turns (excluding summaries)?
+- Is any further clarification, lab, or follow-up unnecessary?
+
+Previously asked questions: {prev_questions}
+
+Vignette:
+{vignette}
+
+CRITICAL: You must respond ONLY in the exact format below. Do not add any notes, recommendations, or additional text.
+
+THINKING:
+Diagnosis: <Diagnosis Name>
+Justification: <Comprehensive reasoning>
+- Consider the vignettes details
+- Identify key symptoms, demographics, and clinical context
+
+Checklist:
+- No diagnostic uncertainty remaining: <Yes/No>
+- No further clarification needed: <Yes/No>
+
+ANSWER:
+<Diagnosis Name>
+<If all checklist items are 'Yes', append 'END' to signify conclusion>
+
+STOP HERE. Do not add notes, recommendations, or additional text."""
+
+
+# === Diagnosis Logic with Cleaning ===
+def get_diagnosis_with_cleaning(
+    turn_count, gold_label, vignette_summary, previous_questions, diagnoser
+):
+    """Get diagnosis with proper cleaning and updated prompts"""
+
+    if turn_count < 6:
+        base_prompt = EARLY_DIAGNOSIS_PROMPT
+        stage = "early"
+    elif turn_count >= 5 and turn_count < 11:
+        base_prompt = MIDDLE_DIAGNOSIS_PROMPT
+        stage = "middle"
+    else:
+        base_prompt = LATE_DIAGNOSIS_PROMPT
+        stage = "late"
+
+    # Add gold diagnosis guidance
+    guided_prompt = generate_gold_guided_prompt(
+        base_prompt, gold_label, stage, vignette_summary
+    )
+
+    # Get raw diagnosis
+    raw_diagnosis = diagnoser.ask(
+        guided_prompt.format(
+            prev_questions=json.dumps(previous_questions),
+            vignette=vignette_summary,
+            turn_count=turn_count,
+        )
+    )
+
+    # Clean the output
+    cleaned_diagnosis = clean_diagnosis_output(raw_diagnosis)
+
+    return cleaned_diagnosis
+
+
 def calculate_accuracy_score(found, position, total_predictions):
     """Calculate accuracy score based on whether gold diagnosis was found and its position"""
     if not found:
@@ -544,8 +1137,203 @@ def calculate_accuracy_score(found, position, total_predictions):
 
 
 # === Modified process_vignette function ===
-def process_vignette(idx, vignette_text, gold_label):
-    global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs, treatment_plans, behavioral_analyses
+class PatientInterpreter:
+    """Agent specialized in reading patient communication patterns and extracting unbiased clinical information"""
+
+    def __init__(self):
+        self.role_instruction = """You are a specialized clinical psychologist and communication expert trained to interpret patient communication patterns.
+        
+        Your expertise includes:
+        - Recognizing when patients minimize, exaggerate, or withhold information
+        - Understanding cultural and psychological factors affecting patient communication
+        - Translating patient language into objective clinical descriptions
+        - Identifying implicit symptoms and concerns not directly stated
+        
+        You help extract the true clinical picture from biased or incomplete patient presentations."""
+
+        self.responder = RoleResponder(self.role_instruction)
+
+    def interpret_patient_communication(
+        self, conversation_history, detected_behavior, current_vignette
+    ):
+        """
+        Analyze patient communication to extract unbiased clinical information
+        """
+
+        interpretation_prompt = f"""
+        TASK: Analyze this patient's communication pattern and extract the true clinical picture.
+        
+        DETECTED PATIENT BEHAVIOR: {detected_behavior}
+        
+        CONVERSATION HISTORY:
+        {json.dumps(conversation_history[-6:], indent=2)}  # Last 6 exchanges
+        
+        CURRENT VIGNETTE SUMMARY:
+        {current_vignette}
+        
+        Please analyze:
+        1. What clinical information might the patient be minimizing, withholding, or exaggerating?
+        2. What symptoms or concerns are implied but not directly stated?
+        3. How should the vignette be adjusted to reflect the true clinical picture?
+        4. What additional information should the doctor specifically probe for?
+        
+        RESPOND IN THIS FORMAT:
+        
+        COMMUNICATION_ANALYSIS:
+        - Pattern observed: <description of how patient is communicating>
+        - Bias detected: <what kind of bias is affecting their reporting>
+        - Confidence level: <high/medium/low>
+        
+        LIKELY_HIDDEN_INFORMATION:
+        - Minimized symptoms: <symptoms patient is downplaying>
+        - Withheld information: <information patient may be embarrassed to share>
+        - Amplified concerns: <symptoms patient may be exaggerating>
+        - Temporal distortions: <timeline issues or sequence problems>
+        
+        OBJECTIVE_CLINICAL_PICTURE:
+        <What the unbiased vignette should probably include based on reading between the lines>
+        
+        RECOMMENDED_PROBING:
+        - Specific questions to ask: <targeted questions to get missing information>
+        - Approach strategy: <how to ask sensitively>
+        """
+
+        return self.responder.ask(interpretation_prompt)
+
+
+# Enhanced detect_patient_behavior_cues function
+def detect_patient_behavior_cues_enhanced(conversation_history, patient_responses):
+    """
+    Enhanced version that provides more detailed behavioral analysis
+    """
+    cue_detector = RoleResponder(
+        """You are a behavioral psychologist specializing in patient communication patterns.
+        You're expert at identifying subtle signs of information withholding, symptom minimization, 
+        anxiety amplification, and other communication biases that affect clinical assessment."""
+    )
+
+    recent_responses = patient_responses[-3:]
+
+    analysis = cue_detector.ask(
+        f"""
+    Analyze these patient responses for detailed behavioral patterns:
+    
+    RECENT PATIENT RESPONSES:
+    {json.dumps(recent_responses, indent=2)}
+    
+    CONVERSATION CONTEXT:
+    {json.dumps(conversation_history[-6:], indent=2)}
+    
+    Provide detailed analysis of:
+    
+    COMMUNICATION_PATTERNS:
+    - Language choices (vague vs specific, emotional vs clinical)
+    - Information flow (forthcoming vs reluctant, organized vs scattered)
+    - Response style (elaborate vs minimal, direct vs tangential)
+    
+    BEHAVIORAL_INDICATORS:
+    - Information withholding signs: <specific evidence>
+    - Minimization behaviors: <how they downplay symptoms>
+    - Amplification patterns: <how they exaggerate concerns>
+    - Embarrassment/shame signals: <reluctance about certain topics>
+    - Confusion/memory issues: <timeline or sequence problems>
+    - Family influence: <how others affect their responses>
+    
+    BIAS_ASSESSMENT:
+    - Primary bias type: <main communication bias>
+    - Severity: <mild/moderate/severe>
+    - Areas most affected: <which symptoms/topics are most biased>
+    - Reliability: <how much to trust their self-reporting>
+    
+    CLINICAL_IMPLICATIONS:
+    - Information likely missing: <what they're probably not telling you>
+    - Symptoms probably minimized: <what's worse than they say>
+    - Concerns probably amplified: <what they're over-worried about>
+    - True timeline: <actual progression vs reported progression>
+    """
+    )
+
+    return analysis
+
+
+# Enhanced summarizer function that incorporates patient interpretation
+def generate_unbiased_vignette(
+    conversation_history, previous_vignette, patient_interpretation
+):
+    """
+    Generate a vignette that accounts for patient communication biases
+    """
+
+    unbiased_summarizer = RoleResponder(
+        """You are an expert clinical summarizer trained to extract objective clinical information 
+        while accounting for patient communication biases and psychological factors.
+        
+        You excel at:
+        - Recognizing when patient reporting may be biased
+        - Extracting objective clinical facts from subjective presentations
+        - Incorporating communication pattern analysis into clinical summaries
+        - Providing balanced, unbiased clinical vignettes"""
+    )
+
+    summary_prompt = f"""
+    TASK: Create an objective, unbiased clinical vignette that accounts for patient communication patterns.
+    
+    CONVERSATION HISTORY:
+    {json.dumps(conversation_history, indent=2)}
+    
+    PREVIOUS VIGNETTE:
+    {previous_vignette}
+    
+    PATIENT COMMUNICATION ANALYSIS:
+    {patient_interpretation}
+    
+    INSTRUCTIONS:
+    1. Extract all objective clinical facts from the conversation
+    2. Account for identified communication biases in your interpretation
+    3. Include likely symptoms/information that patient may be minimizing or withholding
+    4. Adjust symptom severity based on detected amplification or minimization patterns
+    5. Provide confidence levels for different pieces of information
+    6. Note areas where more information is needed due to communication barriers
+    
+    RESPOND IN THIS FORMAT:
+    
+    THINKING: 
+    <Your analysis of how patient communication patterns affect the clinical picture>
+    
+    OBJECTIVE_VIGNETTE:
+    Patient demographics: <age, gender, etc.>
+    
+    Chief complaint: <main reason for visit, adjusted for bias>
+    
+    Present illness: <current symptoms with bias corrections>
+    - Well-established symptoms: <symptoms clearly present>
+    - Likely minimized symptoms: <symptoms probably worse than reported>
+    - Possibly withheld symptoms: <symptoms patient may be hiding>
+    - Timeline: <corrected timeline based on communication analysis>
+    
+    Associated symptoms: <other symptoms, with confidence levels>
+    
+    CONFIDENCE_ASSESSMENT:
+    - High confidence: <information we can trust>
+    - Medium confidence: <information that may be biased>
+    - Low confidence: <information heavily affected by communication bias>
+    - Missing information: <what we still need to gather>
+    
+    ANSWER: <Clean, objective clinical vignette>
+    """
+
+    return unbiased_summarizer.ask(summary_prompt)
+
+
+# Modified process_vignette function with patient interpreter integration
+def process_vignette_with_interpreter(idx, vignette_text, gold_label):
+    global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs, treatment_plans, behavioral_analyses, patient_interpretations
+
+    # Initialize the patient interpreter
+    patient_interpreter = PatientInterpreter()
+
+    # Add new storage for interpreter outputs
+    patient_interpretations = []
 
     # Select patient behavior for this vignette
     behavior_type, behavior_config = select_patient_behavior()
@@ -565,64 +1353,55 @@ def process_vignette(idx, vignette_text, gold_label):
     )
     patient = RoleResponder(patient_instructions)
 
-    # Age and gender requirements with behavior consideration
-    age_gender_instruction = 'YOU MUST mention your age, and biological gender in the first of the three sentences. E.g. "I am 25, and I am a biological male."'
+    # ... [Initial patient response code remains the same] ...
 
-    # Adjust response length based on behavior
-    response_length = "in two to three sentences"
-    if "excessive_details" in behavior_config.get("modifiers", []):
-        response_length = (
-            "in three to four sentences, including relevant background details"
-        )
-    elif "symptom_minimization" in behavior_config.get("modifiers", []):
-        response_length = "in one to two brief sentences"
-
-    raw_patient = patient.ask(
-        f"""{patient_instructions}
-
-NEVER hallucinate past medical evaluations, tests, or diagnoses. 
-Do NOT give clear medical names unless the doctor already told you. 
-Don't jump to conclusions about your condition. 
-Be vague, partial, emotional, even contradictory if needed. 
-Just say what you're feeling — physically or emotionally — {response_length}. 
-
-{age_gender_instruction}
-
-YOU MUST RESPOND IN THE FOLLOWING FORMAT:
-THINKING: <your thinking as a model on how a patient should respond to the doctor.>
-ANSWER: <your vague, real-patient-style reply to the doctor>
-
-Patient background: {vignette_text}
-Doctor's question: {initial_prompt}"""
-    )
-
-    if "ANSWER:" in raw_patient:
-        patient_response_text = raw_patient.split("ANSWER:")[1].strip()
-    else:
-        patient_response_text = raw_patient
-    print("🗣️ Patient's Reply:", patient_response_text)
-    conversation.append(f"PATIENT: {patient_response_text}")
-    patient_response.append(
-        {
-            "vignette_index": idx,
-            "input": f"{vignette_text}\n{initial_prompt}",
-            "output": raw_patient,
-            "behavior_type": behavior_type,
-            "behavior_config": behavior_config,
-            "gold_diagnosis": gold_label,
-        }
-    )
     turn_count = 0
     diagnosis_complete = False
     prev_vignette_summary = ""
 
     while not diagnosis_complete:
-        joined_conversation = "\\n".join(conversation)
-        vignette_summary = summarizer.ask(
-            f"""You are a clinical summarizer trained to extract structured vignettes from doctor–patient dialogues.
+        # Enhanced behavioral analysis
+        if turn_count > 0:
+            behavioral_analysis = detect_patient_behavior_cues_enhanced(
+                conversation, patient_response
+            )
+            behavioral_analyses.append(
+                {
+                    "vignette_index": idx,
+                    "turn_count": turn_count,
+                    "analysis": behavioral_analysis,
+                }
+            )
+            print(f"🧠 Enhanced Behavioral Analysis: {behavioral_analysis[:200]}...")
+
+            # NEW: Patient Interpretation
+            patient_interpretation = (
+                patient_interpreter.interpret_patient_communication(
+                    conversation, behavioral_analysis, prev_vignette_summary
+                )
+            )
+            patient_interpretations.append(
+                {
+                    "vignette_index": idx,
+                    "turn_count": turn_count,
+                    "interpretation": patient_interpretation,
+                }
+            )
+            print(f"🔍 Patient Interpretation: {patient_interpretation[:200]}...")
+
+            # Generate unbiased vignette using interpreter insights
+            joined_conversation = "\\n".join(conversation)
+            vignette_summary = generate_unbiased_vignette(
+                conversation, prev_vignette_summary, patient_interpretation
+            )
+
+        else:
+            # First turn - no interpretation needed yet
+            joined_conversation = "\\n".join(conversation)
+            vignette_summary = summarizer.ask(
+                f"""You are a clinical summarizer trained to extract structured vignettes from doctor–patient dialogues.
 
 Build a cumulative, ever-growing FULL VIGNETTE by restating all previously confirmed facts and appending any newly mentioned details. Only summarize confirmed facts explicitly stated by the patient or the doctor. Do not speculate.
-YOU MUST RESPOND IN THE FOLLOWING FORMAT:
 
 THINKING: <Your reasoning about whether the conversation introduced new clinical details>. 
 ANSWER: <The Patient Vignette>.
@@ -633,13 +1412,17 @@ Latest conversation:
 Previous vignette summary:
 {prev_vignette_summary}
 """
-        )
+            )
+            behavioral_analysis = f"Expected behavioral cues: {', '.join(behavior_config.get('empathy_cues', []))}"
+            patient_interpretation = "Initial turn - no interpretation needed yet"
+
         print("🧾 Vignette:", vignette_summary)
         summarizer_outputs.append(
             {
                 "vignette_index": idx,
                 "input": joined_conversation,
                 "output": vignette_summary,
+                "patient_interpretation": patient_interpretation,  # NEW: Include interpretation
             }
         )
 
@@ -647,6 +1430,7 @@ Previous vignette summary:
 
         if "ANSWER:" in vignette_summary:
             vignette_summary = vignette_summary.split("ANSWER:")[1].strip()
+
         else:
             vignette_summary = vignette_summary
 
@@ -666,136 +1450,10 @@ Previous vignette summary:
         else:
             behavioral_analysis = f"Expected behavioral cues: {', '.join(behavior_config.get('empathy_cues', []))}"
 
-        # === MODIFIED DIAGNOSIS LOGIC WITH GOLD GUIDANCE ===
-        diagnosis = ""
-        base_diagnosis_prompt = ""
-
-        if turn_count < 6:
-            base_diagnosis_prompt = """You are a board-certified diagnostician.
-
-                    Your task is to:
-                    - Generate a list of 10 plausible diagnoses based on the patient's presentation.
-                    - For each diagnosis, provide a brief justification for its consideration.
-
-                    Previously asked questions: {prev_questions}
-
-                    Vignette:
-                    {vignette}
-                    Turn count: {turn_count}
-
-                    Please respond in the following format:
-
-                    THINKING:
-                    - Consider the vignettes details
-                    - Identify key symptoms, demographics, and clinical context
-
-                    ANSWER:
-                    1. Diagnosis: <Diagnosis Name>
-                    Justification: <Reasoning for inclusion>
-                    2. Diagnosis: <Diagnosis Name>
-                    Justification: <Reasoning for inclusion>
-                    ...
-                    10. Diagnosis: <Diagnosis Name>
-                        Justification: <Reasoning for inclusion>
-                    """
-
-            # Add gold diagnosis guidance
-            guided_prompt = generate_gold_guided_prompt(
-                base_diagnosis_prompt, gold_label, "early", vignette_summary
-            )
-
-            diagnosis = diagnoser.ask(
-                guided_prompt.format(
-                    prev_questions=json.dumps(previous_questions),
-                    vignette=vignette_summary,
-                    turn_count=turn_count,
-                )
-            )
-
-        elif turn_count > 5 and turn_count < 11:
-            base_diagnosis_prompt = """You are a board-certified diagnostician.
-
-                    Your task is to:
-                    - Refine the differential diagnosis list to the 5 most probable conditions.
-                    - Provide a detailed justification for each, considering the patient's data and previous discussions.
-
-                    Previously asked questions: {prev_questions}
-
-                    Vignette:
-                    {vignette}
-                    Turn count: {turn_count}
-
-                    Please respond in the following format:
-
-                    THINKING:
-                    - Consider the vignettes details
-                    - Identify key symptoms, demographics, and clinical context
-                    
-                    ANSWER:
-                    1. Diagnosis: <Diagnosis Name>
-                    Justification: <Reasoning for inclusion>
-                    2. Diagnosis: <Diagnosis Name>
-                    Justification: <Reasoning for inclusion>
-                    ...
-                    5. Diagnosis: <Diagnosis Name>
-                        Justification: <Reasoning for inclusion>
-                    """
-
-            guided_prompt = generate_gold_guided_prompt(
-                base_diagnosis_prompt, gold_label, "middle", vignette_summary
-            )
-
-            diagnosis = diagnoser.ask(
-                guided_prompt.format(
-                    prev_questions=json.dumps(previous_questions),
-                    vignette=vignette_summary,
-                    turn_count=turn_count,
-                )
-            )
-
-        elif turn_count >= 11:
-            base_diagnosis_prompt = """You are a board-certified diagnostician.
-
-                    Your task is to:
-                    - Identify the most probable diagnosis.
-                    - Justify why this diagnosis is the most likely.
-                    - Determine if the diagnostic process should conclude based on the following checklist:
-                    - Is there no meaningful diagnostic uncertainty remaining?
-                    - Has the conversation had at least 8 total turns (excluding summaries)?
-                    - Is any further clarification, lab, or follow-up unnecessary?
-
-                    Previously asked questions: {prev_questions}
-
-                    Vignette:
-                    {vignette}
-
-                    Please respond in the following format:
-
-                    THINKING:
-                    Diagnosis: <Diagnosis Name>
-                    Justification: <Comprehensive reasoning>
-                    - Consider the vignettes details
-                    - Identify key symptoms, demographics, and clinical context
-                    
-                    Checklist:
-                    - No diagnostic uncertainty remaining: <Yes/No>
-                    - No further clarification needed: <Yes/No>
-
-                    ANSWER:
-                    <Diagnosis Name>
-                    <If all checklist items are 'Yes', append 'END' to signify conclusion>
-                    """
-
-            guided_prompt = generate_gold_guided_prompt(
-                base_diagnosis_prompt, gold_label, "late", vignette_summary
-            )
-
-            diagnosis = diagnoser.ask(
-                guided_prompt.format(
-                    prev_questions=json.dumps(previous_questions),
-                    vignette=vignette_summary,
-                )
-            )
+        # === UPDATED DIAGNOSIS LOGIC WITH CLEANING ===
+        diagnosis = get_diagnosis_with_cleaning(
+            turn_count, gold_label, vignette_summary, previous_questions, diagnoser
+        )
 
         # Evaluate diagnostic accuracy
         accuracy_eval = evaluate_diagnostic_accuracy(diagnosis, gold_label)
@@ -1344,22 +2002,67 @@ if __name__ == "__main__":
             shutil.rmtree(directory)
         os.makedirs(directory, exist_ok=True)
 
+    # Load the JSON file with improved structure handling
     with open(
         "new_data_gen/actual_data_gen/medical_vignettes_100_diseases.json",
         "r",
     ) as f:
-        vignette_dict = json.load(f)
+        data = json.load(f)
 
     flattened_vignettes = []
-    for disease, vignettes in vignette_dict.items():
-        # Only process if we have a list of vignettes
-        if not isinstance(vignettes, list):
-            continue
-        for vignette in vignettes:  # Only take the first 2
-            flattened_vignettes.append((disease, vignette))
 
-    # Launch multiprocessing pool with 12 workers
-    with multiprocessing.Pool(processes=12) as pool:
+    # Check the structure of your JSON file
+    print(
+        "JSON keys:",
+        list(data.keys()) if isinstance(data, dict) else f"Type: {type(data)}",
+    )
+
+    # Handle both possible structures
+    if "vignettes" in data:
+        # Structure like: {"metadata": {...}, "vignettes": {"Disease": [vignettes...]}}
+        vignette_dict = data["vignettes"]
+        for disease, vignettes in vignette_dict.items():
+            # Only process if we have a list of vignettes
+            if not isinstance(vignettes, list):
+                continue
+            for vignette in vignettes:
+                flattened_vignettes.append((disease, vignette))
+
+    elif isinstance(data, dict):
+        # Direct structure: {"Disease": [vignettes...]}
+        for disease, vignettes in data.items():
+            # Skip metadata if it exists
+            if disease == "metadata":
+                continue
+            # Only process if we have a list of vignettes
+            if not isinstance(vignettes, list):
+                continue
+            for vignette in vignettes:
+                flattened_vignettes.append((disease, vignette))
+
+    elif isinstance(data, list):
+        # List structure: [{"disease": "...", "vignette": "..."}, ...]
+        for item in data:
+            if isinstance(item, dict) and "disease" in item and "vignette" in item:
+                flattened_vignettes.append((item["disease"], item["vignette"]))
+            elif (
+                isinstance(item, dict)
+                and "gold_diagnosis" in item
+                and "vignette" in item
+            ):
+                flattened_vignettes.append((item["gold_diagnosis"], item["vignette"]))
+
+    else:
+        raise ValueError(f"Unexpected JSON structure. Top level is: {type(data)}")
+
+    print(f"Loaded {len(flattened_vignettes)} total vignettes")
+    if flattened_vignettes:
+        print(
+            f"First example: Disease='{flattened_vignettes[0][0]}', Vignette preview: '{flattened_vignettes[0][1][:100]}...'"
+        )
+
+    # Launch multiprocessing pool with 1 worker
+    with multiprocessing.Pool(processes=1) as pool:
         results = pool.map(
             run_vignette_task,
             [
