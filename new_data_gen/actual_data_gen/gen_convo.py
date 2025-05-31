@@ -9,7 +9,7 @@ import random
 
 # Initialize OpenAI client
 client = OpenAI(
-    api_key="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"
+    api_key="api"
 )
 model = "gpt-4.1-nano"
 
