@@ -1409,7 +1409,7 @@ def calculate_accuracy_score(found, position, total_predictions):
 
 # === Modified process_vignette function ===
 def process_vignette(idx, vignette_text, gold_label):
-    global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs, treatment_plans, behavioral_analyses
+    global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs, treatment_plans, behavioral_analyses, patient_interpretations
 
     # Select patient behavior for this vignette
     behavior_type, behavior_config = select_patient_behavior()
@@ -1476,57 +1476,23 @@ Doctor's question: {initial_prompt}"""
             "gold_diagnosis": gold_label,
         }
     )
+    
     turn_count = 0
     diagnosis_complete = False
     prev_vignette_summary = ""
+    
+    # NEW: Store all behavioral analyses for memory
+    all_behavioral_analyses = []
+    all_patient_interpretations = []
 
     while not diagnosis_complete:
-
-        behavioral_analysis = detect_patient_behavior_cues_enhanced(
-            conversation, patient_response
-        )
-        behavioral_analyses.append(
-            {
-                "vignette_index": idx,
-                "turn_count": turn_count,
-                "analysis": behavioral_analysis,
-            }
-        )
-        print(f"🧠 Enhanced Behavioral Analysis: {behavioral_analysis[:200]}...")
-
-        # NEW: Patient Interpretation
-        patient_interpreter = PatientInterpreter()
-        patient_interpretation = patient_interpreter.interpret_patient_communication(
-            conversation, behavioral_analysis, prev_vignette_summary
-        )
-        patient_interpretations.append(
-            {
-                "vignette_index": idx,
-                "turn_count": turn_count,
-                "interpretation": patient_interpretation,
-            }
-        )
-        print(f"🔍 Patient Interpretation: {patient_interpretation}...")
-
-        # Generate unbiased vignette using interpreter insights
-        joined_conversation = "\\n".join(conversation)
-        vignette_summary = generate_unbiased_vignette(
-            conversation, prev_vignette_summary, patient_interpretation
-        )
-        summarizer_outputs.append(vignette_summary)
-
-        prev_vignette_summary = vignette_summary
-
-        if "ANSWER:" in vignette_summary:
-            vignette_summary = vignette_summary.split("ANSWER:")[1].strip()
-        else:
-            vignette_summary = vignette_summary
-
-        # Detect behavioral cues for empathetic response
-        if turn_count > 0:
-            behavioral_analysis = detect_patient_behavior_cues(
-                conversation, patient_response
+        # NEW: Only use behavioral analysis for first 5 exchanges (turn_count 0, 2, 4, 6, 8)
+        if turn_count <= 8:
+            # Enhanced behavioral analysis with memory of previous analyses
+            behavioral_analysis = detect_patient_behavior_cues_enhanced_with_memory(
+                conversation, patient_response, all_behavioral_analyses
             )
+            all_behavioral_analyses.append(behavioral_analysis)
             behavioral_analyses.append(
                 {
                     "vignette_index": idx,
@@ -1534,9 +1500,69 @@ Doctor's question: {initial_prompt}"""
                     "analysis": behavioral_analysis,
                 }
             )
-            print(f"🧠 Behavioral Analysis: {behavioral_analysis}")
+            print(f"🧠 Enhanced Behavioral Analysis (Turn {turn_count//2 + 1}): {behavioral_analysis[:200]}...")
+
+            # Patient Interpretation with memory of previous interpretations
+            patient_interpreter = PatientInterpreter()
+            patient_interpretation = patient_interpreter.interpret_patient_communication_with_memory(
+                conversation, behavioral_analysis, prev_vignette_summary, all_patient_interpretations
+            )
+            all_patient_interpretations.append(patient_interpretation)
+            patient_interpretations.append(
+                {
+                    "vignette_index": idx,
+                    "turn_count": turn_count,
+                    "interpretation": patient_interpretation,
+                }
+            )
+            print(f"🔍 Patient Interpretation (Turn {turn_count//2 + 1}): {patient_interpretation[:200]}...")
+
+            # Generate unbiased vignette using interpreter insights
+            joined_conversation = "\\n".join(conversation)
+            vignette_summary = generate_unbiased_vignette(
+                conversation, prev_vignette_summary, patient_interpretation
+            )
         else:
-            behavioral_analysis = f"Expected behavioral cues: {', '.join(behavior_config.get('empathy_cues', []))}"
+            # NEW: After turn 8, use standard summarizer without behavioral analysis
+            print(f"🔄 Using standard summarizer (Turn {turn_count//2 + 1} - beyond behavioral analysis phase)")
+            joined_conversation = "\\n".join(conversation)
+            vignette_summary = summarizer.ask(
+                f"""You are a clinical summarizer trained to extract structured vignettes from doctor–patient dialogues.
+
+Build a cumulative, ever-growing FULL VIGNETTE by restating all previously confirmed facts and appending any newly mentioned details. Only summarize confirmed facts explicitly stated by the patient or the doctor. Do not speculate.
+
+YOU MUST RESPOND IN THE FOLLOWING FORMAT:
+
+THINKING: <Your reasoning about whether the conversation introduced new clinical details>. 
+ANSWER: <The Patient Vignette>.
+
+Latest conversation:
+{joined_conversation}
+
+Previous vignette summary:
+{prev_vignette_summary}
+"""
+            )
+            # Use last known behavioral analysis for empathy but no new interpretation
+            behavioral_analysis = all_behavioral_analyses[-1] if all_behavioral_analyses else f"Expected behavioral cues: {', '.join(behavior_config.get('empathy_cues', []))}"
+
+        summarizer_outputs.append(
+            {
+                "vignette_index": idx,
+                "input": joined_conversation,
+                "output": vignette_summary,
+                "patient_interpretation": all_patient_interpretations[-1] if all_patient_interpretations else "No interpretation - beyond behavioral phase",
+                "turn_count": turn_count,
+                "behavioral_phase": turn_count <= 8
+            }
+        )
+
+        prev_vignette_summary = vignette_summary
+
+        if "ANSWER:" in vignette_summary:
+            vignette_summary = vignette_summary.split("ANSWER:")[1].strip()
+        else:
+            vignette_summary = vignette_summary
 
         # === UPDATED DIAGNOSIS LOGIC WITH CLEANING ===
         diagnosis = get_diagnosis_with_cleaning(
@@ -1570,6 +1596,7 @@ Doctor's question: {initial_prompt}"""
                 "letter": letter,
                 "gold_diagnosis": gold_label,
                 "accuracy_evaluation": accuracy_eval,
+                "behavioral_phase": turn_count <= 8
             }
         )
 
@@ -1605,7 +1632,7 @@ Doctor's question: {initial_prompt}"""
                 break
             else:
                 print(
-                    f"⚠️ Model said END before 10 turns. Ignoring END due to insufficient conversation length."
+                    f"⚠️ Model said END before 15 turns. Ignoring END due to insufficient conversation length."
                 )
 
         # Limit to last 3–5 doctor questions
@@ -1665,6 +1692,7 @@ Doctor's question: {initial_prompt}"""
                 "letter": letter,
                 "behavioral_cues": behavioral_analysis,
                 "gold_diagnosis": gold_label,
+                "behavioral_phase": turn_count <= 8
             }
         )
         conversation.append(f"DOCTOR: {followup_question}")
@@ -1722,7 +1750,6 @@ Doctor's question: {followup_question}"""
         )
 
         turn_count += 2
-
     # Save behavior metadata with the results
     behavior_metadata = {
         "behavior_type": behavior_type,
@@ -1730,6 +1757,8 @@ Doctor's question: {followup_question}"""
         "modifiers": behavior_config.get("modifiers", []),
         "empathy_cues": behavior_config.get("empathy_cues", []),
         "gold_diagnosis": gold_label,
+        "behavioral_analysis_turns": len(all_behavioral_analyses),
+        "total_turns": turn_count // 2
     }
 
     with open(f"2summarizer_outputs/summarizer_{idx}.json", "w") as f:
@@ -1746,6 +1775,8 @@ Doctor's question: {followup_question}"""
         json.dump(behavior_metadata, f, indent=2)
     with open(f"2behavioral_analyses/behavioral_analysis_{idx}.json", "w") as f:
         json.dump(behavioral_analyses, f, indent=2)
+    with open(f"2patient_interpretations/interpretation_{idx}.json", "w") as f:
+        json.dump(patient_interpretations, f, indent=2)
 
     return {
         "vignette_index": idx,
@@ -1756,55 +1787,257 @@ Doctor's question: {followup_question}"""
         "treatment_plans": treatment_plans,
         "behavior_metadata": behavior_metadata,
         "behavioral_analyses": behavioral_analyses,
+        "patient_interpretations": patient_interpretations,
         "gold_diagnosis": gold_label,
     }
 
 
-# === Missing imports and classes ===
-def select_patient_behavior():
-    """Select patient behavior based on weighted probabilities"""
-    rand = random.random()
-    cumulative = 0
-    for behavior, config in PATIENT_BEHAVIORS.items():
-        cumulative += config["weight"]
-        if rand <= cumulative:
-            return behavior, config
-    return "baseline", PATIENT_BEHAVIORS["baseline"]
-
-
-def detect_patient_behavior_cues(conversation_history, patient_responses):
-    """
-    Analyze conversation to detect behavioral cues that inform empathetic responses
-    """
+# === Enhanced behavioral analysis with memory ===
+def detect_patient_behavior_cues_enhanced_with_memory(conversation_history, patient_responses, previous_analyses):
+    """Enhanced version that provides more detailed behavioral analysis using Chain of Thought reasoning with memory"""
     cue_detector = RoleResponder(
         """You are a behavioral psychologist specializing in patient communication patterns.
-    Analyze the patient's responses to identify behavioral cues that indicate their communication style and emotional state.
-    This will help the doctor provide more empathetic and effective care."""
+        You're expert at identifying subtle signs of information withholding, symptom minimization, 
+        anxiety amplification, and other communication biases that affect clinical assessment.
+        
+        You use Chain of Thought reasoning to systematically analyze patient behavior patterns and can
+        build on your previous analyses to create a consistent understanding of the patient over time."""
     )
 
-    recent_responses = patient_responses[-3:]  # Look at last 3 patient responses
+    recent_responses = patient_responses[-3:]
+    
+    # Format previous analyses for context
+    previous_analyses_context = ""
+    if previous_analyses:
+        previous_analyses_context = f"""
+        
+        PREVIOUS BEHAVIORAL ANALYSES:
+        {json.dumps(previous_analyses[-2:], indent=2)}  # Last 2 analyses for context
+        
+        CONSISTENCY GOAL: Build on previous analyses to create a coherent understanding of this patient's communication style. 
+        Note any changes in behavior or confirmation of previous patterns.
+        """
+
     analysis = cue_detector.ask(
         f"""
-    Analyze these recent patient responses for behavioral and emotional cues:
+    Use Chain of Thought reasoning to analyze these patient responses for detailed behavioral patterns:
     
+    RECENT PATIENT RESPONSES:
     {json.dumps(recent_responses, indent=2)}
     
-    Identify which of these behavioral patterns are present:
-    - Anxiety/fear (catastrophic thinking, worry about serious disease)
-    - Embarrassment/hesitation (reluctance to share, vague responses)
-    - Stoicism/minimization (downplaying symptoms, "tough" attitude)
-    - Confusion/uncertainty (timeline issues, memory problems)
-    - Storytelling/context-sharing (excessive details, family stories)
-    - Family pressure/caregiver stress
+    CONVERSATION CONTEXT:
+    {json.dumps(conversation_history[-6:], indent=2)}
     
-    Respond in the following format:
-    THINKING: <Your analysis of the patient's communication patterns>
-    BEHAVIORAL_CUES: <List the main cues you detect>
-    EMPATHY_NEEDS: <What kind of empathetic response would help this patient>
+    {previous_analyses_context}
+    
+    YOU MUST RESPOND IN THE FOLLOWING FORMAT:
+    
+    THINKING:
+    Use Chain of Thought Analysis:
+    
+    STEP 1 - CONSISTENCY CHECK:
+    {"First, let me review my previous analyses of this patient and identify consistent patterns." if previous_analyses else "This is my first analysis of this patient."}
+    - Consistent patterns from previous turns: <identify recurring behaviors>
+    - Changes observed: <note any behavioral evolution>
+    - Standardization progress: <how patient behavior is stabilizing>
+    
+    STEP 2 - LANGUAGE ANALYSIS:
+    Let me examine the specific words and phrases the patient uses.
+    - Minimizing language: <identify phrases like "just", "only", "a little", "not that bad">
+    - Amplifying language: <identify phrases like "terrible", "worst", "unbearable", "excruciating">
+    - Vague language: <identify non-specific descriptions, "sort of", "kind of", "maybe">
+    - Emotional language: <identify fear, embarrassment, frustration indicators>
+    
+    STEP 3 - RESPONSE PATTERN ANALYSIS:
+    Now let me analyze how they respond to different types of questions.
+    - Response length: <long/short responses and what triggers each>
+    - Directness: <do they answer directly or deflect?>
+    - Information volunteering: <do they offer additional details or wait to be asked?>
+    - Consistency: <are their responses consistent across similar questions?>
+    
+    STEP 4 - BEHAVIORAL INDICATOR IDENTIFICATION:
+    Based on the language and response patterns, let me identify specific behavioral indicators.
+    - Information withholding signs: <evidence of reluctance to share specific types of information>
+    - Minimization behaviors: <evidence they're downplaying symptoms>
+    - Amplification patterns: <evidence they're exaggerating concerns>
+    - Embarrassment/shame signals: <evidence of discomfort with certain topics>
+    - Confusion/memory issues: <evidence of timeline or factual inconsistencies>
+    - Family influence: <evidence others are affecting their responses>
+    
+    STEP 5 - BIAS SEVERITY ASSESSMENT:
+    Now let me evaluate how severely these biases are affecting their communication.
+    - Primary bias type: <main communication bias identified>
+    - Severity level: <mild/moderate/severe with reasoning>
+    - Areas most affected: <which symptoms/topics are most biased>
+    - Reliability assessment: <how much to trust their self-reporting>
+    - Behavioral evolution: <how their communication style is changing over time>
+    
+    ANSWER:
+    COMMUNICATION_PATTERNS:
+    - Language choices: <vague vs specific, emotional vs clinical + examples>
+    - Information flow: <forthcoming vs reluctant, organized vs scattered + evidence>
+    - Response style: <elaborate vs minimal, direct vs tangential + patterns>
+    - Consistency with previous analysis: <how this matches or differs from previous patterns>
+    
+    BEHAVIORAL_INDICATORS:
+    - Information withholding signs: <specific evidence + reasoning>
+    - Minimization behaviors: <how they downplay symptoms + examples>
+    - Amplification patterns: <how they exaggerate concerns + examples>
+    - Embarrassment/shame signals: <reluctance about certain topics + evidence>
+    - Confusion/memory issues: <timeline or sequence problems + examples>
+    - Family influence: <how others affect their responses + evidence>
+    
+    BIAS_ASSESSMENT:
+    - Primary bias type: <main communication bias + reasoning>
+    - Severity: <mild/moderate/severe + justification>
+    - Areas most affected: <which symptoms/topics are most biased + evidence>
+    - Reliability: <how much to trust their self-reporting + reasoning>
+    - Behavioral stability: <how consistent this patient's patterns are becoming>
+    
+    CLINICAL_IMPLICATIONS:
+    - Information likely missing: <what they're probably not telling you + reasoning>
+    - Symptoms probably minimized: <what's worse than they say + evidence>
+    - Concerns probably amplified: <what they're over-worried about + evidence>
+    - True timeline: <actual progression vs reported progression + reasoning>
+    - Standardization progress: <how their communication is becoming more reliable>
     """
     )
 
     return analysis
+
+
+# === Enhanced Patient Interpreter with memory ===
+class PatientInterpreter:
+    """Agent specialized in reading patient communication patterns and extracting unbiased clinical information using Chain of Thought reasoning"""
+
+    def __init__(self):
+        self.role_instruction = """You are a specialized clinical psychologist and communication expert trained to interpret patient communication patterns.
+        
+        Your expertise includes:
+        - Recognizing when patients minimize, exaggerate, or withhold information
+        - Understanding cultural and psychological factors affecting patient communication
+        - Translating patient language into objective clinical descriptions
+        - Identifying implicit symptoms and concerns not directly stated
+        - Building consistent understanding of patients over multiple interactions
+        
+        You use systematic Chain of Thought reasoning to analyze patient communication step-by-step.
+        You help extract the true clinical picture from biased or incomplete patient presentations."""
+
+        self.responder = RoleResponder(self.role_instruction)
+
+    def interpret_patient_communication_with_memory(
+        self, conversation_history, detected_behavior, current_vignette, previous_interpretations
+    ):
+        """Analyze patient communication to extract unbiased clinical information using Chain of Thought reasoning with memory"""
+
+        # Format previous interpretations for context
+        previous_context = ""
+        if previous_interpretations:
+            previous_context = f"""
+            
+            PREVIOUS INTERPRETATIONS:
+            {json.dumps(previous_interpretations[-2:], indent=2)}  # Last 2 interpretations for context
+            
+            STANDARDIZATION GOAL: Build on previous interpretations to create a consistent, evolving understanding
+            of this patient's true clinical picture. Note how their communication patterns are stabilizing.
+            """
+
+        interpretation_prompt = f"""
+        TASK: Use Chain of Thought reasoning to analyze this patient's communication pattern and extract the true clinical picture.
+        
+        DETECTED PATIENT BEHAVIOR: {detected_behavior}
+        
+        CONVERSATION HISTORY:
+        {json.dumps(conversation_history[-6:], indent=2)}  # Last 6 exchanges
+        
+        CURRENT VIGNETTE SUMMARY:
+        {current_vignette}
+        
+        {previous_context}
+        
+        YOU MUST RESPOND IN THE FOLLOWING FORMAT:
+        
+        THINKING:
+        Use the following Chain of Thought process:
+        
+        STEP 1 - INITIAL OBSERVATION:
+        Let me first observe what the patient is literally saying versus how they're saying it.
+        - Direct statements made: <list explicit statements>
+        - Communication style observed: <tone, word choice, length of responses>
+        - Non-verbal cues in language: <hesitation, minimization, amplification>
+        - Consistency with previous patterns: <how this matches previous observations>
+        
+        STEP 2 - PATTERN RECOGNITION:
+        Now I'll identify specific communication patterns that suggest bias.
+        - If the patient uses minimizing language ("just a little", "not that bad"), this suggests they may be downplaying severity
+        - If the patient gives vague responses when asked direct questions, this suggests potential withholding
+        - If the patient uses catastrophic language ("terrible", "worst pain ever"), this suggests potential amplification
+        - If timeline responses are inconsistent or vague, this suggests memory issues or confusion
+        - Pattern evolution: <how these patterns are changing or stabilizing over time>
+        
+        STEP 3 - BIAS IDENTIFICATION:
+        Based on the patterns, let me identify the specific biases affecting their reporting.
+        - Type of bias detected: <minimization/amplification/withholding/confusion>
+        - Evidence for this bias: <specific examples from conversation>
+        - Severity of bias: <how much it's affecting their reporting>
+        - Bias consistency: <how stable this bias pattern is becoming>
+        
+        STEP 4 - HIDDEN INFORMATION ANALYSIS:
+        Now I'll deduce what information might be missing or distorted.
+        - What symptoms might be worse than reported? <reasoning>
+        - What information might they be embarrassed to share? <reasoning>
+        - What timeline distortions might exist? <reasoning>
+        - What associated symptoms might they be omitting? <reasoning>
+        - Integration with previous findings: <how this builds on previous interpretations>
+        
+        STEP 5 - OBJECTIVE RECONSTRUCTION:
+        Let me reconstruct what the objective clinical picture likely looks like.
+        - Taking minimization into account: <adjusted symptom severity>
+        - Accounting for withheld information: <likely missing symptoms>
+        - Correcting timeline distortions: <more accurate progression>
+        - Considering amplified concerns: <appropriately scaled worries>
+        - Cumulative understanding: <how the complete picture is emerging>
+        
+        STEP 6 - CLINICAL IMPLICATIONS:
+        Finally, let me determine the clinical implications of these communication patterns.
+        - How reliable is the current vignette? <assessment>
+        - What critical information are we missing? <gaps>
+        - What should the doctor probe for next? <recommendations>
+        - Standardization assessment: <how the patient's communication is becoming more reliable>
+        
+        ANSWER:
+        COMMUNICATION_ANALYSIS:
+        - Pattern observed: <description of how patient is communicating>
+        - Bias detected: <what kind of bias is affecting their reporting>
+        - Confidence level: <high/medium/low>
+        - Reasoning: <why I believe this based on my step-by-step analysis>
+        - Pattern stability: <how consistent this patient's behavior is becoming>
+        
+        LIKELY_HIDDEN_INFORMATION:
+        - Minimized symptoms: <symptoms patient is downplaying + reasoning>
+        - Withheld information: <information patient may be embarrassed to share + reasoning>
+        - Amplified concerns: <symptoms patient may be exaggerating + reasoning>
+        - Temporal distortions: <timeline issues or sequence problems + reasoning>
+        
+        OBJECTIVE_CLINICAL_PICTURE:
+        Based on my Chain of Thought analysis and previous interpretations, the unbiased vignette should probably include:
+        <Detailed reconstruction accounting for identified biases with reasoning for each adjustment>
+        
+        RECOMMENDED_PROBING:
+        - Specific questions to ask: <targeted questions to get missing information + rationale>
+        - Approach strategy: <how to ask sensitively + psychological reasoning>
+        - Priority order: <which questions to ask first and why>
+        - Standardization progress: <how the patient is becoming more forthcoming>
+        """
+
+        return self.responder.ask(interpretation_prompt)
+
+    # Keep the old method for compatibility
+    def interpret_patient_communication(self, conversation_history, detected_behavior, current_vignette):
+        """Fallback method for compatibility"""
+        return self.interpret_patient_communication_with_memory(
+            conversation_history, detected_behavior, current_vignette, []
+        )
 
 
 def generate_empathetic_questioning_prompt(
