@@ -15,6 +15,74 @@ model = "gpt-4.1-nano"
 
 treatment_plans = []
 
+
+def get_guaranteed_format_response(responder, prompt, max_retries=3):
+    """Absolutely guarantee THINKING/ANSWER format"""
+    
+    enforced_prompt = f"""{prompt}
+    
+    ===== MANDATORY FORMAT =====
+    You MUST respond in this EXACT format:
+    
+    THINKING: [your reasoning]
+    ANSWER: [your response]
+    
+    - Start with "THINKING:" (required)
+    - Include "ANSWER:" section (required)
+    - No other format will be accepted
+    ============================
+    
+    Begin your response now with "THINKING:"
+    """
+    
+    for attempt in range(max_retries):
+        response = responder.ask(enforced_prompt)
+        response = response.strip()
+        
+        # Check format
+        if response.startswith("THINKING:") and "ANSWER:" in response:
+            return response
+            
+        # Force format if wrong
+        response = force_thinking_answer_format(response)
+        if response.startswith("THINKING:") and "ANSWER:" in response:
+            return response
+            
+        # Escalate enforcement
+        enforced_prompt = f"""{prompt}
+        
+        CRITICAL ERROR: You failed to follow the required format {attempt + 1} times.
+        
+        You MUST respond EXACTLY like this:
+        
+        THINKING: [write your reasoning here]
+        ANSWER: [write your actual response here]
+        
+        Type "THINKING:" first, then your reasoning, then "ANSWER:" then your response.
+        This is mandatory. No exceptions. Attempt {attempt + 2} of {max_retries}.
+        """
+    
+    # Final fallback
+    return f"THINKING: Format enforcement failed\nANSWER: {response}"
+
+def force_thinking_answer_format(response):
+    """Force any response into THINKING/ANSWER format"""
+    response = response.strip()
+    
+    # If already in correct format, return as-is
+    if response.startswith("THINKING:") and "ANSWER:" in response:
+        return response
+    
+    # If has ANSWER but no THINKING, add THINKING
+    if "ANSWER:" in response and not response.startswith("THINKING:"):
+        parts = response.split("ANSWER:", 1)
+        thinking_part = parts[0].strip() if parts[0].strip() else "Providing requested information"
+        answer_part = parts[1].strip() if len(parts) > 1 else response
+        return f"THINKING: {thinking_part}\nANSWER: {answer_part}"
+    
+    # If no format markers, assume entire response is the answer
+    return f"THINKING: Providing requested response\nANSWER: {response}"
+
 # === Patient Behavior Configurations ===
 PATIENT_BEHAVIORS = {
     "baseline": {
@@ -1916,18 +1984,69 @@ You are NOT trying to impress the doctor with a clear answer — just describe w
 
 class RoleResponder:
     def __init__(self, role_instruction):
-        self.role_instruction = role_instruction
+        self.role_instruction = role_instruction + """
+        
+        CRITICAL FORMAT REQUIREMENT: You MUST always respond in this format:
+        
+        THINKING: [your reasoning]
+        ANSWER: [your actual response]
+        
+        Start every response with "THINKING:" - this is non-negotiable.
+        """
 
-    def ask(self, user_input):
-        messages = [
-            {"role": "system", "content": self.role_instruction},
-            {
-                "role": "user",
-                "content": f"{user_input}",
-            },
-        ]
-        response = client.chat.completions.create(model=model, messages=messages)
-        return response.choices[0].message.content.strip()
+    def ask(self, user_input, max_retries=3):
+        """Ask with guaranteed THINKING/ANSWER format"""
+        
+        enforced_prompt = f"""{user_input}
+        
+        ===== MANDATORY FORMAT =====
+        You MUST respond in this EXACT format:
+        
+        THINKING: [your reasoning]
+        ANSWER: [your response]
+        
+        - Start with "THINKING:" (required)
+        - Include "ANSWER:" section (required)
+        - No other format will be accepted
+        ============================
+        
+        Begin your response now with "THINKING:"
+        """
+        
+        for attempt in range(max_retries):
+            messages = [
+                {"role": "system", "content": self.role_instruction},
+                {"role": "user", "content": enforced_prompt},
+            ]
+            
+            response = client.chat.completions.create(model=model, messages=messages)
+            response = response.choices[0].message.content.strip()
+            
+            # Check format
+            if response.startswith("THINKING:") and "ANSWER:" in response:
+                return response
+                
+            # Force format if wrong
+            response = force_thinking_answer_format(response)
+            if response.startswith("THINKING:") and "ANSWER:" in response:
+                return response
+                
+            # Escalate enforcement for retry
+            enforced_prompt = f"""{user_input}
+            
+            CRITICAL ERROR: You failed to follow the required format {attempt + 1} times.
+            
+            You MUST respond EXACTLY like this:
+            
+            THINKING: [write your reasoning here]
+            ANSWER: [write your actual response here]
+            
+            Type "THINKING:" first, then your reasoning, then "ANSWER:" then your response.
+            This is mandatory. No exceptions. Attempt {attempt + 2} of {max_retries}.
+            """
+        
+        # Final fallback
+        return f"THINKING: Format enforcement failed after {max_retries} attempts\nANSWER: {response}"
 
 
 # === Use the Class for Roles ===
