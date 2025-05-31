@@ -1761,7 +1761,7 @@ Doctor's question: {initial_prompt}"""
         else:
             followup_question = raw_followup
         print("❓ Empathetic Follow-up:", followup_question)
-        question_input = f"Vignette:\n{vignette_summary}\nCurrent Estimated Diagnosis: {diagnosis}\nBehavioral Cues: {behavioral_analysis}"
+        question_input = f"Vignette:\n{vignette_summary}\nCurrent Estimated Diagnosis: {diagnosis}\n"
         questioning_doctor_outputs.append(
             {
                 "vignette_index": idx,
