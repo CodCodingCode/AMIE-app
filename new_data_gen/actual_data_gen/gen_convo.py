@@ -776,6 +776,189 @@ def generate_guided_questioner_prompt(base_prompt, gold_diagnosis, current_vigne
     return guided_prompt
 
 
+# === Patient Interpreter Class ===
+class PatientInterpreter:
+    """Agent specialized in reading patient communication patterns and extracting unbiased clinical information"""
+
+    def __init__(self):
+        self.role_instruction = """You are a specialized clinical psychologist and communication expert trained to interpret patient communication patterns.
+        
+        Your expertise includes:
+        - Recognizing when patients minimize, exaggerate, or withhold information
+        - Understanding cultural and psychological factors affecting patient communication
+        - Translating patient language into objective clinical descriptions
+        - Identifying implicit symptoms and concerns not directly stated
+        
+        You help extract the true clinical picture from biased or incomplete patient presentations."""
+
+        self.responder = RoleResponder(self.role_instruction)
+
+    def interpret_patient_communication(
+        self, conversation_history, detected_behavior, current_vignette
+    ):
+        """Analyze patient communication to extract unbiased clinical information"""
+
+        interpretation_prompt = f"""
+        TASK: Analyze this patient's communication pattern and extract the true clinical picture.
+        
+        DETECTED PATIENT BEHAVIOR: {detected_behavior}
+        
+        CONVERSATION HISTORY:
+        {json.dumps(conversation_history[-6:], indent=2)}  # Last 6 exchanges
+        
+        CURRENT VIGNETTE SUMMARY:
+        {current_vignette}
+        
+        Please analyze:
+        1. What clinical information might the patient be minimizing, withholding, or exaggerating?
+        2. What symptoms or concerns are implied but not directly stated?
+        3. How should the vignette be adjusted to reflect the true clinical picture?
+        4. What additional information should the doctor specifically probe for?
+        
+        RESPOND IN THIS FORMAT:
+        
+        COMMUNICATION_ANALYSIS:
+        - Pattern observed: <description of how patient is communicating>
+        - Bias detected: <what kind of bias is affecting their reporting>
+        - Confidence level: <high/medium/low>
+        
+        LIKELY_HIDDEN_INFORMATION:
+        - Minimized symptoms: <symptoms patient is downplaying>
+        - Withheld information: <information patient may be embarrassed to share>
+        - Amplified concerns: <symptoms patient may be exaggerating>
+        - Temporal distortions: <timeline issues or sequence problems>
+        
+        OBJECTIVE_CLINICAL_PICTURE:
+        <What the unbiased vignette should probably include based on reading between the lines>
+        
+        RECOMMENDED_PROBING:
+        - Specific questions to ask: <targeted questions to get missing information>
+        - Approach strategy: <how to ask sensitively>
+        """
+
+        return self.responder.ask(interpretation_prompt)
+
+
+# Enhanced detect_patient_behavior_cues function
+def detect_patient_behavior_cues_enhanced(conversation_history, patient_responses):
+    """Enhanced version that provides more detailed behavioral analysis"""
+    cue_detector = RoleResponder(
+        """You are a behavioral psychologist specializing in patient communication patterns.
+        You're expert at identifying subtle signs of information withholding, symptom minimization, 
+        anxiety amplification, and other communication biases that affect clinical assessment."""
+    )
+
+    recent_responses = patient_responses[-3:]
+
+    analysis = cue_detector.ask(
+        f"""
+    Analyze these patient responses for detailed behavioral patterns:
+    
+    RECENT PATIENT RESPONSES:
+    {json.dumps(recent_responses, indent=2)}
+    
+    CONVERSATION CONTEXT:
+    {json.dumps(conversation_history[-6:], indent=2)}
+    
+    Provide detailed analysis of:
+    
+    COMMUNICATION_PATTERNS:
+    - Language choices (vague vs specific, emotional vs clinical)
+    - Information flow (forthcoming vs reluctant, organized vs scattered)
+    - Response style (elaborate vs minimal, direct vs tangential)
+    
+    BEHAVIORAL_INDICATORS:
+    - Information withholding signs: <specific evidence>
+    - Minimization behaviors: <how they downplay symptoms>
+    - Amplification patterns: <how they exaggerate concerns>
+    - Embarrassment/shame signals: <reluctance about certain topics>
+    - Confusion/memory issues: <timeline or sequence problems>
+    - Family influence: <how others affect their responses>
+    
+    BIAS_ASSESSMENT:
+    - Primary bias type: <main communication bias>
+    - Severity: <mild/moderate/severe>
+    - Areas most affected: <which symptoms/topics are most biased>
+    - Reliability: <how much to trust their self-reporting>
+    
+    CLINICAL_IMPLICATIONS:
+    - Information likely missing: <what they're probably not telling you>
+    - Symptoms probably minimized: <what's worse than they say>
+    - Concerns probably amplified: <what they're over-worried about>
+    - True timeline: <actual progression vs reported progression>
+    """
+    )
+
+    return analysis
+
+
+# Enhanced summarizer function that incorporates patient interpretation
+def generate_unbiased_vignette(
+    conversation_history, previous_vignette, patient_interpretation
+):
+    """Generate a vignette that accounts for patient communication biases"""
+
+    unbiased_summarizer = RoleResponder(
+        """You are an expert clinical summarizer trained to extract objective clinical information 
+        while accounting for patient communication biases and psychological factors.
+        
+        You excel at:
+        - Recognizing when patient reporting may be biased
+        - Extracting objective clinical facts from subjective presentations
+        - Incorporating communication pattern analysis into clinical summaries
+        - Providing balanced, unbiased clinical vignettes"""
+    )
+
+    summary_prompt = f"""
+    TASK: Create an objective, unbiased clinical vignette that accounts for patient communication patterns.
+    
+    CONVERSATION HISTORY:
+    {json.dumps(conversation_history, indent=2)}
+    
+    PREVIOUS VIGNETTE:
+    {previous_vignette}
+    
+    PATIENT COMMUNICATION ANALYSIS:
+    {patient_interpretation}
+    
+    INSTRUCTIONS:
+    1. Extract all objective clinical facts from the conversation
+    2. Account for identified communication biases in your interpretation
+    3. Include likely symptoms/information that patient may be minimizing or withholding
+    4. Adjust symptom severity based on detected amplification or minimization patterns
+    5. Provide confidence levels for different pieces of information
+    6. Note areas where more information is needed due to communication barriers
+    
+    RESPOND IN THIS FORMAT:
+    
+    THINKING: 
+    <Your analysis of how patient communication patterns affect the clinical picture>
+    
+    OBJECTIVE_VIGNETTE:
+    Patient demographics: <age, gender, etc.>
+    
+    Chief complaint: <main reason for visit, adjusted for bias>
+    
+    Present illness: <current symptoms with bias corrections>
+    - Well-established symptoms: <symptoms clearly present>
+    - Likely minimized symptoms: <symptoms probably worse than reported>
+    - Possibly withheld symptoms: <symptoms patient may be hiding>
+    - Timeline: <corrected timeline based on communication analysis>
+    
+    Associated symptoms: <other symptoms, with confidence levels>
+    
+    CONFIDENCE_ASSESSMENT:
+    - High confidence: <information we can trust>
+    - Medium confidence: <information that may be biased>
+    - Low confidence: <information heavily affected by communication bias>
+    - Missing information: <what we still need to gather>
+    
+    ANSWER: <Clean, objective clinical vignette in paragraph form.>
+    """
+
+    return unbiased_summarizer.ask(summary_prompt)
+
+
 def get_relevant_questions(gold_diagnosis, current_vignette):
     """
     Suggest specific, targeted question areas based on gold diagnosis
@@ -1137,203 +1320,8 @@ def calculate_accuracy_score(found, position, total_predictions):
 
 
 # === Modified process_vignette function ===
-class PatientInterpreter:
-    """Agent specialized in reading patient communication patterns and extracting unbiased clinical information"""
-
-    def __init__(self):
-        self.role_instruction = """You are a specialized clinical psychologist and communication expert trained to interpret patient communication patterns.
-        
-        Your expertise includes:
-        - Recognizing when patients minimize, exaggerate, or withhold information
-        - Understanding cultural and psychological factors affecting patient communication
-        - Translating patient language into objective clinical descriptions
-        - Identifying implicit symptoms and concerns not directly stated
-        
-        You help extract the true clinical picture from biased or incomplete patient presentations."""
-
-        self.responder = RoleResponder(self.role_instruction)
-
-    def interpret_patient_communication(
-        self, conversation_history, detected_behavior, current_vignette
-    ):
-        """
-        Analyze patient communication to extract unbiased clinical information
-        """
-
-        interpretation_prompt = f"""
-        TASK: Analyze this patient's communication pattern and extract the true clinical picture.
-        
-        DETECTED PATIENT BEHAVIOR: {detected_behavior}
-        
-        CONVERSATION HISTORY:
-        {json.dumps(conversation_history[-6:], indent=2)}  # Last 6 exchanges
-        
-        CURRENT VIGNETTE SUMMARY:
-        {current_vignette}
-        
-        Please analyze:
-        1. What clinical information might the patient be minimizing, withholding, or exaggerating?
-        2. What symptoms or concerns are implied but not directly stated?
-        3. How should the vignette be adjusted to reflect the true clinical picture?
-        4. What additional information should the doctor specifically probe for?
-        
-        RESPOND IN THIS FORMAT:
-        
-        COMMUNICATION_ANALYSIS:
-        - Pattern observed: <description of how patient is communicating>
-        - Bias detected: <what kind of bias is affecting their reporting>
-        - Confidence level: <high/medium/low>
-        
-        LIKELY_HIDDEN_INFORMATION:
-        - Minimized symptoms: <symptoms patient is downplaying>
-        - Withheld information: <information patient may be embarrassed to share>
-        - Amplified concerns: <symptoms patient may be exaggerating>
-        - Temporal distortions: <timeline issues or sequence problems>
-        
-        OBJECTIVE_CLINICAL_PICTURE:
-        <What the unbiased vignette should probably include based on reading between the lines>
-        
-        RECOMMENDED_PROBING:
-        - Specific questions to ask: <targeted questions to get missing information>
-        - Approach strategy: <how to ask sensitively>
-        """
-
-        return self.responder.ask(interpretation_prompt)
-
-
-# Enhanced detect_patient_behavior_cues function
-def detect_patient_behavior_cues_enhanced(conversation_history, patient_responses):
-    """
-    Enhanced version that provides more detailed behavioral analysis
-    """
-    cue_detector = RoleResponder(
-        """You are a behavioral psychologist specializing in patient communication patterns.
-        You're expert at identifying subtle signs of information withholding, symptom minimization, 
-        anxiety amplification, and other communication biases that affect clinical assessment."""
-    )
-
-    recent_responses = patient_responses[-3:]
-
-    analysis = cue_detector.ask(
-        f"""
-    Analyze these patient responses for detailed behavioral patterns:
-    
-    RECENT PATIENT RESPONSES:
-    {json.dumps(recent_responses, indent=2)}
-    
-    CONVERSATION CONTEXT:
-    {json.dumps(conversation_history[-6:], indent=2)}
-    
-    Provide detailed analysis of:
-    
-    COMMUNICATION_PATTERNS:
-    - Language choices (vague vs specific, emotional vs clinical)
-    - Information flow (forthcoming vs reluctant, organized vs scattered)
-    - Response style (elaborate vs minimal, direct vs tangential)
-    
-    BEHAVIORAL_INDICATORS:
-    - Information withholding signs: <specific evidence>
-    - Minimization behaviors: <how they downplay symptoms>
-    - Amplification patterns: <how they exaggerate concerns>
-    - Embarrassment/shame signals: <reluctance about certain topics>
-    - Confusion/memory issues: <timeline or sequence problems>
-    - Family influence: <how others affect their responses>
-    
-    BIAS_ASSESSMENT:
-    - Primary bias type: <main communication bias>
-    - Severity: <mild/moderate/severe>
-    - Areas most affected: <which symptoms/topics are most biased>
-    - Reliability: <how much to trust their self-reporting>
-    
-    CLINICAL_IMPLICATIONS:
-    - Information likely missing: <what they're probably not telling you>
-    - Symptoms probably minimized: <what's worse than they say>
-    - Concerns probably amplified: <what they're over-worried about>
-    - True timeline: <actual progression vs reported progression>
-    """
-    )
-
-    return analysis
-
-
-# Enhanced summarizer function that incorporates patient interpretation
-def generate_unbiased_vignette(
-    conversation_history, previous_vignette, patient_interpretation
-):
-    """
-    Generate a vignette that accounts for patient communication biases
-    """
-
-    unbiased_summarizer = RoleResponder(
-        """You are an expert clinical summarizer trained to extract objective clinical information 
-        while accounting for patient communication biases and psychological factors.
-        
-        You excel at:
-        - Recognizing when patient reporting may be biased
-        - Extracting objective clinical facts from subjective presentations
-        - Incorporating communication pattern analysis into clinical summaries
-        - Providing balanced, unbiased clinical vignettes"""
-    )
-
-    summary_prompt = f"""
-    TASK: Create an objective, unbiased clinical vignette that accounts for patient communication patterns.
-    
-    CONVERSATION HISTORY:
-    {json.dumps(conversation_history, indent=2)}
-    
-    PREVIOUS VIGNETTE:
-    {previous_vignette}
-    
-    PATIENT COMMUNICATION ANALYSIS:
-    {patient_interpretation}
-    
-    INSTRUCTIONS:
-    1. Extract all objective clinical facts from the conversation
-    2. Account for identified communication biases in your interpretation
-    3. Include likely symptoms/information that patient may be minimizing or withholding
-    4. Adjust symptom severity based on detected amplification or minimization patterns
-    5. Provide confidence levels for different pieces of information
-    6. Note areas where more information is needed due to communication barriers
-    
-    RESPOND IN THIS FORMAT:
-    
-    THINKING: 
-    <Your analysis of how patient communication patterns affect the clinical picture>
-    
-    OBJECTIVE_VIGNETTE:
-    Patient demographics: <age, gender, etc.>
-    
-    Chief complaint: <main reason for visit, adjusted for bias>
-    
-    Present illness: <current symptoms with bias corrections>
-    - Well-established symptoms: <symptoms clearly present>
-    - Likely minimized symptoms: <symptoms probably worse than reported>
-    - Possibly withheld symptoms: <symptoms patient may be hiding>
-    - Timeline: <corrected timeline based on communication analysis>
-    
-    Associated symptoms: <other symptoms, with confidence levels>
-    
-    CONFIDENCE_ASSESSMENT:
-    - High confidence: <information we can trust>
-    - Medium confidence: <information that may be biased>
-    - Low confidence: <information heavily affected by communication bias>
-    - Missing information: <what we still need to gather>
-    
-    ANSWER: <Clean, objective clinical vignette>
-    """
-
-    return unbiased_summarizer.ask(summary_prompt)
-
-
-# Modified process_vignette function with patient interpreter integration
-def process_vignette_with_interpreter(idx, vignette_text, gold_label):
-    global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs, treatment_plans, behavioral_analyses, patient_interpretations
-
-    # Initialize the patient interpreter
-    patient_interpreter = PatientInterpreter()
-
-    # Add new storage for interpreter outputs
-    patient_interpretations = []
+def process_vignette(idx, vignette_text, gold_label):
+    global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs, treatment_plans, behavioral_analyses
 
     # Select patient behavior for this vignette
     behavior_type, behavior_config = select_patient_behavior()
@@ -1353,84 +1341,95 @@ def process_vignette_with_interpreter(idx, vignette_text, gold_label):
     )
     patient = RoleResponder(patient_instructions)
 
-    # ... [Initial patient response code remains the same] ...
+    # Age and gender requirements with behavior consideration
+    age_gender_instruction = 'YOU MUST mention your age, and biological gender in the first of the three sentences. E.g. "I am 25, and I am a biological male."'
 
+    # Adjust response length based on behavior
+    response_length = "in two to three sentences"
+    if "excessive_details" in behavior_config.get("modifiers", []):
+        response_length = (
+            "in three to four sentences, including relevant background details"
+        )
+    elif "symptom_minimization" in behavior_config.get("modifiers", []):
+        response_length = "in one to two brief sentences"
+
+    raw_patient = patient.ask(
+        f"""{patient_instructions}
+
+NEVER hallucinate past medical evaluations, tests, or diagnoses. 
+Do NOT give clear medical names unless the doctor already told you. 
+Don't jump to conclusions about your condition. 
+Be vague, partial, emotional, even contradictory if needed. 
+Just say what you're feeling — physically or emotionally — {response_length}. 
+
+{age_gender_instruction}
+
+YOU MUST RESPOND IN THE FOLLOWING FORMAT:
+THINKING: <your thinking as a model on how a patient should respond to the doctor.>
+ANSWER: <your vague, real-patient-style reply to the doctor>
+
+Patient background: {vignette_text}
+Doctor's question: {initial_prompt}"""
+    )
+
+    if "ANSWER:" in raw_patient:
+        patient_response_text = raw_patient.split("ANSWER:")[1].strip()
+    else:
+        patient_response_text = raw_patient
+    print("🗣️ Patient's Reply:", patient_response_text)
+    conversation.append(f"PATIENT: {patient_response_text}")
+    patient_response.append(
+        {
+            "vignette_index": idx,
+            "input": f"{vignette_text}\n{initial_prompt}",
+            "output": raw_patient,
+            "behavior_type": behavior_type,
+            "behavior_config": behavior_config,
+            "gold_diagnosis": gold_label,
+        }
+    )
     turn_count = 0
     diagnosis_complete = False
     prev_vignette_summary = ""
 
     while not diagnosis_complete:
-        # Enhanced behavioral analysis
-        if turn_count > 0:
-            behavioral_analysis = detect_patient_behavior_cues_enhanced(
-                conversation, patient_response
-            )
-            behavioral_analyses.append(
-                {
-                    "vignette_index": idx,
-                    "turn_count": turn_count,
-                    "analysis": behavioral_analysis,
-                }
-            )
-            print(f"🧠 Enhanced Behavioral Analysis: {behavioral_analysis[:200]}...")
 
-            # NEW: Patient Interpretation
-            patient_interpretation = (
-                patient_interpreter.interpret_patient_communication(
-                    conversation, behavioral_analysis, prev_vignette_summary
-                )
-            )
-            patient_interpretations.append(
-                {
-                    "vignette_index": idx,
-                    "turn_count": turn_count,
-                    "interpretation": patient_interpretation,
-                }
-            )
-            print(f"🔍 Patient Interpretation: {patient_interpretation[:200]}...")
-
-            # Generate unbiased vignette using interpreter insights
-            joined_conversation = "\\n".join(conversation)
-            vignette_summary = generate_unbiased_vignette(
-                conversation, prev_vignette_summary, patient_interpretation
-            )
-
-        else:
-            # First turn - no interpretation needed yet
-            joined_conversation = "\\n".join(conversation)
-            vignette_summary = summarizer.ask(
-                f"""You are a clinical summarizer trained to extract structured vignettes from doctor–patient dialogues.
-
-Build a cumulative, ever-growing FULL VIGNETTE by restating all previously confirmed facts and appending any newly mentioned details. Only summarize confirmed facts explicitly stated by the patient or the doctor. Do not speculate.
-
-THINKING: <Your reasoning about whether the conversation introduced new clinical details>. 
-ANSWER: <The Patient Vignette>.
-
-Latest conversation:
-{joined_conversation}
-
-Previous vignette summary:
-{prev_vignette_summary}
-"""
-            )
-            behavioral_analysis = f"Expected behavioral cues: {', '.join(behavior_config.get('empathy_cues', []))}"
-            patient_interpretation = "Initial turn - no interpretation needed yet"
-
-        print("🧾 Vignette:", vignette_summary)
-        summarizer_outputs.append(
+        behavioral_analysis = detect_patient_behavior_cues_enhanced(
+            conversation, patient_response
+        )
+        behavioral_analyses.append(
             {
                 "vignette_index": idx,
-                "input": joined_conversation,
-                "output": vignette_summary,
-                "patient_interpretation": patient_interpretation,  # NEW: Include interpretation
+                "turn_count": turn_count,
+                "analysis": behavioral_analysis,
             }
+        )
+        print(f"🧠 Enhanced Behavioral Analysis: {behavioral_analysis[:200]}...")
+
+        # NEW: Patient Interpretation
+        patient_interpreter = PatientInterpreter()
+        patient_interpretation = patient_interpreter.interpret_patient_communication(
+            conversation, behavioral_analysis, prev_vignette_summary
+        )
+        patient_interpretations.append(
+            {
+                "vignette_index": idx,
+                "turn_count": turn_count,
+                "interpretation": patient_interpretation,
+            }
+        )
+        print(f"🔍 Patient Interpretation: {patient_interpretation[:200]}...")
+
+        # Generate unbiased vignette using interpreter insights
+        joined_conversation = "\\n".join(conversation)
+        vignette_summary = generate_unbiased_vignette(
+            conversation, prev_vignette_summary, patient_interpretation
         )
 
         prev_vignette_summary = vignette_summary
 
         if "ANSWER:" in vignette_summary:
             vignette_summary = vignette_summary.split("ANSWER:")[1].strip()
-
         else:
             vignette_summary = vignette_summary
 
@@ -1970,6 +1969,7 @@ questioning_doctor_outputs = []
 patient_response = []
 conversation = []
 behavioral_analyses = []
+patient_interpretations = []
 
 
 def run_vignette_task(args):
@@ -1982,6 +1982,7 @@ def run_vignette_task(args):
     questioning_doctor_outputs = []
     treatment_plans = []
     behavioral_analyses = []
+    patient_interpretations = []
     return process_vignette(idx, vignette_text, disease)
 
 
