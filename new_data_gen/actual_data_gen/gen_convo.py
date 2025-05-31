@@ -18,7 +18,7 @@ treatment_plans = []
 
 def get_guaranteed_format_response(responder, prompt, max_retries=3):
     """Absolutely guarantee THINKING/ANSWER format"""
-    
+
     enforced_prompt = f"""{prompt}
     
     ===== MANDATORY FORMAT =====
@@ -34,20 +34,20 @@ def get_guaranteed_format_response(responder, prompt, max_retries=3):
     
     Begin your response now with "THINKING:"
     """
-    
+
     for attempt in range(max_retries):
         response = responder.ask(enforced_prompt)
         response = response.strip()
-        
+
         # Check format
         if response.startswith("THINKING:") and "ANSWER:" in response:
             return response
-            
+
         # Force format if wrong
         response = force_thinking_answer_format(response)
         if response.startswith("THINKING:") and "ANSWER:" in response:
             return response
-            
+
         # Escalate enforcement
         enforced_prompt = f"""{prompt}
         
@@ -61,27 +61,46 @@ def get_guaranteed_format_response(responder, prompt, max_retries=3):
         Type "THINKING:" first, then your reasoning, then "ANSWER:" then your response.
         This is mandatory. No exceptions. Attempt {attempt + 2} of {max_retries}.
         """
-    
+
     # Final fallback
     return f"THINKING: Format enforcement failed\nANSWER: {response}"
+
 
 def force_thinking_answer_format(response):
     """Force any response into THINKING/ANSWER format"""
     response = response.strip()
-    
+
     # If already in correct format, return as-is
     if response.startswith("THINKING:") and "ANSWER:" in response:
+        # Check for nested format (ANSWER: THINKING:)
+        if "ANSWER: THINKING:" in response:
+            # Extract the content after "ANSWER: THINKING:"
+            content = response.split("ANSWER: THINKING:", 1)[1].strip()
+            return f"THINKING: {content}\nANSWER: {content}"
         return response
-    
-    # If has ANSWER but no THINKING, add THINKING
+
+    # Check for malformed nested format (ANSWER: THINKING:)
+    if response.startswith("ANSWER: THINKING:"):
+        content = response.split("ANSWER: THINKING:", 1)[1].strip()
+        return f"THINKING: {content}\nANSWER: {content}"
+
+    # If starts with ANSWER: but no THINKING:, move content to proper format
+    if response.startswith("ANSWER:"):
+        content = response.split("ANSWER:", 1)[1].strip()
+        return f"THINKING: Providing requested response\nANSWER: {content}"
+
+    # If has ANSWER: somewhere but doesn't start with THINKING:
     if "ANSWER:" in response and not response.startswith("THINKING:"):
         parts = response.split("ANSWER:", 1)
-        thinking_part = parts[0].strip() if parts[0].strip() else "Providing requested information"
+        thinking_part = (
+            parts[0].strip() if parts[0].strip() else "Providing requested information"
+        )
         answer_part = parts[1].strip() if len(parts) > 1 else response
         return f"THINKING: {thinking_part}\nANSWER: {answer_part}"
-    
+
     # If no format markers, assume entire response is the answer
     return f"THINKING: Providing requested response\nANSWER: {response}"
+
 
 # === Patient Behavior Configurations ===
 PATIENT_BEHAVIORS = {
@@ -1553,6 +1572,7 @@ Doctor's question: {initial_prompt}"""
         behavioral_analysis = detect_patient_behavior_cues_enhanced(
             conversation, patient_response
         )
+
         behavioral_analyses.append(
             {
                 "vignette_index": idx,
@@ -1560,6 +1580,11 @@ Doctor's question: {initial_prompt}"""
                 "analysis": behavioral_analysis,
             }
         )
+
+        if "ANSWER:" in behavioral_analysis:
+            behavioral_analysis = behavioral_analysis.split("ANSWER:")[1].strip()
+        else:
+            behavioral_analysis = behavioral_analysis
         print(f"🧠 Enhanced Behavioral Analysis: {behavioral_analysis[:200]}...")
 
         # NEW: Patient Interpretation
@@ -1578,10 +1603,24 @@ Doctor's question: {initial_prompt}"""
 
         # Generate unbiased vignette using interpreter insights
         joined_conversation = "\\n".join(conversation)
+
+        # Create input for summarizer
+        summarizer_input = f"CONVERSATION HISTORY:\n{json.dumps(conversation, indent=2)}\n\nPREVIOUS VIGNETTE:\n{prev_vignette_summary}\n\nPATIENT COMMUNICATION ANALYSIS:\n{patient_interpretation}"
+
         vignette_summary = generate_unbiased_vignette(
             conversation, prev_vignette_summary, patient_interpretation
         )
-        summarizer_outputs.append(vignette_summary)
+
+        # Store structured summarizer output
+        summarizer_outputs.append(
+            {
+                "vignette_index": idx,
+                "input": summarizer_input,
+                "output": vignette_summary,
+                "turn_count": turn_count,
+                "gold_diagnosis": gold_label,
+            }
+        )
 
         prev_vignette_summary = vignette_summary
 
@@ -1872,6 +1911,7 @@ def detect_patient_behavior_cues(conversation_history, patient_responses):
 
     return analysis
 
+
 def generate_patient_prompt_modifiers(behavior_config, is_initial=True):
     """Generate prompt modifiers based on selected patient behavior"""
     modifiers = behavior_config.get("modifiers", [])
@@ -1970,7 +2010,6 @@ You are NOT trying to impress the doctor with a clear answer — just describe w
             "You express concerns about how your symptoms affect your family or your ability to take care of others."
         )
 
-
     # Combine base instructions with behavioral modifiers
     full_instructions = base_instructions
     if behavioral_additions:
@@ -1984,7 +2023,9 @@ You are NOT trying to impress the doctor with a clear answer — just describe w
 
 class RoleResponder:
     def __init__(self, role_instruction):
-        self.role_instruction = role_instruction + """
+        self.role_instruction = (
+            role_instruction
+            + """
         
         CRITICAL FORMAT REQUIREMENT: You MUST always respond in this format:
         
@@ -1993,10 +2034,11 @@ class RoleResponder:
         
         Start every response with "THINKING:" - this is non-negotiable.
         """
+        )
 
     def ask(self, user_input, max_retries=3):
         """Ask with guaranteed THINKING/ANSWER format"""
-        
+
         enforced_prompt = f"""{user_input}
         
         ===== MANDATORY FORMAT =====
@@ -2012,25 +2054,32 @@ class RoleResponder:
         
         Begin your response now with "THINKING:"
         """
-        
+
         for attempt in range(max_retries):
             messages = [
                 {"role": "system", "content": self.role_instruction},
                 {"role": "user", "content": enforced_prompt},
             ]
-            
+
             response = client.chat.completions.create(model=model, messages=messages)
             response = response.choices[0].message.content.strip()
-            
+
             # Check format
+            # Check format and fix nested issues
             if response.startswith("THINKING:") and "ANSWER:" in response:
-                return response
-                
-            # Force format if wrong
+                # Make sure it's not nested format
+                if "ANSWER: THINKING:" not in response:
+                    return response
+
+            # Fix any format issues
             response = force_thinking_answer_format(response)
-            if response.startswith("THINKING:") and "ANSWER:" in response:
+            if (
+                response.startswith("THINKING:")
+                and "ANSWER:" in response
+                and "ANSWER: THINKING:" not in response
+            ):
                 return response
-                
+
             # Escalate enforcement for retry
             enforced_prompt = f"""{user_input}
             
@@ -2044,7 +2093,7 @@ class RoleResponder:
             Type "THINKING:" first, then your reasoning, then "ANSWER:" then your response.
             This is mandatory. No exceptions. Attempt {attempt + 2} of {max_retries}.
             """
-        
+
         # Final fallback
         return f"THINKING: Format enforcement failed after {max_retries} attempts\nANSWER: {response}"
 
