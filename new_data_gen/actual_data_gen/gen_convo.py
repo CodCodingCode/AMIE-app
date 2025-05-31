@@ -8,9 +8,7 @@ from itertools import islice
 import random
 
 # Initialize OpenAI client
-client = OpenAI(
-    api_key="api"
-)
+client = OpenAI(api_key="api")
 model = "gpt-4.1-nano"
 
 treatment_plans = []
@@ -212,6 +210,98 @@ def get_guidance_strength(stage):
         return "Very strong guidance - prioritize these conditions"
     else:
         return "Critical guidance - this should be your primary consideration"
+
+
+class DiagnosticPerformanceTracker:
+    def __init__(self):
+        self.performance_history = []
+        self.current_vignette_performance = {}
+
+    def update_performance(
+        self, vignette_idx, stage, gold_found, position, total_predictions
+    ):
+        """Track diagnostic performance for adaptive hinting"""
+        accuracy_score = calculate_accuracy_score(
+            gold_found, position, total_predictions
+        )
+
+        performance_data = {
+            "vignette_idx": vignette_idx,
+            "stage": stage,
+            "gold_found": gold_found,
+            "position": position,
+            "accuracy_score": accuracy_score,
+            "timestamp": time.time(),
+        }
+
+        self.performance_history.append(performance_data)
+
+        # Track current vignette
+        if vignette_idx not in self.current_vignette_performance:
+            self.current_vignette_performance[vignette_idx] = []
+        self.current_vignette_performance[vignette_idx].append(performance_data)
+
+    def should_provide_hints(self, vignette_idx, stage):
+        """Determine if hints are needed based on performance"""
+        # Get recent performance for this vignette
+        vignette_history = self.current_vignette_performance.get(vignette_idx, [])
+
+        # Check overall recent performance (last 10 vignettes)
+        recent_performance = (
+            self.performance_history[-10:]
+            if len(self.performance_history) >= 10
+            else self.performance_history
+        )
+
+        # Criteria for providing hints
+        needs_hints = False
+
+        # 1. Current vignette struggling (no gold diagnosis found in previous stages)
+        if vignette_history:
+            recent_vignette_scores = [p["accuracy_score"] for p in vignette_history]
+            if all(score == 0.0 for score in recent_vignette_scores):
+                needs_hints = True
+                print(
+                    f"🎯 ADAPTIVE HINTS: Activating hints for vignette {vignette_idx} - gold diagnosis not found in previous stages"
+                )
+
+        # 2. Overall performance declining
+        if len(recent_performance) >= 5:
+            recent_accuracy = (
+                sum(p["accuracy_score"] for p in recent_performance[-5:]) / 5
+            )
+            if recent_accuracy < 0.3:  # Less than 30% accuracy
+                needs_hints = True
+                print(
+                    f"📉 ADAPTIVE HINTS: Activating hints due to declining performance ({recent_accuracy:.1%})"
+                )
+
+        # 3. Late stage and still struggling
+        if stage == "late" and vignette_history:
+            if not any(p["gold_found"] for p in vignette_history):
+                needs_hints = True
+                print(
+                    f"⏰ ADAPTIVE HINTS: Activating hints for late stage - diagnosis not found yet"
+                )
+
+        return needs_hints
+
+    def get_performance_summary(self):
+        """Get current performance statistics"""
+        if not self.performance_history:
+            return "No performance data yet"
+
+        total_cases = len(self.performance_history)
+        accurate_cases = sum(1 for p in self.performance_history if p["gold_found"])
+        overall_accuracy = (
+            (accurate_cases / total_cases) * 100 if total_cases > 0 else 0
+        )
+
+        return f"Overall Accuracy: {overall_accuracy:.1f}% ({accurate_cases}/{total_cases})"
+
+
+# Global performance tracker
+performance_tracker = DiagnosticPerformanceTracker()
 
 
 def create_diagnostic_hints(gold_diagnosis, stage):
@@ -1350,11 +1440,13 @@ def clean_diagnosis_output(raw_output):
 
 
 # === Updated Diagnosis Prompt Templates ===
-EARLY_DIAGNOSIS_PROMPT = """You are a board-certified diagnostician.
+EARLY_DIAGNOSIS_PROMPT = """You are a board-certified diagnostician with expertise in differential diagnosis and clinical reasoning.
 
 Your task is to:
-- Generate a list of 10 plausible diagnoses based on the patient's presentation.
-- For each diagnosis, provide a brief justification for its consideration.
+- Generate a list of 10 plausible diagnoses based on the patient's presentation
+- For each diagnosis, provide a brief but clinically sound justification
+- Order diagnoses from most likely to least likely based on available evidence
+- Consider both common conditions and important "can't miss" diagnoses
 
 Previously asked questions: {prev_questions}
 
@@ -1365,25 +1457,38 @@ Turn count: {turn_count}
 CRITICAL: You must respond ONLY in the exact format below. Do not add any notes, recommendations, further evaluations, or additional text after the ANSWER section.
 
 THINKING:
-- Consider the vignettes details
-- Identify key symptoms, demographics, and clinical context
+Use systematic diagnostic reasoning:
+- Patient demographics: <age, gender, relevant social factors>
+- Key presenting symptoms: <primary and secondary symptoms>
+- Symptom characteristics: <onset, duration, quality, severity, triggers, relieving factors>
+- Associated symptoms: <related findings that support or refute diagnoses>
+- Clinical context: <relevant history, risk factors, red flags>
+- Diagnostic approach: <what clinical reasoning guides my differential>
+- Probability assessment: <which diagnoses are most vs least likely and why>
+- Make sure to ONLY use the information provided in the vignette and previous questions
 
 ANSWER:
 1. Diagnosis: <Diagnosis Name>
-Justification: <Reasoning for inclusion>
+Justification: <Brief clinical reasoning: key symptoms/findings that support this diagnosis, prevalence considerations>
+
 2. Diagnosis: <Diagnosis Name>
-Justification: <Reasoning for inclusion>
+Justification: <Brief clinical reasoning: key symptoms/findings that support this diagnosis, prevalence considerations>
+
 ...
+
 10. Diagnosis: <Diagnosis Name>
-Justification: <Reasoning for inclusion>
+Justification: <Brief clinical reasoning: key symptoms/findings that support this diagnosis, prevalence considerations>
 
 STOP HERE. Do not add notes, recommendations, or additional text."""
 
-MIDDLE_DIAGNOSIS_PROMPT = """You are a board-certified diagnostician.
+MIDDLE_DIAGNOSIS_PROMPT = """You are a board-certified diagnostician with expertise in refining differential diagnoses through systematic clinical reasoning.
 
 Your task is to:
-- Refine the differential diagnosis list to the 5 most probable conditions.
-- Provide a detailed justification for each, considering the patient's data and previous discussions.
+- Refine the differential diagnosis list to the 5 most probable conditions
+- Provide detailed justification for each, incorporating all available patient data
+- Rank diagnoses by probability based on clinical evidence
+- Consider how new information from previous questions affects diagnostic likelihood
+- Focus on conditions that best explain the constellation of symptoms
 
 Previously asked questions: {prev_questions}
 
@@ -1394,29 +1499,38 @@ Turn count: {turn_count}
 CRITICAL: You must respond ONLY in the exact format below. Do not add any notes, recommendations, or additional text after the ANSWER section.
 
 THINKING:
-- Consider the vignettes details
-- Identify key symptoms, demographics, and clinical context
+Apply focused diagnostic reasoning:
+- Symptom evolution: <how symptoms have been clarified or evolved through questioning>
+- Key clinical findings: <most important positive and negative findings>
+- Pattern recognition: <what clinical syndrome/pattern emerges>
+- Discriminating features: <findings that help distinguish between competing diagnoses>
+- Probability refinement: <how additional information changes diagnostic likelihood>
+- Risk stratification: <which diagnoses pose immediate vs long-term risk>
+- Clinical coherence: <which diagnoses best explain the complete clinical picture>
+- Make sure to ONLY use the information provided in the vignette and previous questions
 
 ANSWER:
 1. Diagnosis: <Diagnosis Name>
-Justification: <Reasoning for inclusion>
+Justification: <Detailed reasoning: specific symptoms/findings supporting this diagnosis, why it's most likely, how it explains the clinical pattern>
+
 2. Diagnosis: <Diagnosis Name>
-Justification: <Reasoning for inclusion>
+Justification: <Detailed reasoning: specific symptoms/findings supporting this diagnosis, why it's ranked here, distinguishing features>
+
 ...
+
 5. Diagnosis: <Diagnosis Name>
-Justification: <Reasoning for inclusion>
+Justification: <Detailed reasoning: specific symptoms/findings supporting this diagnosis, why included despite lower probability>
 
 STOP HERE. Do not add notes, recommendations, or additional text."""
 
-LATE_DIAGNOSIS_PROMPT = """You are a board-certified diagnostician.
+LATE_DIAGNOSIS_PROMPT = """You are a board-certified diagnostician with expertise in diagnostic closure and clinical decision-making.
 
 Your task is to:
-- Identify the most probable diagnosis.
-- Justify why this diagnosis is the most likely.
-- Determine if the diagnostic process should conclude based on the following checklist:
-- Is there no meaningful diagnostic uncertainty remaining?
-- Has the conversation had at least 8 total turns (excluding summaries)?
-- Is any further clarification, lab, or follow-up unnecessary?
+- Identify the most probable diagnosis based on all available clinical evidence
+- Provide comprehensive justification demonstrating diagnostic certainty
+- Assess diagnostic confidence and need for additional information
+- Determine if sufficient information exists for diagnostic closure
+- Consider diagnostic criteria and clinical coherence
 
 Previously asked questions: {prev_questions}
 
@@ -1426,18 +1540,34 @@ Vignette:
 CRITICAL: You must respond ONLY in the exact format below. Do not add any notes, recommendations, or additional text.
 
 THINKING:
-Diagnosis: <Diagnosis Name>
-Justification: <Comprehensive reasoning>
-- Consider the vignettes details
-- Identify key symptoms, demographics, and clinical context
+Apply diagnostic closure reasoning:
+
+CLINICAL SYNTHESIS:
+- Complete symptom profile: <comprehensive review of all reported symptoms>
+- Timeline and progression: <how symptoms developed and evolved>
+- Clinical pattern recognition: <what syndrome/condition this represents>
+- Supporting evidence: <specific findings that confirm the diagnosis>
+- Excluding alternatives: <why other diagnoses are less likely>
+
+DIAGNOSTIC CONFIDENCE:
+- Certainty level: <high/moderate/low confidence and reasoning>
+- Missing information: <any gaps that affect diagnostic certainty>
+- Clinical coherence: <how well the diagnosis explains all findings>
+- Diagnostic criteria: <whether formal criteria are met if applicable>
+
+CLOSURE ASSESSMENT:
+- Diagnostic clarity: <is the most likely diagnosis clear>
+- Information sufficiency: <do we have enough data for confident diagnosis>
+- Risk tolerance: <is additional workup needed before treatment>
+- Clinical urgency: <does timing require diagnostic closure now>
 
 Checklist:
-- No diagnostic uncertainty remaining: <Yes/No>
-- No further clarification needed: <Yes/No>
+- No meaningful diagnostic uncertainty remaining: <Yes/No with brief reasoning>
+- No further clarification needed for primary diagnosis: <Yes/No with brief reasoning>
 
 ANSWER:
-<Diagnosis Name>
-<If all checklist items are 'Yes', append 'END' to signify conclusion>
+<Most Probable Diagnosis Name>
+<If both checklist items are 'Yes', append 'END' to signify diagnostic conclusion>
 
 STOP HERE. Do not add notes, recommendations, or additional text."""
 
@@ -1685,17 +1815,80 @@ Doctor's question: {initial_prompt}"""
             if turn_count >= 15:
                 print(f"✅ Reached END for vignette {idx}. Moving to next.\n")
                 raw_treatment = diagnoser.ask(
-                    f"""You are a board-certified clinician. Based on the diagnosis provided below, suggest a concise treatment plan that could realistically be initiated by a primary care physician or psychiatrist.
+                    f"""You are a board-certified clinician with extensive experience in primary care and evidence-based medicine. Based on the final diagnosis, create a comprehensive treatment plan that demonstrates clinical expertise and practical implementation.
 
-        Diagnosis: {diagnosis}
+DIAGNOSIS: {diagnosis}
 
-        Include both non-pharmacological and pharmacological interventions if appropriate. Limit your plan to practical, real-world guidance. Please make sure to output your diagnosis plan in pargraph format, not in bullet points.
+PATIENT CONTEXT:
+- Gold Standard Diagnosis: {gold_label}
+- Conversation Summary: {vignette_summary}
+- Patient Behavioral Type: {behavior_type}
 
-        Provide your reasoning and final plan in the following format:
+YOU MUST RESPOND IN THE FOLLOWING FORMAT:
 
-        THINKING: <your reasoning about why you chose this treatment>
-        ANSWER: <the actual treatment plan>
-        """
+THINKING:
+Use systematic clinical reasoning to develop your treatment approach:
+
+STEP 1 - DIAGNOSIS CONFIRMATION & SEVERITY ASSESSMENT:
+Let me first confirm the diagnosis and assess severity/urgency.
+- Primary diagnosis confidence: <how certain am I of this diagnosis>
+- Severity classification: <mild/moderate/severe and why>
+- Urgency level: <immediate/urgent/routine care needed>
+- Differential considerations still requiring monitoring: <other conditions to watch>
+
+STEP 2 - EVIDENCE-BASED TREATMENT SELECTION:
+Now I'll select treatments based on current clinical guidelines.
+- First-line treatment per guidelines: <standard of care intervention>
+- Supporting evidence: <brief rationale for why this is first-line>
+- Patient-specific considerations: <factors affecting treatment choice>
+- Contraindications or cautions: <what to avoid or monitor>
+
+STEP 3 - PHARMACOLOGICAL INTERVENTIONS:
+If medications are appropriate, I'll select based on efficacy and safety.
+- Primary medication choice: <specific drug, dose, frequency>
+- Rationale for selection: <why this medication over alternatives>
+- Expected timeline for improvement: <when to expect benefits>
+- Key side effects to monitor: <specific monitoring requirements>
+- Alternative medications if first-line fails: <backup options>
+
+STEP 4 - NON-PHARMACOLOGICAL INTERVENTIONS:
+I'll include lifestyle and behavioral interventions that enhance outcomes.
+- Primary non-drug interventions: <specific recommendations>
+- Patient education priorities: <key information patient needs>
+- Lifestyle modifications: <diet, exercise, sleep, stress management>
+- Behavioral interventions: <specific techniques or referrals>
+
+STEP 5 - MONITORING & FOLLOW-UP STRATEGY:
+I'll establish appropriate monitoring and follow-up care.
+- Follow-up timeline: <when to see patient again and why>
+- Monitoring parameters: <what to track - symptoms, labs, etc.>
+- Red flag symptoms: <when patient should seek immediate care>
+- Treatment response assessment: <how to measure improvement>
+
+STEP 6 - PATIENT COMMUNICATION STRATEGY:
+Given the patient's behavioral type ({behavior_type}), how should I communicate this plan?
+- Communication approach: <how to present plan given patient's style>
+- Addressing patient concerns: <likely worries to address proactively>
+- Adherence strategies: <how to improve treatment compliance>
+- Family involvement: <whether/how to include family members>
+
+STEP 7 - COORDINATION & REFERRALS:
+What additional care coordination is needed?
+- Specialist referrals needed: <if any, with timeline and rationale>
+- Other healthcare team members: <nurses, therapists, etc.>
+- Community resources: <support groups, educational materials>
+- Insurance/cost considerations: <practical implementation factors>
+
+ANSWER: 
+Based on the diagnosis of [primary diagnosis], I recommend a comprehensive treatment approach that combines evidence-based medical management with patient-centered care strategies. The treatment plan includes [summarize key interventions] with careful attention to [patient-specific factors]. Initial management focuses on [immediate priorities] while establishing [long-term management strategy]. Follow-up care will include [monitoring plan] with clear instructions for the patient regarding [key patient education points]. This approach is designed to [expected outcomes] while minimizing [potential risks/side effects] and ensuring sustainable long-term management of this condition.
+
+IMPLEMENTATION GUIDANCE:
+- Immediate actions (today): <specific next steps>
+- Short-term goals (1-4 weeks): <what to accomplish soon>
+- Long-term objectives (3-6 months): <sustained management goals>
+- Patient handout summary: <key points for patient to remember>
+
+STOP HERE. Do not add additional recommendations or notes."""
                 )
                 print("💊 Raw Treatment Plan:", raw_treatment)
 
@@ -1725,34 +1918,159 @@ Doctor's question: {initial_prompt}"""
         # === MODIFIED QUESTIONING WITH GOLD GUIDANCE ===
         base_questioning_role = ""
         if turn_count < 6:
-            base_questioning_role = """Please ask an open-ended question that encourages the patient to share more about their symptoms and concerns, aiming to gather comprehensive information and establish rapport."""
+            base_questioning_role = """You are conducting the EARLY EXPLORATION phase of the clinical interview. Your primary goals are:
+
+        EXPLORATION OBJECTIVES:
+        - Establish therapeutic rapport and trust with the patient
+        - Gather comprehensive symptom history using open-ended questions
+        - Understand the patient's perspective and chief concerns
+        - Explore symptom onset, progression, and associated factors
+        - Identify pertinent positives and negatives for broad differential diagnosis
+        - Assess functional impact and patient's understanding of their condition
+
+        QUESTIONING STRATEGY:
+        - Use primarily open-ended questions that encourage elaboration
+        - Follow the patient's natural flow of information while gently guiding
+        - Ask "Tell me more about..." and "What else have you noticed..."
+        - Explore the patient's own words and descriptions without medical jargon
+        - Investigate timeline with questions like "When did this first start?" and "How has it changed?"
+        - Assess impact with "How is this affecting your daily life?"
+        - Explore patient's concerns: "What worries you most about these symptoms?"
+
+        COMMUNICATION APPROACH:
+        - Demonstrate active listening with reflective responses
+        - Validate the patient's experience and concerns
+        - Use the patient's own language and terminology
+        - Avoid leading questions that suggest specific diagnoses
+        - Create psychological safety for sensitive topics
+        - Show genuine curiosity about the patient's experience
+
+        YOUR NEXT QUESTION SHOULD:
+        - Be open-ended and encourage detailed response
+        - Build on information already shared
+        - Explore a new dimension of their symptoms or experience
+        - Help establish trust and rapport
+        - Gather information relevant to differential diagnosis formation"""
+
         elif turn_count >= 5 and turn_count < 11:
-            base_questioning_role = """Please ask questions that may add new data to the current patient Vignette while being sensitive to the patient's communication style."""
+            base_questioning_role = """You are conducting the FOCUSED CLARIFICATION phase of the clinical interview. Your primary goals are:
+
+        CLARIFICATION OBJECTIVES:
+        - Refine and narrow the differential diagnosis based on emerging patterns
+        - Gather specific details about key symptoms that distinguish between diagnoses
+        - Explore pertinent review of systems for the developing differential
+        - Clarify timeline, triggers, and modifying factors
+        - Assess severity and functional impact more precisely
+        - Investigate risk factors and family history relevant to suspected conditions
+
+        QUESTIONING STRATEGY:
+        - Ask more targeted questions while remaining patient-centered
+        - Use specific follow-up questions about previously mentioned symptoms
+        - Explore diagnostic criteria for conditions in your differential
+        - Ask about associated symptoms that support or refute specific diagnoses
+        - Investigate quality, quantity, timing, and context of symptoms
+        - Explore what makes symptoms better or worse
+        - Ask about previous similar episodes or family history
+
+        COMMUNICATION APPROACH:
+        - Balance focused questioning with continued rapport building
+        - Acknowledge patient's previous responses to show you're listening
+        - Use transitional phrases like "You mentioned X, can you tell me more about..."
+        - Be sensitive to patient's communication style and emotional state
+        - Clarify patient's terminology to ensure mutual understanding
+        - Remain non-judgmental while gathering potentially sensitive information
+
+        YOUR NEXT QUESTION SHOULD:
+        - Target specific symptom characteristics or associated findings
+        - Help distinguish between competing diagnoses in your differential
+        - Explore risk factors or family history relevant to suspected conditions
+        - Clarify timeline or progression patterns
+        - Assess severity or functional impact more precisely
+        - Address any gaps in the clinical picture"""
+
         else:
-            base_questioning_role = """Please ask a focused question that helps confirm the most probable diagnosis and facilitates discussion of the management plan, ensuring the patient understands and agrees with the proposed approach."""
+            base_questioning_role = """You are conducting the DIAGNOSTIC CONFIRMATION phase of the clinical interview. Your primary goals are:
+
+        CONFIRMATION OBJECTIVES:
+        - Confirm or refute the most likely diagnosis through targeted questioning
+        - Gather final pieces of information needed for diagnostic certainty
+        - Assess readiness for treatment discussion and patient education
+        - Explore patient's understanding and concerns about the likely diagnosis
+        - Investigate any remaining red flags or alternative explanations
+        - Prepare for shared decision-making about management options
+
+        QUESTIONING STRATEGY:
+        - Ask highly focused questions that address remaining diagnostic uncertainty
+        - Explore specific diagnostic criteria for the most likely condition
+        - Investigate any concerning features that might change management
+        - Ask about patient's previous experiences with similar conditions
+        - Explore patient's expectations and concerns about potential diagnosis
+        - Assess patient's readiness to discuss treatment options
+        - Investigate practical factors that might affect treatment (allergies, medications, lifestyle)
+
+        COMMUNICATION APPROACH:
+        - Begin transitioning toward diagnostic discussion and patient education
+        - Use more collaborative language: "Based on what you've told me..."
+        - Prepare the patient for potential diagnosis without premature closure
+        - Address any anxiety or concerns about the diagnostic process
+        - Ensure patient feels heard and understood before moving to treatment
+        - Set the stage for shared decision-making
+
+        YOUR NEXT QUESTION SHOULD:
+        - Address any remaining diagnostic uncertainty
+        - Confirm key diagnostic criteria for the most likely condition
+        - Explore patient's understanding or concerns about their condition
+        - Investigate practical factors relevant to treatment planning
+        - Assess patient's readiness for diagnostic and treatment discussion
+        - Gather final information needed before diagnostic closure
+
+        DIAGNOSTIC TRANSITION CONSIDERATIONS:
+        - If diagnostic certainty is high, begin preparing patient for treatment discussion
+        - If uncertainty remains, focus questions on distinguishing features
+        - Consider patient's emotional readiness for diagnosis and treatment planning
+        - Ensure all critical information is gathered before moving to management phase"""
 
         # Add gold diagnosis guidance to questioning
         guided_questioning_role = generate_guided_questioner_prompt(
             base_questioning_role, gold_label, vignette_summary
         )
 
-        # Create empathy-enhanced questioner
+        # Create questioner with enhanced role definition
         questioner = RoleResponder(guided_questioning_role)
 
         raw_followup = questioner.ask(
             f"""Previously asked questions: {json.dumps(previous_questions)}
 
-            {base_questioning_role}
-
+            CLINICAL CONTEXT:
+            Current interview phase: {'EARLY EXPLORATION' if turn_count < 6 else 'FOCUSED CLARIFICATION' if turn_count < 11 else 'DIAGNOSTIC CONFIRMATION'}
+            
             YOU MUST RESPOND IN THE FOLLOWING FORMAT:
 
-            THINKING: <Why this question adds diagnostic value AND how you're being empathetic to the patient's needs>.
-            ANSWER: <Your diagnostically valuable question>.
+            THINKING: 
+            Use systematic reasoning for question development:
+            
+            CLINICAL REASONING:
+            - Information gaps: <what key information is missing for diagnosis>
+            - Diagnostic priorities: <which conditions need to be explored or ruled out>
+            - Patient factors: <how patient's communication style affects questioning approach>
+            - Interview phase goals: <specific objectives for this stage of the encounter>
+            
+            QUESTION STRATEGY:
+            - Type of question needed: <open-ended vs focused vs confirmatory>
+            - Information target: <specific symptoms, timeline, severity, impact, etc.>
+            - Communication approach: <how to phrase sensitively given patient's style>
+            - Expected value: <how this question will advance diagnostic process>
 
-            Vignette:
-            {vignette_summary}
-            Current Estimated Diagnosis: {diagnosis}
-            Patient Behavioral Cues: {behavioral_analysis}
+            ANSWER: <Your carefully crafted diagnostic question>
+
+            CURRENT CLINICAL PICTURE:
+            Vignette: {vignette_summary}
+            
+            Leading Diagnoses: {diagnosis}
+            
+            Patient Communication Pattern: {behavioral_analysis}
+            
+            Turn Count: {turn_count}
             """
         )
 
@@ -1761,7 +2079,9 @@ Doctor's question: {initial_prompt}"""
         else:
             followup_question = raw_followup
         print("❓ Empathetic Follow-up:", followup_question)
-        question_input = f"Vignette:\n{vignette_summary}\nCurrent Estimated Diagnosis: {diagnosis}\n"
+        question_input = (
+            f"Vignette:\n{vignette_summary}\nCurrent Estimated Diagnosis: {diagnosis}\n"
+        )
         questioning_doctor_outputs.append(
             {
                 "vignette_index": idx,
@@ -1795,18 +2115,62 @@ Doctor's question: {initial_prompt}"""
         raw_patient_fb = patient.ask(
             f"""{patient_followup_instructions}
 
-NEVER hallucinate past medical evaluations, tests, or diagnoses. 
-Do NOT give clear medical names unless the doctor already told you. 
-Don't jump to conclusions about your condition. 
-Be vague, partial, emotional, even contradictory if needed. 
-Just say what you're feeling — physically or emotionally — {response_guidance}.
+CRITICAL INSTRUCTIONS:
+- You are a REAL patient, not trying to help the doctor diagnose you
+- You do NOT know medical terminology or what symptoms are "important"
+- You have NOT researched your condition online or spoken to other doctors
+- Respond based on how you FEEL, not what you think the doctor wants to hear
+- Be authentic to your behavioral type: {behavior_type}
 
 YOU MUST RESPOND IN THE FOLLOWING FORMAT:
-THINKING: <your thinking as a model on how a patient should respond to the doctor.>
-ANSWER: <your vague, real-patient-style reply to the doctor>
 
-Patient background: {vignette_text}
-Doctor's question: {followup_question}"""
+THINKING:
+Use this step-by-step process to develop your authentic patient response:
+
+STEP 1 - EMOTIONAL STATE ANALYSIS:
+How am I feeling right now about this doctor visit?
+- Physical sensations I'm experiencing: <describe current physical feelings>
+- Emotional state (scared, frustrated, embarrassed, hopeful, etc.): <current emotions>
+- Thoughts going through my head: <what a real patient would be thinking>
+- Energy level and mood: <tired, anxious, relieved, confused, etc.>
+
+STEP 2 - QUESTION INTERPRETATION:
+How do I, as a non-medical person, understand what the doctor just asked?
+- What I think the doctor is asking: <patient's interpretation of medical question>
+- Why they might be asking this: <patient's guess about doctor's reasoning>
+- What this makes me worry about: <patient fears or concerns triggered>
+- Parts of the question I'm confused by: <medical terms or concepts I don't understand>
+
+STEP 3 - BEHAVIORAL RESPONSE PLANNING:
+Given my behavioral type ({behavior_type}), how should I respond?
+- My natural communication style: <how this behavior type typically responds>
+- What I want to share vs. what I'm hesitant about: <internal conflict>
+- Information I might downplay, exaggerate, or avoid: <based on behavioral modifiers>
+- How my family/cultural background affects my response: <social influences>
+
+STEP 4 - MEMORY AND SYMPTOM RECALL:
+What do I actually remember about my symptoms?
+- Clear memories: <symptoms I'm certain about>
+- Fuzzy or uncertain memories: <things I'm not sure about>
+- Timeline confusion: <when things happened - may be unclear>
+- Associated details: <other things happening in my life that might be relevant>
+
+STEP 5 - RESPONSE FORMULATION:
+How will I actually answer the doctor?
+- Main points I want to communicate: <key information to share>
+- How I'll phrase things in my own words: <non-medical language>
+- What I might mention tangentially: <additional context I think is relevant>
+- Tone and style of my response: <hesitant, detailed, brief, emotional, etc.>
+
+ANSWER: <Your authentic, realistic patient response in your own words - NOT medical terminology>
+
+CONTEXT FOR YOUR RESPONSE:
+Patient Background: {vignette_text}
+Your Behavioral Type: {behavior_type} - {behavior_config['description']}
+Doctor's Question: {followup_question}
+Current Physical/Emotional State: {response_guidance}
+
+Remember: You are NOT trying to be a good patient or help the doctor. You're being a REAL person with real concerns, confusion, and communication patterns."""
         )
         if "ANSWER:" in raw_patient_fb:
             patient_followup_text = raw_patient_fb.split("ANSWER:")[1].strip()
