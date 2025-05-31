@@ -226,6 +226,7 @@ datasets/combined_dataset.jsonl
 datasets/icliniq.json
 datasets_for_dataGen
 datasets/other
+realdatasets/
 
 #random files
 validated_disease_vignettes.json
