@@ -50,17 +50,17 @@ class MedicallyAccurateVignetteGenerator:
                 print(f"🕐 Rate limiting... Processed {self.request_count} requests")
                 time.sleep(15)
             else:
-                time.sleep(0.7)
+                time.sleep(0.1)
 
     def generate_vignette_with_medical_data(
         self, disease_data: Dict, vignette_number: int, variation_type: str = "typical"
     ) -> str:
-        """Generate a medically accurate vignette using the JSON data"""
+        """Generate a roleplay script for an AI agent to act as the patient"""
 
         disease_name = disease_data.get("disease_name", "Unknown Disease")
 
-        # Create medically accurate prompt
-        prompt = self._create_medically_accurate_prompt(
+        # Create roleplay script prompt
+        prompt = self._create_roleplay_script_prompt(
             disease_data, vignette_number, variation_type
         )
 
@@ -72,16 +72,21 @@ class MedicallyAccurateVignetteGenerator:
                 messages=[
                     {
                         "role": "system",
-                        "content": """You are a board-certified physician and medical educator. Create realistic patient vignettes that are:
-                        - MEDICALLY ACCURATE - respect disease demographics, age/gender patterns, and typical presentations
-                        - EDUCATIONALLY VALUABLE - show realistic symptom patterns and patient presentations
-                        - CLINICALLY AUTHENTIC - written from actual patient encounters
-                        
-                        CRITICAL: Always respect medical accuracy over demographic diversity. If a disease primarily affects women, create female patients. If it affects elderly patients, use appropriate age ranges.""",
+                        "content": """You are a medical training specialist creating ROLEPLAY SCRIPTS for AI agents to act as patients. 
+
+Your job is to create CHARACTER BRIEFS that tell an AI agent exactly how to roleplay a patient with a specific medical condition.
+
+CRITICAL REQUIREMENTS:
+- Write AS the patient character, not ABOUT them
+- Create acting instructions for the AI agent
+- Include specific dialogue, behaviors, and emotional responses
+- Make it medically accurate while being realistic for the character
+- Provide clear roleplay directions
+- Focus on how the character would naturally speak and act""",
                     },
                     {"role": "user", "content": prompt},
                 ],
-                temperature=0.7,  # Balanced creativity with accuracy
+                temperature=0.7,
                 max_tokens=800,
             )
 
@@ -89,18 +94,18 @@ class MedicallyAccurateVignetteGenerator:
             validated_vignette = self._validate_vignette(vignette, disease_name)
 
             print(
-                f"✅ Generated {variation_type} vignette {vignette_number} for {disease_name}"
+                f"✅ Generated {variation_type} roleplay script {vignette_number} for {disease_name}"
             )
             return validated_vignette
 
         except Exception as e:
-            print(f"❌ Error generating vignette for {disease_name}: {str(e)}")
+            print(f"❌ Error generating roleplay script for {disease_name}: {str(e)}")
             return self._create_fallback_vignette(disease_data, vignette_number)
 
-    def _create_medically_accurate_prompt(
+    def _create_roleplay_script_prompt(
         self, disease_data: Dict, vignette_number: int, variation_type: str
     ) -> str:
-        """Create a medically accurate prompt that respects disease demographics"""
+        """Create a prompt for generating roleplay scripts for AI agents"""
 
         disease_name = disease_data.get("disease_name", "Unknown Disease")
         symptoms = disease_data.get("symptoms", [])
@@ -110,16 +115,12 @@ class MedicallyAccurateVignetteGenerator:
 
         # Select different symptom combinations for variation
         if variation_type == "typical":
-            # Most common presentation
             selected_symptoms = symptoms[:5] if len(symptoms) >= 5 else symptoms
         elif variation_type == "early":
-            # Early/mild presentation
             selected_symptoms = symptoms[:3] if len(symptoms) >= 3 else symptoms
         elif variation_type == "severe":
-            # More severe presentation with complications
             selected_symptoms = symptoms[:7] if len(symptoms) >= 7 else symptoms
         else:  # mixed
-            # Mixed presentation
             if len(symptoms) >= 6:
                 selected_symptoms = symptoms[:2] + symptoms[3:6]
             else:
@@ -130,62 +131,177 @@ class MedicallyAccurateVignetteGenerator:
             disease_name, risk_factors
         )
 
+        # Generate random but appropriate name
+        patient_names = self._generate_patient_names(disease_name, risk_factors)
+
         base_prompt = f"""
-        Create a realistic patient vignette for: {disease_name}
+        Create a ROLEPLAY SCRIPT for an AI agent to act as a patient with: {disease_name}
 
         MEDICAL DATA TO INCORPORATE:
-        Symptoms to include: {', '.join(selected_symptoms)}
+        Primary symptoms: {', '.join(selected_symptoms)}
         Risk factors: {', '.join(risk_factors[:4])}
         Underlying causes: {', '.join(causes[:3])}
         {f"Clinical context: {prognosis[:150]}..." if prognosis else ""}
 
-        MEDICAL ACCURACY REQUIREMENTS:
+        DEMOGRAPHIC REQUIREMENTS:
         {medical_accuracy_note}
 
-        VIGNETTE REQUIREMENTS:
-        - Create a realistic patient presentation (200-250 words)
-        - Use appropriate demographics for this specific disease
-        - Include specific age and gender that match typical disease patterns
-        - Present symptoms in natural patient language (not medical jargon)
-        - Include realistic timeline of symptom development
-        - Mention relevant medical/family/social history
-        - Show what prompted the patient to seek care
-        - Include realistic patient concerns
+        FORMAT YOUR RESPONSE AS A ROLEPLAY SCRIPT:
+
+        **PATIENT CHARACTER:** [Name, age, brief background]
+        **SCENARIO:** {disease_name} - {variation_type} presentation
+
+        **CHARACTER BACKGROUND:**
+        - [Occupation/school/life situation]
+        - [Family situation]
+        - [Personality traits]
+        - [Relevant medical/social history]
+
+        **CURRENT MEDICAL SITUATION:**
+        - [Current symptoms in patient's own words]
+        - [Timeline of symptom development]
+        - [Pain/discomfort levels]
+        - [What prompted today's visit]
+
+        **ROLEPLAY INSTRUCTIONS:**
+        You are [character name]. Act exactly like this character would.
+
+        KEY PHRASES TO USE:
+        - [Specific ways they describe their symptoms]
+        - [Questions they would ask]
+        - [Concerns they would express]
+
+        BEHAVIORS TO SHOW:
+        - [Physical actions/gestures]
+        - [Body language]
+        - [Non-verbal cues]
+        
+        SHARE ONLY IF ASKED:
+        - [Information requiring prompting]
+        
+        MAIN CONCERNS:
+        - [Their biggest fears/worries]
+        - [What they hope to achieve]
 
         VARIATION TYPE: {variation_type.upper()}
         """
 
-        # Add variation-specific instructions
+        # Add variation-specific roleplay instructions
         if variation_type == "typical":
             variation_instructions = """
-            - Create a classic, textbook presentation
-            - Include the most common symptoms for this disease
-            - Use typical demographics and risk factors
-            - Show clear progression that leads to diagnosis
+            ROLEPLAY FOCUS:
+            - Act as a classic presentation of this condition
+            - Show clear, recognizable symptoms
+            - Be cooperative and forthcoming with information
+            - Display appropriate concern for a typical case
             """
         elif variation_type == "early":
             variation_instructions = """
-            - Create an early-stage or mild presentation
-            - Show fewer symptoms or less severe manifestations
-            - Patient may be uncertain about seeking care
-            - Symptoms may be developing gradually
+            ROLEPLAY FOCUS:
+            - Act uncertain about seeking medical care
+            - Minimize symptoms initially ("maybe it's nothing")
+            - Be hesitant to "waste the doctor's time"
+            - Show mild symptoms that are just starting to worry you
             """
         elif variation_type == "severe":
             variation_instructions = """
-            - Create a more advanced or complicated presentation
-            - Include additional symptoms or complications
-            - Show more urgent or concerning features
-            - Patient may have delayed seeking care
+            ROLEPLAY FOCUS:
+            - Show distress and urgency
+            - Indicate symptoms have significantly worsened
+            - Express fear about serious complications
+            - May have delayed seeking care until symptoms became severe
             """
         else:  # mixed
             variation_instructions = """
-            - Create a mixed presentation with varying symptom severity
+            ROLEPLAY FOCUS:
+            - Present with some unusual or atypical features
+            - Show varying symptom severity
+            - Be somewhat confused about your symptoms
             - Include both early and more developed symptoms
-            - Show realistic complexity in symptom pattern
-            - May include some atypical features
             """
 
-        return f"{base_prompt}\n{variation_instructions}\n\nGenerate the medically accurate patient vignette:"
+        return f"{base_prompt}\n{variation_instructions}\n\nGenerate the complete roleplay script for the AI agent:"
+
+    def _generate_patient_names(
+        self, disease_name: str, risk_factors: List[str]
+    ) -> List[str]:
+        """Generate appropriate patient names based on demographics"""
+
+        # Default names by age/gender patterns
+        adult_female_names = [
+            "Sarah",
+            "Jennifer",
+            "Lisa",
+            "Maria",
+            "Ashley",
+            "Jessica",
+            "Amanda",
+            "Michelle",
+        ]
+        adult_male_names = [
+            "Michael",
+            "David",
+            "James",
+            "Robert",
+            "John",
+            "Christopher",
+            "Matthew",
+            "Daniel",
+        ]
+        elderly_female_names = [
+            "Dorothy",
+            "Helen",
+            "Margaret",
+            "Ruth",
+            "Betty",
+            "Patricia",
+            "Barbara",
+            "Joan",
+        ]
+        elderly_male_names = [
+            "Robert",
+            "William",
+            "Richard",
+            "Charles",
+            "George",
+            "Frank",
+            "Edward",
+            "Harold",
+        ]
+        child_names = [
+            "Emma",
+            "Sophia",
+            "Liam",
+            "Noah",
+            "Olivia",
+            "Ava",
+            "Mason",
+            "Lucas",
+            "Isabella",
+            "Ethan",
+        ]
+
+        # Gender-specific conditions
+        if any(
+            term in disease_name.lower()
+            for term in ["pregnancy", "maternal", "ovarian", "cervical", "uterine"]
+        ):
+            return adult_female_names
+        elif any(term in disease_name.lower() for term in ["prostate", "testicular"]):
+            return adult_male_names
+        elif any(
+            term in disease_name.lower()
+            for term in ["pediatric", "childhood", "neonatal"]
+        ):
+            return child_names
+        elif any(
+            term in disease_name.lower()
+            for term in ["elderly", "geriatric", "age-related"]
+        ):
+            return elderly_female_names + elderly_male_names
+
+        # Default to mixed adult names
+        return adult_female_names + adult_male_names
 
     def _get_medical_accuracy_instructions(
         self, disease_name: str, risk_factors: List[str]
@@ -277,11 +393,11 @@ class MedicallyAccurateVignetteGenerator:
         return "\n".join(instructions)
 
     def _validate_vignette(self, vignette: str, disease_name: str) -> str:
-        """Clean and validate the generated vignette"""
-        # Remove formatting
-        vignette = vignette.replace("**", "").replace("##", "").replace("***", "")
+        """Clean and validate the generated roleplay script"""
+        # Remove excessive formatting
+        vignette = vignette.replace("***", "").replace("###", "")
 
-        # Remove meta-commentary
+        # Remove any meta-commentary that breaks roleplay
         lines = vignette.split("\n")
         cleaned_lines = []
         for line in lines:
@@ -289,71 +405,168 @@ class MedicallyAccurateVignetteGenerator:
             if line and not any(
                 phrase in line.lower()
                 for phrase in [
-                    "this vignette",
-                    "this case",
-                    "note:",
-                    "summary:",
-                    "diagnosis:",
+                    "this script",
+                    "this roleplay",
+                    "note to trainer:",
+                    "training note:",
                 ]
             ):
                 cleaned_lines.append(line)
 
         vignette = "\n".join(cleaned_lines)
 
-        # Ensure proper starting
+        # Ensure it starts appropriately for a roleplay script
         if not any(
             vignette.startswith(prefix)
-            for prefix in ["A ", "The ", "This ", "Ms.", "Mr.", "Mrs."]
+            for prefix in [
+                "**PATIENT CHARACTER:**",
+                "PATIENT CHARACTER:",
+                "**CHARACTER:**",
+                "CHARACTER:",
+            ]
         ):
-            vignette = f"A {vignette}"
+            vignette = (
+                f"**PATIENT CHARACTER:** Patient with {disease_name}\n\n{vignette}"
+            )
 
         return vignette.strip()
 
     def _create_fallback_vignette(
         self, disease_data: Dict, vignette_number: int
     ) -> str:
-        """Create a basic fallback vignette if API call fails"""
+        """Create a basic fallback roleplay script if API call fails"""
         disease_name = disease_data.get("disease_name", "Unknown Disease")
         symptoms = disease_data.get("symptoms", [])
 
         basic_symptoms = symptoms[:3] if symptoms else ["various symptoms"]
 
-        return f"""A patient presents with {', '.join(basic_symptoms[:2])} and {basic_symptoms[2] if len(basic_symptoms) > 2 else 'related symptoms'}. The patient reports these symptoms have been concerning them and affecting their daily activities. Medical evaluation is being sought for proper diagnosis and management of {disease_name}. (Fallback vignette {vignette_number})"""
+        return f"""**PATIENT CHARACTER:** Patient, age 35, with {disease_name}
+
+**SCENARIO:** {disease_name} - Standard presentation
+
+**ROLEPLAY INSTRUCTIONS:**
+You are a patient seeking medical care for concerning symptoms.
+
+OPENING STATEMENT: "Doctor, I've been having some health issues that are worrying me."
+
+SYMPTOMS TO DESCRIBE:
+- {basic_symptoms[0] if len(basic_symptoms) > 0 else "concerning symptoms"}
+- {basic_symptoms[1] if len(basic_symptoms) > 1 else "related discomfort"}
+- {basic_symptoms[2] if len(basic_symptoms) > 2 else "additional symptoms"}
+
+MAIN CONCERNS:
+- "What could be causing this?"
+- "Is this something serious?"
+- "What should I do about it?"
+
+(Fallback roleplay script {vignette_number})"""
+
+
+def save_current_progress(
+    results: Dict,
+    medical_data: List[Dict],
+    num_vignettes_per_disease: int,
+    medical_json_file: str,
+    output_file: str,
+    model: str,
+):
+    """Save current progress to JSON file with enhanced error handling"""
+    try:
+        current_time = time.strftime("%Y-%m-%d %H:%M:%S")
+
+        output_data = {
+            "metadata": {
+                "source_file": medical_json_file,
+                "total_diseases": len(medical_data),
+                "scripts_per_disease": num_vignettes_per_disease,
+                "total_scripts": len(medical_data) * num_vignettes_per_disease,
+                "completed_diseases": len(results),
+                "generation_model": model,
+                "variation_types": ["typical", "early", "severe", "mixed"],
+                "generation_timestamp": current_time,
+                "last_update": current_time,
+                "focus": "roleplay_scripts_for_ai_agents",
+                "format": "patient_character_briefs",
+                "status": (
+                    "in_progress" if len(results) < len(medical_data) else "completed"
+                ),
+            },
+            "roleplay_scripts": results,
+        }
+
+        # Create backup filename
+        backup_file = f"backup_{output_file}"
+
+        # Write to backup first
+        with open(backup_file, "w", encoding="utf-8") as f:
+            json.dump(output_data, f, indent=2, ensure_ascii=False)
+
+        # If backup successful, write to main file
+        with open(output_file, "w", encoding="utf-8") as f:
+            json.dump(output_data, f, indent=2, ensure_ascii=False)
+
+        # Print file size for confirmation
+        file_size = os.path.getsize(output_file) / 1024  # KB
+        print(
+            f"💾 SAVED: {output_file} ({file_size:.1f} KB) - {len(results)} diseases completed at {current_time}"
+        )
+
+        # Remove backup after successful save
+        if os.path.exists(backup_file):
+            os.remove(backup_file)
+
+    except Exception as e:
+        print(f"❌ ERROR SAVING FILE: {e}")
+        print(f"   Attempted to save {len(results)} completed diseases")
+        print(f"   Check disk space and file permissions")
 
 
 def generate_vignettes_for_disease_with_data(args):
-    """Generate multiple medically accurate vignettes for a single disease"""
+    """Generate multiple roleplay scripts for a single disease"""
     disease_data, num_vignettes, api_key, model = args
     generator = MedicallyAccurateVignetteGenerator(api_key, model)
 
     disease_name = disease_data.get("disease_name", "Unknown Disease")
 
-    # Variation types focused on medical presentation, not demographics
+    # Variation types focused on medical presentation
     variation_types = ["typical", "early", "severe", "mixed"]
 
     vignettes = []
     for i in range(num_vignettes):
         try:
             variation_type = variation_types[i % len(variation_types)]
+
+            print(
+                f"🔄 Generating {variation_type} script {i+1}/{num_vignettes} for: {disease_name}"
+            )
+
             vignette = generator.generate_vignette_with_medical_data(
                 disease_data, i + 1, variation_type
             )
             vignettes.append(
                 {
-                    "vignette": vignette,
+                    "roleplay_script": vignette,
                     "variation_type": variation_type,
-                    "vignette_number": i + 1,
+                    "script_number": i + 1,
+                    "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
                 }
             )
+
+            print(f"✅ Completed {variation_type} script {i+1} for: {disease_name}")
+
         except Exception as e:
-            print(f"❌ Failed to generate vignette {i+1} for {disease_name}: {e}")
+            print(
+                f"❌ Failed to generate roleplay script {i+1} for {disease_name}: {e}"
+            )
             vignettes.append(
                 {
-                    "vignette": generator._create_fallback_vignette(
+                    "roleplay_script": generator._create_fallback_vignette(
                         disease_data, i + 1
                     ),
                     "variation_type": "fallback",
-                    "vignette_number": i + 1,
+                    "script_number": i + 1,
+                    "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+                    "error": str(e),
                 }
             )
 
@@ -364,10 +577,10 @@ def generate_vignettes_from_medical_json(
     medical_json_file: str,
     api_key: str,
     num_vignettes_per_disease: int = 2,
-    output_file: str = "medically_accurate_vignettes.json",
+    output_file: str = "patient_roleplay_scripts.json",
     max_workers: int = 12,
 ):
-    """Generate medically accurate vignettes from medical JSON data"""
+    """Generate roleplay scripts for AI agents from medical JSON data with enhanced incremental saving"""
 
     generator = MedicallyAccurateVignetteGenerator(api_key, model)
     medical_data = generator.load_medical_data(medical_json_file)
@@ -377,11 +590,13 @@ def generate_vignettes_from_medical_json(
         return {}
 
     print(
-        f"🏥 Generating {num_vignettes_per_disease} MEDICALLY ACCURATE vignettes for {len(medical_data)} diseases"
+        f"🎭 Generating {num_vignettes_per_disease} ROLEPLAY SCRIPTS for {len(medical_data)} diseases"
     )
     print(
-        f"📊 Total vignettes to generate: {len(medical_data) * num_vignettes_per_disease}"
+        f"📊 Total scripts to generate: {len(medical_data) * num_vignettes_per_disease}"
     )
+    print(f"💾 Progress will be saved IMMEDIATELY after each disease to: {output_file}")
+    print(f"⚡ You can monitor progress by checking the file size and content!")
 
     args_list = [
         (disease_data, num_vignettes_per_disease, api_key, model)
@@ -390,73 +605,107 @@ def generate_vignettes_from_medical_json(
 
     results = {}
     completed = 0
+    save_lock = threading.Lock()  # Thread safety for saving
 
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        future_to_disease = {
-            executor.submit(generate_vignettes_for_disease_with_data, args): args[
-                0
-            ].get("disease_name", f"Disease_{i}")
-            for i, args in enumerate(args_list)
-        }
+    # Create initial file
+    print(f"\n📁 Creating initial empty file...")
+    save_current_progress(
+        results,
+        medical_data,
+        num_vignettes_per_disease,
+        medical_json_file,
+        output_file,
+        model,
+    )
 
-        for future in future_to_disease:
-            try:
-                disease_name, vignettes = future.result(timeout=600)
+    # Process diseases sequentially to ensure immediate saving
+    for i, args in enumerate(args_list):
+        disease_data = args[0]
+        disease_name = disease_data.get("disease_name", f"Disease_{i}")
+
+        print(f"\n🏥 Starting disease {i+1}/{len(args_list)}: {disease_name}")
+
+        try:
+            # Generate vignettes for this disease
+            disease_name, vignettes = generate_vignettes_for_disease_with_data(args)
+
+            # IMMEDIATELY save after each disease
+            with save_lock:
                 results[disease_name] = vignettes
                 completed += 1
 
-                progress = (completed / len(medical_data)) * 100
-                print(
-                    f"📈 Progress: {completed}/{len(medical_data)} diseases completed ({progress:.1f}%)"
+                # Save progress RIGHT NOW
+                save_current_progress(
+                    results,
+                    medical_data,
+                    num_vignettes_per_disease,
+                    medical_json_file,
+                    output_file,
+                    model,
                 )
 
-            except Exception as e:
-                disease_name = future_to_disease[future]
-                print(f"❌ Failed to generate vignettes for {disease_name}: {e}")
+            progress = (completed / len(medical_data)) * 100
+            print(
+                f"📈 Progress: {completed}/{len(medical_data)} diseases completed ({progress:.1f}%)"
+            )
+            print(f"💾 File updated with {len(vignettes)} new scripts!")
+
+        except Exception as e:
+            print(f"❌ Failed to generate roleplay scripts for {disease_name}: {e}")
+
+            # Save fallback immediately
+            with save_lock:
                 fallback_vignettes = []
-                for i in range(num_vignettes_per_disease):
+                for j in range(num_vignettes_per_disease):
                     fallback_vignettes.append(
                         {
-                            "vignette": f"Error generating vignette for {disease_name} (vignette {i+1})",
+                            "roleplay_script": f"Error generating roleplay script for {disease_name} (script {j+1})",
                             "variation_type": "error",
-                            "vignette_number": i + 1,
+                            "script_number": j + 1,
+                            "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+                            "error": str(e),
                         }
                     )
                 results[disease_name] = fallback_vignettes
+                completed += 1
 
-    # Save results
-    output_data = {
-        "metadata": {
-            "source_file": medical_json_file,
-            "total_diseases": len(medical_data),
-            "vignettes_per_disease": num_vignettes_per_disease,
-            "total_vignettes": len(medical_data) * num_vignettes_per_disease,
-            "generation_model": model,
-            "variation_types": ["typical", "early", "severe", "mixed"],
-            "generation_timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
-            "focus": "medically_accurate_presentations",
-        },
-        "vignettes": results,
-    }
+                # Save even failed attempts immediately
+                save_current_progress(
+                    results,
+                    medical_data,
+                    num_vignettes_per_disease,
+                    medical_json_file,
+                    output_file,
+                    model,
+                )
 
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(output_data, f, indent=2, ensure_ascii=False)
+    # Final save with completed status
+    print(f"\n🏁 Doing final save...")
+    save_current_progress(
+        results,
+        medical_data,
+        num_vignettes_per_disease,
+        medical_json_file,
+        output_file,
+        model,
+    )
 
-    print(f"\n✅ Completed! Medically accurate vignettes saved to: {output_file}")
+    print(f"\n✅ Completed! Roleplay scripts saved to: {output_file}")
 
     # Summary statistics
-    total_vignettes = sum(len(vignettes) for vignettes in results.values())
+    total_scripts = sum(len(vignettes) for vignettes in results.values())
     successful_diseases = sum(
         1
         for vignettes in results.values()
-        if not any("Error" in v.get("vignette", "") for v in vignettes)
+        if not any("Error" in v.get("roleplay_script", "") for v in vignettes)
     )
 
     print(f"\n📊 GENERATION SUMMARY:")
     print(f"   Total diseases processed: {len(medical_data)}")
     print(f"   Successful diseases: {successful_diseases}")
-    print(f"   Total vignettes generated: {total_vignettes}")
-    print(f"   Medical accuracy prioritized over demographic diversity")
+    print(f"   Total roleplay scripts generated: {total_scripts}")
+    print(f"   Format: Character briefs for AI agent roleplay")
+    print(f"   💾 File saved after EVERY single disease completion!")
 
     return results
 
@@ -465,13 +714,14 @@ if __name__ == "__main__":
     # Configuration
     API_KEY = "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"
     MEDICAL_JSON_FILE = "combined.json"
-    NUM_VIGNETTES_PER_DISEASE = 2
-    OUTPUT_FILE = "medically_accurate_vignettes.json"
-    MAX_WORKERS = 12
+    NUM_VIGNETTES_PER_DISEASE = 4
+    OUTPUT_FILE = "patient_roleplay_scripts.json"
+    MAX_WORKERS = 12  # Sequential processing for immediate saving
 
-    print("🏥 MEDICALLY ACCURATE VIGNETTE GENERATOR")
+    print("🎭 PATIENT ROLEPLAY SCRIPT GENERATOR")
     print("=" * 50)
-    print("🎯 Prioritizing medical accuracy over demographic diversity")
+    print("🎯 Creating character briefs for AI agents to roleplay patients")
+    print("💾 WITH IMMEDIATE SAVING - File updates after EVERY disease!")
 
     if not os.path.exists(MEDICAL_JSON_FILE):
         print(f"❌ Medical JSON file not found: {MEDICAL_JSON_FILE}")
@@ -485,4 +735,4 @@ if __name__ == "__main__":
         max_workers=MAX_WORKERS,
     )
 
-    print(f"\n🚀 Ready for training! Medically accurate vignettes in: {OUTPUT_FILE}")
+    print(f"\n🚀 Ready for AI agent training! Roleplay scripts in: {OUTPUT_FILE}")
