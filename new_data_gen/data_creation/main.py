@@ -72,7 +72,7 @@ class MedicalInfoSystem:
         self.tavily_keys = [
             keys
         ]
-        self.openai_api_key = os.getenv("OPENAI_API_KEY")
+        self.openai_api_key = "api"
 
         if not self.openai_api_key:
             raise ValueError("Please set OPENAI_API_KEY environment variable")
@@ -661,7 +661,7 @@ Be thorough and extract specific, detailed information. If certain information i
         logger.info(f"Worker {worker_id}: Completed processing {len(results)} diseases")
         return results
 
-    def process_all_diseases_parallel(self, num_workers: int = 8, limit: int = None):
+    def process_all_diseases_parallel(self, num_workers: int = 12, limit: int = None):
         """Process diseases with parallel processing using multiple workers"""
         diseases = self.get_diseases_from_csv(limit=limit)
 
