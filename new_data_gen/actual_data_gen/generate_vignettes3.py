@@ -166,6 +166,13 @@ CRITICAL REQUIREMENTS:
         **ROLEPLAY INSTRUCTIONS:**
         You are [character name]. Act exactly like this character would.
 
+        OPENING STATEMENT: "[First thing the patient would say to the doctor]"
+
+        PERSONALITY TO EXHIBIT:
+        - [Key personality traits]
+        - [Emotional state]
+        - [Communication style]
+
         KEY PHRASES TO USE:
         - [Specific ways they describe their symptoms]
         - [Questions they would ask]
@@ -175,6 +182,10 @@ CRITICAL REQUIREMENTS:
         - [Physical actions/gestures]
         - [Body language]
         - [Non-verbal cues]
+
+        INFORMATION FLOW:
+        VOLUNTEER IMMEDIATELY:
+        - [What they'll share first]
         
         SHARE ONLY IF ASKED:
         - [Information requiring prompting]
@@ -618,40 +629,47 @@ def generate_vignettes_from_medical_json(
         model,
     )
 
-    # Process diseases sequentially to ensure immediate saving
-    for i, args in enumerate(args_list):
-        disease_data = args[0]
-        disease_name = disease_data.get("disease_name", f"Disease_{i}")
+    from concurrent.futures import ThreadPoolExecutor, as_completed
 
-        print(f"\n🏥 Starting disease {i+1}/{len(args_list)}: {disease_name}")
+    # ─── Replace sequential loop with ThreadPoolExecutor ───
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # Submit one “generate_vignettes_for_disease_with_data” job per disease
+        future_to_args = {
+            executor.submit(generate_vignettes_for_disease_with_data, args): args
+            for args in args_list
+        }
 
-        try:
-            # Generate vignettes for this disease
-            disease_name, vignettes = generate_vignettes_for_disease_with_data(args)
+        for future in as_completed(future_to_args):
+            args = future_to_args[future]
+            disease_data = args[0]
+            disease_name = disease_data.get("disease_name", "Unknown Disease")
 
-            # IMMEDIATELY save after each disease
-            with save_lock:
-                results[disease_name] = vignettes
-                completed += 1
+            try:
+                # This will block until that particular disease’s job finishes
+                disease_name, vignettes = future.result()
 
-                # Save progress RIGHT NOW
-                save_current_progress(
-                    results,
-                    medical_data,
-                    num_vignettes_per_disease,
-                    medical_json_file,
-                    output_file,
-                    model,
+                # Save immediately once this disease is done
+                with save_lock:
+                    results[disease_name] = vignettes
+                    completed += 1
+                    save_current_progress(
+                        results,
+                        medical_data,
+                        num_vignettes_per_disease,
+                        medical_json_file,
+                        output_file,
+                        model,
+                    )
+
+                progress = (completed / len(medical_data)) * 100
+                print(
+                    f"📈 Progress: {completed}/{len(medical_data)} diseases completed ({progress:.1f}%)"
                 )
+                print(f"💾 File updated with {len(vignettes)} new scripts!")
 
-            progress = (completed / len(medical_data)) * 100
-            print(
-                f"📈 Progress: {completed}/{len(medical_data)} diseases completed ({progress:.1f}%)"
-            )
-            print(f"💾 File updated with {len(vignettes)} new scripts!")
-
-        except Exception as e:
-            print(f"❌ Failed to generate roleplay scripts for {disease_name}: {e}")
+            except Exception as e:
+                print(f"❌ Failed to generate roleplay scripts for {disease_name}: {e}")
+                # … same fallback saving logic you already have …
 
             # Save fallback immediately
             with save_lock:
