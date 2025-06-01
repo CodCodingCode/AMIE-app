@@ -19,6 +19,17 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleGetStartedClick = () => {
+    // First scroll to top smoothly
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Wait for scroll to complete, then trigger bluebox animation
+    setTimeout(() => {
+      // Dispatch custom event that Box3D component will listen for
+      window.dispatchEvent(new CustomEvent('triggerBlueboxAnimation'));
+    }, 800); // Wait for scroll animation to complete
+  };
+
   return (
     <>
       <motion.nav
@@ -53,12 +64,12 @@ export default function Navigation() {
               <Link href="#testimonials" className="text-gray-300 hover:text-white transition-colors">
                 Testimonials
               </Link>
-              <Link 
-                href="/chat"
+              <button 
+                onClick={handleGetStartedClick}
                 className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
               >
                 Get Started
-              </Link>
+              </button>
             </div>
 
             {/* Mobile menu button */}
@@ -108,13 +119,15 @@ export default function Navigation() {
                 >
                   Testimonials
                 </Link>
-                <Link
-                  href="/chat"
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    handleGetStartedClick();
+                  }}
                   className="bg-blue-600 text-white px-6 py-3 rounded-full text-center hover:bg-blue-700 transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Get Started
-                </Link>
+                </button>
               </div>
             </div>
           </motion.div>

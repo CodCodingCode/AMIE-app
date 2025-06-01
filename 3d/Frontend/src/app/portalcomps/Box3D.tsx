@@ -10,10 +10,11 @@ type Box3DProps = {
   initialPosition?: [number, number, number];
   onZoomStart?: () => void;
   onBoxClicked?: () => void;
+  onAnimationStateChange?: (isAnimating: boolean) => void
   getTextAnimationControls?: () => any;
 };
 
-const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTextAnimationControls }: Box3DProps) => {
+const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, onAnimationStateChange, getTextAnimationControls }: Box3DProps) => {
   const router = useRouter();
   const gltf = useGLTF('/blueboxrealagain.glb');
 
@@ -98,6 +99,18 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTe
         materialRefs.current.push(mat);
       }
     });
+
+    // Add event listener for external animation triggers
+    const handleExternalTrigger = () => {
+      handleZoom();
+    };
+
+    window.addEventListener('triggerBlueboxAnimation', handleExternalTrigger);
+
+    // Cleanup event listener
+    return () => {
+      window.removeEventListener('triggerBlueboxAnimation', handleExternalTrigger);
+    };
   }, [scene, initialPosition]);
 
   useFrame(() => {
@@ -112,6 +125,10 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTe
     if (isZooming.current) return;
     isZooming.current = true;
 
+    if (onAnimationStateChange) {
+      onAnimationStateChange(true);
+    }
+
     if (onBoxClicked) {
       onBoxClicked();
     }
@@ -123,6 +140,9 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTe
 
       const tl = gsap.timeline({
         onComplete: () => {
+          if (onAnimationStateChange) {
+            onAnimationStateChange(false);
+          }
           router.push('/chat');
         }
       });

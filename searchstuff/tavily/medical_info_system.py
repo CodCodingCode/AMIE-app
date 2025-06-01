@@ -11,18 +11,39 @@ import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from queue import Queue
 import asyncio
-from crawl4ai import WebCrawler
+from crawl4ai import AsyncWebCrawler, BrowserConfig, CrawlerRunConfig, CacheMode, LLMConfig
 from crawl4ai.extraction_strategy import LLMExtractionStrategy
+from pydantic import BaseModel, Field
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+# Define the medical information schema using Pydantic
+class FamilyHistoryImpact(BaseModel):
+    inheritance_pattern: str = Field(description="How the disease is inherited (autosomal dominant, recessive, X-linked, etc.)")
+    risk_increase: str = Field(description="How family history increases risk")
+    age_of_onset_influence: str = Field(description="How family history affects age of onset")
+    severity_influence: str = Field(description="How family history affects disease severity")
+    screening_recommendations: str = Field(description="Screening recommendations for family members")
+
+class MedicalInformation(BaseModel):
+    disease_name: str = Field(description="Name of the disease")
+    symptoms: List[str] = Field(description="List of symptoms and signs")
+    causes: List[str] = Field(description="List of causes and risk factors")
+    treatment_options: List[str] = Field(description="List of treatment options")
+    diagnosis_methods: List[str] = Field(description="List of diagnostic methods and tests")
+    risk_factors: List[str] = Field(description="List of risk factors")
+    prevention: List[str] = Field(description="List of prevention methods")
+    prognosis: str = Field(description="Overall prognosis and outcome expectations")
+    family_history_impact: FamilyHistoryImpact = Field(description="Impact of family history on the disease")
+    hereditary_factors: List[str] = Field(description="List of hereditary and genetic factors")
+    genetic_risk_assessment: str = Field(description="Overall genetic risk assessment")
+
 class MedicalInfoSystem:
     def __init__(self):
         # Initialize API clients with backup keys
         self.tavily_keys = [
-            "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",
             "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",
             "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",
             "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",
@@ -36,7 +57,7 @@ class MedicalInfoSystem:
             raise ValueError("Please set OPENAI_API_KEY environment variable")
         
         # File paths
-        self.disease_db_path = "datasets/classified_diseases_cleaned2.csv"
+        self.disease_db_path = "datasets/balanced_diseases_sample2.csv"
         self.results_csv_path = "medical_research_results.csv"
         self.results_json_path = "medical_research_results.json"
         
@@ -46,48 +67,77 @@ class MedicalInfoSystem:
         
         # Initialize results storage
         self._initialize_storage()
-        
-        # Initialize results dataframe for CSV operations
-        self.results_df = pd.DataFrame()
-        
-        # Initialize web crawler
-        self.crawler = None
     
     def _get_tavily_client(self, worker_id: int) -> TavilyClient:
         """Get a Tavily client with key rotation based on worker ID"""
         key_index = worker_id % len(self.tavily_keys)
         return TavilyClient(api_key=self.tavily_keys[key_index])
     
-    def _get_openai_client(self) -> OpenAI:
-        """Get an OpenAI client (thread-safe)"""
-        return OpenAI(api_key=self.openai_api_key)
+    def _get_browser_config(self) -> BrowserConfig:
+        """Get browser configuration for Crawl4AI"""
+        return BrowserConfig(
+            headless=True,
+            browser_type="chromium",
+            viewport_width=1280,
+            viewport_height=720,
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+            java_script_enabled=True,
+            verbose=False
+        )
     
-    def _initialize_crawler(self):
-        """Initialize the web crawler for this worker"""
-        if self.crawler is None:
-            self.crawler = WebCrawler(
-                # Enable JavaScript rendering for modern websites
-                headless=True,
-                browser_type="chromium",
-                # Add stealth mode to avoid detection
-                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-                # Optimize for medical content extraction
-                extraction_strategy=LLMExtractionStrategy(
-                    provider="openai/gpt-4o-mini",
-                    api_token=self.openai_api_key,
-                    instruction="Extract all medical content including symptoms, causes, treatments, diagnosis methods, risk factors, prevention, prognosis, and genetic/hereditary information. Focus on comprehensive medical information."
-                )
-            )
+    def _get_llm_extraction_strategy(self, disease: str) -> LLMExtractionStrategy:
+        """Get LLM extraction strategy with medical schema"""
+        return LLMExtractionStrategy(
+            llm_config=LLMConfig(
+                provider="openai/gpt-4o-mini",
+                api_token=self.openai_api_key
+            ),
+            schema=MedicalInformation.model_json_schema(),
+            extraction_type="schema",
+            instruction=f"""Extract comprehensive medical information about {disease} from the website content. 
+
+Focus on:
+1. All symptoms and clinical signs
+2. Underlying causes and etiology  
+3. Available treatment options (medications, procedures, lifestyle changes)
+4. Diagnostic methods and tests used
+5. Known risk factors
+6. Prevention strategies
+7. Prognosis and outcomes
+8. Genetic and hereditary aspects
+9. Family history implications
+10. Screening recommendations for relatives
+
+Be thorough and extract specific, detailed information. If certain information is not available, use your medical knowledge to provide accurate information for the field.""",
+            chunk_token_threshold=8000,
+            overlap_rate=0.1,
+            apply_chunking=True,
+            verbose=False
+        )
+    
+    def _get_crawler_config(self, disease: str) -> CrawlerRunConfig:
+        """Get crawler run configuration with LLM extraction"""
+        return CrawlerRunConfig(
+            cache_mode=CacheMode.BYPASS,
+            word_count_threshold=100,
+            excluded_tags=['nav', 'footer', 'header', 'aside', 'script', 'style', 'advertisement'],
+            exclude_external_links=True,
+            process_iframes=True,
+            remove_overlay_elements=True,
+            extraction_strategy=self._get_llm_extraction_strategy(disease),
+            screenshot=False,
+            pdf=False,
+            verbose=False
+        )
     
     def _initialize_storage(self):
         """Initialize CSV and JSON storage files if they don't exist"""
-        # Initialize empty CSV with proper headers using pandas
         csv_columns = [
             'disease_name', 'symptoms', 'causes', 'treatment_options', 
             'diagnosis_methods', 'risk_factors', 'prevention', 'prognosis', 
             'inheritance_pattern', 'family_risk_increase', 'age_of_onset_influence',
             'severity_influence', 'screening_recommendations', 'hereditary_factors', 
-            'genetic_risk_assessment', 'processing_timestamp'
+            'genetic_risk_assessment', 'processing_timestamp', 'websites_crawled', 'source_urls'
         ]
         
         if not os.path.exists(self.results_csv_path):
@@ -95,7 +145,6 @@ class MedicalInfoSystem:
             empty_df.to_csv(self.results_csv_path, index=False)
             logger.info(f"Created CSV file with headers: {self.results_csv_path}")
         
-        # Initialize empty JSON array
         if not os.path.exists(self.results_json_path):
             with open(self.results_json_path, 'w', encoding='utf-8') as f:
                 json.dump([], f, indent=2)
@@ -112,12 +161,10 @@ class MedicalInfoSystem:
                 logger.error(f"Disease database file not found: {self.disease_db_path}")
                 return []
             
-            # Read CSV in chunks to handle large files
             chunk_size = 10000
             processed_terms = set()
             
             for chunk in pd.read_csv(self.disease_db_path, chunksize=chunk_size):
-                # Try different possible column names for disease terms
                 term_column = None
                 for col in ['Title', 'title', 'term', 'disease', 'name', 'disease_name']:
                     if col in chunk.columns:
@@ -125,7 +172,6 @@ class MedicalInfoSystem:
                         break
                 
                 if term_column is None:
-                    # Use first column if no standard column found
                     term_column = chunk.columns[0]
                     logger.warning(f"Using first column '{term_column}' as disease terms")
                 else:
@@ -134,7 +180,6 @@ class MedicalInfoSystem:
                 for _, row in chunk.iterrows():
                     term = str(row.get(term_column, '')).strip()
                     
-                    # Filter valid disease terms
                     if (term and len(term) > 3 and 
                         term.lower() not in ['nan', 'null', 'none'] and 
                         term not in processed_terms):
@@ -154,218 +199,209 @@ class MedicalInfoSystem:
             logger.error(f"Error reading diseases from CSV: {e}")
             return []
     
-    async def crawl_website_content(self, url: str, worker_id: int = 0) -> str:
-        """Crawl full content from a website URL using Crawl4AI"""
+    async def search_medical_websites(self, disease: str, worker_id: int = 0) -> List[str]:
+        """Search for medical websites about the disease"""
         try:
-            # Initialize crawler if not done yet
-            self._initialize_crawler()
+            tavily_client = self._get_tavily_client(worker_id)
             
-            # Crawl the website with JavaScript rendering
-            result = await self.crawler.arun(
-                url=url,
-                # Enable JavaScript execution for dynamic content
-                js_code=["window.scrollTo(0, document.body.scrollHeight);"],
-                # Wait for content to load
-                wait_for="css:body",
-                # Extract meaningful content
-                extraction_strategy=LLMExtractionStrategy(
-                    provider="openai/gpt-4o-mini",
-                    api_token=self.openai_api_key,
-                    instruction=f"Extract comprehensive medical information from this webpage. Focus on symptoms, causes, treatments, diagnosis, risk factors, prevention, prognosis, genetic factors, and hereditary information. Return clean, structured medical content."
-                ),
-                # Additional options for better extraction
-                remove_overlay_elements=True,
-                simulate_user=True,
-                magic=True  # Enable advanced content extraction
-            )
+            # Single comprehensive search query
+            queries = [
+                f"Medical information {disease}: symptoms causes treatment diagnosis risk factors prevention prognosis genetic hereditary family history inheritance screening"
+            ]
             
-            if result.success:
-                # Get the extracted content
-                extracted_content = result.extracted_content
-                
-                # If extraction strategy worked, use that content
-                if extracted_content:
-                    content = str(extracted_content)
-                else:
-                    # Fallback to cleaned markdown content
-                    content = result.markdown
-                
-                # Limit content length to avoid token limits
-                if len(content) > 12000:
-                    content = content[:12000] + "..."
-                
-                logger.info(f"Worker {worker_id}: Successfully crawled {len(content)} characters from {url}")
-                return content
-            else:
-                logger.warning(f"Worker {worker_id}: Failed to crawl {url}: {result.error_message}")
-                return ""
-                
+            all_urls = []
+            
+            for query in queries:
+                try:
+                    search_results = tavily_client.search(
+                        query=query, 
+                        search_depth="advanced", 
+                        include_answer=False,
+                        max_results=8  # More results since we have only 1 query
+                    )
+                    
+                    for result in search_results.get("results", []):
+                        url = result.get('url', '')
+                        if url and url not in all_urls:
+                            all_urls.append(url)
+                    
+                    time.sleep(0.2)  # Brief delay between searches
+                    
+                except Exception as search_e:
+                    logger.warning(f"Worker {worker_id}: Search failed for query '{query}': {search_e}")
+            
+            logger.info(f"Worker {worker_id}: Found {len(all_urls)} URLs for {disease}")
+            return all_urls[:12]  # Return up to 12 URLs for comprehensive coverage
+            
         except Exception as e:
-            logger.warning(f"Worker {worker_id}: Failed to crawl content from {url}: {e}")
-            return ""
+            logger.error(f"Worker {worker_id}: Error searching for {disease}: {e}")
+            return []
     
-    async def search_and_crawl_full_content(self, disease: str, worker_id: int = 0) -> Dict[str, Any]:
-        """Search for websites and crawl their full content using Crawl4AI"""
-        logger.info(f"Worker {worker_id}: Searching and crawling full content for: {disease}")
+    async def crawl_multiple_websites(self, disease: str, urls: List[str], worker_id: int = 0) -> Dict[str, Any]:
+        """Crawl multiple websites and extract medical information using Crawl4AI's built-in LLM"""
+        if not urls:
+            return {'error': 'No URLs to crawl', 'disease_name': disease}
         
-        # Multiple search queries for better coverage
-        queries = [
-            f"Medical information {disease}: symptoms causes treatment diagnosis risk factors prevention prognosis family history genetic hereditary",
-            f"{disease} hereditary genetic family history inheritance pattern",
-            f"{disease} clinical features symptoms treatment prognosis"
-        ]
+        browser_config = self._get_browser_config()
+        crawler_config = self._get_crawler_config(disease)
         
-        all_website_contents = []
+        all_extracted_data = []
+        successful_urls = []
         
-        # Get clients for this worker
-        tavily_client = self._get_tavily_client(worker_id)
-        openai_client = self._get_openai_client()
+        async with AsyncWebCrawler(config=browser_config) as crawler:
+            # Crawl each website with LLM extraction
+            for i, url in enumerate(urls):
+                try:
+                    logger.info(f"Worker {worker_id}: Crawling website {i+1}/{len(urls)}: {url}")
+                    
+                    result = await crawler.arun(
+                        url=url,
+                        config=crawler_config
+                    )
+                    
+                    if result.success and result.extracted_content:
+                        try:
+                            # Parse the JSON string from Crawl4AI
+                            if isinstance(result.extracted_content, str):
+                                json_data = json.loads(result.extracted_content)
+                                
+                                if isinstance(json_data, list):
+                                    # Find the first non-error object with medical data
+                                    extracted_data = None
+                                    for item in json_data:
+                                        if isinstance(item, dict) and item.get('error') != True and 'disease_name' in item:
+                                            extracted_data = item
+                                            break
+                                    
+                                    if extracted_data is None:
+                                        logger.warning(f"Worker {worker_id}: No valid medical data found in extraction results from {url}")
+                                        continue
+                                        
+                                elif isinstance(json_data, dict):
+                                    extracted_data = json_data
+                                else:
+                                    logger.warning(f"Worker {worker_id}: Unexpected JSON structure from {url}: {type(json_data)}")
+                                    continue
+                            else:
+                                logger.warning(f"Worker {worker_id}: Unexpected content type from {url}: {type(result.extracted_content)}")
+                                continue
+                            
+                            all_extracted_data.append(extracted_data)
+                            successful_urls.append(url)
+                            
+                            logger.info(f"Worker {worker_id}: Successfully extracted data from {url}")
+                            
+                        except (json.JSONDecodeError, KeyError, TypeError) as e:
+                            logger.warning(f"Worker {worker_id}: Data parsing error for {url}: {e}")
+                    else:
+                        logger.warning(f"Worker {worker_id}: Failed to crawl or extract from {url}")
+                    
+                    # Brief delay between crawls
+                    await asyncio.sleep(0.5)
+                    
+                except Exception as e:
+                    logger.warning(f"Worker {worker_id}: Error crawling {url}: {e}")
+        
+        if not all_extracted_data:
+            return {'error': 'No data extracted from any website', 'disease_name': disease}
+        
+        # Combine data from multiple websites
+        combined_data = self._combine_extracted_data(disease, all_extracted_data, successful_urls)
+        logger.info(f"Worker {worker_id}: Successfully combined data from {len(successful_urls)} websites for {disease}")
+        
+        return combined_data
+    
+    def _combine_extracted_data(self, disease: str, extracted_data_list: List[Dict], urls: List[str]) -> Dict[str, Any]:
+        """Combine medical information from multiple websites"""
+        combined = {
+            'disease_name': disease,
+            'symptoms': [],
+            'causes': [],
+            'treatment_options': [],
+            'diagnosis_methods': [],
+            'risk_factors': [],
+            'prevention': [],
+            'prognosis': '',
+            'family_history_impact': {
+                'inheritance_pattern': '',
+                'risk_increase': '',
+                'age_of_onset_influence': '',
+                'severity_influence': '',
+                'screening_recommendations': ''
+            },
+            'hereditary_factors': [],
+            'genetic_risk_assessment': '',
+            'processing_timestamp': datetime.now().isoformat(),
+            'websites_crawled': len(urls),
+            'source_urls': urls
+        }
+        
+        # Combine lists from all sources (removing duplicates)
+        list_fields = ['symptoms', 'causes', 'treatment_options', 'diagnosis_methods', 'risk_factors', 'prevention', 'hereditary_factors']
+        
+        for data in extracted_data_list:
+            for field in list_fields:
+                if field in data and isinstance(data[field], list):
+                    for item in data[field]:
+                        if item and item not in combined[field]:
+                            combined[field].append(item)
+        
+        # Combine text fields (take the most comprehensive one)
+        text_fields = ['prognosis', 'genetic_risk_assessment']
+        for field in text_fields:
+            longest_text = ''
+            for data in extracted_data_list:
+                if field in data and isinstance(data[field], str) and len(data[field]) > len(longest_text):
+                    longest_text = data[field]
+            combined[field] = longest_text
+        
+        # Combine family history impact (take the most complete)
+        family_history_fields = ['inheritance_pattern', 'risk_increase', 'age_of_onset_influence', 'severity_influence', 'screening_recommendations']
+        for field in family_history_fields:
+            longest_text = ''
+            for data in extracted_data_list:
+                if ('family_history_impact' in data and 
+                    isinstance(data['family_history_impact'], dict) and 
+                    field in data['family_history_impact'] and
+                    len(str(data['family_history_impact'][field])) > len(longest_text)):
+                    longest_text = str(data['family_history_impact'][field])
+            combined['family_history_impact'][field] = longest_text
+        
+        return combined
+    
+    async def search_and_crawl_multiple_sites(self, disease: str, worker_id: int = 0) -> Dict[str, Any]:
+        """Complete workflow: search for websites and crawl multiple sites with built-in LLM extraction"""
+        logger.info(f"Worker {worker_id}: Processing {disease} with multiple website crawling")
         
         # Try with different Tavily keys if one fails
         for attempt in range(min(3, len(self.tavily_keys))):
             try:
                 if attempt > 0:
-                    # Switch to next key if previous attempt failed
                     key_index = (worker_id + attempt) % len(self.tavily_keys)
-                    tavily_client = TavilyClient(api_key=self.tavily_keys[key_index])
+                    logger.info(f"Worker {worker_id}: Trying with Tavily key {key_index}")
                 
-                # Perform searches to get website URLs
-                all_urls = []
-                for query in queries:  # Use all queries for comprehensive coverage
-                    try:
-                        search_results = tavily_client.search(
-                            query=query, 
-                            search_depth="advanced", 
-                            include_answer=False,
-                            max_results=5  # Get more URLs since crawling is more selective
-                        )
-                        
-                        for result in search_results.get("results", []):
-                            url = result.get('url', '')
-                            if url and url not in all_urls:
-                                all_urls.append(url)
-                        
-                        time.sleep(0.3)  # Brief delay between searches
-                    except Exception as search_e:
-                        logger.warning(f"Worker {worker_id}: Search failed for query '{query}': {search_e}")
+                # Step 1: Search for medical websites
+                urls = await self.search_medical_websites(disease, worker_id)
                 
-                # Crawl full content from each website
-                logger.info(f"Worker {worker_id}: Found {len(all_urls)} URLs, crawling full content...")
+                if not urls:
+                    raise ValueError("No URLs found in search")
                 
-                crawl_tasks = []
-                for i, url in enumerate(all_urls[:8]):  # Crawl up to 8 websites for comprehensive coverage
-                    crawl_tasks.append(self.crawl_website_content(url, worker_id))
+                # Step 2: Crawl multiple websites with built-in LLM extraction
+                result = await self.crawl_multiple_websites(disease, urls, worker_id)
                 
-                # Execute crawling tasks concurrently
-                crawled_contents = await asyncio.gather(*crawl_tasks, return_exceptions=True)
-                
-                # Process crawled results
-                for i, content in enumerate(crawled_contents):
-                    if isinstance(content, str) and content:
-                        all_website_contents.append({
-                            'url': all_urls[i],
-                            'content': content,
-                            'source_number': len(all_website_contents) + 1
-                        })
-                
-                if not all_website_contents:
-                    logger.warning(f"Worker {worker_id}: No website content crawled for {disease}")
-                    raise ValueError("No website content could be crawled")
-                
-                # Combine all website contents
-                combined_content = "\n\n" + "="*80 + "\n\n".join([
-                    f"WEBSITE {content['source_number']}: {content['url']}\n\nCONTENT:\n{content['content']}"
-                    for content in all_website_contents
-                ])
-                
-                # Create prompt for GPT to analyze the full website contents
-                prompt = f"""Analyze the following COMPLETE WEBSITE CONTENTS about {disease} and extract comprehensive medical information. These are full website pages crawled with JavaScript rendering, not just snippets. Return a valid JSON object with this exact structure:
-
-{{
-    "disease_name": "{disease}",
-    "symptoms": ["symptom1", "symptom2"],
-    "causes": ["cause1", "cause2"],
-    "treatment_options": ["treatment1", "treatment2"],
-    "diagnosis_methods": ["method1", "method2"],
-    "risk_factors": ["factor1", "factor2"],
-    "prevention": ["prevention1", "prevention2"],
-    "prognosis": "brief prognosis description",
-    "family_history_impact": {{
-        "inheritance_pattern": "inheritance description",
-        "risk_increase": "family risk description",
-        "age_of_onset_influence": "onset influence",
-        "severity_influence": "severity influence",
-        "screening_recommendations": "screening recommendations"
-    }},
-    "hereditary_factors": ["factor1", "factor2"],
-    "genetic_risk_assessment": "genetic assessment summary"
-}}
-
-COMPLETE CRAWLED WEBSITE CONTENTS:
-{combined_content}
-
-INSTRUCTIONS:
-1. Thoroughly analyze ALL the crawled website content provided above
-2. Extract comprehensive and detailed information from the complete web pages
-3. Use the extensive content to provide specific, detailed responses
-4. For genetic/hereditary information, extract from the websites and supplement with medical knowledge
-5. Provide specific, detailed responses rather than generic statements
-6. If information is not available in the websites, use your medical training to provide accurate information
-7. Do not leave any fields empty or use placeholder text
-8. Focus on extracting detailed, specific information from the full crawled website content provided"""
-                
-                # Handle long prompts by truncating if necessary
-                max_tokens = 150000  # Higher limit since crawled content is cleaner
-                if len(prompt) > max_tokens:
-                    logger.warning(f"Worker {worker_id}: Prompt too long ({len(prompt)} chars), truncating...")
-                    truncated_content = combined_content[:max_tokens - 3000] + "\n\n[CONTENT TRUNCATED DUE TO LENGTH]"
-                    prompt = prompt.replace(combined_content, truncated_content)
-                
-                response = openai_client.chat.completions.create(
-                    model="gpt-4o-mini",
-                    messages=[{"role": "user", "content": prompt}],
-                    temperature=0.2,
-                    max_tokens=2500
-                )
-                
-                content = response.choices[0].message.content.strip()
-                
-                # Parse JSON response more robustly
-                try:
-                    # Find JSON boundaries
-                    start_idx = content.find('{')
-                    end_idx = content.rfind('}') + 1
-                    
-                    if start_idx != -1 and end_idx > start_idx:
-                        json_str = content[start_idx:end_idx]
-                        structured_info = json.loads(json_str)
-                        
-                        # Validate required fields
-                        required_fields = ['disease_name', 'symptoms', 'causes', 'treatment_options']
-                        if all(field in structured_info for field in required_fields):
-                            structured_info['processing_timestamp'] = datetime.now().isoformat()
-                            structured_info['websites_analyzed'] = len(all_website_contents)
-                            structured_info['source_urls'] = [content['url'] for content in all_website_contents]
-                            logger.info(f"Worker {worker_id}: Successfully processed {len(all_website_contents)} websites for {disease}")
-                            return structured_info
-                        else:
-                            raise ValueError("Missing required fields in JSON response")
-                    else:
-                        raise ValueError("No valid JSON structure found in response")
-                        
-                except json.JSONDecodeError as je:
-                    logger.error(f"Worker {worker_id}: JSON parsing error for {disease}: {je}")
-                    raise ValueError(f"Invalid JSON response: {je}")
+                if 'error' not in result:
+                    return result
+                else:
+                    raise ValueError(result['error'])
                 
             except Exception as e:
-                logger.error(f"Worker {worker_id}: Error with attempt {attempt} for {disease}: {e}")
+                logger.error(f"Worker {worker_id}: Attempt {attempt + 1} failed for {disease}: {e}")
                 if attempt < min(2, len(self.tavily_keys) - 1):
-                    logger.info(f"Worker {worker_id}: Trying with next approach...")
-                    time.sleep(1)  # Brief delay before retry
+                    logger.info(f"Worker {worker_id}: Retrying with next approach...")
+                    await asyncio.sleep(1)
                 else:
                     logger.error(f"Worker {worker_id}: All attempts failed for {disease}")
         
-        # Return error structure if all attempts failed
         return {
             'disease_name': disease,
             'error': f'Failed to process after {min(3, len(self.tavily_keys))} attempts',
@@ -377,7 +413,6 @@ INSTRUCTIONS:
         """Thread-safe save medical information to CSV using pandas"""
         try:
             with self.csv_lock:
-                # Prepare row data
                 family_history = medical_info.get('family_history_impact', {})
                 
                 row_data = {
@@ -396,19 +431,19 @@ INSTRUCTIONS:
                     'screening_recommendations': family_history.get('screening_recommendations', ''),
                     'hereditary_factors': '; '.join(medical_info.get('hereditary_factors', [])),
                     'genetic_risk_assessment': medical_info.get('genetic_risk_assessment', ''),
-                    'processing_timestamp': medical_info.get('processing_timestamp', datetime.now().isoformat())
+                    'processing_timestamp': medical_info.get('processing_timestamp', datetime.now().isoformat()),
+                    'websites_crawled': medical_info.get('websites_crawled', 0),
+                    'source_urls': '; '.join(medical_info.get('source_urls', []))
                 }
                 
-                # Create DataFrame from single row and append to CSV
                 new_row_df = pd.DataFrame([row_data])
                 
-                # Append to existing CSV
                 if os.path.exists(self.results_csv_path):
                     new_row_df.to_csv(self.results_csv_path, mode='a', header=False, index=False)
                 else:
                     new_row_df.to_csv(self.results_csv_path, index=False)
                 
-                logger.info(f"Saved {medical_info.get('disease_name')} to CSV")
+                logger.info(f"Saved {medical_info.get('disease_name')} to CSV ({medical_info.get('websites_crawled', 0)} websites)")
                     
         except Exception as e:
             logger.error(f"Error saving to CSV: {e}")
@@ -417,7 +452,6 @@ INSTRUCTIONS:
         """Thread-safe save medical information to JSON file"""
         try:
             with self.json_lock:
-                # Read existing data
                 if os.path.exists(self.results_json_path):
                     try:
                         with open(self.results_json_path, 'r', encoding='utf-8') as f:
@@ -427,10 +461,8 @@ INSTRUCTIONS:
                 else:
                     data = []
                 
-                # Add new entry
                 data.append(medical_info)
                 
-                # Write back to file with proper formatting
                 with open(self.results_json_path, 'w', encoding='utf-8') as f:
                     json.dump(data, f, indent=2, ensure_ascii=False)
                 
@@ -440,12 +472,11 @@ INSTRUCTIONS:
             logger.error(f"Error saving to JSON: {e}")
     
     def process_disease(self, disease: str, worker_id: int = 0) -> Dict[str, Any]:
-        """Process a single disease: search websites, crawl full content, and extract information"""
-        # Run the async crawling function
+        """Process a single disease: search multiple websites and extract information with built-in LLM"""
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
         try:
-            medical_info = loop.run_until_complete(self.search_and_crawl_full_content(disease, worker_id))
+            medical_info = loop.run_until_complete(self.search_and_crawl_multiple_sites(disease, worker_id))
         finally:
             loop.close()
         
@@ -469,11 +500,8 @@ INSTRUCTIONS:
                 result = self.process_disease(disease, worker_id)
                 results.append(result)
                 
-                # Update progress
                 progress_queue.put(1)
-                
-                # Rate limiting - moderate delay since crawling is more efficient
-                time.sleep(0.5)
+                time.sleep(0.3)  # Rate limiting
                 
             except Exception as e:
                 logger.error(f"Worker {worker_id}: Error processing {disease}: {e}")
@@ -499,18 +527,16 @@ INSTRUCTIONS:
         
         limit_text = f" (limited to {limit})" if limit else ""
         print(f"Starting parallel processing of {len(diseases)} diseases{limit_text} with {num_workers} workers...")
-        print("NOTE: Using Crawl4AI for comprehensive website crawling with JavaScript rendering")
+        print("NOTE: Using Crawl4AI's built-in LLM extraction with multiple website crawling per disease")
         
-        # Split diseases into chunks for each worker
         chunk_size = max(1, len(diseases) // num_workers)
         disease_chunks = []
         
         for i in range(0, len(diseases), chunk_size):
             chunk = diseases[i:i + chunk_size]
-            if chunk:  # Only add non-empty chunks
+            if chunk:
                 disease_chunks.append(chunk)
         
-        # Adjust number of workers to actual chunks
         actual_workers = min(num_workers, len(disease_chunks))
         print(f"Using {actual_workers} workers for {len(disease_chunks)} chunks")
         
@@ -530,22 +556,18 @@ INSTRUCTIONS:
                 except:
                     continue
         
-        # Start progress monitor thread
         progress_thread = threading.Thread(target=progress_monitor, daemon=True)
         progress_thread.start()
         
-        # Process diseases in parallel using ThreadPoolExecutor
         all_results = []
         start_time = time.time()
         
         with ThreadPoolExecutor(max_workers=actual_workers) as executor:
-            # Submit tasks for each worker
             future_to_worker = {
                 executor.submit(self.process_diseases_worker, chunk, i, progress_queue): i 
                 for i, chunk in enumerate(disease_chunks)
             }
             
-            # Collect results as they complete
             for future in as_completed(future_to_worker):
                 worker_id = future_to_worker[future]
                 try:
@@ -557,13 +579,12 @@ INSTRUCTIONS:
         
         end_time = time.time()
         processing_time = end_time - start_time
-        
-        # Wait for progress monitor to finish
         progress_thread.join(timeout=5)
         
         # Final summary
         successful = sum(1 for result in all_results if 'error' not in result)
         failed = len(all_results) - successful
+        total_websites = sum(result.get('websites_crawled', 0) for result in all_results if 'error' not in result)
         
         print(f"\n{'='*60}")
         print(f"PROCESSING COMPLETE")
@@ -571,6 +592,8 @@ INSTRUCTIONS:
         print(f"Total diseases processed: {len(all_results)}")
         print(f"Successful: {successful}")
         print(f"Failed: {failed}")
+        print(f"Total websites crawled: {total_websites}")
+        print(f"Average websites per disease: {total_websites/successful if successful > 0 else 0:.1f}")
         print(f"Processing time: {processing_time:.2f} seconds")
         print(f"Average time per disease: {processing_time/len(all_results):.2f} seconds")
         print(f"Results saved to:")
@@ -585,10 +608,9 @@ INSTRUCTIONS:
 
 
 def main():
-    """Main function to run the medical information system with Crawl4AI"""
+    """Main function to run the medical information system"""
     try:
         system = MedicalInfoSystem()
-        # Process all diseases with 8 workers and no limit
         results = system.process_all_diseases_parallel(num_workers=8, limit=None)
         
         if results:

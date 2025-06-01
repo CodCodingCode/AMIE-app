@@ -1,0 +1,20 @@
+{
+  "test_disease": "diabetes",
+  "test_timestamp": "2025-05-31T17:22:39.480692",
+  "working_import": "AsyncWebCrawler (v0.6.x)",
+  "extracted_data": {
+    "disease_name": "diabetes",
+    "symptoms": [],
+    "causes": [
+      "Type 1 diabetes",
+      "Type 2 diabetes",
+      "Prediabetes",
+      "Gestational diabetes"
+    ],
+    "treatment_options": [],
+    "diagnosis_methods": [],
+    "risk_factors": [],
+    "prevention": [],
+    "prognosis": "Diabetes can lead to excess sugar in the blood, which can result in serious health problems."
+  }
+}

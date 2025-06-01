@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load original data
-df = pd.read_csv('classified_diseases_live.csv')
+df = pd.read_csv('realdatasets/diseases.csv')
 
 # Filter by disease category
 common_df = df[df['Category'].str.contains("Common Diseases/Conditions", na=False)]
@@ -20,6 +20,6 @@ balanced_df = pd.concat([common_sample, emergency_sample, rare_sample])
 balanced_df = balanced_df.sample(frac=1, random_state=42).reset_index(drop=True)
 
 # Save to new CSV
-balanced_df.to_csv('datasets/balanced_diseases_sample2.csv', index=False)
+balanced_df.to_csv('realdatasets/balanced_diseases_sample2.csv', index=False)
 
 print("✅ Balanced dataset created and saved to 'balanced_diseases_sample.csv'")

@@ -1,10 +1,18 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
 
 export default function CallToAction() {
-  const router = useRouter();
+  const handleConsultationClick = () => {
+    // First scroll to top smoothly
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Wait for scroll to complete, then trigger bluebox animation
+    setTimeout(() => {
+      // Dispatch custom event that Box3D component will listen for
+      window.dispatchEvent(new CustomEvent('triggerBlueboxAnimation'));
+    }, 800); // Wait for scroll animation to complete
+  };
 
   return (
     <section className="py-24 px-4 bg-neutral-950 relative overflow-hidden">
@@ -25,7 +33,7 @@ export default function CallToAction() {
             Join thousands of users who trust Bluebox for instant medical guidance and personalized healthcare support.
           </p>
           <button
-            onClick={() => router.push('/chat')}
+            onClick={handleConsultationClick}
             className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors"
           >
             Start Your Free Consultation
