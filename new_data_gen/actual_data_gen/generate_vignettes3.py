@@ -10,12 +10,12 @@ import threading
 
 # Initialize OpenAI client
 client = OpenAI(
-    api_key="api"
-)  # Replace with your actual API key
-model = "gpt-4.1-nano"  # Using GPT-4 for highest quality medical vignettes
+    api_key="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"
+)
+model = "gpt-4.1-nano"
 
 
-class EnhancedVignetteGenerator:
+class MedicallyAccurateVignetteGenerator:
     def __init__(self, api_key: str, model: str = "gpt-4.1-nano"):
         self.client = OpenAI(api_key=api_key)
         self.model = model
@@ -28,7 +28,6 @@ class EnhancedVignetteGenerator:
             with open(json_file_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
-            # Handle different JSON structures
             if isinstance(data, list):
                 print(f"✅ Loaded {len(data)} diseases from {json_file_path}")
                 return data
@@ -44,27 +43,24 @@ class EnhancedVignetteGenerator:
             return []
 
     def rate_limit_delay(self):
-        """Enhanced rate limiting to avoid hitting API limits"""
+        """Rate limiting to avoid hitting API limits"""
         with self.request_lock:
             self.request_count += 1
-            if self.request_count % 50 == 0:  # Every 50 requests
+            if self.request_count % 50 == 0:
                 print(f"🕐 Rate limiting... Processed {self.request_count} requests")
-                time.sleep(15)  # 15 second pause for safety
+                time.sleep(15)
             else:
-                time.sleep(0.7)  # Slightly longer delay between requests
+                time.sleep(0.7)
 
     def generate_vignette_with_medical_data(
         self, disease_data: Dict, vignette_number: int, variation_type: str = "typical"
     ) -> str:
-        """Generate a vignette using the detailed medical JSON data"""
+        """Generate a medically accurate vignette using the JSON data"""
 
         disease_name = disease_data.get("disease_name", "Unknown Disease")
-        symptoms = disease_data.get("symptoms", [])
-        causes = disease_data.get("causes", [])
-        risk_factors = disease_data.get("risk_factors", [])
 
-        # Create enhanced prompt using medical data
-        prompt = self._create_enhanced_prompt(
+        # Create medically accurate prompt
+        prompt = self._create_medically_accurate_prompt(
             disease_data, vignette_number, variation_type
         )
 
@@ -76,17 +72,17 @@ class EnhancedVignetteGenerator:
                 messages=[
                     {
                         "role": "system",
-                        "content": """You are a board-certified physician and medical educator specializing in creating realistic, detailed patient vignettes for medical training. Your vignettes should be:
-                        - Clinically accurate and based on real medical knowledge
-                        - Educationally valuable for diagnostic training
-                        - Representative of real-world patient presentations
-                        - Varied in complexity and presentation style
-                        - Written from the perspective of a patient's actual experience""",
+                        "content": """You are a board-certified physician and medical educator. Create realistic patient vignettes that are:
+                        - MEDICALLY ACCURATE - respect disease demographics, age/gender patterns, and typical presentations
+                        - EDUCATIONALLY VALUABLE - show realistic symptom patterns and patient presentations
+                        - CLINICALLY AUTHENTIC - written from actual patient encounters
+                        
+                        CRITICAL: Always respect medical accuracy over demographic diversity. If a disease primarily affects women, create female patients. If it affects elderly patients, use appropriate age ranges.""",
                     },
                     {"role": "user", "content": prompt},
                 ],
-                temperature=0.8,  # Creativity for realistic variation
-                max_tokens=1000,  # More space for detailed vignettes
+                temperature=0.7,  # Balanced creativity with accuracy
+                max_tokens=800,
             )
 
             vignette = response.choices[0].message.content.strip()
@@ -101,10 +97,10 @@ class EnhancedVignetteGenerator:
             print(f"❌ Error generating vignette for {disease_name}: {str(e)}")
             return self._create_fallback_vignette(disease_data, vignette_number)
 
-    def _create_enhanced_prompt(
+    def _create_medically_accurate_prompt(
         self, disease_data: Dict, vignette_number: int, variation_type: str
     ) -> str:
-        """Create an enhanced prompt using the medical JSON data"""
+        """Create a medically accurate prompt that respects disease demographics"""
 
         disease_name = disease_data.get("disease_name", "Unknown Disease")
         symptoms = disease_data.get("symptoms", [])
@@ -112,165 +108,180 @@ class EnhancedVignetteGenerator:
         risk_factors = disease_data.get("risk_factors", [])
         prognosis = disease_data.get("prognosis", "")
 
-        # Select symptoms for this vignette (vary by type)
+        # Select different symptom combinations for variation
         if variation_type == "typical":
-            primary_symptoms = symptoms[:4] if len(symptoms) >= 4 else symptoms
-            secondary_symptoms = symptoms[4:6] if len(symptoms) > 4 else []
-        elif variation_type == "atypical":
-            # Mix common and uncommon symptoms
-            primary_symptoms = symptoms[2:5] if len(symptoms) >= 5 else symptoms[:3]
-            secondary_symptoms = (
-                symptoms[:2] + symptoms[5:7] if len(symptoms) > 5 else symptoms[3:]
-            )
-        elif variation_type == "complex":
-            # Include more symptoms and complications
-            primary_symptoms = symptoms[:5] if len(symptoms) >= 5 else symptoms
-            secondary_symptoms = symptoms[5:8] if len(symptoms) > 5 else []
-        else:  # minimal
-            primary_symptoms = symptoms[:2] if len(symptoms) >= 2 else symptoms
-            secondary_symptoms = []
+            # Most common presentation
+            selected_symptoms = symptoms[:5] if len(symptoms) >= 5 else symptoms
+        elif variation_type == "early":
+            # Early/mild presentation
+            selected_symptoms = symptoms[:3] if len(symptoms) >= 3 else symptoms
+        elif variation_type == "severe":
+            # More severe presentation with complications
+            selected_symptoms = symptoms[:7] if len(symptoms) >= 7 else symptoms
+        else:  # mixed
+            # Mixed presentation
+            if len(symptoms) >= 6:
+                selected_symptoms = symptoms[:2] + symptoms[3:6]
+            else:
+                selected_symptoms = symptoms
 
-        # Select risk factors
-        selected_risk_factors = (
-            risk_factors[:3] if len(risk_factors) >= 3 else risk_factors
-        )
-
-        # Create demographic variations
-        demographics = self._generate_demographics(
-            variation_type, selected_risk_factors
+        # Medical accuracy instructions
+        medical_accuracy_note = self._get_medical_accuracy_instructions(
+            disease_name, risk_factors
         )
 
         base_prompt = f"""
-        Create a detailed, realistic patient vignette for: {disease_name}
+        Create a realistic patient vignette for: {disease_name}
 
-        MEDICAL CONTEXT TO INCORPORATE:
-        Primary symptoms to include: {', '.join(primary_symptoms)}
-        {f"Secondary symptoms (optional): {', '.join(secondary_symptoms)}" if secondary_symptoms else ""}
-        Relevant risk factors: {', '.join(selected_risk_factors)}
-        {f"Prognosis context: {prognosis[:200]}..." if prognosis else ""}
+        MEDICAL DATA TO INCORPORATE:
+        Symptoms to include: {', '.join(selected_symptoms)}
+        Risk factors: {', '.join(risk_factors[:4])}
+        Underlying causes: {', '.join(causes[:3])}
+        {f"Clinical context: {prognosis[:150]}..." if prognosis else ""}
 
-        PATIENT DEMOGRAPHICS:
-        {demographics}
+        MEDICAL ACCURACY REQUIREMENTS:
+        {medical_accuracy_note}
 
         VIGNETTE REQUIREMENTS:
-        - Write as a realistic patient presentation, not a textbook case
-        - Include specific age, gender, and relevant demographics  
-        - Present symptoms in natural, patient-like language (not medical terminology)
-        - Include timeline of symptom development
-        - Mention relevant medical history, family history, and social history
-        - Include what brought the patient to seek care
-        - Show realistic patient concerns and descriptions
-        - Length: 200-300 words
-        - Make it sound like a real patient encounter
+        - Create a realistic patient presentation (200-250 words)
+        - Use appropriate demographics for this specific disease
+        - Include specific age and gender that match typical disease patterns
+        - Present symptoms in natural patient language (not medical jargon)
+        - Include realistic timeline of symptom development
+        - Mention relevant medical/family/social history
+        - Show what prompted the patient to seek care
+        - Include realistic patient concerns
 
         VARIATION TYPE: {variation_type.upper()}
         """
 
         # Add variation-specific instructions
         if variation_type == "typical":
-            variation_prompt = """
-            - Create a classic presentation that would be recognizable to medical students
-            - Include the most common symptoms and risk factors
-            - Show clear symptom progression
-            - Make the diagnosis relatively straightforward
+            variation_instructions = """
+            - Create a classic, textbook presentation
+            - Include the most common symptoms for this disease
+            - Use typical demographics and risk factors
+            - Show clear progression that leads to diagnosis
             """
-        elif variation_type == "atypical":
-            variation_prompt = """
-            - Create an unusual or challenging presentation
-            - Include unexpected symptoms or demographics
-            - Add complexity that might lead to diagnostic uncertainty
-            - Show atypical progression or manifestation
+        elif variation_type == "early":
+            variation_instructions = """
+            - Create an early-stage or mild presentation
+            - Show fewer symptoms or less severe manifestations
+            - Patient may be uncertain about seeking care
+            - Symptoms may be developing gradually
             """
-        elif variation_type == "complex":
-            variation_prompt = """
-            - Include multiple comorbidities or complications
-            - Show interaction between different medical conditions
-            - Include symptoms that could suggest multiple diagnoses
-            - Add social or psychological complexity
+        elif variation_type == "severe":
+            variation_instructions = """
+            - Create a more advanced or complicated presentation
+            - Include additional symptoms or complications
+            - Show more urgent or concerning features
+            - Patient may have delayed seeking care
             """
-        else:  # minimal
-            variation_prompt = """
-            - Create a subtle presentation with minimal symptoms
-            - Show early-stage disease or mild manifestation
-            - Include vague or nonspecific complaints
-            - Demonstrate how patients might initially downplay symptoms
+        else:  # mixed
+            variation_instructions = """
+            - Create a mixed presentation with varying symptom severity
+            - Include both early and more developed symptoms
+            - Show realistic complexity in symptom pattern
+            - May include some atypical features
             """
 
-        return (
-            f"{base_prompt}\n{variation_prompt}\n\nGenerate the patient vignette now:"
-        )
+        return f"{base_prompt}\n{variation_instructions}\n\nGenerate the medically accurate patient vignette:"
 
-    def _generate_demographics(
-        self, variation_type: str, risk_factors: List[str]
+    def _get_medical_accuracy_instructions(
+        self, disease_name: str, risk_factors: List[str]
     ) -> str:
-        """Generate appropriate demographics based on variation type and risk factors"""
+        """Generate specific medical accuracy instructions based on disease and risk factors"""
 
-        # Age ranges based on variation type
-        if variation_type == "typical":
-            age_ranges = {
-                "young_adult": (25, 40),
-                "middle_aged": (45, 65),
-                "elderly": (70, 85),
-            }
-        elif variation_type == "atypical":
-            age_ranges = {
-                "young": (18, 30),
-                "unusual_elderly": (85, 95),
-                "unexpected_middle": (35, 50),
-            }
-        else:
-            age_ranges = {"varied": (30, 75)}
+        instructions = []
 
-        # Select age range
-        selected_range = random.choice(list(age_ranges.values()))
-        age = random.randint(selected_range[0], selected_range[1])
-
-        # Gender (roughly balanced)
-        gender = random.choice(["male", "female"])
-
-        # Occupation variety
-        occupations = [
-            "teacher",
-            "nurse",
-            "engineer",
-            "retail worker",
-            "office manager",
-            "construction worker",
-            "student",
-            "retiree",
-            "accountant",
-            "chef",
-            "social worker",
-            "mechanic",
-            "sales representative",
-            "artist",
-        ]
-        occupation = random.choice(occupations)
-
-        # Risk factor integration
-        risk_context = ""
-        if any("smoking" in rf.lower() for rf in risk_factors):
-            risk_context += "- History of tobacco use\n"
-        if any("age" in rf.lower() or "elderly" in rf.lower() for rf in risk_factors):
-            risk_context += f"- Age-related risk factors (patient is {age})\n"
+        # Gender-specific diseases
         if any(
-            "family" in rf.lower() or "genetic" in rf.lower() for rf in risk_factors
+            term in disease_name.lower()
+            for term in [
+                "pregnancy",
+                "postpartum",
+                "peripartum",
+                "maternal",
+                "ovarian",
+                "cervical",
+                "endometrial",
+                "uterine",
+                "breast cancer",
+                "pcos",
+                "polycystic ovary",
+            ]
         ):
-            risk_context += "- Relevant family history\n"
+            instructions.append(
+                "- MUST use female patient - this disease affects women"
+            )
 
-        return f"""
-        Age: {age} years old
-        Gender: {gender}
-        Occupation: {occupation}
-        {risk_context if risk_context else ""}
-        """
+        elif any(
+            term in disease_name.lower()
+            for term in ["prostate", "testicular", "erectile", "male pattern"]
+        ):
+            instructions.append("- MUST use male patient - this disease affects men")
+
+        # Age-specific considerations
+        if any(
+            term in disease_name.lower()
+            for term in [
+                "perinatal",
+                "neonatal",
+                "pediatric",
+                "childhood",
+                "congenital",
+            ]
+        ):
+            instructions.append(
+                "- Use appropriate pediatric age range (newborn to 18 years)"
+            )
+
+        elif any(
+            term in disease_name.lower()
+            for term in ["geriatric", "age-related", "senile", "elderly"]
+        ):
+            instructions.append(
+                "- Use elderly patient (65+ years) - this disease is age-related"
+            )
+
+        # Risk factor analysis
+        for rf in risk_factors[:3]:  # Check first 3 risk factors
+            rf_lower = rf.lower()
+
+            if "female" in rf_lower or "women" in rf_lower:
+                instructions.append("- Prefer female patient based on risk factors")
+            elif "male" in rf_lower or "men" in rf_lower:
+                instructions.append("- Prefer male patient based on risk factors")
+
+            if "age" in rf_lower and any(
+                age_term in rf_lower for age_term in ["older", "elderly", ">", "above"]
+            ):
+                instructions.append(
+                    "- Use older patient (50+ years) based on age-related risk"
+                )
+            elif "young" in rf_lower or "adolescent" in rf_lower:
+                instructions.append("- Use younger patient based on risk factors")
+
+            if "pregnancy" in rf_lower or "postpartum" in rf_lower:
+                instructions.append("- MUST use female patient of childbearing age")
+
+        # Default instruction if no specific requirements
+        if not instructions:
+            instructions.append(
+                "- Use demographics that are medically appropriate for this condition"
+            )
+            instructions.append(
+                "- Consider typical age and gender patterns for this disease"
+            )
+
+        return "\n".join(instructions)
 
     def _validate_vignette(self, vignette: str, disease_name: str) -> str:
-        """Enhanced validation and cleaning of generated vignette"""
-        # Remove unwanted formatting
+        """Clean and validate the generated vignette"""
+        # Remove formatting
         vignette = vignette.replace("**", "").replace("##", "").replace("***", "")
 
-        # Remove any meta-commentary about the vignette
+        # Remove meta-commentary
         lines = vignette.split("\n")
         cleaned_lines = []
         for line in lines:
@@ -296,12 +307,6 @@ class EnhancedVignetteGenerator:
         ):
             vignette = f"A {vignette}"
 
-        # Check length
-        if len(vignette) < 150:
-            print(f"⚠️ Short vignette for {disease_name} ({len(vignette)} chars)")
-        elif len(vignette) > 500:
-            print(f"⚠️ Long vignette for {disease_name} ({len(vignette)} chars)")
-
         return vignette.strip()
 
     def _create_fallback_vignette(
@@ -313,18 +318,18 @@ class EnhancedVignetteGenerator:
 
         basic_symptoms = symptoms[:3] if symptoms else ["various symptoms"]
 
-        return f"""A patient presents to the clinic with {', '.join(basic_symptoms[:2])} and {basic_symptoms[2] if len(basic_symptoms) > 2 else 'related symptoms'}. The patient reports that these symptoms have been affecting their daily activities. Further evaluation is needed to establish the diagnosis of {disease_name}. (Fallback vignette {vignette_number} due to generation error)"""
+        return f"""A patient presents with {', '.join(basic_symptoms[:2])} and {basic_symptoms[2] if len(basic_symptoms) > 2 else 'related symptoms'}. The patient reports these symptoms have been concerning them and affecting their daily activities. Medical evaluation is being sought for proper diagnosis and management of {disease_name}. (Fallback vignette {vignette_number})"""
 
 
 def generate_vignettes_for_disease_with_data(args):
-    """Generate multiple vignettes for a single disease using medical data"""
+    """Generate multiple medically accurate vignettes for a single disease"""
     disease_data, num_vignettes, api_key, model = args
-    generator = EnhancedVignetteGenerator(api_key, model)
+    generator = MedicallyAccurateVignetteGenerator(api_key, model)
 
     disease_name = disease_data.get("disease_name", "Unknown Disease")
 
-    # Define variation types for multiple vignettes
-    variation_types = ["typical", "atypical", "complex", "minimal"]
+    # Variation types focused on medical presentation, not demographics
+    variation_types = ["typical", "early", "severe", "mixed"]
 
     vignettes = []
     for i in range(num_vignettes):
@@ -359,13 +364,12 @@ def generate_vignettes_from_medical_json(
     medical_json_file: str,
     api_key: str,
     num_vignettes_per_disease: int = 2,
-    output_file: str = "medical_research_results1.json",
+    output_file: str = "medically_accurate_vignettes.json",
     max_workers: int = 12,
 ):
-    """Generate vignettes from medical JSON data file"""
+    """Generate medically accurate vignettes from medical JSON data"""
 
-    # Load medical data
-    generator = EnhancedVignetteGenerator(api_key, model)
+    generator = MedicallyAccurateVignetteGenerator(api_key, model)
     medical_data = generator.load_medical_data(medical_json_file)
 
     if not medical_data:
@@ -373,19 +377,17 @@ def generate_vignettes_from_medical_json(
         return {}
 
     print(
-        f"🏥 Generating {num_vignettes_per_disease} vignettes for {len(medical_data)} diseases"
+        f"🏥 Generating {num_vignettes_per_disease} MEDICALLY ACCURATE vignettes for {len(medical_data)} diseases"
     )
     print(
         f"📊 Total vignettes to generate: {len(medical_data) * num_vignettes_per_disease}"
     )
 
-    # Prepare arguments for multiprocessing
     args_list = [
-        (disease_data, num_vignettes_per_disease, api_key, "gpt-4o")
+        (disease_data, num_vignettes_per_disease, api_key, model)
         for disease_data in medical_data
     ]
 
-    # Generate vignettes
     results = {}
     completed = 0
 
@@ -399,9 +401,7 @@ def generate_vignettes_from_medical_json(
 
         for future in future_to_disease:
             try:
-                disease_name, vignettes = future.result(
-                    timeout=600
-                )  # 10 minute timeout
+                disease_name, vignettes = future.result(timeout=600)
                 results[disease_name] = vignettes
                 completed += 1
 
@@ -413,7 +413,6 @@ def generate_vignettes_from_medical_json(
             except Exception as e:
                 disease_name = future_to_disease[future]
                 print(f"❌ Failed to generate vignettes for {disease_name}: {e}")
-                # Create fallback vignettes
                 fallback_vignettes = []
                 for i in range(num_vignettes_per_disease):
                     fallback_vignettes.append(
@@ -425,16 +424,17 @@ def generate_vignettes_from_medical_json(
                     )
                 results[disease_name] = fallback_vignettes
 
-    # Save results with enhanced metadata
+    # Save results
     output_data = {
         "metadata": {
             "source_file": medical_json_file,
             "total_diseases": len(medical_data),
             "vignettes_per_disease": num_vignettes_per_disease,
             "total_vignettes": len(medical_data) * num_vignettes_per_disease,
-            "generation_model": "gpt-4o",
-            "variation_types": ["typical", "atypical", "complex", "minimal"],
+            "generation_model": model,
+            "variation_types": ["typical", "early", "severe", "mixed"],
             "generation_timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "focus": "medically_accurate_presentations",
         },
         "vignettes": results,
     }
@@ -442,7 +442,7 @@ def generate_vignettes_from_medical_json(
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
 
-    print(f"\n✅ Completed! Enhanced vignettes saved to: {output_file}")
+    print(f"\n✅ Completed! Medically accurate vignettes saved to: {output_file}")
 
     # Summary statistics
     total_vignettes = sum(len(vignettes) for vignettes in results.values())
@@ -456,96 +456,27 @@ def generate_vignettes_from_medical_json(
     print(f"   Total diseases processed: {len(medical_data)}")
     print(f"   Successful diseases: {successful_diseases}")
     print(f"   Total vignettes generated: {total_vignettes}")
-    print(f"   Average vignettes per disease: {total_vignettes/len(medical_data):.1f}")
-
-    # Show variation type distribution
-    variation_counts = {}
-    for disease_vignettes in results.values():
-        for vignette_data in disease_vignettes:
-            var_type = vignette_data.get("variation_type", "unknown")
-            variation_counts[var_type] = variation_counts.get(var_type, 0) + 1
-
-    print(f"\n📋 VARIATION TYPE DISTRIBUTION:")
-    for var_type, count in variation_counts.items():
-        percentage = (count / total_vignettes) * 100
-        print(f"   {var_type}: {count} ({percentage:.1f}%)")
+    print(f"   Medical accuracy prioritized over demographic diversity")
 
     return results
 
 
-def validate_enhanced_vignettes(results_file: str):
-    """Validate the quality of enhanced generated vignettes"""
-    with open(results_file, "r", encoding="utf-8") as f:
-        data = json.load(f)
-
-    vignettes_data = data["vignettes"]
-
-    print("\n🔍 ENHANCED VIGNETTE QUALITY VALIDATION:")
-
-    # Quality metrics
-    error_count = 0
-    short_count = 0
-    good_count = 0
-    variation_counts = {}
-
-    for disease, disease_vignettes in vignettes_data.items():
-        for vignette_data in disease_vignettes:
-            vignette = vignette_data.get("vignette", "")
-            var_type = vignette_data.get("variation_type", "unknown")
-
-            # Count variation types
-            variation_counts[var_type] = variation_counts.get(var_type, 0) + 1
-
-            # Quality assessment
-            if "Error" in vignette or "error" in vignette:
-                error_count += 1
-            elif len(vignette) < 150:
-                short_count += 1
-            else:
-                good_count += 1
-
-    total = error_count + short_count + good_count
-
-    print(f"   ✅ Good quality vignettes: {good_count} ({good_count/total*100:.1f}%)")
-    print(f"   ⚠️ Short vignettes: {short_count} ({short_count/total*100:.1f}%)")
-    print(f"   ❌ Error vignettes: {error_count} ({error_count/total*100:.1f}%)")
-
-    print(f"\n📊 VARIATION TYPE BREAKDOWN:")
-    for var_type, count in variation_counts.items():
-        percentage = (count / total) * 100
-        print(f"   {var_type}: {count} ({percentage:.1f}%)")
-
-    # Show sample vignettes
-    print(f"\n📋 SAMPLE VIGNETTES BY VARIATION TYPE:")
-    sample_diseases = list(vignettes_data.keys())[:2]
-    for disease in sample_diseases:
-        print(f"\n{disease}:")
-        for vignette_data in vignettes_data[disease][:2]:  # Show first 2 variations
-            var_type = vignette_data.get("variation_type", "unknown")
-            vignette = vignette_data.get("vignette", "")
-            print(f"   [{var_type.upper()}]: {vignette[:200]}...")
-
-
 if __name__ == "__main__":
     # Configuration
-    API_KEY = "api"
-    MEDICAL_JSON_FILE = "/Users/owner/Downloads/coding projects/AMIE-app/medical_research_results.json"  # Your JSON file with disease data
-    NUM_VIGNETTES_PER_DISEASE = 4  # Generate 4 variations per disease
-    OUTPUT_FILE = "enhanced_medical_vignettes_from_json.json"
-    MAX_WORKERS = 12  # Adjust based on your API rate limits
+    API_KEY = "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"
+    MEDICAL_JSON_FILE = "combined.json"
+    NUM_VIGNETTES_PER_DISEASE = 2
+    OUTPUT_FILE = "medically_accurate_vignettes.json"
+    MAX_WORKERS = 12
 
-    print("🏥 ENHANCED MEDICAL VIGNETTE GENERATOR WITH JSON DATA")
-    print("=" * 60)
+    print("🏥 MEDICALLY ACCURATE VIGNETTE GENERATOR")
+    print("=" * 50)
+    print("🎯 Prioritizing medical accuracy over demographic diversity")
 
-    # Check if medical JSON file exists
     if not os.path.exists(MEDICAL_JSON_FILE):
         print(f"❌ Medical JSON file not found: {MEDICAL_JSON_FILE}")
-        print(
-            "Please ensure your medical disease JSON file is in the current directory."
-        )
         exit(1)
 
-    # Generate vignettes using medical JSON data
     results = generate_vignettes_from_medical_json(
         medical_json_file=MEDICAL_JSON_FILE,
         api_key=API_KEY,
@@ -554,12 +485,4 @@ if __name__ == "__main__":
         max_workers=MAX_WORKERS,
     )
 
-    # Validate results
-    validate_enhanced_vignettes(OUTPUT_FILE)
-
-    print(
-        f"\n🚀 Ready for training! Use {OUTPUT_FILE} as input for your conversation generation pipeline."
-    )
-    print(
-        f"📁 Make sure to also keep {MEDICAL_JSON_FILE} for the adaptive hinting system!"
-    )
+    print(f"\n🚀 Ready for training! Medically accurate vignettes in: {OUTPUT_FILE}")
