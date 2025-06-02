@@ -1,6 +1,8 @@
+'use client';
+
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { fadeInUp } from "../animations/fades"
+import { fadeInUp, defaultTransition } from "@/app/lib/utils";
 
 export default function About() {
     return (
@@ -9,20 +11,35 @@ export default function About() {
         {/* Left: Heading and Paragraph */}
         <div className="flex-1">
             <motion.h2 
+            variants={fadeInUp}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            transition={defaultTransition}
             className="text-5xl font-bold mb-6 text-white font-serif"
-            {...fadeInUp}
             >
             About<br/>Bluebox.ai
             </motion.h2>
             <motion.p 
+            variants={fadeInUp}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            transition={{ ...defaultTransition, delay: 0.2 }}
             className="text-xl text-white leading-relaxed"
-            {...fadeInUp}
             >
             Bluebox.ai is your trusted AI companion for health, productivity, and life. Our mission is to bridge minds and healthcare, making advanced AI accessible and helpful for everyone.
             </motion.p>
         </div>
         {/* Right: Image container */}
-        <div className="flex-1 flex items-center justify-center">
+        <motion.div 
+        variants={fadeInUp}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        transition={{ ...defaultTransition, delay: 0.4 }}
+        className="flex-1 flex items-center justify-center"
+        >
             <div className="w-full h-full max-w-[800px] rounded-xl overflow-hidden">
             <Image 
                 src="/about.jpg" 
@@ -33,7 +50,7 @@ export default function About() {
                 priority
             />
             </div>
-        </div>
+        </motion.div>
         </div>
         </section>
     )

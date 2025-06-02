@@ -1,42 +1,39 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconMenu2, IconX } from '@tabler/icons-react';
+import { useScrollEffect, useMobileMenu, useBlueboxAnimation } from '@/app/lib/hooks';
+import { slideDown, fadeInUp, quickTransition } from '@/app/lib/utils';
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isScrolled = useScrollEffect(50);
+  const { isOpen: isMobileMenuOpen, toggle: toggleMobileMenu, close: closeMobileMenu } = useMobileMenu();
+  const { isAnimationStarted, handleGetStartedClick } = useBlueboxAnimation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+  const navLinks = [
+    { href: '#features', label: 'Features' },
+    { href: '#benefits', label: 'Benefits' },
+    { href: '#testimonials', label: 'Testimonials' }
+  ];
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleGetStartedClick = () => {
-    // First scroll to top smoothly
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    // Wait for scroll to complete, then trigger bluebox animation
-    setTimeout(() => {
-      // Dispatch custom event that Box3D component will listen for
-      window.dispatchEvent(new CustomEvent('triggerBlueboxAnimation'));
-    }, 800); // Wait for scroll animation to complete
+  const handleMobileGetStarted = () => {
+    closeMobileMenu();
+    handleGetStartedClick();
   };
 
   return (
     <>
       <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        variants={slideDown}
+        initial="initial"
+        animate="animate"
+        transition={quickTransition}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled ? 'bg-neutral-900/95 backdrop-blur-md' : 'bg-transparent'
+        } ${
+          isAnimationStarted ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,15 +52,15 @@ export default function Navigation() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="#features" className="text-gray-300 hover:text-white transition-colors">
-                Features
-              </Link>
-              <Link href="#benefits" className="text-gray-300 hover:text-white transition-colors">
-                Benefits
-              </Link>
-              <Link href="#testimonials" className="text-gray-300 hover:text-white transition-colors">
-                Testimonials
-              </Link>
+              {navLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  {label}
+                </Link>
+              ))}
               <button 
                 onClick={handleGetStartedClick}
                 className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
@@ -75,13 +72,10 @@ export default function Navigation() {
             {/* Mobile menu button */}
             <button
               className="md:hidden text-gray-300 hover:text-white"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={toggleMobileMenu}
+              aria-label="Toggle mobile menu"
             >
-              {isMobileMenuOpen ? (
-                <IconX className="h-6 w-6" />
-              ) : (
-                <IconMenu2 className="h-6 w-6" />
-              )}
+              {isMobileMenuOpen ? <IconX className="h-6 w-6" /> : <IconMenu2 className="h-6 w-6" />}
             </button>
           </div>
         </div>
@@ -89,41 +83,29 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {isMobileMenuOpen && !isAnimationStarted && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            variants={fadeInUp}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={quickTransition}
             className="fixed inset-0 z-40 bg-neutral-900 md:hidden"
           >
             <div className="pt-20 p-4">
               <div className="flex flex-col space-y-4">
-                <Link
-                  href="#features"
-                  className="text-gray-300 hover:text-white transition-colors text-lg py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Features
-                </Link>
-                <Link
-                  href="#benefits"
-                  className="text-gray-300 hover:text-white transition-colors text-lg py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Benefits
-                </Link>
-                <Link
-                  href="#testimonials"
-                  className="text-gray-300 hover:text-white transition-colors text-lg py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Testimonials
-                </Link>
+                {navLinks.map(({ href, label }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="text-gray-300 hover:text-white transition-colors text-lg py-2"
+                    onClick={closeMobileMenu}
+                  >
+                    {label}
+                  </Link>
+                ))}
                 <button
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    handleGetStartedClick();
-                  }}
+                  onClick={handleMobileGetStarted}
                   className="bg-blue-600 text-white px-6 py-3 rounded-full text-center hover:bg-blue-700 transition-colors"
                 >
                   Get Started

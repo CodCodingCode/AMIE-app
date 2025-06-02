@@ -50,42 +50,50 @@ export default function SettingsPage() {
       variants={pageAnimationVariants}
     >
       {/* Header */}
-      <header className="bg-neutral-900 border-b border-trueBlue p-4 flex items-center">
-        <BackButton />
-        <h1 className="text-2xl font-serif text-dukeBlue font-semibold mx-auto pr-10">
-          Settings
-        </h1>
+      <header className="bg-neutral-900 border-b border-neutral-700 p-6">
+        <div className="max-w-4xl mx-auto flex items-center">
+          <BackButton 
+            to="/chat"
+            label="Back to Dashboard"
+            variant="outlined"
+            size="md"
+            className="mr-6"
+          />
+          <h1 className="text-2xl font-serif text-blue-400 font-semibold">
+            Settings
+          </h1>
+        </div>
       </header>
 
       {/* Main content */}
       <main className="max-w-2xl mx-auto p-6">
         <motion.section 
           variants={childAnimationVariants}
-          className="mb-8 bg-trueBlue rounded-lg p-6 shadow-sm"
+          className="mb-8 bg-neutral-800 rounded-lg p-6 shadow-sm border border-neutral-700"
         >
-          <h2 className="text-xl font-semibold text-dukeBlue mb-4 font-serif">
+          <h2 className="text-xl font-semibold text-blue-400 mb-4 font-serif">
             Account
           </h2>
           {user ? (
             <div className="space-y-4">
-              <div className="bg-white p-4 rounded-lg border border-trueBlue">
-                <p className="text-mountbattenPink text-sm">
+              <div className="bg-neutral-700 p-4 rounded-lg border border-neutral-600">
+                <p className="text-pink-400 text-sm">
                   Signed in as
                 </p>
-                <p className="font-medium text-dukeBlue">
+                <p className="font-medium text-blue-300">
                   {user.email}
                 </p>
               </div>
               <button
                 onClick={handleSignOut}
-                className="flex items-center px-4 py-2 border border-mountbattenPink text-mountbattenPink hover:bg-mountbattenPink hover:text-white rounded-lg transition-colors font-medium"
+                className="flex items-center px-4 py-2 border border-pink-500 text-pink-400 hover:bg-pink-500 hover:text-white rounded-lg transition-colors font-medium"
               >
                 <IconLogout size={18} className="mr-2" />
                 Sign Out
               </button>
             </div>
           ) : (
-            <p className="text-mountbattenPink">
+            <p className="text-pink-400">
               Not signed in
             </p>
           )}
@@ -93,7 +101,7 @@ export default function SettingsPage() {
 
         <motion.section 
           variants={childAnimationVariants}
-          className="bg-trueBlue rounded-lg p-6 text-center text-mountbattenPink text-sm shadow-sm"
+          className="bg-neutral-800 rounded-lg p-6 text-center text-pink-400 text-sm shadow-sm border border-neutral-700"
         >
           <p>
             Version 1.0.0

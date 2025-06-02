@@ -1,64 +1,48 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Sidebar, SidebarMenu } from './sidebar';
 import ChatWindow from './chatwindow';
-import { motion } from 'framer-motion';
 
 // Simple page that shows the chat interface for all users
 export default function ChatPage() {
-  // Removed auto-creation of new chat on page load - only create when user clicks "New Chat"
+  const searchParams = useSearchParams();
+  const chatId = searchParams.get('id');
+  const [isInitialized, setIsInitialized] = useState(false);
 
-  // Animation variants for fade-in
-  const pageAnimationVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeInOut",
-        when: "beforeChildren",
-        staggerChildren: 0.2
-      }
+  // Load specific chat when URL contains chat ID
+  useEffect(() => {
+    // Mark as initialized immediately to prevent flickering
+    setIsInitialized(true);
+    
+    if (chatId && typeof window !== 'undefined' && window.loadChat) {
+      // Minimal delay only for ensuring DOM is ready
+      const timer = setTimeout(() => {
+        window.loadChat?.(chatId);
+      }, 50);
+      return () => clearTimeout(timer);
     }
-  };
+  }, [chatId]);
 
-  const childAnimationVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.4,
-        ease: "easeOut"
-      }
-    }
-  };
-
+  // Simple fade-in without complex staggering
   return (
-    <motion.div 
-      className="relative h-screen bg-neutral-900 overflow-hidden"
-      initial="hidden"
-      animate="visible"
-      variants={pageAnimationVariants}
+    <div 
+      className={`relative h-screen bg-neutral-900 overflow-hidden transition-opacity duration-300 ${
+        isInitialized ? 'opacity-100' : 'opacity-0'
+      }`}
     >
       {/* Main content takes full width */}
-      <motion.div 
-        className="w-full h-full"
-        variants={childAnimationVariants}
-      >
+      <div className="w-full h-full">
         <ChatWindow />
-      </motion.div>
+      </div>
       
       {/* Sidebar overlays on top with fixed positioning */}
-      <motion.div 
-        className="fixed top-0 left-0 h-full z-50"
-        variants={childAnimationVariants}
-      >
+      <div className="fixed top-0 left-0 h-full z-50">
         <Sidebar>
           <SidebarMenu />
         </Sidebar>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }

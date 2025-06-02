@@ -1,408 +1,324 @@
 'use client';
 
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-// Importing React and necessary hooks:
-// - useState: for managing component state
-// - useRef: for referencing DOM elements
-// - useEffect: for side effects like scrolling
-// - useCallback: for optimizing function performance
-
-import { IconSend, IconTrash } from '@tabler/icons-react'; // Added IconTrash for delete functionality
+import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { IconSend, IconUser, IconSparkles } from '@tabler/icons-react';
 import { ColourfulText } from './colourful';
 import TextareaAutosize from 'react-textarea-autosize';
-import { motion } from 'framer-motion';
 import { useAuth, AuthButton } from './Auth';
-import { chatService, ChatMessage as ServiceChatMessage } from './chatService'; // Renamed to avoid conflict
+import { chatService, ChatMessage as ServiceChatMessage, Chat } from './chatService';
+import { dispatchCustomEvent, formatDate } from '@/app/lib/utils';
+import { useGlobalFunctions } from '@/app/lib/hooks';
+import { motion, AnimatePresence } from 'framer-motion';
 
-// Defining TypeScript types for our messages
-type MessageSender = 'user' | 'assistant'; // Message can be from user or assistant
-type Message = { text: string; sender: MessageSender }; // A message has text and a sender
-// API message format
-type ApiMessage = {
-  role: 'user' | 'assistant' | 'system';
-  content: string;
+type MessageSender = 'user' | 'assistant';
+type Message = { text: string; sender: MessageSender; timestamp?: Date };
+type ApiMessage = { role: 'user' | 'assistant' | 'system'; content: string };
+
+const TypingIndicator = () => (
+  <div className="flex items-center space-x-2 mb-6">
+    <IconSparkles className="w-5 h-5 text-blue-500 animate-pulse" />
+    <p className="text-sm text-gray-500 dark:text-gray-400">Assistant is typing...</p>
+  </div>
+);
+
+const WelcomeMessage = () => (
+  <motion.div 
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    className="text-center py-12"
+  >
+    <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
+      Welcome to <span className="text-blue-600 dark:text-blue-400">Bluebox</span>
+    </h1>
+    <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
+      How can I help you today?
+    </p>
+    <ColourfulText text="Bluebox AI" size="large" />
+  </motion.div>
+);
+
+const MessageBubble: React.FC<{ message: Message, index: number }> = ({ message, index }) => {
+  const isUser = message.sender === 'user';
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, delay: index * 0.05 }}
+      className={`flex mb-4 ${isUser ? 'justify-end' : 'justify-start'}`}
+    >
+      <div className={`p-3 rounded-lg max-w-lg lg:max-w-xl xl:max-w-2xl shadow-md ${isUser 
+        ? 'bg-blue-600 text-white rounded-br-none' 
+        : 'bg-neutral-700 text-gray-200 rounded-bl-none'
+      }`}>
+        <p className="text-sm whitespace-pre-wrap">{message.text}</p>
+        {message.timestamp && (
+          <p className={`text-xs mt-1 ${isUser ? 'text-blue-200' : 'text-gray-400'} text-right`}>
+            {formatDate(message.timestamp)}
+          </p>
+        )}
+      </div>
+    </motion.div>
+  );
 };
 
 export default function ChatWindow() {
   const { user, loading: authLoading } = useAuth();
+  const searchParams = useSearchParams();
+  const urlChatId = searchParams.get('id');
   
-  const [chatState, setChatState] = useState<{
-    messages: Message[];
-    input: string;
-    isTyping: boolean;
-    partialResponse: string;
-    inputHeight: number;
-    isProcessing: boolean; // For sending a message
-    isLoadingNewChat: boolean; // For initial new chat creation on load
-    isChatLoading: boolean;    // For loading an existing chat from sidebar
-    currentChatId: string | null;
-    isDeleteDialogOpen: boolean;
-    isDeleting: boolean;
-  }>({
-    messages: [],
-    input: '',
-    isTyping: false,
-    partialResponse: '',
-    inputHeight: 56,
-    isProcessing: false,
-    isLoadingNewChat: false, // Don't auto-create, wait for user action
-    isChatLoading: false,
-    currentChatId: null,
-    isDeleteDialogOpen: false,
-    isDeleting: false,
-  });
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const [currentChatId, setCurrentChatId] = useState<string | null>(urlChatId);
+  const [isLoading, setIsLoading] = useState(!!urlChatId);
+  const [error, setError] = useState<string | null>(null);
 
-  // Creating a reference to the bottom of our messages container
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const chatContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  
-  // Destructuring our state for easier access
-  const { 
-    messages, 
-    input, 
-    isTyping, 
-    partialResponse, 
-    inputHeight, 
-    isProcessing, 
-    isLoadingNewChat, 
-    isChatLoading, 
-    currentChatId, 
-    isDeleteDialogOpen,
-    isDeleting
-  } = chatState;
 
-  // Function to create a new chat
-  const createNewChat = useCallback(async () => {
-    setChatState(prev => ({ ...prev, isLoadingNewChat: true }));
-    let newChatIdFromService: string | null = null;
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
-    if (!user) {
-      // For guest users, just reset local state for a new chat
-      setChatState(prev => ({
-        ...prev,
-        messages: [],
-        currentChatId: null,
-        isLoadingNewChat: false,
-      }));
-      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('refreshChatList'));
-      return null;
+  const handleApiStream = async (reader: ReadableStreamDefaultReader<Uint8Array>, chatIdToUpdate: string) => {
+    const decoder = new TextDecoder();
+    let accumulatedText = '';
+    setMessages(prev => [...prev, { text: '', sender: 'assistant' }]); // Add empty assistant message for streaming
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) {
+        setIsTyping(false);
+        if (user) {
+          await chatService.addMessageToChat(chatIdToUpdate, { text: accumulatedText, sender: 'assistant' });
+          dispatchCustomEvent('refreshChatList');
+        }
+        break;
+      }
+      accumulatedText += decoder.decode(value, { stream: true });
+      setMessages(prev => 
+        prev.map((msg, i) => i === prev.length -1 ? { ...msg, text: accumulatedText, timestamp: new Date() } : msg)
+      );
     }
-    
-    try {
-      newChatIdFromService = await chatService.createNewChat(user); // No initial messages by default now
-      setChatState(prev => ({
-        ...prev,
-        messages: [],
-        currentChatId: newChatIdFromService,
-        isLoadingNewChat: false,
-      }));
-      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('refreshChatList'));
-      return newChatIdFromService;
-    } catch (error) {
-      console.error('Error creating new chat:', error);
-      setChatState(prev => ({ ...prev, isLoadingNewChat: false }));
-      return null;
-    }
-  }, [user]);
+  };
 
-  // Removed auto-creation of new chat on page load - only create when explicitly requested
+  const processSendMessage = async (text: string, currentChatIdToUse: string | null) => {
+    setIsTyping(true);
+    setError(null);
+    let activeChatId = currentChatIdToUse;
 
-  // Notify sidebar of message count changes
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const event = new CustomEvent('messageCountUpdate', { detail: { count: messages.length } });
-      window.dispatchEvent(event);
-    }
-  }, [messages.length]);
-
-  // Auto-scroll effect
-  useEffect(() => {
-    if (messagesEndRef.current && !isChatLoading) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [messages, isTyping, partialResponse, isChatLoading]);
-
-  // Handle changes to the input textarea
-  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setChatState(prev => ({ ...prev, input: e.target.value }));
-  }, []);
-
-  // Handle input height changes
-  const handleHeightChange = useCallback((height: number) => {
-    setChatState(prev => ({ ...prev, inputHeight: height }));
-  }, []);
-
-  // Handle sending a message and receiving a response
-  const handleSendMessage = useCallback(async () => {
-    if (!input.trim() || isProcessing) return;
-
-    const userMessage: Message = { text: input.trim(), sender: 'user' };
-    let activeChatId = currentChatId;
-
-    setChatState(prev => ({
-      ...prev,
-      messages: [...prev.messages, userMessage],
-      input: '',
-      isTyping: true,
-      partialResponse: '',
-      isProcessing: true
-    }));
-    
     try {
       if (user) {
         if (!activeChatId) {
-          const newId = await createNewChat(); // This will also set currentChatId in state
-          if (newId) activeChatId = newId;
-          else {
-            setChatState(prev => ({ ...prev, isTyping: false, isProcessing: false }));
-            console.error("Failed to create new chat before sending message.");
-            return; // Early exit if chat creation failed
-          }
+          const newId = await chatService.createNewChat(user);
+          if (!newId) throw new Error('Failed to create new chat.');
+          activeChatId = newId;
+          setCurrentChatId(newId);
+          dispatchCustomEvent('refreshChatList');
+          dispatchCustomEvent('currentChatUpdate', { detail: { chatId: newId } });
         }
-        await chatService.addMessageToChat(activeChatId!, userMessage as Omit<ServiceChatMessage, 'timestamp'>);
-        if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('refreshChatList'));
+        await chatService.addMessageToChat(activeChatId, { text, sender: 'user' });
       }
 
-      const historyForApi: ApiMessage[] = [...messages, userMessage].map(msg => ({
-        role: msg.sender,
-        content: msg.text
-      }));
+      const historyForApi: ApiMessage[] = messages.map(msg => ({ role: msg.sender, content: msg.text }));
+      historyForApi.push({role: 'user', content: text}); // Add current user message to history for API call
 
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMessage.text, history: historyForApi }),
+        body: JSON.stringify({ message: text, history: historyForApi }),
       });
 
-      if (!response.ok || !response.body) {
-        throw new Error(`Server error: ${response.status}`);
-      }
+      if (!response.ok || !response.body) throw new Error(`Server error: ${response.status}`);
+      if (!activeChatId) throw new Error('Chat ID became null during processing');
 
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder();
-      let accumulatedText = '';
+      await handleApiStream(response.body.getReader(), activeChatId);
 
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) {
-          const assistantMessage: Message = { text: accumulatedText, sender: 'assistant' };
-          if (user && activeChatId) {
-            await chatService.addMessageToChat(activeChatId, assistantMessage as Omit<ServiceChatMessage, 'timestamp'>);
-            if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('refreshChatList'));
-          }
-          setChatState(prev => ({
-            ...prev,
-            messages: [...prev.messages, assistantMessage],
-            isTyping: false,
-            partialResponse: '',
-            isProcessing: false
-          }));
-          break;
-        }
-        const chunkText = decoder.decode(value, { stream: true });
-        accumulatedText += chunkText;
-        setChatState(prev => ({ ...prev, partialResponse: accumulatedText }));
-      }
-    } catch (error) {
-      console.error('Error sending message:', error);
-      setChatState(prev => ({ ...prev, isTyping: false, isProcessing: false }));
+    } catch (err: any) {
+      console.error('Error sending message:', err);
+      setError(err.message || 'Failed to send message');
+      setIsTyping(false);
     }
-  }, [input, messages, isProcessing, user, currentChatId, createNewChat]);
+  };
 
-  // Function to load a specific chat
+  const handleSendMessage = () => {
+    const trimmedInput = input.trim();
+    if (!trimmedInput || isTyping) return;
+    
+    const userMessage: Message = { text: trimmedInput, sender: 'user', timestamp: new Date() };
+    setMessages(prev => [...prev, userMessage]);
+    setInput('');
+    processSendMessage(trimmedInput, currentChatId);
+  };
+
   const loadChat = useCallback(async (chatId: string) => {
-    if (!user) return; // Should not happen if UI hides load options for guests
-    setChatState(prev => ({ ...prev, isChatLoading: true, messages: [], currentChatId: null })); // Clear current before loading
+    if (!user) {
+      setIsLoading(false);
+      return;
+    }
+    setIsLoading(true);
+    setError(null);
     try {
       const chat = await chatService.getChat(chatId);
       if (chat) {
-        setChatState(prev => ({
-          ...prev,
-          messages: chat.messages.map(msg => ({ text: msg.text, sender: msg.sender as MessageSender })),
-          currentChatId: chatId,
-          isChatLoading: false,
-          isLoadingNewChat: false, // Loaded an existing chat
-        }));
+        setMessages(chat.messages.map(msg => ({ text: msg.text, sender: msg.sender as MessageSender, timestamp: msg.timestamp })));
+        setCurrentChatId(chat.id);
+        dispatchCustomEvent('currentChatUpdate', { detail: { chatId: chat.id } });
       } else {
-        console.error("Failed to load chat, or chat does not exist.");
-        setChatState(prev => ({ ...prev, isChatLoading: false, isLoadingNewChat: true })); // Fallback to new chat logic
+        setError('Chat not found.');
+        setMessages([]);
+        setCurrentChatId(null);
+        // Optionally, redirect or show a clear "chat not found" message
+        // router.replace('/chat'); // If using next/router
       }
-    } catch (error) {
-      console.error('Error loading chat:', error);
-      setChatState(prev => ({ ...prev, isChatLoading: false, isLoadingNewChat: true })); // Fallback
+    } catch (err: any) {
+      console.error('Error loading chat:', err);
+      setError(err.message || 'Failed to load chat');
+    } finally {
+      setIsLoading(false);
     }
   }, [user]);
 
-  // Make loadChat and createNewChat available globally
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      (window as any).loadChat = loadChat;
-      (window as any).createNewChat = createNewChat; // No EHR summary to pass now
+  const createNewChat = useCallback(async () => {
+    if (!user) {
+      setMessages([]);
+      setCurrentChatId(null);
+      dispatchCustomEvent('refreshChatList');
+      dispatchCustomEvent('currentChatUpdate', { detail: { chatId: null }});
+      // Consider prompting for sign-in
+      return;
     }
-    // Cleanup global assignments
-    return () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const newChatId = await chatService.createNewChat(user);
+      setMessages([]);
+      setCurrentChatId(newChatId);
+      dispatchCustomEvent('refreshChatList');
+      dispatchCustomEvent('currentChatUpdate', { detail: { chatId: newChatId } });
       if (typeof window !== 'undefined') {
-        delete (window as any).loadChat;
-        delete (window as any).createNewChat;
-        delete (window as any).deleteCurrentChat;
+        // Update URL without full page reload for better UX
+        history.pushState({}, '', `/chat?id=${newChatId}`);
       }
-    };
-  }, [loadChat, createNewChat, currentChatId, user]); // Added user here
+    } catch (err: any) {
+      console.error('Error creating new chat:', err);
+      setError(err.message || 'Failed to create chat');
+    } finally {
+      setIsLoading(false);
+    }
+  }, [user]);
 
-  // Function to render each message bubble
-  const renderMessage = useCallback((message: Message, index: number) => (
-    <div
-      key={index}
-      className={`message mb-6 animate-fadeIn ${
-        message.sender === 'user' ? 'flex justify-end' : ''
-      }`}
-    >
-      {message.sender === 'user' ? (
-        // User message - displayed in blue bubble at top right
-        <div className="max-w-xs bg-gray-800 text-white p-4 rounded-2xl rounded-tr-sm shadow-sm">
-          <p className="text-sm whitespace-pre-wrap">{message.text}</p>
-        </div>
-      ) : (
-        // Assistant message - displayed differently
-        <div className="max-w-full text-gray-800 dark:text-gray-200 py-2 text-lg leading-relaxed">
-          <p className="whitespace-pre-wrap">{message.text}</p>
-        </div>
-      )}
-    </div>
-  ), []);
+  // Effect for URL changes
+  useEffect(() => {
+    if (urlChatId && urlChatId !== currentChatId) {
+      loadChat(urlChatId);
+    } else if (!urlChatId && currentChatId) {
+      // Navigated away from a specific chat to /chat (new chat implicitly)
+      setMessages([]);
+      setCurrentChatId(null);
+      setError(null);
+      setIsLoading(false); 
+    } else if (!urlChatId && !currentChatId && !isLoading && user) {
+      // If at /chat, no current chat ID, not loading, and user is logged in, create one automatically
+      // This might be too aggressive, consider a button or a more explicit action
+      // createNewChat(); 
+    } else if (!user && !authLoading) {
+      // User signed out or not logged in, clear chat state
+      setMessages([]);
+      setCurrentChatId(null);
+      setIsLoading(false);
+    }
+  }, [urlChatId, user, authLoading, currentChatId, loadChat, isLoading]);
+ 
+  // Expose loadChat and createNewChat globally (used by sidebar)
+  useGlobalFunctions(useMemo(() => ({ loadChat, createNewChat }), [loadChat, createNewChat]));
+
+  useEffect(scrollToBottom, [messages, isTyping]);
+
+  // Focus input on initial load or when chat ID changes
+  useEffect(() => {
+    if (inputRef.current && (!isLoading || currentChatId)) {
+      inputRef.current.focus();
+    }
+  }, [isLoading, currentChatId]);
+
+  const showWelcomeMessage = !isLoading && messages.length === 0 && !isTyping && !error;
 
   return (
-    <div className="flex-1 flex flex-col h-screen">
-      <div
-        ref={chatContainerRef}
-        className="flex-1 flex flex-col max-w-5xl mx-auto w-full px-4 relative overflow-hidden"
-      >
-        {/* Display sign-in prompt for unauthenticated users */}
+    <div className="flex flex-col h-screen bg-neutral-900 text-white">
+      <div className="flex-1 flex flex-col max-w-3xl mx-auto w-full px-4 pt-6 pb-20 relative overflow-hidden">
         {!user && !authLoading && (
-          <div className="bg-blue-50 dark:bg-blue-900/30 rounded-lg p-4 mb-4 mt-4 flex items-center justify-between">
-            <p className="text-sm text-blue-800 dark:text-blue-200">
-              Sign in to save your chat history
+          <motion.div initial={{opacity:0, y: -10}} animate={{opacity:1, y:0}} className="bg-blue-900/30 border border-blue-700/50 rounded-lg p-3 mb-4 flex items-center justify-between text-sm">
+            <p className="text-blue-200">
+              Sign in to save your chat history and access more features.
             </p>
-            <div className="flex-shrink-0">
-              <AuthButton />
-            </div>
-          </div>
+            <AuthButton />
+          </motion.div>
+        )}
+
+        <AnimatePresence mode="wait">
+          {isLoading && (
+            <motion.div key="loader" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className="flex flex-col items-center justify-center h-full">
+              <div className="flex items-center space-x-2 text-gray-400">
+                <div className="w-2 h-2 bg-current rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                <div className="w-2 h-2 bg-current rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                <div className="w-2 h-2 bg-current rounded-full animate-bounce"></div>
+              </div>
+              <p className="mt-2 text-sm">
+                {currentChatId ? "Loading chat..." : "Initializing chat..."}
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {!isLoading && error && (
+          <motion.div initial={{opacity:0}} animate={{opacity:1}} className="text-center py-10 text-red-400 bg-red-900/30 p-4 rounded-md">
+            <p>Error: {error}</p>
+            <button onClick={() => urlChatId ? loadChat(urlChatId) : createNewChat()} className="mt-2 px-4 py-2 bg-red-600 hover:bg-red-700 rounded text-white">
+              Retry
+            </button>
+          </motion.div>
         )}
         
-        <div className="flex-1 overflow-y-auto pb-32 pt-12">
-          {(isLoadingNewChat || isChatLoading) ? (
-            <div className="flex items-center justify-center h-full">
-              <div className="w-4 h-4 bg-gray-400 rounded-full animate-pulse"></div>
-              <p className="ml-2 text-gray-600 dark:text-gray-400 text-sm animate-pulse">
-                {(isLoadingNewChat && !currentChatId) ? "Starting new chat..." : "Loading chat..."}
-              </p>
-            </div>
-          ) : (
-            <>
-              {messages.map(renderMessage)}
-
-              {messages.length === 0 && !isTyping && !partialResponse && (
-                <div className="text-center fixed top-1/3 left-0 right-0 z-0 pointer-events-none">
-                  <h1 className="font-bold text-gray-800 dark:text-gray-200" style={{ fontSize: '5em' }}> Welcome to the </h1>
-                  <ColourfulText text="Bluebox" />
-                </div>
-              )}
-
-              {partialResponse && (
-                <div className="message mb-6 animate-fadeIn">
-                  <div className="max-w-full text-gray-800 dark:text-gray-200 py-2 text-lg leading-relaxed">
-                    <p className="whitespace-pre-wrap">{partialResponse}</p>
-                  </div>
-                </div>
-              )}
-
-              {isTyping && !partialResponse && (
-                <div className="mb-6">
-                  <div className="flex space-x-2 py-2">
-                    {[0, 0.2, 0.4].map((delay, i) => (
-                      <div
-                        key={i}
-                        className="w-2 h-2 rounded-full bg-gray-400 animate-bounce"
-                        style={{ animationDelay: delay ? `${delay}s` : undefined }}
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
-            </>
-          )}
-          <div ref={messagesEndRef} />
-        </div>
-
-        {/* Message input area - fixed at bottom of screen - REVAMPED */}
-        <div className="fixed bottom-0 left-0 right-0 z-10 bg-gray-100 dark:bg-neutral-900"> {/* Solid background for the entire fixed bar */}
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"> {/* Responsive padding */}
-            
-            {/* Input container */}
-            <div className="bg-white dark:bg-neutral-800 rounded-xl border border-gray-300 dark:border-neutral-600 p-1.5 sm:p-2 flex items-end mb-3 sm:mb-4 shadow-lg">
-                <TextareaAutosize
-                  ref={inputRef}
-                  value={input}
-                  onChange={handleInputChange}
-                  onHeightChange={handleHeightChange}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' && !e.shiftKey) {
-                      e.preventDefault();
-                      handleSendMessage();
-                    }
-                  }}
-                  placeholder="What brings you in today?"
-                  className="py-2.5 px-3 mr-2 bg-transparent focus:outline-none resize-none text-gray-800 dark:text-gray-200 flex-1 min-h-[96px] max-h-[200px] placeholder-gray-500 dark:placeholder-gray-400 text-base"
-                  minRows={1}
-                  maxRows={8}
-                  disabled={isProcessing || isLoadingNewChat || isChatLoading}
-                />
-              
-              <div className="flex-shrink-0">
-                <button
-                  onClick={handleSendMessage}
-                  disabled={!input.trim() || isProcessing || isLoadingNewChat || isChatLoading}
-                  className={`p-2.5 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 ${
-                    (!input.trim() || isProcessing || isLoadingNewChat || isChatLoading) ? 'text-gray-400 bg-gray-100 dark:bg-neutral-700 cursor-not-allowed' : 'text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800'
-                  }`}
-                >
-                  {isProcessing ? (
-                    <div className="h-5 w-5 flex items-center justify-center">
-                      <div className="w-3.5 h-3.5 bg-gray-400 rounded-full animate-pulse"></div>
-                    </div>
-                  ) : (
-                    <IconSend className="h-5 w-5" />
-                  )}
-                </button>
-              </div>
-            </div>
+        {!isLoading && !error && (
+          <div className="flex-1 overflow-y-auto no-scrollbar space-y-4 pr-2 -mr-2">
+            {showWelcomeMessage ? <WelcomeMessage /> : messages.map((msg, index) => (
+              <MessageBubble key={`${currentChatId || 'new'}-${index}`} message={msg} index={index} />
+            ))}
+            {isTyping && <TypingIndicator />}
+            <div ref={messagesEndRef} />
           </div>
-        </div>
+        )}
       </div>
 
-      {/* Delete Confirmation Dialog */}
-      {isDeleteDialogOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg p-6 max-w-sm mx-4 shadow-xl">
-            <h3 className="text-lg font-medium text-gray-900 mb-4">Delete Chat</h3>
-            <p className="text-sm text-gray-600 mb-6">
-              Are you sure you want to delete this chat? This action cannot be undone.
-            </p>
-            <div className="flex justify-end space-x-3">
+      {!isLoading && !error && (
+        <div className="fixed bottom-0 left-0 right-0 bg-neutral-900/80 backdrop-blur-md">
+          <div className="max-w-3xl mx-auto px-4 py-3 sm:py-4">
+            <div className="flex items-center bg-neutral-800 border border-neutral-700 rounded-xl shadow-lg p-1">
+              <TextareaAutosize
+                ref={inputRef}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSendMessage();
+                  }
+                }}
+                placeholder={user ? "Ask Bluebox anything..." : "Sign in to start chatting..."}
+                className="flex-1 p-3 bg-transparent text-white placeholder-gray-500 focus:outline-none resize-none no-scrollbar"
+                minRows={1}
+                maxRows={5}
+                disabled={isTyping || !user && !authLoading}
+              />
               <button
-                disabled={isDeleting}
-                className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                onClick={handleSendMessage}
+                disabled={isTyping || !input.trim() || (!user && !authLoading)}
+                className="p-3 rounded-lg text-white bg-blue-600 hover:bg-blue-700 disabled:bg-neutral-600 disabled:text-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:cursor-not-allowed ml-2"
+                aria-label="Send message"
               >
-                Cancel
-              </button>
-              <button
-                disabled={isDeleting}
-                className={`px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 ${
-                  isDeleting ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-              >
-                {isDeleting ? 'Deleting...' : 'Delete'}
+                <IconSend size={20} />
               </button>
             </div>
           </div>

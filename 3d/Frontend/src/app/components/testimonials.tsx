@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { fadeInUp, staggerContainer, defaultTransition } from '@/app/lib/utils';
 
 const testimonials = [
   {
@@ -29,10 +30,11 @@ export default function Testimonials() {
     <section className="py-24 px-4 bg-neutral-900">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="initial"
+          whileInView="animate"
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={defaultTransition}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-white mb-6 font-serif">
@@ -43,14 +45,18 @@ export default function Testimonials() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {testimonials.map((testimonial, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              key={testimonial.name}
+              variants={fadeInUp}
+              transition={{ ...defaultTransition, delay: index * 0.1 }}
               className="bg-neutral-800 p-8 rounded-2xl"
             >
               <div className="flex items-center mb-6">
@@ -70,7 +76,7 @@ export default function Testimonials() {
               <p className="text-gray-300 italic">"{testimonial.quote}"</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
