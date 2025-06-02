@@ -5,7 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '../chat/Auth';
 import { chatService, Chat, SOAPNote, Referral } from '../chat/chatService';
 import {
-  IconNotes
+  IconNotes,
+  IconCreditCard
 } from '@tabler/icons-react';
 
 // Import new components
@@ -166,6 +167,35 @@ export default function ConsultationsPage() {
     }
   };
 
+  const handleBookConsultation = async () => {
+    try {
+      // Create checkout session directly
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          quantity: 1,
+          metadata: {
+            consultation_type: 'bluebox_live',
+            return_url: '/consultations'
+          }
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create checkout session');
+      }
+
+      const session = await response.json();
+      
+      // Redirect to Stripe Checkout
+      window.location.href = session.url;
+    } catch (err) {
+      console.error('Error creating checkout session:', err);
+      alert('Unable to start payment process. Please try again.');
+    }
+  };
+
   // Utility functions passed to child components
   const formatDateForListItem = (date: Date): string => {
     const now = new Date();
@@ -212,7 +242,7 @@ export default function ConsultationsPage() {
 
   // Main content when user is logged in
   return (
-    <div className="min-h-screen bg-neutral-900 text-white flex flex-col">
+    <div className="min-h-screen bg-neutral-900 text-white flex flex-col relative">
       <ConsultationHeader title="Medical Consultations" onNewConsultationClick={() => router.push('/chat')} />
 
       <main className="max-w-full mx-auto p-4 sm:p-6 flex-grow w-full">
@@ -241,6 +271,19 @@ export default function ConsultationsPage() {
           </div>
         )}
       </main>
+
+      {/* Floating Action Button - only show when user is logged in and not loading */}
+      {user && !authLoading && (
+        <button
+          onClick={handleBookConsultation}
+          className="fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-full shadow-lg transition-all duration-200 flex items-center gap-2 hover:scale-105 z-50 group"
+          title="Book a new consultation"
+        >
+          <IconCreditCard className="w-5 h-5" />
+          <span className="hidden sm:inline font-medium">Book Consultation</span>
+          <span className="sm:hidden font-medium">$29</span>
+        </button>
+      )}
 
       <SOAPNoteModal 
         isOpen={showSOAPModal}

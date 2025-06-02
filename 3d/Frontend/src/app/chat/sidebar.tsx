@@ -591,7 +591,7 @@ export const SidebarMenu = () => {
           />
         </SidebarSection>
 
-        {/* Chat History - Removed "Recent Chats" title */}
+        {/* Chat History - Show all chats without limit */}
         <SidebarSection>
           {loading ? (
             <div className="px-5 py-3 text-center">
@@ -616,7 +616,7 @@ export const SidebarMenu = () => {
             </div>
           ) : (
             <div className="flex flex-col max-h-[calc(100vh-280px)] overflow-y-auto no-scrollbar">
-              {displayChats.slice(0, 15).map((chat) => (
+              {displayChats.map((chat) => (
                 <ChatItem
                   key={chat.id}
                   chat={chat}
@@ -625,33 +625,6 @@ export const SidebarMenu = () => {
                   isActive={chat.id === currentChatId}
                 />
               ))}
-              {displayChats.length > 15 && (
-                <div
-                  className="flex items-center justify-center h-10 px-3 mx-2 text-slate-500 hover:text-slate-300 transition-colors cursor-pointer rounded-lg hover:bg-slate-800/40"
-                  onClick={() => router.push('/chat-history')}
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="flex gap-1">
-                      <div className="w-1 h-1 rounded-full bg-slate-500"></div>
-                      <div className="w-1 h-1 rounded-full bg-slate-500"></div>
-                      <div className="w-1 h-1 rounded-full bg-slate-500"></div>
-                    </div>
-                    <div className="overflow-hidden">
-                      <motion.span
-                        initial={false}
-                        animate={{ 
-                          opacity: open ? 1 : 0,
-                          width: open ? 'auto' : 0
-                        }}
-                        transition={{ duration: 0.2 }}
-                        className="text-xs font-medium whitespace-nowrap"
-                      >
-                        {displayChats.length - 15} more chats
-                      </motion.span>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
           )}
         </SidebarSection>

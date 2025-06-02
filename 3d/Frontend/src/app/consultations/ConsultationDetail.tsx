@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Chat, ChatMessage } from '../chat/chatService';
 import EmptyState from './EmptyState';
@@ -12,7 +13,8 @@ import {
   IconSparkles,
   IconCalendarEvent,
   IconNotes,
-  IconPaperclip
+  IconPaperclip,
+  IconCreditCard
 } from '@tabler/icons-react';
 import { formatDate as originalFormatDate } from '@/app/lib/utils'; 
 
@@ -57,6 +59,37 @@ const ConsultationDetail: React.FC<ConsultationDetailProps> = ({
   isGeneratingSOAP,
   isCreatingReferral
 }) => {
+  const router = useRouter();
+
+  const handleBookConsultation = async () => {
+    try {
+      // Create checkout session directly
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          quantity: 1,
+          metadata: {
+            consultation_type: 'bluebox_live',
+            return_url: '/consultations'
+          }
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create checkout session');
+      }
+
+      const session = await response.json();
+      
+      // Redirect to Stripe Checkout
+      window.location.href = session.url;
+    } catch (err) {
+      console.error('Error creating checkout session:', err);
+      alert('Unable to start payment process. Please try again.');
+    }
+  };
+
   if (!selectedChat) {
     return (
       <div className="col-span-12 md:col-span-7 lg:col-span-8 xl:col-span-9 bg-neutral-800 rounded-xl border border-neutral-700 flex flex-col h-full">
@@ -64,6 +97,15 @@ const ConsultationDetail: React.FC<ConsultationDetailProps> = ({
           icon={IconNotes}
           title="No Consultation Selected"
           message="Please select a consultation from the list to view its details."
+          actionButton={
+            <button 
+              onClick={handleBookConsultation}
+              className="mt-4 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors flex items-center gap-2 mx-auto"
+            >
+              <IconCreditCard className="w-4 h-4" />
+              Book New Consultation - $29 CAD
+            </button>
+          }
         />
       </div>
     );
@@ -105,33 +147,45 @@ const ConsultationDetail: React.FC<ConsultationDetailProps> = ({
 
       {/* Actions Footer */}
       <div className="p-4 border-t border-neutral-700 bg-neutral-800/70 backdrop-blur-sm">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 space-y-3 sm:space-y-0">
+        <div className="flex flex-col space-y-3">
+          {/* First row - Payment button */}
           <button
-            onClick={onGenerateSOAP}
-            disabled={isGeneratingSOAP || messages.length === 0}
-            className="flex-1 px-4 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors flex items-center justify-center text-sm font-medium disabled:opacity-60 disabled:cursor-not-allowed"
+            onClick={handleBookConsultation}
+            className="w-full px-4 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors flex items-center justify-center text-sm font-medium"
           >
-            {isGeneratingSOAP ? (
-              <><IconLoader className="w-4 h-4 mr-2 animate-spin" /> Generating...</>
-            ) : (
-              <><IconFileText className="w-4 h-4 mr-2" /> Generate SOAP Note</>
-            )}
+            <IconCreditCard className="w-4 h-4 mr-2" />
+            Book New Consultation - $29 CAD
           </button>
-          <button
-            onClick={onCreateReferral}
-            disabled={isCreatingReferral || messages.length === 0}
-            className="flex-1 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors flex items-center justify-center text-sm font-medium disabled:opacity-60 disabled:cursor-not-allowed"
-          >
-            {isCreatingReferral ? (
-              <><IconLoader className="w-4 h-4 mr-2 animate-spin" /> Creating...</>
-            ) : (
-              <><IconSend className="w-4 h-4 mr-2" /> Create Referral</>
-            )}
-          </button>
+          
+          {/* Second row - SOAP and Referral buttons */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 space-y-3 sm:space-y-0">
+            <button
+              onClick={onGenerateSOAP}
+              disabled={isGeneratingSOAP || messages.length === 0}
+              className="flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors flex items-center justify-center text-sm font-medium disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {isGeneratingSOAP ? (
+                <><IconLoader className="w-4 h-4 mr-2 animate-spin" /> Generating...</>
+              ) : (
+                <><IconFileText className="w-4 h-4 mr-2" /> Generate SOAP Note</>
+              )}
+            </button>
+            <button
+              onClick={onCreateReferral}
+              disabled={isCreatingReferral || messages.length === 0}
+              className="flex-1 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors flex items-center justify-center text-sm font-medium disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {isCreatingReferral ? (
+                <><IconLoader className="w-4 h-4 mr-2 animate-spin" /> Creating...</>
+              ) : (
+                <><IconSend className="w-4 h-4 mr-2" /> Create Referral</>
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default ConsultationDetail; 
+export default ConsultationDetail;

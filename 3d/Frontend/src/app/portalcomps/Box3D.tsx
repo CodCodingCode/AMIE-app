@@ -114,8 +114,15 @@ const Box3D = ({ initialPosition = [0, 0, -30], onZoomStart, onBoxClicked, getTe
 
     if (onZoomStart) onZoomStart();
 
+    // Disable scrolling during animation
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+
     const tl = gsap.timeline({
       onComplete: () => {
+        // Re-enable scrolling before navigation
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
         router.push('/chat');
       }
     });
