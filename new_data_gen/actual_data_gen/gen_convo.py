@@ -8,7 +8,9 @@ from itertools import islice
 import random
 
 # Initialize OpenAI client
-client = OpenAI(api_key="api")
+client = OpenAI(
+    api_key="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"
+)
 model = "gpt-4.1-nano"
 
 treatment_plans = []
@@ -2513,61 +2515,30 @@ if __name__ == "__main__":
 
     # Load the JSON file with improved structure handling
     with open(
-        "new_data_gen/actual_data_gen/medical_vignettes_100_diseases.json",
+        "patient_roleplay_scripts.json",  # Change to your file name
         "r",
     ) as f:
         data = json.load(f)
 
     flattened_vignettes = []
 
-    # Check the structure of your JSON file
-    print(
-        "JSON keys:",
-        list(data.keys()) if isinstance(data, dict) else f"Type: {type(data)}",
-    )
-
-    # Handle both possible structures
-    if "vignettes" in data:
-        # Structure like: {"metadata": {...}, "vignettes": {"Disease": [vignettes...]}}
-        vignette_dict = data["vignettes"]
-        for disease, vignettes in vignette_dict.items():
-            # Only process if we have a list of vignettes
-            if not isinstance(vignettes, list):
+    # Handle roleplay scripts structure: {"metadata": {...}, "roleplay_scripts": {"Disease": [scripts...]}}
+    if "roleplay_scripts" in data:
+        roleplay_dict = data["roleplay_scripts"]
+        for disease, scripts in roleplay_dict.items():
+            # Only process if we have a list of scripts
+            if not isinstance(scripts, list):
                 continue
-            for vignette in vignettes:
-                flattened_vignettes.append((disease, vignette))
-
-    elif isinstance(data, dict):
-        # Direct structure: {"Disease": [vignettes...]}
-        for disease, vignettes in data.items():
-            # Skip metadata if it exists
-            if disease == "metadata":
-                continue
-            # Only process if we have a list of vignettes
-            if not isinstance(vignettes, list):
-                continue
-            for vignette in vignettes:
-                flattened_vignettes.append((disease, vignette))
-
-    elif isinstance(data, list):
-        # List structure: [{"disease": "...", "vignette": "..."}, ...]
-        for item in data:
-            if isinstance(item, dict) and "disease" in item and "vignette" in item:
-                flattened_vignettes.append((item["disease"], item["vignette"]))
-            elif (
-                isinstance(item, dict)
-                and "gold_diagnosis" in item
-                and "vignette" in item
-            ):
-                flattened_vignettes.append((item["gold_diagnosis"], item["vignette"]))
-
+            for script in scripts:
+                # Extract the roleplay_script content as the vignette text
+                if isinstance(script, dict) and "roleplay_script" in script:
+                    flattened_vignettes.append((disease, script["roleplay_script"]))
+                else:
+                    # Fallback if script is just a string
+                    flattened_vignettes.append((disease, str(script)))
     else:
-        raise ValueError(f"Unexpected JSON structure. Top level is: {type(data)}")
-
-    print(f"Loaded {len(flattened_vignettes)} total vignettes")
-    if flattened_vignettes:
-        print(
-            f"First example: Disease='{flattened_vignettes[0][0]}', Vignette preview: '{flattened_vignettes[0][1][:100]}...'"
+        raise ValueError(
+            f"Expected 'roleplay_scripts' key in JSON structure. Found keys: {list(data.keys()) if isinstance(data, dict) else type(data)}"
         )
 
     # Launch multiprocessing pool with 1 worker
