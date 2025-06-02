@@ -3,7 +3,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../chat/Auth';
-import { IconLogout, IconArrowLeft } from '@tabler/icons-react';
+import { IconLogout } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 import BackButton from '../components/backbutton';
 
@@ -44,21 +44,24 @@ export default function SettingsPage() {
 
   return (
     <motion.div 
-      className="min-h-screen bg-neutral-900 text-white"
+      className="min-h-screen bg-neutral-900 text-white relative"
       initial="hidden"
       animate="visible"
       variants={pageAnimationVariants}
     >
+      {/* Back button at top left */}
+      <div className="absolute top-4 left-4 z-10">
+        <BackButton 
+          to="/chat"
+          label="Back to Dashboard"
+          variant="minimal"
+          size="md"
+        />
+      </div>
+
       {/* Header */}
-      <header className="bg-neutral-900 border-b border-neutral-700 p-6">
-        <div className="max-w-4xl mx-auto flex items-center">
-          <BackButton 
-            to="/chat"
-            label="Back to Dashboard"
-            variant="outlined"
-            size="md"
-            className="mr-6"
-          />
+      <header className="bg-neutral-900 border-b border-neutral-700 p-6 pt-16">
+        <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-2xl font-serif text-blue-400 font-semibold">
             Settings
           </h1>

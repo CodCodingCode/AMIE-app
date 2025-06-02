@@ -45,13 +45,13 @@ export default function Benefits() {
                   transition={{ ...defaultTransition, delay: benefit.number * 0.1 }}
                   className="flex items-start"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center">
                     <span className="text-blue-500 text-2xl">{benefit.number}</span>
-                  </div>
-                  <div className="ml-4">
+                </div>
+                <div className="ml-4">
                     <h3 className="text-xl font-semibold text-white mb-2">{benefit.title}</h3>
                     <p className="text-gray-400">{benefit.description}</p>
-                  </div>
+                </div>
                 </motion.div>
               ))}
             </div>

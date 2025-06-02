@@ -5,7 +5,7 @@ import {
   collection, addDoc, getDocs, query, where, orderBy, doc, updateDoc, arrayUnion, getDoc, deleteDoc, Timestamp, runTransaction, writeBatch, DocumentData, QueryDocumentSnapshot
 } from 'firebase/firestore';
 import { User } from 'firebase/auth';
-import { truncateText, formatDate } from '@/app/lib/utils';
+import { truncateText } from '@/app/lib/utils';
 
 export type ChatMessage = {
   text: string;

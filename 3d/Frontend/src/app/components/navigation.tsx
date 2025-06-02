@@ -59,7 +59,7 @@ export default function Navigation() {
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   {label}
-                </Link>
+              </Link>
               ))}
               <button 
                 onClick={handleGetStartedClick}
@@ -95,14 +95,14 @@ export default function Navigation() {
             <div className="pt-20 p-4">
               <div className="flex flex-col space-y-4">
                 {navLinks.map(({ href, label }) => (
-                  <Link
+                <Link
                     key={href}
                     href={href}
-                    className="text-gray-300 hover:text-white transition-colors text-lg py-2"
+                  className="text-gray-300 hover:text-white transition-colors text-lg py-2"
                     onClick={closeMobileMenu}
-                  >
+                >
                     {label}
-                  </Link>
+                </Link>
                 ))}
                 <button
                   onClick={handleMobileGetStarted}

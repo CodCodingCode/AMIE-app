@@ -1,502 +1,731 @@
 "use client";
-import { cn, truncateText, formatDate, dispatchCustomEvent } from "@/app/lib/utils";
-import React, { useState, createContext, useContext, useEffect, useRef, useCallback, useMemo } from "react";
+import { cn } from "@/app/lib/utils";
+import React, { useState, createContext, useContext, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  IconX, IconPlus, IconSettings, IconTrash, IconPin, IconMenu2, IconMessageCircle, 
-  IconCalendar, IconFileText, IconPinned, IconUserCircle, IconLogout, IconChevronRight,
-  IconAlertTriangle, IconArchive, IconEdit, IconShare, IconCopy, IconExternalLink
+import { 
+  IconX, 
+  IconPlus, 
+  IconSettings, 
+  IconTrash,
+  IconPin,
+  IconMenu2,
+  IconMessageCircle,
+  IconCalendar,
+  IconFileText,
+  IconPinned
 } from "@tabler/icons-react";
-import { useAuth, AuthButton } from "./Auth";
-import { chatService, Chat, ConsultationMetadata } from "./chatService";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useAuth } from "./Auth";
+import { chatService, Chat } from "./chatService";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { useGlobalFunctions } from "@/app/lib/hooks";
 
 declare global {
   interface Window {
-    createNewChat?: () => Promise<void>;
-    loadChat?: (chatId: string) => Promise<void>;
+    createNewChat?: () => void;
+    loadChat?: (chatId: string) => void;
     refreshChatList?: () => void;
-    deleteChat?: (chatId: string) => Promise<void>;
-    // Removed deleteCurrentChat and cleanupEmptyChats as they are handled internally or less used globally
+    deleteCurrentChat?: () => void;
+    deleteChat?: (chatId: string) => void;
+    cleanupEmptyChats?: () => void;
   }
 }
 
-// Sidebar Context
 interface SidebarContextProps {
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   isPinned: boolean;
   setIsPinned: React.Dispatch<React.SetStateAction<boolean>>;
-  activeChatId: string | null;
-  setActiveChatId: (id: string | null) => void;
 }
+
 const SidebarContext = createContext<SidebarContextProps | undefined>(undefined);
-export const useSidebarContext = () => {
+
+export const useSidebar = () => {
   const context = useContext(SidebarContext);
-  if (!context) throw new Error("useSidebarContext must be used within SidebarProvider");
+  if (!context) throw new Error("useSidebar must be used within SidebarProvider");
   return context;
 };
 
-// Sidebar Provider
-export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+export const SidebarProvider = ({ children, open: openProp, setOpen: setOpenProp }: {
+  children: React.ReactNode;
+  open?: boolean;
+  setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  const [stateOpen, setStateOpen] = useState(false);
   const [isPinned, setIsPinned] = useState(false);
-  const [activeChatId, setActiveChatId] = useState<string | null>(null);
+  const open = openProp ?? stateOpen;
+  const setOpen = setOpenProp ?? setStateOpen;
   return (
-    <SidebarContext.Provider value={{ isOpen, setIsOpen, isPinned, setIsPinned, activeChatId, setActiveChatId }}>
+    <SidebarContext.Provider value={{ open, setOpen, isPinned, setIsPinned }}>
       {children}
     </SidebarContext.Provider>
   );
 };
 
-// Main Sidebar Component
-export const Sidebar: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <SidebarProvider>{children}</SidebarProvider>
-);
+export const Sidebar = ({ children, open, setOpen }: {
+  children: React.ReactNode;
+  open?: boolean;
+  setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+}) => <SidebarProvider open={open} setOpen={setOpen}>{children}</SidebarProvider>;
 
-// Sidebar Body (handles desktop/mobile layout)
-export const SidebarBody: React.FC<{ children: React.ReactNode } & React.ComponentProps<typeof motion.div>> = ({ children, ...props }) => (
+export const SidebarBody = ({ children, ...props }: { children: React.ReactNode } & React.ComponentProps<typeof motion.div>) => (
   <>
     <DesktopSidebar {...props}>{children}</DesktopSidebar>
     <MobileSidebar {...(props as React.ComponentProps<'div'>)}>{children}</MobileSidebar>
   </>
 );
 
-// Desktop Sidebar Logic
-const DesktopSidebar: React.FC<any> = ({ className, children, ...props }) => {
-  const { isOpen, setIsOpen, isPinned, setIsPinned } = useSidebarContext();
-  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  const handleMouseEnter = useCallback(() => {
-    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-    if (!isPinned) setIsOpen(true);
-  }, [isPinned, setIsOpen]);
-
-  const handleMouseLeave = useCallback(() => {
-    if (!isPinned) {
-      hoverTimeoutRef.current = setTimeout(() => setIsOpen(false), 200);
+export const DesktopSidebar = ({ className, children, ...props }: {
+  className?: string;
+  children: React.ReactNode;
+} & Omit<React.ComponentProps<typeof motion.div>, 'children'>) => {
+  const { open, setOpen, isPinned, setIsPinned } = useSidebar();
+  const hoverRef = useRef<NodeJS.Timeout | null>(null);
+  
+  const handleMouseEnter = () => {
+    if (hoverRef.current) {
+      clearTimeout(hoverRef.current);
     }
-  }, [isPinned, setIsOpen]);
+    if (!isPinned) {
+      setOpen(true);
+    }
+  };
 
-  const togglePin = useCallback(() => {
-    setIsPinned(prev => !prev);
-    if (!isPinned) setIsOpen(true); // Ensure it stays open when pinned
-     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-  }, [isPinned, setIsPinned, setIsOpen]);
+  const handleMouseLeave = () => {
+    if (!isPinned) {
+      hoverRef.current = setTimeout(() => setOpen(false), 300);
+    }
+  };
 
-  return (
-    <motion.div
-      className={cn(
-        "h-full hidden md:flex md:flex-col bg-neutral-900/90 backdrop-blur-md border-r border-neutral-700/60 shadow-xl relative",
-        className
-      )}
-      animate={{ width: isOpen ? 280 : 72 }}
-      transition={{ duration: 0.25, ease: "easeInOut" }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      {...props}
-    >
-      <div className="flex-1 flex flex-col overflow-y-auto no-scrollbar">{children}</div>
-      {isOpen && (
-        <motion.button
-          onClick={togglePin}
-          className={cn(
-            "absolute top-3 right-3 w-8 h-8 rounded-md flex items-center justify-center transition-all text-neutral-400 hover:text-neutral-100",
-            isPinned ? "bg-neutral-700/70 hover:bg-neutral-600/80" : "bg-neutral-800/50 hover:bg-neutral-700/70"
-          )}
-          initial={{ opacity: 0, scale: 0.7 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.7 }}
-          title={isPinned ? "Unpin sidebar" : "Pin sidebar"}
-        >
-          {isPinned ? <IconPinned size={18} /> : <IconPin size={18} />}
-        </motion.button>
-      )}
-    </motion.div>
-  );
-};
+  const handlePinToggle = () => {
+    if (isPinned) {
+      setIsPinned(false);
+    } else {
+      setIsPinned(true);
+      setOpen(true);
+      if (hoverRef.current) {
+        clearTimeout(hoverRef.current);
+      }
+    }
+  };
 
-// Mobile Sidebar Logic
-const MobileSidebar: React.FC<any> = ({ className, children, ...props }) => {
-  const { isOpen, setIsOpen } = useSidebarContext();
   return (
     <>
-      <div className={cn("h-16 flex items-center justify-between md:hidden px-4 bg-neutral-900 border-b border-neutral-700/60 w-full sticky top-0 z-40", className)} {...props}>
-        <Logo /> {/* Show compact logo on mobile nav bar */}
-        <button onClick={() => setIsOpen(prev => !prev)} className="p-2 text-neutral-200 hover:text-white">
-          <IconMenu2 size={24} />
-        </button>
-      </div>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ x: '-100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '-100%' }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-0 z-50 bg-neutral-900/95 backdrop-blur-lg p-4 flex flex-col md:hidden"
-          >
-            <div className="flex justify-between items-center mb-6">
-              <Logo /> {/* Show full logo inside expanded mobile menu */}
-              <button onClick={() => setIsOpen(false)} className="p-2 text-neutral-200 hover:text-white">
-                <IconX size={24} />
-              </button>
-            </div>
-            <div className="flex-1 overflow-y-auto no-scrollbar">{children}</div>
-          </motion.div>
+      <motion.div
+        className={cn(
+          "h-full hidden md:flex md:flex-col bg-slate-900/95 backdrop-blur-sm border-r border-slate-700/50 z-10 no-scrollbar shadow-lg relative", 
+          className
         )}
-      </AnimatePresence>
+        style={{ pointerEvents: 'auto' }}
+        animate={{ width: open ? 260 : 68 }}
+        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        {...props}
+      >
+        {/* Remove the logo section from here */}
+        
+        {/* Main Content */}
+        <div className="flex-1 flex flex-col">
+          {children}
+        </div>
+        
+        {/* Pin/Unpin Button - Only show when sidebar is open */}
+        <AnimatePresence>
+          {open && (
+            <motion.button
+              onClick={handlePinToggle}
+              className={cn(
+                "absolute top-4 right-4 w-8 h-8 rounded-lg flex items-center justify-center transition-colors z-20",
+                isPinned 
+                  ? "bg-blue-600/20 text-blue-400 hover:bg-blue-600/30 border border-blue-500/30" 
+                  : "bg-slate-800/60 text-slate-400 hover:bg-slate-700 hover:text-slate-200"
+              )}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.2 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              title={isPinned ? "Unpin sidebar (will close on mouse leave)" : "Pin sidebar (keep open)"}
+            >
+              {isPinned ? (
+                <IconPinned className="w-4 h-4" />
+              ) : (
+                <IconPin className="w-4 h-4" />
+              )}
+            </motion.button>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </>
   );
 };
 
-// Logo Component
-export const Logo: React.FC<{ compact?: boolean }> = ({ compact = false }) => {
-  const { isOpen } = useSidebarContext();
-  const router = useRouter();
-  const showText = isOpen || compact === false; // In full sidebar, text depends on isOpen. In compact (mobile nav), always show text.
-
+export const MobileSidebar = ({ className, children, ...props }: React.ComponentProps<'div'>) => {
+  const { open, setOpen } = useSidebar();
   return (
-    <div 
-      className="flex items-center h-16 px-1 cursor-pointer group"
-      onClick={() => router.push('/')}
-    >
-      <Image src="/reallogo.png" alt="Bluebox Logo" width={36} height={36} className="flex-shrink-0 rounded-md" />
+    <div className={cn("h-14 flex items-center justify-between md:hidden px-4 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700/50 w-full", className)} {...props}>
+      <IconMenu2 onClick={() => setOpen(!open)} className="text-slate-200 hover:text-white transition-colors cursor-pointer" size={20} />
       <AnimatePresence>
-        {showText && (
-            <motion.span
-            initial={{ opacity: 0, x: -10, width: 0 }}
-            animate={{ opacity: 1, x: 0, width: 'auto' }}
-            exit={{ opacity: 0, x: -10, width: 0 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="ml-2.5 text-xl font-semibold text-white whitespace-nowrap overflow-hidden"
-            >
-            Bluebox
-            </motion.span>
+        {open && (
+          <motion.div
+            initial={{ x: '-100%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: '-100%', opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            className="fixed inset-0 z-50 bg-slate-900/98 backdrop-blur-md p-6 flex flex-col"
+          >
+            <div className="flex justify-end mb-6">
+              <IconX 
+                onClick={() => setOpen(false)} 
+                className="text-slate-200 hover:text-white transition-colors cursor-pointer" 
+                size={24} 
+              />
+            </div>
+            {children}
+          </motion.div>
         )}
       </AnimatePresence>
     </div>
   );
 };
 
-// Generic Sidebar Item
-const SidebarItem: React.FC<{
-  icon: React.ElementType;
-  text: string;
+export const Logo = () => {
+  const { open } = useSidebar();
+  const router = useRouter();
+
+  return (
+    <div className="flex items-center px-4 h-16 border-b border-slate-700/30">
+      <div 
+        className="flex items-center cursor-pointer" 
+        onClick={() => router.push('/')}
+      >
+        <div className="relative flex-shrink-0">
+          <Image 
+            src="/reallogo.png" 
+            alt="Bluebox" 
+            width={32} 
+            height={32} 
+            className="flex-shrink-0"
+          />
+        </div>
+        <div className="overflow-hidden ml-3">
+          <motion.div
+            initial={false}
+            animate={{ 
+              opacity: open ? 1 : 0,
+              x: open ? 0 : -10,
+              width: open ? 'auto' : 0
+            }}
+            transition={{ duration: 0.2 }}
+            className="text-white font-semibold text-lg whitespace-nowrap"
+          >
+            Bluebox
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const SidebarItem = ({ 
+  icon: Icon, 
+  text,
+  onClick,
+  active = false,
+  isNew = false
+}: { 
+  icon: React.FC<{ className?: string; size?: number }>;
+  text: string; 
   onClick?: () => void;
   active?: boolean;
   isNew?: boolean;
-  className?: string;
-  endContent?: React.ReactNode;
-}> = ({ icon: Icon, text, onClick, active, isNew, className, endContent }) => {
-  const { isOpen } = useSidebarContext();
+}) => {
+  const { open } = useSidebar();
+  
   return (
-    <motion.div
-      onClick={onClick}
+    <div 
       className={cn(
-        "group flex items-center h-10 px-3 cursor-pointer rounded-lg mx-2 my-0.5 transition-all duration-150 ease-in-out",
-        active ? "bg-blue-600/20 text-blue-300 border border-blue-500/30" : "text-neutral-400 hover:bg-neutral-700/60 hover:text-neutral-200",
-        className
+        "group flex items-center h-11 px-3 cursor-pointer rounded-lg mx-2 transition-all duration-200 relative",
+        active 
+          ? "bg-gradient-to-r from-blue-600/20 to-blue-500/10 text-blue-400 shadow-sm border border-blue-500/20" 
+          : "hover:bg-slate-800/60 text-slate-300 hover:text-white"
       )}
-      whileTap={{ scale: 0.97 }}
+      onClick={onClick}
     >
-      <Icon size={isOpen ? 20 : 24} className={cn("flex-shrink-0 transition-all", isOpen ? "mr-3" : "mx-auto")} />
-      <AnimatePresence>
-        {isOpen && (
-          <motion.span 
-            initial={{ opacity: 0, x: -5 }} 
-            animate={{ opacity: 1, x: 0 }} 
-            exit={{ opacity: 0, x: -5 }} 
-            transition={{ duration: 0.15 }}
-            className="text-sm font-medium truncate flex-1"
+      <div className="flex items-center gap-3 w-full min-w-0">
+        <div className={cn(
+          "flex-shrink-0 transition-colors",
+          active ? "text-blue-400" : "text-slate-400 group-hover:text-slate-200"
+        )}>
+          <Icon size={18} />
+        </div>
+        <div className="overflow-hidden flex-1">
+          <motion.div
+            initial={false}
+            animate={{ 
+              opacity: open ? 1 : 0,
+              width: open ? 'auto' : 0
+            }}
+            transition={{ duration: 0.2 }}
+            className="min-w-0"
           >
-            {text}
-          </motion.span>
+            <span className={cn(
+              "text-sm font-medium whitespace-nowrap block truncate",
+              active ? "text-blue-400" : "text-slate-300 group-hover:text-white"
+            )}>
+              {text}
+            </span>
+          </motion.div>
+        </div>
+        {isNew && (
+          <div className="overflow-hidden">
+            <motion.div 
+              initial={false}
+              animate={{ 
+                opacity: open ? 1 : 0,
+                scale: open ? 1 : 0.8
+              }}
+              transition={{ duration: 0.2 }}
+              className="flex-shrink-0"
+            >
+              <IconPlus 
+                size={14} 
+                className={cn(
+                  "transition-colors",
+                  active ? "text-blue-400" : "text-slate-500 group-hover:text-slate-300"
+                )} 
+              />
+            </motion.div>
+          </div>
         )}
-      </AnimatePresence>
-      {isOpen && isNew && <span className="ml-auto text-xs bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded-full">New</span>}
-      {isOpen && endContent}
-    </motion.div>
-  );
-};
-
-// Sidebar Section
-const SidebarSection: React.FC<{ title?: string; children: React.ReactNode; className?: string }> = ({ title, children, className }) => {
-  const { isOpen } = useSidebarContext();
-  return (
-    <div className={cn("py-2", className)}>
-      {isOpen && title && (
-        <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-neutral-500 uppercase tracking-wider">
-          {title}
-        </h3>
-      )}
-      {!isOpen && title && <hr className="border-t border-neutral-700/60 mx-3 my-2" />} 
-      <div>{children}</div>
+      </div>
     </div>
   );
 };
 
-// Chat Item for chat list
-const ChatItem: React.FC<{ chat: Chat; onClick: () => void; onDelete: (e: React.MouseEvent) => void; isActive?: boolean }> = 
-  ({ chat, onClick, onDelete, isActive }) => {
-  const { isOpen } = useSidebarContext();
-  const [showDelete, setShowDelete] = useState(false);
-
+const SidebarSection = ({ title, children }: { title?: string; children: React.ReactNode }) => {
+  const { open } = useSidebar();
+  
   return (
-    <SidebarItem
-      icon={IconMessageCircle}
-      text={truncateText(chat.title || 'New Chat', isOpen ? 25 : 15)}
-      onClick={onClick}
-      active={isActive}
-      endContent={isOpen && (
-        <motion.button
-          initial={{ opacity: 0}} animate={{opacity:1}} exit={{opacity:0}}
-          onClick={(e) => { e.stopPropagation(); onDelete(e); }}
-          className="p-1 rounded text-neutral-500 hover:text-red-400 hover:bg-red-500/10 opacity-60 hover:opacity-100 ml-auto"
-          title="Delete chat"
-          onMouseEnter={() => setShowDelete(true)}
-          onMouseLeave={() => setShowDelete(false)}
-        >
-          <IconTrash size={16} />
-        </motion.button>
-      )}
-    >
-      {isOpen && (
-        <div className="text-xs text-neutral-500 group-hover:text-neutral-400 mt-0.5">
-          {formatDate(chat.updatedAt)}
+    <div className="mt-6">
+      {title && (
+        <div className="overflow-hidden">
+          <motion.div
+            initial={false}
+            animate={{ 
+              opacity: open ? 1 : 0,
+              height: open ? 'auto' : 0
+            }}
+            transition={{ duration: 0.2 }}
+            className="px-5 py-2 text-xs text-slate-500 uppercase font-semibold tracking-wider"
+          >
+            {title}
+          </motion.div>
         </div>
       )}
-    </SidebarItem>
+      <div className="mt-2 flex flex-col gap-1">
+        {children}
+      </div>
+    </div>
   );
 };
 
-// Confirmation Dialog
-const ConfirmationDialog: React.FC<{
-  isOpen: boolean;
-  onClose: () => void;
-  onConfirm: () => void;
-  title: string;
-  message: string;
-  confirmText?: string;
-  cancelText?: string;
-}> = ({ isOpen, onClose, onConfirm, title, message, confirmText="Confirm", cancelText="Cancel" }) => (
-  <AnimatePresence>
-    {isOpen && (
-      <motion.div 
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center p-4"
-        onClick={onClose}
+const ChatItem = ({ 
+  chat, 
+  onClick, 
+  onDelete, 
+  isActive = false 
+}: { 
+  chat: Chat; 
+  onClick: () => void; 
+  onDelete: (e: React.MouseEvent) => void;
+  isActive?: boolean;
+}) => {
+  const { open } = useSidebar();
+  
+  return (
+    <div
+      className={cn(
+        "group flex items-center justify-between h-10 px-3 cursor-pointer rounded-lg mx-2 transition-all duration-200",
+        isActive 
+          ? "bg-gradient-to-r from-blue-600/15 to-blue-500/5 border border-blue-500/20" 
+          : "hover:bg-slate-800/50"
+      )}
+    >
+      <div
+        className="flex-1 flex items-center h-full min-w-0"
+        onClick={onClick}
       >
-        <motion.div 
-          initial={{ scale: 0.9, opacity: 0}} 
-          animate={{ scale: 1, opacity: 1}} 
-          exit={{ scale: 0.9, opacity: 0}}
-          onClick={(e) => e.stopPropagation()}
-          className="bg-neutral-800 rounded-xl p-6 shadow-2xl w-full max-w-sm border border-neutral-700"
+        <div className="flex items-center gap-3 w-full min-w-0">
+          <div className="overflow-hidden flex-1">
+            <motion.div
+              initial={false}
+              animate={{ 
+                opacity: open ? 1 : 0,
+                width: open ? 'auto' : 0
+              }}
+              transition={{ duration: 0.2 }}
+              className="min-w-0"
+            >
+              <span 
+                className={cn(
+                  "text-sm block truncate max-w-[180px] transition-colors",
+                  isActive ? "text-blue-300" : "text-slate-300 group-hover:text-white"
+                )}
+                title={chat.title || "New Chat"}
+              >
+                {chat.title || "New Chat"}
+              </span>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+      <div className="overflow-hidden">
+        <motion.div
+          initial={false}
+          animate={{
+            opacity: open ? 0 : 0,
+            scale: open ? 1 : 0.8
+          }}
+          whileHover={{ opacity: 1, scale: 1.1 }}
+          transition={{ duration: 0.15 }}
+          className="flex-shrink-0 ml-2 p-1 rounded-md hover:bg-red-500/20 group-hover:opacity-100"
+          onClick={onDelete}
         >
-          <div className="flex items-center mb-3">
-            <IconAlertTriangle className="text-yellow-400 mr-3" size={24}/>
-            <h2 className="text-lg font-semibold text-white">{title}</h2>
-          </div>
-          <p className="text-sm text-neutral-300 mb-6">{message}</p>
-          <div className="flex justify-end space-x-3">
-            <button 
-              onClick={onClose} 
-              className="px-4 py-2 rounded-md text-sm font-medium text-neutral-300 bg-neutral-700 hover:bg-neutral-600 transition-colors"
-            >
-              {cancelText}
-            </button>
-            <button 
-              onClick={() => { onConfirm(); onClose(); }}
-              className="px-4 py-2 rounded-md text-sm font-medium text-white bg-red-600 hover:bg-red-700 transition-colors"
-            >
-              {confirmText}
-            </button>
-          </div>
+          <IconTrash className="h-3.5 w-3.5 text-slate-400 hover:text-red-400 transition-colors" />
         </motion.div>
-      </motion.div>
-    )}
-  </AnimatePresence>
-);
+      </div>
+    </div>
+  );
+};
 
-// Main Sidebar Menu structure
 export const SidebarMenu = () => {
-  const { user, loading: authLoading, logOut } = useAuth();
-  const { isOpen, setIsOpen, activeChatId, setActiveChatId } = useSidebarContext();
+  const { user } = useAuth();
+  const { open } = useSidebar();
   const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
   const [chats, setChats] = useState<Chat[]>([]);
-  const [isLoadingChats, setIsLoadingChats] = useState(true);
-  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [currentMessages, setCurrentMessages] = useState<number>(0);
+  const [currentChatId, setCurrentChatId] = useState<string | null>(null);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [chatToDelete, setChatToDelete] = useState<string | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
-  const loadChats = useCallback(async () => {
-    if (!user) {
-      setChats([]);
-      setIsLoadingChats(false);
-      return;
-    }
-    setIsLoadingChats(true);
-    try {
-      const userChats = await chatService.getUserChats(user);
-      setChats(userChats);
-    } catch (error) {
-      console.error("Failed to load chats:", error);
-      // Optionally, show error to user
-    } finally {
-      setIsLoadingChats(false);
+
+  useEffect(() => {
+    if (!user) return;
+    setLoading(true);
+    
+    // Clean up empty chats when user logs in, then load chats
+    const loadChats = async () => {
+      try {
+        await chatService.cleanupEmptyChats(user);
+        const userChats = await chatService.getUserChats(user);
+        setChats(userChats);
+      } catch (error) {
+        console.error('Error loading chats:', error);
+        // Fallback to just loading chats without cleanup
+        const userChats = await chatService.getUserChats(user);
+        setChats(userChats);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadChats();
+  }, [user]);
+
+  // Listen for refresh events to update chat list
+  useEffect(() => {
+    const handleRefreshChatList = async () => {
+      if (!user) return;
+      setLoading(true);
+      try {
+        const updatedChats = await chatService.getUserChats(user);
+        setChats(updatedChats);
+      } catch (error) {
+        console.error('Error refreshing chat list:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('refreshChatList', handleRefreshChatList);
+      
+      // Create custom event listener to track current message count
+      const handleMessageCountUpdate = (event: CustomEvent) => {
+        setCurrentMessages(event.detail.count);
+      };
+      
+      // Add listener for current chat ID updates
+      const handleCurrentChatUpdate = (event: CustomEvent) => {
+        setCurrentChatId(event.detail.chatId);
+      };
+      
+      window.addEventListener('messageCountUpdate', handleMessageCountUpdate as EventListener);
+      window.addEventListener('currentChatUpdate', handleCurrentChatUpdate as EventListener);
+      
+      return () => {
+        window.removeEventListener('refreshChatList', handleRefreshChatList);
+        window.removeEventListener('messageCountUpdate', handleMessageCountUpdate as EventListener);
+        window.removeEventListener('currentChatUpdate', handleCurrentChatUpdate as EventListener);
+      };
     }
   }, [user]);
 
+  // Register global functions including the new cleanup function
   useEffect(() => {
-    loadChats();
-    const currentUrlChatId = searchParams.get('id');
-    if (currentUrlChatId) {
-        setActiveChatId(currentUrlChatId);
+    if (typeof window !== 'undefined') {
+      // Cleanup function
+      window.cleanupEmptyChats = async () => {
+        if (!user) return;
+        
+        try {
+          await chatService.cleanupEmptyChats(user);
+          // Refresh the chat list after cleanup
+          const updatedChats = await chatService.getUserChats(user);
+          setChats(updatedChats);
+          
+          // Dispatch refresh event for other components
+          window.dispatchEvent(new CustomEvent('refreshChatList'));
+        } catch (error) {
+          console.error('Error during cleanup:', error);
+        }
+      };
+
+      window.deleteChat = (chatId: string) => {
+        setChatToDelete(chatId);
+        setIsDeleteDialogOpen(true);
+      };
+
+      return () => {
+        delete window.cleanupEmptyChats;
+        delete window.deleteChat;
+      };
     }
-  }, [user, loadChats, searchParams, setActiveChatId]);
+  }, [user]);
 
-  // Event listeners for global chat actions
-  useEffect(() => {
-    const handleRefresh = () => loadChats();
-    const handleChatUpdate = (event: Event) => {
-      const customEvent = event as CustomEvent<{ chatId: string | null }>;
-      setActiveChatId(customEvent.detail.chatId);
-      // If a chat was created or updated, refresh the list
-      if (customEvent.detail.chatId) loadChats(); 
-    };
+  const handleNewChat = () => {
+    // Simply create a new chat when user clicks "New Chat"
+    window.createNewChat?.();
+  };
 
-    window.addEventListener('refreshChatList', handleRefresh);
-    window.addEventListener('currentChatUpdate', handleChatUpdate);
-    return () => {
-      window.removeEventListener('refreshChatList', handleRefresh);
-      window.removeEventListener('currentChatUpdate', handleChatUpdate);
-    };
-  }, [loadChats, setActiveChatId]);
-
-  const handleNewChat = async () => {
-    if (!window.createNewChat) return;
-    await window.createNewChat(); // Calls function exposed by ChatWindow
-    if (!isOpen) setIsOpen(true); // Open sidebar if closed
+  const handleConsultations = () => {
+    router.push('/consultations');
   };
 
   const handleChatClick = (chatId: string) => {
-    setActiveChatId(chatId);
-    router.push(`/chat?id=${chatId}`); // Update URL
-    if (window.loadChat) window.loadChat(chatId); // Ensure ChatWindow loads it
-    if (isOpen && window.innerWidth < 768) setIsOpen(false); // Close mobile sidebar on nav
+    window.loadChat?.(chatId);
+    setCurrentChatId(chatId);
   };
 
-  const handleDeleteChat = (chatId: string) => {
+  const handleDeleteClick = (e: React.MouseEvent, chatId: string) => {
+    e.stopPropagation(); // Prevent triggering the chat load
     setChatToDelete(chatId);
-    setShowDeleteDialog(true);
+    setIsDeleteDialogOpen(true);
   };
 
-  const confirmDeleteChat = async () => {
-    if (!chatToDelete || !user) return;
-    try {
-      await chatService.deleteChat(chatToDelete);
-      setChats(prev => prev.filter(c => c.id !== chatToDelete));
-      if (activeChatId === chatToDelete) {
-        setActiveChatId(null);
-        router.push('/chat'); // Navigate to new chat if active one was deleted
-        if (window.createNewChat) window.createNewChat(); // Start a new chat implicitly
-      }
-    } catch (error) {
-      console.error("Failed to delete chat:", error);
-    }
+  const handleCloseDeleteDialog = () => {
+    setIsDeleteDialogOpen(false);
     setChatToDelete(null);
   };
 
-  const handleSignOut = async () => {
-    await logOut();
-    router.push('/'); // Redirect to home or login page after sign out
-    setChats([]);
-    setActiveChatId(null);
+  const handleDeleteConfirm = async () => {
+    if (!chatToDelete || isDeleting || !user) return;
+    
+    setIsDeleting(true);
+    try {
+      await chatService.deleteChat(chatToDelete);
+      
+      // Update local state
+      setChats(prev => prev.filter(chat => chat.id !== chatToDelete));
+      
+      // If we deleted the current chat, create a new one
+      if (chatToDelete === currentChatId) {
+        window.createNewChat?.();
+      }
+      
+      // Refresh the chat list in the sidebar
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('refreshChatList'));
+      }
+    } catch (error) {
+      console.error('Error deleting chat:', error);
+    } finally {
+      setIsDeleting(false);
+      setIsDeleteDialogOpen(false);
+      setChatToDelete(null);
+    }
   };
 
-  const mainNavigationItems = [
-    // { icon: IconLayoutDashboard, text: 'Dashboard', onClick: () => router.push('/dashboard'), active: pathname === '/dashboard' },
-    { icon: IconMessageCircle, text: 'New Chat', onClick: handleNewChat, isNew: true },
-    { icon: IconArchive, text: 'Consultations', onClick: () => router.push('/consultations'), active: pathname === '/consultations' },
-  ];
-
-  const settingsNavigationItems = [
-    { icon: IconSettings, text: 'Settings', onClick: () => router.push('/settings'), active: pathname === '/settings' },
-  ];
+  // Filter out empty chats from display (chats with messageCount of 0)
+  const displayChats = chats.filter(chat => {
+    return chat.messages.length > 0 || chat.id === currentChatId;
+  });
 
   return (
-    <div className="flex flex-col h-full">
-      <Logo />
-      <SidebarSection className="flex-grow overflow-y-auto no-scrollbar">
-        <SidebarItem 
-            icon={IconPlus}
-            text="New Consultation"
-            onClick={handleNewChat}
-            className="bg-blue-600/80 text-white hover:bg-blue-500/80 my-2 font-semibold"
-        />
-        <SidebarSection title="Recent Chats">
-          {isLoadingChats && isOpen && <p className="px-4 text-xs text-neutral-500">Loading chats...</p>}
-          {!isLoadingChats && chats.length === 0 && isOpen && <p className="px-4 text-xs text-neutral-500">No recent chats.</p>}
-          <AnimatePresence>
-            {chats.map(chat => (
-              <ChatItem 
-                key={chat.id} 
-                chat={chat} 
-                onClick={() => handleChatClick(chat.id)} 
-                onDelete={(e) => { e.stopPropagation(); handleDeleteChat(chat.id); }}
-                isActive={chat.id === activeChatId} 
-              />
-            ))}
-          </AnimatePresence>
-        </SidebarSection>
-      </SidebarSection>
+    <SidebarBody className="flex flex-col">
+      <div className="flex-1 flex flex-col">
+        <Logo />
 
-      {/* User/Auth Section */}
-      <SidebarSection className="mt-auto border-t border-neutral-700/60 pt-2 pb-1">
-        {user ? (
-          <div className={cn("px-2", isOpen ? "py-2" : "py-3")} >
-            <div className="flex items-center justify-between">
-              {isOpen && (
-                <div className="flex items-center min-w-0">
-                  <IconUserCircle size={28} className="text-neutral-400 flex-shrink-0" />
-                  <div className="ml-2.5 min-w-0">
-                    <p className="text-sm font-medium text-neutral-200 truncate">{user.displayName || 'User'}</p>
-                    <p className="text-xs text-neutral-500 truncate">{user.email}</p>
+        {/* Main Navigation */}
+        <SidebarSection>
+          <SidebarItem
+            icon={IconMessageCircle}
+            text="New chat"
+            onClick={handleNewChat}
+            active={false}
+            isNew={true}
+          />
+          <SidebarItem
+            icon={IconCalendar}
+            text="Manage Consultations"
+            onClick={handleConsultations}
+          />
+          <SidebarItem
+            icon={IconFileText}
+            text="EHR"
+            onClick={() => router.push("/ehr")}
+          />
+        </SidebarSection>
+
+        {/* Chat History - Removed "Recent Chats" title */}
+        <SidebarSection>
+          {loading ? (
+            <div className="px-5 py-3 text-center">
+              <div className="flex items-center justify-center gap-2">
+                <div className="w-2 h-2 bg-slate-500 rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-slate-500 rounded-full animate-pulse delay-75"></div>
+                <div className="w-2 h-2 bg-slate-500 rounded-full animate-pulse delay-150"></div>
+              </div>
+              <div className="overflow-hidden">
+                <motion.span 
+                  initial={false}
+                  animate={{ 
+                    opacity: open ? 1 : 0,
+                    height: open ? 'auto' : 0
+                  }}
+                  transition={{ duration: 0.2 }}
+                  className="text-xs text-slate-500 mt-2 block"
+                >
+                  Loading chats...
+                </motion.span>
+              </div>
+            </div>
+          ) : (
+            <div className="flex flex-col max-h-[calc(100vh-280px)] overflow-y-auto no-scrollbar">
+              {displayChats.slice(0, 15).map((chat) => (
+                <ChatItem
+                  key={chat.id}
+                  chat={chat}
+                  onClick={() => handleChatClick(chat.id)}
+                  onDelete={(e) => handleDeleteClick(e, chat.id)}
+                  isActive={chat.id === currentChatId}
+                />
+              ))}
+              {displayChats.length > 15 && (
+                <div
+                  className="flex items-center justify-center h-10 px-3 mx-2 text-slate-500 hover:text-slate-300 transition-colors cursor-pointer rounded-lg hover:bg-slate-800/40"
+                  onClick={() => router.push('/chat-history')}
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-1">
+                      <div className="w-1 h-1 rounded-full bg-slate-500"></div>
+                      <div className="w-1 h-1 rounded-full bg-slate-500"></div>
+                      <div className="w-1 h-1 rounded-full bg-slate-500"></div>
+                    </div>
+                    <div className="overflow-hidden">
+                      <motion.span
+                        initial={false}
+                        animate={{ 
+                          opacity: open ? 1 : 0,
+                          width: open ? 'auto' : 0
+                        }}
+                        transition={{ duration: 0.2 }}
+                        className="text-xs font-medium whitespace-nowrap"
+                      >
+                        {displayChats.length - 15} more chats
+                      </motion.span>
+                    </div>
                   </div>
                 </div>
               )}
-               <button 
-                  onClick={handleSignOut}
-                  className={cn(
-                    "p-2 rounded-md text-neutral-400 hover:text-red-400 hover:bg-red-500/10 transition-colors",
-                    !isOpen && "w-full flex justify-center"
-                  )}
-                  title="Sign Out"
-                >
-                  <IconLogout size={isOpen ? 20 : 22} />
-                </button>
             </div>
-          </div>
-        ) : (
-          <div className="p-3">
-            <AuthButton />
-          </div>
-        )}
-      </SidebarSection>
+          )}
+        </SidebarSection>
 
-      <ConfirmationDialog 
-        isOpen={showDeleteDialog}
-        onClose={() => setShowDeleteDialog(false)}
-        onConfirm={confirmDeleteChat}
-        title="Delete Chat?"
-        message="Are you sure you want to delete this chat? This action cannot be undone."
-        confirmText="Delete"
-      />
-    </div>
+        {/* Bottom Section */}
+        <div className="mt-auto border-t border-slate-700/30 pt-4">
+          <SidebarSection>
+            {user && (
+              <SidebarItem
+                icon={IconSettings}
+                text="Settings & help"
+                onClick={() => router.push("/settings")}
+              />
+            )}
+          </SidebarSection>
+        </div>
+      </div>
+
+      {/* Enhanced Delete Confirmation Dialog */}
+      <AnimatePresence>
+        {isDeleteDialogOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+          >
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ duration: 0.2 }}
+              className="bg-white rounded-xl p-6 max-w-sm mx-4 shadow-2xl border border-gray-200"
+            >
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                  <IconTrash className="w-5 h-5 text-red-600" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Delete Chat</h3>
+                  <p className="text-sm text-gray-600 mb-6">
+                    Are you sure you want to delete this chat? This action cannot be undone and all messages will be permanently removed.
+                  </p>
+                  <div className="flex justify-end space-x-3">
+                    <button
+                      onClick={handleCloseDeleteDialog}
+                      disabled={isDeleting}
+                      className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors disabled:opacity-50"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      onClick={handleDeleteConfirm}
+                      disabled={isDeleting}
+                      className={`px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors ${
+                        isDeleting ? "opacity-50 cursor-not-allowed" : ""
+                      }`}
+                    >
+                      {isDeleting ? (
+                        <span className="flex items-center gap-2">
+                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          Deleting...
+                        </span>
+                      ) : (
+                        "Delete"
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </SidebarBody>
   );
 };

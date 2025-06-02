@@ -9,17 +9,20 @@ export default function EhrPage() {
    };
 
    return (
-       <div className="min-h-screen bg-neutral-900 text-white">
-           {/* Header matching settings page */}
-           <header className="bg-neutral-900 border-b border-trueBlue p-6">
-               <div className="max-w-4xl mx-auto flex items-center">
-                   <BackButton 
-                       to="/chat"
-                       label="Back to Dashboard"
-                       variant="default"
-                       size="md"
-                       className="mr-6"
-                   />
+       <div className="min-h-screen bg-neutral-900 text-white relative">
+           {/* Back button at top left */}
+           <div className="absolute top-4 left-4 z-10">
+               <BackButton 
+                   to="/chat"
+                   label="Back to Dashboard"
+                   variant="minimal"
+                   size="md"
+               />
+           </div>
+
+           {/* Header */}
+           <header className="bg-neutral-900 border-b border-trueBlue p-6 pt-16">
+               <div className="max-w-4xl mx-auto text-center">
                    <h1 className="text-2xl font-serif text-dukeBlue font-semibold">
                        EHR File Upload
                    </h1>

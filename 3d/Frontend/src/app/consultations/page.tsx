@@ -1,23 +1,11 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../chat/Auth';
 import { chatService, Chat, SOAPNote, Referral } from '../chat/chatService';
-import BackButton from '../components/backbutton';
 import {
-  IconSearch,
-  IconFileText,
-  IconStethoscope,
-  IconPlus,
-  IconLoader,
-  IconX,
-  IconCalendar,
-  IconMessage,
-  IconArrowRight,
-  IconDownload,
-  IconCopy
+  IconNotes
 } from '@tabler/icons-react';
 
 // Import new components
@@ -28,7 +16,6 @@ import SOAPNoteModal from './SOAPNoteModal';
 import ReferralModal from './ReferralModal';
 import LoadingSpinner from './LoadingSpinner';
 import EmptyState from './EmptyState'; // General empty state for auth
-import { IconNotes } from '@tabler/icons-react';
 
 export default function ConsultationsPage() {
   const router = useRouter();
@@ -50,21 +37,21 @@ export default function ConsultationsPage() {
   const [currentReferral, setCurrentReferral] = useState<Referral | null>(null);
 
   const loadChats = useCallback(async () => {
-    if (user) {
-      try {
+      if (user) {
+        try {
         setIsLoadingChats(true);
-        const userChats = await chatService.getUserChats(user);
+          const userChats = await chatService.getUserChats(user);
         const nonEmptyChats = userChats.filter(chat => chat.messages && chat.messages.length > 0);
         setAllChats(nonEmptyChats);
-        setFilteredChats(nonEmptyChats);
+          setFilteredChats(nonEmptyChats);
         if (nonEmptyChats.length > 0 && (!selectedChat || !nonEmptyChats.find(c => c.id === selectedChat.id))) {
-          setSelectedChat(nonEmptyChats[0]);
-        }
-      } catch (error) {
-        console.error('Error loading chats:', error);
+            setSelectedChat(nonEmptyChats[0]);
+          }
+        } catch (error) {
+          console.error('Error loading chats:', error);
         setAllChats([]);
         setFilteredChats([]);
-      } finally {
+        } finally {
         setIsLoadingChats(false);
       }
     } else {
@@ -89,7 +76,7 @@ export default function ConsultationsPage() {
           (chat.metadata?.tags && chat.metadata.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())))
         )
       : allChats;
-    setFilteredChats(filtered);
+      setFilteredChats(filtered);
     if (selectedChat && !filtered.find(c => c.id === selectedChat.id)) {
       setSelectedChat(filtered.length > 0 ? filtered[0] : null);
     } else if (!selectedChat && filtered.length > 0) {
@@ -115,8 +102,8 @@ export default function ConsultationsPage() {
       if (response.ok) {
         const result = await response.json();
         if (result.soapNote) {
-          setCurrentSOAP(result.soapNote);
-          setShowSOAPModal(true);
+        setCurrentSOAP(result.soapNote);
+        setShowSOAPModal(true);
           // TODO: Consider saving SOAP note via chatService & updating metadata if API doesn't do it
           // if (user && selectedChat.id) {
           //   await chatService.saveSOAPNote({ ...result.soapNote, chatId: selectedChat.id, generatedBy: user.uid });
@@ -157,8 +144,8 @@ export default function ConsultationsPage() {
       if (response.ok) {
         const result = await response.json();
          if (result.referral) {
-            setCurrentReferral(result.referral);
-            setShowReferralModal(true);
+        setCurrentReferral(result.referral);
+        setShowReferralModal(true);
             // TODO: Consider saving referral via chatService & updating metadata if API doesn't do it
             // if (selectedChat.id) {
             //   await chatService.createReferral({ ...result.referral, chatId: selectedChat.id, patientId: result.referral.patientId || user.uid });
@@ -222,7 +209,7 @@ export default function ConsultationsPage() {
       </div>
     );
   }
-  
+
   // Main content when user is logged in
   return (
     <div className="min-h-screen bg-neutral-900 text-white flex flex-col">

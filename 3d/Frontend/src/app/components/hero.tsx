@@ -1,7 +1,6 @@
 'use client';
 
 import PortalScene from '../portalcomps/portalcomplete';
-import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (

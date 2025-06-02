@@ -3,9 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { EhrProvider } from "./contexts/EhrContext";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-inter", 
 });
 
 export const metadata: Metadata = {
