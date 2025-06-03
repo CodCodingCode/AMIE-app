@@ -8,98 +8,10 @@ from itertools import islice
 import random
 
 # Initialize OpenAI client
-client = OpenAI(
-    api_key="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"
-)
+client = OpenAI(api_key="api")
 model = "gpt-4.1-nano"
 
 treatment_plans = []
-
-
-def get_guaranteed_format_response(responder, prompt, max_retries=3):
-    """Absolutely guarantee THINKING/ANSWER format"""
-
-    enforced_prompt = f"""{prompt}
-    
-    ===== MANDATORY FORMAT =====
-    You MUST respond in this EXACT format:
-    
-    THINKING: [your reasoning]
-    ANSWER: [your response]
-    
-    - Start with "THINKING:" (required)
-    - Include "ANSWER:" section (required)
-    - No other format will be accepted
-    ============================
-    
-    Begin your response now with "THINKING:"
-    """
-
-    for attempt in range(max_retries):
-        response = responder.ask(enforced_prompt)
-        response = response.strip()
-
-        # Check format
-        if response.startswith("THINKING:") and "ANSWER:" in response:
-            return response
-
-        # Force format if wrong
-        response = force_thinking_answer_format(response)
-        if response.startswith("THINKING:") and "ANSWER:" in response:
-            return response
-
-        # Escalate enforcement
-        enforced_prompt = f"""{prompt}
-        
-        CRITICAL ERROR: You failed to follow the required format {attempt + 1} times.
-        
-        You MUST respond EXACTLY like this:
-        
-        THINKING: [write your reasoning here]
-        ANSWER: [write your actual response here]
-        
-        Type "THINKING:" first, then your reasoning, then "ANSWER:" then your response.
-        This is mandatory. No exceptions. Attempt {attempt + 2} of {max_retries}.
-        """
-
-    # Final fallback
-    return f"THINKING: Format enforcement failed\nANSWER: {response}"
-
-
-def force_thinking_answer_format(response):
-    """Force any response into THINKING/ANSWER format"""
-    response = response.strip()
-
-    # If already in correct format, return as-is
-    if response.startswith("THINKING:") and "ANSWER:" in response:
-        # Check for nested format (ANSWER: THINKING:)
-        if "ANSWER: THINKING:" in response:
-            # Extract the content after "ANSWER: THINKING:"
-            content = response.split("ANSWER: THINKING:", 1)[1].strip()
-            return f"THINKING: {content}\nANSWER: {content}"
-        return response
-
-    # Check for malformed nested format (ANSWER: THINKING:)
-    if response.startswith("ANSWER: THINKING:"):
-        content = response.split("ANSWER: THINKING:", 1)[1].strip()
-        return f"THINKING: {content}\nANSWER: {content}"
-
-    # If starts with ANSWER: but no THINKING:, move content to proper format
-    if response.startswith("ANSWER:"):
-        content = response.split("ANSWER:", 1)[1].strip()
-        return f"THINKING: Providing requested response\nANSWER: {content}"
-
-    # If has ANSWER: somewhere but doesn't start with THINKING:
-    if "ANSWER:" in response and not response.startswith("THINKING:"):
-        parts = response.split("ANSWER:", 1)
-        thinking_part = (
-            parts[0].strip() if parts[0].strip() else "Providing requested information"
-        )
-        answer_part = parts[1].strip() if len(parts) > 1 else response
-        return f"THINKING: {thinking_part}\nANSWER: {answer_part}"
-
-    # If no format markers, assume entire response is the answer
-    return f"THINKING: Providing requested response\nANSWER: {response}"
 
 
 # === Patient Behavior Configurations ===
@@ -212,98 +124,6 @@ def get_guidance_strength(stage):
         return "Very strong guidance - prioritize these conditions"
     else:
         return "Critical guidance - this should be your primary consideration"
-
-
-class DiagnosticPerformanceTracker:
-    def __init__(self):
-        self.performance_history = []
-        self.current_vignette_performance = {}
-
-    def update_performance(
-        self, vignette_idx, stage, gold_found, position, total_predictions
-    ):
-        """Track diagnostic performance for adaptive hinting"""
-        accuracy_score = calculate_accuracy_score(
-            gold_found, position, total_predictions
-        )
-
-        performance_data = {
-            "vignette_idx": vignette_idx,
-            "stage": stage,
-            "gold_found": gold_found,
-            "position": position,
-            "accuracy_score": accuracy_score,
-            "timestamp": time.time(),
-        }
-
-        self.performance_history.append(performance_data)
-
-        # Track current vignette
-        if vignette_idx not in self.current_vignette_performance:
-            self.current_vignette_performance[vignette_idx] = []
-        self.current_vignette_performance[vignette_idx].append(performance_data)
-
-    def should_provide_hints(self, vignette_idx, stage):
-        """Determine if hints are needed based on performance"""
-        # Get recent performance for this vignette
-        vignette_history = self.current_vignette_performance.get(vignette_idx, [])
-
-        # Check overall recent performance (last 10 vignettes)
-        recent_performance = (
-            self.performance_history[-10:]
-            if len(self.performance_history) >= 10
-            else self.performance_history
-        )
-
-        # Criteria for providing hints
-        needs_hints = False
-
-        # 1. Current vignette struggling (no gold diagnosis found in previous stages)
-        if vignette_history:
-            recent_vignette_scores = [p["accuracy_score"] for p in vignette_history]
-            if all(score == 0.0 for score in recent_vignette_scores):
-                needs_hints = True
-                print(
-                    f"🎯 ADAPTIVE HINTS: Activating hints for vignette {vignette_idx} - gold diagnosis not found in previous stages"
-                )
-
-        # 2. Overall performance declining
-        if len(recent_performance) >= 5:
-            recent_accuracy = (
-                sum(p["accuracy_score"] for p in recent_performance[-5:]) / 5
-            )
-            if recent_accuracy < 0.3:  # Less than 30% accuracy
-                needs_hints = True
-                print(
-                    f"📉 ADAPTIVE HINTS: Activating hints due to declining performance ({recent_accuracy:.1%})"
-                )
-
-        # 3. Late stage and still struggling
-        if stage == "late" and vignette_history:
-            if not any(p["gold_found"] for p in vignette_history):
-                needs_hints = True
-                print(
-                    f"⏰ ADAPTIVE HINTS: Activating hints for late stage - diagnosis not found yet"
-                )
-
-        return needs_hints
-
-    def get_performance_summary(self):
-        """Get current performance statistics"""
-        if not self.performance_history:
-            return "No performance data yet"
-
-        total_cases = len(self.performance_history)
-        accurate_cases = sum(1 for p in self.performance_history if p["gold_found"])
-        overall_accuracy = (
-            (accurate_cases / total_cases) * 100 if total_cases > 0 else 0
-        )
-
-        return f"Overall Accuracy: {overall_accuracy:.1f}% ({accurate_cases}/{total_cases})"
-
-
-# Global performance tracker
-performance_tracker = DiagnosticPerformanceTracker()
 
 
 def create_diagnostic_hints(gold_diagnosis, stage):
@@ -1340,107 +1160,6 @@ def get_relevant_questions(gold_diagnosis, current_vignette):
             return f"PRIORITY FOCUS - Ask about: {'; '.join(questions)}"
 
 
-def evaluate_diagnostic_accuracy(predicted_diagnoses, gold_diagnosis):
-    """
-    Evaluate how well the predicted diagnoses match the gold standard
-    """
-    # Extract diagnosis names from the model output
-    predicted_list = extract_diagnosis_names(predicted_diagnoses)
-
-    # Check if gold diagnosis is in the list (fuzzy matching)
-    gold_found = False
-    position = -1
-
-    for i, pred in enumerate(predicted_list):
-        if is_diagnosis_match(pred, gold_diagnosis):
-            gold_found = True
-            position = i + 1
-            break
-
-    return {
-        "gold_diagnosis_found": gold_found,
-        "position_in_list": position,
-        "predicted_diagnoses": predicted_list,
-        "accuracy_score": calculate_accuracy_score(
-            gold_found, position, len(predicted_list)
-        ),
-    }
-
-
-def extract_diagnosis_names(diagnosis_text):
-    """Extract diagnosis names from model output"""
-    import re
-
-    # Look for numbered list pattern
-    pattern = r"\d+\.\s*(?:Diagnosis:)?\s*([^\n]+?)(?:\s*Justification|$)"
-    matches = re.findall(pattern, diagnosis_text, re.IGNORECASE | re.MULTILINE)
-
-    # Clean up the extracted names
-    cleaned = []
-    for match in matches:
-        # Remove common prefixes and clean up
-        clean_name = re.sub(
-            r"^(Diagnosis:?|Condition:?)\s*", "", match, flags=re.IGNORECASE
-        )
-        clean_name = clean_name.strip()
-        if clean_name:
-            cleaned.append(clean_name)
-
-    return cleaned
-
-
-def is_diagnosis_match(predicted, gold):
-    """Check if predicted diagnosis matches gold diagnosis (fuzzy matching)"""
-    pred_lower = predicted.lower()
-    gold_lower = gold.lower()
-
-    # Direct match
-    if pred_lower == gold_lower:
-        return True
-
-    # Check if gold diagnosis words are in predicted
-    gold_words = set(gold_lower.split())
-    pred_words = set(pred_lower.split())
-
-    # If most significant words match
-    if len(gold_words & pred_words) >= min(2, len(gold_words) * 0.7):
-        return True
-
-    return False
-
-
-def clean_diagnosis_output(raw_output):
-    """Clean diagnosis output to only include THINKING and ANSWER sections"""
-    lines = raw_output.split("\n")
-    cleaned_lines = []
-    in_valid_section = False
-
-    for line in lines:
-        line_stripped = line.strip()
-
-        # Check if we're starting THINKING or ANSWER section
-        if line_stripped.startswith("THINKING:") or line_stripped.startswith("ANSWER:"):
-            in_valid_section = True
-            cleaned_lines.append(line)
-        # Stop at unwanted content
-        elif (
-            line_stripped.startswith("**Note:")
-            or line_stripped.startswith("Note:")
-            or line_stripped.startswith("**Additional:")
-            or line_stripped.startswith("Additional:")
-            or line_stripped.startswith("**Further:")
-            or line_stripped.startswith("Further:")
-            or line_stripped.startswith("**Recommendation:")
-            or line_stripped.startswith("Recommendation:")
-        ):
-            break
-        # Continue adding lines if we're in a valid section
-        elif in_valid_section:
-            cleaned_lines.append(line)
-
-    return "\n".join(cleaned_lines).strip()
-
-
 # === Updated Diagnosis Prompt Templates ===
 EARLY_DIAGNOSIS_PROMPT = """You are a board-certified diagnostician with expertise in differential diagnosis and clinical reasoning.
 
@@ -1760,22 +1479,6 @@ Doctor's question: {initial_prompt}"""
             vignette_summary = vignette_summary.split("ANSWER:")[1].strip()
         else:
             vignette_summary = vignette_summary
-
-        # Detect behavioral cues for empathetic response
-        if turn_count > 0:
-            behavioral_analysis = detect_patient_behavior_cues(
-                conversation, patient_response
-            )
-            behavioral_analyses.append(
-                {
-                    "vignette_index": idx,
-                    "turn_count": turn_count,
-                    "analysis": behavioral_analysis,
-                }
-            )
-            print(f"🧠 Behavioral Analysis: {behavioral_analysis}")
-        else:
-            behavioral_analysis = f"Expected behavioral cues: {', '.join(behavior_config.get('empathy_cues', []))}"
 
         # === UPDATED DIAGNOSIS LOGIC WITH CLEANING ===
         diagnosis = get_diagnosis_with_cleaning(
@@ -2175,12 +1878,12 @@ Current Physical/Emotional State: {response_guidance}
 Remember: You are NOT trying to be a good patient or help the doctor. You're being a REAL person with real concerns, confusion, and communication patterns."""
         )
         if "ANSWER:" in raw_patient_fb:
-            patient_followup_text = raw_patient_fb.split("ANSWER:")[1].strip()
+            patient_response = raw_patient_fb.split("ANSWER:")[1].strip()
         else:
-            patient_followup_text = raw_patient_fb
+            patient_response = raw_patient_fb
 
-        print("🗣️ Patient:", patient_followup_text)
-        conversation.append(f"PATIENT: {patient_followup_text}")
+        print("🗣️ Patient:", patient_response)
+        conversation.append(f"PATIENT: {patient_response}")
         patient_response.append(
             {
                 "vignette_index": idx,
@@ -2241,41 +1944,6 @@ def select_patient_behavior():
         if rand <= cumulative:
             return behavior, config
     return "baseline", PATIENT_BEHAVIORS["baseline"]
-
-
-def detect_patient_behavior_cues(conversation_history, patient_responses):
-    """
-    Analyze conversation to detect behavioral cues that inform empathetic responses
-    """
-    cue_detector = RoleResponder(
-        """You are a behavioral psychologist specializing in patient communication patterns.
-    Analyze the patient's responses to identify behavioral cues that indicate their communication style and emotional state.
-    This will help the doctor provide more empathetic and effective care."""
-    )
-
-    recent_responses = patient_responses[-3:]  # Look at last 3 patient responses
-    analysis = cue_detector.ask(
-        f"""
-    Analyze these recent patient responses for behavioral and emotional cues:
-    
-    {json.dumps(recent_responses, indent=2)}
-    
-    Identify which of these behavioral patterns are present:
-    - Anxiety/fear (catastrophic thinking, worry about serious disease)
-    - Embarrassment/hesitation (reluctance to share, vague responses)
-    - Stoicism/minimization (downplaying symptoms, "tough" attitude)
-    - Confusion/uncertainty (timeline issues, memory problems)
-    - Storytelling/context-sharing (excessive details, family stories)
-    - Family pressure/caregiver stress
-    
-    Respond in the following format:
-    THINKING: <Your analysis of the patient's communication patterns>
-    BEHAVIORAL_CUES: <List the main cues you detect>
-    EMPATHY_NEEDS: <What kind of empathetic response would help this patient>
-    """
-    )
-
-    return analysis
 
 
 def generate_patient_prompt_modifiers(behavior_config, is_initial=True):
@@ -2405,63 +2073,151 @@ class RoleResponder:
     def ask(self, user_input, max_retries=3):
         """Ask with guaranteed THINKING/ANSWER format"""
 
-        enforced_prompt = f"""{user_input}
-        
-        ===== MANDATORY FORMAT =====
-        You MUST respond in this EXACT format:
-        
-        THINKING: [your reasoning]
-        ANSWER: [your response]
-        
-        - Start with "THINKING:" (required)
-        - Include "ANSWER:" section (required)
-        - No other format will be accepted
-        ============================
-        
-        Begin your response now with "THINKING:"
-        """
-
         for attempt in range(max_retries):
             messages = [
                 {"role": "system", "content": self.role_instruction},
-                {"role": "user", "content": enforced_prompt},
+                {"role": "user", "content": user_input},
             ]
 
             response = client.chat.completions.create(model=model, messages=messages)
             response = response.choices[0].message.content.strip()
 
-            # Check format
-            # Check format and fix nested issues
-            if response.startswith("THINKING:") and "ANSWER:" in response:
-                # Make sure it's not nested format
-                if "ANSWER: THINKING:" not in response:
-                    return response
+            # Clean and normalize the response
+            cleaned_response = self.clean_thinking_answer_format(response)
 
-            # Fix any format issues
-            response = force_thinking_answer_format(response)
-            if (
-                response.startswith("THINKING:")
-                and "ANSWER:" in response
-                and "ANSWER: THINKING:" not in response
-            ):
-                return response
-
-            # Escalate enforcement for retry
-            enforced_prompt = f"""{user_input}
-            
-            CRITICAL ERROR: You failed to follow the required format {attempt + 1} times.
-            
-            You MUST respond EXACTLY like this:
-            
-            THINKING: [write your reasoning here]
-            ANSWER: [write your actual response here]
-            
-            Type "THINKING:" first, then your reasoning, then "ANSWER:" then your response.
-            This is mandatory. No exceptions. Attempt {attempt + 2} of {max_retries}.
-            """
+            # Validate the cleaned response
+            if self.validate_thinking_answer_format(cleaned_response):
+                return cleaned_response
 
         # Final fallback
-        return f"THINKING: Format enforcement failed after {max_retries} attempts\nANSWER: {response}"
+        return f"THINKING: Format enforcement failed after {max_retries} attempts\nANSWER: Unable to get properly formatted response."
+
+    def clean_thinking_answer_format(self, text):
+        """Clean and ensure exactly one THINKING and one ANSWER section"""
+
+        # Remove any leading/trailing whitespace
+        text = text.strip()
+
+        # Find all THINKING and ANSWER positions
+        thinking_positions = []
+        answer_positions = []
+
+        lines = text.split("\n")
+        for i, line in enumerate(lines):
+            line_stripped = line.strip()
+            if line_stripped.startswith("THINKING:"):
+                thinking_positions.append(i)
+            elif line_stripped.startswith("ANSWER:"):
+                answer_positions.append(i)
+
+        # If we have exactly one of each, check if they're in the right order
+        if len(thinking_positions) == 1 and len(answer_positions) == 1:
+            thinking_idx = thinking_positions[0]
+            answer_idx = answer_positions[0]
+
+            if thinking_idx < answer_idx:
+                # Perfect format, just clean up the content
+                thinking_content = lines[thinking_idx][9:].strip()  # Remove "THINKING:"
+                answer_content = []
+
+                # Collect thinking content (everything between THINKING and ANSWER)
+                for i in range(thinking_idx + 1, answer_idx):
+                    thinking_content += " " + lines[i].strip()
+
+                # Collect answer content (everything after ANSWER)
+                answer_content = lines[answer_idx][7:].strip()  # Remove "ANSWER:"
+                for i in range(answer_idx + 1, len(lines)):
+                    answer_content += " " + lines[i].strip()
+
+                return f"THINKING: {thinking_content.strip()}\nANSWER: {answer_content.strip()}"
+
+        # If format is messed up, try to extract and rebuild
+        # Look for the first THINKING and first ANSWER after it
+        thinking_content = ""
+        answer_content = ""
+
+        first_thinking = -1
+        first_answer_after_thinking = -1
+
+        for i, line in enumerate(lines):
+            line_stripped = line.strip()
+            if line_stripped.startswith("THINKING:") and first_thinking == -1:
+                first_thinking = i
+                thinking_content = line_stripped[9:].strip()
+            elif (
+                line_stripped.startswith("ANSWER:")
+                and first_thinking != -1
+                and first_answer_after_thinking == -1
+            ):
+                first_answer_after_thinking = i
+                answer_content = line_stripped[7:].strip()
+                break
+            elif first_thinking != -1 and first_answer_after_thinking == -1:
+                # Still collecting thinking content
+                thinking_content += " " + line_stripped
+
+        # Collect remaining answer content
+        if first_answer_after_thinking != -1:
+            for i in range(first_answer_after_thinking + 1, len(lines)):
+                line_stripped = lines[i].strip()
+                # Stop if we hit another THINKING or ANSWER
+                if line_stripped.startswith("THINKING:") or line_stripped.startswith(
+                    "ANSWER:"
+                ):
+                    break
+                answer_content += " " + line_stripped
+
+        # If we still don't have both parts, try to extract from the raw text
+        if not thinking_content or not answer_content:
+            # Last resort: split on the patterns
+            if "THINKING:" in text and "ANSWER:" in text:
+                parts = text.split("ANSWER:", 1)
+                if len(parts) == 2:
+                    thinking_part = parts[0]
+                    answer_part = parts[1]
+
+                    # Extract thinking content
+                    if "THINKING:" in thinking_part:
+                        thinking_content = thinking_part.split("THINKING:", 1)[
+                            1
+                        ].strip()
+
+                    # Clean answer content (remove any nested THINKING/ANSWER)
+                    answer_lines = answer_part.split("\n")
+                    clean_answer_lines = []
+                    for line in answer_lines:
+                        if not line.strip().startswith(
+                            "THINKING:"
+                        ) and not line.strip().startswith("ANSWER:"):
+                            clean_answer_lines.append(line)
+                    answer_content = " ".join(clean_answer_lines).strip()
+
+        # Fallback if we still don't have proper content
+        if not thinking_content:
+            thinking_content = "Unable to extract thinking content properly"
+        if not answer_content:
+            answer_content = "Unable to extract answer content properly"
+
+        return f"THINKING: {thinking_content.strip()}\nANSWER: {answer_content.strip()}"
+
+    def validate_thinking_answer_format(self, text):
+        """Validate that the text has exactly one THINKING and one ANSWER in correct order"""
+        lines = text.split("\n")
+
+        thinking_count = 0
+        answer_count = 0
+        thinking_first = False
+
+        for line in lines:
+            line_stripped = line.strip()
+            if line_stripped.startswith("THINKING:"):
+                thinking_count += 1
+                if answer_count == 0:  # No ANSWER seen yet
+                    thinking_first = True
+            elif line_stripped.startswith("ANSWER:"):
+                answer_count += 1
+
+        return thinking_count == 1 and answer_count == 1 and thinking_first
 
 
 # === Use the Class for Roles ===
