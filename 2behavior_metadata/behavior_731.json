@@ -1,0 +1,15 @@
+{
+  "behavior_type": "chronology_confused",
+  "behavior_description": "Patient confused about symptom timing and progression",
+  "modifiers": [
+    "timeline_confusion",
+    "sequence_uncertainty"
+  ],
+  "empathy_cues": [
+    "confusion",
+    "uncertainty",
+    "memory_issues",
+    "needs_patience"
+  ],
+  "gold_diagnosis": "Dementia due to Down syndrome"
+}

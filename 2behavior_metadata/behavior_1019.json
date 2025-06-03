@@ -1,0 +1,15 @@
+{
+  "behavior_type": "information_withholder",
+  "behavior_description": "Patient initially omits embarrassing or stigmatized symptoms",
+  "modifiers": [
+    "embarrassed_symptoms",
+    "gradual_revelation"
+  ],
+  "empathy_cues": [
+    "hesitation",
+    "vague_responses",
+    "embarrassment",
+    "trust_building_needed"
+  ],
+  "gold_diagnosis": "Other specified infectious diseases of external ear"
+}
