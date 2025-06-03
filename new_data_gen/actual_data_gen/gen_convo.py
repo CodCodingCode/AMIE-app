@@ -766,7 +766,7 @@ Now I'll select treatments based on current clinical guidelines.
 - Contraindications or cautions: <what to avoid or monitor>
 
 STEP 3 - PHARMACOLOGICAL INTERVENTIONS:
-If medicatijoinedons are appropriate, I'll select based on efficacy and safety.
+If medications are appropriate, I'll select based on efficacy and safety.
 - Primary medication choice: <specific drug, dose, frequency>
 - Rationale for selection: <why this medication over alternatives>
 - Expected timeline for improvement: <when to expect benefits>
@@ -1523,6 +1523,10 @@ if __name__ == "__main__":
 
     flattened_vignettes = []
 
+    # 🎯 SPECIFY WHICH TYPES TO INCLUDE
+    DESIRED_TYPES = ["typical", "severe"]  # Change these as needed
+    # Options: "typical", "early", "severe", "mixed"
+
     # Handle roleplay scripts structure: {"metadata": {...}, "roleplay_scripts": {"Disease": [scripts...]}}
     if "roleplay_scripts" in data:
         roleplay_dict = data["roleplay_scripts"]
@@ -1530,13 +1534,31 @@ if __name__ == "__main__":
             # Only process if we have a list of scripts
             if not isinstance(scripts, list):
                 continue
+
+            # 📋 SELECT SPECIFIC TYPES
+            selected_scripts = []
             for script in scripts:
+                if isinstance(script, dict) and "variation_type" in script:
+                    if script["variation_type"] in DESIRED_TYPES:
+                        selected_scripts.append(script)
+                else:
+                    # If no variation_type, include it (fallback)
+                    selected_scripts.append(script)
+
+            # Limit to 2 even from selected types
+            limited_scripts = selected_scripts[:2]
+
+            for script in limited_scripts:
                 # Extract the roleplay_script content as the vignette text
                 if isinstance(script, dict) and "roleplay_script" in script:
                     flattened_vignettes.append((disease, script["roleplay_script"]))
                 else:
                     # Fallback if script is just a string
                     flattened_vignettes.append((disease, str(script)))
+
+            print(
+                f"   {disease}: Selected {len(limited_scripts)} vignettes ({[s.get('variation_type', 'unknown') for s in limited_scripts]})"
+            )
     else:
         raise ValueError(
             f"Expected 'roleplay_scripts' key in JSON structure. Found keys: {list(data.keys()) if isinstance(data, dict) else type(data)}"
