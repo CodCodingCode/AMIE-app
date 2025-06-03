@@ -1,36 +1,37 @@
 'use client';
 
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { IconX, IconDownload, IconCopy, IconFileText, IconCheck } from '@tabler/icons-react';
-import { SOAPNote } from '../chat/chatService'; // Assuming SOAPNote type is exported
+import { SOAPNote } from '../chat/chatService';
 
-interface SOAPNoteModalProps {
+interface UltraSimpleSOAPModalProps {
   isOpen: boolean;
   onClose: () => void;
   soapNote: SOAPNote | null;
-  onSave?: (note: SOAPNote) => void; // Optional: if editing/saving from modal is needed
 }
 
-const SOAPNoteModal: React.FC<SOAPNoteModalProps> = ({ isOpen, onClose, soapNote }) => {
+const UltraSimpleSOAPModal: React.FC<UltraSimpleSOAPModalProps> = ({ 
+  isOpen, 
+  onClose, 
+  soapNote 
+}) => {
   const [copied, setCopied] = React.useState(false);
 
-  if (!soapNote) return null;
+  if (!isOpen || !soapNote) return null;
 
-  const fullSoapText = `Subjective:\n${soapNote.subjective}\n\nObjective:\n${soapNote.objective}\n\nAssessment:\n${soapNote.assessment}\n\nPlan:\n${soapNote.plan.join('\n- ')}`;
+  const fullText = `Subjective:\n${soapNote.subjective}\n\nObjective:\n${soapNote.objective}\n\nAssessment:\n${soapNote.assessment}\n\nPlan:\n- ${soapNote.plan.join('\n- ')}`;
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(fullSoapText);
+    navigator.clipboard.writeText(fullText);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   const handleDownload = () => {
-    const blob = new Blob([fullSoapText], { type: 'text/plain' });
+    const blob = new Blob([fullText], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `SOAP_Note_${soapNote.chatId}_${new Date().toISOString().split('T')[0]}.txt`;
+    a.download = `SOAP_Note_${new Date().toISOString().split('T')[0]}.txt`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -38,86 +39,91 @@ const SOAPNoteModal: React.FC<SOAPNoteModalProps> = ({ isOpen, onClose, soapNote
   };
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={onClose}
-        >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            onClick={(e) => e.stopPropagation()}
-            className="bg-neutral-800 rounded-xl shadow-2xl w-full max-w-2xl border border-neutral-700 flex flex-col max-h-[90vh]"
+    <div 
+      className="fixed inset-0 bg-smokyBlack bg-opacity-90 flex items-center justify-center p-6 z-50"
+      onClick={onClose}
+    >
+      <div 
+        className="bg-white w-full max-w-2xl max-h-[90vh] overflow-hidden rounded-xl shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="p-6 border-b border-gray-100 flex items-center justify-between">
+          <h2 className="text-xl font-medium text-dukeBlue">SOAP Note</h2>
+          <button 
+            onClick={onClose}
+            className="text-mountbattenPink hover:text-dukeBlue text-2xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-all"
           >
-            <header className="p-4 sm:p-5 border-b border-neutral-700 flex items-center justify-between">
-              <div className="flex items-center">
-                <IconFileText className="w-6 h-6 text-blue-400 mr-3" />
-                <h2 className="text-lg font-semibold text-white">SOAP Note</h2>
-              </div>
-              <button 
-                onClick={onClose} 
-                className="p-1.5 rounded-md text-neutral-400 hover:bg-neutral-700 hover:text-neutral-100 transition-colors"
-                aria-label="Close modal"
-              >
-                <IconX size={20} />
-              </button>
-            </header>
+            ×
+          </button>
+        </div>
 
-            <main className="p-4 sm:p-6 flex-grow overflow-y-auto no-scrollbar">
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-sm font-semibold text-blue-300 mb-1">Subjective</h3>
-                  <p className="text-sm text-neutral-300 whitespace-pre-wrap bg-neutral-700/50 p-3 rounded-md">{soapNote.subjective || 'N/A'}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-blue-300 mb-1">Objective</h3>
-                  <p className="text-sm text-neutral-300 whitespace-pre-wrap bg-neutral-700/50 p-3 rounded-md">{soapNote.objective || 'N/A'}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-blue-300 mb-1">Assessment</h3>
-                  <p className="text-sm text-neutral-300 whitespace-pre-wrap bg-neutral-700/50 p-3 rounded-md">{soapNote.assessment || 'N/A'}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-blue-300 mb-1">Plan</h3>
-                  <ul className="list-disc list-inside text-sm text-neutral-300 space-y-1 bg-neutral-700/50 p-3 rounded-md">
-                    {soapNote.plan && soapNote.plan.length > 0 ? soapNote.plan.map((item, index) => (
-                      <li key={index}>{item}</li>
-                    )) : <li>N/A</li>}
+        {/* Content */}
+        <div className="p-6 overflow-y-auto max-h-[60vh]">
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-sm font-medium text-dukeBlue mb-3">Subjective</h3>
+              <div className="bg-gray-50 p-4 text-sm text-dukeBlue rounded-lg border">
+                {soapNote.subjective || 'N/A'}
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-sm font-medium text-dukeBlue mb-3">Objective</h3>
+              <div className="bg-gray-50 p-4 text-sm text-dukeBlue rounded-lg border">
+                {soapNote.objective || 'N/A'}
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-sm font-medium text-dukeBlue mb-3">Assessment</h3>
+              <div className="bg-gray-50 p-4 text-sm text-dukeBlue rounded-lg border">
+                {soapNote.assessment || 'N/A'}
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-sm font-medium text-dukeBlue mb-3">Plan</h3>
+              <div className="bg-gray-50 p-4 text-sm text-dukeBlue rounded-lg border">
+                {soapNote.plan && soapNote.plan.length > 0 ? (
+                  <ul className="space-y-2">
+                    {soapNote.plan.map((item, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-dukeBlue mr-2">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
                   </ul>
-                </div>
+                ) : (
+                  'N/A'
+                )}
               </div>
-              <p className="text-xs text-neutral-500 mt-4 text-right">
-                Generated: {new Date(soapNote.generatedAt).toLocaleString()}
-              </p>
-            </main>
+            </div>
+          </div>
+          
+          <p className="text-xs text-mountbattenPink mt-6 text-right">
+            Generated: {new Date(soapNote.generatedAt).toLocaleString()}
+          </p>
+        </div>
 
-            <footer className="p-4 sm:p-5 border-t border-neutral-700 flex flex-col sm:flex-row items-center justify-end space-y-3 sm:space-y-0 sm:space-x-3">
-              <button
-                onClick={handleCopy}
-                className="w-full sm:w-auto px-4 py-2.5 bg-neutral-700 hover:bg-neutral-600 text-neutral-200 rounded-lg transition-colors flex items-center justify-center text-sm font-medium"
-              >
-                {copied ? <IconCheck className="w-4 h-4 mr-2 text-green-400" /> : <IconCopy className="w-4 h-4 mr-2" />}
-                {copied ? 'Copied!' : 'Copy Text'}
-              </button>
-              <button
-                onClick={handleDownload}
-                className="w-full sm:w-auto px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors flex items-center justify-center text-sm font-medium"
-              >
-                <IconDownload className="w-4 h-4 mr-2" />
-                Download .txt
-              </button>
-            </footer>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        {/* Footer */}
+        <div className="p-6 border-t border-gray-100 flex justify-end gap-4">
+          <button
+            onClick={handleCopy}
+            className="px-6 py-3 bg-gray-50 text-dukeBlue text-sm rounded-lg border hover:bg-gray-100 transition-all"
+          >
+            {copied ? 'Copied!' : 'Copy'}
+          </button>
+          <button
+            onClick={handleDownload}
+            className="px-6 py-3 bg-dukeBlue text-white text-sm rounded-lg hover:opacity-80 transition-opacity"
+          >
+            Download
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default SOAPNoteModal; 
+export default UltraSimpleSOAPModal;

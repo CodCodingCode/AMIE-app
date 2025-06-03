@@ -1,23 +1,24 @@
 'use client';
 
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { IconX, IconSend, IconDownload, IconCopy, IconCheck, IconUsers } from '@tabler/icons-react';
-import { Referral } from '../chat/chatService'; // Assuming Referral type is exported
+import { Referral } from '../chat/chatService';
 
-interface ReferralModalProps {
+interface UltraSimpleReferralModalProps {
   isOpen: boolean;
   onClose: () => void;
   referral: Referral | null;
-  // onSend?: (referral: Referral) => void; // If sending/updating from modal is needed
 }
 
-const ReferralModal: React.FC<ReferralModalProps> = ({ isOpen, onClose, referral }) => {
+const UltraSimpleReferralModal: React.FC<UltraSimpleReferralModalProps> = ({ 
+  isOpen, 
+  onClose, 
+  referral 
+}) => {
   const [copied, setCopied] = React.useState(false);
 
-  if (!referral) return null;
+  if (!isOpen || !referral) return null;
 
-  const fullReferralText = 
+  const fullText = 
 `Referral To: ${referral.referralTo}
 Patient ID: ${referral.patientId}
 Urgency: ${referral.urgency}
@@ -30,16 +31,16 @@ Symptoms:
 - ${referral.symptoms.join('\n- ')}
 
 Status: ${referral.status}
-Created At: ${new Date(referral.createdAt).toLocaleString()}`;
+Created: ${new Date(referral.createdAt).toLocaleString()}`;
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(fullReferralText);
+    navigator.clipboard.writeText(fullText);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   const handleDownload = () => {
-    const blob = new Blob([fullReferralText], { type: 'text/plain' });
+    const blob = new Blob([fullText], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -51,108 +52,109 @@ Created At: ${new Date(referral.createdAt).toLocaleString()}`;
   };
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={onClose}
-        >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            onClick={(e) => e.stopPropagation()}
-            className="bg-neutral-800 rounded-xl shadow-2xl w-full max-w-2xl border border-neutral-700 flex flex-col max-h-[90vh]"
+    <div 
+      className="fixed inset-0 bg-smokyBlack bg-opacity-90 flex items-center justify-center p-6 z-50"
+      onClick={onClose}
+    >
+      <div 
+        className="bg-white w-full max-w-2xl max-h-[90vh] overflow-hidden rounded-xl shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="p-6 border-b border-gray-100 flex items-center justify-between">
+          <h2 className="text-xl font-medium text-dukeBlue">Referral Details</h2>
+          <button 
+            onClick={onClose}
+            className="text-mountbattenPink hover:text-dukeBlue text-2xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-all"
           >
-            <header className="p-4 sm:p-5 border-b border-neutral-700 flex items-center justify-between">
-              <div className="flex items-center">
-                <IconUsers className="w-6 h-6 text-indigo-400 mr-3" />
-                <h2 className="text-lg font-semibold text-white">Referral Details</h2>
-              </div>
-              <button 
-                onClick={onClose} 
-                className="p-1.5 rounded-md text-neutral-400 hover:bg-neutral-700 hover:text-neutral-100 transition-colors"
-                aria-label="Close modal"
-              >
-                <IconX size={20} />
-              </button>
-            </header>
+            ×
+          </button>
+        </div>
 
-            <main className="p-4 sm:p-6 flex-grow overflow-y-auto no-scrollbar">
-              <div className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <h3 className="text-xs font-medium text-neutral-500 mb-0.5">Referral To</h3>
-                    <p className="text-sm text-neutral-200 font-semibold">{referral.referralTo}</p>
-                  </div>
-                  <div>
-                    <h3 className="text-xs font-medium text-neutral-500 mb-0.5">Patient ID</h3>
-                    <p className="text-sm text-neutral-300">{referral.patientId}</p>
-                  </div>
-                </div>
-                 <div>
-                    <h3 className="text-xs font-medium text-neutral-500 mb-0.5">Urgency</h3>
-                    <p className="text-sm text-neutral-300 capitalize">{referral.urgency}</p>
-                  </div>
-                <div>
-                  <h3 className="text-xs font-medium text-neutral-500 mb-0.5">Reason for Referral</h3>
-                  <p className="text-sm text-neutral-300 bg-neutral-700/50 p-3 rounded-md">{referral.reason}</p>
-                </div>
-                <div>
-                  <h3 className="text-xs font-medium text-neutral-500 mb-0.5">Symptoms</h3>
-                  <ul className="list-disc list-inside text-sm text-neutral-300 space-y-1 bg-neutral-700/50 p-3 rounded-md">
-                    {referral.symptoms.map((symptom, i) => <li key={i}>{symptom}</li>)}
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-xs font-medium text-neutral-500 mb-0.5">Clinical Summary</h3>
-                  <p className="text-sm text-neutral-300 whitespace-pre-wrap bg-neutral-700/50 p-3 rounded-md">{referral.clinicalSummary}</p>
-                </div>
-                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                    <div>
-                        <h3 className="text-xs font-medium text-neutral-500 mb-0.5">Status</h3>
-                        <p className="text-sm text-neutral-300 capitalize px-2 py-1 bg-neutral-700 inline-block rounded-md">{referral.status}</p>
-                    </div>
-                    <div>
-                        <h3 className="text-xs font-medium text-neutral-500 mb-0.5">Created At</h3>
-                        <p className="text-sm text-neutral-300">{new Date(referral.createdAt).toLocaleString()}</p>
-                    </div>
-                </div>
+        {/* Content */}
+        <div className="p-6 overflow-y-auto max-h-[60vh]">
+          <div className="space-y-6">
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-sm font-medium text-dukeBlue mb-2">Referral To</h3>
+                <p className="text-sm text-dukeBlue bg-gray-50 p-3 rounded-lg">{referral.referralTo}</p>
               </div>
-            </main>
+              <div>
+                <h3 className="text-sm font-medium text-dukeBlue mb-2">Patient ID</h3>
+                <p className="text-sm text-dukeBlue bg-gray-50 p-3 rounded-lg">{referral.patientId}</p>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-sm font-medium text-dukeBlue mb-2">Urgency</h3>
+              <span className="inline-block px-4 py-2 text-sm bg-gray-50 text-dukeBlue border rounded-lg">
+                {referral.urgency}
+              </span>
+            </div>
+            
+            <div>
+              <h3 className="text-sm font-medium text-dukeBlue mb-3">Reason for Referral</h3>
+              <div className="bg-gray-50 p-4 text-sm text-dukeBlue rounded-lg border">
+                {referral.reason}
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-sm font-medium text-dukeBlue mb-3">Symptoms</h3>
+              <div className="bg-gray-50 p-4 text-sm text-dukeBlue rounded-lg border">
+                <ul className="space-y-2">
+                  {referral.symptoms.map((symptom, i) => (
+                    <li key={i} className="flex items-start">
+                      <span className="text-dukeBlue mr-2">•</span>
+                      <span>{symptom}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-sm font-medium text-dukeBlue mb-3">Clinical Summary</h3>
+              <div className="bg-gray-50 p-4 text-sm text-dukeBlue rounded-lg border">
+                {referral.clinicalSummary}
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-sm font-medium text-dukeBlue mb-2">Status</h3>
+                <span className="inline-block px-4 py-2 text-sm bg-gray-50 text-dukeBlue border rounded-lg">
+                  {referral.status}
+                </span>
+              </div>
+              <div>
+                <h3 className="text-sm font-medium text-dukeBlue mb-2">Created</h3>
+                <p className="text-sm text-dukeBlue bg-gray-50 p-3 rounded-lg">
+                  {new Date(referral.createdAt).toLocaleString()}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-            <footer className="p-4 sm:p-5 border-t border-neutral-700 flex flex-col sm:flex-row items-center justify-end space-y-3 sm:space-y-0 sm:space-x-3">
-              <button
-                onClick={handleCopy}
-                className="w-full sm:w-auto px-4 py-2.5 bg-neutral-700 hover:bg-neutral-600 text-neutral-200 rounded-lg transition-colors flex items-center justify-center text-sm font-medium"
-              >
-                {copied ? <IconCheck className="w-4 h-4 mr-2 text-green-400" /> : <IconCopy className="w-4 h-4 mr-2" />}
-                {copied ? 'Copied!' : 'Copy Text'}
-              </button>
-              <button
-                onClick={handleDownload}
-                className="w-full sm:w-auto px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors flex items-center justify-center text-sm font-medium"
-              >
-                <IconDownload className="w-4 h-4 mr-2" />
-                Download .txt
-              </button>
-              {/* <button
-                onClick={() => alert('Send referral action (not implemented)')}
-                className="w-full sm:w-auto px-4 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors flex items-center justify-center text-sm font-medium"
-              >
-                <IconSend className="w-4 h-4 mr-2" />
-                Send Referral (Mock)
-              </button> */}
-            </footer>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        {/* Footer */}
+        <div className="p-6 border-t border-gray-100 flex justify-end gap-4">
+          <button
+            onClick={handleCopy}
+            className="px-6 py-3 bg-gray-50 text-dukeBlue text-sm rounded-lg border hover:bg-gray-100 transition-all"
+          >
+            {copied ? 'Copied!' : 'Copy'}
+          </button>
+          <button
+            onClick={handleDownload}
+            className="px-6 py-3 bg-dukeBlue text-white text-sm rounded-lg hover:opacity-80 transition-opacity"
+          >
+            Download
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default ReferralModal; 
+export default UltraSimpleReferralModal;

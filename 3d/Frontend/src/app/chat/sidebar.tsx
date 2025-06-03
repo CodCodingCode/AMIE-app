@@ -18,6 +18,7 @@ import { useAuth } from "./Auth";
 import { chatService, Chat } from "./chatService";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import SettingsModal from "./settings"; // Import the new settings modal
 
 declare global {
   interface Window {
@@ -92,7 +93,7 @@ export const DesktopSidebar = ({ className, children, ...props }: {
 
   const handleMouseLeave = () => {
     if (!isPinned) {
-      hoverRef.current = setTimeout(() => setOpen(false), 300);
+      hoverRef.current = setTimeout(() => setOpen(false), 0);
     }
   };
 
@@ -116,14 +117,12 @@ export const DesktopSidebar = ({ className, children, ...props }: {
           className
         )}
         style={{ pointerEvents: 'auto' }}
-        animate={{ width: open ? 260 : 68 }}
+        animate={{ width: open ? 220 : 68 }}
         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         {...props}
       >
-        {/* Remove the logo section from here */}
-        
         {/* Main Content */}
         <div className="flex-1 flex flex-col">
           {children}
@@ -370,7 +369,7 @@ const ChatItem = ({
             >
               <span 
                 className={cn(
-                  "text-sm block truncate max-w-[180px] transition-colors",
+                  "text-sm block truncate max-w-[140px] transition-colors",
                   isActive ? "text-blue-300" : "text-slate-300 group-hover:text-white"
                 )}
                 title={chat.title || "New Chat"}
@@ -411,7 +410,7 @@ export const SidebarMenu = () => {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [chatToDelete, setChatToDelete] = useState<string | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
-
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false); // Add settings modal state
 
   useEffect(() => {
     if (!user) return;
@@ -516,6 +515,10 @@ export const SidebarMenu = () => {
     router.push('/consultations');
   };
 
+  const handleSettings = () => {
+    setIsSettingsOpen(true); // Open settings modal instead of navigating
+  };
+
   const handleChatClick = (chatId: string) => {
     window.loadChat?.(chatId);
     setCurrentChatId(chatId);
@@ -615,8 +618,8 @@ export const SidebarMenu = () => {
               </div>
             </div>
           ) : (
-            <div className="flex flex-col max-h-[calc(100vh-280px)] overflow-y-auto no-scrollbar">
-              {displayChats.map((chat) => (
+            <div className="flex flex-col max-h-[calc(100vh-240px)] overflow-y-auto no-scrollbar">
+              {displayChats.slice(0, 5).map((chat) => (
                 <ChatItem
                   key={chat.id}
                   chat={chat}
@@ -636,12 +639,18 @@ export const SidebarMenu = () => {
               <SidebarItem
                 icon={IconSettings}
                 text="Settings & help"
-                onClick={() => router.push("/settings")}
+                onClick={handleSettings} // Use modal instead of navigation
               />
             )}
           </SidebarSection>
         </div>
       </div>
+
+      {/* Settings Modal */}
+      <SettingsModal 
+        isOpen={isSettingsOpen} 
+        onClose={() => setIsSettingsOpen(false)} 
+      />
 
       {/* Enhanced Delete Confirmation Dialog */}
       <AnimatePresence>

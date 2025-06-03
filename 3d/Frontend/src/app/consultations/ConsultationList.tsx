@@ -2,11 +2,8 @@
 
 import React from 'react';
 import { Chat } from '../chat/chatService';
-import ConsultationListItem from './ConsultationListItem';
-import EmptyState from './EmptyState';
-import { IconSearch } from '@tabler/icons-react';
 
-interface ConsultationListProps {
+interface UltraSimpleListProps {
   chats: Chat[];
   selectedChat: Chat | null;
   onSelectChat: (chat: Chat) => void;
@@ -16,7 +13,7 @@ interface ConsultationListProps {
   getPreviewText: (chat: Chat) => string;
 }
 
-const ConsultationList: React.FC<ConsultationListProps> = ({ 
+const UltraSimpleList: React.FC<UltraSimpleListProps> = ({ 
   chats, 
   selectedChat, 
   onSelectChat,
@@ -26,43 +23,55 @@ const ConsultationList: React.FC<ConsultationListProps> = ({
   getPreviewText
 }) => {
   return (
-    <div className="col-span-12 md:col-span-5 lg:col-span-4 xl:col-span-3 bg-neutral-800 rounded-xl border border-neutral-700 flex flex-col h-full">
+    <div className="w-1/3 bg-trueBlue rounded-xl overflow-hidden shadow-lg">
       {/* Search */}
-      <div className="p-4 border-b border-neutral-700">
-        <div className="relative">
-          <IconSearch className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search consultations..."
-            value={searchTerm}
-            onChange={(e) => onSearchTermChange(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-neutral-700 border border-neutral-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-dukeBlue text-sm"
-          />
-        </div>
+      <div className="p-6">
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={(e) => onSearchTermChange(e.target.value)}
+          className="w-full p-3 text-sm rounded-lg border border-mountbattenPink bg-white text-dukeBlue placeholder-mountbattenPink focus:outline-none focus:ring-2 focus:ring-dukeBlue"
+        />
       </div>
 
-      {/* Consultations List */}
-      <div className="overflow-y-auto flex-grow no-scrollbar">
+      {/* List */}
+      <div className="overflow-y-auto h-full px-3 pb-6">
         {chats.length === 0 ? (
-          <EmptyState 
-            title={searchTerm ? "No Matching Consultations" : "No Consultations Yet"}
-            message={searchTerm ? "Try adjusting your search term." : "New consultations will appear here."}
-          />
+          <div className="p-8 text-center text-dukeBlue">
+            {searchTerm ? "No matches" : "No consultations"}
+          </div>
         ) : (
-          chats.map(chat => (
-            <ConsultationListItem 
-              key={chat.id}
-              chat={chat}
-              isSelected={selectedChat?.id === chat.id}
-              onSelect={() => onSelectChat(chat)}
-              formatDate={formatDate}
-              getPreviewText={getPreviewText}
-            />
-          ))
+          <div className="space-y-3">
+            {chats.map(chat => (
+              <div
+                key={chat.id}
+                onClick={() => onSelectChat(chat)}
+                className={`p-4 rounded-lg cursor-pointer hover:bg-white transition-all duration-200 ${
+                  selectedChat?.id === chat.id ? 'bg-white shadow-md border-l-4 border-l-dukeBlue' : 'bg-white/50'
+                }`}
+              >
+                <div className="flex justify-between items-start mb-2">
+                  <div className="text-sm font-medium text-dukeBlue truncate flex-1">
+                    {chat.title || 'Untitled'}
+                  </div>
+                  <div className="text-xs text-mountbattenPink ml-2">
+                    {formatDate(chat.updatedAt)}
+                  </div>
+                </div>
+                <div className="text-xs text-mountbattenPink mb-2">
+                  {getPreviewText(chat)}
+                </div>
+                <div className="text-xs text-mountbattenPink">
+                  {chat.messages.length} msgs
+                </div>
+              </div>
+            ))}
+          </div>
         )}
       </div>
     </div>
   );
 };
 
-export default ConsultationList; 
+export default UltraSimpleList;

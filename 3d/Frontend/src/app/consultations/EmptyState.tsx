@@ -1,33 +1,38 @@
 'use client';
 
 import React from 'react';
-import { IconStethoscope, type Icon as TablerIconType } from '@tabler/icons-react';
 
-interface EmptyStateProps {
-  icon?: TablerIconType;
+interface CleanEmptyStateProps {
   title: string;
   message: string;
-  actionButton?: React.ReactNode;
+  actionText?: string;
+  onAction?: () => void;
 }
 
-const EmptyState: React.FC<EmptyStateProps> = ({ 
-  icon: IconComponent = IconStethoscope,
+const CleanEmptyState: React.FC<CleanEmptyStateProps> = ({ 
   title, 
   message, 
-  actionButton 
+  actionText,
+  onAction 
 }) => {
   return (
-    <div className="p-8 text-center flex flex-col items-center justify-center h-full">
-      <IconComponent className="w-12 h-12 mx-auto text-gray-600 mb-4" />
-      <h3 className="text-lg font-medium text-gray-300 mb-2">
+    <div className="text-center py-8">
+      <h3 className="text-lg font-medium text-gray-900 mb-2">
         {title}
       </h3>
-      <p className="text-sm text-gray-500 mb-4">
+      <p className="text-sm text-gray-600 mb-4">
         {message}
       </p>
-      {actionButton}
+      {actionText && onAction && (
+        <button
+          onClick={onAction}
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-md transition-colors"
+        >
+          {actionText}
+        </button>
+      )}
     </div>
   );
 };
 
-export default EmptyState; 
+export default CleanEmptyState;

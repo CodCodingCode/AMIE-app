@@ -62,7 +62,6 @@ build/
 .env*.local
 .vercel
 *.tsbuildinfo
-next-env.d.ts
 
 # IDE
 .idea/
@@ -122,9 +121,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts 
 
-firebase.ts
 
 api_key.py
 

@@ -68,10 +68,10 @@ const PortalScene = (props: PortalSceneProps) => {
         }`}
       >
         <div className="text-center px-4 pl-16 pointer-events-none">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 font-serif">
-            Your Personal AI Doctor
+          <h1 className="text-5xl md:text-5xl lg:text-5xl font-bold text-white mb-6 font-serif">
+            Enter the Bluebox
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             24/7 medical guidance powered by advanced AI technology
           </p>
         </div>

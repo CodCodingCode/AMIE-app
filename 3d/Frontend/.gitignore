@@ -1,6 +1,0 @@
-node_modules
-.next
-.env.local
-eslint.config.mjs
-next-env.d.ts
-next.config.ts
