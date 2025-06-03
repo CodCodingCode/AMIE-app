@@ -8,7 +8,9 @@ from itertools import islice
 import random
 
 # Initialize OpenAI client
-client = OpenAI(api_key="api")
+client = OpenAI(
+    api_key="api"
+)
 model = "gpt-4.1-nano"
 
 treatment_plans = []
@@ -1294,11 +1296,10 @@ STOP HERE. Do not add notes, recommendations, or additional text."""
 
 
 # === Diagnosis Logic with Cleaning ===
-def get_diagnosis_with_cleaning(
+def get_diagnosis_response(
     turn_count, gold_label, vignette_summary, previous_questions, diagnoser
 ):
-    """Get diagnosis with proper cleaning and updated prompts"""
-
+    """Get diagnosis with proper stage-based prompting"""
     if turn_count < 6:
         base_prompt = EARLY_DIAGNOSIS_PROMPT
         stage = "early"
@@ -1314,8 +1315,8 @@ def get_diagnosis_with_cleaning(
         base_prompt, gold_label, stage, vignette_summary
     )
 
-    # Get raw diagnosis
-    raw_diagnosis = diagnoser.ask(
+    # Get response from diagnoser
+    response = diagnoser.ask(
         guided_prompt.format(
             prev_questions=json.dumps(previous_questions),
             vignette=vignette_summary,
@@ -1323,10 +1324,7 @@ def get_diagnosis_with_cleaning(
         )
     )
 
-    # Clean the output
-    cleaned_diagnosis = clean_diagnosis_output(raw_diagnosis)
-
-    return cleaned_diagnosis
+    return response
 
 
 def calculate_accuracy_score(found, position, total_predictions):
@@ -1379,8 +1377,7 @@ def process_vignette(idx, vignette_text, gold_label):
     elif "symptom_minimization" in behavior_config.get("modifiers", []):
         response_length = "in one to two brief sentences"
 
-    raw_patient = patient.ask(
-        f"""{patient_instructions}
+    prompt = f"""{patient_instructions}
 
 NEVER hallucinate past medical evaluations, tests, or diagnoses. 
 Do NOT give clear medical names unless the doctor already told you. 
@@ -1396,58 +1393,58 @@ ANSWER: <your vague, real-patient-style reply to the doctor>
 
 Patient background: {vignette_text}
 Doctor's question: {initial_prompt}"""
-    )
 
-    if "ANSWER:" in raw_patient:
-        patient_response_text = raw_patient.split("ANSWER:")[1].strip()
-    else:
-        patient_response_text = raw_patient
+    turn_count = 0
+    diagnosis_complete = False
+    prev_vignette_summary = ""
+
+    patient_result = patient.ask(prompt)
+    raw_patient = patient_result["raw"]
+    patient_response_text = patient_result["clean"]
+
     print("🗣️ Patient's Reply:", patient_response_text)
     conversation.append(f"PATIENT: {patient_response_text}")
     patient_response.append(
         {
             "vignette_index": idx,
             "input": f"{vignette_text}\n{initial_prompt}",
-            "output": raw_patient,
+            "output": raw_patient,  # Store the full THINKING + ANSWER
             "behavior_type": behavior_type,
             "behavior_config": behavior_config,
             "gold_diagnosis": gold_label,
         }
     )
-    turn_count = 0
-    diagnosis_complete = False
-    prev_vignette_summary = ""
 
     while not diagnosis_complete:
 
-        behavioral_analysis = detect_patient_behavior_cues_enhanced(
+        behavioral_result = detect_patient_behavior_cues_enhanced(
             conversation, patient_response
         )
+        behavioral_analysis_raw = behavioral_result["raw"]
+        behavioral_analysis = behavioral_result["clean"]
 
         behavioral_analyses.append(
             {
                 "vignette_index": idx,
                 "turn_count": turn_count,
-                "analysis": behavioral_analysis,
+                "analysis": behavioral_analysis_raw,  # Store full version
             }
         )
 
-        if "ANSWER:" in behavioral_analysis:
-            behavioral_analysis = behavioral_analysis.split("ANSWER:")[1].strip()
-        else:
-            behavioral_analysis = behavioral_analysis
-        print(f"🧠 Enhanced Behavioral Analysis: {behavioral_analysis[:200]}...")
-
         # NEW: Patient Interpretation
         patient_interpreter = PatientInterpreter()
-        patient_interpretation = patient_interpreter.interpret_patient_communication(
+
+        interpretation_result = patient_interpreter.interpret_patient_communication(
             conversation, behavioral_analysis, prev_vignette_summary
         )
+        patient_interpretation_raw = interpretation_result["raw"]
+        patient_interpretation = interpretation_result["clean"]
+
         patient_interpretations.append(
             {
                 "vignette_index": idx,
                 "turn_count": turn_count,
-                "interpretation": patient_interpretation,
+                "interpretation": patient_interpretation_raw,  # Store full version
             }
         )
         print(f"🔍 Patient Interpretation: {patient_interpretation}...")
@@ -1458,16 +1455,19 @@ Doctor's question: {initial_prompt}"""
         # Create input for summarizer
         summarizer_input = f"CONVERSATION HISTORY:\n{json.dumps(conversation, indent=2)}\n\nPREVIOUS VIGNETTE:\n{prev_vignette_summary}\n\nPATIENT COMMUNICATION ANALYSIS:\n{patient_interpretation}"
 
-        vignette_summary = generate_unbiased_vignette(
+        vignette_result = generate_unbiased_vignette(
             conversation, prev_vignette_summary, patient_interpretation
         )
+        vignette_summary_raw = vignette_result["raw"]
+        vignette_summary = vignette_result[
+            "clean"
+        ]  # This is what gets passed to next agents
 
-        # Store structured summarizer output
         summarizer_outputs.append(
             {
                 "vignette_index": idx,
                 "input": summarizer_input,
-                "output": vignette_summary,
+                "output": vignette_summary_raw,  # Store full version
                 "turn_count": turn_count,
                 "gold_diagnosis": gold_label,
             }
@@ -1481,13 +1481,22 @@ Doctor's question: {initial_prompt}"""
             vignette_summary = vignette_summary
 
         # === UPDATED DIAGNOSIS LOGIC WITH CLEANING ===
-        diagnosis = get_diagnosis_with_cleaning(
+        diagnosis_result = get_diagnosis_response(
             turn_count, gold_label, vignette_summary, previous_questions, diagnoser
         )
+        diagnosis_raw = diagnosis_result["raw"]
+        diagnosis = diagnosis_result["clean"]  # This is what gets passed to next agents
 
-        # Evaluate diagnostic accuracy
-        accuracy_eval = evaluate_diagnostic_accuracy(diagnosis, gold_label)
-        print(f"🎯 Diagnostic Accuracy: {accuracy_eval}")
+        diagnosing_doctor_outputs.append(
+            {
+                "vignette_index": idx,
+                "input": vignette_summary,
+                "output": diagnosis_raw,  # Store full version
+                "turn_count": turn_count,
+                "letter": letter,
+                "gold_diagnosis": gold_label,
+            }
+        )
 
         print("Turn count:", turn_count)
         letter = ""
@@ -1502,25 +1511,11 @@ Doctor's question: {initial_prompt}"""
             letter = "L"
             stage = "late"
 
-        print("🔍 Diagnosis:", diagnosis)
-        diagnosing_doctor_outputs.append(
-            {
-                "vignette_index": idx,
-                "input": vignette_summary,
-                "output": diagnosis,
-                "turn_count": turn_count,
-                "letter": letter,
-                "gold_diagnosis": gold_label,
-                "accuracy_evaluation": accuracy_eval,
-            }
-        )
-
         # Handle END signal explicitly
         if "END" in diagnosis:
             if turn_count >= 15:
                 print(f"✅ Reached END for vignette {idx}. Moving to next.\n")
-                raw_treatment = diagnoser.ask(
-                    f"""You are a board-certified clinician with extensive experience in primary care and evidence-based medicine. Based on the final diagnosis, create a comprehensive treatment plan that demonstrates clinical expertise and practical implementation.
+                prompt = f"""You are a board-certified clinician with extensive experience in primary care and evidence-based medicine. Based on the final diagnosis, create a comprehensive treatment plan that demonstrates clinical expertise and practical implementation.
 
 DIAGNOSIS: {diagnosis}
 
@@ -1594,23 +1589,17 @@ IMPLEMENTATION GUIDANCE:
 - Patient handout summary: <key points for patient to remember>
 
 STOP HERE. Do not add additional recommendations or notes."""
-                )
-                print("💊 Raw Treatment Plan:", raw_treatment)
+
+                treatment_result = diagnoser.ask(prompt)
+                raw_treatment = treatment_result["raw"]
 
                 treatment_plans.append(
                     {
                         "vignette_index": idx,
                         "input": diagnosis,
-                        "output": raw_treatment,
+                        "output": raw_treatment,  # Store full version
                         "gold_diagnosis": gold_label,
                     }
-                )
-
-                diagnosis_complete = True
-                break
-            else:
-                print(
-                    f"⚠️ Model said END before 10 turns. Ignoring END due to insufficient conversation length."
                 )
 
         # Limit to last 3–5 doctor questions
@@ -1743,8 +1732,7 @@ STOP HERE. Do not add additional recommendations or notes."""
         # Create questioner with enhanced role definition
         questioner = RoleResponder(guided_questioning_role)
 
-        raw_followup = questioner.ask(
-            f"""Previously asked questions: {json.dumps(previous_questions)}
+        prompt = f"""Previously asked questions: {json.dumps(previous_questions)}
 
             CLINICAL CONTEXT:
             Current interview phase: {'EARLY EXPLORATION' if turn_count < 6 else 'FOCUSED CLARIFICATION' if turn_count < 11 else 'DIAGNOSTIC CONFIRMATION'}
@@ -1777,21 +1765,17 @@ STOP HERE. Do not add additional recommendations or notes."""
             
             Turn Count: {turn_count}
             """
-        )
 
-        if "ANSWER:" in raw_followup:
-            followup_question = raw_followup.split("ANSWER:")[1].strip()
-        else:
-            followup_question = raw_followup
+        followup_result = questioner.ask(prompt)
+        raw_followup = followup_result["raw"]
+        followup_question = followup_result["clean"]
+
         print("❓ Empathetic Follow-up:", followup_question)
-        question_input = (
-            f"Vignette:\n{vignette_summary}\nCurrent Estimated Diagnosis: {diagnosis}\n"
-        )
         questioning_doctor_outputs.append(
             {
                 "vignette_index": idx,
-                "input": question_input,
-                "output": raw_followup,
+                "input": vignette_summary + diagnosis + behavioral_analysis,
+                "output": raw_followup,  # Store full version
                 "letter": letter,
                 "behavioral_cues": behavioral_analysis,
                 "gold_diagnosis": gold_label,
@@ -1817,8 +1801,7 @@ STOP HERE. Do not add additional recommendations or notes."""
             )
 
         # Step 5: Patient answers
-        raw_patient_fb = patient.ask(
-            f"""{patient_followup_instructions}
+        prompt = f"""{patient_followup_instructions}
 
 CRITICAL INSTRUCTIONS:
 - You are a REAL patient, not trying to help the doctor diagnose you
@@ -1876,19 +1859,18 @@ Doctor's Question: {followup_question}
 Current Physical/Emotional State: {response_guidance}
 
 Remember: You are NOT trying to be a good patient or help the doctor. You're being a REAL person with real concerns, confusion, and communication patterns."""
-        )
-        if "ANSWER:" in raw_patient_fb:
-            patient_response = raw_patient_fb.split("ANSWER:")[1].strip()
-        else:
-            patient_response = raw_patient_fb
 
-        print("🗣️ Patient:", patient_response)
-        conversation.append(f"PATIENT: {patient_response}")
+        patient_fb_result = patient.ask(prompt)
+        raw_patient_fb = patient_fb_result["raw"]
+        patient_followup_text = patient_fb_result["clean"]
+
+        print("🗣️ Patient:", patient_followup_text)
+        conversation.append(f"PATIENT: {patient_followup_text}")
         patient_response.append(
             {
                 "vignette_index": idx,
-                "input": vignette_text + followup_question,
-                "output": raw_patient_fb,
+                "input": vignette_text + followup_question + behavior_type,
+                "output": raw_patient_fb,  # Store full version
                 "behavior_type": behavior_type,
                 "turn_count": turn_count,
                 "gold_diagnosis": gold_label,
@@ -2071,7 +2053,7 @@ class RoleResponder:
         )
 
     def ask(self, user_input, max_retries=3):
-        """Ask with guaranteed THINKING/ANSWER format"""
+        """Ask with guaranteed THINKING/ANSWER format and return both raw and clean outputs"""
 
         for attempt in range(max_retries):
             messages = [
@@ -2080,17 +2062,32 @@ class RoleResponder:
             ]
 
             response = client.chat.completions.create(model=model, messages=messages)
-            response = response.choices[0].message.content.strip()
+            raw_response = response.choices[0].message.content.strip()
 
             # Clean and normalize the response
-            cleaned_response = self.clean_thinking_answer_format(response)
+            cleaned_response = self.clean_thinking_answer_format(raw_response)
 
             # Validate the cleaned response
             if self.validate_thinking_answer_format(cleaned_response):
-                return cleaned_response
+                # Extract just the ANSWER portion for the clean output
+                answer_only = self.extract_answer_only(cleaned_response)
+
+                return {
+                    "raw": cleaned_response,  # Full THINKING: + ANSWER:
+                    "clean": answer_only,  # Just the answer content
+                }
 
         # Final fallback
-        return f"THINKING: Format enforcement failed after {max_retries} attempts\nANSWER: Unable to get properly formatted response."
+        fallback_raw = f"THINKING: Format enforcement failed after {max_retries} attempts\nANSWER: Unable to get properly formatted response."
+        fallback_clean = "Unable to get properly formatted response."
+
+        return {"raw": fallback_raw, "clean": fallback_clean}
+
+    def extract_answer_only(self, text):
+        """Extract just the content after ANSWER:"""
+        if "ANSWER:" in text:
+            return text.split("ANSWER:", 1)[1].strip()
+        return text.strip()
 
     def clean_thinking_answer_format(self, text):
         """Clean and ensure exactly one THINKING and one ANSWER section"""
