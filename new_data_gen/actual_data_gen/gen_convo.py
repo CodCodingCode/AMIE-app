@@ -652,6 +652,14 @@ Doctor's question: {initial_prompt}"""
         # Create input for summarizer
         summarizer_input = f"CONVERSATION HISTORY:\n{json.dumps(conversation, indent=2)}\n\nPREVIOUS VIGNETTE:\n{prev_vignette_summary}\n\nPATIENT COMMUNICATION ANALYSIS:\n{patient_interpretation}"
 
+        # 🔍 DEBUG: Print summarizer input
+        print(f"\n📝 SUMMARIZER INPUT:")
+        print("=" * 40)
+        print(f"Previous vignette length: {len(prev_vignette_summary)} chars")
+        print(f"Previous vignette preview: {prev_vignette_summary[:100]}...")
+        print(f"Patient interpretation length: {len(patient_interpretation)} chars")
+        print("=" * 40)
+
         vignette_result = generate_unbiased_vignette(
             conversation, prev_vignette_summary, patient_interpretation
         )
@@ -659,6 +667,21 @@ Doctor's question: {initial_prompt}"""
         vignette_summary = vignette_result[
             "clean"
         ]  # This is what gets passed to next agents
+
+        # 🔍 DEBUG: Print summarizer results
+        print(f"\n📊 SUMMARIZER RESULTS:")
+        print("=" * 40)
+        print(f"Raw result length: {len(vignette_summary_raw)} chars")
+        print(f"Raw result preview: {vignette_summary_raw[:200]}...")
+        print(f"Clean result length: {len(vignette_summary)} chars")
+        print(f"Clean result preview: {vignette_summary[:200]}...")
+        print("=" * 40)
+
+        # Also add a check for the corrupted state
+        if "Unable to extract answer content properly" in vignette_summary:
+            print(f"❌ CORRUPTED VIGNETTE DETECTED!")
+            print(f"Setting fallback vignette...")
+            vignette_summary = f"Patient presents with eye symptoms including redness, swelling, and tearing. Symptoms began approximately 2 days ago after playing soccer."
 
         summarizer_outputs.append(
             {
@@ -712,6 +735,7 @@ Doctor's question: {initial_prompt}"""
         # Handle END signal explicitly
         if "END" in diagnosis:
             if turn_count >= 8:
+                diagnosis_complete = True
                 print(f"✅ Reached END for vignette {idx}. Moving to next.\n")
                 prompt = f"""You are a board-certified clinician with extensive experience in primary care and evidence-based medicine. Based on the final diagnosis, create a comprehensive treatment plan that demonstrates clinical expertise and practical implementation.
 
@@ -742,7 +766,7 @@ Now I'll select treatments based on current clinical guidelines.
 - Contraindications or cautions: <what to avoid or monitor>
 
 STEP 3 - PHARMACOLOGICAL INTERVENTIONS:
-If medications are appropriate, I'll select based on efficacy and safety.
+If medicatijoinedons are appropriate, I'll select based on efficacy and safety.
 - Primary medication choice: <specific drug, dose, frequency>
 - Rationale for selection: <why this medication over alternatives>
 - Expected timeline for improvement: <when to expect benefits>
@@ -1001,60 +1025,19 @@ STOP HERE. Do not add additional recommendations or notes."""
         # Step 5: Patient answers
         prompt = f"""{patient_followup_instructions}
 
-CRITICAL INSTRUCTIONS:
-- You are a REAL patient, not trying to help the doctor diagnose you
-- You do NOT know medical terminology or what symptoms are "important"
-- You have NOT researched your condition online or spoken to other doctors
-- Respond based on how you FEEL, not what you think the doctor wants to hear
-- Be authentic to your behavioral type: {behavior_type}
+You are a real patient responding to your doctor. Be authentic to your behavioral type: {behavior_type}.
 
 YOU MUST RESPOND IN THE FOLLOWING FORMAT:
 
-THINKING:
-Use this step-by-step process to develop your authentic patient response:
+THINKING: Think about how you feel about your symptoms and this doctor's question. Consider your emotions, confusion, and how you naturally communicate as a {behavior_type} patient.
 
-STEP 1 - EMOTIONAL STATE ANALYSIS:
-How am I feeling right now about this doctor visit?
-- Physical sensations I'm experiencing: <describe current physical feelings>
-- Emotional state (scared, frustrated, embarrassed, hopeful, etc.): <current emotions>
-- Thoughts going through my head: <what a real patient would be thinking>
-- Energy level and mood: <tired, anxious, relieved, confused, etc.>
+ANSWER: Give your natural, realistic patient response in your own words (NOT medical terminology).
 
-STEP 2 - QUESTION INTERPRETATION:
-How do I, as a non-medical person, understand what the doctor just asked?
-- What I think the doctor is asking: <patient's interpretation of medical question>
-- Why they might be asking this: <patient's guess about doctor's reasoning>
-- What this makes me worry about: <patient fears or concerns triggered>
-- Parts of the question I'm confused by: <medical terms or concepts I don't understand>
-
-STEP 3 - BEHAVIORAL RESPONSE PLANNING:
-Given my behavioral type ({behavior_type}), how should I respond?
-- My natural communication style: <how this behavior type typically responds>
-- What I want to share vs. what I'm hesitant about: <internal conflict>
-- Information I might downplay, exaggerate, or avoid: <based on behavioral modifiers>
-- How my family/cultural background affects my response: <social influences>
-
-STEP 4 - MEMORY AND SYMPTOM RECALL:
-What do I actually remember about my symptoms?
-- Clear memories: <symptoms I'm certain about>
-- Fuzzy or uncertain memories: <things I'm not sure about>
-- Timeline confusion: <when things happened - may be unclear>
-- Associated details: <other things happening in my life that might be relevant>
-
-STEP 5 - RESPONSE FORMULATION:
-How will I actually answer the doctor?
-- Main points I want to communicate: <key information to share>
-- How I'll phrase things in my own words: <non-medical language>
-- What I might mention tangentially: <additional context I think is relevant>
-- Tone and style of my response: <hesitant, detailed, brief, emotional, etc.>
-
-ANSWER: <Your authentic, realistic patient response in your own words - NOT medical terminology>
-
-CONTEXT FOR YOUR RESPONSE:
-Patient Background: {vignette_text}
-Your Behavioral Type: {behavior_type} - {behavior_config['description']}
-Doctor's Question: {followup_question}
-Current Physical/Emotional State: {response_guidance}
+CONTEXT:
+- Your symptoms: {vignette_text}
+- Doctor asked: {followup_question}
+- Your behavior type: {behavior_type}
+- Response style: {response_guidance}
 
 Remember: You are NOT trying to be a good patient or help the doctor. You're being a REAL person with real concerns, confusion, and communication patterns."""
 
@@ -1262,33 +1245,73 @@ class RoleResponder:
             response = client.chat.completions.create(model=model, messages=messages)
             raw_response = response.choices[0].message.content.strip()
 
+            # 🔍 DEBUG: Print the raw GPT response
+            print(f"\n🤖 RAW GPT RESPONSE (attempt {attempt + 1}):")
+            print("=" * 50)
+            print(raw_response)
+            print("=" * 50)
+
             # Clean and normalize the response
             cleaned_response = self.clean_thinking_answer_format(raw_response)
+
+            # 🔍 DEBUG: Print the cleaned response
+            print(f"\n🧹 CLEANED RESPONSE:")
+            print("=" * 30)
+            print(cleaned_response)
+            print("=" * 30)
 
             # Validate the cleaned response
             if self.validate_thinking_answer_format(cleaned_response):
                 # Extract just the ANSWER portion for the clean output
                 answer_only = self.extract_answer_only(cleaned_response)
 
+                # 🔍 DEBUG: Print the extracted answer
+                print(f"\n✅ EXTRACTED ANSWER:")
+                print("=" * 20)
+                print(answer_only)
+                print("=" * 20)
+
                 return {
                     "raw": cleaned_response,  # Full THINKING: + ANSWER:
                     "clean": answer_only,  # Just the answer content
                 }
+            else:
+                # 🔍 DEBUG: Print validation failure
+                print(f"\n❌ VALIDATION FAILED for attempt {attempt + 1}")
+                print(f"Cleaned response: {cleaned_response[:200]}...")
 
         # Final fallback
         fallback_raw = f"THINKING: Format enforcement failed after {max_retries} attempts\nANSWER: Unable to get properly formatted response."
         fallback_clean = "Unable to get properly formatted response."
+
+        # 🔍 DEBUG: Print fallback
+        print(f"\n💥 FALLBACK TRIGGERED after {max_retries} attempts")
+        print(f"Final raw response was: {raw_response[:200]}...")
 
         return {"raw": fallback_raw, "clean": fallback_clean}
 
     def extract_answer_only(self, text):
         """Extract just the content after ANSWER:"""
         if "ANSWER:" in text:
-            return text.split("ANSWER:", 1)[1].strip()
+            extracted = text.split("ANSWER:", 1)[1].strip()
+            # 🔍 DEBUG: Print extraction process
+            print(f"\n🎯 EXTRACTING ANSWER from: {text[:100]}...")
+            print(f"🎯 EXTRACTED: {extracted[:100]}...")
+            return extracted
+
+        # 🔍 DEBUG: No ANSWER found
+        print(f"\n⚠️ NO 'ANSWER:' found in text: {text[:100]}...")
         return text.strip()
 
     def clean_thinking_answer_format(self, text):
         """Clean and ensure exactly one THINKING and one ANSWER section"""
+
+        # 🔍 DEBUG: Print input to cleaning function
+        print(f"\n🧼 CLEANING INPUT:")
+        print(f"Input length: {len(text)} characters")
+        print(f"First 200 chars: {text[:200]}...")
+        print(f"Contains THINKING: {'THINKING:' in text}")
+        print(f"Contains ANSWER: {'ANSWER:' in text}")
 
         # Remove any leading/trailing whitespace
         text = text.strip()
@@ -1302,8 +1325,13 @@ class RoleResponder:
             line_stripped = line.strip()
             if line_stripped.startswith("THINKING:"):
                 thinking_positions.append(i)
+                print(f"🧠 Found THINKING at line {i}: {line_stripped[:50]}...")
             elif line_stripped.startswith("ANSWER:"):
                 answer_positions.append(i)
+                print(f"💬 Found ANSWER at line {i}: {line_stripped[:50]}...")
+
+        print(f"📊 THINKING positions: {thinking_positions}")
+        print(f"📊 ANSWER positions: {answer_positions}")
 
         # If we have exactly one of each, check if they're in the right order
         if len(thinking_positions) == 1 and len(answer_positions) == 1:
@@ -1311,6 +1339,7 @@ class RoleResponder:
             answer_idx = answer_positions[0]
 
             if thinking_idx < answer_idx:
+                print(f"✅ Perfect format detected!")
                 # Perfect format, just clean up the content
                 thinking_content = lines[thinking_idx][9:].strip()  # Remove "THINKING:"
                 answer_content = []
@@ -1324,7 +1353,11 @@ class RoleResponder:
                 for i in range(answer_idx + 1, len(lines)):
                     answer_content += " " + lines[i].strip()
 
-                return f"THINKING: {thinking_content.strip()}\nANSWER: {answer_content.strip()}"
+                result = f"THINKING: {thinking_content.strip()}\nANSWER: {answer_content.strip()}"
+                print(f"✅ Perfect format result: {result[:100]}...")
+                return result
+
+        print(f"⚠️ Format needs fixing...")
 
         # If format is messed up, try to extract and rebuild
         # Look for the first THINKING and first ANSWER after it
@@ -1339,6 +1372,7 @@ class RoleResponder:
             if line_stripped.startswith("THINKING:") and first_thinking == -1:
                 first_thinking = i
                 thinking_content = line_stripped[9:].strip()
+                print(f"🎯 Using THINKING from line {i}")
             elif (
                 line_stripped.startswith("ANSWER:")
                 and first_thinking != -1
@@ -1346,6 +1380,7 @@ class RoleResponder:
             ):
                 first_answer_after_thinking = i
                 answer_content = line_stripped[7:].strip()
+                print(f"🎯 Using ANSWER from line {i}")
                 break
             elif first_thinking != -1 and first_answer_after_thinking == -1:
                 # Still collecting thinking content
@@ -1362,8 +1397,12 @@ class RoleResponder:
                     break
                 answer_content += " " + line_stripped
 
+        print(f"🔧 Extracted thinking: {thinking_content[:50]}...")
+        print(f"🔧 Extracted answer: {answer_content[:50]}...")
+
         # If we still don't have both parts, try to extract from the raw text
         if not thinking_content or not answer_content:
+            print(f"🆘 Last resort extraction...")
             # Last resort: split on the patterns
             if "THINKING:" in text and "ANSWER:" in text:
                 parts = text.split("ANSWER:", 1)
@@ -1389,11 +1428,17 @@ class RoleResponder:
 
         # Fallback if we still don't have proper content
         if not thinking_content:
+            print(f"❌ Failed to extract thinking content")
             thinking_content = "Unable to extract thinking content properly"
         if not answer_content:
+            print(f"❌ Failed to extract answer content")
             answer_content = "Unable to extract answer content properly"
 
-        return f"THINKING: {thinking_content.strip()}\nANSWER: {answer_content.strip()}"
+        final_result = (
+            f"THINKING: {thinking_content.strip()}\nANSWER: {answer_content.strip()}"
+        )
+        print(f"🏁 Final cleaned result: {final_result[:100]}...")
+        return final_result
 
     def validate_thinking_answer_format(self, text):
         """Validate that the text has exactly one THINKING and one ANSWER in correct order"""
@@ -1412,7 +1457,12 @@ class RoleResponder:
             elif line_stripped.startswith("ANSWER:"):
                 answer_count += 1
 
-        return thinking_count == 1 and answer_count == 1 and thinking_first
+        is_valid = thinking_count == 1 and answer_count == 1 and thinking_first
+        print(
+            f"✅ VALIDATION: thinking_count={thinking_count}, answer_count={answer_count}, thinking_first={thinking_first}, valid={is_valid}"
+        )
+
+        return is_valid
 
 
 # === Use the Class for Roles ===
