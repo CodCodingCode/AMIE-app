@@ -3,7 +3,7 @@
 import { cn, fadeInUp, staggerContainer, defaultTransition } from "@/app/lib/utils";
 import React, { useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { IconUpload, IconFile, IconX, IconLoader2, IconAlertCircle, IconCheckCircle } from "@tabler/icons-react";
+import { IconUpload, IconFile, IconX, IconLoader2, IconAlertCircle, IconCheck } from "@tabler/icons-react";
 import { useDropzone, FileRejection } from "react-dropzone";
 import { useEhr } from "@/app/contexts/EhrContext";
 import { useRouter } from "next/navigation";
@@ -117,12 +117,12 @@ export const FileUpload: React.FC<{ onChange?: (files: File[]) => void }> = ({ o
   const { getRootProps, getInputProps, isDragActive, open } = useDropzone({
     onDrop,
     multiple: false, // Allow only single file upload as per current logic
-    accept: { // Example: common document types, adjust as needed
-      'application/pdf': ['.pdf'],
-      'text/plain': ['.txt'],
-      'application/msword': ['.doc'],
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx']
-    }
+    accept: [
+      'application/pdf', '.pdf',
+      'text/plain', '.txt',
+      'application/msword', '.doc',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document', '.docx'
+    ] // Changed to string[] based on the new error message
   });
 
   const removeFile = (indexToRemove: number) => {
@@ -155,7 +155,7 @@ export const FileUpload: React.FC<{ onChange?: (files: File[]) => void }> = ({ o
       return (
         <motion.div {...fadeInUp} className="p-4 bg-green-900/30 rounded-md border border-green-700/50">
           <div className="flex items-start mb-2">
-            <IconCheckCircle className="w-5 h-5 mr-2 text-green-400 flex-shrink-0 mt-0.5" />
+            <IconCheck className="w-5 h-5 mr-2 text-green-400 flex-shrink-0 mt-0.5" />
             <h3 className="font-semibold text-green-300">File Processed Successfully</h3>
           </div>
           <p className="text-sm text-neutral-300 mb-3">Summary has been generated and is ready for your chat.</p>

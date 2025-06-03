@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+'use client';
+
+import React, { useEffect, useState, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
 interface SessionData {
@@ -10,20 +12,24 @@ interface SessionData {
   status: string;
 }
 
-const PaymentSuccess: React.FC = () => {
+function PaymentSuccessContent() {
   const router = useRouter();
-  const { session_id } = router.query;
+  const searchParams = useSearchParams();
+  const sessionId = searchParams.get('session_id');
   const [sessionData, setSessionData] = useState<SessionData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string>('');
 
   useEffect(() => {
-    if (session_id && typeof session_id === 'string') {
-      fetchSessionData(session_id);
+    if (sessionId && typeof sessionId === 'string') {
+      fetchSessionData(sessionId);
+    } else {
+      setLoading(false);
     }
-  }, [session_id]);
+  }, [sessionId]);
 
   const fetchSessionData = async (sessionId: string) => {
+    setLoading(true);
     try {
       const response = await fetch(`/api/get-checkout-session?session_id=${sessionId}`);
       
@@ -43,272 +49,144 @@ const PaymentSuccess: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="success-container">
-        <div className="loading-spinner" />
-        <p>Verifying your payment...</p>
+      <div className="min-h-screen bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center p-4">
+        <div className="bg-white rounded-lg p-8 max-w-md w-full text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto mb-4"></div>
+          <p className="text-gray-600">Verifying your payment...</p>
+        </div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="success-container">
-        <div className="error-message">
-          <span className="error-icon">⚠️</span>
-          <h2>Payment Verification Error</h2>
-          <p>{error}</p>
-          <Link href="/support" className="support-link">
-            Contact Support
-          </Link>
+      <div className="min-h-screen bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center p-4">
+        <div className="bg-white rounded-lg p-8 max-w-md w-full text-center">
+          <div className="text-6xl mb-4">⚠️</div>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Payment Verification Error</h2>
+          <p className="text-gray-600 mb-6">{error}</p>
+          <div className="space-y-3">
+            <Link 
+              href="/consultations" 
+              className="block w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+            >
+              Back to Consultations
+            </Link>
+            <Link 
+              href="/" 
+              className="block w-full bg-gray-200 text-gray-800 py-2 px-4 rounded hover:bg-gray-300 transition-colors"
+            >
+              Go to Home
+            </Link>
+          </div>
         </div>
       </div>
     );
   }
 
+  if (!sessionData && !loading && !error) {
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center p-4">
+            <div className="bg-white rounded-lg p-8 max-w-md w-full text-center">
+                <div className="text-6xl mb-4">❓</div>
+                <h2 className="text-2xl font-bold text-gray-800 mb-2">Invalid Access</h2>
+                <p className="text-gray-600 mb-6">No payment session information was found. Please ensure you followed the correct link.</p>
+                <Link href="/" className="block w-full bg-gray-200 text-gray-800 py-2 px-4 rounded hover:bg-gray-300 transition-colors">
+                    Go to Home
+                </Link>
+            </div>
+        </div>
+    );
+}
+
   return (
-    <div className="success-container">
-      <div className="success-card">
-        <div className="success-icon">✅</div>
+    <div className="min-h-screen bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center p-4">
+      <div className="bg-white rounded-lg p-8 max-w-md w-full text-center">
+        <div className="text-6xl mb-4">✅</div>
         
-        <h1>Payment Successful!</h1>
-        <p className="success-subtitle">
+        <h1 className="text-2xl font-bold text-gray-800 mb-2">Payment Successful!</h1>
+        <p className="text-gray-600 mb-6">
           Your Bluebox Live Consultation has been booked successfully.
         </p>
 
         {sessionData && (
-          <div className="payment-details">
-            <div className="detail-row">
-              <span className="label">Amount Paid:</span>
-              <span className="value">
-                ${(sessionData.amount_total / 100).toFixed(2)} {sessionData.currency.toUpperCase()}
-              </span>
-            </div>
-            <div className="detail-row">
-              <span className="label">Email:</span>
-              <span className="value">{sessionData.customer_email}</span>
-            </div>
-            <div className="detail-row">
-              <span className="label">Session ID:</span>
-              <span className="value session-id">{sessionData.id}</span>
+          <div className="bg-gray-50 rounded-lg p-4 mb-6 text-left">
+            <h3 className="font-semibold text-gray-800 mb-2">Payment Details:</h3>
+            <div className="space-y-1 text-sm">
+              <div className="flex justify-between">
+                <span className="text-gray-600">Amount:</span>
+                <span className="font-medium">
+                  ${(sessionData.amount_total / 100).toFixed(2)} {sessionData.currency.toUpperCase()}
+                </span>
+              </div>
+              {sessionData.customer_email && (
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Email:</span>
+                  <span className="font-medium">{sessionData.customer_email}</span>
+                </div>
+              )}
+              <div className="flex justify-between">
+                <span className="text-gray-600">Session ID:</span>
+                <span className="font-mono text-xs break-all">{sessionData.id}</span>
+              </div>
             </div>
           </div>
         )}
 
-        <div className="next-steps">
-          <h3>What happens next?</h3>
-          <div className="steps">
-            <div className="step">
-              <span className="step-number">1</span>
-              <span className="step-text">You'll receive a confirmation email shortly</span>
+        <div className="bg-blue-50 rounded-lg p-4 mb-6">
+          <h3 className="font-semibold text-blue-800 mb-3">What happens next?</h3>
+          <div className="space-y-3 text-sm text-left">
+            <div className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
+              <span className="text-blue-700">You'll receive a confirmation email shortly</span>
             </div>
-            <div className="step">
-              <span className="step-number">2</span>
-              <span className="step-text">A Bluebox physician will contact you within 24 hours</span>
+            <div className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
+              <span className="text-blue-700">A Bluebox physician will contact you within 24 hours</span>
             </div>
-            <div className="step">
-              <span className="step-number">3</span>
-              <span className="step-text">Schedule your 1-hour video consultation</span>
+            <div className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">3</span>
+              <span className="text-blue-700">Schedule your 1-hour video consultation</span>
             </div>
           </div>
         </div>
 
-        <div className="action-buttons">
-          <Link href="/dashboard" className="primary-button">
-            Go to Dashboard
+        <div className="space-y-3">
+          <Link 
+            href="/consultations" 
+            className="block w-full bg-blue-500 text-white py-3 px-4 rounded-lg hover:bg-blue-600 transition-colors font-medium"
+          >
+            View My Consultations
           </Link>
-          <Link href="/" className="secondary-button">
-            Back to Home
+          <Link 
+            href="/chat" 
+            className="block w-full bg-green-500 text-white py-3 px-4 rounded-lg hover:bg-green-600 transition-colors font-medium"
+          >
+            Start New Chat
+          </Link>
+          <Link 
+            href="/" 
+            className="block w-full bg-gray-200 text-gray-800 py-3 px-4 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+          >
+            Go to Home
           </Link>
         </div>
       </div>
-
-      <style jsx>{`
-        .success-container {
-          min-height: 100vh;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 2rem;
-          font-family: system-ui, -apple-system, sans-serif;
-        }
-
-        .success-card {
-          background: white;
-          border-radius: 1rem;
-          padding: 3rem 2rem;
-          max-width: 500px;
-          width: 100%;
-          text-align: center;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .success-icon {
-          font-size: 4rem;
-          margin-bottom: 1.5rem;
-        }
-
-        .success-card h1 {
-          color: #2d3748;
-          margin-bottom: 0.5rem;
-          font-size: 2rem;
-        }
-
-        .success-subtitle {
-          color: #718096;
-          font-size: 1.1rem;
-          margin-bottom: 2rem;
-        }
-
-        .payment-details {
-          background: #f7fafc;
-          border-radius: 0.5rem;
-          padding: 1.5rem;
-          margin-bottom: 2rem;
-          text-align: left;
-        }
-
-        .detail-row {
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 0.75rem;
-        }
-
-        .detail-row:last-child {
-          margin-bottom: 0;
-        }
-
-        .label {
-          color: #718096;
-          font-weight: 500;
-        }
-
-        .value {
-          color: #2d3748;
-          font-weight: 600;
-        }
-
-        .session-id {
-          font-family: monospace;
-          font-size: 0.85rem;
-        }
-
-        .next-steps {
-          margin-bottom: 2rem;
-          text-align: left;
-        }
-
-        .next-steps h3 {
-          color: #2d3748;
-          margin-bottom: 1rem;
-          text-align: center;
-        }
-
-        .steps {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-        }
-
-        .step {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-        }
-
-        .step-number {
-          background: #667eea;
-          color: white;
-          width: 2rem;
-          height: 2rem;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: bold;
-          flex-shrink: 0;
-        }
-
-        .step-text {
-          color: #4a5568;
-        }
-
-        .action-buttons {
-          display: flex;
-          gap: 1rem;
-          flex-wrap: wrap;
-        }
-
-        .primary-button, .secondary-button {
-          flex: 1;
-          padding: 0.75rem 1.5rem;
-          border-radius: 0.5rem;
-          text-decoration: none;
-          font-weight: 600;
-          text-align: center;
-          transition: all 0.2s;
-          min-width: 140px;
-        }
-
-        .primary-button {
-          background: #667eea;
-          color: white;
-        }
-
-        .primary-button:hover {
-          background: #5a67d8;
-          transform: translateY(-1px);
-        }
-
-        .secondary-button {
-          background: #e2e8f0;
-          color: #4a5568;
-        }
-
-        .secondary-button:hover {
-          background: #cbd5e0;
-        }
-
-        .loading-spinner {
-          width: 40px;
-          height: 40px;
-          border: 4px solid rgba(255,255,255,0.3);
-          border-top: 4px solid white;
-          border-radius: 50%;
-          animation: spin 1s linear infinite;
-          margin: 0 auto 1rem;
-        }
-
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-
-        .error-message {
-          background: white;
-          border-radius: 1rem;
-          padding: 2rem;
-          text-align: center;
-        }
-
-        .error-icon {
-          font-size: 3rem;
-          display: block;
-          margin-bottom: 1rem;
-        }
-
-        .support-link {
-          display: inline-block;
-          margin-top: 1rem;
-          padding: 0.5rem 1rem;
-          background: #e53e3e;
-          color: white;
-          text-decoration: none;
-          border-radius: 0.25rem;
-        }
-      `}</style>
     </div>
   );
-};
+}
 
-export default PaymentSuccess;
+export default function PaymentSuccessPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-gray-200 to-gray-400 flex items-center justify-center p-4">
+        <div className="bg-white rounded-lg p-8 max-w-md w-full text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-500 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading payment details...</p>
+        </div>
+      </div>
+    }>
+      <PaymentSuccessContent />
+    </Suspense>
+  );
+}
