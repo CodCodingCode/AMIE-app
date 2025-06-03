@@ -53,16 +53,14 @@ class MedicallyAccurateVignetteGenerator:
                 time.sleep(0.1)
 
     def generate_vignette_with_medical_data(
-        self, disease_data: Dict, vignette_number: int, variation_type: str = "typical"
+        self, disease_data: Dict, vignette_number: int
     ) -> str:
-        """Generate a roleplay script for an AI agent to act as the patient"""
+        """Generate a roleplay script for an AI agent to act as the patient - TYPICAL presentation only"""
 
         disease_name = disease_data.get("disease_name", "Unknown Disease")
 
-        # Create roleplay script prompt
-        prompt = self._create_roleplay_script_prompt(
-            disease_data, vignette_number, variation_type
-        )
+        # Create roleplay script prompt - always typical presentation
+        prompt = self._create_roleplay_script_prompt(disease_data, vignette_number)
 
         try:
             self.rate_limit_delay()
@@ -94,7 +92,7 @@ CRITICAL REQUIREMENTS:
             validated_vignette = self._validate_vignette(vignette, disease_name)
 
             print(
-                f"✅ Generated {variation_type} roleplay script {vignette_number} for {disease_name}"
+                f"✅ Generated typical roleplay script {vignette_number} for {disease_name}"
             )
             return validated_vignette
 
@@ -103,9 +101,9 @@ CRITICAL REQUIREMENTS:
             return self._create_fallback_vignette(disease_data, vignette_number)
 
     def _create_roleplay_script_prompt(
-        self, disease_data: Dict, vignette_number: int, variation_type: str
+        self, disease_data: Dict, vignette_number: int
     ) -> str:
-        """Create a prompt for generating roleplay scripts for AI agents"""
+        """Create a prompt for generating roleplay scripts for AI agents - TYPICAL presentation only"""
 
         disease_name = disease_data.get("disease_name", "Unknown Disease")
         symptoms = disease_data.get("symptoms", [])
@@ -113,18 +111,8 @@ CRITICAL REQUIREMENTS:
         risk_factors = disease_data.get("risk_factors", [])
         prognosis = disease_data.get("prognosis", "")
 
-        # Select different symptom combinations for variation
-        if variation_type == "typical":
-            selected_symptoms = symptoms[:5] if len(symptoms) >= 5 else symptoms
-        elif variation_type == "early":
-            selected_symptoms = symptoms[:3] if len(symptoms) >= 3 else symptoms
-        elif variation_type == "severe":
-            selected_symptoms = symptoms[:7] if len(symptoms) >= 7 else symptoms
-        else:  # mixed
-            if len(symptoms) >= 6:
-                selected_symptoms = symptoms[:2] + symptoms[3:6]
-            else:
-                selected_symptoms = symptoms
+        # Use typical symptom selection (first 5 symptoms for classic presentation)
+        selected_symptoms = symptoms[:5] if len(symptoms) >= 5 else symptoms
 
         # Medical accuracy instructions
         medical_accuracy_note = self._get_medical_accuracy_instructions(
@@ -149,7 +137,7 @@ CRITICAL REQUIREMENTS:
         FORMAT YOUR RESPONSE AS A ROLEPLAY SCRIPT:
 
         **PATIENT CHARACTER:** [Name, age, brief background]
-        **SCENARIO:** {disease_name} - {variation_type} presentation
+        **SCENARIO:** {disease_name} - typical presentation
 
         **CHARACTER BACKGROUND:**
         - [Occupation/school/life situation]
@@ -164,74 +152,23 @@ CRITICAL REQUIREMENTS:
         - [What prompted today's visit]
 
         **ROLEPLAY INSTRUCTIONS:**
-        You are [character name]. Act exactly like this character would.
-
-        OPENING STATEMENT: "[First thing the patient would say to the doctor]"
-
-        PERSONALITY TO EXHIBIT:
-        - [Key personality traits]
-        - [Emotional state]
-        - [Communication style]
-
-        KEY PHRASES TO USE:
-        - [Specific ways they describe their symptoms]
-        - [Questions they would ask]
-        - [Concerns they would express]
-
-        BEHAVIORS TO SHOW:
-        - [Physical actions/gestures]
-        - [Body language]
-        - [Non-verbal cues]
-
-        INFORMATION FLOW:
-        VOLUNTEER IMMEDIATELY:
-        - [What they'll share first]
+        You are a patient seeking medical care for concerning symptoms. You symptoms are typical for this condition.
         
-        SHARE ONLY IF ASKED:
-        - [Information requiring prompting]
+        Onlt SHARE if prompted by the clinician. 
         
         MAIN CONCERNS:
         - [Their biggest fears/worries]
-        - [What they hope to achieve]
+        
+        ROLEPLAY FOCUS:
+        - Act as a classic presentation of this condition
+        - Show clear, recognizable symptoms
+        - Be cooperative and forthcoming with information
+        - Display appropriate concern for a typical case
 
-        VARIATION TYPE: {variation_type.upper()}
+        Generate the complete roleplay script for the AI agent:
         """
 
-        # Add variation-specific roleplay instructions
-        if variation_type == "typical":
-            variation_instructions = """
-            ROLEPLAY FOCUS:
-            - Act as a classic presentation of this condition
-            - Show clear, recognizable symptoms
-            - Be cooperative and forthcoming with information
-            - Display appropriate concern for a typical case
-            """
-        elif variation_type == "early":
-            variation_instructions = """
-            ROLEPLAY FOCUS:
-            - Act uncertain about seeking medical care
-            - Minimize symptoms initially ("maybe it's nothing")
-            - Be hesitant to "waste the doctor's time"
-            - Show mild symptoms that are just starting to worry you
-            """
-        elif variation_type == "severe":
-            variation_instructions = """
-            ROLEPLAY FOCUS:
-            - Show distress and urgency
-            - Indicate symptoms have significantly worsened
-            - Express fear about serious complications
-            - May have delayed seeking care until symptoms became severe
-            """
-        else:  # mixed
-            variation_instructions = """
-            ROLEPLAY FOCUS:
-            - Present with some unusual or atypical features
-            - Show varying symptom severity
-            - Be somewhat confused about your symptoms
-            - Include both early and more developed symptoms
-            """
-
-        return f"{base_prompt}\n{variation_instructions}\n\nGenerate the complete roleplay script for the AI agent:"
+        return base_prompt
 
     def _generate_patient_names(
         self, disease_name: str, risk_factors: List[str]
@@ -453,12 +390,10 @@ CRITICAL REQUIREMENTS:
 
         return f"""**PATIENT CHARACTER:** Patient, age 35, with {disease_name}
 
-**SCENARIO:** {disease_name} - Standard presentation
+**SCENARIO:** {disease_name} - Typical presentation
 
 **ROLEPLAY INSTRUCTIONS:**
 You are a patient seeking medical care for concerning symptoms.
-
-OPENING STATEMENT: "Doctor, I've been having some health issues that are worrying me."
 
 SYMPTOMS TO DESCRIBE:
 - {basic_symptoms[0] if len(basic_symptoms) > 0 else "concerning symptoms"}
@@ -493,11 +428,12 @@ def save_current_progress(
                 "total_scripts": len(medical_data) * num_vignettes_per_disease,
                 "completed_diseases": len(results),
                 "generation_model": model,
-                "variation_types": ["typical", "early", "severe", "mixed"],
+                "variation_types": ["typical"],  # Only typical now
                 "generation_timestamp": current_time,
                 "last_update": current_time,
                 "focus": "roleplay_scripts_for_ai_agents",
                 "format": "patient_character_briefs",
+                "presentation_type": "typical_only",  # Added to clarify
                 "status": (
                     "in_progress" if len(results) < len(medical_data) else "completed"
                 ),
@@ -533,37 +469,32 @@ def save_current_progress(
 
 
 def generate_vignettes_for_disease_with_data(args):
-    """Generate multiple roleplay scripts for a single disease"""
+    """Generate multiple roleplay scripts for a single disease - TYPICAL ONLY"""
     disease_data, num_vignettes, api_key, model = args
     generator = MedicallyAccurateVignetteGenerator(api_key, model)
 
     disease_name = disease_data.get("disease_name", "Unknown Disease")
 
-    # Variation types focused on medical presentation
-    variation_types = ["typical", "early", "severe", "mixed"]
-
     vignettes = []
     for i in range(num_vignettes):
         try:
-            variation_type = variation_types[i % len(variation_types)]
-
             print(
-                f"🔄 Generating {variation_type} script {i+1}/{num_vignettes} for: {disease_name}"
+                f"🔄 Generating typical script {i+1}/{num_vignettes} for: {disease_name}"
             )
 
             vignette = generator.generate_vignette_with_medical_data(
-                disease_data, i + 1, variation_type
+                disease_data, i + 1
             )
             vignettes.append(
                 {
                     "roleplay_script": vignette,
-                    "variation_type": variation_type,
+                    "variation_type": "typical",  # Always typical
                     "script_number": i + 1,
                     "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
                 }
             )
 
-            print(f"✅ Completed {variation_type} script {i+1} for: {disease_name}")
+            print(f"✅ Completed typical script {i+1} for: {disease_name}")
 
         except Exception as e:
             print(
@@ -574,7 +505,7 @@ def generate_vignettes_for_disease_with_data(args):
                     "roleplay_script": generator._create_fallback_vignette(
                         disease_data, i + 1
                     ),
-                    "variation_type": "fallback",
+                    "variation_type": "typical",  # Even fallback is typical
                     "script_number": i + 1,
                     "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
                     "error": str(e),
@@ -588,10 +519,10 @@ def generate_vignettes_from_medical_json(
     medical_json_file: str,
     api_key: str,
     num_vignettes_per_disease: int = 2,
-    output_file: str = "patient_roleplay_scripts.json",
+    output_file: str = "patient_roleplay_scripts_typical.json",
     max_workers: int = 12,
 ):
-    """Generate roleplay scripts for AI agents from medical JSON data with enhanced incremental saving"""
+    """Generate TYPICAL roleplay scripts for AI agents from medical JSON data with enhanced incremental saving"""
 
     generator = MedicallyAccurateVignetteGenerator(api_key, model)
     medical_data = generator.load_medical_data(medical_json_file)
@@ -601,13 +532,14 @@ def generate_vignettes_from_medical_json(
         return {}
 
     print(
-        f"🎭 Generating {num_vignettes_per_disease} ROLEPLAY SCRIPTS for {len(medical_data)} diseases"
+        f"🎭 Generating {num_vignettes_per_disease} TYPICAL ROLEPLAY SCRIPTS for {len(medical_data)} diseases"
     )
     print(
         f"📊 Total scripts to generate: {len(medical_data) * num_vignettes_per_disease}"
     )
     print(f"💾 Progress will be saved IMMEDIATELY after each disease to: {output_file}")
     print(f"⚡ You can monitor progress by checking the file size and content!")
+    print(f"🎯 PRESENTATION TYPE: Typical presentations only")
 
     args_list = [
         (disease_data, num_vignettes_per_disease, api_key, model)
@@ -659,7 +591,7 @@ def generate_vignettes_from_medical_json(
             print(
                 f"📈 Progress: {completed}/{len(medical_data)} diseases completed ({progress:.1f}%)"
             )
-            print(f"💾 File updated with {len(vignettes)} new scripts!")
+            print(f"💾 File updated with {len(vignettes)} new typical scripts!")
 
         except Exception as e:
             print(f"❌ Failed to generate roleplay scripts for {disease_name}: {e}")
@@ -671,7 +603,7 @@ def generate_vignettes_from_medical_json(
                     fallback_vignettes.append(
                         {
                             "roleplay_script": f"Error generating roleplay script for {disease_name} (script {j+1})",
-                            "variation_type": "error",
+                            "variation_type": "typical",  # Even errors are typical
                             "script_number": j + 1,
                             "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
                             "error": str(e),
@@ -701,7 +633,7 @@ def generate_vignettes_from_medical_json(
         model,
     )
 
-    print(f"\n✅ Completed! Roleplay scripts saved to: {output_file}")
+    print(f"\n✅ Completed! Typical roleplay scripts saved to: {output_file}")
 
     # Summary statistics
     total_scripts = sum(len(vignettes) for vignettes in results.values())
@@ -714,8 +646,9 @@ def generate_vignettes_from_medical_json(
     print(f"\n📊 GENERATION SUMMARY:")
     print(f"   Total diseases processed: {len(medical_data)}")
     print(f"   Successful diseases: {successful_diseases}")
-    print(f"   Total roleplay scripts generated: {total_scripts}")
+    print(f"   Total typical roleplay scripts generated: {total_scripts}")
     print(f"   Format: Character briefs for AI agent roleplay")
+    print(f"   Presentation type: TYPICAL ONLY")
     print(f"   💾 File saved after EVERY single disease completion!")
 
     return results
@@ -723,15 +656,17 @@ def generate_vignettes_from_medical_json(
 
 if __name__ == "__main__":
     # Configuration
-    API_KEY = "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"
+    API_KEY = "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"
     MEDICAL_JSON_FILE = "combined.json"
-    NUM_VIGNETTES_PER_DISEASE = 4
-    OUTPUT_FILE = "patient_roleplay_scripts.json"
+    NUM_VIGNETTES_PER_DISEASE = 1
+    OUTPUT_FILE = "patient_roleplay_scripts_typical.json"
     MAX_WORKERS = 12  # Sequential processing for immediate saving
 
-    print("🎭 PATIENT ROLEPLAY SCRIPT GENERATOR")
-    print("=" * 50)
-    print("🎯 Creating character briefs for AI agents to roleplay patients")
+    print("🎭 PATIENT ROLEPLAY SCRIPT GENERATOR - TYPICAL PRESENTATIONS ONLY")
+    print("=" * 70)
+    print(
+        "🎯 Creating character briefs for AI agents to roleplay typical patient presentations"
+    )
     print("💾 WITH IMMEDIATE SAVING - File updates after EVERY disease!")
 
     if not os.path.exists(MEDICAL_JSON_FILE):
@@ -746,4 +681,6 @@ if __name__ == "__main__":
         max_workers=MAX_WORKERS,
     )
 
-    print(f"\n🚀 Ready for AI agent training! Roleplay scripts in: {OUTPUT_FILE}")
+    print(
+        f"\n🚀 Ready for AI agent training! Typical roleplay scripts in: {OUTPUT_FILE}"
+    )

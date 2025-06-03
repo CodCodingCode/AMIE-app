@@ -8,9 +8,7 @@ from itertools import islice
 import random
 
 # Initialize OpenAI client
-client = OpenAI(
-    api_key="api"
-)
+client = OpenAI(api_key="api")
 model = "gpt-4.1-nano"
 
 treatment_plans = []
@@ -542,6 +540,97 @@ def calculate_accuracy_score(found, position, total_predictions):
         return 0.4
 
 
+# === SIMPLE ENHANCED QUESTIONING PROMPT ===
+
+
+def create_enhanced_questioning_prompt(
+    turn_count, vignette_summary, diagnosis, behavioral_analysis, previous_questions
+):
+    """Simple enhanced prompt that combines stage approach with diagnostic focus"""
+
+    if turn_count < 4:
+        base_questioning_role = """You are conducting the EARLY EXPLORATION phase of the clinical interview.
+
+        EXPLORATION OBJECTIVES:
+        - Establish rapport and gather comprehensive symptom history
+        - Explore symptom onset, progression, and associated factors
+        - Identify pertinent positives and negatives for differential diagnosis
+
+        QUESTIONING STRATEGY:
+        - Use open-ended questions that encourage elaboration
+        - Investigate timeline: "When did this first start?" and "How has it changed?"
+        - Explore the patient's own descriptions without medical jargon
+        - Ask about functional impact and what concerns them most
+
+        DIAGNOSTIC FOCUS FOR THIS STAGE:
+        Look at the current vignette and identify what key diagnostic information is missing:
+        - If timeline unclear: Ask about onset and progression
+        - If severity unknown: Ask about functional impact
+        - If bilateral status unclear: Ask about one vs both sides
+        - If associated symptoms missing: Ask about related symptoms
+        - If no context: Ask about triggers or recent exposures"""
+
+    elif turn_count >= 4 and turn_count < 8:
+        base_questioning_role = """You are conducting the FOCUSED CLARIFICATION phase of the clinical interview.
+
+        CLARIFICATION OBJECTIVES:
+        - Refine differential diagnosis based on emerging patterns
+        - Gather specific details that distinguish between diagnoses
+        - Clarify timeline, triggers, and modifying factors
+
+        QUESTIONING STRATEGY:
+        - Ask targeted questions about previously mentioned symptoms
+        - Explore diagnostic criteria for conditions in your differential
+        - Investigate quality, timing, and context of symptoms
+        - Ask about what makes symptoms better or worse
+
+        DIAGNOSTIC FOCUS FOR THIS STAGE:
+        Target the biggest gap that would help distinguish between your top diagnoses:
+        - For eye symptoms: Ask about discharge characteristics, contact history
+        - For pain: Ask about quality, radiation, triggers
+        - For any symptoms: Ask about previous episodes, family history
+        - Focus on features that separate your top 2-3 diagnostic considerations"""
+
+    else:
+        base_questioning_role = """You are conducting the DIAGNOSTIC CONFIRMATION phase of the clinical interview.
+
+        CONFIRMATION OBJECTIVES:
+        - Confirm or refute the most likely diagnosis through targeted questioning
+        - Gather final pieces of information needed for diagnostic certainty
+        - Address any remaining diagnostic uncertainty
+
+        QUESTIONING STRATEGY:
+        - Ask highly focused questions that address remaining uncertainty
+        - Explore specific diagnostic criteria for the most likely condition
+        - Investigate any concerning features that might change management
+
+        DIAGNOSTIC FOCUS FOR THIS STAGE:
+        Ask the question that would confirm or rule out your leading diagnosis:
+        - Target specific diagnostic criteria for your #1 diagnosis
+        - Ask about red flags or alternative explanations
+        - Confirm key features that distinguish from your #2 diagnosis"""
+
+    return f"""{base_questioning_role}
+
+CURRENT CLINICAL PICTURE:
+Vignette: {vignette_summary}
+Leading Diagnoses: {diagnosis}
+Patient Communication: {behavioral_analysis}
+Previous Questions: {previous_questions}
+
+INSTRUCTION: Look at what diagnostic information is missing from the vignette above, then ask the ONE question that would be most helpful for your differential diagnosis at this stage.
+
+YOU MUST RESPOND IN THE FOLLOWING FORMAT:
+
+THINKING: 
+DIAGNOSTIC REASONING:
+- What key diagnostic information is missing from the current vignette?
+- Which of my leading diagnoses would this question help distinguish?
+- How should I adapt my communication for this patient's style?
+
+ANSWER: <Your targeted diagnostic question>"""
+
+
 # === Modified process_vignette function ===
 def process_vignette(idx, vignette_text, gold_label):
     global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs, treatment_plans, behavioral_analyses
@@ -834,163 +923,21 @@ STOP HERE. Do not add additional recommendations or notes."""
         ][-5:]
 
         # === MODIFIED QUESTIONING WITH GOLD GUIDANCE ===
-        base_questioning_role = ""
-        if turn_count < 4:
-            base_questioning_role = """You are conducting the EARLY EXPLORATION phase of the clinical interview. Your primary goals are:
-
-        EXPLORATION OBJECTIVES:
-        - Establish therapeutic rapport and trust with the patient
-        - Gather comprehensive symptom history using open-ended questions
-        - Understand the patient's perspective and chief concerns
-        - Explore symptom onset, progression, and associated factors
-        - Identify pertinent positives and negatives for broad differential diagnosis
-        - Assess functional impact and patient's understanding of their condition
-
-        QUESTIONING STRATEGY:
-        - Use primarily open-ended questions that encourage elaboration
-        - Follow the patient's natural flow of information while gently guiding
-        - Ask "Tell me more about..." and "What else have you noticed..."
-        - Explore the patient's own words and descriptions without medical jargon
-        - Investigate timeline with questions like "When did this first start?" and "How has it changed?"
-        - Assess impact with "How is this affecting your daily life?"
-        - Explore patient's concerns: "What worries you most about these symptoms?"
-
-        COMMUNICATION APPROACH:
-        - Demonstrate active listening with reflective responses
-        - Validate the patient's experience and concerns
-        - Use the patient's own language and terminology
-        - Avoid leading questions that suggest specific diagnoses
-        - Create psychological safety for sensitive topics
-        - Show genuine curiosity about the patient's experience
-
-        YOUR NEXT QUESTION SHOULD:
-        - Be open-ended and encourage detailed response
-        - Build on information already shared
-        - Explore a new dimension of their symptoms or experience
-        - Help establish trust and rapport
-        - Gather information relevant to differential diagnosis formation"""
-
-        elif turn_count >= 4 and turn_count < 8:
-            base_questioning_role = """You are conducting the FOCUSED CLARIFICATION phase of the clinical interview. Your primary goals are:
-
-        CLARIFICATION OBJECTIVES:
-        - Refine and narrow the differential diagnosis based on emerging patterns
-        - Gather specific details about key symptoms that distinguish between diagnoses
-        - Explore pertinent review of systems for the developing differential
-        - Clarify timeline, triggers, and modifying factors
-        - Assess severity and functional impact more precisely
-        - Investigate risk factors and family history relevant to suspected conditions
-
-        QUESTIONING STRATEGY:
-        - Ask more targeted questions while remaining patient-centered
-        - Use specific follow-up questions about previously mentioned symptoms
-        - Explore diagnostic criteria for conditions in your differential
-        - Ask about associated symptoms that support or refute specific diagnoses
-        - Investigate quality, quantity, timing, and context of symptoms
-        - Explore what makes symptoms better or worse
-        - Ask about previous similar episodes or family history
-
-        COMMUNICATION APPROACH:
-        - Balance focused questioning with continued rapport building
-        - Acknowledge patient's previous responses to show you're listening
-        - Use transitional phrases like "You mentioned X, can you tell me more about..."
-        - Be sensitive to patient's communication style and emotional state
-        - Clarify patient's terminology to ensure mutual understanding
-        - Remain non-judgmental while gathering potentially sensitive information
-
-        YOUR NEXT QUESTION SHOULD:
-        - Target specific symptom characteristics or associated findings
-        - Help distinguish between competing diagnoses in your differential
-        - Explore risk factors or family history relevant to suspected conditions
-        - Clarify timeline or progression patterns
-        - Assess severity or functional impact more precisely
-        - Address any gaps in the clinical picture"""
-
-        else:
-            base_questioning_role = """You are conducting the DIAGNOSTIC CONFIRMATION phase of the clinical interview. Your primary goals are:
-
-        CONFIRMATION OBJECTIVES:
-        - Confirm or refute the most likely diagnosis through targeted questioning
-        - Gather final pieces of information needed for diagnostic certainty
-        - Assess readiness for treatment discussion and patient education
-        - Explore patient's understanding and concerns about the likely diagnosis
-        - Investigate any remaining red flags or alternative explanations
-        - Prepare for shared decision-making about management options
-
-        QUESTIONING STRATEGY:
-        - Ask highly focused questions that address remaining diagnostic uncertainty
-        - Explore specific diagnostic criteria for the most likely condition
-        - Investigate any concerning features that might change management
-        - Ask about patient's previous experiences with similar conditions
-        - Explore patient's expectations and concerns about potential diagnosis
-        - Assess patient's readiness to discuss treatment options
-        - Investigate practical factors that might affect treatment (allergies, medications, lifestyle)
-
-        COMMUNICATION APPROACH:
-        - Begin transitioning toward diagnostic discussion and patient education
-        - Use more collaborative language: "Based on what you've told me..."
-        - Prepare the patient for potential diagnosis without premature closure
-        - Address any anxiety or concerns about the diagnostic process
-        - Ensure patient feels heard and understood before moving to treatment
-        - Set the stage for shared decision-making
-
-        YOUR NEXT QUESTION SHOULD:
-        - Address any remaining diagnostic uncertainty
-        - Confirm key diagnostic criteria for the most likely condition
-        - Explore patient's understanding or concerns about their condition
-        - Investigate practical factors relevant to treatment planning
-        - Assess patient's readiness for diagnostic and treatment discussion
-        - Gather final information needed before diagnostic closure
-
-        DIAGNOSTIC TRANSITION CONSIDERATIONS:
-        - If diagnostic certainty is high, begin preparing patient for treatment discussion
-        - If uncertainty remains, focus questions on distinguishing features
-        - Consider patient's emotional readiness for diagnosis and treatment planning
-        - Ensure all critical information is gathered before moving to management phase"""
-
-        # Add gold diagnosis guidance to questioning
-        guided_questioning_role = generate_guided_questioner_prompt(
-            base_questioning_role, gold_label, vignette_summary
-        )
 
         # Create questioner with enhanced role definition
-        questioner = RoleResponder(guided_questioning_role)
+        questioner = RoleResponder(
+            f"""You are an expert clinician conducting a diagnostic interview."""
+        )
 
-        prompt = f"""Previously asked questions: {json.dumps(previous_questions)}
+        enhanced_prompt = create_enhanced_questioning_prompt(
+            turn_count,
+            vignette_summary,
+            diagnosis,
+            behavioral_analysis,
+            previous_questions,
+        )
 
-            CLINICAL CONTEXT:
-            Current interview phase: {'EARLY EXPLORATION' if turn_count < 6 else 'FOCUSED CLARIFICATION' if turn_count < 11 else 'DIAGNOSTIC CONFIRMATION'}
-            
-            YOU MUST RESPOND IN THE FOLLOWING FORMAT:
-
-            THINKING: 
-            Use systematic reasoning for question development:
-            
-            CLINICAL REASONING:
-            - Information gaps: <what key information is missing for diagnosis>
-            - Diagnostic priorities: <which conditions need to be explored or ruled out>
-            - Patient factors: <how patient's communication style affects questioning approach>
-            - Interview phase goals: <specific objectives for this stage of the encounter>
-            
-            QUESTION STRATEGY:
-            - Type of question needed: <open-ended vs focused vs confirmatory>
-            - Information target: <specific symptoms, timeline, severity, impact, etc.>
-            - Communication approach: <how to phrase sensitively given patient's style>
-            - Expected value: <how this question will advance diagnostic process>
-
-            ANSWER: <Your carefully crafted diagnostic question>
-
-            CURRENT CLINICAL PICTURE:
-            Vignette: {vignette_summary}
-            
-            Leading Diagnoses: {diagnosis}
-            
-            Patient Communication Pattern: {behavioral_analysis}
-            
-            Turn Count: {turn_count}
-            """
-
-        followup_result = questioner.ask(prompt)
+        followup_result = questioner.ask(enhanced_prompt)
         raw_followup = followup_result["raw"]
         followup_question = followup_result["clean"]
 
@@ -1567,7 +1514,7 @@ if __name__ == "__main__":
         )
 
     # Launch multiprocessing pool with 1 worker
-    with multiprocessing.Pool(processes=12) as pool:
+    with multiprocessing.Pool(processes=1) as pool:
         results = pool.map(
             run_vignette_task,
             [
