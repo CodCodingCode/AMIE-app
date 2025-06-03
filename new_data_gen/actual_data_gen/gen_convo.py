@@ -9,97 +9,11 @@ import random
 
 # Initialize OpenAI client
 client = OpenAI(
-    api_key="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"
+    api_key="api"
 )
 model = "gpt-4.1-nano"
 
 treatment_plans = []
-
-
-def get_guaranteed_format_response(responder, prompt, max_retries=3):
-    """Absolutely guarantee THINKING/ANSWER format"""
-
-    enforced_prompt = f"""{prompt}
-    
-    ===== MANDATORY FORMAT =====
-    You MUST respond in this EXACT format:
-    
-    THINKING: [your reasoning]
-    ANSWER: [your response]
-    
-    - Start with "THINKING:" (required)
-    - Include "ANSWER:" section (required)
-    - No other format will be accepted
-    ============================
-    
-    Begin your response now with "THINKING:"
-    """
-
-    for attempt in range(max_retries):
-        response = responder.ask(enforced_prompt)
-        response = response.strip()
-
-        # Check format
-        if response.startswith("THINKING:") and "ANSWER:" in response:
-            return response
-
-        # Force format if wrong
-        response = force_thinking_answer_format(response)
-        if response.startswith("THINKING:") and "ANSWER:" in response:
-            return response
-
-        # Escalate enforcement
-        enforced_prompt = f"""{prompt}
-        
-        CRITICAL ERROR: You failed to follow the required format {attempt + 1} times.
-        
-        You MUST respond EXACTLY like this:
-        
-        THINKING: [write your reasoning here]
-        ANSWER: [write your actual response here]
-        
-        Type "THINKING:" first, then your reasoning, then "ANSWER:" then your response.
-        This is mandatory. No exceptions. Attempt {attempt + 2} of {max_retries}.
-        """
-
-    # Final fallback
-    return f"THINKING: Format enforcement failed\nANSWER: {response}"
-
-
-def force_thinking_answer_format(response):
-    """Force any response into THINKING/ANSWER format"""
-    response = response.strip()
-
-    # If already in correct format, return as-is
-    if response.startswith("THINKING:") and "ANSWER:" in response:
-        # Check for nested format (ANSWER: THINKING:)
-        if "ANSWER: THINKING:" in response:
-            # Extract the content after "ANSWER: THINKING:"
-            content = response.split("ANSWER: THINKING:", 1)[1].strip()
-            return f"THINKING: {content}\nANSWER: {content}"
-        return response
-
-    # Check for malformed nested format (ANSWER: THINKING:)
-    if response.startswith("ANSWER: THINKING:"):
-        content = response.split("ANSWER: THINKING:", 1)[1].strip()
-        return f"THINKING: {content}\nANSWER: {content}"
-
-    # If starts with ANSWER: but no THINKING:, move content to proper format
-    if response.startswith("ANSWER:"):
-        content = response.split("ANSWER:", 1)[1].strip()
-        return f"THINKING: Providing requested response\nANSWER: {content}"
-
-    # If has ANSWER: somewhere but doesn't start with THINKING:
-    if "ANSWER:" in response and not response.startswith("THINKING:"):
-        parts = response.split("ANSWER:", 1)
-        thinking_part = (
-            parts[0].strip() if parts[0].strip() else "Providing requested information"
-        )
-        answer_part = parts[1].strip() if len(parts) > 1 else response
-        return f"THINKING: {thinking_part}\nANSWER: {answer_part}"
-
-    # If no format markers, assume entire response is the answer
-    return f"THINKING: Providing requested response\nANSWER: {response}"
 
 
 # === Patient Behavior Configurations ===
@@ -178,783 +92,9 @@ PATIENT_BEHAVIORS = {
 }
 
 
-def generate_gold_guided_prompt(base_prompt, gold_diagnosis, stage, vignette_summary):
-    """
-    Generate diagnostic prompts that provide strong guidance toward correct diagnosis
-    """
-    # Create contextual hints based on gold diagnosis
-    diagnostic_hints = create_diagnostic_hints(gold_diagnosis, stage)
-
-    # Add stage-specific strength
-    guidance_strength = get_guidance_strength(stage)
-
-    guided_prompt = f"""
-    {base_prompt}
-    
-    DIAGNOSTIC GUIDANCE ({guidance_strength}):
-    {diagnostic_hints}
-    
-    CRITICAL INSTRUCTIONS:
-    - Prioritize conditions that match the clinical presentation patterns described above
-    - Consider both common and atypical presentations of the suggested condition categories
-    - Place higher emphasis on the primary consideration mentioned in guidance
-    - If guidance suggests specific diagnostic categories, include them prominently in your differential
-    """
-
-    return guided_prompt
-
-
-def get_guidance_strength(stage):
-    """Return appropriate guidance strength based on conversation stage"""
-    if stage == "early":
-        return "Strong guidance - use to inform your broad differential"
-    elif stage == "middle":
-        return "Very strong guidance - prioritize these conditions"
-    else:
-        return "Critical guidance - this should be your primary consideration"
-
-
-class DiagnosticPerformanceTracker:
-    def __init__(self):
-        self.performance_history = []
-        self.current_vignette_performance = {}
-
-    def update_performance(
-        self, vignette_idx, stage, gold_found, position, total_predictions
-    ):
-        """Track diagnostic performance for adaptive hinting"""
-        accuracy_score = calculate_accuracy_score(
-            gold_found, position, total_predictions
-        )
-
-        performance_data = {
-            "vignette_idx": vignette_idx,
-            "stage": stage,
-            "gold_found": gold_found,
-            "position": position,
-            "accuracy_score": accuracy_score,
-            "timestamp": time.time(),
-        }
-
-        self.performance_history.append(performance_data)
-
-        # Track current vignette
-        if vignette_idx not in self.current_vignette_performance:
-            self.current_vignette_performance[vignette_idx] = []
-        self.current_vignette_performance[vignette_idx].append(performance_data)
-
-    def should_provide_hints(self, vignette_idx, stage):
-        """Determine if hints are needed based on performance"""
-        # Get recent performance for this vignette
-        vignette_history = self.current_vignette_performance.get(vignette_idx, [])
-
-        # Check overall recent performance (last 10 vignettes)
-        recent_performance = (
-            self.performance_history[-10:]
-            if len(self.performance_history) >= 10
-            else self.performance_history
-        )
-
-        # Criteria for providing hints
-        needs_hints = False
-
-        # 1. Current vignette struggling (no gold diagnosis found in previous stages)
-        if vignette_history:
-            recent_vignette_scores = [p["accuracy_score"] for p in vignette_history]
-            if all(score == 0.0 for score in recent_vignette_scores):
-                needs_hints = True
-                print(
-                    f"🎯 ADAPTIVE HINTS: Activating hints for vignette {vignette_idx} - gold diagnosis not found in previous stages"
-                )
-
-        # 2. Overall performance declining
-        if len(recent_performance) >= 5:
-            recent_accuracy = (
-                sum(p["accuracy_score"] for p in recent_performance[-5:]) / 5
-            )
-            if recent_accuracy < 0.3:  # Less than 30% accuracy
-                needs_hints = True
-                print(
-                    f"📉 ADAPTIVE HINTS: Activating hints due to declining performance ({recent_accuracy:.1%})"
-                )
-
-        # 3. Late stage and still struggling
-        if stage == "late" and vignette_history:
-            if not any(p["gold_found"] for p in vignette_history):
-                needs_hints = True
-                print(
-                    f"⏰ ADAPTIVE HINTS: Activating hints for late stage - diagnosis not found yet"
-                )
-
-        return needs_hints
-
-    def get_performance_summary(self):
-        """Get current performance statistics"""
-        if not self.performance_history:
-            return "No performance data yet"
-
-        total_cases = len(self.performance_history)
-        accurate_cases = sum(1 for p in self.performance_history if p["gold_found"])
-        overall_accuracy = (
-            (accurate_cases / total_cases) * 100 if total_cases > 0 else 0
-        )
-
-        return f"Overall Accuracy: {overall_accuracy:.1f}% ({accurate_cases}/{total_cases})"
-
-
-# Global performance tracker
-performance_tracker = DiagnosticPerformanceTracker()
-
-
-def create_diagnostic_hints(gold_diagnosis, stage):
-    """
-    Create strong, specific hints that guide toward correct diagnosis
-    """
-    # Enhanced database with more diseases and stronger guidance
-    diagnostic_patterns = {
-        # Cardiovascular - Enhanced
-        "myocardial infarction": {
-            "patterns": [
-                "acute coronary syndrome presentations",
-                "cardiac ischemic events",
-                "chest pain with cardiac risk factors",
-            ],
-            "key_features": [
-                "chest pain character and radiation patterns",
-                "associated autonomic symptoms (nausea, sweating, SOB)",
-                "cardiac risk factor assessment",
-            ],
-            "red_flags": [
-                "acute coronary syndrome presentations",
-                "hemodynamic instability",
-                "troponin elevation patterns",
-            ],
-            "strong_indicators": [
-                "crushing chest pain",
-                "left arm radiation",
-                "diaphoresis with chest discomfort",
-                "cardiac risk factors present",
-            ],
-        },
-        "hypertension": {
-            "patterns": [
-                "hypertensive syndromes",
-                "elevated blood pressure conditions",
-                "cardiovascular risk presentations",
-            ],
-            "key_features": [
-                "blood pressure elevation patterns",
-                "afternoon/evening headache timing",
-                "stress-related symptom exacerbation",
-            ],
-            "red_flags": [
-                "hypertensive emergency signs",
-                "end-organ damage indicators",
-            ],
-            "strong_indicators": [
-                "headaches worse in afternoon/evening",
-                "dizziness with position changes",
-                "stress making symptoms worse",
-                "family history of hypertension",
-            ],
-        },
-        "heart failure": {
-            "patterns": [
-                "cardiac pump dysfunction syndromes",
-                "fluid retention conditions",
-                "decreased cardiac output presentations",
-            ],
-            "key_features": [
-                "exertional dyspnea patterns",
-                "orthopnea and PND",
-                "peripheral edema development",
-            ],
-            "red_flags": ["acute decompensation signs", "cardiogenic shock indicators"],
-            "strong_indicators": [
-                "shortness of breath with exertion",
-                "swelling in legs/ankles",
-                "difficulty breathing when lying flat",
-                "fatigue with minimal activity",
-            ],
-        },
-        # Respiratory - Enhanced
-        "asthma": {
-            "patterns": [
-                "reversible airway obstruction",
-                "bronchospastic conditions",
-                "allergic respiratory syndromes",
-            ],
-            "key_features": [
-                "wheezing and bronchospasm patterns",
-                "trigger identification",
-                "response to bronchodilator therapy",
-            ],
-            "red_flags": [
-                "severe bronchospasm requiring emergency care",
-                "respiratory failure indicators",
-            ],
-            "strong_indicators": [
-                "wheezing sounds",
-                "shortness of breath with triggers",
-                "cough especially at night",
-                "family history of asthma/allergies",
-            ],
-        },
-        "pneumonia": {
-            "patterns": [
-                "infectious respiratory syndromes",
-                "consolidative lung disease",
-                "bacterial/viral pneumonic processes",
-            ],
-            "key_features": [
-                "productive cough with fever",
-                "chest pain with breathing",
-                "systemic infection signs",
-            ],
-            "red_flags": ["sepsis indicators", "respiratory failure signs"],
-            "strong_indicators": [
-                "fever with cough",
-                "chest pain when breathing",
-                "thick colored sputum",
-                "recent illness or exposure",
-            ],
-        },
-        "copd": {
-            "patterns": [
-                "chronic obstructive pulmonary disease",
-                "smoking-related lung disease",
-                "progressive airway limitation",
-            ],
-            "key_features": [
-                "chronic productive cough",
-                "progressive dyspnea",
-                "smoking history significance",
-            ],
-            "red_flags": [
-                "acute exacerbation patterns",
-                "respiratory failure development",
-            ],
-            "strong_indicators": [
-                "long-term smoking history",
-                "chronic morning cough",
-                "increasing shortness of breath",
-                "barrel chest appearance",
-            ],
-        },
-        # Gastrointestinal - Enhanced
-        "gastroesophageal reflux disease": {
-            "patterns": [
-                "acid reflux syndromes",
-                "esophageal irritation conditions",
-                "upper gastrointestinal symptoms",
-            ],
-            "key_features": [
-                "heartburn after meals",
-                "regurgitation patterns",
-                "positional symptom variation",
-            ],
-            "red_flags": ["dysphagia development", "weight loss with reflux"],
-            "strong_indicators": [
-                "burning sensation in chest after eating",
-                "symptoms worse when lying down",
-                "sour taste in mouth",
-                "symptoms improve with antacids",
-            ],
-        },
-        "appendicitis": {
-            "patterns": [
-                "acute appendiceal inflammation",
-                "right lower quadrant pain syndromes",
-                "surgical abdomen presentations",
-            ],
-            "key_features": [
-                "pain migration from periumbilical to RLQ",
-                "McBurney's point tenderness",
-                "fever with abdominal pain",
-            ],
-            "red_flags": ["peritonitis signs", "perforation indicators"],
-            "strong_indicators": [
-                "pain starting around navel then moving to right side",
-                "pain worse with walking or coughing",
-                "nausea and vomiting",
-                "low-grade fever",
-            ],
-        },
-        "peptic ulcer disease": {
-            "patterns": [
-                "gastroduodenal ulceration",
-                "acid-peptic disorders",
-                "H. pylori related conditions",
-            ],
-            "key_features": [
-                "epigastric pain patterns",
-                "meal-related symptom timing",
-                "NSAID use history",
-            ],
-            "red_flags": ["GI bleeding indicators", "perforation signs"],
-            "strong_indicators": [
-                "burning stomach pain",
-                "pain between meals or at night",
-                "relief with food or antacids",
-                "NSAID use history",
-            ],
-        },
-        # Endocrine - Enhanced
-        "diabetes mellitus": {
-            "patterns": [
-                "hyperglycemic syndromes",
-                "insulin deficiency/resistance conditions",
-                "metabolic dysfunction presentations",
-            ],
-            "key_features": [
-                "polyuria and polydipsia patterns",
-                "unexplained weight changes",
-                "glucose metabolism disruption",
-            ],
-            "red_flags": ["diabetic ketoacidosis signs", "hyperosmolar states"],
-            "strong_indicators": [
-                "excessive urination and thirst",
-                "unexplained weight loss",
-                "fatigue and weakness",
-                "slow healing wounds",
-            ],
-        },
-        "hypothyroidism": {
-            "patterns": [
-                "thyroid hormone deficiency",
-                "metabolic slowdown syndromes",
-                "endocrine hypofunction",
-            ],
-            "key_features": [
-                "fatigue and cold intolerance",
-                "weight gain patterns",
-                "cognitive slowing",
-            ],
-            "red_flags": ["myxedema coma signs", "severe hypothyroid complications"],
-            "strong_indicators": [
-                "persistent fatigue despite rest",
-                "feeling cold when others are comfortable",
-                "unexplained weight gain",
-                "dry skin and hair loss",
-            ],
-        },
-        "hyperthyroidism": {
-            "patterns": [
-                "thyroid hormone excess",
-                "metabolic acceleration syndromes",
-                "thyrotoxic conditions",
-            ],
-            "key_features": [
-                "palpitations and tremor",
-                "heat intolerance patterns",
-                "weight loss with increased appetite",
-            ],
-            "red_flags": ["thyroid storm indicators", "cardiac complications"],
-            "strong_indicators": [
-                "rapid heartbeat or palpitations",
-                "trembling hands",
-                "weight loss despite eating more",
-                "feeling hot and sweaty",
-            ],
-        },
-        # Neurological - Enhanced
-        "stroke": {
-            "patterns": [
-                "acute cerebrovascular events",
-                "focal neurological deficits",
-                "brain vascular occlusion/hemorrhage",
-            ],
-            "key_features": [
-                "sudden onset neurological symptoms",
-                "focal weakness patterns",
-                "speech or vision changes",
-            ],
-            "red_flags": ["large vessel occlusion signs", "hemorrhagic transformation"],
-            "strong_indicators": [
-                "sudden weakness on one side",
-                "facial drooping",
-                "slurred speech",
-                "sudden severe headache",
-            ],
-        },
-        "migraine": {
-            "patterns": [
-                "primary headache disorders",
-                "neurovascular headache syndromes",
-                "episodic severe headache",
-            ],
-            "key_features": [
-                "unilateral throbbing headache",
-                "associated nausea/vomiting",
-                "photophobia and phonophobia",
-            ],
-            "red_flags": ["status migrainosus", "medication overuse headache"],
-            "strong_indicators": [
-                "severe one-sided headache",
-                "nausea with headache",
-                "sensitivity to light and sound",
-                "family history of migraines",
-            ],
-        },
-        "seizure disorder": {
-            "patterns": [
-                "epileptic syndromes",
-                "seizure activity disorders",
-                "neuronal hyperexcitability",
-            ],
-            "key_features": [
-                "episodic altered consciousness",
-                "motor activity patterns",
-                "postictal state description",
-            ],
-            "red_flags": ["status epilepticus", "new onset seizures in adults"],
-            "strong_indicators": [
-                "episodes of losing awareness",
-                "involuntary movements",
-                "confusion after episodes",
-                "tongue biting or incontinence",
-            ],
-        },
-        # Musculoskeletal - Enhanced
-        "osteoarthritis": {
-            "patterns": [
-                "degenerative joint disease",
-                "mechanical arthritis",
-                "cartilage deterioration syndromes",
-            ],
-            "key_features": [
-                "joint pain with activity",
-                "morning stiffness <30 minutes",
-                "weight-bearing joint involvement",
-            ],
-            "red_flags": ["rapid joint destruction", "systemic inflammatory signs"],
-            "strong_indicators": [
-                "joint pain worse with use",
-                "stiffness that improves with movement",
-                "pain in knees, hips, or hands",
-                "age over 50",
-            ],
-        },
-        "rheumatoid arthritis": {
-            "patterns": [
-                "inflammatory arthritis",
-                "autoimmune joint disease",
-                "systemic inflammatory conditions",
-            ],
-            "key_features": [
-                "symmetrical joint involvement",
-                "prolonged morning stiffness",
-                "small joint predilection",
-            ],
-            "red_flags": [
-                "extra-articular manifestations",
-                "joint destruction progression",
-            ],
-            "strong_indicators": [
-                "morning stiffness lasting hours",
-                "swelling in multiple joints",
-                "symmetrical joint involvement",
-                "fatigue and malaise",
-            ],
-        },
-        "fibromyalgia": {
-            "patterns": [
-                "chronic widespread pain",
-                "central sensitization syndromes",
-                "pain amplification disorders",
-            ],
-            "key_features": [
-                "widespread tender points",
-                "sleep disturbance patterns",
-                "fatigue association",
-            ],
-            "red_flags": [
-                "underlying inflammatory conditions",
-                "systemic disease masquerading",
-            ],
-            "strong_indicators": [
-                "widespread body pain",
-                "tender points on examination",
-                "chronic fatigue",
-                "sleep problems",
-            ],
-        },
-        # Mental Health - Enhanced
-        "depression": {
-            "patterns": [
-                "major depressive disorders",
-                "mood disorder syndromes",
-                "anhedonia presentations",
-            ],
-            "key_features": [
-                "persistent depressed mood",
-                "anhedonia patterns",
-                "neurovegetative symptoms",
-            ],
-            "red_flags": ["suicidal ideation", "psychotic features"],
-            "strong_indicators": [
-                "persistent sad or empty mood",
-                "loss of interest in activities",
-                "sleep disturbances",
-                "feelings of worthlessness",
-            ],
-        },
-        "anxiety disorders": {
-            "patterns": [
-                "anxiety spectrum conditions",
-                "panic disorder syndromes",
-                "phobic disorders",
-            ],
-            "key_features": [
-                "excessive worry patterns",
-                "physical anxiety symptoms",
-                "avoidance behaviors",
-            ],
-            "red_flags": ["panic attack complications", "severe functional impairment"],
-            "strong_indicators": [
-                "excessive worry or fear",
-                "physical symptoms (racing heart, sweating)",
-                "avoidance of situations",
-                "restlessness or feeling on edge",
-            ],
-        },
-        "bipolar disorder": {
-            "patterns": [
-                "mood cycling disorders",
-                "manic-depressive syndromes",
-                "episodic mood disturbances",
-            ],
-            "key_features": [
-                "manic episode history",
-                "mood cycling patterns",
-                "functional impairment during episodes",
-            ],
-            "red_flags": ["mixed episodes", "rapid cycling patterns"],
-            "strong_indicators": [
-                "periods of elevated mood",
-                "decreased need for sleep during high periods",
-                "alternating with depression",
-                "impulsive behavior during episodes",
-            ],
-        },
-        # Infectious Diseases - New
-        "urinary tract infection": {
-            "patterns": [
-                "bacterial urinary infections",
-                "cystitis syndromes",
-                "urogenital infectious processes",
-            ],
-            "key_features": [
-                "dysuria patterns",
-                "urinary frequency/urgency",
-                "suprapubic discomfort",
-            ],
-            "red_flags": ["pyelonephritis signs", "sepsis indicators"],
-            "strong_indicators": [
-                "burning with urination",
-                "frequent urge to urinate",
-                "cloudy or strong-smelling urine",
-                "pelvic pain in women",
-            ],
-        },
-        "sinusitis": {
-            "patterns": [
-                "paranasal sinus inflammation",
-                "rhinosinusitis syndromes",
-                "upper respiratory infections",
-            ],
-            "key_features": [
-                "facial pain/pressure",
-                "nasal congestion patterns",
-                "post-nasal drainage",
-            ],
-            "red_flags": ["orbital complications", "intracranial extension"],
-            "strong_indicators": [
-                "facial pain or pressure",
-                "thick nasal discharge",
-                "reduced sense of smell",
-                "headache over sinuses",
-            ],
-        },
-        # Dermatological - New
-        "eczema": {
-            "patterns": [
-                "atopic dermatitis syndromes",
-                "chronic inflammatory skin conditions",
-                "allergic skin reactions",
-            ],
-            "key_features": [
-                "pruritic skin lesions",
-                "chronic/relapsing course",
-                "atopic triad association",
-            ],
-            "red_flags": [
-                "secondary bacterial infection",
-                "severe widespread involvement",
-            ],
-            "strong_indicators": [
-                "itchy, red, inflamed skin",
-                "dry or scaly patches",
-                "family history of allergies",
-                "symptoms worse with certain triggers",
-            ],
-        },
-        # Additional Common Conditions
-        "kidney stones": {
-            "patterns": [
-                "renal calculi syndromes",
-                "nephrolithiasis presentations",
-                "urinary stone disease",
-            ],
-            "key_features": [
-                "severe flank pain",
-                "colicky pain patterns",
-                "hematuria presence",
-            ],
-            "red_flags": ["complete obstruction", "infection with obstruction"],
-            "strong_indicators": [
-                "severe back or side pain",
-                "pain that comes in waves",
-                "blood in urine",
-                "nausea and vomiting with pain",
-            ],
-        },
-        "anemia": {
-            "patterns": [
-                "hemoglobin deficiency syndromes",
-                "oxygen carrying capacity reduction",
-                "hematologic disorders",
-            ],
-            "key_features": [
-                "fatigue and weakness",
-                "pallor patterns",
-                "exertional dyspnea",
-            ],
-            "red_flags": ["severe anemia complications", "underlying malignancy"],
-            "strong_indicators": [
-                "persistent fatigue and weakness",
-                "pale skin or nail beds",
-                "shortness of breath with activity",
-                "cold hands and feet",
-            ],
-        },
-    }
-
-    # Enhanced matching with partial word matching
-    gold_lower = gold_diagnosis.lower()
-    pattern_info = None
-
-    # First try exact matching
-    for condition, info in diagnostic_patterns.items():
-        if condition == gold_lower:
-            pattern_info = info
-            break
-
-    # Then try partial matching
-    if not pattern_info:
-        for condition, info in diagnostic_patterns.items():
-            condition_words = condition.split()
-            gold_words = gold_lower.split()
-
-            # Check if any significant words match
-            if any(word in gold_lower for word in condition_words) or any(
-                word in condition for word in gold_words
-            ):
-                pattern_info = info
-                break
-
-    # If no specific pattern found, create strong generic guidance
-    if not pattern_info:
-        return f"""
-        CRITICAL: This patient's presentation matches the gold standard diagnosis pattern.
-        
-        PRIMARY FOCUS: Consider conditions that present with the exact clinical features described in this vignette.
-        
-        ESSENTIAL ACTIONS:
-        - Prioritize diagnoses that match the specific symptom complex
-        - Consider both typical and atypical presentations
-        - Pay special attention to temporal patterns and associated symptoms
-        - Include the most likely condition prominently in your differential
-        
-        The correct diagnosis should be strongly suggested by the clinical presentation described.
-        """
-
-    # Stage-specific enhanced guidance
-    if stage == "early":  # 10 diagnoses
-        return f"""
-        STRONG DIAGNOSTIC GUIDANCE - Early Stage:
-        
-        PRIMARY CONSIDERATION: {pattern_info['patterns'][0]}
-        
-        KEY CLINICAL INDICATORS TO PRIORITIZE:
-        {chr(10).join(f"- {indicator}" for indicator in pattern_info['strong_indicators'])}
-        
-        SECONDARY CONSIDERATIONS: {', '.join(pattern_info['patterns'][1:])}.
-        
-        CRITICAL FEATURES TO EVALUATE: {', '.join(pattern_info['key_features'])}.
-        
-        IMPORTANT: The primary consideration should be included prominently (top 3) in your differential diagnosis.
-        Include both common and less common conditions, but prioritize those matching the strong indicators above.
-        """
-
-    elif stage == "middle":  # 5 diagnoses
-        return f"""
-        VERY STRONG DIAGNOSTIC GUIDANCE - Middle Stage:
-        
-        TOP PRIORITY: {pattern_info['patterns'][0]}
-        
-        CRITICAL INDICATORS PRESENT:
-        {chr(10).join(f"- {indicator}" for indicator in pattern_info['strong_indicators'][:3])}
-        
-        FOCUS AREAS: {', '.join(pattern_info['patterns'][:2])}.
-        
-        ESSENTIAL FEATURES: {', '.join(pattern_info['key_features'][:2])}.
-        
-        CRITICAL: Based on the clinical presentation, {pattern_info['patterns'][0]} should be your #1 or #2 consideration.
-        Narrow to conditions most consistent with the strong indicators listed above.
-        """
-
-    else:  # Late stage - 1-3 diagnoses
-        return f"""
-        CRITICAL DIAGNOSTIC GUIDANCE - Final Stage:
-        
-        MOST LIKELY DIAGNOSIS: {pattern_info['patterns'][0]}
-        
-        DEFINITIVE INDICATORS:
-        {chr(10).join(f"- {indicator}" for indicator in pattern_info['strong_indicators'][:2])}
-        
-        KEY CONFIRMATORY FEATURES: {pattern_info['key_features'][0]}.
-        
-        RED FLAGS TO EVALUATE: {', '.join(pattern_info['red_flags'])}.
-        
-        FINAL INSTRUCTION: The clinical presentation strongly suggests {pattern_info['patterns'][0]}. 
-        This should be your primary diagnosis unless there are compelling contraindications.
-        """
-
-
 def generate_guided_questioner_prompt(base_prompt, gold_diagnosis, current_vignette):
-    """
-    Generate questioning prompts that strongly guide toward information relevant to gold diagnosis
-    """
-    # Get relevant questions for the gold diagnosis
-    relevant_questions = get_relevant_questions(gold_diagnosis, current_vignette)
-
-    guided_prompt = f"""
-    {base_prompt}
-    
-    PRIORITY CLINICAL FOCUS AREAS:
-    {relevant_questions}
-    
-    QUESTIONING STRATEGY:
-    - Ask questions that explore the priority areas listed above
-    - Prioritize gathering information that confirms or rules out the suggested conditions
-    - Maintain natural conversation flow while focusing on diagnostically relevant information
-    - Do not directly mention specific diagnoses, but guide toward relevant symptom exploration
-    
-    Your questions should efficiently gather the most diagnostically valuable information.
-    """
-
-    return guided_prompt
+    """Generate questioning prompts without gold diagnosis guidance"""
+    return base_prompt
 
 
 # === Patient Interpreter Class ===
@@ -1226,221 +366,6 @@ def generate_unbiased_vignette(
     return unbiased_summarizer.ask(summary_prompt)
 
 
-def get_relevant_questions(gold_diagnosis, current_vignette):
-    """
-    Suggest specific, targeted question areas based on gold diagnosis
-    """
-    question_guidance = {
-        "myocardial infarction": [
-            "chest pain characteristics, quality, radiation patterns",
-            "associated symptoms (nausea, sweating, shortness of breath)",
-            "cardiac risk factors (smoking, diabetes, hypertension, family history)",
-            "activity relationship and onset timing",
-            "previous cardiac events or procedures",
-        ],
-        "hypertension": [
-            "blood pressure history and measurements",
-            "headache timing patterns (especially afternoon/evening)",
-            "family history of hypertension or heart disease",
-            "stress factors and lifestyle assessment",
-            "medication history and compliance",
-        ],
-        "asthma": [
-            "breathing pattern details and wheeze assessment",
-            "trigger identification (allergens, exercise, cold air)",
-            "exercise tolerance and activity limitations",
-            "medication response history (inhalers, bronchodilators)",
-            "family history of asthma or allergies",
-        ],
-        "diabetes mellitus": [
-            "polyuria and polydipsia symptoms (excessive urination/thirst)",
-            "weight changes (loss or gain patterns)",
-            "family history of diabetes assessment",
-            "energy and fatigue patterns throughout day",
-            "wound healing and infection history",
-        ],
-        "depression": [
-            "mood and energy patterns over time",
-            "sleep and appetite changes",
-            "functional impact on daily activities",
-            "interest and motivation levels",
-            "thoughts of self-harm or suicide (when appropriate)",
-        ],
-        "anxiety disorders": [
-            "worry patterns and anxiety triggers",
-            "physical symptoms during anxious episodes",
-            "avoidance behaviors and functional impact",
-            "panic attack symptoms if present",
-            "social and occupational functioning",
-        ],
-        "fibromyalgia": [
-            "widespread pain distribution and quality",
-            "sleep disturbance patterns and quality",
-            "fatigue characteristics and timing",
-            "functional impact on daily activities",
-            "tender point assessment and pain triggers",
-        ],
-        "osteoarthritis": [
-            "joint pain patterns and affected joints",
-            "morning stiffness duration and quality",
-            "activity-related pain changes",
-            "functional limitations in daily activities",
-            "previous joint injuries or family history",
-        ],
-        "rheumatoid arthritis": [
-            "joint inflammation patterns and symmetry",
-            "morning stiffness duration (especially >1 hour)",
-            "systemic symptoms (fatigue, malaise)",
-            "family history of autoimmune conditions",
-            "functional decline and disability progression",
-        ],
-        "gastroesophageal reflux disease": [
-            "heartburn timing and food relationships",
-            "regurgitation and acid taste symptoms",
-            "positional factors (lying down, bending over)",
-            "medication response to antacids",
-            "dietary triggers and lifestyle factors",
-        ],
-        "urinary tract infection": [
-            "urinary symptoms (burning, frequency, urgency)",
-            "urine appearance and odor changes",
-            "pelvic or suprapubic pain",
-            "fever or systemic symptoms",
-            "previous UTI history and risk factors",
-        ],
-        "migraine": [
-            "headache characteristics (location, quality, severity)",
-            "associated symptoms (nausea, light/sound sensitivity)",
-            "trigger identification and patterns",
-            "family history of migraines",
-            "medication response and headache diary",
-        ],
-        "pneumonia": [
-            "cough characteristics and sputum production",
-            "fever patterns and chills",
-            "chest pain with breathing",
-            "recent illness or exposure history",
-            "vaccination status and risk factors",
-        ],
-    }
-
-    # Enhanced matching for question guidance
-    gold_lower = gold_diagnosis.lower()
-
-    # Try exact match first
-    if gold_lower in question_guidance:
-        questions = question_guidance[gold_lower]
-        return f"HIGH PRIORITY - Focus questioning on: {'; '.join(questions)}"
-
-    # Try partial matching
-    for condition, questions in question_guidance.items():
-        if any(word in gold_lower for word in condition.split()) or any(
-            word in condition for word in gold_lower.split()
-        ):
-            return f"PRIORITY FOCUS - Ask about: {'; '.join(questions)}"
-
-
-def evaluate_diagnostic_accuracy(predicted_diagnoses, gold_diagnosis):
-    """
-    Evaluate how well the predicted diagnoses match the gold standard
-    """
-    # Extract diagnosis names from the model output
-    predicted_list = extract_diagnosis_names(predicted_diagnoses)
-
-    # Check if gold diagnosis is in the list (fuzzy matching)
-    gold_found = False
-    position = -1
-
-    for i, pred in enumerate(predicted_list):
-        if is_diagnosis_match(pred, gold_diagnosis):
-            gold_found = True
-            position = i + 1
-            break
-
-    return {
-        "gold_diagnosis_found": gold_found,
-        "position_in_list": position,
-        "predicted_diagnoses": predicted_list,
-        "accuracy_score": calculate_accuracy_score(
-            gold_found, position, len(predicted_list)
-        ),
-    }
-
-
-def extract_diagnosis_names(diagnosis_text):
-    """Extract diagnosis names from model output"""
-    import re
-
-    # Look for numbered list pattern
-    pattern = r"\d+\.\s*(?:Diagnosis:)?\s*([^\n]+?)(?:\s*Justification|$)"
-    matches = re.findall(pattern, diagnosis_text, re.IGNORECASE | re.MULTILINE)
-
-    # Clean up the extracted names
-    cleaned = []
-    for match in matches:
-        # Remove common prefixes and clean up
-        clean_name = re.sub(
-            r"^(Diagnosis:?|Condition:?)\s*", "", match, flags=re.IGNORECASE
-        )
-        clean_name = clean_name.strip()
-        if clean_name:
-            cleaned.append(clean_name)
-
-    return cleaned
-
-
-def is_diagnosis_match(predicted, gold):
-    """Check if predicted diagnosis matches gold diagnosis (fuzzy matching)"""
-    pred_lower = predicted.lower()
-    gold_lower = gold.lower()
-
-    # Direct match
-    if pred_lower == gold_lower:
-        return True
-
-    # Check if gold diagnosis words are in predicted
-    gold_words = set(gold_lower.split())
-    pred_words = set(pred_lower.split())
-
-    # If most significant words match
-    if len(gold_words & pred_words) >= min(2, len(gold_words) * 0.7):
-        return True
-
-    return False
-
-
-def clean_diagnosis_output(raw_output):
-    """Clean diagnosis output to only include THINKING and ANSWER sections"""
-    lines = raw_output.split("\n")
-    cleaned_lines = []
-    in_valid_section = False
-
-    for line in lines:
-        line_stripped = line.strip()
-
-        # Check if we're starting THINKING or ANSWER section
-        if line_stripped.startswith("THINKING:") or line_stripped.startswith("ANSWER:"):
-            in_valid_section = True
-            cleaned_lines.append(line)
-        # Stop at unwanted content
-        elif (
-            line_stripped.startswith("**Note:")
-            or line_stripped.startswith("Note:")
-            or line_stripped.startswith("**Additional:")
-            or line_stripped.startswith("Additional:")
-            or line_stripped.startswith("**Further:")
-            or line_stripped.startswith("Further:")
-            or line_stripped.startswith("**Recommendation:")
-            or line_stripped.startswith("Recommendation:")
-        ):
-            break
-        # Continue adding lines if we're in a valid section
-        elif in_valid_section:
-            cleaned_lines.append(line)
-
-    return "\n".join(cleaned_lines).strip()
-
-
 # === Updated Diagnosis Prompt Templates ===
 EARLY_DIAGNOSIS_PROMPT = """You are a board-certified diagnostician with expertise in differential diagnosis and clinical reasoning.
 
@@ -1575,39 +500,30 @@ STOP HERE. Do not add notes, recommendations, or additional text."""
 
 
 # === Diagnosis Logic with Cleaning ===
-def get_diagnosis_with_cleaning(
+def get_diagnosis_response(
     turn_count, gold_label, vignette_summary, previous_questions, diagnoser
 ):
-    """Get diagnosis with proper cleaning and updated prompts"""
-
-    if turn_count < 6:
+    """Get diagnosis with proper stage-based prompting"""
+    if turn_count < 4:  # First 2 turns (0, 2)
         base_prompt = EARLY_DIAGNOSIS_PROMPT
         stage = "early"
-    elif turn_count >= 5 and turn_count < 11:
+    elif turn_count >= 4 and turn_count < 8:  # Next 2 turns (4, 6)
         base_prompt = MIDDLE_DIAGNOSIS_PROMPT
         stage = "middle"
-    else:
+    else:  # Last 1 turn (8)
         base_prompt = LATE_DIAGNOSIS_PROMPT
         stage = "late"
 
-    # Add gold diagnosis guidance
-    guided_prompt = generate_gold_guided_prompt(
-        base_prompt, gold_label, stage, vignette_summary
-    )
-
-    # Get raw diagnosis
-    raw_diagnosis = diagnoser.ask(
-        guided_prompt.format(
+    # Get response from diagnoser (NO GUIDANCE ADDED)
+    response = diagnoser.ask(
+        base_prompt.format(
             prev_questions=json.dumps(previous_questions),
             vignette=vignette_summary,
             turn_count=turn_count,
         )
     )
 
-    # Clean the output
-    cleaned_diagnosis = clean_diagnosis_output(raw_diagnosis)
-
-    return cleaned_diagnosis
+    return response
 
 
 def calculate_accuracy_score(found, position, total_predictions):
@@ -1660,8 +576,7 @@ def process_vignette(idx, vignette_text, gold_label):
     elif "symptom_minimization" in behavior_config.get("modifiers", []):
         response_length = "in one to two brief sentences"
 
-    raw_patient = patient.ask(
-        f"""{patient_instructions}
+    prompt = f"""{patient_instructions}
 
 NEVER hallucinate past medical evaluations, tests, or diagnoses. 
 Do NOT give clear medical names unless the doctor already told you. 
@@ -1677,58 +592,58 @@ ANSWER: <your vague, real-patient-style reply to the doctor>
 
 Patient background: {vignette_text}
 Doctor's question: {initial_prompt}"""
-    )
 
-    if "ANSWER:" in raw_patient:
-        patient_response_text = raw_patient.split("ANSWER:")[1].strip()
-    else:
-        patient_response_text = raw_patient
+    turn_count = 0
+    diagnosis_complete = False
+    prev_vignette_summary = ""
+
+    patient_result = patient.ask(prompt)
+    raw_patient = patient_result["raw"]
+    patient_response_text = patient_result["clean"]
+
     print("🗣️ Patient's Reply:", patient_response_text)
     conversation.append(f"PATIENT: {patient_response_text}")
     patient_response.append(
         {
             "vignette_index": idx,
             "input": f"{vignette_text}\n{initial_prompt}",
-            "output": raw_patient,
+            "output": raw_patient,  # Store the full THINKING + ANSWER
             "behavior_type": behavior_type,
             "behavior_config": behavior_config,
             "gold_diagnosis": gold_label,
         }
     )
-    turn_count = 0
-    diagnosis_complete = False
-    prev_vignette_summary = ""
 
     while not diagnosis_complete:
 
-        behavioral_analysis = detect_patient_behavior_cues_enhanced(
+        behavioral_result = detect_patient_behavior_cues_enhanced(
             conversation, patient_response
         )
+        behavioral_analysis_raw = behavioral_result["raw"]
+        behavioral_analysis = behavioral_result["clean"]
 
         behavioral_analyses.append(
             {
                 "vignette_index": idx,
                 "turn_count": turn_count,
-                "analysis": behavioral_analysis,
+                "analysis": behavioral_analysis_raw,  # Store full version
             }
         )
 
-        if "ANSWER:" in behavioral_analysis:
-            behavioral_analysis = behavioral_analysis.split("ANSWER:")[1].strip()
-        else:
-            behavioral_analysis = behavioral_analysis
-        print(f"🧠 Enhanced Behavioral Analysis: {behavioral_analysis[:200]}...")
-
         # NEW: Patient Interpretation
         patient_interpreter = PatientInterpreter()
-        patient_interpretation = patient_interpreter.interpret_patient_communication(
+
+        interpretation_result = patient_interpreter.interpret_patient_communication(
             conversation, behavioral_analysis, prev_vignette_summary
         )
+        patient_interpretation_raw = interpretation_result["raw"]
+        patient_interpretation = interpretation_result["clean"]
+
         patient_interpretations.append(
             {
                 "vignette_index": idx,
                 "turn_count": turn_count,
-                "interpretation": patient_interpretation,
+                "interpretation": patient_interpretation_raw,  # Store full version
             }
         )
         print(f"🔍 Patient Interpretation: {patient_interpretation}...")
@@ -1739,16 +654,42 @@ Doctor's question: {initial_prompt}"""
         # Create input for summarizer
         summarizer_input = f"CONVERSATION HISTORY:\n{json.dumps(conversation, indent=2)}\n\nPREVIOUS VIGNETTE:\n{prev_vignette_summary}\n\nPATIENT COMMUNICATION ANALYSIS:\n{patient_interpretation}"
 
-        vignette_summary = generate_unbiased_vignette(
+        # 🔍 DEBUG: Print summarizer input
+        print(f"\n📝 SUMMARIZER INPUT:")
+        print("=" * 40)
+        print(f"Previous vignette length: {len(prev_vignette_summary)} chars")
+        print(f"Previous vignette preview: {prev_vignette_summary[:100]}...")
+        print(f"Patient interpretation length: {len(patient_interpretation)} chars")
+        print("=" * 40)
+
+        vignette_result = generate_unbiased_vignette(
             conversation, prev_vignette_summary, patient_interpretation
         )
+        vignette_summary_raw = vignette_result["raw"]
+        vignette_summary = vignette_result[
+            "clean"
+        ]  # This is what gets passed to next agents
 
-        # Store structured summarizer output
+        # 🔍 DEBUG: Print summarizer results
+        print(f"\n📊 SUMMARIZER RESULTS:")
+        print("=" * 40)
+        print(f"Raw result length: {len(vignette_summary_raw)} chars")
+        print(f"Raw result preview: {vignette_summary_raw[:200]}...")
+        print(f"Clean result length: {len(vignette_summary)} chars")
+        print(f"Clean result preview: {vignette_summary[:200]}...")
+        print("=" * 40)
+
+        # Also add a check for the corrupted state
+        if "Unable to extract answer content properly" in vignette_summary:
+            print(f"❌ CORRUPTED VIGNETTE DETECTED!")
+            print(f"Setting fallback vignette...")
+            vignette_summary = f"Patient presents with eye symptoms including redness, swelling, and tearing. Symptoms began approximately 2 days ago after playing soccer."
+
         summarizer_outputs.append(
             {
                 "vignette_index": idx,
                 "input": summarizer_input,
-                "output": vignette_summary,
+                "output": vignette_summary_raw,  # Store full version
                 "turn_count": turn_count,
                 "gold_diagnosis": gold_label,
             }
@@ -1761,63 +702,44 @@ Doctor's question: {initial_prompt}"""
         else:
             vignette_summary = vignette_summary
 
-        # Detect behavioral cues for empathetic response
-        if turn_count > 0:
-            behavioral_analysis = detect_patient_behavior_cues(
-                conversation, patient_response
-            )
-            behavioral_analyses.append(
-                {
-                    "vignette_index": idx,
-                    "turn_count": turn_count,
-                    "analysis": behavioral_analysis,
-                }
-            )
-            print(f"🧠 Behavioral Analysis: {behavioral_analysis}")
-        else:
-            behavioral_analysis = f"Expected behavioral cues: {', '.join(behavior_config.get('empathy_cues', []))}"
-
         # === UPDATED DIAGNOSIS LOGIC WITH CLEANING ===
-        diagnosis = get_diagnosis_with_cleaning(
-            turn_count, gold_label, vignette_summary, previous_questions, diagnoser
-        )
-
-        # Evaluate diagnostic accuracy
-        accuracy_eval = evaluate_diagnostic_accuracy(diagnosis, gold_label)
-        print(f"🎯 Diagnostic Accuracy: {accuracy_eval}")
 
         print("Turn count:", turn_count)
         letter = ""
         stage = "early"
-        if turn_count < 6:
+        if turn_count < 4:  # First 2 turns
             letter = "E"
             stage = "early"
-        elif turn_count >= 5 and turn_count < 11:
+        elif turn_count >= 4 and turn_count < 8:  # Next 2 turns
             letter = "M"
             stage = "middle"
-        elif turn_count >= 11:
+        elif turn_count >= 8:  # Last 1 turn
             letter = "L"
             stage = "late"
 
-        print("🔍 Diagnosis:", diagnosis)
+        diagnosis_result = get_diagnosis_response(
+            turn_count, gold_label, vignette_summary, previous_questions, diagnoser
+        )
+        diagnosis_raw = diagnosis_result["raw"]
+        diagnosis = diagnosis_result["clean"]  # This is what gets passed to next agents
+
         diagnosing_doctor_outputs.append(
             {
                 "vignette_index": idx,
                 "input": vignette_summary,
-                "output": diagnosis,
+                "output": diagnosis_raw,  # Store full version
                 "turn_count": turn_count,
                 "letter": letter,
                 "gold_diagnosis": gold_label,
-                "accuracy_evaluation": accuracy_eval,
             }
         )
 
         # Handle END signal explicitly
         if "END" in diagnosis:
-            if turn_count >= 15:
+            if turn_count >= 8:
+                diagnosis_complete = True
                 print(f"✅ Reached END for vignette {idx}. Moving to next.\n")
-                raw_treatment = diagnoser.ask(
-                    f"""You are a board-certified clinician with extensive experience in primary care and evidence-based medicine. Based on the final diagnosis, create a comprehensive treatment plan that demonstrates clinical expertise and practical implementation.
+                prompt = f"""You are a board-certified clinician with extensive experience in primary care and evidence-based medicine. Based on the final diagnosis, create a comprehensive treatment plan that demonstrates clinical expertise and practical implementation.
 
 DIAGNOSIS: {diagnosis}
 
@@ -1891,23 +813,17 @@ IMPLEMENTATION GUIDANCE:
 - Patient handout summary: <key points for patient to remember>
 
 STOP HERE. Do not add additional recommendations or notes."""
-                )
-                print("💊 Raw Treatment Plan:", raw_treatment)
+
+                treatment_result = diagnoser.ask(prompt)
+                raw_treatment = treatment_result["raw"]
 
                 treatment_plans.append(
                     {
                         "vignette_index": idx,
                         "input": diagnosis,
-                        "output": raw_treatment,
+                        "output": raw_treatment,  # Store full version
                         "gold_diagnosis": gold_label,
                     }
-                )
-
-                diagnosis_complete = True
-                break
-            else:
-                print(
-                    f"⚠️ Model said END before 10 turns. Ignoring END due to insufficient conversation length."
                 )
 
         # Limit to last 3–5 doctor questions
@@ -1919,7 +835,7 @@ STOP HERE. Do not add additional recommendations or notes."""
 
         # === MODIFIED QUESTIONING WITH GOLD GUIDANCE ===
         base_questioning_role = ""
-        if turn_count < 6:
+        if turn_count < 4:
             base_questioning_role = """You are conducting the EARLY EXPLORATION phase of the clinical interview. Your primary goals are:
 
         EXPLORATION OBJECTIVES:
@@ -1954,7 +870,7 @@ STOP HERE. Do not add additional recommendations or notes."""
         - Help establish trust and rapport
         - Gather information relevant to differential diagnosis formation"""
 
-        elif turn_count >= 5 and turn_count < 11:
+        elif turn_count >= 4 and turn_count < 8:
             base_questioning_role = """You are conducting the FOCUSED CLARIFICATION phase of the clinical interview. Your primary goals are:
 
         CLARIFICATION OBJECTIVES:
@@ -2040,8 +956,7 @@ STOP HERE. Do not add additional recommendations or notes."""
         # Create questioner with enhanced role definition
         questioner = RoleResponder(guided_questioning_role)
 
-        raw_followup = questioner.ask(
-            f"""Previously asked questions: {json.dumps(previous_questions)}
+        prompt = f"""Previously asked questions: {json.dumps(previous_questions)}
 
             CLINICAL CONTEXT:
             Current interview phase: {'EARLY EXPLORATION' if turn_count < 6 else 'FOCUSED CLARIFICATION' if turn_count < 11 else 'DIAGNOSTIC CONFIRMATION'}
@@ -2074,21 +989,17 @@ STOP HERE. Do not add additional recommendations or notes."""
             
             Turn Count: {turn_count}
             """
-        )
 
-        if "ANSWER:" in raw_followup:
-            followup_question = raw_followup.split("ANSWER:")[1].strip()
-        else:
-            followup_question = raw_followup
+        followup_result = questioner.ask(prompt)
+        raw_followup = followup_result["raw"]
+        followup_question = followup_result["clean"]
+
         print("❓ Empathetic Follow-up:", followup_question)
-        question_input = (
-            f"Vignette:\n{vignette_summary}\nCurrent Estimated Diagnosis: {diagnosis}\n"
-        )
         questioning_doctor_outputs.append(
             {
                 "vignette_index": idx,
-                "input": question_input,
-                "output": raw_followup,
+                "input": vignette_summary + diagnosis + behavioral_analysis,
+                "output": raw_followup,  # Store full version
                 "letter": letter,
                 "behavioral_cues": behavioral_analysis,
                 "gold_diagnosis": gold_label,
@@ -2114,78 +1025,35 @@ STOP HERE. Do not add additional recommendations or notes."""
             )
 
         # Step 5: Patient answers
-        raw_patient_fb = patient.ask(
-            f"""{patient_followup_instructions}
+        prompt = f"""{patient_followup_instructions}
 
-CRITICAL INSTRUCTIONS:
-- You are a REAL patient, not trying to help the doctor diagnose you
-- You do NOT know medical terminology or what symptoms are "important"
-- You have NOT researched your condition online or spoken to other doctors
-- Respond based on how you FEEL, not what you think the doctor wants to hear
-- Be authentic to your behavioral type: {behavior_type}
+You are a real patient responding to your doctor. Be authentic to your behavioral type: {behavior_type}.
 
 YOU MUST RESPOND IN THE FOLLOWING FORMAT:
 
-THINKING:
-Use this step-by-step process to develop your authentic patient response:
+THINKING: Think about how you feel about your symptoms and this doctor's question. Consider your emotions, confusion, and how you naturally communicate as a {behavior_type} patient.
 
-STEP 1 - EMOTIONAL STATE ANALYSIS:
-How am I feeling right now about this doctor visit?
-- Physical sensations I'm experiencing: <describe current physical feelings>
-- Emotional state (scared, frustrated, embarrassed, hopeful, etc.): <current emotions>
-- Thoughts going through my head: <what a real patient would be thinking>
-- Energy level and mood: <tired, anxious, relieved, confused, etc.>
+ANSWER: Give your natural, realistic patient response in your own words (NOT medical terminology).
 
-STEP 2 - QUESTION INTERPRETATION:
-How do I, as a non-medical person, understand what the doctor just asked?
-- What I think the doctor is asking: <patient's interpretation of medical question>
-- Why they might be asking this: <patient's guess about doctor's reasoning>
-- What this makes me worry about: <patient fears or concerns triggered>
-- Parts of the question I'm confused by: <medical terms or concepts I don't understand>
-
-STEP 3 - BEHAVIORAL RESPONSE PLANNING:
-Given my behavioral type ({behavior_type}), how should I respond?
-- My natural communication style: <how this behavior type typically responds>
-- What I want to share vs. what I'm hesitant about: <internal conflict>
-- Information I might downplay, exaggerate, or avoid: <based on behavioral modifiers>
-- How my family/cultural background affects my response: <social influences>
-
-STEP 4 - MEMORY AND SYMPTOM RECALL:
-What do I actually remember about my symptoms?
-- Clear memories: <symptoms I'm certain about>
-- Fuzzy or uncertain memories: <things I'm not sure about>
-- Timeline confusion: <when things happened - may be unclear>
-- Associated details: <other things happening in my life that might be relevant>
-
-STEP 5 - RESPONSE FORMULATION:
-How will I actually answer the doctor?
-- Main points I want to communicate: <key information to share>
-- How I'll phrase things in my own words: <non-medical language>
-- What I might mention tangentially: <additional context I think is relevant>
-- Tone and style of my response: <hesitant, detailed, brief, emotional, etc.>
-
-ANSWER: <Your authentic, realistic patient response in your own words - NOT medical terminology>
-
-CONTEXT FOR YOUR RESPONSE:
-Patient Background: {vignette_text}
-Your Behavioral Type: {behavior_type} - {behavior_config['description']}
-Doctor's Question: {followup_question}
-Current Physical/Emotional State: {response_guidance}
+CONTEXT:
+- Your symptoms: {vignette_text}
+- Doctor asked: {followup_question}
+- Your behavior type: {behavior_type}
+- Response style: {response_guidance}
 
 Remember: You are NOT trying to be a good patient or help the doctor. You're being a REAL person with real concerns, confusion, and communication patterns."""
-        )
-        if "ANSWER:" in raw_patient_fb:
-            patient_followup_text = raw_patient_fb.split("ANSWER:")[1].strip()
-        else:
-            patient_followup_text = raw_patient_fb
+
+        patient_fb_result = patient.ask(prompt)
+        raw_patient_fb = patient_fb_result["raw"]
+        patient_followup_text = patient_fb_result["clean"]
 
         print("🗣️ Patient:", patient_followup_text)
         conversation.append(f"PATIENT: {patient_followup_text}")
         patient_response.append(
             {
                 "vignette_index": idx,
-                "input": vignette_text + followup_question,
-                "output": raw_patient_fb,
+                "input": vignette_text + followup_question + behavior_type,
+                "output": raw_patient_fb,  # Store full version
                 "behavior_type": behavior_type,
                 "turn_count": turn_count,
                 "gold_diagnosis": gold_label,
@@ -2241,41 +1109,6 @@ def select_patient_behavior():
         if rand <= cumulative:
             return behavior, config
     return "baseline", PATIENT_BEHAVIORS["baseline"]
-
-
-def detect_patient_behavior_cues(conversation_history, patient_responses):
-    """
-    Analyze conversation to detect behavioral cues that inform empathetic responses
-    """
-    cue_detector = RoleResponder(
-        """You are a behavioral psychologist specializing in patient communication patterns.
-    Analyze the patient's responses to identify behavioral cues that indicate their communication style and emotional state.
-    This will help the doctor provide more empathetic and effective care."""
-    )
-
-    recent_responses = patient_responses[-3:]  # Look at last 3 patient responses
-    analysis = cue_detector.ask(
-        f"""
-    Analyze these recent patient responses for behavioral and emotional cues:
-    
-    {json.dumps(recent_responses, indent=2)}
-    
-    Identify which of these behavioral patterns are present:
-    - Anxiety/fear (catastrophic thinking, worry about serious disease)
-    - Embarrassment/hesitation (reluctance to share, vague responses)
-    - Stoicism/minimization (downplaying symptoms, "tough" attitude)
-    - Confusion/uncertainty (timeline issues, memory problems)
-    - Storytelling/context-sharing (excessive details, family stories)
-    - Family pressure/caregiver stress
-    
-    Respond in the following format:
-    THINKING: <Your analysis of the patient's communication patterns>
-    BEHAVIORAL_CUES: <List the main cues you detect>
-    EMPATHY_NEEDS: <What kind of empathetic response would help this patient>
-    """
-    )
-
-    return analysis
 
 
 def generate_patient_prompt_modifiers(behavior_config, is_initial=True):
@@ -2403,65 +1236,235 @@ class RoleResponder:
         )
 
     def ask(self, user_input, max_retries=3):
-        """Ask with guaranteed THINKING/ANSWER format"""
-
-        enforced_prompt = f"""{user_input}
-        
-        ===== MANDATORY FORMAT =====
-        You MUST respond in this EXACT format:
-        
-        THINKING: [your reasoning]
-        ANSWER: [your response]
-        
-        - Start with "THINKING:" (required)
-        - Include "ANSWER:" section (required)
-        - No other format will be accepted
-        ============================
-        
-        Begin your response now with "THINKING:"
-        """
+        """Ask with guaranteed THINKING/ANSWER format and return both raw and clean outputs"""
 
         for attempt in range(max_retries):
             messages = [
                 {"role": "system", "content": self.role_instruction},
-                {"role": "user", "content": enforced_prompt},
+                {"role": "user", "content": user_input},
             ]
 
             response = client.chat.completions.create(model=model, messages=messages)
-            response = response.choices[0].message.content.strip()
+            raw_response = response.choices[0].message.content.strip()
 
-            # Check format
-            # Check format and fix nested issues
-            if response.startswith("THINKING:") and "ANSWER:" in response:
-                # Make sure it's not nested format
-                if "ANSWER: THINKING:" not in response:
-                    return response
+            # 🔍 DEBUG: Print the raw GPT response
+            print(f"\n🤖 RAW GPT RESPONSE (attempt {attempt + 1}):")
+            print("=" * 50)
+            print(raw_response)
+            print("=" * 50)
 
-            # Fix any format issues
-            response = force_thinking_answer_format(response)
-            if (
-                response.startswith("THINKING:")
-                and "ANSWER:" in response
-                and "ANSWER: THINKING:" not in response
-            ):
-                return response
+            # Clean and normalize the response
+            cleaned_response = self.clean_thinking_answer_format(raw_response)
 
-            # Escalate enforcement for retry
-            enforced_prompt = f"""{user_input}
-            
-            CRITICAL ERROR: You failed to follow the required format {attempt + 1} times.
-            
-            You MUST respond EXACTLY like this:
-            
-            THINKING: [write your reasoning here]
-            ANSWER: [write your actual response here]
-            
-            Type "THINKING:" first, then your reasoning, then "ANSWER:" then your response.
-            This is mandatory. No exceptions. Attempt {attempt + 2} of {max_retries}.
-            """
+            # 🔍 DEBUG: Print the cleaned response
+            print(f"\n🧹 CLEANED RESPONSE:")
+            print("=" * 30)
+            print(cleaned_response)
+            print("=" * 30)
+
+            # Validate the cleaned response
+            if self.validate_thinking_answer_format(cleaned_response):
+                # Extract just the ANSWER portion for the clean output
+                answer_only = self.extract_answer_only(cleaned_response)
+
+                # 🔍 DEBUG: Print the extracted answer
+                print(f"\n✅ EXTRACTED ANSWER:")
+                print("=" * 20)
+                print(answer_only)
+                print("=" * 20)
+
+                return {
+                    "raw": cleaned_response,  # Full THINKING: + ANSWER:
+                    "clean": answer_only,  # Just the answer content
+                }
+            else:
+                # 🔍 DEBUG: Print validation failure
+                print(f"\n❌ VALIDATION FAILED for attempt {attempt + 1}")
+                print(f"Cleaned response: {cleaned_response[:200]}...")
 
         # Final fallback
-        return f"THINKING: Format enforcement failed after {max_retries} attempts\nANSWER: {response}"
+        fallback_raw = f"THINKING: Format enforcement failed after {max_retries} attempts\nANSWER: Unable to get properly formatted response."
+        fallback_clean = "Unable to get properly formatted response."
+
+        # 🔍 DEBUG: Print fallback
+        print(f"\n💥 FALLBACK TRIGGERED after {max_retries} attempts")
+        print(f"Final raw response was: {raw_response[:200]}...")
+
+        return {"raw": fallback_raw, "clean": fallback_clean}
+
+    def extract_answer_only(self, text):
+        """Extract just the content after ANSWER:"""
+        if "ANSWER:" in text:
+            extracted = text.split("ANSWER:", 1)[1].strip()
+            # 🔍 DEBUG: Print extraction process
+            print(f"\n🎯 EXTRACTING ANSWER from: {text[:100]}...")
+            print(f"🎯 EXTRACTED: {extracted[:100]}...")
+            return extracted
+
+        # 🔍 DEBUG: No ANSWER found
+        print(f"\n⚠️ NO 'ANSWER:' found in text: {text[:100]}...")
+        return text.strip()
+
+    def clean_thinking_answer_format(self, text):
+        """Clean and ensure exactly one THINKING and one ANSWER section"""
+
+        # 🔍 DEBUG: Print input to cleaning function
+        print(f"\n🧼 CLEANING INPUT:")
+        print(f"Input length: {len(text)} characters")
+        print(f"First 200 chars: {text[:200]}...")
+        print(f"Contains THINKING: {'THINKING:' in text}")
+        print(f"Contains ANSWER: {'ANSWER:' in text}")
+
+        # Remove any leading/trailing whitespace
+        text = text.strip()
+
+        # Find all THINKING and ANSWER positions
+        thinking_positions = []
+        answer_positions = []
+
+        lines = text.split("\n")
+        for i, line in enumerate(lines):
+            line_stripped = line.strip()
+            if line_stripped.startswith("THINKING:"):
+                thinking_positions.append(i)
+                print(f"🧠 Found THINKING at line {i}: {line_stripped[:50]}...")
+            elif line_stripped.startswith("ANSWER:"):
+                answer_positions.append(i)
+                print(f"💬 Found ANSWER at line {i}: {line_stripped[:50]}...")
+
+        print(f"📊 THINKING positions: {thinking_positions}")
+        print(f"📊 ANSWER positions: {answer_positions}")
+
+        # If we have exactly one of each, check if they're in the right order
+        if len(thinking_positions) == 1 and len(answer_positions) == 1:
+            thinking_idx = thinking_positions[0]
+            answer_idx = answer_positions[0]
+
+            if thinking_idx < answer_idx:
+                print(f"✅ Perfect format detected!")
+                # Perfect format, just clean up the content
+                thinking_content = lines[thinking_idx][9:].strip()  # Remove "THINKING:"
+                answer_content = []
+
+                # Collect thinking content (everything between THINKING and ANSWER)
+                for i in range(thinking_idx + 1, answer_idx):
+                    thinking_content += " " + lines[i].strip()
+
+                # Collect answer content (everything after ANSWER)
+                answer_content = lines[answer_idx][7:].strip()  # Remove "ANSWER:"
+                for i in range(answer_idx + 1, len(lines)):
+                    answer_content += " " + lines[i].strip()
+
+                result = f"THINKING: {thinking_content.strip()}\nANSWER: {answer_content.strip()}"
+                print(f"✅ Perfect format result: {result[:100]}...")
+                return result
+
+        print(f"⚠️ Format needs fixing...")
+
+        # If format is messed up, try to extract and rebuild
+        # Look for the first THINKING and first ANSWER after it
+        thinking_content = ""
+        answer_content = ""
+
+        first_thinking = -1
+        first_answer_after_thinking = -1
+
+        for i, line in enumerate(lines):
+            line_stripped = line.strip()
+            if line_stripped.startswith("THINKING:") and first_thinking == -1:
+                first_thinking = i
+                thinking_content = line_stripped[9:].strip()
+                print(f"🎯 Using THINKING from line {i}")
+            elif (
+                line_stripped.startswith("ANSWER:")
+                and first_thinking != -1
+                and first_answer_after_thinking == -1
+            ):
+                first_answer_after_thinking = i
+                answer_content = line_stripped[7:].strip()
+                print(f"🎯 Using ANSWER from line {i}")
+                break
+            elif first_thinking != -1 and first_answer_after_thinking == -1:
+                # Still collecting thinking content
+                thinking_content += " " + line_stripped
+
+        # Collect remaining answer content
+        if first_answer_after_thinking != -1:
+            for i in range(first_answer_after_thinking + 1, len(lines)):
+                line_stripped = lines[i].strip()
+                # Stop if we hit another THINKING or ANSWER
+                if line_stripped.startswith("THINKING:") or line_stripped.startswith(
+                    "ANSWER:"
+                ):
+                    break
+                answer_content += " " + line_stripped
+
+        print(f"🔧 Extracted thinking: {thinking_content[:50]}...")
+        print(f"🔧 Extracted answer: {answer_content[:50]}...")
+
+        # If we still don't have both parts, try to extract from the raw text
+        if not thinking_content or not answer_content:
+            print(f"🆘 Last resort extraction...")
+            # Last resort: split on the patterns
+            if "THINKING:" in text and "ANSWER:" in text:
+                parts = text.split("ANSWER:", 1)
+                if len(parts) == 2:
+                    thinking_part = parts[0]
+                    answer_part = parts[1]
+
+                    # Extract thinking content
+                    if "THINKING:" in thinking_part:
+                        thinking_content = thinking_part.split("THINKING:", 1)[
+                            1
+                        ].strip()
+
+                    # Clean answer content (remove any nested THINKING/ANSWER)
+                    answer_lines = answer_part.split("\n")
+                    clean_answer_lines = []
+                    for line in answer_lines:
+                        if not line.strip().startswith(
+                            "THINKING:"
+                        ) and not line.strip().startswith("ANSWER:"):
+                            clean_answer_lines.append(line)
+                    answer_content = " ".join(clean_answer_lines).strip()
+
+        # Fallback if we still don't have proper content
+        if not thinking_content:
+            print(f"❌ Failed to extract thinking content")
+            thinking_content = "Unable to extract thinking content properly"
+        if not answer_content:
+            print(f"❌ Failed to extract answer content")
+            answer_content = "Unable to extract answer content properly"
+
+        final_result = (
+            f"THINKING: {thinking_content.strip()}\nANSWER: {answer_content.strip()}"
+        )
+        print(f"🏁 Final cleaned result: {final_result[:100]}...")
+        return final_result
+
+    def validate_thinking_answer_format(self, text):
+        """Validate that the text has exactly one THINKING and one ANSWER in correct order"""
+        lines = text.split("\n")
+
+        thinking_count = 0
+        answer_count = 0
+        thinking_first = False
+
+        for line in lines:
+            line_stripped = line.strip()
+            if line_stripped.startswith("THINKING:"):
+                thinking_count += 1
+                if answer_count == 0:  # No ANSWER seen yet
+                    thinking_first = True
+            elif line_stripped.startswith("ANSWER:"):
+                answer_count += 1
+
+        is_valid = thinking_count == 1 and answer_count == 1 and thinking_first
+        print(
+            f"✅ VALIDATION: thinking_count={thinking_count}, answer_count={answer_count}, thinking_first={thinking_first}, valid={is_valid}"
+        )
+
+        return is_valid
 
 
 # === Use the Class for Roles ===
@@ -2522,6 +1525,10 @@ if __name__ == "__main__":
 
     flattened_vignettes = []
 
+    # 🎯 SPECIFY WHICH TYPES TO INCLUDE
+    DESIRED_TYPES = ["typical", "severe"]  # Change these as needed
+    # Options: "typical", "early", "severe", "mixed"
+
     # Handle roleplay scripts structure: {"metadata": {...}, "roleplay_scripts": {"Disease": [scripts...]}}
     if "roleplay_scripts" in data:
         roleplay_dict = data["roleplay_scripts"]
@@ -2529,20 +1536,38 @@ if __name__ == "__main__":
             # Only process if we have a list of scripts
             if not isinstance(scripts, list):
                 continue
+
+            # 📋 SELECT SPECIFIC TYPES
+            selected_scripts = []
             for script in scripts:
+                if isinstance(script, dict) and "variation_type" in script:
+                    if script["variation_type"] in DESIRED_TYPES:
+                        selected_scripts.append(script)
+                else:
+                    # If no variation_type, include it (fallback)
+                    selected_scripts.append(script)
+
+            # Limit to 2 even from selected types
+            limited_scripts = selected_scripts[:2]
+
+            for script in limited_scripts:
                 # Extract the roleplay_script content as the vignette text
                 if isinstance(script, dict) and "roleplay_script" in script:
                     flattened_vignettes.append((disease, script["roleplay_script"]))
                 else:
                     # Fallback if script is just a string
                     flattened_vignettes.append((disease, str(script)))
+
+            print(
+                f"   {disease}: Selected {len(limited_scripts)} vignettes ({[s.get('variation_type', 'unknown') for s in limited_scripts]})"
+            )
     else:
         raise ValueError(
             f"Expected 'roleplay_scripts' key in JSON structure. Found keys: {list(data.keys()) if isinstance(data, dict) else type(data)}"
         )
 
     # Launch multiprocessing pool with 1 worker
-    with multiprocessing.Pool(processes=1) as pool:
+    with multiprocessing.Pool(processes=12) as pool:
         results = pool.map(
             run_vignette_task,
             [
