@@ -8,7 +8,9 @@ from itertools import islice
 import random
 
 # Initialize OpenAI client
-client = OpenAI(api_key="api")
+client = OpenAI(
+    api_key="api"
+)
 model = "gpt-4.1-nano"
 
 treatment_plans = []
@@ -1565,7 +1567,7 @@ if __name__ == "__main__":
         )
 
     # Launch multiprocessing pool with 1 worker
-    with multiprocessing.Pool(processes=1) as pool:
+    with multiprocessing.Pool(processes=12) as pool:
         results = pool.map(
             run_vignette_task,
             [

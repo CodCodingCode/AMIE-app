@@ -1,0 +1,16 @@
+{
+  "behavior_type": "stoic_minimizer",
+  "behavior_description": "Patient who downplays symptoms and delays care",
+  "modifiers": [
+    "symptom_minimization",
+    "delayed_care_seeking",
+    "tough_attitude"
+  ],
+  "empathy_cues": [
+    "downplaying",
+    "reluctance",
+    "pride_in_toughness",
+    "external_pressure"
+  ],
+  "gold_diagnosis": "Hyperkalaemia"
+}

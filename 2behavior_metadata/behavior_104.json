@@ -1,0 +1,7 @@
+{
+  "behavior_type": "baseline",
+  "behavior_description": "Standard patient behavior",
+  "modifiers": [],
+  "empathy_cues": [],
+  "gold_diagnosis": "Necrotising enterocolitis of newborn, Stage 2A & B"
+}
