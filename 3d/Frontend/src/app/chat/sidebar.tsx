@@ -18,7 +18,7 @@ import { useAuth } from "./Auth";
 import { chatService, Chat } from "./chatService";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import SettingsModal from "./settings"; // Import the new settings modal
+import { useModal } from "../chat/ModalContext"; // Import the modal context
 
 declare global {
   interface Window {
@@ -402,6 +402,7 @@ const ChatItem = ({
 export const SidebarMenu = () => {
   const { user } = useAuth();
   const { open } = useSidebar();
+  const { openSettings } = useModal(); // Use modal context
   const router = useRouter();
   const [chats, setChats] = useState<Chat[]>([]);
   const [loading, setLoading] = useState(false);
@@ -410,7 +411,8 @@ export const SidebarMenu = () => {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [chatToDelete, setChatToDelete] = useState<string | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false); // Add settings modal state
+
+  const CHAT_LIMIT = 20; // Limit visible chats to 20
 
   useEffect(() => {
     if (!user) return;
@@ -516,7 +518,7 @@ export const SidebarMenu = () => {
   };
 
   const handleSettings = () => {
-    setIsSettingsOpen(true); // Open settings modal instead of navigating
+    openSettings(); // Use modal context instead of local state
   };
 
   const handleChatClick = (chatId: string) => {
@@ -568,6 +570,10 @@ export const SidebarMenu = () => {
     return chat.messages.length > 0 || chat.id === currentChatId;
   });
 
+  // Limit visible chats to first 20, but allow scrolling to see all
+  const visibleChats = displayChats.slice(0, CHAT_LIMIT);
+  const hasMoreChats = displayChats.length > CHAT_LIMIT;
+
   return (
     <SidebarBody className="flex flex-col">
       <div className="flex-1 flex flex-col">
@@ -584,7 +590,7 @@ export const SidebarMenu = () => {
           />
           <SidebarItem
             icon={IconCalendar}
-            text="Manage Consultations"
+            text="Consultations"
             onClick={handleConsultations}
           />
           <SidebarItem
@@ -594,7 +600,7 @@ export const SidebarMenu = () => {
           />
         </SidebarSection>
 
-        {/* Chat History - Show all chats without limit */}
+        {/* Chat History - Limited to 20 initially with overflow indicator */}
         <SidebarSection>
           {loading ? (
             <div className="px-5 py-3 text-center">
@@ -618,8 +624,9 @@ export const SidebarMenu = () => {
               </div>
             </div>
           ) : (
-            <div className="flex flex-col max-h-[calc(100vh-240px)] overflow-y-auto no-scrollbar">
-              {displayChats.slice(0, 5).map((chat) => (
+            <div className="flex flex-col max-h-[calc(100vh-380px)] overflow-y-auto no-scrollbar">
+              {/* Show first 20 chats */}
+              {visibleChats.map((chat) => (
                 <ChatItem
                   key={chat.id}
                   chat={chat}
@@ -628,6 +635,36 @@ export const SidebarMenu = () => {
                   isActive={chat.id === currentChatId}
                 />
               ))}
+              
+              {/* Show all remaining chats */}
+              {displayChats.slice(CHAT_LIMIT).map((chat) => (
+                <ChatItem
+                  key={chat.id}
+                  chat={chat}
+                  onClick={() => handleChatClick(chat.id)}
+                  onDelete={(e) => handleDeleteClick(e, chat.id)}
+                  isActive={chat.id === currentChatId}
+                />
+              ))}
+              
+              {/* Overflow indicator */}
+              {hasMoreChats && (
+                <div className="px-5 py-2">
+                  <div className="overflow-hidden">
+                    <motion.div
+                      initial={false}
+                      animate={{ 
+                        opacity: open ? 1 : 0,
+                        height: open ? 'auto' : 0
+                      }}
+                      transition={{ duration: 0.2 }}
+                      className="text-xs text-slate-500 text-center"
+                    >
+                      +{displayChats.length - CHAT_LIMIT} more chats (scroll to see all)
+                    </motion.div>
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </SidebarSection>
@@ -639,18 +676,12 @@ export const SidebarMenu = () => {
               <SidebarItem
                 icon={IconSettings}
                 text="Settings & help"
-                onClick={handleSettings} // Use modal instead of navigation
+                onClick={handleSettings} // Now uses modal context
               />
             )}
           </SidebarSection>
         </div>
       </div>
-
-      {/* Settings Modal */}
-      <SettingsModal 
-        isOpen={isSettingsOpen} 
-        onClose={() => setIsSettingsOpen(false)} 
-      />
 
       {/* Enhanced Delete Confirmation Dialog */}
       <AnimatePresence>
@@ -659,7 +690,7 @@ export const SidebarMenu = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-[10001] flex items-center justify-center bg-black/60 backdrop-blur-sm"
           >
             <motion.div 
               initial={{ opacity: 0, scale: 0.9, y: 20 }}

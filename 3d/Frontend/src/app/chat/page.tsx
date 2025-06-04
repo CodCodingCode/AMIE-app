@@ -4,6 +4,7 @@ import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Sidebar, SidebarMenu } from './sidebar';
 import ChatWindow from './chatwindow';
+import { ModalProvider } from './ModalContext'; // Import the modal provider
 
 // Inner component containing the original logic
 function ChatPageContent() {
@@ -27,23 +28,25 @@ function ChatPageContent() {
 
   // Simple fade-in without complex staggering
   return (
-    <div 
-      className={`relative h-screen bg-neutral-900 overflow-hidden transition-opacity duration-300 ${
-        isInitialized ? 'opacity-100' : 'opacity-0'
-      }`}
-    >
-      {/* Main content takes full width */}
-      <div className="w-full h-full">
-        <ChatWindow />
+    <ModalProvider>
+      <div 
+        className={`relative h-screen bg-neutral-900 overflow-hidden transition-opacity duration-300 ${
+          isInitialized ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        {/* Main content takes full width */}
+        <div className="w-full h-full">
+          <ChatWindow />
+        </div>
+        
+        {/* Sidebar overlays on top with fixed positioning */}
+        <div className="fixed top-0 left-0 h-full z-50">
+          <Sidebar>
+            <SidebarMenu />
+          </Sidebar>
+        </div>
       </div>
-      
-      {/* Sidebar overlays on top with fixed positioning */}
-      <div className="fixed top-0 left-0 h-full z-50">
-        <Sidebar>
-          <SidebarMenu />
-        </Sidebar>
-      </div>
-    </div>
+    </ModalProvider>
   );
 }
 
