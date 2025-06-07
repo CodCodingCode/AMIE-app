@@ -8,7 +8,7 @@ from itertools import islice
 import random
 
 # Initialize OpenAI client
-client = OpenAI(api_key="")
+client = OpenAI(api_key="api")
 model = "gpt-4.1-nano"
 
 treatment_plans = []
@@ -712,7 +712,7 @@ Doctor's question: {initial_prompt}"""
     patient_response.append(
         {
             "vignette_index": idx,
-            "input": f"{vignette_text}\n{initial_prompt}",
+            "input": f"\n{initial_prompt}{vignette_text}",
             "output": raw_patient,  # Store the full THINKING + ANSWER
             "thinking": split_thinking_answer(raw_patient)[0],  # Extract thinking
             "answer": split_thinking_answer(raw_patient)[1],  # Extract answer
