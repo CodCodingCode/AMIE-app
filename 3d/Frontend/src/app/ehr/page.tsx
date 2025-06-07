@@ -23,7 +23,7 @@ export default function EhrPage() {
            {/* Header */}
            <header className="bg-neutral-900 border-b border-trueBlue p-6 pt-16">
                <div className="max-w-4xl mx-auto text-center">
-                   <h1 className="text-2xl font-serif text-dukeBlue font-semibold">
+                   <h1 className="text-2xl text-dukeBlue font-header">
                        EHR File Upload
                    </h1>
                </div>

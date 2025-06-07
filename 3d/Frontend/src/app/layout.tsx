@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import "./globals.css";
 import { EhrProvider } from "./contexts/EhrContext";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter", 
-});
+// const inter = Inter({
+//   subsets: ["latin"],
+//   variable: "--font-inter", 
+// });
 
 export const metadata: Metadata = {
   title: "Bluebox",
@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`antialiased`}>
         <EhrProvider>
           {children}
         </EhrProvider>

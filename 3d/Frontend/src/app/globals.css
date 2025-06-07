@@ -2,14 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import EB Garamond font */
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap'); */
 
 :root {
   --white: #FFFFFF;
   --outer-space: #464F51;
   --black: #000009;
-  --font-family-rich: 'EB Garamond', serif;
+  /* --font-family-rich: 'EB Garamond', serif; */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,7 +27,7 @@ body {
     rgb(var(--background-end-rgb))
   )
   rgb(var(--background-start-rgb));
-  font-family: var(--font-family-rich);
+  font-family: 'body', sans-serif; /* Use font-body as default */
 }
 
 @layer utilities {
@@ -45,74 +44,92 @@ body {
   .no-scrollbar::-webkit-scrollbar {
     display: none;             /* Chrome, Safari, Opera */
   }
-}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out forwards;
   }
-}
 
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease-out forwards;
-}
+  /* Add font utility classes */
+  .font-body {
+    font-family: 'body', sans-serif;
+  }
 
-/* Custom scrollbar for the chat area */
-.chat-container::-webkit-scrollbar {
-  width: 2px;
-}
+  .font-header {
+    font-family: 'header', sans-serif;
+  }
 
-.chat-container::-webkit-scrollbar-track {
-  background: transparent;
-}
+  /* Custom scrollbar for the chat area */
+  .chat-container::-webkit-scrollbar {
+    width: 2px;
+  }
 
-.chat-container::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: 2px;
-}
+  .chat-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
-.chat-container::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
-}
+  .chat-container::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 2px;
+  }
 
-/* Dark mode scrollbar */
-.dark .chat-container::-webkit-scrollbar-thumb {
-  background: #4b5563;
-}
+  .chat-container::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }
 
-.dark .chat-container::-webkit-scrollbar-thumb:hover {
-  background: #6b7280;
-}
+  /* Dark mode scrollbar */
+  .dark .chat-container::-webkit-scrollbar-thumb {
+    background: #4b5563;
+  }
 
-/* Smooth gradient background for input area */
-.input-gradient-bg {
-  background: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 1) 60%,
-    rgba(255, 255, 255, 0.8) 80%,
-    rgba(255, 255, 255, 0) 100%
-  );
-}
+  .dark .chat-container::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+  }
 
-.dark .input-gradient-bg {
-  background: linear-gradient(
-    to top,
-    rgba(23, 23, 23, 1) 0%,
-    rgba(23, 23, 23, 1) 60%,
-    rgba(23, 23, 23, 0.8) 80%,
-    rgba(23, 23, 23, 0) 100%
-  );
+  /* Smooth gradient background for input area */
+  .input-gradient-bg {
+    background: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 1) 60%,
+      rgba(255, 255, 255, 0.8) 80%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  .dark .input-gradient-bg {
+    background: linear-gradient(
+      to top,
+      rgba(23, 23, 23, 1) 0%,
+      rgba(23, 23, 23, 1) 60%,
+      rgba(23, 23, 23, 0.8) 80%,
+      rgba(23, 23, 23, 0) 100%
+    );
+  }
 }
 
 @font-face {
-  font-family: 'MyFont';
-  src: url('/public/fonts/MyFont.woff2') format('woff2');
+  font-family: 'body';
+  src: url('/fonts/abc-diatype-regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'header';
+  src: url('/fonts/TestFoundersGrotesk-Bold-BF66175e9700615.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }

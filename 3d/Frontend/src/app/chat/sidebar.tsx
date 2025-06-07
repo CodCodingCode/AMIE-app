@@ -217,7 +217,7 @@ export const Logo = () => {
               width: open ? 'auto' : 0
             }}
             transition={{ duration: 0.2 }}
-            className="text-white font-semibold text-lg whitespace-nowrap"
+            className="text-white text-lg whitespace-nowrap font-header"
           >
             Bluebox
           </motion.div>
@@ -270,7 +270,7 @@ const SidebarItem = ({
             className="min-w-0"
           >
             <span className={cn(
-              "text-sm font-medium whitespace-nowrap block truncate",
+              "text-sm whitespace-nowrap block truncate",
               active ? "text-blue-400" : "text-slate-300 group-hover:text-white"
             )}>
               {text}
@@ -317,7 +317,7 @@ const SidebarSection = ({ title, children }: { title?: string; children: React.R
               height: open ? 'auto' : 0
             }}
             transition={{ duration: 0.2 }}
-            className="px-5 py-2 text-xs text-slate-500 uppercase font-semibold tracking-wider"
+            className="px-5 py-2 text-xs text-slate-500 uppercase tracking-wider font-header"
           >
             {title}
           </motion.div>
@@ -704,7 +704,7 @@ export const SidebarMenu = () => {
                   <IconTrash className="w-5 h-5 text-red-600" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Delete Chat</h3>
+                  <h3 className="text-lg text-gray-900 mb-2 font-header">Delete Chat</h3>
                   <p className="text-sm text-gray-600 mb-6">
                     Are you sure you want to delete this chat? This action cannot be undone and all messages will be permanently removed.
                   </p>
@@ -712,7 +712,7 @@ export const SidebarMenu = () => {
                     <button
                       onClick={handleCloseDeleteDialog}
                       disabled={isDeleting}
-                      className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors disabled:opacity-50"
+                      className="px-4 py-2 text-sm text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors disabled:opacity-50"
                     >
                       Cancel
                     </button>

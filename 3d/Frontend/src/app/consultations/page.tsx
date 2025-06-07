@@ -14,7 +14,7 @@ const EmptyState = ({ title, message, actionText, onAction }: {
   onAction?: () => void;
 }) => (
   <div className="text-center py-12 px-6 flex flex-col items-center justify-center h-full text-gray-400">
-    <h3 className="text-lg font-semibold text-gray-300 mb-2">{title}</h3>
+    <h3 className="text-lg text-gray-300 mb-2 font-header">{title}</h3>
     <p className="text-sm text-gray-500 mb-6 max-w-xs">{message}</p>
     {actionText && onAction && (
       <button onClick={onAction} className="px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white text-sm rounded-lg transition-colors flex items-center">
@@ -52,7 +52,7 @@ const ConsultationItem = ({ chat, isSelected, onSelect }: {
       )}
     >
       <div className="flex items-center justify-between mb-1.5">
-        <h4 className="text-sm font-semibold text-gray-100 truncate flex-1">
+        <h4 className="text-sm text-gray-100 truncate flex-1 font-header">
           {chat.title || 'Untitled Consultation'}
         </h4>
         <span className="text-xs text-gray-400">{formatDate(chat.updatedAt)}</span>
@@ -79,7 +79,7 @@ const Modal = ({ isOpen, onClose, title, children, actions }: {
     <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50" onClick={onClose}>
       <div className="bg-gray-800 w-full max-w-2xl max-h-[90vh] rounded-xl shadow-2xl border border-gray-700 flex flex-col" onClick={(e) => e.stopPropagation()}>
         <div className="p-5 border-b border-gray-700 flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-gray-100">{title}</h2>
+          <h2 className="text-lg text-gray-100 font-header">{title}</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-200 text-2xl">×</button>
         </div>
         <div className="p-5 overflow-y-auto flex-1">{children}</div>
@@ -175,7 +175,7 @@ export default function ConsultationsPage() {
             <IconArrowLeft size={20} className="mr-2" />
             Back
           </button>
-          <h1 className="text-xl font-semibold text-gray-100">Consultations</h1>
+          <h1 className="text-xl text-gray-100 font-header">Consultations</h1>
           <div></div>
         </div>
         <EmptyState title="Access Denied" message="Please sign in to view consultations." />
@@ -191,7 +191,7 @@ export default function ConsultationsPage() {
           <IconArrowLeft size={20} className="mr-2" />
           Back
         </button>
-        <h1 className="text-xl font-semibold text-gray-100">My Consultations</h1>
+        <h1 className="text-xl text-gray-100 font-header">My Consultations</h1>
         <button onClick={() => router.push('/book-consultation')} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center">
           <IconPlus size={18} className="mr-2" />
           Book New
@@ -246,7 +246,7 @@ export default function ConsultationsPage() {
           ) : (
             <>
               <div className="p-4 border-b border-gray-700">
-                <h2 className="text-lg font-semibold text-gray-100">{selectedChat.title || 'Untitled'}</h2>
+                <h2 className="text-lg text-gray-100 font-header">{selectedChat.title || 'Untitled'}</h2>
                 <p className="text-xs text-gray-400">Created: {new Date(selectedChat.createdAt).toLocaleDateString()}</p>
               </div>
 
@@ -319,7 +319,7 @@ export default function ConsultationsPage() {
           <div className="space-y-4">
             {['Subjective', 'Objective', 'Assessment', 'Plan'].map(section => (
               <div key={section}>
-                <h3 className="text-blue-400 font-medium mb-2">{section}</h3>
+                <h3 className="text-blue-400 mb-2 font-header">{section}</h3>
                 <div className="bg-gray-700 p-3 rounded-lg text-gray-300">
                   {section === 'Plan' 
                     ? currentSOAP.plan.map((item: string, i: number) => <div key={i}>• {item}</div>)
@@ -359,15 +359,15 @@ export default function ConsultationsPage() {
         {currentReferral && (
           <div className="space-y-4">
             <div>
-              <h3 className="text-blue-400 font-medium mb-2">Referral To</h3>
+              <h3 className="text-blue-400 mb-2 font-header">Referral To</h3>
               <div className="bg-gray-700 p-3 rounded-lg text-gray-300">{currentReferral.referralTo}</div>
             </div>
             <div>
-              <h3 className="text-blue-400 font-medium mb-2">Reason</h3>
+              <h3 className="text-blue-400 mb-2 font-header">Reason</h3>
               <div className="bg-gray-700 p-3 rounded-lg text-gray-300">{currentReferral.reason}</div>
             </div>
             <div>
-              <h3 className="text-blue-400 font-medium mb-2">Symptoms</h3>
+              <h3 className="text-blue-400 mb-2 font-header">Symptoms</h3>
               <div className="bg-gray-700 p-3 rounded-lg text-gray-300">
                 {currentReferral.symptoms.map((symptom, i) => <div key={i}>• {symptom}</div>)}
               </div>

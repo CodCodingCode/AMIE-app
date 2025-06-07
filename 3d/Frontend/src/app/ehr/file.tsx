@@ -145,7 +145,7 @@ export const FileUpload: React.FC<{ onChange?: (files: File[]) => void }> = ({ o
         <motion.div {...fadeInUp} className="text-red-400 bg-red-900/30 p-4 rounded-md border border-red-700/50 flex items-start">
           <IconAlertCircle className="w-5 h-5 mr-2 flex-shrink-0 mt-0.5" />
           <div>
-            <p className="font-semibold">Upload Failed</p>
+            <p className="font-header text-red-400">Upload Failed</p>
             <p className="text-sm">{error}</p>
           </div>
         </motion.div>
@@ -156,7 +156,7 @@ export const FileUpload: React.FC<{ onChange?: (files: File[]) => void }> = ({ o
         <motion.div {...fadeInUp} className="p-4 bg-green-900/30 rounded-md border border-green-700/50">
           <div className="flex items-start mb-2">
             <IconCheck className="w-5 h-5 mr-2 text-green-400 flex-shrink-0 mt-0.5" />
-            <h3 className="font-semibold text-green-300">File Processed Successfully</h3>
+            <h3 className="font-header text-green-300">File Processed Successfully</h3>
           </div>
           <p className="text-sm text-neutral-300 mb-3">Summary has been generated and is ready for your chat.</p>
           <pre className="whitespace-pre-wrap text-xs text-neutral-400 bg-neutral-800 p-3 rounded-md max-h-40 overflow-y-auto no-scrollbar mb-4">
@@ -190,7 +190,7 @@ export const FileUpload: React.FC<{ onChange?: (files: File[]) => void }> = ({ o
         {!files.length && !processing && !processedData && !error && (
           <>
             <IconUpload className={`w-12 h-12 mb-4 ${isDragActive ? 'text-blue-400' : 'text-neutral-500'} transition-colors`} />
-            <p className={`text-lg font-semibold ${isDragActive ? 'text-blue-300' : 'text-neutral-300'}`}>Drag & Drop File Here</p>
+            <p className={`text-lg ${isDragActive ? 'text-blue-300' : 'text-neutral-300'} font-header`}>Drag & Drop File Here</p>
             <p className="text-sm text-neutral-500 mt-1">or</p>
             <button 
               type="button" 
@@ -205,7 +205,7 @@ export const FileUpload: React.FC<{ onChange?: (files: File[]) => void }> = ({ o
 
         {(files.length > 0 && !processedData && !error) && (
           <div className="w-full">
-            <h3 className="text-sm font-medium text-neutral-400 mb-2 text-center">Selected file:</h3>
+            <h3 className="text-sm text-neutral-400 mb-2 text-center font-header">Selected file:</h3>
             {files.map((file, idx) => (
               <FileItem key={idx} file={file} onRemove={() => removeFile(idx)} />
             ))}

@@ -40,7 +40,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
             <div className="p-6 border-b border-gray-100 flex items-center justify-between">
               <div className="flex items-center">
                 <IconSettings className="w-6 h-6 text-dukeBlue mr-3" />
-                <h2 className="text-xl font-medium text-dukeBlue">Settings</h2>
+                <h2 className="text-xl text-dukeBlue font-header">Settings</h2>
               </div>
               <button 
                 onClick={onClose}
@@ -55,20 +55,20 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
               <div className="space-y-6">
                 {/* Account Section */}
                 <div>
-                  <h3 className="text-sm font-medium text-dukeBlue mb-3">Account</h3>
+                  <h3 className="text-sm text-dukeBlue mb-3 font-header">Account</h3>
                   {user ? (
                     <div className="space-y-4">
                       <div className="bg-gray-50 p-4 rounded-lg border">
                         <p className="text-xs text-mountbattenPink mb-1">
                           Signed in as
                         </p>
-                        <p className="font-medium text-dukeBlue">
+                        <p className="text-dukeBlue">
                           {user.email}
                         </p>
                       </div>
                       <button
                         onClick={handleSignOut}
-                        className="flex items-center px-4 py-3 w-full bg-red-50 border border-red-200 text-red-600 hover:bg-red-100 hover:border-red-300 rounded-lg transition-all font-medium"
+                        className="flex items-center px-4 py-3 w-full bg-red-50 border border-red-200 text-red-600 hover:bg-red-100 hover:border-red-300 rounded-lg transition-all"
                       >
                         <IconLogout size={18} className="mr-3" />
                         Sign Out
@@ -85,22 +85,22 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
 
                 {/* App Info Section */}
                 <div>
-                  <h3 className="text-sm font-medium text-dukeBlue mb-3">Application</h3>
+                  <h3 className="text-sm text-dukeBlue mb-3 font-header">Application</h3>
                   <div className="bg-gray-50 p-4 rounded-lg border">
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-sm text-mountbattenPink">Version</span>
-                      <span className="text-sm font-medium text-dukeBlue">1.0.0</span>
+                      <span className="text-sm text-dukeBlue">1.0.0</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-mountbattenPink">Status</span>
-                      <span className="text-sm font-medium text-green-600">Active</span>
+                      <span className="text-sm text-green-600">Active</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Additional Settings Options */}
                 <div>
-                  <h3 className="text-sm font-medium text-dukeBlue mb-3">Preferences</h3>
+                  <h3 className="text-sm text-dukeBlue mb-3 font-header">Preferences</h3>
                   <div className="space-y-3">
                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border">
                       <span className="text-sm text-dukeBlue">Theme</span>

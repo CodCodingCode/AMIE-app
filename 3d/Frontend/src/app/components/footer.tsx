@@ -57,7 +57,7 @@ const Footer = () => {
         <div className="w-full md:w-2/3 flex flex-col gap-4 md:items-end">
           {navigationLinks.map(({ href, label }) => (
             <div key={href}>
-              <h3 className="text-xl font-medium mb-4">
+              <h3 className="text-xl mb-4 font-header">
                 <Link href={href} className="hover:opacity-80 transition-opacity">
                   {label}
                 </Link>

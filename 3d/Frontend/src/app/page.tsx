@@ -4,13 +4,17 @@ import Hero from './components/hero'
 import Footer from './components/footer'
 import Navigation from './components/navigation'
 import Gif from './components/gif'
+import Main from './components/main'
+import Demo from './components/demo'
 
 export default function Home() {
   return (
     <div className="flex flex-col bg-gradient-to-b from-neutral-900 to-neutral-950">
       <Navigation />
       <Hero />
+      <Main />
       <Gif />
+      <Demo />
       <Footer />
     </div>
   );

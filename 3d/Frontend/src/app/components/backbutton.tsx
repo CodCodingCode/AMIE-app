@@ -30,7 +30,7 @@ export default function BackButton({
     }
   };
 
-  const baseClasses = "inline-flex items-center font-medium transition-colors duration-200 focus:outline-none";
+  const baseClasses = "inline-flex items-center transition-colors duration-200 focus:outline-none";
   
   const sizeClasses = {
     sm: "px-2 py-1 text-sm gap-1",

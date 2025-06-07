@@ -47,7 +47,7 @@ export default function Navigation() {
                 height={40}
                 className="h-10 w-auto"
               />
-              <span className="ml-3 text-xl font-bold text-white">Bluebox</span>
+              <span className="ml-3 text-xl text-white font-header">Bluebox</span>
             </Link>
 
             {/* Desktop Navigation */}

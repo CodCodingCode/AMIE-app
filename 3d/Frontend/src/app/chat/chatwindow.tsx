@@ -269,7 +269,7 @@ export default function ChatWindow() {
         {/* Display sign-in prompt for unauthenticated users */}
         {!user && !authLoading && (
           <div className="bg-blue-50/80 dark:bg-blue-900/20 backdrop-blur-sm rounded-2xl p-4 mb-4 mt-6 flex items-center justify-between border border-blue-200/50 dark:border-blue-800/50">
-            <p className="text-sm text-blue-800 dark:text-blue-200 font-medium">
+            <p className="text-sm text-blue-800 dark:text-blue-200">
               Sign in to save your chat history
             </p>
             <div className="flex-shrink-0">
@@ -287,7 +287,7 @@ export default function ChatWindow() {
                   <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
                   <div className="w-2 h-2 bg-pink-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 text-sm font-medium">
+                <p className="text-gray-700 dark:text-gray-300 text-sm">
                   {(isLoadingNewChat && !currentChatId) ? "Starting new chat..." : "Loading chat..."}
                 </p>
               </div>
@@ -298,13 +298,13 @@ export default function ChatWindow() {
               {messages.length === 0 && !isTyping && !partialResponse && !isProcessing && (
                 <div className="text-center absolute top-1/3 left-0 right-0 z-0 pointer-events-none">
                   <div className="space-y-4">
-                    <h1 className="font-light text-gray-600 dark:text-gray-400 text-4xl md:text-5xl tracking-wide">
+                    <h1 className="text-gray-600 dark:text-gray-400 text-4xl md:text-5xl tracking-wide font-header">
                       Welcome to the
                     </h1>
                     <div className="transform scale-110">
                       <ColourfulText text="Bluebox" />
                     </div>
-                    <p className="text-gray-500 dark:text-gray-500 text-lg mt-6 font-light">
+                    <p className="text-gray-500 dark:text-gray-500 text-lg mt-6">
                       Your AI health companion
                     </p>
                   </div>
@@ -481,20 +481,20 @@ export default function ChatWindow() {
       {isDeleteDialogOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="bg-white dark:bg-neutral-800 rounded-2xl p-6 max-w-sm mx-4 shadow-xl border border-gray-200 dark:border-neutral-700">
-            <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Delete Chat</h3>
+            <h3 className="text-lg text-gray-900 dark:text-gray-100 mb-4 font-header">Delete Chat</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
               Are you sure you want to delete this chat? This action cannot be undone.
             </p>
             <div className="flex justify-end space-x-3">
               <button
                 disabled={isDeleting}
-                className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-neutral-700 rounded-xl hover:bg-gray-200 dark:hover:bg-neutral-600 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors"
+                className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-neutral-700 rounded-xl hover:bg-gray-200 dark:hover:bg-neutral-600 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors"
               >
                 Cancel
               </button>
               <button
                 disabled={isDeleting}
-                className={`px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-xl hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors ${
+                className={`px-4 py-2 text-sm text-white bg-red-600 rounded-xl hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors ${
                   isDeleting ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
               >
