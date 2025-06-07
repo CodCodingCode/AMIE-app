@@ -8,7 +8,9 @@ from itertools import islice
 import random
 
 # Initialize OpenAI client
-client = OpenAI(api_key="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")
+client = OpenAI(
+    api_key="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"
+)
 model = "gpt-4.1-nano"
 
 treatment_plans = []
@@ -167,29 +169,13 @@ class PatientInterpreter:
         - Accounting for withheld information: <likely missing symptoms>
         - Correcting timeline distortions: <more accurate progression>
         - Considering amplified concerns: <appropriately scaled worries>
-        
-        STEP 6 - CLINICAL IMPLICATIONS:
-        Finally, let me determine the clinical implications of these communication patterns.
-        - How reliable is the current vignette? <assessment>
-        - What critical information are we missing? <gaps>
-        - What should the doctor probe for next? <recommendations>
-        
+    
         ANSWER:
         COMMUNICATION_ANALYSIS:
         - Pattern observed: <description of how patient is communicating>
         - Bias detected: <what kind of bias is affecting their reporting>
         - Confidence level: <high/medium/low>
         - Reasoning: <why I believe this based on my step-by-step analysis>
-        
-        LIKELY_HIDDEN_INFORMATION:
-        - Minimized symptoms: <symptoms patient is downplaying + reasoning>
-        - Withheld information: <information patient may be embarrassed to share + reasoning>
-        - Amplified concerns: <symptoms patient may be exaggerating + reasoning>
-        - Temporal distortions: <timeline issues or sequence problems + reasoning>
-        
-        OBJECTIVE_CLINICAL_PICTURE:
-        Based on my Chain of Thought analysis, the unbiased vignette should probably include:
-        <Detailed reconstruction accounting for identified biases with reasoning for each adjustment>
         
         RECOMMENDED_PROBING:
         - Specific questions to ask: <targeted questions to get missing information + rationale>
@@ -499,7 +485,7 @@ STOP HERE. Do not add notes, recommendations, or additional text."""
 
 # === Diagnosis Logic with Cleaning ===
 def get_diagnosis_response(
-    turn_count, vignette_summary, previous_questions, diagnoser
+    turn_count, gold, vignette_summary, previous_questions, diagnoser
 ):
     """Get diagnosis with proper stage-based prompting"""
     if turn_count < 6:  # First 2 turns (0, 2)
@@ -652,6 +638,15 @@ def split_thinking_answer(text):
 def process_vignette(idx, vignette_text, gold_label):
     global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs, treatment_plans, behavioral_analyses
 
+    treatment_plans = []  # ← GLOBAL - persists between runs
+    summarizer_outputs = []  # ← GLOBAL - persists between runs
+    diagnosing_doctor_outputs = []  # ← GLOBAL - persists between runs
+    questioning_doctor_outputs = []  # ← GLOBAL - persists between runs
+    patient_response = []  # ← GLOBAL - persists between runs
+    conversation = []  # ← GLOBAL - persists between runs
+    behavioral_analyses = []  # ← GLOBAL - persists between runs
+    patient_interpretations = []
+
     # Select patient behavior for this vignette
     behavior_type, behavior_config = select_patient_behavior()
     print(
@@ -683,16 +678,7 @@ def process_vignette(idx, vignette_text, gold_label):
         response_length = "in one to two brief sentences"
 
     prompt = f"""
-    
-    Maria Lopez, 12-year-old middle school student. She lives with her parents and two younger siblings in a crowded apartment in an urban neighborhood. She has a history of mild seasonal allergies but no chronic eye issues. She spends a lot of time in school and participating in after-school activities.
-**SCENARIO:**
-Acute epidemic haemorrhagic conjunctivitis – typical presentation with red, swollen, and painful eyes.
-**CHARACTER BACKGROUND:**
-Maria is in 7th grade and is generally healthy, aside from occasional allergy symptoms. Her family has been experiencing a recent outbreak of conjunctivitis among her classmates, which is common during the current school term. She recently shared tissues and games with friends who had pink eye. She has no significant prior eye problems or other serious illnesses. She attends school daily and lives in a densely populated urban area where close contact with others is frequent.
-**CURRENT MEDICAL SITUATION:**
-Maria reports, “My eyes are really red and swollen now, and it hurts when I blink or try to open them in the morning. There’s a lot of thick mucus coming out of my eyes, especially when I wake up. Sometimes I see tiny blood spots under the conjunctiva, and my eyes feel gritty and irritated.” She says her symptoms started about two days ago, initially just redness and mild discomfort, but now her eyes are very red, swollen, and painful. She feels like her eyes are “bursting” and has trouble keeping them open because of the mucus and swelling. She was prompted to come today because she’s worried about her vision and can’t sleep well due to the discomfort. She’s also concerned because her eyes are so red that her classmates noticed, and she’s worried about missing school or spreading it.
-**ROLEPLAY INSTRUCTIONS:**
-You are a 12-year-old girl experiencing the typical symptoms of acute epidemic haemorrhagic conjunctivitis. Speak naturally, as a school-aged child might, using simple but descriptive language. Express discomfort clearly, emphasizing the redness, swelling, mucus discharge, and pain. Show concern for your eyes and awareness of the contagious nature of your illness but avoid overly technical explanations. Your tone should be somewhat worried but not panicked, reflecting a realistic child’s response. Use behaviors such as blinking frequently, rubbing your eyes gently (but be advised not to actually rub in real life), and expressing frustration or tiredness from the discomfort. Remember, your main goal is to communicate your symptoms and concerns convincingly and naturally.
+{patient_instructions}
 
 NEVER hallucinate past medical evaluations, tests, or diagnoses. 
 Do NOT give clear medical names unless the doctor already told you. 
@@ -750,8 +736,8 @@ Doctor's question: {initial_prompt}"""
             {
                 "vignette_index": idx,
                 "turn_count": turn_count,
-                "input": behavior_input, 
-                "analysis": behavioral_analysis_raw,  
+                "input": behavior_input,
+                "analysis": behavioral_analysis_raw,
             }
         )
 
@@ -768,11 +754,9 @@ Doctor's question: {initial_prompt}"""
                 "vignette_index": idx,
                 "turn_count": turn_count,
                 "interpretation": patient_interpretation_raw,
-
             }
         )
         print(f"🔍 Patient Interpretation: {patient_interpretation}...")
-
 
         # Create input for summarizer
         summarizer_input = f"CONVERSATION HISTORY:\n{json.dumps(conversation, indent=2)}\n\nPREVIOUS VIGNETTE:\n{prev_vignette_summary}\n\nPATIENT COMMUNICATION ANALYSIS:\n{patient_interpretation}"
@@ -1025,10 +1009,10 @@ THINKING: Think about how you feel about your symptoms and this doctor's questio
 ANSWER: Give your natural, realistic patient response in your own words (NOT medical terminology).
 
 CONTEXT:
-- Your symptoms: {vignette_text}
 - Doctor asked: {followup_question}
-- Your behavior type: {behavior_type}
+- Your behavior type: {behavior_type}x
 - Response style: {response_guidance}
+- Vignette: {vignette_text}
 
 Remember: You are NOT trying to be a good patient or help the doctor. You're being a REAL person with real concerns, confusion, and communication patterns."""
 

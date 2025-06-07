@@ -154,24 +154,12 @@ CRITICAL REQUIREMENTS:
 
         FORMAT YOUR RESPONSE AS A ROLEPLAY SCRIPT:
 
-        **PATIENT CHARACTER:** [Name, age, brief background]
-        **SCENARIO:** {disease_name} - typical presentation
+        YOU ARE A PATIENT: YOU ARE [give an age here] AND YOUR BIOLOGICAL GENDER IS [an appropriate gender based on the disease and risk factors]
+        You are experiencing the following symptoms:
+        - [PICK 3-5 symptoms from the list above, in a realistic order]
+        THESE SYMPTOMS CAME INTO FRUITION [describe how the symptoms started, e.g. "gradually over the past week", "suddenly yesterday", etc.]  
 
-        **CHARACTER BACKGROUND:**
-        - [Occupation/school/life situation]
-        - [Family situation]
-        - [Relevant medical/social history]
-
-        **CURRENT MEDICAL SITUATION:**
-        - [Current symptoms in patient's own words]
-        - [Timeline of symptom development]
-        - [Pain/discomfort levels]
-        - [What prompted today's visit]
-
-        **ROLEPLAY INSTRUCTIONS:**
-        You are a patient seeking medical care for concerning symptoms. Your symptoms are typical for this condition.
-
-        Make your vignette in paragraph form, and make it realistic. 
+        Make your vignette in a short 5 sentence paragraph, and make it realistic. 
 
         """
 
@@ -588,7 +576,6 @@ def generate_vignettes_from_medical_json(
                 print(
                     f"✅ Completed vignette {vignette_num} for {disease_name} - Progress: {completed_vignettes}/{len(all_tasks)} ({progress:.1f}%) - {disease_progress} diseases started"
                 )
-                
 
             except Exception as e:
                 print(f"❌ Failed vignette {vignette_num} for {disease_name}: {e}")
@@ -648,7 +635,7 @@ if __name__ == "__main__":
     MEDICAL_JSON_FILE = "combined.json"
     NUM_VIGNETTES_PER_DISEASE = 1
     OUTPUT_FILE = "patient_roleplay_scripts_typical.json"
-    MAX_WORKERS = 1  # NOW ACTUALLY USED FOR REAL PARALLEL PROCESSING!
+    MAX_WORKERS = 12 # NOW ACTUALLY USED FOR REAL PARALLEL PROCESSING!
 
     print("🎭 PATIENT ROLEPLAY SCRIPT GENERATOR - WITH REAL PARALLEL PROCESSING")
     print("=" * 70)
