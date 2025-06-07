@@ -8,7 +8,7 @@ from itertools import islice
 import random
 
 # Initialize OpenAI client
-client = OpenAI(api_key="api")
+client = OpenAI(api_key="")
 model = "gpt-4.1-nano"
 
 treatment_plans = []
@@ -502,15 +502,14 @@ def get_diagnosis_response(
     turn_count, gold_label, vignette_summary, previous_questions, diagnoser
 ):
     """Get diagnosis with proper stage-based prompting"""
-    if turn_count < 4:  # First 2 turns (0, 2)
+    if turn_count < 6:  # First 2 turns (0, 2)
         base_prompt = EARLY_DIAGNOSIS_PROMPT
         stage = "early"
-    elif turn_count >= 4 and turn_count < 8:  # Next 2 turns (4, 6)
+    elif turn_count >= 6 and turn_count < 12:  # Next 2 turns (4, 6)
         base_prompt = MIDDLE_DIAGNOSIS_PROMPT
         stage = "middle"
     else:  # Last 1 turn (8)
         base_prompt = LATE_DIAGNOSIS_PROMPT
-        stage = "late"
 
     # Get response from diagnoser (NO GUIDANCE ADDED)
     response = diagnoser.ask(
@@ -548,7 +547,7 @@ def create_enhanced_questioning_prompt(
 ):
     """Simple enhanced prompt that combines stage approach with diagnostic focus"""
 
-    if turn_count < 4:
+    if turn_count < 6:
         base_questioning_role = """You are conducting the EARLY EXPLORATION phase of the clinical interview.
 
         EXPLORATION OBJECTIVES:
@@ -570,7 +569,7 @@ def create_enhanced_questioning_prompt(
         - If associated symptoms missing: Ask about related symptoms
         - If no context: Ask about triggers or recent exposures"""
 
-    elif turn_count >= 4 and turn_count < 8:
+    elif turn_count >= 6 and turn_count < 12:
         base_questioning_role = """You are conducting the FOCUSED CLARIFICATION phase of the clinical interview.
 
         CLARIFICATION OBJECTIVES:
@@ -629,6 +628,24 @@ DIAGNOSTIC REASONING:
 - How should I adapt my communication for this patient's style?
 
 ANSWER: <Your targeted diagnostic question>"""
+
+
+def split_thinking_answer(text):
+    """Split text into thinking and answer components"""
+    if "THINKING:" in text and "ANSWER:" in text:
+        parts = text.split("ANSWER:", 1)
+        thinking_part = parts[0].replace("THINKING:", "").strip()
+        answer_part = parts[1].strip()
+        return thinking_part, answer_part
+    elif "THINKING:" in text:
+        thinking_part = text.replace("THINKING:", "").strip()
+        return thinking_part, ""
+    elif "ANSWER:" in text:
+        answer_part = text.replace("ANSWER:", "").strip()
+        return "", answer_part
+    else:
+        # If no clear format, treat entire text as answer
+        return "", text.strip()
 
 
 # === Modified process_vignette function ===
@@ -697,6 +714,8 @@ Doctor's question: {initial_prompt}"""
             "vignette_index": idx,
             "input": f"{vignette_text}\n{initial_prompt}",
             "output": raw_patient,  # Store the full THINKING + ANSWER
+            "thinking": split_thinking_answer(raw_patient)[0],  # Extract thinking
+            "answer": split_thinking_answer(raw_patient)[1],  # Extract answer
             "behavior_type": behavior_type,
             "behavior_config": behavior_config,
             "gold_diagnosis": gold_label,
@@ -711,15 +730,21 @@ Doctor's question: {initial_prompt}"""
         behavioral_analysis_raw = behavioral_result["raw"]
         behavioral_analysis = behavioral_result["clean"]
 
+        behavior_input = f"""RECENT PATIENT RESPONSES:
+        {json.dumps(patient_response[-3:])}
+        
+        CONVERSATION CONTEXT:
+        {json.dumps(conversation[-6:])}"""
+
         behavioral_analyses.append(
             {
                 "vignette_index": idx,
                 "turn_count": turn_count,
-                "analysis": behavioral_analysis_raw,  # Store full version
+                "input": behavior_input, 
+                "analysis": behavioral_analysis_raw,  
             }
         )
 
-        # NEW: Patient Interpretation
         patient_interpreter = PatientInterpreter()
 
         interpretation_result = patient_interpreter.interpret_patient_communication(
@@ -732,13 +757,12 @@ Doctor's question: {initial_prompt}"""
             {
                 "vignette_index": idx,
                 "turn_count": turn_count,
-                "interpretation": patient_interpretation_raw,  # Store full version
+                "interpretation": patient_interpretation_raw,
+
             }
         )
         print(f"🔍 Patient Interpretation: {patient_interpretation}...")
 
-        # Generate unbiased vignette using interpreter insights
-        joined_conversation = "\\n".join(conversation)
 
         # Create input for summarizer
         summarizer_input = f"CONVERSATION HISTORY:\n{json.dumps(conversation, indent=2)}\n\nPREVIOUS VIGNETTE:\n{prev_vignette_summary}\n\nPATIENT COMMUNICATION ANALYSIS:\n{patient_interpretation}"
@@ -778,7 +802,13 @@ Doctor's question: {initial_prompt}"""
             {
                 "vignette_index": idx,
                 "input": summarizer_input,
-                "output": vignette_summary_raw,  # Store full version
+                "thinking": split_thinking_answer(vignette_summary_raw)[
+                    0
+                ],  # Extract thinking
+                "answer": split_thinking_answer(vignette_summary_raw)[
+                    1
+                ],  # Extract answer
+                "output": vignette_summary_raw,  # Keep full version for compatibility
                 "turn_count": turn_count,
                 "gold_diagnosis": gold_label,
             }
@@ -795,16 +825,12 @@ Doctor's question: {initial_prompt}"""
 
         print("Turn count:", turn_count)
         letter = ""
-        stage = "early"
         if turn_count < 4:  # First 2 turns
             letter = "E"
-            stage = "early"
         elif turn_count >= 4 and turn_count < 8:  # Next 2 turns
             letter = "M"
-            stage = "middle"
         elif turn_count >= 8:  # Last 1 turn
             letter = "L"
-            stage = "late"
 
         diagnosis_result = get_diagnosis_response(
             turn_count, gold_label, vignette_summary, previous_questions, diagnoser
@@ -816,7 +842,9 @@ Doctor's question: {initial_prompt}"""
             {
                 "vignette_index": idx,
                 "input": vignette_summary,
-                "output": diagnosis_raw,  # Store full version
+                "thinking": split_thinking_answer(vignette_summary_raw)[0],
+                "answer": split_thinking_answer(vignette_summary_raw)[1],
+                "output": diagnosis_raw,  # Keep full version for compatibility
                 "turn_count": turn_count,
                 "letter": letter,
                 "gold_diagnosis": gold_label,
@@ -911,6 +939,8 @@ STOP HERE. Do not add additional recommendations or notes."""
                         "vignette_index": idx,
                         "input": diagnosis,
                         "output": raw_treatment,  # Store full version
+                        "thinking": split_thinking_answer(raw_treatment)[0],
+                        "answer": split_thinking_answer(raw_treatment)[1],
                         "gold_diagnosis": gold_label,
                     }
                 )
@@ -948,6 +978,8 @@ STOP HERE. Do not add additional recommendations or notes."""
                 "input": vignette_summary + diagnosis + behavioral_analysis,
                 "output": raw_followup,  # Store full version
                 "letter": letter,
+                "thinking": split_thinking_answer(raw_followup)[0],
+                "answer": split_thinking_answer(raw_followup)[1],
                 "behavioral_cues": behavioral_analysis,
                 "gold_diagnosis": gold_label,
             }
@@ -1001,6 +1033,8 @@ Remember: You are NOT trying to be a good patient or help the doctor. You're bei
                 "vignette_index": idx,
                 "input": vignette_text + followup_question + behavior_type,
                 "output": raw_patient_fb,  # Store full version
+                "thinking": split_thinking_answer(raw_patient_fb)[0],
+                "answer": split_thinking_answer(raw_patient_fb)[1],
                 "behavior_type": behavior_type,
                 "turn_count": turn_count,
                 "gold_diagnosis": gold_label,
