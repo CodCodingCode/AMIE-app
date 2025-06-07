@@ -8,7 +8,7 @@ from itertools import islice
 import random
 
 # Initialize OpenAI client
-client = OpenAI(api_key="api")
+client = OpenAI(api_key="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")
 model = "gpt-4.1-nano"
 
 treatment_plans = []
@@ -499,7 +499,7 @@ STOP HERE. Do not add notes, recommendations, or additional text."""
 
 # === Diagnosis Logic with Cleaning ===
 def get_diagnosis_response(
-    turn_count, gold_label, vignette_summary, previous_questions, diagnoser
+    turn_count, vignette_summary, previous_questions, diagnoser
 ):
     """Get diagnosis with proper stage-based prompting"""
     if turn_count < 6:  # First 2 turns (0, 2)
@@ -682,7 +682,17 @@ def process_vignette(idx, vignette_text, gold_label):
     elif "symptom_minimization" in behavior_config.get("modifiers", []):
         response_length = "in one to two brief sentences"
 
-    prompt = f"""{patient_instructions}
+    prompt = f"""
+    
+    Maria Lopez, 12-year-old middle school student. She lives with her parents and two younger siblings in a crowded apartment in an urban neighborhood. She has a history of mild seasonal allergies but no chronic eye issues. She spends a lot of time in school and participating in after-school activities.
+**SCENARIO:**
+Acute epidemic haemorrhagic conjunctivitis – typical presentation with red, swollen, and painful eyes.
+**CHARACTER BACKGROUND:**
+Maria is in 7th grade and is generally healthy, aside from occasional allergy symptoms. Her family has been experiencing a recent outbreak of conjunctivitis among her classmates, which is common during the current school term. She recently shared tissues and games with friends who had pink eye. She has no significant prior eye problems or other serious illnesses. She attends school daily and lives in a densely populated urban area where close contact with others is frequent.
+**CURRENT MEDICAL SITUATION:**
+Maria reports, “My eyes are really red and swollen now, and it hurts when I blink or try to open them in the morning. There’s a lot of thick mucus coming out of my eyes, especially when I wake up. Sometimes I see tiny blood spots under the conjunctiva, and my eyes feel gritty and irritated.” She says her symptoms started about two days ago, initially just redness and mild discomfort, but now her eyes are very red, swollen, and painful. She feels like her eyes are “bursting” and has trouble keeping them open because of the mucus and swelling. She was prompted to come today because she’s worried about her vision and can’t sleep well due to the discomfort. She’s also concerned because her eyes are so red that her classmates noticed, and she’s worried about missing school or spreading it.
+**ROLEPLAY INSTRUCTIONS:**
+You are a 12-year-old girl experiencing the typical symptoms of acute epidemic haemorrhagic conjunctivitis. Speak naturally, as a school-aged child might, using simple but descriptive language. Express discomfort clearly, emphasizing the redness, swelling, mucus discharge, and pain. Show concern for your eyes and awareness of the contagious nature of your illness but avoid overly technical explanations. Your tone should be somewhat worried but not panicked, reflecting a realistic child’s response. Use behaviors such as blinking frequently, rubbing your eyes gently (but be advised not to actually rub in real life), and expressing frustration or tiredness from the discomfort. Remember, your main goal is to communicate your symptoms and concerns convincingly and naturally.
 
 NEVER hallucinate past medical evaluations, tests, or diagnoses. 
 Do NOT give clear medical names unless the doctor already told you. 

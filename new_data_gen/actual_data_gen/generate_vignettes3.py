@@ -5,7 +5,7 @@ import random
 from openai import OpenAI
 from typing import Dict, List, Any, Optional
 import multiprocessing
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 
 # Initialize OpenAI client
@@ -52,17 +52,17 @@ class MedicallyAccurateVignetteGenerator:
             else:
                 time.sleep(0.1)
 
-    def generate_vignette_with_medical_data(
+    def generate_single_vignette(
         self, disease_data: Dict, vignette_number: int
-    ) -> str:
-        """Generate a roleplay script for an AI agent to act as the patient - TYPICAL presentation only"""
+    ) -> Dict:
+        """Generate a single roleplay script for an AI agent to act as the patient"""
 
         disease_name = disease_data.get("disease_name", "Unknown Disease")
 
-        # Create roleplay script prompt - always typical presentation
-        prompt = self._create_roleplay_script_prompt(disease_data, vignette_number)
-
         try:
+            # Create roleplay script prompt
+            prompt = self._create_roleplay_script_prompt(disease_data, vignette_number)
+
             self.rate_limit_delay()
 
             response = self.client.chat.completions.create(
@@ -91,14 +91,35 @@ CRITICAL REQUIREMENTS:
             vignette = response.choices[0].message.content.strip()
             validated_vignette = self._validate_vignette(vignette, disease_name)
 
-            print(
-                f"✅ Generated typical roleplay script {vignette_number} for {disease_name}"
-            )
-            return validated_vignette
+            print(f"✅ Generated script {vignette_number} for {disease_name}")
+
+            print(f"Vignette content:\n{validated_vignette}\n")
+
+            return {
+                "roleplay_script": validated_vignette,
+                "variation_type": "typical",
+                "script_number": vignette_number,
+                "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+                "disease_name": disease_name,
+                "success": True,
+            }
 
         except Exception as e:
-            print(f"❌ Error generating roleplay script for {disease_name}: {str(e)}")
-            return self._create_fallback_vignette(disease_data, vignette_number)
+            print(
+                f"❌ Error generating script {vignette_number} for {disease_name}: {str(e)}"
+            )
+
+            return {
+                "roleplay_script": self._create_fallback_vignette(
+                    disease_data, vignette_number
+                ),
+                "variation_type": "typical",
+                "script_number": vignette_number,
+                "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+                "error": str(e),
+                "disease_name": disease_name,
+                "success": False,
+            }
 
     def _create_roleplay_script_prompt(
         self, disease_data: Dict, vignette_number: int
@@ -118,9 +139,6 @@ CRITICAL REQUIREMENTS:
         medical_accuracy_note = self._get_medical_accuracy_instructions(
             disease_name, risk_factors
         )
-
-        # Generate random but appropriate name
-        patient_names = self._generate_patient_names(disease_name, risk_factors)
 
         base_prompt = f"""
         Create a ROLEPLAY SCRIPT for an AI agent to act as a patient with: {disease_name}
@@ -142,7 +160,6 @@ CRITICAL REQUIREMENTS:
         **CHARACTER BACKGROUND:**
         - [Occupation/school/life situation]
         - [Family situation]
-        - [Personality traits]
         - [Relevant medical/social history]
 
         **CURRENT MEDICAL SITUATION:**
@@ -152,20 +169,10 @@ CRITICAL REQUIREMENTS:
         - [What prompted today's visit]
 
         **ROLEPLAY INSTRUCTIONS:**
-        You are a patient seeking medical care for concerning symptoms. You symptoms are typical for this condition.
-        
-        Onlt SHARE if prompted by the clinician. 
-        
-        MAIN CONCERNS:
-        - [Their biggest fears/worries]
-        
-        ROLEPLAY FOCUS:
-        - Act as a classic presentation of this condition
-        - Show clear, recognizable symptoms
-        - Be cooperative and forthcoming with information
-        - Display appropriate concern for a typical case
+        You are a patient seeking medical care for concerning symptoms. Your symptoms are typical for this condition.
 
-        Generate the complete roleplay script for the AI agent:
+        Make your vignette in paragraph form, and make it realistic. 
+
         """
 
         return base_prompt
@@ -428,12 +435,12 @@ def save_current_progress(
                 "total_scripts": len(medical_data) * num_vignettes_per_disease,
                 "completed_diseases": len(results),
                 "generation_model": model,
-                "variation_types": ["typical"],  # Only typical now
+                "variation_types": ["typical"],
                 "generation_timestamp": current_time,
                 "last_update": current_time,
                 "focus": "roleplay_scripts_for_ai_agents",
                 "format": "patient_character_briefs",
-                "presentation_type": "typical_only",  # Added to clarify
+                "presentation_type": "typical_only",
                 "status": (
                     "in_progress" if len(results) < len(medical_data) else "completed"
                 ),
@@ -468,51 +475,11 @@ def save_current_progress(
         print(f"   Check disk space and file permissions")
 
 
-def generate_vignettes_for_disease_with_data(args):
-    """Generate multiple roleplay scripts for a single disease - TYPICAL ONLY"""
-    disease_data, num_vignettes, api_key, model = args
-    generator = MedicallyAccurateVignetteGenerator(api_key, model)
-
-    disease_name = disease_data.get("disease_name", "Unknown Disease")
-
-    vignettes = []
-    for i in range(num_vignettes):
-        try:
-            print(
-                f"🔄 Generating typical script {i+1}/{num_vignettes} for: {disease_name}"
-            )
-
-            vignette = generator.generate_vignette_with_medical_data(
-                disease_data, i + 1
-            )
-            vignettes.append(
-                {
-                    "roleplay_script": vignette,
-                    "variation_type": "typical",  # Always typical
-                    "script_number": i + 1,
-                    "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
-                }
-            )
-
-            print(f"✅ Completed typical script {i+1} for: {disease_name}")
-
-        except Exception as e:
-            print(
-                f"❌ Failed to generate roleplay script {i+1} for {disease_name}: {e}"
-            )
-            vignettes.append(
-                {
-                    "roleplay_script": generator._create_fallback_vignette(
-                        disease_data, i + 1
-                    ),
-                    "variation_type": "typical",  # Even fallback is typical
-                    "script_number": i + 1,
-                    "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
-                    "error": str(e),
-                }
-            )
-
-    return disease_name, vignettes
+def generate_single_vignette_wrapper(args):
+    """Wrapper function for generating a single vignette (needed for multiprocessing)"""
+    disease_data, vignette_number, api_key, model_name = args
+    generator = MedicallyAccurateVignetteGenerator(api_key, model_name)
+    return generator.generate_single_vignette(disease_data, vignette_number)
 
 
 def generate_vignettes_from_medical_json(
@@ -522,7 +489,7 @@ def generate_vignettes_from_medical_json(
     output_file: str = "patient_roleplay_scripts_typical.json",
     max_workers: int = 12,
 ):
-    """Generate TYPICAL roleplay scripts for AI agents from medical JSON data with enhanced incremental saving"""
+    """Generate TYPICAL roleplay scripts with TRUE parallel processing"""
 
     generator = MedicallyAccurateVignetteGenerator(api_key, model)
     medical_data = generator.load_medical_data(medical_json_file)
@@ -537,18 +504,22 @@ def generate_vignettes_from_medical_json(
     print(
         f"📊 Total scripts to generate: {len(medical_data) * num_vignettes_per_disease}"
     )
-    print(f"💾 Progress will be saved IMMEDIATELY after each disease to: {output_file}")
-    print(f"⚡ You can monitor progress by checking the file size and content!")
-    print(f"🎯 PRESENTATION TYPE: Typical presentations only")
+    print(f"⚡ Using {max_workers} parallel workers (ACTUAL THREADING)")
+    print(f"💾 Progress will be saved every 10 completed vignettes to: {output_file}")
 
-    args_list = [
-        (disease_data, num_vignettes_per_disease, api_key, model)
-        for disease_data in medical_data
-    ]
+    # Create ALL individual vignette tasks (this is the key to true parallelism)
+    all_tasks = []
+    for disease_data in medical_data:
+        for vignette_num in range(1, num_vignettes_per_disease + 1):
+            all_tasks.append((disease_data, vignette_num, api_key, model))
+
+    print(
+        f"🔥 Created {len(all_tasks)} individual vignette tasks for parallel processing"
+    )
 
     results = {}
-    completed = 0
-    save_lock = threading.Lock()  # Thread safety for saving
+    completed_vignettes = 0
+    save_lock = threading.Lock()
 
     # Create initial file
     print(f"\n📁 Creating initial empty file...")
@@ -561,68 +532,85 @@ def generate_vignettes_from_medical_json(
         model,
     )
 
-    # Process diseases sequentially to ensure immediate saving
-    for i, args in enumerate(args_list):
-        disease_data = args[0]
-        disease_name = disease_data.get("disease_name", f"Disease_{i}")
+    # === TRUE PARALLEL PROCESSING OF INDIVIDUAL VIGNETTES ===
+    print(f"\n🚀 Starting parallel processing with {max_workers} workers...")
 
-        print(f"\n🏥 Starting disease {i+1}/{len(args_list)}: {disease_name}")
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # Submit ALL individual vignette tasks
+        future_to_task = {
+            executor.submit(generate_single_vignette_wrapper, task): task
+            for task in all_tasks
+        }
 
-        try:
-            # Generate vignettes for this disease
-            disease_name, vignettes = generate_vignettes_for_disease_with_data(args)
+        print(f"📤 Submitted {len(future_to_task)} tasks to thread pool")
 
-            # IMMEDIATELY save after each disease
-            with save_lock:
-                results[disease_name] = vignettes
-                completed += 1
+        # Process completed vignettes as they finish
+        for future in as_completed(future_to_task):
+            task = future_to_task[future]
+            disease_data, vignette_num, _, _ = task
+            disease_name = disease_data.get("disease_name", "Unknown Disease")
 
-                # Save progress RIGHT NOW
-                save_current_progress(
-                    results,
-                    medical_data,
-                    num_vignettes_per_disease,
-                    medical_json_file,
-                    output_file,
-                    model,
-                )
+            try:
+                vignette_result = future.result()
 
-            progress = (completed / len(medical_data)) * 100
-            print(
-                f"📈 Progress: {completed}/{len(medical_data)} diseases completed ({progress:.1f}%)"
-            )
-            print(f"💾 File updated with {len(vignettes)} new typical scripts!")
+                with save_lock:
+                    # Initialize disease entry if not exists
+                    if disease_name not in results:
+                        results[disease_name] = []
 
-        except Exception as e:
-            print(f"❌ Failed to generate roleplay scripts for {disease_name}: {e}")
-
-            # Save fallback immediately
-            with save_lock:
-                fallback_vignettes = []
-                for j in range(num_vignettes_per_disease):
-                    fallback_vignettes.append(
+                    # Add this vignette to the disease
+                    results[disease_name].append(
                         {
-                            "roleplay_script": f"Error generating roleplay script for {disease_name} (script {j+1})",
-                            "variation_type": "typical",  # Even errors are typical
-                            "script_number": j + 1,
+                            "roleplay_script": vignette_result["roleplay_script"],
+                            "variation_type": vignette_result["variation_type"],
+                            "script_number": vignette_result["script_number"],
+                            "generated_at": vignette_result["generated_at"],
+                        }
+                    )
+
+                    completed_vignettes += 1
+
+                    # Save every 10 vignettes
+                    if completed_vignettes % 10 == 0 or completed_vignettes == len(
+                        all_tasks
+                    ):
+                        save_current_progress(
+                            results,
+                            medical_data,
+                            num_vignettes_per_disease,
+                            medical_json_file,
+                            output_file,
+                            model,
+                        )
+
+                progress = (completed_vignettes / len(all_tasks)) * 100
+                disease_progress = len(results)
+                print(
+                    f"✅ Completed vignette {vignette_num} for {disease_name} - Progress: {completed_vignettes}/{len(all_tasks)} ({progress:.1f}%) - {disease_progress} diseases started"
+                )
+                
+
+            except Exception as e:
+                print(f"❌ Failed vignette {vignette_num} for {disease_name}: {e}")
+
+                with save_lock:
+                    # Add fallback entry
+                    if disease_name not in results:
+                        results[disease_name] = []
+
+                    results[disease_name].append(
+                        {
+                            "roleplay_script": f"Error generating roleplay script for {disease_name} (script {vignette_num})",
+                            "variation_type": "typical",
+                            "script_number": vignette_num,
                             "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
                             "error": str(e),
                         }
                     )
-                results[disease_name] = fallback_vignettes
-                completed += 1
 
-                # Save even failed attempts immediately
-                save_current_progress(
-                    results,
-                    medical_data,
-                    num_vignettes_per_disease,
-                    medical_json_file,
-                    output_file,
-                    model,
-                )
+                    completed_vignettes += 1
 
-    # Final save with completed status
+    # Final save
     print(f"\n🏁 Doing final save...")
     save_current_progress(
         results,
@@ -644,12 +632,12 @@ def generate_vignettes_from_medical_json(
     )
 
     print(f"\n📊 GENERATION SUMMARY:")
-    print(f"   Total diseases processed: {len(medical_data)}")
+    print(f"   Total diseases processed: {len(results)}")
     print(f"   Successful diseases: {successful_diseases}")
-    print(f"   Total typical roleplay scripts generated: {total_scripts}")
+    print(f"   Total scripts generated: {total_scripts}")
+    print(f"   Workers used: {max_workers}")
     print(f"   Format: Character briefs for AI agent roleplay")
-    print(f"   Presentation type: TYPICAL ONLY")
-    print(f"   💾 File saved after EVERY single disease completion!")
+    print(f"   🔥 ACTUAL PARALLEL PROCESSING ACHIEVED!")
 
     return results
 
@@ -660,14 +648,12 @@ if __name__ == "__main__":
     MEDICAL_JSON_FILE = "combined.json"
     NUM_VIGNETTES_PER_DISEASE = 1
     OUTPUT_FILE = "patient_roleplay_scripts_typical.json"
-    MAX_WORKERS = 12  # Sequential processing for immediate saving
+    MAX_WORKERS = 1  # NOW ACTUALLY USED FOR REAL PARALLEL PROCESSING!
 
-    print("🎭 PATIENT ROLEPLAY SCRIPT GENERATOR - TYPICAL PRESENTATIONS ONLY")
+    print("🎭 PATIENT ROLEPLAY SCRIPT GENERATOR - WITH REAL PARALLEL PROCESSING")
     print("=" * 70)
-    print(
-        "🎯 Creating character briefs for AI agents to roleplay typical patient presentations"
-    )
-    print("💾 WITH IMMEDIATE SAVING - File updates after EVERY disease!")
+    print(f"🔥 Using {MAX_WORKERS} workers to process individual vignettes in parallel")
+    print("💾 Progress saved every 10 completed vignettes")
 
     if not os.path.exists(MEDICAL_JSON_FILE):
         print(f"❌ Medical JSON file not found: {MEDICAL_JSON_FILE}")
