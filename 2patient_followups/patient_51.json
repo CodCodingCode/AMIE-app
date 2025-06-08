@@ -1,0 +1,97 @@
+[
+  {
+    "vignette_index": 51,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Type I leprosy reaction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Inflammation of skin lesions\n- Nerve pain\n- Fever\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, with the skin lesions around my elbows and knees becoming red and swollen, and I\u2019ve been feeling a deep, burning pain along the affected nerves. I also developed a low-grade fever that hasn\u2019t gone away. I have a history of leprosy diagnosed about 10 years ago, and my family has a history of the disease. I\u2019m worried because the pain and swelling seem to be getting worse, and I\u2019ve never experienced anything like this before.",
+    "output": "THINKING: The patient has a history of leprosy and now he's experiencing new symptoms that seem related to inflammation and nerve issues. He's worried and probably scared, but he's also trying to explain what h\nANSWER: I'm 45, and I\u2019m a man. Well, I started noticing some kind of swelling and redness on my skin around my elbows and knees, and it\u2019s been really painful, especially along the nerves there. I also have this low fever that just won\u2019t go away, and it\u2019s making me feel pretty tired and uneasy. I don\u2019t really know what\u2019s happening, but it\u2019s getting worse and I\u2019m worried because it\u2019s never been like this before.",
+    "thinking": "The patient has a history of leprosy and now he's experiencing new symptoms that seem related to inflammation and nerve issues. He's worried and probably scared, but he's also trying to explain what h",
+    "answer": "I'm 45, and I\u2019m a man. Well, I started noticing some kind of swelling and redness on my skin around my elbows and knees, and it\u2019s been really painful, especially along the nerves there. I also have this low fever that just won\u2019t go away, and it\u2019s making me feel pretty tired and uneasy. I don\u2019t really know what\u2019s happening, but it\u2019s getting worse and I\u2019m worried because it\u2019s never been like this before.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Type I leprosy reaction"
+  },
+  {
+    "vignette_index": 51,
+    "input": "**PATIENT CHARACTER:** Patient with Type I leprosy reaction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Inflammation of skin lesions\n- Nerve pain\n- Fever\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, with the skin lesions around my elbows and knees becoming red and swollen, and I\u2019ve been feeling a deep, burning pain along the affected nerves. I also developed a low-grade fever that hasn\u2019t gone away. I have a history of leprosy diagnosed about 10 years ago, and my family has a history of the disease. I\u2019m worried because the pain and swelling seem to be getting worse, and I\u2019ve never experienced anything like this before.Can you tell me more about when these symptoms first started and how they've changed over time? For example, did they come on gradually or suddenly, and are they affecting both elbows and knees equally?baseline",
+    "output": "THINKING: I feel anxious because these things came up suddenly and are worse quickly. I don\u2019t really know if it\u2019s gotten better or worse, just more uncomfortable, and I\u2019m worried because it\u2019s all happening so f\nANSWER: It started just a couple of days ago, and now the spots are red and swollen, and the pain feels worse, especially along my nerves, and I\u2019ve got this fever that won\u2019t go away.",
+    "thinking": "I feel anxious because these things came up suddenly and are worse quickly. I don\u2019t really know if it\u2019s gotten better or worse, just more uncomfortable, and I\u2019m worried because it\u2019s all happening so f",
+    "answer": "It started just a couple of days ago, and now the spots are red and swollen, and the pain feels worse, especially along my nerves, and I\u2019ve got this fever that won\u2019t go away.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Type I leprosy reaction"
+  },
+  {
+    "vignette_index": 51,
+    "input": "**PATIENT CHARACTER:** Patient with Type I leprosy reaction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Inflammation of skin lesions\n- Nerve pain\n- Fever\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, with the skin lesions around my elbows and knees becoming red and swollen, and I\u2019ve been feeling a deep, burning pain along the affected nerves. I also developed a low-grade fever that hasn\u2019t gone away. I have a history of leprosy diagnosed about 10 years ago, and my family has a history of the disease. I\u2019m worried because the pain and swelling seem to be getting worse, and I\u2019ve never experienced anything like this before.\"Could you tell me whether the nerve pain you're experiencing is in just one area or does it affect both sides? Also, how much are these symptoms interfering with your daily activities or movements?\"baseline",
+    "output": "THINKING: I'm honestly not sure if the pain is just on one side or both, and it's kind of confusing how it's affecting me. I just know I feel it all over my nerves, and it's making it really hard to do things n\nANSWER: It's like the pain is in many places and I don't really know if it's just on one side or both sides. It\u2019s making it hard to move and do my daily stuff.",
+    "thinking": "I'm honestly not sure if the pain is just on one side or both, and it's kind of confusing how it's affecting me. I just know I feel it all over my nerves, and it's making it really hard to do things n",
+    "answer": "It's like the pain is in many places and I don't really know if it's just on one side or both sides. It\u2019s making it hard to move and do my daily stuff.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Type I leprosy reaction"
+  },
+  {
+    "vignette_index": 51,
+    "input": "**PATIENT CHARACTER:** Patient with Type I leprosy reaction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Inflammation of skin lesions\n- Nerve pain\n- Fever\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, with the skin lesions around my elbows and knees becoming red and swollen, and I\u2019ve been feeling a deep, burning pain along the affected nerves. I also developed a low-grade fever that hasn\u2019t gone away. I have a history of leprosy diagnosed about 10 years ago, and my family has a history of the disease. I\u2019m worried because the pain and swelling seem to be getting worse, and I\u2019ve never experienced anything like this before.Can you tell me if the nerve pain you\u2019re experiencing is in just one part of your body or does it happen in multiple areas, and how bad it feels on a scale from 1 to 10?baseline",
+    "output": "THINKING: I feel pretty worried about all this swelling and pain, but I don't really understand what it means or if it's serious. The pain feels like it's somewhere inside my nerves, but I can't tell if it's ju\nANSWER: Uh, it\u2019s all over my nerves, I think, like this deep burning, but I don\u2019t know if I feel it in just one place or in a bunch of spots. And the pain feels pretty strong, maybe a 7 or so.",
+    "thinking": "I feel pretty worried about all this swelling and pain, but I don't really understand what it means or if it's serious. The pain feels like it's somewhere inside my nerves, but I can't tell if it's ju",
+    "answer": "Uh, it\u2019s all over my nerves, I think, like this deep burning, but I don\u2019t know if I feel it in just one place or in a bunch of spots. And the pain feels pretty strong, maybe a 7 or so.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Type I leprosy reaction"
+  },
+  {
+    "vignette_index": 51,
+    "input": "**PATIENT CHARACTER:** Patient with Type I leprosy reaction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Inflammation of skin lesions\n- Nerve pain\n- Fever\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, with the skin lesions around my elbows and knees becoming red and swollen, and I\u2019ve been feeling a deep, burning pain along the affected nerves. I also developed a low-grade fever that hasn\u2019t gone away. I have a history of leprosy diagnosed about 10 years ago, and my family has a history of the disease. I\u2019m worried because the pain and swelling seem to be getting worse, and I\u2019ve never experienced anything like this before.Can you tell me if the nerve pain you're experiencing feels like it\u2019s in just one small area or in multiple places, and whether you notice any numbness, tingling, weakness, or loss of sensation in any specific part of your body?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and scared because everything is happening so fast, and I don\u2019t really understand what\u2019s going on with the nerve pain and the rash. I just want to explain how it feels the bes\nANSWER: It\u2019s kind of like it\u2019s in different spots, and it hurts all along my nerves, not just in one small area. I don\u2019t really notice numbness but the pain is kinda burning all over.",
+    "thinking": "I feel a bit overwhelmed and scared because everything is happening so fast, and I don\u2019t really understand what\u2019s going on with the nerve pain and the rash. I just want to explain how it feels the bes",
+    "answer": "It\u2019s kind of like it\u2019s in different spots, and it hurts all along my nerves, not just in one small area. I don\u2019t really notice numbness but the pain is kinda burning all over.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Type I leprosy reaction"
+  },
+  {
+    "vignette_index": 51,
+    "input": "**PATIENT CHARACTER:** Patient with Type I leprosy reaction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Inflammation of skin lesions\n- Nerve pain\n- Fever\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, with the skin lesions around my elbows and knees becoming red and swollen, and I\u2019ve been feeling a deep, burning pain along the affected nerves. I also developed a low-grade fever that hasn\u2019t gone away. I have a history of leprosy diagnosed about 10 years ago, and my family has a history of the disease. I\u2019m worried because the pain and swelling seem to be getting worse, and I\u2019ve never experienced anything like this before.\"Have you noticed any specific areas where you feel numb, tingling, weakness, or a loss of sensation\u2014either in your arms, legs, hands, or feet\u2014or any signs that your nerves might not be working right?\"baseline",
+    "output": "THINKING: I feel really worried about how everything suddenly got worse. I don't understand much about nerves or sensations, but I do feel a lot of pain and my skin is inflamed, so I just want to tell the docto\nANSWER: No, I don\u2019t think I\u2019ve felt any numbness or tingling or anything like that. It\u2019s mostly just the pain and the swelling, and I feel kind of tired too.",
+    "thinking": "I feel really worried about how everything suddenly got worse. I don't understand much about nerves or sensations, but I do feel a lot of pain and my skin is inflamed, so I just want to tell the docto",
+    "answer": "No, I don\u2019t think I\u2019ve felt any numbness or tingling or anything like that. It\u2019s mostly just the pain and the swelling, and I feel kind of tired too.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Type I leprosy reaction"
+  },
+  {
+    "vignette_index": 51,
+    "input": "**PATIENT CHARACTER:** Patient with Type I leprosy reaction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Inflammation of skin lesions\n- Nerve pain\n- Fever\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, with the skin lesions around my elbows and knees becoming red and swollen, and I\u2019ve been feeling a deep, burning pain along the affected nerves. I also developed a low-grade fever that hasn\u2019t gone away. I have a history of leprosy diagnosed about 10 years ago, and my family has a history of the disease. I\u2019m worried because the pain and swelling seem to be getting worse, and I\u2019ve never experienced anything like this before.\"Can you tell me if there are any parts of your body\u2014like your arms, legs, or hands\u2014that feel numb, weak, or different from usual, or if you've noticed any loss of sensation in certain areas?\"baseline",
+    "output": "THINKING: I'm feeling pretty worried about what\u2019s happening and I don\u2019t really understand all this medical stuff. I just want to tell the doctor what I\u2019m feeling without sounding too complicated or like I know \nANSWER: No, I don\u2019t think so. My arms and legs feel normal, but there\u2019s this burning pain along my nerves, and my skin around my elbows and knees is really swollen and red, if that counts.",
+    "thinking": "I'm feeling pretty worried about what\u2019s happening and I don\u2019t really understand all this medical stuff. I just want to tell the doctor what I\u2019m feeling without sounding too complicated or like I know",
+    "answer": "No, I don\u2019t think so. My arms and legs feel normal, but there\u2019s this burning pain along my nerves, and my skin around my elbows and knees is really swollen and red, if that counts.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Type I leprosy reaction"
+  },
+  {
+    "vignette_index": 51,
+    "input": "**PATIENT CHARACTER:** Patient with Type I leprosy reaction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Inflammation of skin lesions\n- Nerve pain\n- Fever\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, with the skin lesions around my elbows and knees becoming red and swollen, and I\u2019ve been feeling a deep, burning pain along the affected nerves. I also developed a low-grade fever that hasn\u2019t gone away. I have a history of leprosy diagnosed about 10 years ago, and my family has a history of the disease. I\u2019m worried because the pain and swelling seem to be getting worse, and I\u2019ve never experienced anything like this before.Have you noticed any small areas\u2014like in your arms, legs, or hands\u2014that feel numb, tingling, weak, or different from usual, or if you\u2019ve experienced any sensations of numbness or tingling that you didn\u2019t mention before?baseline",
+    "output": "THINKING: I\u2019m a bit worried about the burning pain and the swelling. I don\u2019t really know what the doctor wants to hear, but I do feel like something\u2019s definitely wrong because it\u2019s worse than before and I\u2019ve ne\nANSWER: Um, I haven\u2019t really noticed any numbness or tingling or anything like that, but my skin is really swollen and red, and the pain\u2019s just gotten worse.",
+    "thinking": "I\u2019m a bit worried about the burning pain and the swelling. I don\u2019t really know what the doctor wants to hear, but I do feel like something\u2019s definitely wrong because it\u2019s worse than before and I\u2019ve ne",
+    "answer": "Um, I haven\u2019t really noticed any numbness or tingling or anything like that, but my skin is really swollen and red, and the pain\u2019s just gotten worse.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Type I leprosy reaction"
+  },
+  {
+    "vignette_index": 51,
+    "input": "**PATIENT CHARACTER:** Patient with Type I leprosy reaction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Inflammation of skin lesions\n- Nerve pain\n- Fever\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, with the skin lesions around my elbows and knees becoming red and swollen, and I\u2019ve been feeling a deep, burning pain along the affected nerves. I also developed a low-grade fever that hasn\u2019t gone away. I have a history of leprosy diagnosed about 10 years ago, and my family has a history of the disease. I\u2019m worried because the pain and swelling seem to be getting worse, and I\u2019ve never experienced anything like this before.\"I understand that you don\u2019t feel numbness or tingling much, but sometimes early nerve damage can be subtle. Can I gently check if certain areas, like your hands or feet, feel different from the rest of your skin\u2014perhaps a bit less sensitive or slightly different in sensation\u2014so we can make sure nothing is being missed?\"baseline",
+    "output": "THINKING: I feel a bit unsure about what he's asking. I guess he wants to make sure nothing's different on my skin, but I'm not really sure how I can tell if there's a change. I just want to explain how I'm fee\nANSWER: Uh, yeah, I think so. I mean, I can try, but I don\u2019t know if I\u2019d notice much, really. It all feels kinda the same, I guess.",
+    "thinking": "I feel a bit unsure about what he's asking. I guess he wants to make sure nothing's different on my skin, but I'm not really sure how I can tell if there's a change. I just want to explain how I'm fee",
+    "answer": "Uh, yeah, I think so. I mean, I can try, but I don\u2019t know if I\u2019d notice much, really. It all feels kinda the same, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Type I leprosy reaction"
+  }
+]

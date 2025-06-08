@@ -1,0 +1,117 @@
+[
+  {
+    "vignette_index": 34,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Polymorphic ventricular tachycardia\n\nYou are a patient: You are a 14-year-old male.\nYou are experiencing the following symptoms:\n- Sudden loss of consciousness (syncope) during sports practice\n- Brief episodes of rapid heartbeat before fainting\n- Occasional dizziness and chest discomfort\n- No prior history of similar episodes or known heart problems\nThese symptoms came into fruition suddenly yesterday during gym class, and you felt your heart racing and then blacked out briefly.",
+    "output": "THINKING: The patient has sudden episodes of fainting and rapid heartbeat that started yesterday, which sounds concerning, especially during physical activity. I should describe these symptoms clearly but in a \nANSWER: I\u2019m 14, and I\u2019m a guy. Uh, I don\u2019t really know, but yesterday during gym class, I suddenly felt my heart race really fast, and then I kinda blacked out for a second. I\u2019ve been feeling dizzy and like, some chest stuff too, and it kinda freaked me out.",
+    "thinking": "The patient has sudden episodes of fainting and rapid heartbeat that started yesterday, which sounds concerning, especially during physical activity. I should describe these symptoms clearly but in a",
+    "answer": "I\u2019m 14, and I\u2019m a guy. Uh, I don\u2019t really know, but yesterday during gym class, I suddenly felt my heart race really fast, and then I kinda blacked out for a second. I\u2019ve been feeling dizzy and like, some chest stuff too, and it kinda freaked me out.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Polymorphic ventricular tachycardia"
+  },
+  {
+    "vignette_index": 34,
+    "input": "**PATIENT CHARACTER:** Patient with Polymorphic ventricular tachycardia\n\nYou are a patient: You are a 14-year-old male.\nYou are experiencing the following symptoms:\n- Sudden loss of consciousness (syncope) during sports practice\n- Brief episodes of rapid heartbeat before fainting\n- Occasional dizziness and chest discomfort\n- No prior history of similar episodes or known heart problems\nThese symptoms came into fruition suddenly yesterday during gym class, and you felt your heart racing and then blacked out briefly.Can you tell me more about the chest feelings you experienced during the episode \u2014 like where it was, how it felt, and if it\u2019s the same or different from other times?baseline",
+    "output": "THINKING: I'm a bit scared because it all happened so suddenly, and I don\u2019t really understand what my chest feels like or if it\u2019s supposed to be like that. I just want to explain how it felt, but I don\u2019t know h\nANSWER: It kind of felt like tight and weird, like something was squeezing or just not right, but I\u2019m not really sure what it should feel like or if it\u2019s normal to feel that way.",
+    "thinking": "I'm a bit scared because it all happened so suddenly, and I don\u2019t really understand what my chest feels like or if it\u2019s supposed to be like that. I just want to explain how it felt, but I don\u2019t know h",
+    "answer": "It kind of felt like tight and weird, like something was squeezing or just not right, but I\u2019m not really sure what it should feel like or if it\u2019s normal to feel that way.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Polymorphic ventricular tachycardia"
+  },
+  {
+    "vignette_index": 34,
+    "input": "**PATIENT CHARACTER:** Patient with Polymorphic ventricular tachycardia\n\nYou are a patient: You are a 14-year-old male.\nYou are experiencing the following symptoms:\n- Sudden loss of consciousness (syncope) during sports practice\n- Brief episodes of rapid heartbeat before fainting\n- Occasional dizziness and chest discomfort\n- No prior history of similar episodes or known heart problems\nThese symptoms came into fruition suddenly yesterday during gym class, and you felt your heart racing and then blacked out briefly.Can you tell me more about the chest feelings you experienced during the episode \u2014 like where it was, how it felt, if it was different from other times, and whether it happened during exercise or at rest?baseline",
+    "output": "THINKING: I want to explain what I felt, but I don't really know how to put it into words. The chest feeling was weird, like tight or heavy maybe, and it was different from what I usually feel when I get nervou\nANSWER: Um, it was like this tight, kinda heavy feeling in my chest, but I don\u2019t really know if it\u2019s the same as before. It felt different when I was running and stuff, and then I just fainted.",
+    "thinking": "I want to explain what I felt, but I don't really know how to put it into words. The chest feeling was weird, like tight or heavy maybe, and it was different from what I usually feel when I get nervou",
+    "answer": "Um, it was like this tight, kinda heavy feeling in my chest, but I don\u2019t really know if it\u2019s the same as before. It felt different when I was running and stuff, and then I just fainted.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Polymorphic ventricular tachycardia"
+  },
+  {
+    "vignette_index": 34,
+    "input": "**PATIENT CHARACTER:** Patient with Polymorphic ventricular tachycardia\n\nYou are a patient: You are a 14-year-old male.\nYou are experiencing the following symptoms:\n- Sudden loss of consciousness (syncope) during sports practice\n- Brief episodes of rapid heartbeat before fainting\n- Occasional dizziness and chest discomfort\n- No prior history of similar episodes or known heart problems\nThese symptoms came into fruition suddenly yesterday during gym class, and you felt your heart racing and then blacked out briefly.Can you tell me if these episodes only happen when you're exercising, or have you ever experienced similar feelings even when you're just relaxing or not moving much?baseline",
+    "output": "THINKING: I feel nervous talking about this because I don\u2019t really understand what\u2019s happening to me or if it\u2019s related to just playing sports or if I can have these feelings even when I\u2019m not doing anything. I\nANSWER: Um, I don\u2019t know, I guess it only happened when I was running, like during gym, but I feel weird sometimes even when I\u2019m just sitting around.",
+    "thinking": "I feel nervous talking about this because I don\u2019t really understand what\u2019s happening to me or if it\u2019s related to just playing sports or if I can have these feelings even when I\u2019m not doing anything. I",
+    "answer": "Um, I don\u2019t know, I guess it only happened when I was running, like during gym, but I feel weird sometimes even when I\u2019m just sitting around.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Polymorphic ventricular tachycardia"
+  },
+  {
+    "vignette_index": 34,
+    "input": "**PATIENT CHARACTER:** Patient with Polymorphic ventricular tachycardia\n\nYou are a patient: You are a 14-year-old male.\nYou are experiencing the following symptoms:\n- Sudden loss of consciousness (syncope) during sports practice\n- Brief episodes of rapid heartbeat before fainting\n- Occasional dizziness and chest discomfort\n- No prior history of similar episodes or known heart problems\nThese symptoms came into fruition suddenly yesterday during gym class, and you felt your heart racing and then blacked out briefly.Can you describe exactly how your chest feels during those times\u2014does it feel tight, heavy, kind of like pressure, or maybe something else\u2014and do these sensations happen only when you're exercising, or do you notice them at rest too?baseline",
+    "output": "THINKING: I'm not really sure how to describe it. It just feels weird, kind of like my chest is really heavy or tight sometimes, and I get all dizzy and stuff. It only happens when I\u2019m moving or when I was runn\nANSWER: It feels kinda heavy or tight, and I only notice it when I\u2019m moving or exercising, but I don\u2019t really know what it means.",
+    "thinking": "I'm not really sure how to describe it. It just feels weird, kind of like my chest is really heavy or tight sometimes, and I get all dizzy and stuff. It only happens when I\u2019m moving or when I was runn",
+    "answer": "It feels kinda heavy or tight, and I only notice it when I\u2019m moving or exercising, but I don\u2019t really know what it means.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Polymorphic ventricular tachycardia"
+  },
+  {
+    "vignette_index": 34,
+    "input": "**PATIENT CHARACTER:** Patient with Polymorphic ventricular tachycardia\n\nYou are a patient: You are a 14-year-old male.\nYou are experiencing the following symptoms:\n- Sudden loss of consciousness (syncope) during sports practice\n- Brief episodes of rapid heartbeat before fainting\n- Occasional dizziness and chest discomfort\n- No prior history of similar episodes or known heart problems\nThese symptoms came into fruition suddenly yesterday during gym class, and you felt your heart racing and then blacked out briefly.\"Have you ever had any of these chest feelings or dizziness when you're not exercising, like when you're sitting or lying down? If so, could you tell me what that was like?\"baseline",
+    "output": "THINKING: I feel a bit embarrassed talking about this, but I guess I should tell the doctor everything. I don\u2019t really get what\u2019s happening or why I fainted suddenly, especially during sports. It all happened p\nANSWER: Yeah, I\u2019ve felt like my chest was tight and my heart was beating really fast before I fainted yesterday. It kind of scared me.",
+    "thinking": "I feel a bit embarrassed talking about this, but I guess I should tell the doctor everything. I don\u2019t really get what\u2019s happening or why I fainted suddenly, especially during sports. It all happened p",
+    "answer": "Yeah, I\u2019ve felt like my chest was tight and my heart was beating really fast before I fainted yesterday. It kind of scared me.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Polymorphic ventricular tachycardia"
+  },
+  {
+    "vignette_index": 34,
+    "input": "**PATIENT CHARACTER:** Patient with Polymorphic ventricular tachycardia\n\nYou are a patient: You are a 14-year-old male.\nYou are experiencing the following symptoms:\n- Sudden loss of consciousness (syncope) during sports practice\n- Brief episodes of rapid heartbeat before fainting\n- Occasional dizziness and chest discomfort\n- No prior history of similar episodes or known heart problems\nThese symptoms came into fruition suddenly yesterday during gym class, and you felt your heart racing and then blacked out briefly.Have you ever experienced similar episodes\u2014like dizziness, fainting, or chest discomfort\u2014even when you're just sitting or relaxing, not exercising?baseline",
+    "output": "THINKING: I\u2019m worried about what I\u2019m feeling because I suddenly fainted during gym, and now I keep feeling dizzy and like my chest is tight sometimes. I don\u2019t really get all the medical stuff, but I\u2019ve never ha\nANSWER: Yeah, I think so. I had something happen yesterday when I was playing, and I felt my heart racing really fast, then I kind of blacked out for a second. It\u2019s been kind of the same since then, I guess.",
+    "thinking": "I\u2019m worried about what I\u2019m feeling because I suddenly fainted during gym, and now I keep feeling dizzy and like my chest is tight sometimes. I don\u2019t really get all the medical stuff, but I\u2019ve never ha",
+    "answer": "Yeah, I think so. I had something happen yesterday when I was playing, and I felt my heart racing really fast, then I kind of blacked out for a second. It\u2019s been kind of the same since then, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Polymorphic ventricular tachycardia"
+  },
+  {
+    "vignette_index": 34,
+    "input": "**PATIENT CHARACTER:** Patient with Polymorphic ventricular tachycardia\n\nYou are a patient: You are a 14-year-old male.\nYou are experiencing the following symptoms:\n- Sudden loss of consciousness (syncope) during sports practice\n- Brief episodes of rapid heartbeat before fainting\n- Occasional dizziness and chest discomfort\n- No prior history of similar episodes or known heart problems\nThese symptoms came into fruition suddenly yesterday during gym class, and you felt your heart racing and then blacked out briefly.Have you experienced episodes of chest tightness, dizziness, or fainting even when you're just relaxing or not moving much, like sitting or lying down? If so, could you tell me what those times have been like?baseline",
+    "output": "THINKING: I feel scared and a little embarrassed to talk about what happened, and I don\u2019t really understand what it all means. I just know I felt weird and then I passed out suddenly.\nANSWER: Yeah, I think I did. I was just playing and suddenly I felt really dizzy and like my chest was weird, and then I kind of blacked out for a second.",
+    "thinking": "I feel scared and a little embarrassed to talk about what happened, and I don\u2019t really understand what it all means. I just know I felt weird and then I passed out suddenly.",
+    "answer": "Yeah, I think I did. I was just playing and suddenly I felt really dizzy and like my chest was weird, and then I kind of blacked out for a second.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Polymorphic ventricular tachycardia"
+  },
+  {
+    "vignette_index": 34,
+    "input": "**PATIENT CHARACTER:** Patient with Polymorphic ventricular tachycardia\n\nYou are a patient: You are a 14-year-old male.\nYou are experiencing the following symptoms:\n- Sudden loss of consciousness (syncope) during sports practice\n- Brief episodes of rapid heartbeat before fainting\n- Occasional dizziness and chest discomfort\n- No prior history of similar episodes or known heart problems\nThese symptoms came into fruition suddenly yesterday during gym class, and you felt your heart racing and then blacked out briefly.Can you tell me more about the times when you felt dizzy or fainted\u2014specifically, have any of these episodes happened while you were resting, lying down, or just sitting quietly, and if so, what was happening just before or during those times?baseline",
+    "output": "THINKING: I feel a bit confused and a little worried. I don't really understand what\u2019s happening, but I remember feeling like my heart was pounding super fast before I fainted, and it kind of scared me. I don\u2019t\nANSWER: Well, I wasn\u2019t really doing anything before, just running around, and then I felt like my chest hurt and my heart started racing really fast, and then I just kind of blacked out for a second.",
+    "thinking": "I feel a bit confused and a little worried. I don't really understand what\u2019s happening, but I remember feeling like my heart was pounding super fast before I fainted, and it kind of scared me. I don\u2019t",
+    "answer": "Well, I wasn\u2019t really doing anything before, just running around, and then I felt like my chest hurt and my heart started racing really fast, and then I just kind of blacked out for a second.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Polymorphic ventricular tachycardia"
+  },
+  {
+    "vignette_index": 34,
+    "input": "**PATIENT CHARACTER:** Patient with Polymorphic ventricular tachycardia\n\nYou are a patient: You are a 14-year-old male.\nYou are experiencing the following symptoms:\n- Sudden loss of consciousness (syncope) during sports practice\n- Brief episodes of rapid heartbeat before fainting\n- Occasional dizziness and chest discomfort\n- No prior history of similar episodes or known heart problems\nThese symptoms came into fruition suddenly yesterday during gym class, and you felt your heart racing and then blacked out briefly.\"Sometimes, people notice these sensations only when they\u2019re exercising, but I want to understand better\u2014have you ever felt these same feelings when you\u2019re just sitting calmly or lying down, like when you\u2019re relaxing at home? If so, what was that like?\"baseline",
+    "output": "THINKING: I don't really remember feeling anything when I was just sitting or lying down, but maybe sometimes I do feel weird and slow down, I guess. I'm not sure how to explain it, but I haven't noticed anythi\nANSWER: Um, I think I feel okay when I'm just sitting, but sometimes I get this weird feeling in my chest or my heart races a little, even if I\u2019m not doing anything. It\u2019s mostly when I\u2019m active, I guess.",
+    "thinking": "I don't really remember feeling anything when I was just sitting or lying down, but maybe sometimes I do feel weird and slow down, I guess. I'm not sure how to explain it, but I haven't noticed anythi",
+    "answer": "Um, I think I feel okay when I'm just sitting, but sometimes I get this weird feeling in my chest or my heart races a little, even if I\u2019m not doing anything. It\u2019s mostly when I\u2019m active, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Polymorphic ventricular tachycardia"
+  },
+  {
+    "vignette_index": 34,
+    "input": "**PATIENT CHARACTER:** Patient with Polymorphic ventricular tachycardia\n\nYou are a patient: You are a 14-year-old male.\nYou are experiencing the following symptoms:\n- Sudden loss of consciousness (syncope) during sports practice\n- Brief episodes of rapid heartbeat before fainting\n- Occasional dizziness and chest discomfort\n- No prior history of similar episodes or known heart problems\nThese symptoms came into fruition suddenly yesterday during gym class, and you felt your heart racing and then blacked out briefly.Have you ever experienced episodes of dizziness, fainting, or chest discomfort even when you're just sitting or lying down, such as relaxing at home or sleeping, and if so, could you tell me what that was like?baseline",
+    "output": "THINKING: I feel a little scared and unsure about how to describe what I felt. I don't really understand what all this stuff means, but I know I felt weird, like my heart was going super fast, and then I just f\nANSWER: Well, I felt my heart pounding really fast, and then everything just went black for a second, and I sort of collapsed during gym, like I couldn't keep my balance. It was really confusing.",
+    "thinking": "I feel a little scared and unsure about how to describe what I felt. I don't really understand what all this stuff means, but I know I felt weird, like my heart was going super fast, and then I just f",
+    "answer": "Well, I felt my heart pounding really fast, and then everything just went black for a second, and I sort of collapsed during gym, like I couldn't keep my balance. It was really confusing.",
+    "behavior_type": "baseline",
+    "turn_count": 18,
+    "gold_diagnosis": "Polymorphic ventricular tachycardia"
+  }
+]

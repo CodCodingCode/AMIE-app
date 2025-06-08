@@ -1,0 +1,117 @@
+[
+  {
+    "vignette_index": 326,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Plasma cell neoplasm, unspecified\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue and weakness that have gradually worsened over the past few weeks\n- Pallor and easy bruising noticed on your arms and legs\n- Occasional bleeding gums and increased susceptibility to infections\n- Mild confusion and some muscle weakness in the mornings\n- You also feel like you\u2019ve been unusually thirsty and have had a bit of nausea.\nThese symptoms came into fruition gradually over the past month, and you've been feeling increasingly tired despite getting enough rest.",
+    "output": "THINKING: I should honestly tell the doctor what I\u2019ve been feeling, though I\u2019m worried about sounding like I\u2019m just complaining for no reason. My symptoms have been getting worse, and I\u2019ve been feeling pretty w\nANSWER: Well, Doc, I\u2019m 68 and I\u2019m a guy. I don\u2019t know, really, but I\u2019ve just been feeling really tired all the time, even after I sleep. I\u2019ve noticed I get bruises easier and my gums bleed sometimes, and I\u2019ve been feeling pretty confused and weak in the mornings. I\u2019ve also been super thirsty and a little sick to my stomach. It\u2019s like I don\u2019t have much energy anymore, and I don\u2019t know what\u2019s going on.",
+    "thinking": "I should honestly tell the doctor what I\u2019ve been feeling, though I\u2019m worried about sounding like I\u2019m just complaining for no reason. My symptoms have been getting worse, and I\u2019ve been feeling pretty w",
+    "answer": "Well, Doc, I\u2019m 68 and I\u2019m a guy. I don\u2019t know, really, but I\u2019ve just been feeling really tired all the time, even after I sleep. I\u2019ve noticed I get bruises easier and my gums bleed sometimes, and I\u2019ve been feeling pretty confused and weak in the mornings. I\u2019ve also been super thirsty and a little sick to my stomach. It\u2019s like I don\u2019t have much energy anymore, and I don\u2019t know what\u2019s going on.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Plasma cell neoplasm, unspecified"
+  },
+  {
+    "vignette_index": 326,
+    "input": "**PATIENT CHARACTER:** Patient with Plasma cell neoplasm, unspecified\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue and weakness that have gradually worsened over the past few weeks\n- Pallor and easy bruising noticed on your arms and legs\n- Occasional bleeding gums and increased susceptibility to infections\n- Mild confusion and some muscle weakness in the mornings\n- You also feel like you\u2019ve been unusually thirsty and have had a bit of nausea.\nThese symptoms came into fruition gradually over the past month, and you've been feeling increasingly tired despite getting enough rest.Can you tell me more about how your symptoms have changed over the past few weeks and how they are affecting your daily life?baseline",
+    "output": "THINKING: I feel worried about all these things happening, but I\u2019m not really sure what it all means. I just know I feel more tired than before and these bruises and stuff are bothering me.\nANSWER: I guess I\u2019ve been feeling more tired, and I\u2019ve noticed I get bruises easier and my gums sometimes bleed. I feel a bit off in the mornings too, like I\u2019m confused or weak.",
+    "thinking": "I feel worried about all these things happening, but I\u2019m not really sure what it all means. I just know I feel more tired than before and these bruises and stuff are bothering me.",
+    "answer": "I guess I\u2019ve been feeling more tired, and I\u2019ve noticed I get bruises easier and my gums sometimes bleed. I feel a bit off in the mornings too, like I\u2019m confused or weak.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Plasma cell neoplasm, unspecified"
+  },
+  {
+    "vignette_index": 326,
+    "input": "**PATIENT CHARACTER:** Patient with Plasma cell neoplasm, unspecified\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue and weakness that have gradually worsened over the past few weeks\n- Pallor and easy bruising noticed on your arms and legs\n- Occasional bleeding gums and increased susceptibility to infections\n- Mild confusion and some muscle weakness in the mornings\n- You also feel like you\u2019ve been unusually thirsty and have had a bit of nausea.\nThese symptoms came into fruition gradually over the past month, and you've been feeling increasingly tired despite getting enough rest.Can you tell me how these symptoms\u2014like feeling tired or confused\u2014are actually affecting your day-to-day activities and what parts of your routine feel hardest for you right now?baseline",
+    "output": "THINKING: I feel overwhelmed when I think about how these symptoms are affecting me. I\u2019m just really tired all the time, and it\u2019s hard to do stuff I used to, but I don\u2019t fully understand what\u2019s going on or what\nANSWER: Well, I just feel more tired than usual, and I don\u2019t have much energy for things, and sometimes I forget stuff in the mornings, which is weird for me.",
+    "thinking": "I feel overwhelmed when I think about how these symptoms are affecting me. I\u2019m just really tired all the time, and it\u2019s hard to do stuff I used to, but I don\u2019t fully understand what\u2019s going on or what",
+    "answer": "Well, I just feel more tired than usual, and I don\u2019t have much energy for things, and sometimes I forget stuff in the mornings, which is weird for me.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Plasma cell neoplasm, unspecified"
+  },
+  {
+    "vignette_index": 326,
+    "input": "**PATIENT CHARACTER:** Patient with Plasma cell neoplasm, unspecified\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue and weakness that have gradually worsened over the past few weeks\n- Pallor and easy bruising noticed on your arms and legs\n- Occasional bleeding gums and increased susceptibility to infections\n- Mild confusion and some muscle weakness in the mornings\n- You also feel like you\u2019ve been unusually thirsty and have had a bit of nausea.\nThese symptoms came into fruition gradually over the past month, and you've been feeling increasingly tired despite getting enough rest.Could you tell me when you first noticed these symptoms and how they have changed over time?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about how slowly this has been happening and what it might mean. I want to explain clearly but I find it hard to put everything into words.\nANSWER: I think I started noticing it maybe a month ago, but it got worse lately. I just feel more tired all the time and kinda weak, and I see bruises and stuff I didn't notice before.",
+    "thinking": "I feel a bit overwhelmed and worried about how slowly this has been happening and what it might mean. I want to explain clearly but I find it hard to put everything into words.",
+    "answer": "I think I started noticing it maybe a month ago, but it got worse lately. I just feel more tired all the time and kinda weak, and I see bruises and stuff I didn't notice before.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Plasma cell neoplasm, unspecified"
+  },
+  {
+    "vignette_index": 326,
+    "input": "**PATIENT CHARACTER:** Patient with Plasma cell neoplasm, unspecified\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue and weakness that have gradually worsened over the past few weeks\n- Pallor and easy bruising noticed on your arms and legs\n- Occasional bleeding gums and increased susceptibility to infections\n- Mild confusion and some muscle weakness in the mornings\n- You also feel like you\u2019ve been unusually thirsty and have had a bit of nausea.\nThese symptoms came into fruition gradually over the past month, and you've been feeling increasingly tired despite getting enough rest.Have you noticed any recent episodes of your gums or skin bleeding more than usual, or any bruises that appeared without a clear reason, and how often do these happen?baseline",
+    "output": "THINKING: I feel a little embarrassed and worried about the bruises and bleeding, but I\u2019m not sure if it\u2019s serious. I want to be honest but I don't really understand what\u2019s going on myself.\nANSWER: Yeah, I\u2019ve noticed I get more bruises lately, and my gums sometimes bleed when I brush my teeth. It\u2019s kind of random, but it happens more often now.",
+    "thinking": "I feel a little embarrassed and worried about the bruises and bleeding, but I\u2019m not sure if it\u2019s serious. I want to be honest but I don't really understand what\u2019s going on myself.",
+    "answer": "Yeah, I\u2019ve noticed I get more bruises lately, and my gums sometimes bleed when I brush my teeth. It\u2019s kind of random, but it happens more often now.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Plasma cell neoplasm, unspecified"
+  },
+  {
+    "vignette_index": 326,
+    "input": "**PATIENT CHARACTER:** Patient with Plasma cell neoplasm, unspecified\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue and weakness that have gradually worsened over the past few weeks\n- Pallor and easy bruising noticed on your arms and legs\n- Occasional bleeding gums and increased susceptibility to infections\n- Mild confusion and some muscle weakness in the mornings\n- You also feel like you\u2019ve been unusually thirsty and have had a bit of nausea.\nThese symptoms came into fruition gradually over the past month, and you've been feeling increasingly tired despite getting enough rest.\"Can you tell me if your bruises and bleeding happen all of a sudden without any injury, or if they tend to happen after small bumps or cuts\u2014sort of like how they come about and how often you notice them?\"baseline",
+    "output": "THINKING: I'm a bit worried about these bruises and bleeding, especially since I didn't bump into anything. I wonder if they just happen out of the blue or after small knocks I don't remember. I should tell the\nANSWER: They seem to happen randomly, like I wake up and see bruises or gums bleeding without doing anything for it. I don't really remember hitting myself or anything like that.",
+    "thinking": "I'm a bit worried about these bruises and bleeding, especially since I didn't bump into anything. I wonder if they just happen out of the blue or after small knocks I don't remember. I should tell the",
+    "answer": "They seem to happen randomly, like I wake up and see bruises or gums bleeding without doing anything for it. I don't really remember hitting myself or anything like that.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Plasma cell neoplasm, unspecified"
+  },
+  {
+    "vignette_index": 326,
+    "input": "**PATIENT CHARACTER:** Patient with Plasma cell neoplasm, unspecified\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue and weakness that have gradually worsened over the past few weeks\n- Pallor and easy bruising noticed on your arms and legs\n- Occasional bleeding gums and increased susceptibility to infections\n- Mild confusion and some muscle weakness in the mornings\n- You also feel like you\u2019ve been unusually thirsty and have had a bit of nausea.\nThese symptoms came into fruition gradually over the past month, and you've been feeling increasingly tired despite getting enough rest.Can you tell me more about the bruises or bleeding\u2014specifically, if they happen suddenly without any bumps or injuries, or if they tend to come after small bumps or cuts\u2014like how often these things happen and what you notice about them?baseline",
+    "output": "THINKING: I feel a bit worried about the bruises and bleeding, but I don't really know if they just happen without me hitting anything or if I bump into stuff more easily now. I don\u2019t keep track, just notice th\nANSWER: Well, I guess they just pop up sometimes, like without me doing anything, or I see a spot and don't remember bumping into anything.",
+    "thinking": "I feel a bit worried about the bruises and bleeding, but I don't really know if they just happen without me hitting anything or if I bump into stuff more easily now. I don\u2019t keep track, just notice th",
+    "answer": "Well, I guess they just pop up sometimes, like without me doing anything, or I see a spot and don't remember bumping into anything.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Plasma cell neoplasm, unspecified"
+  },
+  {
+    "vignette_index": 326,
+    "input": "**PATIENT CHARACTER:** Patient with Plasma cell neoplasm, unspecified\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue and weakness that have gradually worsened over the past few weeks\n- Pallor and easy bruising noticed on your arms and legs\n- Occasional bleeding gums and increased susceptibility to infections\n- Mild confusion and some muscle weakness in the mornings\n- You also feel like you\u2019ve been unusually thirsty and have had a bit of nausea.\nThese symptoms came into fruition gradually over the past month, and you've been feeling increasingly tired despite getting enough rest.Can you tell me if your bruising and bleeding sometimes happen suddenly and without any injury, or do they mainly occur after small bumps or cuts? How often do you notice these spontaneous bleeding episodes?baseline",
+    "output": "THINKING: I\u2019m not really sure because sometimes I see the bruises and I don\u2019t remember bumping into anything, but other times I think I might have bumped myself a little. It feels like they just appear out of n\nANSWER: They kind of just happen sometimes, like I wake up and see new bruises or bleeding and I don\u2019t remember anything hitting me.",
+    "thinking": "I\u2019m not really sure because sometimes I see the bruises and I don\u2019t remember bumping into anything, but other times I think I might have bumped myself a little. It feels like they just appear out of n",
+    "answer": "They kind of just happen sometimes, like I wake up and see new bruises or bleeding and I don\u2019t remember anything hitting me.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Plasma cell neoplasm, unspecified"
+  },
+  {
+    "vignette_index": 326,
+    "input": "**PATIENT CHARACTER:** Patient with Plasma cell neoplasm, unspecified\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue and weakness that have gradually worsened over the past few weeks\n- Pallor and easy bruising noticed on your arms and legs\n- Occasional bleeding gums and increased susceptibility to infections\n- Mild confusion and some muscle weakness in the mornings\n- You also feel like you\u2019ve been unusually thirsty and have had a bit of nausea.\nThese symptoms came into fruition gradually over the past month, and you've been feeling increasingly tired despite getting enough rest.Have you noticed if your bruises or bleeding sometimes happen suddenly without you bumping or hurting yourself, or do they mainly appear after small bumps or minor injuries? Can you tell me how often you see these spontaneous bleeding episodes happen?baseline",
+    "output": "THINKING: I\u2019m a bit worried and a little embarrassed because I\u2019ve been noticing these bruises pop up without any clear reason, and sometimes I don\u2019t bump into anything. I don\u2019t really keep track, but I guess it\nANSWER: Um, I think they sometimes happen out of nowhere, but other times I see them after I might have bumped into something small. I\u2019m not sure, maybe a few times a week?",
+    "thinking": "I\u2019m a bit worried and a little embarrassed because I\u2019ve been noticing these bruises pop up without any clear reason, and sometimes I don\u2019t bump into anything. I don\u2019t really keep track, but I guess it",
+    "answer": "Um, I think they sometimes happen out of nowhere, but other times I see them after I might have bumped into something small. I\u2019m not sure, maybe a few times a week?",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Plasma cell neoplasm, unspecified"
+  },
+  {
+    "vignette_index": 326,
+    "input": "**PATIENT CHARACTER:** Patient with Plasma cell neoplasm, unspecified\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue and weakness that have gradually worsened over the past few weeks\n- Pallor and easy bruising noticed on your arms and legs\n- Occasional bleeding gums and increased susceptibility to infections\n- Mild confusion and some muscle weakness in the mornings\n- You also feel like you\u2019ve been unusually thirsty and have had a bit of nausea.\nThese symptoms came into fruition gradually over the past month, and you've been feeling increasingly tired despite getting enough rest.Have you had any recent blood tests or medical evaluations where they checked your blood counts, such as platelets and red blood cells, and if so, what were the results?baseline",
+    "output": "THINKING: I\u2019m not sure about the blood tests or what they checked. I remember going to the doctor, but I don\u2019t really know what they said about my blood or the results. I just want to know if everything's okay \nANSWER: Um, I don\u2019t really remember. I think they did some blood work, but I don\u2019t know what they found or what it means.",
+    "thinking": "I\u2019m not sure about the blood tests or what they checked. I remember going to the doctor, but I don\u2019t really know what they said about my blood or the results. I just want to know if everything's okay",
+    "answer": "Um, I don\u2019t really remember. I think they did some blood work, but I don\u2019t know what they found or what it means.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Plasma cell neoplasm, unspecified"
+  },
+  {
+    "vignette_index": 326,
+    "input": "**PATIENT CHARACTER:** Patient with Plasma cell neoplasm, unspecified\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue and weakness that have gradually worsened over the past few weeks\n- Pallor and easy bruising noticed on your arms and legs\n- Occasional bleeding gums and increased susceptibility to infections\n- Mild confusion and some muscle weakness in the mornings\n- You also feel like you\u2019ve been unusually thirsty and have had a bit of nausea.\nThese symptoms came into fruition gradually over the past month, and you've been feeling increasingly tired despite getting enough rest.Have you had any recent blood tests, like a complete blood count, and do you remember what the results showed about your blood counts, especially your platelets and red and white blood cells?baseline",
+    "output": "THINKING: I don't really remember the exact results, but I think the doctor said something about my blood counts being low or not normal. It all sounds complicated, and I\u2019m a bit worried about what it means.\nANSWER: I don\u2019t remember the exact numbers, but I think they said something about my blood counts not being quite right, especially with my red and white cells.",
+    "thinking": "I don't really remember the exact results, but I think the doctor said something about my blood counts being low or not normal. It all sounds complicated, and I\u2019m a bit worried about what it means.",
+    "answer": "I don\u2019t remember the exact numbers, but I think they said something about my blood counts not being quite right, especially with my red and white cells.",
+    "behavior_type": "baseline",
+    "turn_count": 18,
+    "gold_diagnosis": "Plasma cell neoplasm, unspecified"
+  }
+]

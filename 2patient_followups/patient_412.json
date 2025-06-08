@@ -1,0 +1,106 @@
+[
+  {
+    "vignette_index": 412,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Nocturnal and diurnal enuresis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 9 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Repeated bed-wetting, wetting the bed almost every night\n- Wetting your clothes during the day, especially when you're playing or going out\n- Involuntary urination during sleep, sometimes waking up soaked\n- Wetting the bed upon waking in the morning\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually increasing in frequency. You notice that you often wet yourself even when you\u2019re not feeling full or needing to go, and sometimes it happens during the day when you're playing or excited. You also find that you sleep very deeply, so it's hard to wake up if you need to go. Your family has a history of bed-wetting, and you sometimes feel anxious or stressed about it, especially at school.",
+    "output": "THINKING: I should tell the doctor what's been happening, but I might sound like I'm overreacting or that it's not that bad. I want to be honest but not make a big fuss, and I hope they can help. I also want to\nANSWER: Um, well, I\u2019m just, uh, 9 years old, and I\u2019m a boy. I\u2019ve been wetting the bed a lot at night, like almost every night, and sometimes I wet myself during the day, especially when I\u2019m playing or excited. It\u2019s been happening for like three months, I think. I don\u2019t wanna make a big deal, but it\u2019s been bothering me, and my family said I should come see someone about it.",
+    "thinking": "I should tell the doctor what's been happening, but I might sound like I'm overreacting or that it's not that bad. I want to be honest but not make a big fuss, and I hope they can help. I also want to",
+    "answer": "Um, well, I\u2019m just, uh, 9 years old, and I\u2019m a boy. I\u2019ve been wetting the bed a lot at night, like almost every night, and sometimes I wet myself during the day, especially when I\u2019m playing or excited. It\u2019s been happening for like three months, I think. I don\u2019t wanna make a big deal, but it\u2019s been bothering me, and my family said I should come see someone about it.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Nocturnal and diurnal enuresis"
+  },
+  {
+    "vignette_index": 412,
+    "input": "**PATIENT CHARACTER:** Patient with Nocturnal and diurnal enuresis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 9 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Repeated bed-wetting, wetting the bed almost every night\n- Wetting your clothes during the day, especially when you're playing or going out\n- Involuntary urination during sleep, sometimes waking up soaked\n- Wetting the bed upon waking in the morning\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually increasing in frequency. You notice that you often wet yourself even when you\u2019re not feeling full or needing to go, and sometimes it happens during the day when you're playing or excited. You also find that you sleep very deeply, so it's hard to wake up if you need to go. Your family has a history of bed-wetting, and you sometimes feel anxious or stressed about it, especially at school.How do you feel about your bedwetting and daytime incontinence\u2014does it bother you or make you worried about anything?stoic_minimizer",
+    "output": "THINKING: I don\u2019t really want to make a big deal out of this, but I guess it\u2019s awkward and I\u2019ve been worried about it. It\u2019s been going on for a little while and I don\u2019t know what to do about it.\nANSWER: It\u2019s probably nothing, but yeah, it kinda makes me embarrassed and I don\u2019t want to talk about it too much.",
+    "thinking": "I don\u2019t really want to make a big deal out of this, but I guess it\u2019s awkward and I\u2019ve been worried about it. It\u2019s been going on for a little while and I don\u2019t know what to do about it.",
+    "answer": "It\u2019s probably nothing, but yeah, it kinda makes me embarrassed and I don\u2019t want to talk about it too much.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Nocturnal and diurnal enuresis"
+  },
+  {
+    "vignette_index": 412,
+    "input": "**PATIENT CHARACTER:** Patient with Nocturnal and diurnal enuresis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 9 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Repeated bed-wetting, wetting the bed almost every night\n- Wetting your clothes during the day, especially when you're playing or going out\n- Involuntary urination during sleep, sometimes waking up soaked\n- Wetting the bed upon waking in the morning\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually increasing in frequency. You notice that you often wet yourself even when you\u2019re not feeling full or needing to go, and sometimes it happens during the day when you're playing or excited. You also find that you sleep very deeply, so it's hard to wake up if you need to go. Your family has a history of bed-wetting, and you sometimes feel anxious or stressed about it, especially at school.Can you tell me how all of this has been making you feel, especially when you're at school or with friends?stoic_minimizer",
+    "output": "THINKING: I don't really want to make a big deal out of it. It's been going on for a while, but I guess it doesn't bother me too much. I just don\u2019t like it when I wet myself when I\u2019m playing or sleeping.\nANSWER: Um, I guess I feel okay, but I don\u2019t know, sometimes I get kinda embarrassed or worried about it, especially at school. But I try not to think about it too much.",
+    "thinking": "I don't really want to make a big deal out of it. It's been going on for a while, but I guess it doesn't bother me too much. I just don\u2019t like it when I wet myself when I\u2019m playing or sleeping.",
+    "answer": "Um, I guess I feel okay, but I don\u2019t know, sometimes I get kinda embarrassed or worried about it, especially at school. But I try not to think about it too much.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Nocturnal and diurnal enuresis"
+  },
+  {
+    "vignette_index": 412,
+    "input": "**PATIENT CHARACTER:** Patient with Nocturnal and diurnal enuresis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 9 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Repeated bed-wetting, wetting the bed almost every night\n- Wetting your clothes during the day, especially when you're playing or going out\n- Involuntary urination during sleep, sometimes waking up soaked\n- Wetting the bed upon waking in the morning\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually increasing in frequency. You notice that you often wet yourself even when you\u2019re not feeling full or needing to go, and sometimes it happens during the day when you're playing or excited. You also find that you sleep very deeply, so it's hard to wake up if you need to go. Your family has a history of bed-wetting, and you sometimes feel anxious or stressed about it, especially at school.\"Can you tell me how your bedwetting and accidents during the day are affecting you at school, with friends, or at home\u2014like how it makes you feel or if anything has changed for you lately?\"stoic_minimizer",
+    "output": "THINKING: I feel a bit embarrassed talking about this, but I guess I should tell the doctor how it's been for me. I don't want to make a big deal out of it, but it\u2019s been pretty constant and bothering me someti\nANSWER: Well, I\u2019ve been wetting my bed almost every night and sometimes I pee my pants during the day when I\u2019m playing or excited. It\u2019s been like this for a few months now, and I kinda feel stuck with it.",
+    "thinking": "I feel a bit embarrassed talking about this, but I guess I should tell the doctor how it's been for me. I don't want to make a big deal out of it, but it\u2019s been pretty constant and bothering me someti",
+    "answer": "Well, I\u2019ve been wetting my bed almost every night and sometimes I pee my pants during the day when I\u2019m playing or excited. It\u2019s been like this for a few months now, and I kinda feel stuck with it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Nocturnal and diurnal enuresis"
+  },
+  {
+    "vignette_index": 412,
+    "input": "**PATIENT CHARACTER:** Patient with Nocturnal and diurnal enuresis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 9 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Repeated bed-wetting, wetting the bed almost every night\n- Wetting your clothes during the day, especially when you're playing or going out\n- Involuntary urination during sleep, sometimes waking up soaked\n- Wetting the bed upon waking in the morning\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually increasing in frequency. You notice that you often wet yourself even when you\u2019re not feeling full or needing to go, and sometimes it happens during the day when you're playing or excited. You also find that you sleep very deeply, so it's hard to wake up if you need to go. Your family has a history of bed-wetting, and you sometimes feel anxious or stressed about it, especially at school.Can you tell me if there are certain times or situations\u2014like when you're feeling really nervous, worried, or upset\u2014that you notice your bedwetting or accidents happening more often?stoic_minimizer",
+    "output": "THINKING: I don't really get why I keep wetting myself, and I guess I notice it more when I'm feeling kind of nervous or when I\u2019m just really busy playing. I don\u2019t want to make a big deal out of it, though.\nANSWER: I think I probably do it more when I\u2019m nervous or excited, but I don\u2019t know, I\u2019ve been doing it a lot, so I just try to ignore it.",
+    "thinking": "I don't really get why I keep wetting myself, and I guess I notice it more when I'm feeling kind of nervous or when I\u2019m just really busy playing. I don\u2019t want to make a big deal out of it, though.",
+    "answer": "I think I probably do it more when I\u2019m nervous or excited, but I don\u2019t know, I\u2019ve been doing it a lot, so I just try to ignore it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Nocturnal and diurnal enuresis"
+  },
+  {
+    "vignette_index": 412,
+    "input": "**PATIENT CHARACTER:** Patient with Nocturnal and diurnal enuresis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 9 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Repeated bed-wetting, wetting the bed almost every night\n- Wetting your clothes during the day, especially when you're playing or going out\n- Involuntary urination during sleep, sometimes waking up soaked\n- Wetting the bed upon waking in the morning\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually increasing in frequency. You notice that you often wet yourself even when you\u2019re not feeling full or needing to go, and sometimes it happens during the day when you're playing or excited. You also find that you sleep very deeply, so it's hard to wake up if you need to go. Your family has a history of bed-wetting, and you sometimes feel anxious or stressed about it, especially at school.Can you tell me if, when you're having an episode during physical activity or excitement, you feel like you really need to go to the bathroom or notice any sort of feeling that you have to pee right now?stoic_minimizer",
+    "output": "THINKING: I don't really feel like I need to go to the bathroom or anything during activities, but I guess sometimes I just... wet myself anyway. It\u2019s probably nothing, but yeah, I\u2019ve had this a while now.\nANSWER: Uh, no, I don\u2019t really feel like I gotta go when I\u2019m playing or anything, but I still end up wet sometimes. It\u2019s been like that for a while.",
+    "thinking": "I don't really feel like I need to go to the bathroom or anything during activities, but I guess sometimes I just... wet myself anyway. It\u2019s probably nothing, but yeah, I\u2019ve had this a while now.",
+    "answer": "Uh, no, I don\u2019t really feel like I gotta go when I\u2019m playing or anything, but I still end up wet sometimes. It\u2019s been like that for a while.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Nocturnal and diurnal enuresis"
+  },
+  {
+    "vignette_index": 412,
+    "input": "**PATIENT CHARACTER:** Patient with Nocturnal and diurnal enuresis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 9 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Repeated bed-wetting, wetting the bed almost every night\n- Wetting your clothes during the day, especially when you're playing or going out\n- Involuntary urination during sleep, sometimes waking up soaked\n- Wetting the bed upon waking in the morning\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually increasing in frequency. You notice that you often wet yourself even when you\u2019re not feeling full or needing to go, and sometimes it happens during the day when you're playing or excited. You also find that you sleep very deeply, so it's hard to wake up if you need to go. Your family has a history of bed-wetting, and you sometimes feel anxious or stressed about it, especially at school.Can you tell me what you feel inside or think about when you have an accident\u2014like when you're wet during the day or at night\u2014and how it makes you feel afterwards?stoic_minimizer",
+    "output": "THINKING: I feel a little embarrassed and confused about why it's happening. I don't want to make a big deal, but it's been going on for a while and I keep wetting myself even when I don't think I have to go.\nANSWER: Well, I guess I just feel kind of surprised and a little worried when it happens, but I try not to think about it too much. It\u2019s probably nothing, I\u2019ve had stuff like this before.",
+    "thinking": "I feel a little embarrassed and confused about why it's happening. I don't want to make a big deal, but it's been going on for a while and I keep wetting myself even when I don't think I have to go.",
+    "answer": "Well, I guess I just feel kind of surprised and a little worried when it happens, but I try not to think about it too much. It\u2019s probably nothing, I\u2019ve had stuff like this before.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Nocturnal and diurnal enuresis"
+  },
+  {
+    "vignette_index": 412,
+    "input": "**PATIENT CHARACTER:** Patient with Nocturnal and diurnal enuresis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 9 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Repeated bed-wetting, wetting the bed almost every night\n- Wetting your clothes during the day, especially when you're playing or going out\n- Involuntary urination during sleep, sometimes waking up soaked\n- Wetting the bed upon waking in the morning\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually increasing in frequency. You notice that you often wet yourself even when you\u2019re not feeling full or needing to go, and sometimes it happens during the day when you're playing or excited. You also find that you sleep very deeply, so it's hard to wake up if you need to go. Your family has a history of bed-wetting, and you sometimes feel anxious or stressed about it, especially at school.Can you tell me if you ever notice feeling like you need to go to the bathroom before having an accident, or if sometimes you don\u2019t realize you\u2019ve been wet until someone tells you?stoic_minimizer",
+    "output": "THINKING: I feel a little embarrassed about it, but I guess I should tell the doctor. It's been happening for a while now and I don\u2019t really understand why. It\u2019s kind of scary because I don\u2019t always wake up whe\nANSWER: Umm, sometimes I don\u2019t really notice I\u2019ve wet myself until someone sees or says something, and other times I kinda knew I needed to go but I was sleeping too deep.",
+    "thinking": "I feel a little embarrassed about it, but I guess I should tell the doctor. It's been happening for a while now and I don\u2019t really understand why. It\u2019s kind of scary because I don\u2019t always wake up whe",
+    "answer": "Umm, sometimes I don\u2019t really notice I\u2019ve wet myself until someone sees or says something, and other times I kinda knew I needed to go but I was sleeping too deep.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Nocturnal and diurnal enuresis"
+  },
+  {
+    "vignette_index": 412,
+    "input": "**PATIENT CHARACTER:** Patient with Nocturnal and diurnal enuresis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 9 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Repeated bed-wetting, wetting the bed almost every night\n- Wetting your clothes during the day, especially when you're playing or going out\n- Involuntary urination during sleep, sometimes waking up soaked\n- Wetting the bed upon waking in the morning\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually increasing in frequency. You notice that you often wet yourself even when you\u2019re not feeling full or needing to go, and sometimes it happens during the day when you're playing or excited. You also find that you sleep very deeply, so it's hard to wake up if you need to go. Your family has a history of bed-wetting, and you sometimes feel anxious or stressed about it, especially at school.Can you tell me if, during the day, you ever feel like your bladder is full before you have an accident\u2014that you notice a warning sign\u2014or do you sometimes not realize you\u2019ve gone potty until someone reminds you?stoic_minimizer",
+    "output": "THINKING: I don\u2019t really know if I feel like I need to go or if I just go by accident. I usually don\u2019t notice until I\u2019m already wet or someone tells me I wet myself.\nANSWER: I don\u2019t really notice before I start wetting, I just do it and then someone has to remind me.",
+    "thinking": "I don\u2019t really know if I feel like I need to go or if I just go by accident. I usually don\u2019t notice until I\u2019m already wet or someone tells me I wet myself.",
+    "answer": "I don\u2019t really notice before I start wetting, I just do it and then someone has to remind me.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 14,
+    "gold_diagnosis": "Nocturnal and diurnal enuresis"
+  }
+]

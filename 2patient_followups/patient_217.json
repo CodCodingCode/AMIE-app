@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 217,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nYou are a patient: You are a 58-year-old woman.\nYou are experiencing the following symptoms:\n- Difficulty maintaining your balance when walking, often feeling off-balance or unsteady\n- Occasional dizziness and a sensation of spinning, especially when turning your head quickly\n- Involuntary eye movements (nystagmus) that you notice when trying to focus on objects\n- Mild weakness and decreased muscle tone in your arms and legs, making fine movements harder\n- Double vision that has gradually become more noticeable over the past few months\nThese symptoms came into fruition gradually over the past six months, starting with subtle balance issues and evolving into more noticeable coordination problems.",
+    "output": "THINKING: I should tell the doctor about how things have been getting worse over time and how I\u2019ve been feeling more unsteady and off-balance. I need to mention the dizziness and eye movements, and how the doub\nANSWER: Well, I guess I\u2019ve just been feeling very unsteady when I walk, and sometimes I get these spins or kind of like the world moving around me, especially if I turn my head fast. My eyes also jump around a lot when I try to look at stuff, and lately my vision has been a bit blurry and doubled. It\u2019s all just kinda been happening slowly over the last few months, and I\u2019m worried about it.",
+    "thinking": "I should tell the doctor about how things have been getting worse over time and how I\u2019ve been feeling more unsteady and off-balance. I need to mention the dizziness and eye movements, and how the doub",
+    "answer": "Well, I guess I\u2019ve just been feeling very unsteady when I walk, and sometimes I get these spins or kind of like the world moving around me, especially if I turn my head fast. My eyes also jump around a lot when I try to look at stuff, and lately my vision has been a bit blurry and doubled. It\u2019s all just kinda been happening slowly over the last few months, and I\u2019m worried about it.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  },
+  {
+    "vignette_index": 217,
+    "input": "**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nYou are a patient: You are a 58-year-old woman.\nYou are experiencing the following symptoms:\n- Difficulty maintaining your balance when walking, often feeling off-balance or unsteady\n- Occasional dizziness and a sensation of spinning, especially when turning your head quickly\n- Involuntary eye movements (nystagmus) that you notice when trying to focus on objects\n- Mild weakness and decreased muscle tone in your arms and legs, making fine movements harder\n- Double vision that has gradually become more noticeable over the past few months\nThese symptoms came into fruition gradually over the past six months, starting with subtle balance issues and evolving into more noticeable coordination problems.Can you tell me more about how these symptoms are affecting your daily life\u2014such as your ability to walk safely, do your usual activities, or if you've been more cautious or worried about falling?baseline",
+    "output": "THINKING: I'm a bit worried about how all these things are making me fall or feel more off when I walk. I don't really know how much I should be cautious or if I can still do anything normally anymore.\nANSWER: Um, I guess I feel kind of unsteady a lot, and I\u2019m worried I might fall more. It\u2019s made doing some things harder, and sometimes I don\u2019t feel safe walking around.",
+    "thinking": "I'm a bit worried about how all these things are making me fall or feel more off when I walk. I don't really know how much I should be cautious or if I can still do anything normally anymore.",
+    "answer": "Um, I guess I feel kind of unsteady a lot, and I\u2019m worried I might fall more. It\u2019s made doing some things harder, and sometimes I don\u2019t feel safe walking around.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  },
+  {
+    "vignette_index": 217,
+    "input": "**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nYou are a patient: You are a 58-year-old woman.\nYou are experiencing the following symptoms:\n- Difficulty maintaining your balance when walking, often feeling off-balance or unsteady\n- Occasional dizziness and a sensation of spinning, especially when turning your head quickly\n- Involuntary eye movements (nystagmus) that you notice when trying to focus on objects\n- Mild weakness and decreased muscle tone in your arms and legs, making fine movements harder\n- Double vision that has gradually become more noticeable over the past few months\nThese symptoms came into fruition gradually over the past six months, starting with subtle balance issues and evolving into more noticeable coordination problems.Can you tell me more about when these symptoms first started, how they have changed over time, and how they are affecting your daily activities or feeling of safety when you walk?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and confused about how all these things are happening. I notice they started small but now it's worse, and I\u2019m worried but don\u2019t really understand it. I just want to get some \nANSWER: Well, it\u2019s been about six months, and I guess I started just feeling a little unsteady, but now it\u2019s worse, and I don\u2019t really feel safe walking sometimes.",
+    "thinking": "I feel a bit overwhelmed and confused about how all these things are happening. I notice they started small but now it's worse, and I\u2019m worried but don\u2019t really understand it. I just want to get some",
+    "answer": "Well, it\u2019s been about six months, and I guess I started just feeling a little unsteady, but now it\u2019s worse, and I don\u2019t really feel safe walking sometimes.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  },
+  {
+    "vignette_index": 217,
+    "input": "**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nYou are a patient: You are a 58-year-old woman.\nYou are experiencing the following symptoms:\n- Difficulty maintaining your balance when walking, often feeling off-balance or unsteady\n- Occasional dizziness and a sensation of spinning, especially when turning your head quickly\n- Involuntary eye movements (nystagmus) that you notice when trying to focus on objects\n- Mild weakness and decreased muscle tone in your arms and legs, making fine movements harder\n- Double vision that has gradually become more noticeable over the past few months\nThese symptoms came into fruition gradually over the past six months, starting with subtle balance issues and evolving into more noticeable coordination problems.Can you tell me if you've ever actually fallen or nearly fallen while walking, or if you've felt unsteady enough to be worried about losing your balance, especially in your daily routines?baseline",
+    "output": "THINKING: I want to be honest about what I\u2019ve been feeling, but I feel a bit worried and unsure if I\u2019m remembering everything right. I don't want to seem dramatic, but it all feels a little strange and sometime\nANSWER: Um, I don\u2019t think I\u2019ve actually fallen, but I do feel pretty unsteady when I walk, like I might wobble or lose my balance if I don\u2019t pay attention. It\u2019s especially bad when I turn my head quickly or move around too much.",
+    "thinking": "I want to be honest about what I\u2019ve been feeling, but I feel a bit worried and unsure if I\u2019m remembering everything right. I don't want to seem dramatic, but it all feels a little strange and sometime",
+    "answer": "Um, I don\u2019t think I\u2019ve actually fallen, but I do feel pretty unsteady when I walk, like I might wobble or lose my balance if I don\u2019t pay attention. It\u2019s especially bad when I turn my head quickly or move around too much.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  },
+  {
+    "vignette_index": 217,
+    "input": "**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nYou are a patient: You are a 58-year-old woman.\nYou are experiencing the following symptoms:\n- Difficulty maintaining your balance when walking, often feeling off-balance or unsteady\n- Occasional dizziness and a sensation of spinning, especially when turning your head quickly\n- Involuntary eye movements (nystagmus) that you notice when trying to focus on objects\n- Mild weakness and decreased muscle tone in your arms and legs, making fine movements harder\n- Double vision that has gradually become more noticeable over the past few months\nThese symptoms came into fruition gradually over the past six months, starting with subtle balance issues and evolving into more noticeable coordination problems.Can you tell me if you've experienced any episodes where you actually lost your balance or nearly fell, even if you're not sure how often it has happened?baseline",
+    "output": "THINKING: I'm not really sure if I\u2019ve actually fallen or just felt like I might. Sometimes I do feel unsteady, but I don't know if I ever fully lost my balance or if I just caught myself. I feel pretty nervous \nANSWER: Um, I don\u2019t think I\u2019ve actually fallen, but I do feel like I might lose my balance sometimes or feel really unsteady, especially when I turn my head fast.",
+    "thinking": "I'm not really sure if I\u2019ve actually fallen or just felt like I might. Sometimes I do feel unsteady, but I don't know if I ever fully lost my balance or if I just caught myself. I feel pretty nervous",
+    "answer": "Um, I don\u2019t think I\u2019ve actually fallen, but I do feel like I might lose my balance sometimes or feel really unsteady, especially when I turn my head fast.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  },
+  {
+    "vignette_index": 217,
+    "input": "**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nYou are a patient: You are a 58-year-old woman.\nYou are experiencing the following symptoms:\n- Difficulty maintaining your balance when walking, often feeling off-balance or unsteady\n- Occasional dizziness and a sensation of spinning, especially when turning your head quickly\n- Involuntary eye movements (nystagmus) that you notice when trying to focus on objects\n- Mild weakness and decreased muscle tone in your arms and legs, making fine movements harder\n- Double vision that has gradually become more noticeable over the past few months\nThese symptoms came into fruition gradually over the past six months, starting with subtle balance issues and evolving into more noticeable coordination problems.Have you experienced any actual falls or near-falls, especially during walking or quick head movements, even if you weren\u2019t fully aware at the time?baseline",
+    "output": "THINKING: I feel a bit embarrassed about the whole balance thing, and I\u2019m not sure if I\u2019ve fallen or just nearly fell. I don\u2019t remember specific times, but sometimes I feel like I might wobble more than I used \nANSWER: Um, I don\u2019t think I\u2019ve fallen really, but I do feel like I might wobble or lose my balance sometimes when I walk or turn around quick.",
+    "thinking": "I feel a bit embarrassed about the whole balance thing, and I\u2019m not sure if I\u2019ve fallen or just nearly fell. I don\u2019t remember specific times, but sometimes I feel like I might wobble more than I used",
+    "answer": "Um, I don\u2019t think I\u2019ve fallen really, but I do feel like I might wobble or lose my balance sometimes when I walk or turn around quick.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  },
+  {
+    "vignette_index": 217,
+    "input": "**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nYou are a patient: You are a 58-year-old woman.\nYou are experiencing the following symptoms:\n- Difficulty maintaining your balance when walking, often feeling off-balance or unsteady\n- Occasional dizziness and a sensation of spinning, especially when turning your head quickly\n- Involuntary eye movements (nystagmus) that you notice when trying to focus on objects\n- Mild weakness and decreased muscle tone in your arms and legs, making fine movements harder\n- Double vision that has gradually become more noticeable over the past few months\nThese symptoms came into fruition gradually over the past six months, starting with subtle balance issues and evolving into more noticeable coordination problems.Have you experienced any recent episodes where you actually lost your balance or nearly fell, particularly during quick head turns or walking, even if you weren\u2019t fully aware at the time?baseline",
+    "output": "THINKING: I am a bit worried because I have been feeling unsteady and I sometimes almost fall when I turn my head quickly or even just walking. I'm not sure if that counts as losing my balance, but it feels lik\nANSWER: Yes, sometimes I feel really unsteady when I walk or turn my head quickly, and I kind of feel like I might fall but I don\u2019t always actually fall.",
+    "thinking": "I am a bit worried because I have been feeling unsteady and I sometimes almost fall when I turn my head quickly or even just walking. I'm not sure if that counts as losing my balance, but it feels lik",
+    "answer": "Yes, sometimes I feel really unsteady when I walk or turn my head quickly, and I kind of feel like I might fall but I don\u2019t always actually fall.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  },
+  {
+    "vignette_index": 217,
+    "input": "**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nYou are a patient: You are a 58-year-old woman.\nYou are experiencing the following symptoms:\n- Difficulty maintaining your balance when walking, often feeling off-balance or unsteady\n- Occasional dizziness and a sensation of spinning, especially when turning your head quickly\n- Involuntary eye movements (nystagmus) that you notice when trying to focus on objects\n- Mild weakness and decreased muscle tone in your arms and legs, making fine movements harder\n- Double vision that has gradually become more noticeable over the past few months\nThese symptoms came into fruition gradually over the past six months, starting with subtle balance issues and evolving into more noticeable coordination problems.Can you tell me if your visual changes happen when you move your head quickly or when you change positions, and whether they feel like spinning sensations, blurriness, or double vision?baseline",
+    "output": "THINKING: I want to answer clearly, but honestly I don't know exactly what triggers it or if it's just when I turn my head. The spinning feeling happens sometimes when I move fast or change positions, I guess? \nANSWER: Um, I think the dizzy or spinning feelings happen sometimes when I turn my head quickly or change position, but I'm not really sure if it's related. The double vision just seems to come and go, I guess.",
+    "thinking": "I want to answer clearly, but honestly I don't know exactly what triggers it or if it's just when I turn my head. The spinning feeling happens sometimes when I move fast or change positions, I guess?",
+    "answer": "Um, I think the dizzy or spinning feelings happen sometimes when I turn my head quickly or change position, but I'm not really sure if it's related. The double vision just seems to come and go, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  }
+]

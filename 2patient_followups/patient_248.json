@@ -1,0 +1,156 @@
+[
+  {
+    "vignette_index": 248,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 27 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe mouth pain and sore gums\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Mild fever and headaches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, after a stressful week at work, and have progressively worsened, making it difficult to eat or speak comfortably.",
+    "output": "THINKING: I need to explain that I have a lot of uncomfortable symptoms that came on suddenly and are really bothering me. I also want to mention the severity and how it's affecting my daily life, but I might n\nANSWER: Well, doctor, I\u2019m a 27-year-old woman, and my mouth has been really terrible the past couple of days. My gums hurt so much, and I have bad breath, like, really bad, and I can\u2019t even keep my mouth wet, it\u2019s so dry. I also have a mild fever and headaches, and it all just kind of started all of a sudden after a stressful week. It\u2019s gotten worse and now I can\u2019t really eat or talk without it hurting a lot.",
+    "thinking": "I need to explain that I have a lot of uncomfortable symptoms that came on suddenly and are really bothering me. I also want to mention the severity and how it's affecting my daily life, but I might n",
+    "answer": "Well, doctor, I\u2019m a 27-year-old woman, and my mouth has been really terrible the past couple of days. My gums hurt so much, and I have bad breath, like, really bad, and I can\u2019t even keep my mouth wet, it\u2019s so dry. I also have a mild fever and headaches, and it all just kind of started all of a sudden after a stressful week. It\u2019s gotten worse and now I can\u2019t really eat or talk without it hurting a lot.",
+    "behavior_type": "anxious_amplifier",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient with health anxiety who amplifies symptoms",
+      "modifiers": [
+        "catastrophic_thinking",
+        "symptom_amplification",
+        "multiple_concerns"
+      ],
+      "empathy_cues": [
+        "high_anxiety",
+        "catastrophic_language",
+        "reassurance_seeking",
+        "fear_expression"
+      ]
+    },
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 248,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 27 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe mouth pain and sore gums\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Mild fever and headaches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, after a stressful week at work, and have progressively worsened, making it difficult to eat or speak comfortably.Can you tell me if you\u2019ve experienced any similar symptoms before, or if you have any ongoing issues with your mouth, teeth, or salivary glands in the past?anxious_amplifier",
+    "output": "THINKING: I feel really worried because these symptoms happened suddenly and keep getting worse. I\u2019m not sure if it\u2019s something serious like an infection or something else, and I just want to understand what\u2019s \nANSWER: No, I\u2019ve never had anything like this before, and I didn\u2019t have any mouth problems or issues with my glands or teeth that I know of. It just all came on suddenly, and now I\u2019m really scared it\u2019s something terrible.",
+    "thinking": "I feel really worried because these symptoms happened suddenly and keep getting worse. I\u2019m not sure if it\u2019s something serious like an infection or something else, and I just want to understand what\u2019s",
+    "answer": "No, I\u2019ve never had anything like this before, and I didn\u2019t have any mouth problems or issues with my glands or teeth that I know of. It just all came on suddenly, and now I\u2019m really scared it\u2019s something terrible.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 0,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 248,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 27 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe mouth pain and sore gums\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Mild fever and headaches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, after a stressful week at work, and have progressively worsened, making it difficult to eat or speak comfortably.Can you tell me if you\u2019ve noticed the pain or other symptoms more on one side of your mouth or both sides, and whether you've experienced anything like this before in the past?anxious_amplifier",
+    "output": "THINKING: I'm worried about what this pain means, and I keep thinking it could be something really serious, maybe an infection or even worse. I just want to tell the doctor everything so they can figure out if \nANSWER: Well, it hurts more on both sides, but it feels like really, really bad and doesn't go away, and I\u2019ve never had anything like this before, so I don\u2019t know if it\u2019s just a infection or something terrible.",
+    "thinking": "I'm worried about what this pain means, and I keep thinking it could be something really serious, maybe an infection or even worse. I just want to tell the doctor everything so they can figure out if",
+    "answer": "Well, it hurts more on both sides, but it feels like really, really bad and doesn't go away, and I\u2019ve never had anything like this before, so I don\u2019t know if it\u2019s just a infection or something terrible.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 2,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 248,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 27 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe mouth pain and sore gums\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Mild fever and headaches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, after a stressful week at work, and have progressively worsened, making it difficult to eat or speak comfortably.Can you tell me exactly when your mouth pain and dry mouth first started, and how it has changed or if it\u2019s been the same since then? Also, have you noticed if only one side or both sides are affected or if your symptoms come and go?anxious_amplifier",
+    "output": "THINKING: I feel really worried about this starting so suddenly and getting worse quickly, and I\u2019m scared it might be something serious like an infection or disease. I don\u2019t understand why it\u2019s on both sides or\nANSWER: It all just started two days ago, and it\u2019s been getting worse, like my gums and mouth are burning and really sore all the time, and I can\u2019t even eat or talk properly anymore. It\u2019s both sides, and I feel like it\u2019s just not stopping.",
+    "thinking": "I feel really worried about this starting so suddenly and getting worse quickly, and I\u2019m scared it might be something serious like an infection or disease. I don\u2019t understand why it\u2019s on both sides or",
+    "answer": "It all just started two days ago, and it\u2019s been getting worse, like my gums and mouth are burning and really sore all the time, and I can\u2019t even eat or talk properly anymore. It\u2019s both sides, and I feel like it\u2019s just not stopping.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 4,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 248,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 27 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe mouth pain and sore gums\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Mild fever and headaches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, after a stressful week at work, and have progressively worsened, making it difficult to eat or speak comfortably.Have you ever experienced similar feelings of dry mouth, oral pain, or swelling in your salivary glands before, or is this the first time something like this has happened to you?anxious_amplifier",
+    "output": "THINKING: I'm really worried this might be something serious like an infection or even something worse. The pain is terrible and I feel so uncomfortable all the time, and I keep thinking, what if it's something\nANSWER: No, I don't think I've had these kinds of feelings before, and it all just came on out of nowhere. It\u2019s the worst pain I\u2019ve ever had, and I keep thinking it\u2019s something really bad like an infection or even more serious.",
+    "thinking": "I'm really worried this might be something serious like an infection or even something worse. The pain is terrible and I feel so uncomfortable all the time, and I keep thinking, what if it's something",
+    "answer": "No, I don't think I've had these kinds of feelings before, and it all just came on out of nowhere. It\u2019s the worst pain I\u2019ve ever had, and I keep thinking it\u2019s something really bad like an infection or even more serious.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 6,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 248,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 27 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe mouth pain and sore gums\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Mild fever and headaches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, after a stressful week at work, and have progressively worsened, making it difficult to eat or speak comfortably.Can you tell me if you're noticing any swelling, redness, or pus coming from your salivary glands or in your mouth\u2014like under your jaw or in front of your ears\u2014and if these feelings change when you press on your glands or move your jaw?anxious_amplifier",
+    "output": "THINKING: Okay, so they're asking about swelling or puss and if I feel anything different when I press or move my jaw, but I keep wondering if this could be something really serious like an infection or worse. \nANSWER: Um, I don\u2019t see any pus or anything, but my jaw feels really tender and kinda swollen, and when I press on it, it hurts a lot more, so I guess maybe? But I keep worrying it could be something really bad, like an infection or worse.",
+    "thinking": "Okay, so they're asking about swelling or puss and if I feel anything different when I press or move my jaw, but I keep wondering if this could be something really serious like an infection or worse.",
+    "answer": "Um, I don\u2019t see any pus or anything, but my jaw feels really tender and kinda swollen, and when I press on it, it hurts a lot more, so I guess maybe? But I keep worrying it could be something really bad, like an infection or worse.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 8,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 248,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 27 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe mouth pain and sore gums\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Mild fever and headaches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, after a stressful week at work, and have progressively worsened, making it difficult to eat or speak comfortably.Have you noticed any thick, pus-like fluid or discharge when you press on your salivary glands, or does pressing sometimes help or make the pain worse?anxious_amplifier",
+    "output": "THINKING: I'm really worried about this and I keep thinking it might be something serious like an infection or maybe even cancer. I'm scared to press on my glands because I think it might make things worse or c\nANSWER: When I press on my salivary glands, sometimes I feel like something really thick and yucky comes out, but other times it just hurts more or it doesn\u2019t help at all. I don\u2019t know if I should keep pressing or stop, but I\u2019m worried I might do something wrong.",
+    "thinking": "I'm really worried about this and I keep thinking it might be something serious like an infection or maybe even cancer. I'm scared to press on my glands because I think it might make things worse or c",
+    "answer": "When I press on my salivary glands, sometimes I feel like something really thick and yucky comes out, but other times it just hurts more or it doesn\u2019t help at all. I don\u2019t know if I should keep pressing or stop, but I\u2019m worried I might do something wrong.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 10,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 248,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 27 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe mouth pain and sore gums\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Mild fever and headaches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, after a stressful week at work, and have progressively worsened, making it difficult to eat or speak comfortably.Can I gently examine your jaw and salivary glands now to see if there\u2019s any redness, swelling, or pus that I may have missed when I looked earlier?anxious_amplifier",
+    "output": "THINKING: I'm really worried that my swollen, sore gums and the fever might be something serious like an infection or even something worse. The pain feels terrible, and I keep thinking, what if it's something d\nANSWER: Uh, okay, but I really feel like it\u2019s worse than just a little redness or swelling and I\u2019m scared it might be something bad. Please just be careful, I don\u2019t want to miss anything serious.",
+    "thinking": "I'm really worried that my swollen, sore gums and the fever might be something serious like an infection or even something worse. The pain feels terrible, and I keep thinking, what if it's something d",
+    "answer": "Uh, okay, but I really feel like it\u2019s worse than just a little redness or swelling and I\u2019m scared it might be something bad. Please just be careful, I don\u2019t want to miss anything serious.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 12,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 248,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 27 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe mouth pain and sore gums\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Mild fever and headaches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, after a stressful week at work, and have progressively worsened, making it difficult to eat or speak comfortably.Have you noticed if you have a fever, chills, or feel generally unwell, such as feeling very tired or achy\u2014that might suggest infection or systemic inflammation?anxious_amplifier",
+    "output": "THINKING: I feel really overwhelmed and frightened that these symptoms might be related to something serious, like an infection that's spreading or maybe even something worse. I keep worrying if I could have a \nANSWER: I\u2019ve been feeling a little hot and achy, and my head is pounding \u2014 I kept thinking maybe I have a bad infection or something that\u2019s really serious, and I don\u2019t want it to get worse.",
+    "thinking": "I feel really overwhelmed and frightened that these symptoms might be related to something serious, like an infection that's spreading or maybe even something worse. I keep worrying if I could have a",
+    "answer": "I\u2019ve been feeling a little hot and achy, and my head is pounding \u2014 I kept thinking maybe I have a bad infection or something that\u2019s really serious, and I don\u2019t want it to get worse.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 14,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 248,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 27 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe mouth pain and sore gums\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Mild fever and headaches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, after a stressful week at work, and have progressively worsened, making it difficult to eat or speak comfortably.Have you checked your temperature yourself, or can I help you take it now, to see if you have a fever or feel hot all over?anxious_amplifier",
+    "output": "THINKING: I'm really worried about the fever and whether I might have something more serious, like an infection spreading or maybe even something contagious. I feel so unwell and just want to know if I should b\nANSWER: Um, I haven't checked my temperature myself, but I feel hot all over, and my head is just pounding. I\u2019m afraid I might have a terrible infection or something really serious. Can you please check for me or tell me what I should do?",
+    "thinking": "I'm really worried about the fever and whether I might have something more serious, like an infection spreading or maybe even something contagious. I feel so unwell and just want to know if I should b",
+    "answer": "Um, I haven't checked my temperature myself, but I feel hot all over, and my head is just pounding. I\u2019m afraid I might have a terrible infection or something really serious. Can you please check for me or tell me what I should do?",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 16,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 248,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 27 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe mouth pain and sore gums\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Mild fever and headaches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, after a stressful week at work, and have progressively worsened, making it difficult to eat or speak comfortably.Can you please help me by taking your temperature now so we can see if you really have a fever, since that can help us figure out if there\u2019s a serious infection or if it\u2019s just how you\u2019re feeling?anxious_amplifier",
+    "output": "THINKING: Okay, taking my temperature is probably important, but I'm really worried it might be serious if I have a fever. What if it's something worse like an infection or even something else? I feel so terrib\nANSWER: Um, okay, I guess I can do that, but I\u2019m really scared it\u2019s gonna be something bad, like maybe I\u2019ve got an infection or something and I don\u2019t want it to get worse.",
+    "thinking": "Okay, taking my temperature is probably important, but I'm really worried it might be serious if I have a fever. What if it's something worse like an infection or even something else? I feel so terrib",
+    "answer": "Um, okay, I guess I can do that, but I\u2019m really scared it\u2019s gonna be something bad, like maybe I\u2019ve got an infection or something and I don\u2019t want it to get worse.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 18,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 248,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 27 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe mouth pain and sore gums\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Mild fever and headaches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, after a stressful week at work, and have progressively worsened, making it difficult to eat or speak comfortably.Would you be willing to help me by taking your temperature now, so we can see if you really have a fever? This can help us understand if there's a more serious infection needing treatment.anxious_amplifier",
+    "output": "THINKING: I'm worried about what my temperature might reveal, especially since I feel so terrible and have that fever. I keep thinking it could be something really serious, like an infection or even something w\nANSWER: Umm, yeah, I guess I can do that, but I\u2019m really scared it\u2019s going to be high and then what if it\u2019s something really bad? I don\u2019t want to ignore it if it\u2019s serious.",
+    "thinking": "I'm worried about what my temperature might reveal, especially since I feel so terrible and have that fever. I keep thinking it could be something really serious, like an infection or even something w",
+    "answer": "Umm, yeah, I guess I can do that, but I\u2019m really scared it\u2019s going to be high and then what if it\u2019s something really bad? I don\u2019t want to ignore it if it\u2019s serious.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 20,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 248,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 27 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe mouth pain and sore gums\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Mild fever and headaches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, after a stressful week at work, and have progressively worsened, making it difficult to eat or speak comfortably.Would you be comfortable helping me by taking your temperature now, so we can see if you have a fever? This will help us understand if there\u2019s a more serious infection requiring urgent treatment.anxious_amplifier",
+    "output": "THINKING: I'm really worried about this fever and how bad I feel \u2014 what if it's something worse like an infection spreading or something serious? I don't want to downplay it, but I also feel pretty awful and sc\nANSWER: Uh, yeah, I guess so, but I\u2019m really scared it\u2019s a terrible infection or something worse, so I hope it\u2019s not a big deal.",
+    "thinking": "I'm really worried about this fever and how bad I feel \u2014 what if it's something worse like an infection spreading or something serious? I don't want to downplay it, but I also feel pretty awful and sc",
+    "answer": "Uh, yeah, I guess so, but I\u2019m really scared it\u2019s a terrible infection or something worse, so I hope it\u2019s not a big deal.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 22,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 248,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 27 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe mouth pain and sore gums\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Mild fever and headaches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, after a stressful week at work, and have progressively worsened, making it difficult to eat or speak comfortably.Would you be willing to help me by taking your temperature now, so we can see if you have a fever? This will help us understand if there's a more serious infection needing treatment.anxious_amplifier",
+    "output": "THINKING: I feel nervous about what my temperature might reveal. If I have a fever, does that mean something really serious? I don\u2019t want to seem like I\u2019m overreacting but I also don\u2019t want to ignore something \nANSWER: Uh, okay, I guess. I\u2019m a little worried it might be really high or something, but I don\u2019t know, I don\u2019t want to get worse or have like, something dangerous.",
+    "thinking": "I feel nervous about what my temperature might reveal. If I have a fever, does that mean something really serious? I don\u2019t want to seem like I\u2019m overreacting but I also don\u2019t want to ignore something",
+    "answer": "Uh, okay, I guess. I\u2019m a little worried it might be really high or something, but I don\u2019t know, I don\u2019t want to get worse or have like, something dangerous.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 24,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  }
+]

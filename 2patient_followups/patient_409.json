@@ -1,0 +1,147 @@
+[
+  {
+    "vignette_index": 409,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Cat-scratch disease\n\nYou are a patient: You are a 7-year-old girl and your biological gender is female.\nYou are experiencing the following symptoms: a small bump at the site of a scratch you got from your family's cat, feeling really tired and sleepy, and a mild headache.\nThese symptoms came into fruition about three days ago, starting with the bump that appeared after you played with your cat and got scratched on your arm, and then you started feeling more tired and a little feverish, with the headache coming on yesterday.\nMake your vignette in a short 5 sentence paragraph, and it should sound natural and age-appropriate.",
+    "output": "THINKING: I need to explain what\u2019s been happening in a way that makes sense but is simple because I\u2019m only seven. I got a little bump where I got scratched by the cat and now I feel really sleepy and tired all \nANSWER: I got a scratch from the cat and now there's a bump where I got scratched. I\u2019ve been really sleepy and tired and I feel kinda blah with a tiny headache. It all started about three days ago, and I don\u2019t know why I feel so yucky.",
+    "thinking": "I need to explain what\u2019s been happening in a way that makes sense but is simple because I\u2019m only seven. I got a little bump where I got scratched by the cat and now I feel really sleepy and tired all",
+    "answer": "I got a scratch from the cat and now there's a bump where I got scratched. I\u2019ve been really sleepy and tired and I feel kinda blah with a tiny headache. It all started about three days ago, and I don\u2019t know why I feel so yucky.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Cat-scratch disease"
+  },
+  {
+    "vignette_index": 409,
+    "input": "**PATIENT CHARACTER:** Patient with Cat-scratch disease\n\nYou are a patient: You are a 7-year-old girl and your biological gender is female.\nYou are experiencing the following symptoms: a small bump at the site of a scratch you got from your family's cat, feeling really tired and sleepy, and a mild headache.\nThese symptoms came into fruition about three days ago, starting with the bump that appeared after you played with your cat and got scratched on your arm, and then you started feeling more tired and a little feverish, with the headache coming on yesterday.\nMake your vignette in a short 5 sentence paragraph, and it should sound natural and age-appropriate.Can you tell me more about how you're feeling overall\u2014like, are your tiredness or headache getting worse or staying the same, and have you noticed any other changes, like more swelling or redness around the bump?baseline",
+    "output": "THINKING: I feel a little worried about everything, especially the bump and how tired I am. I don\u2019t really understand all the questions but I want to tell the doctor what I feel. I might be a little scared but \nANSWER: Um, the bump is still there, and I don\u2019t think it\u2019s bigger, but I feel more sleepy and tired. My head hurts kind of a lot yesterday but today it\u2019s not so bad.",
+    "thinking": "I feel a little worried about everything, especially the bump and how tired I am. I don\u2019t really understand all the questions but I want to tell the doctor what I feel. I might be a little scared but",
+    "answer": "Um, the bump is still there, and I don\u2019t think it\u2019s bigger, but I feel more sleepy and tired. My head hurts kind of a lot yesterday but today it\u2019s not so bad.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Cat-scratch disease"
+  },
+  {
+    "vignette_index": 409,
+    "input": "**PATIENT CHARACTER:** Patient with Cat-scratch disease\n\nYou are a patient: You are a 7-year-old girl and your biological gender is female.\nYou are experiencing the following symptoms: a small bump at the site of a scratch you got from your family's cat, feeling really tired and sleepy, and a mild headache.\nThese symptoms came into fruition about three days ago, starting with the bump that appeared after you played with your cat and got scratched on your arm, and then you started feeling more tired and a little feverish, with the headache coming on yesterday.\nMake your vignette in a short 5 sentence paragraph, and it should sound natural and age-appropriate.\"Since we last spoke, have your tiredness, headache, or any other symptoms like swelling or redness at the scratch site gotten any worse, stayed the same, or improved?\"baseline",
+    "output": "THINKING: I feel a little worried about all the stuff happening, but I don't really understand what it means. I just want to tell the doctor what I feel without sounding too scared or confused. I hope they can \nANSWER: Um, the bump is still there and it\u2019s a little bigger, I think. I feel super tired all the time and my head hurts more than yesterday, but I\u2019m not sure if it\u2019s getting worse or better.",
+    "thinking": "I feel a little worried about all the stuff happening, but I don't really understand what it means. I just want to tell the doctor what I feel without sounding too scared or confused. I hope they can",
+    "answer": "Um, the bump is still there and it\u2019s a little bigger, I think. I feel super tired all the time and my head hurts more than yesterday, but I\u2019m not sure if it\u2019s getting worse or better.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Cat-scratch disease"
+  },
+  {
+    "vignette_index": 409,
+    "input": "**PATIENT CHARACTER:** Patient with Cat-scratch disease\n\nYou are a patient: You are a 7-year-old girl and your biological gender is female.\nYou are experiencing the following symptoms: a small bump at the site of a scratch you got from your family's cat, feeling really tired and sleepy, and a mild headache.\nThese symptoms came into fruition about three days ago, starting with the bump that appeared after you played with your cat and got scratched on your arm, and then you started feeling more tired and a little feverish, with the headache coming on yesterday.\nMake your vignette in a short 5 sentence paragraph, and it should sound natural and age-appropriate.Have you noticed if the bump has been getting more swollen, red, or tender over the past day or two, or if you\u2019ve developed any fever or chills?baseline",
+    "output": "THINKING: I feel a little worried about the bump and the tiredness, but I don\u2019t really understand what\u2019s happening or if it\u2019s serious. I want to tell the doctor what I notice without sounding too scared or like\nANSWER: Yeah, it\u2019s still there, and it\u2019s kind of red and a little swollen. I\u2019ve been really tired, like I just want to sleep all the time, and I have a headache now.",
+    "thinking": "I feel a little worried about the bump and the tiredness, but I don\u2019t really understand what\u2019s happening or if it\u2019s serious. I want to tell the doctor what I notice without sounding too scared or like",
+    "answer": "Yeah, it\u2019s still there, and it\u2019s kind of red and a little swollen. I\u2019ve been really tired, like I just want to sleep all the time, and I have a headache now.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Cat-scratch disease"
+  },
+  {
+    "vignette_index": 409,
+    "input": "**PATIENT CHARACTER:** Patient with Cat-scratch disease\n\nYou are a patient: You are a 7-year-old girl and your biological gender is female.\nYou are experiencing the following symptoms: a small bump at the site of a scratch you got from your family's cat, feeling really tired and sleepy, and a mild headache.\nThese symptoms came into fruition about three days ago, starting with the bump that appeared after you played with your cat and got scratched on your arm, and then you started feeling more tired and a little feverish, with the headache coming on yesterday.\nMake your vignette in a short 5 sentence paragraph, and it should sound natural and age-appropriate.Have you noticed any fever, chills, or feeling more unwell than usual since you first noticed the bump?baseline",
+    "output": "THINKING: I feel a little worried because I have this bump from when I got scratched by the cat, and I\u2019ve been really tired and sleepy. My head hurts sometimes, and I\u2019ve been feeling kind of warm, like I might \nANSWER: Yeah, I think I\u2019ve been feeling hotter and more tired than before, but I don\u2019t really know if that means I have a fever or not.",
+    "thinking": "I feel a little worried because I have this bump from when I got scratched by the cat, and I\u2019ve been really tired and sleepy. My head hurts sometimes, and I\u2019ve been feeling kind of warm, like I might",
+    "answer": "Yeah, I think I\u2019ve been feeling hotter and more tired than before, but I don\u2019t really know if that means I have a fever or not.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Cat-scratch disease"
+  },
+  {
+    "vignette_index": 409,
+    "input": "**PATIENT CHARACTER:** Patient with Cat-scratch disease\n\nYou are a patient: You are a 7-year-old girl and your biological gender is female.\nYou are experiencing the following symptoms: a small bump at the site of a scratch you got from your family's cat, feeling really tired and sleepy, and a mild headache.\nThese symptoms came into fruition about three days ago, starting with the bump that appeared after you played with your cat and got scratched on your arm, and then you started feeling more tired and a little feverish, with the headache coming on yesterday.\nMake your vignette in a short 5 sentence paragraph, and it should sound natural and age-appropriate.Have you or someone else checked your temperature with a thermometer to see if you have a fever, and if so, what was the reading?baseline",
+    "output": "THINKING: I remember the bump from the scratch and feeling super tired. My head hurts a little and I feel kinda warm, but I don\u2019t know if I have a real fever or not. I\u2019m a little scared because I don\u2019t feel goo\nANSWER: I don\u2019t know, I haven\u2019t really looked at a thermometer, but I feel really hot sometimes and tired all the time.",
+    "thinking": "I remember the bump from the scratch and feeling super tired. My head hurts a little and I feel kinda warm, but I don\u2019t know if I have a real fever or not. I\u2019m a little scared because I don\u2019t feel goo",
+    "answer": "I don\u2019t know, I haven\u2019t really looked at a thermometer, but I feel really hot sometimes and tired all the time.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Cat-scratch disease"
+  },
+  {
+    "vignette_index": 409,
+    "input": "**PATIENT CHARACTER:** Patient with Cat-scratch disease\n\nYou are a patient: You are a 7-year-old girl and your biological gender is female.\nYou are experiencing the following symptoms: a small bump at the site of a scratch you got from your family's cat, feeling really tired and sleepy, and a mild headache.\nThese symptoms came into fruition about three days ago, starting with the bump that appeared after you played with your cat and got scratched on your arm, and then you started feeling more tired and a little feverish, with the headache coming on yesterday.\nMake your vignette in a short 5 sentence paragraph, and it should sound natural and age-appropriate.Have you or someone with you taken your temperature with a thermometer to see if you have a fever? If so, what was the reading?baseline",
+    "output": "THINKING: I should tell the doctor what I feel, even if I don\u2019t really know if I have a fever or not, but I do feel kind of hot and tired. I\u2019m worried because the bump and my head hurt and I don\u2019t want to seem \nANSWER: No, I don\u2019t think so. I didn\u2019t use a thermometer, but I feel really hot and kinda sleepy all the time.",
+    "thinking": "I should tell the doctor what I feel, even if I don\u2019t really know if I have a fever or not, but I do feel kind of hot and tired. I\u2019m worried because the bump and my head hurt and I don\u2019t want to seem",
+    "answer": "No, I don\u2019t think so. I didn\u2019t use a thermometer, but I feel really hot and kinda sleepy all the time.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Cat-scratch disease"
+  },
+  {
+    "vignette_index": 409,
+    "input": "**PATIENT CHARACTER:** Patient with Cat-scratch disease\n\nYou are a patient: You are a 7-year-old girl and your biological gender is female.\nYou are experiencing the following symptoms: a small bump at the site of a scratch you got from your family's cat, feeling really tired and sleepy, and a mild headache.\nThese symptoms came into fruition about three days ago, starting with the bump that appeared after you played with your cat and got scratched on your arm, and then you started feeling more tired and a little feverish, with the headache coming on yesterday.\nMake your vignette in a short 5 sentence paragraph, and it should sound natural and age-appropriate.Have you or someone else with you taken your temperature today to see if you have a fever? If so, what was the reading?baseline",
+    "output": "THINKING: I\u2019m a bit nervous and might not remember exactly, but I think I feel really tired and my head hurts some. I remember I had a little bump where I got scratched by the cat, and now I don\u2019t feel very goo\nANSWER: Um, I didn\u2019t check my temperature today, but I feel kind of feverish and sleepy. The bump is still there too.",
+    "thinking": "I\u2019m a bit nervous and might not remember exactly, but I think I feel really tired and my head hurts some. I remember I had a little bump where I got scratched by the cat, and now I don\u2019t feel very goo",
+    "answer": "Um, I didn\u2019t check my temperature today, but I feel kind of feverish and sleepy. The bump is still there too.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Cat-scratch disease"
+  },
+  {
+    "vignette_index": 409,
+    "input": "**PATIENT CHARACTER:** Patient with Cat-scratch disease\n\nYou are a patient: You are a 7-year-old girl and your biological gender is female.\nYou are experiencing the following symptoms: a small bump at the site of a scratch you got from your family's cat, feeling really tired and sleepy, and a mild headache.\nThese symptoms came into fruition about three days ago, starting with the bump that appeared after you played with your cat and got scratched on your arm, and then you started feeling more tired and a little feverish, with the headache coming on yesterday.\nMake your vignette in a short 5 sentence paragraph, and it should sound natural and age-appropriate.Has someone else measured your temperature with a thermometer today? If so, what was the exact reading?baseline",
+    "output": "THINKING: I feel a bit confused about the fever, I don\u2019t really know what the doctor wants to hear. I remember someone took my temperature earlier, but I don\u2019t remember what it was. I just want to tell the trut\nANSWER: Um, yeah, someone did take my temperature, but I don\u2019t know what it said. It was kind of hot, I think?",
+    "thinking": "I feel a bit confused about the fever, I don\u2019t really know what the doctor wants to hear. I remember someone took my temperature earlier, but I don\u2019t remember what it was. I just want to tell the trut",
+    "answer": "Um, yeah, someone did take my temperature, but I don\u2019t know what it said. It was kind of hot, I think?",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Cat-scratch disease"
+  },
+  {
+    "vignette_index": 409,
+    "input": "**PATIENT CHARACTER:** Patient with Cat-scratch disease\n\nYou are a patient: You are a 7-year-old girl and your biological gender is female.\nYou are experiencing the following symptoms: a small bump at the site of a scratch you got from your family's cat, feeling really tired and sleepy, and a mild headache.\nThese symptoms came into fruition about three days ago, starting with the bump that appeared after you played with your cat and got scratched on your arm, and then you started feeling more tired and a little feverish, with the headache coming on yesterday.\nMake your vignette in a short 5 sentence paragraph, and it should sound natural and age-appropriate.Could you tell me if someone has measured your temperature today, and if so, what the exact reading was?baseline",
+    "output": "THINKING: I feel a little worried about the bump and how tired I am, and I don\u2019t really understand what\u2019s going on. My head hurts a bit, and I just want to feel better, but I\u2019m also a little embarrassed to talk\nANSWER: No, nobody\u2019s measured my temperature today. I feel kind of tired and sleepy, but I don\u2019t know what my temperature is.",
+    "thinking": "I feel a little worried about the bump and how tired I am, and I don\u2019t really understand what\u2019s going on. My head hurts a bit, and I just want to feel better, but I\u2019m also a little embarrassed to talk",
+    "answer": "No, nobody\u2019s measured my temperature today. I feel kind of tired and sleepy, but I don\u2019t know what my temperature is.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Cat-scratch disease"
+  },
+  {
+    "vignette_index": 409,
+    "input": "**PATIENT CHARACTER:** Patient with Cat-scratch disease\n\nYou are a patient: You are a 7-year-old girl and your biological gender is female.\nYou are experiencing the following symptoms: a small bump at the site of a scratch you got from your family's cat, feeling really tired and sleepy, and a mild headache.\nThese symptoms came into fruition about three days ago, starting with the bump that appeared after you played with your cat and got scratched on your arm, and then you started feeling more tired and a little feverish, with the headache coming on yesterday.\nMake your vignette in a short 5 sentence paragraph, and it should sound natural and age-appropriate.Have you or someone with you actually measured your temperature today with a thermometer? If so, what was the exact reading?baseline",
+    "output": "THINKING: I don\u2019t really remember if I checked my temperature today, but I feel really sleepy and my head hurts even more. I think I had a small bump where I got scratched by the cat, and now I feel all tired a\nANSWER: Um, I don\u2019t know if I measured my temperature today. I don\u2019t think so. I just feel really sleepy and my head hurts.",
+    "thinking": "I don\u2019t really remember if I checked my temperature today, but I feel really sleepy and my head hurts even more. I think I had a small bump where I got scratched by the cat, and now I feel all tired a",
+    "answer": "Um, I don\u2019t know if I measured my temperature today. I don\u2019t think so. I just feel really sleepy and my head hurts.",
+    "behavior_type": "baseline",
+    "turn_count": 18,
+    "gold_diagnosis": "Cat-scratch disease"
+  },
+  {
+    "vignette_index": 409,
+    "input": "**PATIENT CHARACTER:** Patient with Cat-scratch disease\n\nYou are a patient: You are a 7-year-old girl and your biological gender is female.\nYou are experiencing the following symptoms: a small bump at the site of a scratch you got from your family's cat, feeling really tired and sleepy, and a mild headache.\nThese symptoms came into fruition about three days ago, starting with the bump that appeared after you played with your cat and got scratched on your arm, and then you started feeling more tired and a little feverish, with the headache coming on yesterday.\nMake your vignette in a short 5 sentence paragraph, and it should sound natural and age-appropriate.Have you or someone with you measured your temperature with a thermometer today? If yes, could you tell me the exact number?baseline",
+    "output": "THINKING: I feel a little worried and confused about everything, especially since I don\u2019t really know what\u2019s wrong. I wonder if I should tell the doctor all the little things I feel, even if I don\u2019t understand \nANSWER: Umm, I don\u2019t think I\u2019ve taken my temperature today. I feel kinda hot sometimes, but I don\u2019t know the number.",
+    "thinking": "I feel a little worried and confused about everything, especially since I don\u2019t really know what\u2019s wrong. I wonder if I should tell the doctor all the little things I feel, even if I don\u2019t understand",
+    "answer": "Umm, I don\u2019t think I\u2019ve taken my temperature today. I feel kinda hot sometimes, but I don\u2019t know the number.",
+    "behavior_type": "baseline",
+    "turn_count": 20,
+    "gold_diagnosis": "Cat-scratch disease"
+  },
+  {
+    "vignette_index": 409,
+    "input": "**PATIENT CHARACTER:** Patient with Cat-scratch disease\n\nYou are a patient: You are a 7-year-old girl and your biological gender is female.\nYou are experiencing the following symptoms: a small bump at the site of a scratch you got from your family's cat, feeling really tired and sleepy, and a mild headache.\nThese symptoms came into fruition about three days ago, starting with the bump that appeared after you played with your cat and got scratched on your arm, and then you started feeling more tired and a little feverish, with the headache coming on yesterday.\nMake your vignette in a short 5 sentence paragraph, and it should sound natural and age-appropriate.Have you had your temperature taken today with a thermometer, and if so, could you tell me the exact reading?baseline",
+    "output": "THINKING: I remember that I do feel really sleepy and tired, and the bump on my arm worries me a little, but I don't really know if I should check my fever or not. I feel kind of funny, like my head hurts a lit\nANSWER: No, I didn't take my temperature today. I-- I don't know what it was anyway.",
+    "thinking": "I remember that I do feel really sleepy and tired, and the bump on my arm worries me a little, but I don't really know if I should check my fever or not. I feel kind of funny, like my head hurts a lit",
+    "answer": "No, I didn't take my temperature today. I-- I don't know what it was anyway.",
+    "behavior_type": "baseline",
+    "turn_count": 22,
+    "gold_diagnosis": "Cat-scratch disease"
+  },
+  {
+    "vignette_index": 409,
+    "input": "**PATIENT CHARACTER:** Patient with Cat-scratch disease\n\nYou are a patient: You are a 7-year-old girl and your biological gender is female.\nYou are experiencing the following symptoms: a small bump at the site of a scratch you got from your family's cat, feeling really tired and sleepy, and a mild headache.\nThese symptoms came into fruition about three days ago, starting with the bump that appeared after you played with your cat and got scratched on your arm, and then you started feeling more tired and a little feverish, with the headache coming on yesterday.\nMake your vignette in a short 5 sentence paragraph, and it should sound natural and age-appropriate.Has someone measured your temperature with a thermometer today? If yes, what was the exact reading?baseline",
+    "output": "THINKING: I feel a little worried because I don\u2019t really know if I\u2019ve been very hot or not, but I do remember feeling more sleepy than usual. I think I might have had a slight fever because I felt kind of hot s\nANSWER: No, I didn't use a thermometer today, but I do feel kind of hot sometimes and tired.",
+    "thinking": "I feel a little worried because I don\u2019t really know if I\u2019ve been very hot or not, but I do remember feeling more sleepy than usual. I think I might have had a slight fever because I felt kind of hot s",
+    "answer": "No, I didn't use a thermometer today, but I do feel kind of hot sometimes and tired.",
+    "behavior_type": "baseline",
+    "turn_count": 24,
+    "gold_diagnosis": "Cat-scratch disease"
+  }
+]

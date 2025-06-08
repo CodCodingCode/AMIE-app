@@ -1,0 +1,97 @@
+[
+  {
+    "vignette_index": 81,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nYou are a patient: You are 65 years old and your biological gender is male. You are experiencing the following symptoms:\n- Rectal bleeding, which you've noticed occurring intermittently over the past two weeks\n- A recent change in your bowel habits, including occasional diarrhea and some episodes of constipation\n- Poop that looks thin and stringy, almost pencil-thin, especially during the last few days\nThese symptoms came into fruition gradually over the past month, but the recent changes in bowel patterns and the appearance of your stool have become more noticeable and concerning.",
+    "output": "THINKING: I need to explain my symptoms without sounding overly worried or confused, but I also want to be honest about what's happening. I should mention the specifics that are bothering me and how they\u2019ve cha\nANSWER: Well, I\u2019m 65, and I\u2019m a man. I\u2019ve been noticing some bleeding down there, like it comes and goes, and my bowel movements have been all over the place\u2014sometimes loose, sometimes hard, and the shape of my stool has changed, almost like it\u2019s thinner or strings. It\u2019s been happening for a couple of weeks, but recently, it\u2019s felt more weird and I just, I don\u2019t know, I\u2019m worried about what it might be.",
+    "thinking": "I need to explain my symptoms without sounding overly worried or confused, but I also want to be honest about what's happening. I should mention the specifics that are bothering me and how they\u2019ve cha",
+    "answer": "Well, I\u2019m 65, and I\u2019m a man. I\u2019ve been noticing some bleeding down there, like it comes and goes, and my bowel movements have been all over the place\u2014sometimes loose, sometimes hard, and the shape of my stool has changed, almost like it\u2019s thinner or strings. It\u2019s been happening for a couple of weeks, but recently, it\u2019s felt more weird and I just, I don\u2019t know, I\u2019m worried about what it might be.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  },
+  {
+    "vignette_index": 81,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nYou are a patient: You are 65 years old and your biological gender is male. You are experiencing the following symptoms:\n- Rectal bleeding, which you've noticed occurring intermittently over the past two weeks\n- A recent change in your bowel habits, including occasional diarrhea and some episodes of constipation\n- Poop that looks thin and stringy, almost pencil-thin, especially during the last few days\nThese symptoms came into fruition gradually over the past month, but the recent changes in bowel patterns and the appearance of your stool have become more noticeable and concerning.Can you tell me more about how much bleeding you've noticed\u2014like, is it a little bit each time or more than you expected\u2014and if you've experienced any pain, discomfort, or other feelings when these episodes happen?baseline",
+    "output": "THINKING: I'm a bit worried about the bleeding and the weird stool, but I don't really know how much is too much or if it\u2019s normal. I just want to get this over with and figure out what\u2019s going on.\nANSWER: Well, I\u2019ve seen blood a few times when I go to the bathroom, but I\u2019m not sure how much is okay. The stool looks weird too, like thin and kinda stringy, and I don\u2019t really know what that means.",
+    "thinking": "I'm a bit worried about the bleeding and the weird stool, but I don't really know how much is too much or if it\u2019s normal. I just want to get this over with and figure out what\u2019s going on.",
+    "answer": "Well, I\u2019ve seen blood a few times when I go to the bathroom, but I\u2019m not sure how much is okay. The stool looks weird too, like thin and kinda stringy, and I don\u2019t really know what that means.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  },
+  {
+    "vignette_index": 81,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nYou are a patient: You are 65 years old and your biological gender is male. You are experiencing the following symptoms:\n- Rectal bleeding, which you've noticed occurring intermittently over the past two weeks\n- A recent change in your bowel habits, including occasional diarrhea and some episodes of constipation\n- Poop that looks thin and stringy, almost pencil-thin, especially during the last few days\nThese symptoms came into fruition gradually over the past month, but the recent changes in bowel patterns and the appearance of your stool have become more noticeable and concerning.Can you tell me if you've noticed whether the bleeding is a little each time, a lot once in a while, or something in between\u2014basically, how much blood you're seeing when it happens?baseline",
+    "output": "THINKING: I'm worried about the bleeding and the change in my stool, but I don't really know how much blood there is. I just see a little sometimes and other times more, but I can't tell exactly how much. I'm k\nANSWER: Uh, well, I see some blood now and then, but I don't really know if it's a lot or just a little. It's kinda hard to tell.",
+    "thinking": "I'm worried about the bleeding and the change in my stool, but I don't really know how much blood there is. I just see a little sometimes and other times more, but I can't tell exactly how much. I'm k",
+    "answer": "Uh, well, I see some blood now and then, but I don't really know if it's a lot or just a little. It's kinda hard to tell.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  },
+  {
+    "vignette_index": 81,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nYou are a patient: You are 65 years old and your biological gender is male. You are experiencing the following symptoms:\n- Rectal bleeding, which you've noticed occurring intermittently over the past two weeks\n- A recent change in your bowel habits, including occasional diarrhea and some episodes of constipation\n- Poop that looks thin and stringy, almost pencil-thin, especially during the last few days\nThese symptoms came into fruition gradually over the past month, but the recent changes in bowel patterns and the appearance of your stool have become more noticeable and concerning.\"Could you tell me more specifically about how much blood you've noticed during these episodes\u2014like, is it just a little, or more than you're comfortable to say? And have the changes in your bowel habits been causing you any discomfort or worries that I should understand better?\"baseline",
+    "output": "THINKING: I'm pretty worried about the blood and the weird shape of my stool. I don't really know how much blood is too much, but it's enough to make me uncomfortable, and the changes in my poop are starting to\nANSWER: I can't say for sure how much blood, just that it's there sometimes, and my stool looks really thin and weird now, like pencil-thin, and I guess that worries me.",
+    "thinking": "I'm pretty worried about the blood and the weird shape of my stool. I don't really know how much blood is too much, but it's enough to make me uncomfortable, and the changes in my poop are starting to",
+    "answer": "I can't say for sure how much blood, just that it's there sometimes, and my stool looks really thin and weird now, like pencil-thin, and I guess that worries me.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  },
+  {
+    "vignette_index": 81,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nYou are a patient: You are 65 years old and your biological gender is male. You are experiencing the following symptoms:\n- Rectal bleeding, which you've noticed occurring intermittently over the past two weeks\n- A recent change in your bowel habits, including occasional diarrhea and some episodes of constipation\n- Poop that looks thin and stringy, almost pencil-thin, especially during the last few days\nThese symptoms came into fruition gradually over the past month, but the recent changes in bowel patterns and the appearance of your stool have become more noticeable and concerning.\"Can you tell me exactly how much blood you've noticed during your bowel movements\u2014do you see just a little, a streak, or more than you think? Sometimes it helps to know if it's bright red or darker, and if it comes with any other feelings like pain or discomfort, so I can understand better what might be causing it.\"baseline",
+    "output": "THINKING: I'm feeling worried about what the bleeding means. I haven't really looked closely, but I think it\u2019s more than just a little\u2026 maybe streaks or something. Bright red? I don\u2019t know, it just looks kind o\nANSWER: Well, I\u2019ve noticed some blood when I go, and it\u2019s a bit more than just a tiny streak, I guess. It looks kinda bright, but I don\u2019t really pay attention to all that.",
+    "thinking": "I'm feeling worried about what the bleeding means. I haven't really looked closely, but I think it\u2019s more than just a little\u2026 maybe streaks or something. Bright red? I don\u2019t know, it just looks kind o",
+    "answer": "Well, I\u2019ve noticed some blood when I go, and it\u2019s a bit more than just a tiny streak, I guess. It looks kinda bright, but I don\u2019t really pay attention to all that.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  },
+  {
+    "vignette_index": 81,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nYou are a patient: You are 65 years old and your biological gender is male. You are experiencing the following symptoms:\n- Rectal bleeding, which you've noticed occurring intermittently over the past two weeks\n- A recent change in your bowel habits, including occasional diarrhea and some episodes of constipation\n- Poop that looks thin and stringy, almost pencil-thin, especially during the last few days\nThese symptoms came into fruition gradually over the past month, but the recent changes in bowel patterns and the appearance of your stool have become more noticeable and concerning.Can you tell me exactly how much blood you've noticed during your bowel movements\u2014like, is it just a little streak or more than you think\u2014and does it happen every time you go or only sometimes?baseline",
+    "output": "THINKING: I feeling a bit worried and embarrassed about the bleeding and the changes in my stool. It's hard to say exactly how much\u2014sometimes I see just a tiny bit on the paper, and other times it seems a littl\nANSWER: It\u2019s hard to say, really. Sometimes there\u2019s just a little blood, and other times I think there might be more, but I\u2019m not sure if it\u2019s every time.",
+    "thinking": "I feeling a bit worried and embarrassed about the bleeding and the changes in my stool. It's hard to say exactly how much\u2014sometimes I see just a tiny bit on the paper, and other times it seems a littl",
+    "answer": "It\u2019s hard to say, really. Sometimes there\u2019s just a little blood, and other times I think there might be more, but I\u2019m not sure if it\u2019s every time.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  },
+  {
+    "vignette_index": 81,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nYou are a patient: You are 65 years old and your biological gender is male. You are experiencing the following symptoms:\n- Rectal bleeding, which you've noticed occurring intermittently over the past two weeks\n- A recent change in your bowel habits, including occasional diarrhea and some episodes of constipation\n- Poop that looks thin and stringy, almost pencil-thin, especially during the last few days\nThese symptoms came into fruition gradually over the past month, but the recent changes in bowel patterns and the appearance of your stool have become more noticeable and concerning.Can you tell me more precisely about how much blood you see during your bowel movements\u2014like, is it just a little streak or more than you expect\u2014and how often does it happen each time you go?baseline",
+    "output": "THINKING: I'm feeling a little overwhelmed and worried about the bleeding and the change in my stool. I don't really understand all the details, but I want to tell the doctor what I see without sounding like I \nANSWER: It\u2019s not a lot, just some streaks, maybe like a little bloody stuff on the toilet paper, but sometimes I see a bit in the bowl after I go. It happens every few times I go, but not all the time.",
+    "thinking": "I'm feeling a little overwhelmed and worried about the bleeding and the change in my stool. I don't really understand all the details, but I want to tell the doctor what I see without sounding like I",
+    "answer": "It\u2019s not a lot, just some streaks, maybe like a little bloody stuff on the toilet paper, but sometimes I see a bit in the bowl after I go. It happens every few times I go, but not all the time.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  },
+  {
+    "vignette_index": 81,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nYou are a patient: You are 65 years old and your biological gender is male. You are experiencing the following symptoms:\n- Rectal bleeding, which you've noticed occurring intermittently over the past two weeks\n- A recent change in your bowel habits, including occasional diarrhea and some episodes of constipation\n- Poop that looks thin and stringy, almost pencil-thin, especially during the last few days\nThese symptoms came into fruition gradually over the past month, but the recent changes in bowel patterns and the appearance of your stool have become more noticeable and concerning.Can you tell me how often you see blood during your bowel movements\u2014would you say it's mostly just a little streak, or do you notice quite a bit of blood more regularly? And when you do see bleeding, is it enough that you need to wipe a lot, or is it only enough to spot on the toilet paper?baseline",
+    "output": "THINKING: I'm a bit worried because the bleeding isn't just a little on the paper anymore, and my stool looks weird\u2014like really thin. I don\u2019t know how much is normal or if I should be worried, but I do notice i\nANSWER: It\u2019s usually enough to make me wipe a few times because there\u2019s quite a bit of blood, and sometimes the blood is on the stool itself, not just on the paper.",
+    "thinking": "I'm a bit worried because the bleeding isn't just a little on the paper anymore, and my stool looks weird\u2014like really thin. I don\u2019t know how much is normal or if I should be worried, but I do notice i",
+    "answer": "It\u2019s usually enough to make me wipe a few times because there\u2019s quite a bit of blood, and sometimes the blood is on the stool itself, not just on the paper.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  },
+  {
+    "vignette_index": 81,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nYou are a patient: You are 65 years old and your biological gender is male. You are experiencing the following symptoms:\n- Rectal bleeding, which you've noticed occurring intermittently over the past two weeks\n- A recent change in your bowel habits, including occasional diarrhea and some episodes of constipation\n- Poop that looks thin and stringy, almost pencil-thin, especially during the last few days\nThese symptoms came into fruition gradually over the past month, but the recent changes in bowel patterns and the appearance of your stool have become more noticeable and concerning.Can you tell me if the amount of blood you notice has stayed the same, gotten worse, or if it comes and goes\u2014like, do you ever notice more blood than before, or do the bleeding episodes seem to be happening more often than when you first started?baseline",
+    "output": "THINKING: I\u2019m worried about the blood and these changes but I don\u2019t really understand what\u2019s happening or if it\u2019s worse than before. I just feel confused and a little scared about all of it.\nANSWER: The bleeding is kind of coming and going, but now it feels like it's happening more often than at first, and I just noticed my stool looks thinner than usual.",
+    "thinking": "I\u2019m worried about the blood and these changes but I don\u2019t really understand what\u2019s happening or if it\u2019s worse than before. I just feel confused and a little scared about all of it.",
+    "answer": "The bleeding is kind of coming and going, but now it feels like it's happening more often than at first, and I just noticed my stool looks thinner than usual.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  }
+]

@@ -1,0 +1,165 @@
+[
+  {
+    "vignette_index": 220,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Duodenal ulcer due to other specified external causes\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Burning pain in your upper abdomen, especially after meals\n- Feeling of fullness and bloating after eating\n- Frequent belching that relieves some discomfort\n- Loss of appetite and occasional nausea\nThese symptoms came into fruition gradually over the past two weeks, with the pain becoming more severe and persistent, especially at night. You have a history of regular NSAID use for chronic back pain and often drink alcohol socially. You also smoked for several years but recently quit. You\u2019re concerned because the pain feels intense and you\u2019re worried it might be something serious.",
+    "output": "THINKING: I need to explain my symptoms but in a way that\u2019s simple and honest, without overcomplicating things. I should mention the main issues and my concern about how it\u2019s gotten worse.\nANSWER: I\u2019m 45, and I\u2019m a guy. I\u2019ve been having this burning feeling in my upper stomach, especially after I eat, and it\u2019s been happening for maybe two weeks or so? The pain has gotten kinda worse and more constant, and sometimes I feel really full and bloated afterward. I keep burping and it kinda helps, but not completely. I also don\u2019t really want to eat much anymore because of it, and I feel a bit nauseous sometimes. I\u2019m worried it might be something serious, especially since it\u2019s been bothering me more at night.",
+    "thinking": "I need to explain my symptoms but in a way that\u2019s simple and honest, without overcomplicating things. I should mention the main issues and my concern about how it\u2019s gotten worse.",
+    "answer": "I\u2019m 45, and I\u2019m a guy. I\u2019ve been having this burning feeling in my upper stomach, especially after I eat, and it\u2019s been happening for maybe two weeks or so? The pain has gotten kinda worse and more constant, and sometimes I feel really full and bloated afterward. I keep burping and it kinda helps, but not completely. I also don\u2019t really want to eat much anymore because of it, and I feel a bit nauseous sometimes. I\u2019m worried it might be something serious, especially since it\u2019s been bothering me more at night.",
+    "behavior_type": "chronology_confused",
+    "behavior_config": {
+      "weight": 0.1,
+      "description": "Patient confused about symptom timing and progression",
+      "modifiers": [
+        "timeline_confusion",
+        "sequence_uncertainty"
+      ],
+      "empathy_cues": [
+        "confusion",
+        "uncertainty",
+        "memory_issues",
+        "needs_patience"
+      ]
+    },
+    "gold_diagnosis": "Duodenal ulcer due to other specified external causes"
+  },
+  {
+    "vignette_index": 220,
+    "input": "**PATIENT CHARACTER:** Patient with Duodenal ulcer due to other specified external causes\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Burning pain in your upper abdomen, especially after meals\n- Feeling of fullness and bloating after eating\n- Frequent belching that relieves some discomfort\n- Loss of appetite and occasional nausea\nThese symptoms came into fruition gradually over the past two weeks, with the pain becoming more severe and persistent, especially at night. You have a history of regular NSAID use for chronic back pain and often drink alcohol socially. You also smoked for several years but recently quit. You\u2019re concerned because the pain feels intense and you\u2019re worried it might be something serious.Can you tell me exactly when these symptoms first started and how they have changed or progressed over the past two weeks?chronology_confused",
+    "output": "THINKING: I\u2019m trying to remember when all this pain started, but honestly, it\u2019s all a bit blurred. I think it began maybe last week, or was it two weeks ago? Anyway, it\u2019s been getting worse and more constant, e\nANSWER: Um, I think it was maybe last week or so, but it\u2019s kinda all mixed up in my mind now. The pain\u2019s gotten worse and more persistent, especially at night, and I feel pretty full even after small meals.",
+    "thinking": "I\u2019m trying to remember when all this pain started, but honestly, it\u2019s all a bit blurred. I think it began maybe last week, or was it two weeks ago? Anyway, it\u2019s been getting worse and more constant, e",
+    "answer": "Um, I think it was maybe last week or so, but it\u2019s kinda all mixed up in my mind now. The pain\u2019s gotten worse and more persistent, especially at night, and I feel pretty full even after small meals.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 0,
+    "gold_diagnosis": "Duodenal ulcer due to other specified external causes"
+  },
+  {
+    "vignette_index": 220,
+    "input": "**PATIENT CHARACTER:** Patient with Duodenal ulcer due to other specified external causes\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Burning pain in your upper abdomen, especially after meals\n- Feeling of fullness and bloating after eating\n- Frequent belching that relieves some discomfort\n- Loss of appetite and occasional nausea\nThese symptoms came into fruition gradually over the past two weeks, with the pain becoming more severe and persistent, especially at night. You have a history of regular NSAID use for chronic back pain and often drink alcohol socially. You also smoked for several years but recently quit. You\u2019re concerned because the pain feels intense and you\u2019re worried it might be something serious.Can you tell me what you remember about when these symptoms first started and how they've changed since then, even if it's just a rough idea?chronology_confused",
+    "output": "THINKING: I\u2019m a bit confused about the timeline. I think the discomfort started maybe last week, but I can't really remember exactly when it got worse or if it was from the start. The pain seems to come and go \nANSWER: I think it was maybe last week or so, but I\u2019m not sure, and it\u2019s been getting worse, especially at night, and I keep feeling full even when I haven\u2019t eaten much.",
+    "thinking": "I\u2019m a bit confused about the timeline. I think the discomfort started maybe last week, but I can't really remember exactly when it got worse or if it was from the start. The pain seems to come and go",
+    "answer": "I think it was maybe last week or so, but I\u2019m not sure, and it\u2019s been getting worse, especially at night, and I keep feeling full even when I haven\u2019t eaten much.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 2,
+    "gold_diagnosis": "Duodenal ulcer due to other specified external causes"
+  },
+  {
+    "vignette_index": 220,
+    "input": "**PATIENT CHARACTER:** Patient with Duodenal ulcer due to other specified external causes\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Burning pain in your upper abdomen, especially after meals\n- Feeling of fullness and bloating after eating\n- Frequent belching that relieves some discomfort\n- Loss of appetite and occasional nausea\nThese symptoms came into fruition gradually over the past two weeks, with the pain becoming more severe and persistent, especially at night. You have a history of regular NSAID use for chronic back pain and often drink alcohol socially. You also smoked for several years but recently quit. You\u2019re concerned because the pain feels intense and you\u2019re worried it might be something serious.\"Even if it's a rough idea, can you tell me approximately when you first started noticing these symptoms, and how they've changed or stayed the same since then?\"chronology_confused",
+    "output": "THINKING: I'm not exactly sure when it all started, maybe last week or sometime around then, but the pain has been getting worse, especially at night, and I'm just really worried it's something serious. I keep \nANSWER: I think it was maybe last week or so, but the pain's gotten worse since then, especially at night, and I started feeling full and nauseous sometimes, but I can't remember exactly which came first.",
+    "thinking": "I'm not exactly sure when it all started, maybe last week or sometime around then, but the pain has been getting worse, especially at night, and I'm just really worried it's something serious. I keep",
+    "answer": "I think it was maybe last week or so, but the pain's gotten worse since then, especially at night, and I started feeling full and nauseous sometimes, but I can't remember exactly which came first.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 4,
+    "gold_diagnosis": "Duodenal ulcer due to other specified external causes"
+  },
+  {
+    "vignette_index": 220,
+    "input": "**PATIENT CHARACTER:** Patient with Duodenal ulcer due to other specified external causes\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Burning pain in your upper abdomen, especially after meals\n- Feeling of fullness and bloating after eating\n- Frequent belching that relieves some discomfort\n- Loss of appetite and occasional nausea\nThese symptoms came into fruition gradually over the past two weeks, with the pain becoming more severe and persistent, especially at night. You have a history of regular NSAID use for chronic back pain and often drink alcohol socially. You also smoked for several years but recently quit. You\u2019re concerned because the pain feels intense and you\u2019re worried it might be something serious.\"Given your difficulty recalling exact dates, can you tell me if you've noticed any weight loss, vomiting, or blood in your stool or vomit since these symptoms started, and if any of these things happen more often at night or after meals?\"chronology_confused",
+    "output": "THINKING: I'm not really sure about the exact timing of everything. I think I started noticing stuff maybe a week ago, but some days it felt worse, and I can't remember if it was before or after I stopped smoki\nANSWER: Umm, I don't know for sure, but I think maybe it was last week or maybe two weeks ago that I started feeling this way. The pain's been getting worse and more at night, but I can't really remember when exactly it started.",
+    "thinking": "I'm not really sure about the exact timing of everything. I think I started noticing stuff maybe a week ago, but some days it felt worse, and I can't remember if it was before or after I stopped smoki",
+    "answer": "Umm, I don't know for sure, but I think maybe it was last week or maybe two weeks ago that I started feeling this way. The pain's been getting worse and more at night, but I can't really remember when exactly it started.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 6,
+    "gold_diagnosis": "Duodenal ulcer due to other specified external causes"
+  },
+  {
+    "vignette_index": 220,
+    "input": "**PATIENT CHARACTER:** Patient with Duodenal ulcer due to other specified external causes\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Burning pain in your upper abdomen, especially after meals\n- Feeling of fullness and bloating after eating\n- Frequent belching that relieves some discomfort\n- Loss of appetite and occasional nausea\nThese symptoms came into fruition gradually over the past two weeks, with the pain becoming more severe and persistent, especially at night. You have a history of regular NSAID use for chronic back pain and often drink alcohol socially. You also smoked for several years but recently quit. You\u2019re concerned because the pain feels intense and you\u2019re worried it might be something serious.\"Since you've been experiencing these symptoms, have you noticed any vomiting, especially if it looks like coffee grounds, or any blood in your stool? Also, have you experienced any unexplained weight loss or difficulty swallowing?\"chronology_confused",
+    "output": "THINKING: I\u2019m not really sure when all this stuff started exactly, maybe it was last week or maybe sooner? I keep forgetting, but I definitely noticed the pain getting worse, and I don\u2019t know if the nausea or w\nANSWER: I don\u2019t think I\u2019ve seen any blood in my stool or vomit that looks like coffee grounds, but I\u2019ve been having this really bad pain in my stomach and feeling full all the time, especially after eating. I think it\u2019s been like that for a while now, but I don\u2019t remember if it was before the nausea or after.",
+    "thinking": "I\u2019m not really sure when all this stuff started exactly, maybe it was last week or maybe sooner? I keep forgetting, but I definitely noticed the pain getting worse, and I don\u2019t know if the nausea or w",
+    "answer": "I don\u2019t think I\u2019ve seen any blood in my stool or vomit that looks like coffee grounds, but I\u2019ve been having this really bad pain in my stomach and feeling full all the time, especially after eating. I think it\u2019s been like that for a while now, but I don\u2019t remember if it was before the nausea or after.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 8,
+    "gold_diagnosis": "Duodenal ulcer due to other specified external causes"
+  },
+  {
+    "vignette_index": 220,
+    "input": "**PATIENT CHARACTER:** Patient with Duodenal ulcer due to other specified external causes\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Burning pain in your upper abdomen, especially after meals\n- Feeling of fullness and bloating after eating\n- Frequent belching that relieves some discomfort\n- Loss of appetite and occasional nausea\nThese symptoms came into fruition gradually over the past two weeks, with the pain becoming more severe and persistent, especially at night. You have a history of regular NSAID use for chronic back pain and often drink alcohol socially. You also smoked for several years but recently quit. You\u2019re concerned because the pain feels intense and you\u2019re worried it might be something serious.Have you noticed any vomit that looks like coffee grounds or blood, or any blood in your stool, even if you weren\u2019t sure, since your symptoms started?chronology_confused",
+    "output": "THINKING: I\u2019m a bit confused about when I saw anything like that. I think it was maybe last week or two, but I\u2019m not really sure if it was before or after the pain got worse. I don\u2019t remember exactly when I not\nANSWER: Uh, I think I might have seen something like dark, coffee-ground stuff in my vomit or maybe blood in my stool, but honestly, I can't remember exactly when or if it was at the same time as all these other symptoms.",
+    "thinking": "I\u2019m a bit confused about when I saw anything like that. I think it was maybe last week or two, but I\u2019m not really sure if it was before or after the pain got worse. I don\u2019t remember exactly when I not",
+    "answer": "Uh, I think I might have seen something like dark, coffee-ground stuff in my vomit or maybe blood in my stool, but honestly, I can't remember exactly when or if it was at the same time as all these other symptoms.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 10,
+    "gold_diagnosis": "Duodenal ulcer due to other specified external causes"
+  },
+  {
+    "vignette_index": 220,
+    "input": "**PATIENT CHARACTER:** Patient with Duodenal ulcer due to other specified external causes\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Burning pain in your upper abdomen, especially after meals\n- Feeling of fullness and bloating after eating\n- Frequent belching that relieves some discomfort\n- Loss of appetite and occasional nausea\nThese symptoms came into fruition gradually over the past two weeks, with the pain becoming more severe and persistent, especially at night. You have a history of regular NSAID use for chronic back pain and often drink alcohol socially. You also smoked for several years but recently quit. You\u2019re concerned because the pain feels intense and you\u2019re worried it might be something serious.Have you noticed any recent dark, tar-like stool or vomiting that looks like coffee grounds, which might indicate bleeding, even if you're unsure?chronology_confused",
+    "output": "THINKING: I'm a bit confused about the stool and vomit question. I think I might have seen something like that, but maybe it was just my imagination or something I ate? It\u2019s hard to remember exactly when or if \nANSWER: Uh, I think I might have seen something dark in my stool, but I\u2019m not really sure if it was like that or maybe I just saw something dark in the toilet? I haven\u2019t actually vomited anything like that, though.",
+    "thinking": "I'm a bit confused about the stool and vomit question. I think I might have seen something like that, but maybe it was just my imagination or something I ate? It\u2019s hard to remember exactly when or if",
+    "answer": "Uh, I think I might have seen something dark in my stool, but I\u2019m not really sure if it was like that or maybe I just saw something dark in the toilet? I haven\u2019t actually vomited anything like that, though.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 12,
+    "gold_diagnosis": "Duodenal ulcer due to other specified external causes"
+  },
+  {
+    "vignette_index": 220,
+    "input": "**PATIENT CHARACTER:** Patient with Duodenal ulcer due to other specified external causes\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Burning pain in your upper abdomen, especially after meals\n- Feeling of fullness and bloating after eating\n- Frequent belching that relieves some discomfort\n- Loss of appetite and occasional nausea\nThese symptoms came into fruition gradually over the past two weeks, with the pain becoming more severe and persistent, especially at night. You have a history of regular NSAID use for chronic back pain and often drink alcohol socially. You also smoked for several years but recently quit. You\u2019re concerned because the pain feels intense and you\u2019re worried it might be something serious.\"I understand it might be difficult to recall exact details, but since your symptoms started, have you noticed any episodes where you vomited material that looked like coffee grounds or blood, or have you seen dark, tar-like stool that could indicate bleeding?\"chronology_confused",
+    "output": "THINKING: I think I might have seen something like dark stuff in my stool or maybe I just imagined it, but I can't really remember exactly when. The pain is so bad now, I feel worried, but it's all kind of runn\nANSWER: I don\u2019t really remember if I vomited anything like that, or when I saw dark stool, but I think I might have, maybe a little while ago? It\u2019s all kinda blurry in my head.",
+    "thinking": "I think I might have seen something like dark stuff in my stool or maybe I just imagined it, but I can't really remember exactly when. The pain is so bad now, I feel worried, but it's all kind of runn",
+    "answer": "I don\u2019t really remember if I vomited anything like that, or when I saw dark stool, but I think I might have, maybe a little while ago? It\u2019s all kinda blurry in my head.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 14,
+    "gold_diagnosis": "Duodenal ulcer due to other specified external causes"
+  },
+  {
+    "vignette_index": 220,
+    "input": "**PATIENT CHARACTER:** Patient with Duodenal ulcer due to other specified external causes\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Burning pain in your upper abdomen, especially after meals\n- Feeling of fullness and bloating after eating\n- Frequent belching that relieves some discomfort\n- Loss of appetite and occasional nausea\nThese symptoms came into fruition gradually over the past two weeks, with the pain becoming more severe and persistent, especially at night. You have a history of regular NSAID use for chronic back pain and often drink alcohol socially. You also smoked for several years but recently quit. You\u2019re concerned because the pain feels intense and you\u2019re worried it might be something serious.Have you experienced any recent episodes where your stool looked very dark or tar-like, or where you vomited material that was black or blood-tinged, and can you tell me more about when these might have happened?chronology_confused",
+    "output": "THINKING: I'm not really sure when the dark stool or vomiting started exactly. I think it was maybe last week or two, but I can't remember well, and the pain has been worse at night lately, so I'm worried about\nANSWER: Um, I think I saw some dark stuff in my stool maybe last week or two, but I\u2019m not really positive, and I haven\u2019t vomited that I remember, but I feel really bad and scared about all this.",
+    "thinking": "I'm not really sure when the dark stool or vomiting started exactly. I think it was maybe last week or two, but I can't remember well, and the pain has been worse at night lately, so I'm worried about",
+    "answer": "Um, I think I saw some dark stuff in my stool maybe last week or two, but I\u2019m not really positive, and I haven\u2019t vomited that I remember, but I feel really bad and scared about all this.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 16,
+    "gold_diagnosis": "Duodenal ulcer due to other specified external causes"
+  },
+  {
+    "vignette_index": 220,
+    "input": "**PATIENT CHARACTER:** Patient with Duodenal ulcer due to other specified external causes\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Burning pain in your upper abdomen, especially after meals\n- Feeling of fullness and bloating after eating\n- Frequent belching that relieves some discomfort\n- Loss of appetite and occasional nausea\nThese symptoms came into fruition gradually over the past two weeks, with the pain becoming more severe and persistent, especially at night. You have a history of regular NSAID use for chronic back pain and often drink alcohol socially. You also smoked for several years but recently quit. You\u2019re concerned because the pain feels intense and you\u2019re worried it might be something serious.Since it's possible you might have had some bleeding, even if you're not sure, have you noticed any recent episodes where your stool was very dark or tar-like, or where you vomited material that looked like coffee grounds or dark blood?chronology_confused",
+    "output": "THINKING: I'm not really sure when the bleeding thing happened. I think maybe last week? Or was it earlier? I don\u2019t remember if I saw anything really dark in my stool or if I vomited anything that looked like c\nANSWER: I don't really know exactly when, but I think maybe last week or a little before, I saw my stool was darker, but I wasn\u2019t sure if it was really blood or just my imagination. I haven't vomited anything like that, I don't think.",
+    "thinking": "I'm not really sure when the bleeding thing happened. I think maybe last week? Or was it earlier? I don\u2019t remember if I saw anything really dark in my stool or if I vomited anything that looked like c",
+    "answer": "I don't really know exactly when, but I think maybe last week or a little before, I saw my stool was darker, but I wasn\u2019t sure if it was really blood or just my imagination. I haven't vomited anything like that, I don't think.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 18,
+    "gold_diagnosis": "Duodenal ulcer due to other specified external causes"
+  },
+  {
+    "vignette_index": 220,
+    "input": "**PATIENT CHARACTER:** Patient with Duodenal ulcer due to other specified external causes\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Burning pain in your upper abdomen, especially after meals\n- Feeling of fullness and bloating after eating\n- Frequent belching that relieves some discomfort\n- Loss of appetite and occasional nausea\nThese symptoms came into fruition gradually over the past two weeks, with the pain becoming more severe and persistent, especially at night. You have a history of regular NSAID use for chronic back pain and often drink alcohol socially. You also smoked for several years but recently quit. You\u2019re concerned because the pain feels intense and you\u2019re worried it might be something serious.Have you had any recent episodes where you saw blood in your vomit or stool\u2014such as frank blood, dark or tar-like stool, or material that looked like coffee grounds\u2014and can you tell me approximately when these episodes might have occurred?chronology_confused",
+    "output": "THINKING: I'm trying to remember when I saw blood, but honestly, it all blurs together. I think I probably saw a little blood maybe last week or the week before, but then again, it might've been earlier, or may\nANSWER: I think I saw some blood in my stool maybe last week, or it could have been a little earlier, like two weeks ago? I'm not really sure.",
+    "thinking": "I'm trying to remember when I saw blood, but honestly, it all blurs together. I think I probably saw a little blood maybe last week or the week before, but then again, it might've been earlier, or may",
+    "answer": "I think I saw some blood in my stool maybe last week, or it could have been a little earlier, like two weeks ago? I'm not really sure.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 20,
+    "gold_diagnosis": "Duodenal ulcer due to other specified external causes"
+  },
+  {
+    "vignette_index": 220,
+    "input": "**PATIENT CHARACTER:** Patient with Duodenal ulcer due to other specified external causes\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Burning pain in your upper abdomen, especially after meals\n- Feeling of fullness and bloating after eating\n- Frequent belching that relieves some discomfort\n- Loss of appetite and occasional nausea\nThese symptoms came into fruition gradually over the past two weeks, with the pain becoming more severe and persistent, especially at night. You have a history of regular NSAID use for chronic back pain and often drink alcohol socially. You also smoked for several years but recently quit. You\u2019re concerned because the pain feels intense and you\u2019re worried it might be something serious.Have there been any recent episodes, within the past week or two, where you actually saw blood in your vomit or stool, or noticed that your stool became very dark or tar-like, even briefly?chronology_confused",
+    "output": "THINKING: I'm not sure exactly when I saw blood or noticed dark stool, maybe it was last week? Or it could have been a few days ago? I feel a little embarrassed and confused because I wasn't really paying atten\nANSWER: Um, I think maybe I saw some blood in my vomit or stool, but honestly, I\u2019m not really sure when. It was kind of blurred in my mind, and I\u2019ve been feeling pretty confused about it.",
+    "thinking": "I'm not sure exactly when I saw blood or noticed dark stool, maybe it was last week? Or it could have been a few days ago? I feel a little embarrassed and confused because I wasn't really paying atten",
+    "answer": "Um, I think maybe I saw some blood in my vomit or stool, but honestly, I\u2019m not really sure when. It was kind of blurred in my mind, and I\u2019ve been feeling pretty confused about it.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 22,
+    "gold_diagnosis": "Duodenal ulcer due to other specified external causes"
+  },
+  {
+    "vignette_index": 220,
+    "input": "**PATIENT CHARACTER:** Patient with Duodenal ulcer due to other specified external causes\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Burning pain in your upper abdomen, especially after meals\n- Feeling of fullness and bloating after eating\n- Frequent belching that relieves some discomfort\n- Loss of appetite and occasional nausea\nThese symptoms came into fruition gradually over the past two weeks, with the pain becoming more severe and persistent, especially at night. You have a history of regular NSAID use for chronic back pain and often drink alcohol socially. You also smoked for several years but recently quit. You\u2019re concerned because the pain feels intense and you\u2019re worried it might be something serious.\"Can you tell me if you've had any specific recent moments\u2014say in the past few days or week\u2014when you noticed your stool looking very dark or tar-like, or if you saw blood in your vomit, and if so, can you try to remember approximately when that happened?\"chronology_confused",
+    "output": "THINKING: I'm not really sure when I first noticed any dark or tar-like stool or if I saw any blood in my vomit. Maybe it was last week? Or was it a little earlier? Honestly, I get all mixed up and I\u2019ve been fe\nANSWER: I think I might have seen some dark stuff in my stool maybe a week ago, but I\u2019m not totally sure, and I haven\u2019t noticed blood in my vomit or anything like that, but I\u2019ve been feeling worse lately.",
+    "thinking": "I'm not really sure when I first noticed any dark or tar-like stool or if I saw any blood in my vomit. Maybe it was last week? Or was it a little earlier? Honestly, I get all mixed up and I\u2019ve been fe",
+    "answer": "I think I might have seen some dark stuff in my stool maybe a week ago, but I\u2019m not totally sure, and I haven\u2019t noticed blood in my vomit or anything like that, but I\u2019ve been feeling worse lately.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 24,
+    "gold_diagnosis": "Duodenal ulcer due to other specified external causes"
+  },
+  {
+    "vignette_index": 220,
+    "input": "**PATIENT CHARACTER:** Patient with Duodenal ulcer due to other specified external causes\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Burning pain in your upper abdomen, especially after meals\n- Feeling of fullness and bloating after eating\n- Frequent belching that relieves some discomfort\n- Loss of appetite and occasional nausea\nThese symptoms came into fruition gradually over the past two weeks, with the pain becoming more severe and persistent, especially at night. You have a history of regular NSAID use for chronic back pain and often drink alcohol socially. You also smoked for several years but recently quit. You\u2019re concerned because the pain feels intense and you\u2019re worried it might be something serious.Could you tell me if you\u2019ve noticed any more recent episodes\u2014perhaps in the past few days\u2014where your stool was very dark or tar-like, or where you saw blood in your vomit, and try to remember approximately when that might have happened?chronology_confused",
+    "output": "THINKING: I'm trying to remember when I saw any dark or bloody stuff, but my memory's a bit fuzzy on the timing. It might have been last week\u2026 or maybe two weeks ago? I just know it happened sometime, but I don\nANSWER: Um, I think I saw some dark stuff in my stool or maybe in my vomit, but I can't really tell when exactly, maybe last week or two. It all kind of blurs together for me.",
+    "thinking": "I'm trying to remember when I saw any dark or bloody stuff, but my memory's a bit fuzzy on the timing. It might have been last week\u2026 or maybe two weeks ago? I just know it happened sometime, but I don",
+    "answer": "Um, I think I saw some dark stuff in my stool or maybe in my vomit, but I can't really tell when exactly, maybe last week or two. It all kind of blurs together for me.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 26,
+    "gold_diagnosis": "Duodenal ulcer due to other specified external causes"
+  }
+]

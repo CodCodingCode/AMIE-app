@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 199,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Volatile inhalant-induced delirium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Alteration of attention and consciousness\n- Cognitive impairment, including forgetfulness and confusion\n- Reduced ability to focus or shift attention\n- Psychomotor behavioral disturbances, such as restlessness and agitation\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after I used some inhalants I found around the house. At first, I just felt a bit dizzy, but then I couldn't keep track of what I was doing, and I kept pacing around, feeling more and more confused. I kept losing focus and felt like I was in a fog most of the time. Today, I can't seem to sit still or calm down, and I keep forgetting recent things. I\u2019ve been feeling very disoriented and anxious ever since.",
+    "output": "THINKING: I need to explain my situation clearly but honestly, showing how worried I am without sounding too technical or like I'm making it up. I should mention how sudden and intense my symptoms are, which mi\nANSWER: Well, doctor, I'm 72, and I'm a man. I guess I came in 'cause I just can't think straight or sit still. It all started yesterday after I used some stuff I found around the house, and now I just feel confused and all over the place, like I can't focus or remember much. It's been pretty bad today.",
+    "thinking": "I need to explain my situation clearly but honestly, showing how worried I am without sounding too technical or like I'm making it up. I should mention how sudden and intense my symptoms are, which mi",
+    "answer": "Well, doctor, I'm 72, and I'm a man. I guess I came in 'cause I just can't think straight or sit still. It all started yesterday after I used some stuff I found around the house, and now I just feel confused and all over the place, like I can't focus or remember much. It's been pretty bad today.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Volatile inhalant-induced delirium"
+  },
+  {
+    "vignette_index": 199,
+    "input": "**PATIENT CHARACTER:** Patient with Volatile inhalant-induced delirium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Alteration of attention and consciousness\n- Cognitive impairment, including forgetfulness and confusion\n- Reduced ability to focus or shift attention\n- Psychomotor behavioral disturbances, such as restlessness and agitation\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after I used some inhalants I found around the house. At first, I just felt a bit dizzy, but then I couldn't keep track of what I was doing, and I kept pacing around, feeling more and more confused. I kept losing focus and felt like I was in a fog most of the time. Today, I can't seem to sit still or calm down, and I keep forgetting recent things. I\u2019ve been feeling very disoriented and anxious ever since.Can you tell me how these symptoms are affecting your day-to-day life and what you\u2019re able to manage normally versus now?baseline",
+    "output": "THINKING: I'm really confused and a bit scared. I don\u2019t know how bad it is or what I can do right now. I just feel all over the place and can\u2019t focus or sit still anymore.\nANSWER: It\u2019s hard to do anything normal. I keep moving around and I forget stuff all the time. I don\u2019t feel right, and I don\u2019t think I can do much.",
+    "thinking": "I'm really confused and a bit scared. I don\u2019t know how bad it is or what I can do right now. I just feel all over the place and can\u2019t focus or sit still anymore.",
+    "answer": "It\u2019s hard to do anything normal. I keep moving around and I forget stuff all the time. I don\u2019t feel right, and I don\u2019t think I can do much.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Volatile inhalant-induced delirium"
+  },
+  {
+    "vignette_index": 199,
+    "input": "**PATIENT CHARACTER:** Patient with Volatile inhalant-induced delirium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Alteration of attention and consciousness\n- Cognitive impairment, including forgetfulness and confusion\n- Reduced ability to focus or shift attention\n- Psychomotor behavioral disturbances, such as restlessness and agitation\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after I used some inhalants I found around the house. At first, I just felt a bit dizzy, but then I couldn't keep track of what I was doing, and I kept pacing around, feeling more and more confused. I kept losing focus and felt like I was in a fog most of the time. Today, I can't seem to sit still or calm down, and I keep forgetting recent things. I\u2019ve been feeling very disoriented and anxious ever since.Can you tell me how your memory or thinking has changed since this all started, and if you've noticed any new physical feelings or changes in your body along with the confusion?baseline",
+    "output": "THINKING: I'm not quite sure how my thinking has changed, but I do feel like I can't concentrate or remember things properly, and I keep feeling restless and jumpy. I'm pretty scared because I don't understand \nANSWER: Well, I don't really remember things good anymore, and I feel kinda foggy all the time. I can't sit still and I keep feeling anxious and confused.",
+    "thinking": "I'm not quite sure how my thinking has changed, but I do feel like I can't concentrate or remember things properly, and I keep feeling restless and jumpy. I'm pretty scared because I don't understand",
+    "answer": "Well, I don't really remember things good anymore, and I feel kinda foggy all the time. I can't sit still and I keep feeling anxious and confused.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Volatile inhalant-induced delirium"
+  },
+  {
+    "vignette_index": 199,
+    "input": "**PATIENT CHARACTER:** Patient with Volatile inhalant-induced delirium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Alteration of attention and consciousness\n- Cognitive impairment, including forgetfulness and confusion\n- Reduced ability to focus or shift attention\n- Psychomotor behavioral disturbances, such as restlessness and agitation\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after I used some inhalants I found around the house. At first, I just felt a bit dizzy, but then I couldn't keep track of what I was doing, and I kept pacing around, feeling more and more confused. I kept losing focus and felt like I was in a fog most of the time. Today, I can't seem to sit still or calm down, and I keep forgetting recent things. I\u2019ve been feeling very disoriented and anxious ever since.Can you tell me if you notice any new weakness, numbness, or trouble moving or feeling on one or both sides of your body since the symptoms started?baseline",
+    "output": "THINKING: I'm not really sure if there's any weakness or numbness, but I do feel kind of shaky and restless, like I can't sit still. I haven't noticed anything specific about moving or feeling on one side, but \nANSWER: I don't think I feel weakness or numbness or anything like that, but I do feel all jittery and like I can't stay still.",
+    "thinking": "I'm not really sure if there's any weakness or numbness, but I do feel kind of shaky and restless, like I can't sit still. I haven't noticed anything specific about moving or feeling on one side, but",
+    "answer": "I don't think I feel weakness or numbness or anything like that, but I do feel all jittery and like I can't stay still.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Volatile inhalant-induced delirium"
+  },
+  {
+    "vignette_index": 199,
+    "input": "**PATIENT CHARACTER:** Patient with Volatile inhalant-induced delirium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Alteration of attention and consciousness\n- Cognitive impairment, including forgetfulness and confusion\n- Reduced ability to focus or shift attention\n- Psychomotor behavioral disturbances, such as restlessness and agitation\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after I used some inhalants I found around the house. At first, I just felt a bit dizzy, but then I couldn't keep track of what I was doing, and I kept pacing around, feeling more and more confused. I kept losing focus and felt like I was in a fog most of the time. Today, I can't seem to sit still or calm down, and I keep forgetting recent things. I\u2019ve been feeling very disoriented and anxious ever since.\"Can you tell me if your confusion or restlessness has been changing or coming and going at times, or has it been the same pretty much all of the time since it started?\"baseline",
+    "output": "THINKING: I feel a bit overwhelmed and I\u2019m not sure how to explain it properly. It\u2019s been kinda the same most of the time since it started, but I do feel more scrambled now and then.\nANSWER: It\u2019s pretty much the same all the time, I think. I don\u2019t really notice it changing much, but I feel worse today, I guess.",
+    "thinking": "I feel a bit overwhelmed and I\u2019m not sure how to explain it properly. It\u2019s been kinda the same most of the time since it started, but I do feel more scrambled now and then.",
+    "answer": "It\u2019s pretty much the same all the time, I think. I don\u2019t really notice it changing much, but I feel worse today, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Volatile inhalant-induced delirium"
+  },
+  {
+    "vignette_index": 199,
+    "input": "**PATIENT CHARACTER:** Patient with Volatile inhalant-induced delirium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Alteration of attention and consciousness\n- Cognitive impairment, including forgetfulness and confusion\n- Reduced ability to focus or shift attention\n- Psychomotor behavioral disturbances, such as restlessness and agitation\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after I used some inhalants I found around the house. At first, I just felt a bit dizzy, but then I couldn't keep track of what I was doing, and I kept pacing around, feeling more and more confused. I kept losing focus and felt like I was in a fog most of the time. Today, I can't seem to sit still or calm down, and I keep forgetting recent things. I\u2019ve been feeling very disoriented and anxious ever since.Have you or has anyone nearby noticed any small differences in your strength, movement, or feelings on either side of your body\u2014like one arm feeling weaker or harder to move than the other\u2014since these symptoms started?baseline",
+    "output": "THINKING: I'm not sure if the whole right side feeling weird is related to what happened, but I do feel kinda off and unsteady, so I wanna tell the doctor about it. I don't really understand all the medical stu\nANSWER: I haven't really noticed anything like that, but I do feel kinda shaky and not quite myself, like everything's fuzzy or I might fall if I\u2019m not careful.",
+    "thinking": "I'm not sure if the whole right side feeling weird is related to what happened, but I do feel kinda off and unsteady, so I wanna tell the doctor about it. I don't really understand all the medical stu",
+    "answer": "I haven't really noticed anything like that, but I do feel kinda shaky and not quite myself, like everything's fuzzy or I might fall if I\u2019m not careful.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Volatile inhalant-induced delirium"
+  },
+  {
+    "vignette_index": 199,
+    "input": "**PATIENT CHARACTER:** Patient with Volatile inhalant-induced delirium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Alteration of attention and consciousness\n- Cognitive impairment, including forgetfulness and confusion\n- Reduced ability to focus or shift attention\n- Psychomotor behavioral disturbances, such as restlessness and agitation\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after I used some inhalants I found around the house. At first, I just felt a bit dizzy, but then I couldn't keep track of what I was doing, and I kept pacing around, feeling more and more confused. I kept losing focus and felt like I was in a fog most of the time. Today, I can't seem to sit still or calm down, and I keep forgetting recent things. I\u2019ve been feeling very disoriented and anxious ever since.\"Would it be okay if I gently checked to see if there's any weakness or changes in feeling in your arms or legs\u2014things you might not have noticed or thought about\u2014that could help us understand what exactly is going on?\"baseline",
+    "output": "THINKING: I'm a bit worried about how weird I feel, and honestly, I don't really understand what the doctor is asking, but I guess they want to check if I feel weak or numb or something like that. It kind of ma\nANSWER: Uh, I guess if you need to, but I don\u2019t really know what you\u2019re gonna find or if it\u2019s gonna make me feel worse or something.",
+    "thinking": "I'm a bit worried about how weird I feel, and honestly, I don't really understand what the doctor is asking, but I guess they want to check if I feel weak or numb or something like that. It kind of ma",
+    "answer": "Uh, I guess if you need to, but I don\u2019t really know what you\u2019re gonna find or if it\u2019s gonna make me feel worse or something.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Volatile inhalant-induced delirium"
+  },
+  {
+    "vignette_index": 199,
+    "input": "**PATIENT CHARACTER:** Patient with Volatile inhalant-induced delirium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Alteration of attention and consciousness\n- Cognitive impairment, including forgetfulness and confusion\n- Reduced ability to focus or shift attention\n- Psychomotor behavioral disturbances, such as restlessness and agitation\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after I used some inhalants I found around the house. At first, I just felt a bit dizzy, but then I couldn't keep track of what I was doing, and I kept pacing around, feeling more and more confused. I kept losing focus and felt like I was in a fog most of the time. Today, I can't seem to sit still or calm down, and I keep forgetting recent things. I\u2019ve been feeling very disoriented and anxious ever since.Given your cautious and vague responses, would it be okay if I gently checked your strength and sensation in your arms and legs to see if everything feels as normal as you say, or if I notice anything that might need further attention?baseline",
+    "output": "THINKING: I don't really understand what he's asking, but I guess he just wants to see if I\u2019m still okay or if there's something wrong with my limbs. I\u2019m a bit worried, but I guess I should let him check becaus\nANSWER: Uh, I guess that\u2019s okay, sure. Just be gentle, I don\u2019t really know what you might find.",
+    "thinking": "I don't really understand what he's asking, but I guess he just wants to see if I\u2019m still okay or if there's something wrong with my limbs. I\u2019m a bit worried, but I guess I should let him check becaus",
+    "answer": "Uh, I guess that\u2019s okay, sure. Just be gentle, I don\u2019t really know what you might find.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Volatile inhalant-induced delirium"
+  }
+]

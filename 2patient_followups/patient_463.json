@@ -1,0 +1,116 @@
+[
+  {
+    "vignette_index": 463,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Polycythaemia vera\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 67 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Headache\n- Dizziness\n- Itchiness, especially after a warm shower\n- Blurred vision\n- Tiredness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about two weeks ago, with the headache and dizziness coming first, and then I noticed the itchiness after my showers. Over time, I\u2019ve felt more tired than usual and my vision seems a bit blurry sometimes, especially later in the day. I\u2019ve also been feeling more sluggish and fatigued, even after resting. I\u2019m concerned because I\u2019ve had some blood clots in the past, and my family history includes other blood disorders. It\u2019s been worrying me because these symptoms seem to be getting worse and I want to find out what\u2019s going on.",
+    "output": "THINKING: I should explain that I've been feeling off for a little while, and it's gotten worse lately, so I guess I just want to be sure it's nothing serious. I don't want to make a big deal out of it, but the\nANSWER: Well, I\u2019ve been feeling kind of dizzy and have these headaches, mostly over the past couple of weeks. I also noticed that after I take a warm shower, my skin starts to itch like crazy, and my vision isn\u2019t as clear as it used to be sometimes, especially later in the day. I\u2019ve been feeling more tired than usual too, like I just don\u2019t have any energy, even when I rest. I\u2019ve had some blood clots before, and my family has some blood issues, so I thought I should come in and see what\u2019s going on.",
+    "thinking": "I should explain that I've been feeling off for a little while, and it's gotten worse lately, so I guess I just want to be sure it's nothing serious. I don't want to make a big deal out of it, but the",
+    "answer": "Well, I\u2019ve been feeling kind of dizzy and have these headaches, mostly over the past couple of weeks. I also noticed that after I take a warm shower, my skin starts to itch like crazy, and my vision isn\u2019t as clear as it used to be sometimes, especially later in the day. I\u2019ve been feeling more tired than usual too, like I just don\u2019t have any energy, even when I rest. I\u2019ve had some blood clots before, and my family has some blood issues, so I thought I should come in and see what\u2019s going on.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Polycythaemia vera"
+  },
+  {
+    "vignette_index": 463,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia vera\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 67 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Headache\n- Dizziness\n- Itchiness, especially after a warm shower\n- Blurred vision\n- Tiredness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about two weeks ago, with the headache and dizziness coming first, and then I noticed the itchiness after my showers. Over time, I\u2019ve felt more tired than usual and my vision seems a bit blurry sometimes, especially later in the day. I\u2019ve also been feeling more sluggish and fatigued, even after resting. I\u2019m concerned because I\u2019ve had some blood clots in the past, and my family history includes other blood disorders. It\u2019s been worrying me because these symptoms seem to be getting worse and I want to find out what\u2019s going on.Can you tell me more about how these symptoms are affecting your day-to-day life\u2014are they making it harder to do certain things or go about your usual routines?stoic_minimizer",
+    "output": "THINKING: I'm not sure how serious this all is, but I've been feeling worse gradually and it's been bothering me enough to come in. I don't want to be a big deal about it, but I guess I thought I should get che\nANSWER: Well, I guess it\u2019s just been this way for a couple of weeks, and it\u2019s not like I can\u2019t handle a bit of discomfort, but I thought I\u2019d better see what\u2019s going on since I\u2019ve been feeling more tired and the vision stuff is kind of annoying.",
+    "thinking": "I'm not sure how serious this all is, but I've been feeling worse gradually and it's been bothering me enough to come in. I don't want to be a big deal about it, but I guess I thought I should get che",
+    "answer": "Well, I guess it\u2019s just been this way for a couple of weeks, and it\u2019s not like I can\u2019t handle a bit of discomfort, but I thought I\u2019d better see what\u2019s going on since I\u2019ve been feeling more tired and the vision stuff is kind of annoying.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Polycythaemia vera"
+  },
+  {
+    "vignette_index": 463,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia vera\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 67 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Headache\n- Dizziness\n- Itchiness, especially after a warm shower\n- Blurred vision\n- Tiredness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about two weeks ago, with the headache and dizziness coming first, and then I noticed the itchiness after my showers. Over time, I\u2019ve felt more tired than usual and my vision seems a bit blurry sometimes, especially later in the day. I\u2019ve also been feeling more sluggish and fatigued, even after resting. I\u2019m concerned because I\u2019ve had some blood clots in the past, and my family history includes other blood disorders. It\u2019s been worrying me because these symptoms seem to be getting worse and I want to find out what\u2019s going on.Can you tell me if the dizziness or visual blurring tends to happen more when you move your head or stand up quickly, or does it happen at other times?stoic_minimizer",
+    "output": "THINKING: I don't really want to make a big deal out of it, but I guess the dizziness kind of happens whenever I get up quick or move my head a lot. It's not constant, just when I change positions sometimes.\nANSWER: It usually happens when I stand up fast or turn my head, but I think it\u2019s happened a few times just out of the blue too.",
+    "thinking": "I don't really want to make a big deal out of it, but I guess the dizziness kind of happens whenever I get up quick or move my head a lot. It's not constant, just when I change positions sometimes.",
+    "answer": "It usually happens when I stand up fast or turn my head, but I think it\u2019s happened a few times just out of the blue too.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Polycythaemia vera"
+  },
+  {
+    "vignette_index": 463,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia vera\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 67 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Headache\n- Dizziness\n- Itchiness, especially after a warm shower\n- Blurred vision\n- Tiredness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about two weeks ago, with the headache and dizziness coming first, and then I noticed the itchiness after my showers. Over time, I\u2019ve felt more tired than usual and my vision seems a bit blurry sometimes, especially later in the day. I\u2019ve also been feeling more sluggish and fatigued, even after resting. I\u2019m concerned because I\u2019ve had some blood clots in the past, and my family history includes other blood disorders. It\u2019s been worrying me because these symptoms seem to be getting worse and I want to find out what\u2019s going on.Can you describe exactly how your dizziness or visual blurring has come and gone over the past couple of weeks\u2014does it happen at specific times, with certain movements, or does it sometimes come on for no clear reason?stoic_minimizer",
+    "output": "THINKING: I don\u2019t want to make it sound like a big deal, but I\u2019ve noticed these symptoms stick around and seem to get a little worse. I\u2019ve had blood clots before, so I just want to be careful and get checked ou\nANSWER: Honestly, it\u2019s kind of all over the place. The dizziness and blurred vision come and go, mainly when I\u2019m doing stuff or sometimes out of nowhere, and it\u2019s been like this for a couple of weeks now.",
+    "thinking": "I don\u2019t want to make it sound like a big deal, but I\u2019ve noticed these symptoms stick around and seem to get a little worse. I\u2019ve had blood clots before, so I just want to be careful and get checked ou",
+    "answer": "Honestly, it\u2019s kind of all over the place. The dizziness and blurred vision come and go, mainly when I\u2019m doing stuff or sometimes out of nowhere, and it\u2019s been like this for a couple of weeks now.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Polycythaemia vera"
+  },
+  {
+    "vignette_index": 463,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia vera\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 67 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Headache\n- Dizziness\n- Itchiness, especially after a warm shower\n- Blurred vision\n- Tiredness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about two weeks ago, with the headache and dizziness coming first, and then I noticed the itchiness after my showers. Over time, I\u2019ve felt more tired than usual and my vision seems a bit blurry sometimes, especially later in the day. I\u2019ve also been feeling more sluggish and fatigued, even after resting. I\u2019m concerned because I\u2019ve had some blood clots in the past, and my family history includes other blood disorders. It\u2019s been worrying me because these symptoms seem to be getting worse and I want to find out what\u2019s going on.Can you tell me more about the skin itching you've mentioned\u2014specifically, if it only happens after warm showers or bathes, and if it\u2019s the water temperature that seems to trigger it, or if sometimes it happens without any apparent reason?stoic_minimizer",
+    "output": "THINKING: I don't want to overdo it, but this itchiness after the showers is bothering me. I\u2019ve noticed it mostly when the water\u2019s warm, but sometimes it happens even if I just sit in a warm room. It\u2019s not like\nANSWER: It\u2019s probably nothing, but I do notice it mostly after warm showers, and sometimes just from the heat, I guess. It's not like every single time, but I thought I should mention it.",
+    "thinking": "I don't want to overdo it, but this itchiness after the showers is bothering me. I\u2019ve noticed it mostly when the water\u2019s warm, but sometimes it happens even if I just sit in a warm room. It\u2019s not like",
+    "answer": "It\u2019s probably nothing, but I do notice it mostly after warm showers, and sometimes just from the heat, I guess. It's not like every single time, but I thought I should mention it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Polycythaemia vera"
+  },
+  {
+    "vignette_index": 463,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia vera\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 67 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Headache\n- Dizziness\n- Itchiness, especially after a warm shower\n- Blurred vision\n- Tiredness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about two weeks ago, with the headache and dizziness coming first, and then I noticed the itchiness after my showers. Over time, I\u2019ve felt more tired than usual and my vision seems a bit blurry sometimes, especially later in the day. I\u2019ve also been feeling more sluggish and fatigued, even after resting. I\u2019m concerned because I\u2019ve had some blood clots in the past, and my family history includes other blood disorders. It\u2019s been worrying me because these symptoms seem to be getting worse and I want to find out what\u2019s going on.Can you tell me if your dizziness and visual disturbances are usually happening throughout the day or if they come and go at specific times, and whether they tend to last a few minutes or longer, even when you're resting?stoic_minimizer",
+    "output": "THINKING: I haven't been paying much attention to when exactly the symptoms happen, I guess they\u2019re kind of all the time now, but maybe worse some days. I don\u2019t want to make a big deal out of it, but I guess I \nANSWER: They\u2019re kind of all over, I think, but sometimes they\u2019re worse in the afternoon or when I\u2019ve been sitting for a while, and I\u2019ve just kind of gotten used to it.",
+    "thinking": "I haven't been paying much attention to when exactly the symptoms happen, I guess they\u2019re kind of all the time now, but maybe worse some days. I don\u2019t want to make a big deal out of it, but I guess I",
+    "answer": "They\u2019re kind of all over, I think, but sometimes they\u2019re worse in the afternoon or when I\u2019ve been sitting for a while, and I\u2019ve just kind of gotten used to it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Polycythaemia vera"
+  },
+  {
+    "vignette_index": 463,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia vera\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 67 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Headache\n- Dizziness\n- Itchiness, especially after a warm shower\n- Blurred vision\n- Tiredness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about two weeks ago, with the headache and dizziness coming first, and then I noticed the itchiness after my showers. Over time, I\u2019ve felt more tired than usual and my vision seems a bit blurry sometimes, especially later in the day. I\u2019ve also been feeling more sluggish and fatigued, even after resting. I\u2019m concerned because I\u2019ve had some blood clots in the past, and my family history includes other blood disorders. It\u2019s been worrying me because these symptoms seem to be getting worse and I want to find out what\u2019s going on.Have you ever had your blood pressure checked while lying down and then when you stand up quickly to see if it drops significantly or if you feel lightheaded immediately after standing?stoic_minimizer",
+    "output": "THINKING: I haven't really checked my blood pressure like that before, and I don't want to make a big deal out of it, but I guess I could try if the doc thinks it's important. It\u2019s probably nothing serious, tho\nANSWER: I haven't done that, no. I mean, I can try if you want, but honestly, I just usually deal with it.",
+    "thinking": "I haven't really checked my blood pressure like that before, and I don't want to make a big deal out of it, but I guess I could try if the doc thinks it's important. It\u2019s probably nothing serious, tho",
+    "answer": "I haven't done that, no. I mean, I can try if you want, but honestly, I just usually deal with it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Polycythaemia vera"
+  },
+  {
+    "vignette_index": 463,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia vera\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 67 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Headache\n- Dizziness\n- Itchiness, especially after a warm shower\n- Blurred vision\n- Tiredness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about two weeks ago, with the headache and dizziness coming first, and then I noticed the itchiness after my showers. Over time, I\u2019ve felt more tired than usual and my vision seems a bit blurry sometimes, especially later in the day. I\u2019ve also been feeling more sluggish and fatigued, even after resting. I\u2019m concerned because I\u2019ve had some blood clots in the past, and my family history includes other blood disorders. It\u2019s been worrying me because these symptoms seem to be getting worse and I want to find out what\u2019s going on.Have you had your blood pressure checked while lying down and then again immediately after standing up to see if it drops or if you feel dizziness right afterward?stoic_minimizer",
+    "output": "THINKING: I\u2019m not really sure if I need to do that, but I guess I\u2019ve been told to check my blood pressure sometimes. It\u2019s probably nothing serious, but I don\u2019t want to ignore it either.\nANSWER: Yeah, I\u2019ve heard of that, but I don\u2019t usually do it or think about it much. I guess I could do it if you think it\u2019s important.",
+    "thinking": "I\u2019m not really sure if I need to do that, but I guess I\u2019ve been told to check my blood pressure sometimes. It\u2019s probably nothing serious, but I don\u2019t want to ignore it either.",
+    "answer": "Yeah, I\u2019ve heard of that, but I don\u2019t usually do it or think about it much. I guess I could do it if you think it\u2019s important.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Polycythaemia vera"
+  },
+  {
+    "vignette_index": 463,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia vera\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 67 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Headache\n- Dizziness\n- Itchiness, especially after a warm shower\n- Blurred vision\n- Tiredness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about two weeks ago, with the headache and dizziness coming first, and then I noticed the itchiness after my showers. Over time, I\u2019ve felt more tired than usual and my vision seems a bit blurry sometimes, especially later in the day. I\u2019ve also been feeling more sluggish and fatigued, even after resting. I\u2019m concerned because I\u2019ve had some blood clots in the past, and my family history includes other blood disorders. It\u2019s been worrying me because these symptoms seem to be getting worse and I want to find out what\u2019s going on.Have you ever had your blood pressure checked while lying down and then immediately after standing up, to see if there\u2019s a noticeable drop in pressure or if you feel dizzy at that moment?stoic_minimizer",
+    "output": "THINKING: I don\u2019t want to make a big deal out of this, but I\u2019ve been feeling pretty off for a while now. I don\u2019t really know if my blood pressure drops or anything, but I guess I could have it checked just to b\nANSWER: I haven\u2019t really done that personally, but I suppose it\u2019s probably nothing, just one of those things. If you think I should, I can try.",
+    "thinking": "I don\u2019t want to make a big deal out of this, but I\u2019ve been feeling pretty off for a while now. I don\u2019t really know if my blood pressure drops or anything, but I guess I could have it checked just to b",
+    "answer": "I haven\u2019t really done that personally, but I suppose it\u2019s probably nothing, just one of those things. If you think I should, I can try.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 14,
+    "gold_diagnosis": "Polycythaemia vera"
+  },
+  {
+    "vignette_index": 463,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia vera\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 67 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Headache\n- Dizziness\n- Itchiness, especially after a warm shower\n- Blurred vision\n- Tiredness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about two weeks ago, with the headache and dizziness coming first, and then I noticed the itchiness after my showers. Over time, I\u2019ve felt more tired than usual and my vision seems a bit blurry sometimes, especially later in the day. I\u2019ve also been feeling more sluggish and fatigued, even after resting. I\u2019m concerned because I\u2019ve had some blood clots in the past, and my family history includes other blood disorders. It\u2019s been worrying me because these symptoms seem to be getting worse and I want to find out what\u2019s going on.Have you had your blood pressure checked while lying down and then immediately after standing up, to see if there\u2019s a noticeable drop or if you feel dizzy at that moment?stoic_minimizer",
+    "output": "THINKING: I\u2019ve been feeling off for a little while, but I don\u2019t want to make a big deal out of it. I\u2019m not sure if this test thing will really tell me much, but I guess it\u2019s better to check just in case. I defi\nANSWER: I haven't done that specifically, but I do feel dizzy when I stand up quick, so maybe it\u2019s not that big of a deal. I haven\u2019t really tested myself like that.",
+    "thinking": "I\u2019ve been feeling off for a little while, but I don\u2019t want to make a big deal out of it. I\u2019m not sure if this test thing will really tell me much, but I guess it\u2019s better to check just in case. I defi",
+    "answer": "I haven't done that specifically, but I do feel dizzy when I stand up quick, so maybe it\u2019s not that big of a deal. I haven\u2019t really tested myself like that.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 16,
+    "gold_diagnosis": "Polycythaemia vera"
+  }
+]

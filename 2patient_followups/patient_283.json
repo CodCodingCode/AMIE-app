@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 283,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nYou are a patient: You are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Chronic inflammation and redness on your lower legs, with patches that are itchy and sometimes scaly.\n- Swelling in both of your legs that gets worse after standing for long periods.\n- Darkening of the skin around your ankles and calves, along with some crusting and moist patches that have developed recently.\n- You noticed these symptoms gradually over the past few months, especially worsening after a day of standing at your part-time job in retail.\n- Sometimes, the skin feels tender and itchy, and you\u2019ve been worried about the persistent rash and swelling.",
+    "output": "THINKING: I should explain that I've had these issues for a while, but they seem to be worse lately, especially after I stand a lot at work. I want to mention all the symptoms without sounding like I\u2019m overreac\nANSWER: Well, I\u2019m 62, and I\u2019m a woman. I\u2019ve had this redness and stuff on my lower legs for some months now, but it\u2019s been getting worse recently. My legs swell up more after I\u2019ve been on my feet a lot, and the skin around my ankles is darker and kind of always looks a bit crusty or moist now. It itches and feels tender sometimes, and I guess I just wanted to see what\u2019s going on or if I should do something about it.",
+    "thinking": "I should explain that I've had these issues for a while, but they seem to be worse lately, especially after I stand a lot at work. I want to mention all the symptoms without sounding like I\u2019m overreac",
+    "answer": "Well, I\u2019m 62, and I\u2019m a woman. I\u2019ve had this redness and stuff on my lower legs for some months now, but it\u2019s been getting worse recently. My legs swell up more after I\u2019ve been on my feet a lot, and the skin around my ankles is darker and kind of always looks a bit crusty or moist now. It itches and feels tender sometimes, and I guess I just wanted to see what\u2019s going on or if I should do something about it.",
+    "behavior_type": "chronology_confused",
+    "behavior_config": {
+      "weight": 0.1,
+      "description": "Patient confused about symptom timing and progression",
+      "modifiers": [
+        "timeline_confusion",
+        "sequence_uncertainty"
+      ],
+      "empathy_cues": [
+        "confusion",
+        "uncertainty",
+        "memory_issues",
+        "needs_patience"
+      ]
+    },
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  },
+  {
+    "vignette_index": 283,
+    "input": "**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nYou are a patient: You are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Chronic inflammation and redness on your lower legs, with patches that are itchy and sometimes scaly.\n- Swelling in both of your legs that gets worse after standing for long periods.\n- Darkening of the skin around your ankles and calves, along with some crusting and moist patches that have developed recently.\n- You noticed these symptoms gradually over the past few months, especially worsening after a day of standing at your part-time job in retail.\n- Sometimes, the skin feels tender and itchy, and you\u2019ve been worried about the persistent rash and swelling.Can you tell me more about whether the skin changes have become more open or sore over time, and if you've noticed any warmth, redness, or increased pain lately?chronology_confused",
+    "output": "THINKING: I'm a bit confused about the timeline and how everything has been changing, but I think the skin has been getting worse these past few months, maybe after I stand a lot. I haven't really noticed if th\nANSWER: Um, I think the skin's been more irritated and crusty, and maybe it's gotten a little more open in places, but I'm not totally sure. It\u2019s just been more tender and sore than before.",
+    "thinking": "I'm a bit confused about the timeline and how everything has been changing, but I think the skin has been getting worse these past few months, maybe after I stand a lot. I haven't really noticed if th",
+    "answer": "Um, I think the skin's been more irritated and crusty, and maybe it's gotten a little more open in places, but I'm not totally sure. It\u2019s just been more tender and sore than before.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 0,
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  },
+  {
+    "vignette_index": 283,
+    "input": "**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nYou are a patient: You are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Chronic inflammation and redness on your lower legs, with patches that are itchy and sometimes scaly.\n- Swelling in both of your legs that gets worse after standing for long periods.\n- Darkening of the skin around your ankles and calves, along with some crusting and moist patches that have developed recently.\n- You noticed these symptoms gradually over the past few months, especially worsening after a day of standing at your part-time job in retail.\n- Sometimes, the skin feels tender and itchy, and you\u2019ve been worried about the persistent rash and swelling.Can you tell me if you've noticed any areas on your legs that are warmer, redder, or more tender than the other parts, especially when the skin is irritated or open?chronology_confused",
+    "output": "THINKING: I think I\u2019ve seen some of the red patches, but I\u2019m not really sure if they\u2019re warmer or more tender than the rest of my legs. I just remember they\u2019ve been there for a while now.\nANSWER: Um, I think there are some red spots, but I don\u2019t really know if they\u2019re warmer or more sore than other parts. It\u2019s just been there, I guess.",
+    "thinking": "I think I\u2019ve seen some of the red patches, but I\u2019m not really sure if they\u2019re warmer or more tender than the rest of my legs. I just remember they\u2019ve been there for a while now.",
+    "answer": "Um, I think there are some red spots, but I don\u2019t really know if they\u2019re warmer or more sore than other parts. It\u2019s just been there, I guess.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 2,
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  },
+  {
+    "vignette_index": 283,
+    "input": "**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nYou are a patient: You are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Chronic inflammation and redness on your lower legs, with patches that are itchy and sometimes scaly.\n- Swelling in both of your legs that gets worse after standing for long periods.\n- Darkening of the skin around your ankles and calves, along with some crusting and moist patches that have developed recently.\n- You noticed these symptoms gradually over the past few months, especially worsening after a day of standing at your part-time job in retail.\n- Sometimes, the skin feels tender and itchy, and you\u2019ve been worried about the persistent rash and swelling.\"Can you tell me if there's been any part of your legs that feels warmer, looks redder, or hurts more than usual, especially around the open or crusted areas?\"chronology_confused",
+    "output": "THINKING: I'm trying to recall if any part of my legs is more sore or red than before, but everything kind of blurs together, and I don't really remember clearly when it changed. I feel a bit worried about the \nANSWER: Um, I think maybe the areas around my ankles and calves look or feel a little different, maybe a bit more red or tender lately, but I'm not really sure when it started or if it\u2019s just more noticeable now.",
+    "thinking": "I'm trying to recall if any part of my legs is more sore or red than before, but everything kind of blurs together, and I don't really remember clearly when it changed. I feel a bit worried about the",
+    "answer": "Um, I think maybe the areas around my ankles and calves look or feel a little different, maybe a bit more red or tender lately, but I'm not really sure when it started or if it\u2019s just more noticeable now.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 4,
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  },
+  {
+    "vignette_index": 283,
+    "input": "**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nYou are a patient: You are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Chronic inflammation and redness on your lower legs, with patches that are itchy and sometimes scaly.\n- Swelling in both of your legs that gets worse after standing for long periods.\n- Darkening of the skin around your ankles and calves, along with some crusting and moist patches that have developed recently.\n- You noticed these symptoms gradually over the past few months, especially worsening after a day of standing at your part-time job in retail.\n- Sometimes, the skin feels tender and itchy, and you\u2019ve been worried about the persistent rash and swelling.\"Have you noticed any areas on your legs that feel warmer or look more red and tender than usual, especially around the spots that are crusted or open?\"chronology_confused",
+    "output": "THINKING: I\u2019m not really sure when I first saw the red or crusted spots or how they got so tender. It\u2019s been going on for a while, but maybe it was last month or a little before that? I get mixed up about the t\nANSWER: Um, I think maybe last month or so I started noticing some redness and crusting on my legs, but I\u2019m not really sure when it got worse or if it\u2019s all connected.",
+    "thinking": "I\u2019m not really sure when I first saw the red or crusted spots or how they got so tender. It\u2019s been going on for a while, but maybe it was last month or a little before that? I get mixed up about the t",
+    "answer": "Um, I think maybe last month or so I started noticing some redness and crusting on my legs, but I\u2019m not really sure when it got worse or if it\u2019s all connected.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 6,
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  },
+  {
+    "vignette_index": 283,
+    "input": "**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nYou are a patient: You are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Chronic inflammation and redness on your lower legs, with patches that are itchy and sometimes scaly.\n- Swelling in both of your legs that gets worse after standing for long periods.\n- Darkening of the skin around your ankles and calves, along with some crusting and moist patches that have developed recently.\n- You noticed these symptoms gradually over the past few months, especially worsening after a day of standing at your part-time job in retail.\n- Sometimes, the skin feels tender and itchy, and you\u2019ve been worried about the persistent rash and swelling.Have you noticed if any areas of your legs, especially where the skin is open or crusted, have become warmer, redder, more tender, or more painful than before recently?chronology_confused",
+    "output": "THINKING: I\u2019m not really sure if the redness and warmth are new or if they've just been slowly getting worse. I think the crusted parts might have come up recently, but the swelling has been there for months. I\nANSWER: Um, I guess the skin has been a bit warmer and redder, especially around the crusted patches, but I\u2019m not sure if that\u2019s recent or if it\u2019s been happening a while. And the swelling gets worse after I stand a lot, but I don\u2019t know if that\u2019s connected or not.",
+    "thinking": "I\u2019m not really sure if the redness and warmth are new or if they've just been slowly getting worse. I think the crusted parts might have come up recently, but the swelling has been there for months. I",
+    "answer": "Um, I guess the skin has been a bit warmer and redder, especially around the crusted patches, but I\u2019m not sure if that\u2019s recent or if it\u2019s been happening a while. And the swelling gets worse after I stand a lot, but I don\u2019t know if that\u2019s connected or not.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 8,
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  },
+  {
+    "vignette_index": 283,
+    "input": "**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nYou are a patient: You are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Chronic inflammation and redness on your lower legs, with patches that are itchy and sometimes scaly.\n- Swelling in both of your legs that gets worse after standing for long periods.\n- Darkening of the skin around your ankles and calves, along with some crusting and moist patches that have developed recently.\n- You noticed these symptoms gradually over the past few months, especially worsening after a day of standing at your part-time job in retail.\n- Sometimes, the skin feels tender and itchy, and you\u2019ve been worried about the persistent rash and swelling.Have you noticed if any parts of your legs, especially around the open or crusted areas, have suddenly become warmer, redder, or more tender than they were before?chronology_confused",
+    "output": "THINKING: I feel a bit confused about the specifics, but I think I\u2019ve noticed the parts with the crusts and patches feeling more tender or maybe warmer, but I\u2019m not sure when it started or if it\u2019s been like tha\nANSWER: I think maybe they do feel a little warmer or more tender now, but I can\u2019t really remember when it started exactly or if it was before or after the crusting and the swelling.",
+    "thinking": "I feel a bit confused about the specifics, but I think I\u2019ve noticed the parts with the crusts and patches feeling more tender or maybe warmer, but I\u2019m not sure when it started or if it\u2019s been like tha",
+    "answer": "I think maybe they do feel a little warmer or more tender now, but I can\u2019t really remember when it started exactly or if it was before or after the crusting and the swelling.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 10,
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  },
+  {
+    "vignette_index": 283,
+    "input": "**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nYou are a patient: You are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Chronic inflammation and redness on your lower legs, with patches that are itchy and sometimes scaly.\n- Swelling in both of your legs that gets worse after standing for long periods.\n- Darkening of the skin around your ankles and calves, along with some crusting and moist patches that have developed recently.\n- You noticed these symptoms gradually over the past few months, especially worsening after a day of standing at your part-time job in retail.\n- Sometimes, the skin feels tender and itchy, and you\u2019ve been worried about the persistent rash and swelling.Could you tell me if, today, your legs feel warmer than usual, look more red or swollen, or seem more tender or sore compared to how they\u2019ve felt in the past few days?chronology_confused",
+    "output": "THINKING: I'm a bit unsure about what's normal or not, and it's hard to remember exactly when things changed. I feel a little worried about the redness and the swelling and whether it's gotten worse today or ju\nANSWER: Um, today, I guess my legs feel about the same, maybe a little more tender, but I\u2019m not sure if they look more red or swollen than before. I feel like it was worse after I worked yesterday, though.",
+    "thinking": "I'm a bit unsure about what's normal or not, and it's hard to remember exactly when things changed. I feel a little worried about the redness and the swelling and whether it's gotten worse today or ju",
+    "answer": "Um, today, I guess my legs feel about the same, maybe a little more tender, but I\u2019m not sure if they look more red or swollen than before. I feel like it was worse after I worked yesterday, though.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 12,
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  }
+]

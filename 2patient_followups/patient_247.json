@@ -1,0 +1,97 @@
+[
+  {
+    "vignette_index": 247,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 4-YEAR-OLD GIRL\nYou are experiencing the following symptoms:\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Fever\n- Loss of appetite due to mouth pain\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a low-grade fever and a sore, tender mouth. My mom says I\u2019ve been refusing to eat much because my mouth hurts, and I keep waking up with a bad smell in my breath. I\u2019ve also been complaining that my mouth feels dry and uncomfortable, especially when I try to eat or drink. I\u2019ve been more irritable than usual and seem tired, but I don\u2019t have any visible blisters or ulcers\u2014just redness inside my mouth.",
+    "output": "THINKING: The child is very young, and I need to keep the explanation simple and focus on her symptoms. She\u2019s experiencing several issues that seem to have started suddenly, so I should mention her mouth pain, \nANSWER: I\u2019m 4, and my mouth hurts really bad, and I don\u2019t wanna eat anymore. I have a fever too, and my breath smells really bad even when I wake up. I feel kind of tired and cranky and I don\u2019t know why I feel like this.",
+    "thinking": "The child is very young, and I need to keep the explanation simple and focus on her symptoms. She\u2019s experiencing several issues that seem to have started suddenly, so I should mention her mouth pain,",
+    "answer": "I\u2019m 4, and my mouth hurts really bad, and I don\u2019t wanna eat anymore. I have a fever too, and my breath smells really bad even when I wake up. I feel kind of tired and cranky and I don\u2019t know why I feel like this.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 247,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 4-YEAR-OLD GIRL\nYou are experiencing the following symptoms:\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Fever\n- Loss of appetite due to mouth pain\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a low-grade fever and a sore, tender mouth. My mom says I\u2019ve been refusing to eat much because my mouth hurts, and I keep waking up with a bad smell in my breath. I\u2019ve also been complaining that my mouth feels dry and uncomfortable, especially when I try to eat or drink. I\u2019ve been more irritable than usual and seem tired, but I don\u2019t have any visible blisters or ulcers\u2014just redness inside my mouth.Can you tell me exactly where your mouth hurts the most, like which side or part, and if you see any spots, sores, or swellings inside?baseline",
+    "output": "THINKING: I feel a bit confused about where it really hurts the most and I\u2019m worried about all these things happening at the same time. I don\u2019t see any spots or bumps, so I can\u2019t tell the doctor exactly what\u2019s \nANSWER: It hurts all inside my mouth, like I have a sore, but I don\u2019t see any big spots or anything. It just feels yucky and dry.",
+    "thinking": "I feel a bit confused about where it really hurts the most and I\u2019m worried about all these things happening at the same time. I don\u2019t see any spots or bumps, so I can\u2019t tell the doctor exactly what\u2019s",
+    "answer": "It hurts all inside my mouth, like I have a sore, but I don\u2019t see any big spots or anything. It just feels yucky and dry.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 247,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 4-YEAR-OLD GIRL\nYou are experiencing the following symptoms:\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Fever\n- Loss of appetite due to mouth pain\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a low-grade fever and a sore, tender mouth. My mom says I\u2019ve been refusing to eat much because my mouth hurts, and I keep waking up with a bad smell in my breath. I\u2019ve also been complaining that my mouth feels dry and uncomfortable, especially when I try to eat or drink. I\u2019ve been more irritable than usual and seem tired, but I don\u2019t have any visible blisters or ulcers\u2014just redness inside my mouth.Can you tell me if the inside of your mouth feels sore in just one spot, or is it all over, and is there anything you see or feel, like a bump, a sore, or a patch that looks different?baseline",
+    "output": "THINKING: I feel like I need to tell the doctor what\u2019s wrong even though I don\u2019t really understand it all. I just want to say what\u2019s bothering me without making it complicated.\nANSWER: My mouth hurts all over, like, everywhere inside, and I don\u2019t see anything special, just red stuff. It hurts when I try to eat or drink.",
+    "thinking": "I feel like I need to tell the doctor what\u2019s wrong even though I don\u2019t really understand it all. I just want to say what\u2019s bothering me without making it complicated.",
+    "answer": "My mouth hurts all over, like, everywhere inside, and I don\u2019t see anything special, just red stuff. It hurts when I try to eat or drink.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 247,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 4-YEAR-OLD GIRL\nYou are experiencing the following symptoms:\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Fever\n- Loss of appetite due to mouth pain\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a low-grade fever and a sore, tender mouth. My mom says I\u2019ve been refusing to eat much because my mouth hurts, and I keep waking up with a bad smell in my breath. I\u2019ve also been complaining that my mouth feels dry and uncomfortable, especially when I try to eat or drink. I\u2019ve been more irritable than usual and seem tired, but I don\u2019t have any visible blisters or ulcers\u2014just redness inside my mouth.Can you tell me when your mouth first started feeling yucky and if it has gotten better or worse since then?baseline",
+    "output": "THINKING: I feel a little embarrassed to talk about my mouth just hurting and not really understanding all the words. I just want to tell the doctor what I feel, even if I don\u2019t know why.\nANSWER: It started a few days ago and it still feels yucky, and I don\u2019t think it has gotten better. It\u2019s still sore and I don\u2019t want to eat much.",
+    "thinking": "I feel a little embarrassed to talk about my mouth just hurting and not really understanding all the words. I just want to tell the doctor what I feel, even if I don\u2019t know why.",
+    "answer": "It started a few days ago and it still feels yucky, and I don\u2019t think it has gotten better. It\u2019s still sore and I don\u2019t want to eat much.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 247,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 4-YEAR-OLD GIRL\nYou are experiencing the following symptoms:\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Fever\n- Loss of appetite due to mouth pain\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a low-grade fever and a sore, tender mouth. My mom says I\u2019ve been refusing to eat much because my mouth hurts, and I keep waking up with a bad smell in my breath. I\u2019ve also been complaining that my mouth feels dry and uncomfortable, especially when I try to eat or drink. I\u2019ve been more irritable than usual and seem tired, but I don\u2019t have any visible blisters or ulcers\u2014just redness inside my mouth.Can you tell me if you see any little blisters, sores, or bumps inside your mouth, and if so, where exactly you see them\u2014like on your tongue, roof of your mouth, or the back of your throat?baseline",
+    "output": "THINKING: I don't see any little blisters or sores like I thought maybe I would. My mouth just feels red and sore all over, and I'm not sure if that's normal or if I should say something about it.\nANSWER: I don't see any little blisters or bumps, just red inside, I think. It looks all kind of red and sore everywhere.",
+    "thinking": "I don't see any little blisters or sores like I thought maybe I would. My mouth just feels red and sore all over, and I'm not sure if that's normal or if I should say something about it.",
+    "answer": "I don't see any little blisters or bumps, just red inside, I think. It looks all kind of red and sore everywhere.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 247,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 4-YEAR-OLD GIRL\nYou are experiencing the following symptoms:\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Fever\n- Loss of appetite due to mouth pain\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a low-grade fever and a sore, tender mouth. My mom says I\u2019ve been refusing to eat much because my mouth hurts, and I keep waking up with a bad smell in my breath. I\u2019ve also been complaining that my mouth feels dry and uncomfortable, especially when I try to eat or drink. I\u2019ve been more irritable than usual and seem tired, but I don\u2019t have any visible blisters or ulcers\u2014just redness inside my mouth.Can you tell me if you see any little sores, blisters, or spots inside your mouth, and if so, where are they located and what do they look like?baseline",
+    "output": "THINKING: I feel confused because I don\u2019t see anything strange like little spots or blisters, but my mouth hurts and it feels really dry. I don\u2019t really know what the doctor is asking about exactly, and I just \nANSWER: I don\u2019t see any little bumps or spots, but my mouth is really red and it hurts a lot.",
+    "thinking": "I feel confused because I don\u2019t see anything strange like little spots or blisters, but my mouth hurts and it feels really dry. I don\u2019t really know what the doctor is asking about exactly, and I just",
+    "answer": "I don\u2019t see any little bumps or spots, but my mouth is really red and it hurts a lot.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 247,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 4-YEAR-OLD GIRL\nYou are experiencing the following symptoms:\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Fever\n- Loss of appetite due to mouth pain\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a low-grade fever and a sore, tender mouth. My mom says I\u2019ve been refusing to eat much because my mouth hurts, and I keep waking up with a bad smell in my breath. I\u2019ve also been complaining that my mouth feels dry and uncomfortable, especially when I try to eat or drink. I\u2019ve been more irritable than usual and seem tired, but I don\u2019t have any visible blisters or ulcers\u2014just redness inside my mouth.Can you tell me if you see any small sores, blisters, or spots inside your mouth\u2014like on your tongue, the roof of your mouth, or the back of your throat\u2014and what they look like?baseline",
+    "output": "THINKING: I'm a little worried and just want to tell the doctor what I see or feel because I don't understand what\u2019s wrong with my mouth, but I don\u2019t see any small sores or spots, only redness. I feel uncomfort\nANSWER: Um, I don\u2019t see any little blisters or spots, just my mouth looks kinda red and sore, like when I cry or something.",
+    "thinking": "I'm a little worried and just want to tell the doctor what I see or feel because I don't understand what\u2019s wrong with my mouth, but I don\u2019t see any small sores or spots, only redness. I feel uncomfort",
+    "answer": "Um, I don\u2019t see any little blisters or spots, just my mouth looks kinda red and sore, like when I cry or something.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 247,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 4-YEAR-OLD GIRL\nYou are experiencing the following symptoms:\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Fever\n- Loss of appetite due to mouth pain\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a low-grade fever and a sore, tender mouth. My mom says I\u2019ve been refusing to eat much because my mouth hurts, and I keep waking up with a bad smell in my breath. I\u2019ve also been complaining that my mouth feels dry and uncomfortable, especially when I try to eat or drink. I\u2019ve been more irritable than usual and seem tired, but I don\u2019t have any visible blisters or ulcers\u2014just redness inside my mouth.Can I look inside your mouth with a little light so I can see if you have any small blisters, sores, or spots\u2014maybe on the roof of your mouth or the back part of your throat\u2014that can tell us what\u2019s making you feel yucky?baseline",
+    "output": "THINKING: I feel a little nervous about having someone look in my mouth, but I want to tell the doctor what\u2019s going on. I\u2019m not sure what they\u2019re going to see, and I don\u2019t really understand it all, so I just wa\nANSWER: Okay, but it\u2019s kind of yucky in there. I don\u2019t really see any spots, but my mouth hurts, and I just want it to stop.",
+    "thinking": "I feel a little nervous about having someone look in my mouth, but I want to tell the doctor what\u2019s going on. I\u2019m not sure what they\u2019re going to see, and I don\u2019t really understand it all, so I just wa",
+    "answer": "Okay, but it\u2019s kind of yucky in there. I don\u2019t really see any spots, but my mouth hurts, and I just want it to stop.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  },
+  {
+    "vignette_index": 247,
+    "input": "**PATIENT CHARACTER:** Patient with Irritant contact gingivostomatitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 4-YEAR-OLD GIRL\nYou are experiencing the following symptoms:\n- Bad breath (halitosis)\n- Dry mouth (xerostomia)\n- Fever\n- Loss of appetite due to mouth pain\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a low-grade fever and a sore, tender mouth. My mom says I\u2019ve been refusing to eat much because my mouth hurts, and I keep waking up with a bad smell in my breath. I\u2019ve also been complaining that my mouth feels dry and uncomfortable, especially when I try to eat or drink. I\u2019ve been more irritable than usual and seem tired, but I don\u2019t have any visible blisters or ulcers\u2014just redness inside my mouth.Can I look inside your mouth with a light to see if you have any small blisters, sores, or spots\u2014like on your tongue, the roof of your mouth, or the back of your throat\u2014that can help us figure out what\u2019s making you feel yucky?baseline",
+    "output": "THINKING: I'm worried about showing the doctor my mouth, and I don't really know what to say or do, but I guess I can let him look. Maybe he'll see something that will make me feel better.\nANSWER: Okay, you can look. My mouth hurts and it\u2019s red inside. I don\u2019t see any blisters, I think.",
+    "thinking": "I'm worried about showing the doctor my mouth, and I don't really know what to say or do, but I guess I can let him look. Maybe he'll see something that will make me feel better.",
+    "answer": "Okay, you can look. My mouth hurts and it\u2019s red inside. I don\u2019t see any blisters, I think.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Irritant contact gingivostomatitis"
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "vignette_index": 265,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Obstruction of duodenum\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 28 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Vomiting, which has become frequent and bile-stained\n- Abdominal distension that started suddenly and has progressively worsened\n- Failure to pass meconium (or in your case, since you\u2019re an adult, it\u2019s more about ongoing gastrointestinal discomfort and inability to pass stool normally)\n- Dehydration signs such as dry mouth and feeling very weak\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday, after a mild episode of nausea earlier that morning, and quickly worsened with persistent vomiting and abdominal bloating. You\u2019ve noticed that you haven't had a bowel movement in a couple of days, and now you\u2019re feeling extremely dehydrated, with dizziness and fatigue.",
+    "output": "THINKING: The patient is clearly distressed and worried, with symptoms that seem to have developed quickly and worsened over a short period. They might be scared and unsure if this is serious, and I need to enc\nANSWER: I... I started feeling really sick yesterday, and I\u2019ve been vomiting a lot, mostly bile, and my belly got really big and painful. I haven\u2019t been able to go to the bathroom normally, and I feel so weak and dry, like I can\u2019t even stand straight. It all just came on really fast and keeps getting worse.",
+    "thinking": "The patient is clearly distressed and worried, with symptoms that seem to have developed quickly and worsened over a short period. They might be scared and unsure if this is serious, and I need to enc",
+    "answer": "I... I started feeling really sick yesterday, and I\u2019ve been vomiting a lot, mostly bile, and my belly got really big and painful. I haven\u2019t been able to go to the bathroom normally, and I feel so weak and dry, like I can\u2019t even stand straight. It all just came on really fast and keeps getting worse.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Obstruction of duodenum"
+  },
+  {
+    "vignette_index": 265,
+    "input": "**PATIENT CHARACTER:** Patient with Obstruction of duodenum\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 28 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Vomiting, which has become frequent and bile-stained\n- Abdominal distension that started suddenly and has progressively worsened\n- Failure to pass meconium (or in your case, since you\u2019re an adult, it\u2019s more about ongoing gastrointestinal discomfort and inability to pass stool normally)\n- Dehydration signs such as dry mouth and feeling very weak\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday, after a mild episode of nausea earlier that morning, and quickly worsened with persistent vomiting and abdominal bloating. You\u2019ve noticed that you haven't had a bowel movement in a couple of days, and now you\u2019re feeling extremely dehydrated, with dizziness and fatigue.Have you ever experienced similar episodes of severe abdominal pain and vomiting before, or is this the first time something like this has happened to you?baseline",
+    "output": "THINKING: I'm really worried because this has all come on so suddenly and I don't understand what's happening. I'm feeling weak and scared, but I don\u2019t want to sound dramatic. I just want to explain what\u2019s been\nANSWER: No, I don\u2019t think so. It\u2019s the first time, I guess, but it\u2019s really bad now. I can\u2019t pass anything, and my belly hurts a lot.",
+    "thinking": "I'm really worried because this has all come on so suddenly and I don't understand what's happening. I'm feeling weak and scared, but I don\u2019t want to sound dramatic. I just want to explain what\u2019s been",
+    "answer": "No, I don\u2019t think so. It\u2019s the first time, I guess, but it\u2019s really bad now. I can\u2019t pass anything, and my belly hurts a lot.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Obstruction of duodenum"
+  },
+  {
+    "vignette_index": 265,
+    "input": "**PATIENT CHARACTER:** Patient with Obstruction of duodenum\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 28 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Vomiting, which has become frequent and bile-stained\n- Abdominal distension that started suddenly and has progressively worsened\n- Failure to pass meconium (or in your case, since you\u2019re an adult, it\u2019s more about ongoing gastrointestinal discomfort and inability to pass stool normally)\n- Dehydration signs such as dry mouth and feeling very weak\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday, after a mild episode of nausea earlier that morning, and quickly worsened with persistent vomiting and abdominal bloating. You\u2019ve noticed that you haven't had a bowel movement in a couple of days, and now you\u2019re feeling extremely dehydrated, with dizziness and fatigue.Have you ever had similar stomach problems or episodes of extreme discomfort before, even if they didn\u2019t seem as bad as this?baseline",
+    "output": "THINKING: The doctor is asking if I\u2019ve ever had this kind of stomach trouble before, and honestly, I don\u2019t remember anything like it. I\u2019ve been feeling really bad and don\u2019t know if this has happened before or n\nANSWER: No, I don\u2019t think so. I\u2019ve never felt like this before, it just all came on so suddenly and I feel really terrible.",
+    "thinking": "The doctor is asking if I\u2019ve ever had this kind of stomach trouble before, and honestly, I don\u2019t remember anything like it. I\u2019ve been feeling really bad and don\u2019t know if this has happened before or n",
+    "answer": "No, I don\u2019t think so. I\u2019ve never felt like this before, it just all came on so suddenly and I feel really terrible.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Obstruction of duodenum"
+  },
+  {
+    "vignette_index": 265,
+    "input": "**PATIENT CHARACTER:** Patient with Obstruction of duodenum\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 28 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Vomiting, which has become frequent and bile-stained\n- Abdominal distension that started suddenly and has progressively worsened\n- Failure to pass meconium (or in your case, since you\u2019re an adult, it\u2019s more about ongoing gastrointestinal discomfort and inability to pass stool normally)\n- Dehydration signs such as dry mouth and feeling very weak\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday, after a mild episode of nausea earlier that morning, and quickly worsened with persistent vomiting and abdominal bloating. You\u2019ve noticed that you haven't had a bowel movement in a couple of days, and now you\u2019re feeling extremely dehydrated, with dizziness and fatigue.Have you ever noticed any patterns or recurring problems with your stomach or bowels, like similar episodes of pain, nausea, or vomiting, even if they weren\u2019t as bad as this?baseline",
+    "output": "THINKING: I feel a bit embarrassed and worried about whether this is serious, but I guess I should answer honestly. I\u2019ve noticed that sometimes I get stomach pain and nausea, but I don\u2019t really remember it bein\nANSWER: Well, I mean, I think I\u2019ve had maybe some stomach stuff before, like nausea sometimes, but it wasn\u2019t really like this. This feels worse, and I can't seem to pass anything or really get comfortable.",
+    "thinking": "I feel a bit embarrassed and worried about whether this is serious, but I guess I should answer honestly. I\u2019ve noticed that sometimes I get stomach pain and nausea, but I don\u2019t really remember it bein",
+    "answer": "Well, I mean, I think I\u2019ve had maybe some stomach stuff before, like nausea sometimes, but it wasn\u2019t really like this. This feels worse, and I can't seem to pass anything or really get comfortable.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Obstruction of duodenum"
+  },
+  {
+    "vignette_index": 265,
+    "input": "**PATIENT CHARACTER:** Patient with Obstruction of duodenum\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 28 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Vomiting, which has become frequent and bile-stained\n- Abdominal distension that started suddenly and has progressively worsened\n- Failure to pass meconium (or in your case, since you\u2019re an adult, it\u2019s more about ongoing gastrointestinal discomfort and inability to pass stool normally)\n- Dehydration signs such as dry mouth and feeling very weak\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday, after a mild episode of nausea earlier that morning, and quickly worsened with persistent vomiting and abdominal bloating. You\u2019ve noticed that you haven't had a bowel movement in a couple of days, and now you\u2019re feeling extremely dehydrated, with dizziness and fatigue.Have you ever noticed if your stomach or bowel symptoms come and go over time, like episodes of discomfort or nausea that weren\u2019t as severe as what you\u2019re experiencing now?baseline",
+    "output": "THINKING: I'm not really sure about the pattern of my stomach stuff, but I do feel like sometimes it gets a little better and then worse again. I haven't had a proper bowel movement in a while, and now everythi\nANSWER: Honestly, I don't know if it comes and goes or whatever, but I haven't gone to the bathroom properly in days, and my stomach just feels really awful all the time now.",
+    "thinking": "I'm not really sure about the pattern of my stomach stuff, but I do feel like sometimes it gets a little better and then worse again. I haven't had a proper bowel movement in a while, and now everythi",
+    "answer": "Honestly, I don't know if it comes and goes or whatever, but I haven't gone to the bathroom properly in days, and my stomach just feels really awful all the time now.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Obstruction of duodenum"
+  },
+  {
+    "vignette_index": 265,
+    "input": "**PATIENT CHARACTER:** Patient with Obstruction of duodenum\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 28 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Vomiting, which has become frequent and bile-stained\n- Abdominal distension that started suddenly and has progressively worsened\n- Failure to pass meconium (or in your case, since you\u2019re an adult, it\u2019s more about ongoing gastrointestinal discomfort and inability to pass stool normally)\n- Dehydration signs such as dry mouth and feeling very weak\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday, after a mild episode of nausea earlier that morning, and quickly worsened with persistent vomiting and abdominal bloating. You\u2019ve noticed that you haven't had a bowel movement in a couple of days, and now you\u2019re feeling extremely dehydrated, with dizziness and fatigue.Have you ever had episodes in the past where you experienced similar stomach pain, nausea, or trouble passing stool, even if they weren\u2019t as severe or didn\u2019t last as long as this?baseline",
+    "output": "THINKING: I feel worried and a little embarrassed because I haven't been able to go to the bathroom and I keep throwing up bile. I can't remember if I\u2019ve had something like this before, and I\u2019m not sure what th\nANSWER: No, I don\u2019t think so, or at least I don\u2019t remember. It\u2019s just really bad now and I can\u2019t stop vomiting, and my stomach hurts and feels swollen.",
+    "thinking": "I feel worried and a little embarrassed because I haven't been able to go to the bathroom and I keep throwing up bile. I can't remember if I\u2019ve had something like this before, and I\u2019m not sure what th",
+    "answer": "No, I don\u2019t think so, or at least I don\u2019t remember. It\u2019s just really bad now and I can\u2019t stop vomiting, and my stomach hurts and feels swollen.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Obstruction of duodenum"
+  },
+  {
+    "vignette_index": 265,
+    "input": "**PATIENT CHARACTER:** Patient with Obstruction of duodenum\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 28 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Vomiting, which has become frequent and bile-stained\n- Abdominal distension that started suddenly and has progressively worsened\n- Failure to pass meconium (or in your case, since you\u2019re an adult, it\u2019s more about ongoing gastrointestinal discomfort and inability to pass stool normally)\n- Dehydration signs such as dry mouth and feeling very weak\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday, after a mild episode of nausea earlier that morning, and quickly worsened with persistent vomiting and abdominal bloating. You\u2019ve noticed that you haven't had a bowel movement in a couple of days, and now you\u2019re feeling extremely dehydrated, with dizziness and fatigue.Have you ever noticed any episodes of abdominal pain, bloating, or changes in your bowel habits\u2014like constipation or difficulty passing stool\u2014that happened before but weren\u2019t as severe as this, even if you didn\u2019t think much of them at the time?baseline",
+    "output": "THINKING: I feel a bit embarrassed talking about this, and I don\u2019t really understand what\u2019s happening, but I do recall some stomach upset a while back that I thought was just indigestion or something. I guess I\nANSWER: Um, yeah, I think I had some stomach stuff before, maybe like feeling bloated or like I couldn\u2019t go to the bathroom properly, but it wasn\u2019t as bad as now. I just ignored it then.",
+    "thinking": "I feel a bit embarrassed talking about this, and I don\u2019t really understand what\u2019s happening, but I do recall some stomach upset a while back that I thought was just indigestion or something. I guess I",
+    "answer": "Um, yeah, I think I had some stomach stuff before, maybe like feeling bloated or like I couldn\u2019t go to the bathroom properly, but it wasn\u2019t as bad as now. I just ignored it then.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Obstruction of duodenum"
+  },
+  {
+    "vignette_index": 265,
+    "input": "**PATIENT CHARACTER:** Patient with Obstruction of duodenum\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 28 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Vomiting, which has become frequent and bile-stained\n- Abdominal distension that started suddenly and has progressively worsened\n- Failure to pass meconium (or in your case, since you\u2019re an adult, it\u2019s more about ongoing gastrointestinal discomfort and inability to pass stool normally)\n- Dehydration signs such as dry mouth and feeling very weak\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday, after a mild episode of nausea earlier that morning, and quickly worsened with persistent vomiting and abdominal bloating. You\u2019ve noticed that you haven't had a bowel movement in a couple of days, and now you\u2019re feeling extremely dehydrated, with dizziness and fatigue.Can you tell me if you've ever had episodes before where your bowel movements were irregular, like sometimes constipation or feeling bloated, even if they weren't as severe as now?baseline",
+    "output": "THINKING: I\u2019m worried because I haven\u2019t been able to go to the bathroom properly and now I keep throwing up bile. I don\u2019t remember having this kind of problem before, and I\u2019m feeling really weak and dehydrated.\nANSWER: No, I don\u2019t think so. I\u2019ve never really had problems like this before, just sometimes feeling kinda bloated, but not like this.",
+    "thinking": "I\u2019m worried because I haven\u2019t been able to go to the bathroom properly and now I keep throwing up bile. I don\u2019t remember having this kind of problem before, and I\u2019m feeling really weak and dehydrated.",
+    "answer": "No, I don\u2019t think so. I\u2019ve never really had problems like this before, just sometimes feeling kinda bloated, but not like this.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Obstruction of duodenum"
+  },
+  {
+    "vignette_index": 265,
+    "input": "**PATIENT CHARACTER:** Patient with Obstruction of duodenum\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 28 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Vomiting, which has become frequent and bile-stained\n- Abdominal distension that started suddenly and has progressively worsened\n- Failure to pass meconium (or in your case, since you\u2019re an adult, it\u2019s more about ongoing gastrointestinal discomfort and inability to pass stool normally)\n- Dehydration signs such as dry mouth and feeling very weak\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday, after a mild episode of nausea earlier that morning, and quickly worsened with persistent vomiting and abdominal bloating. You\u2019ve noticed that you haven't had a bowel movement in a couple of days, and now you\u2019re feeling extremely dehydrated, with dizziness and fatigue.Can you tell me if, before this current episode, you have ever had times when you were very constipated or had severe stomach pain that made you feel like you might be blocked, and if so, how often those episodes happened and how serious they usually were?baseline",
+    "output": "THINKING: I'm honestly a bit embarrassed. I haven't really had anything this bad before, but I do remember some times where I couldn't go for a day or two and my stomach would hurt really badly. It wasn't as se\nANSWER: Yeah, I've had stuff like that before, where I couldn't go or my stomach hurt really bad, but it wasn't like this. It happens maybe once in a while, and it usually doesn't last this long or get so bad.",
+    "thinking": "I'm honestly a bit embarrassed. I haven't really had anything this bad before, but I do remember some times where I couldn't go for a day or two and my stomach would hurt really badly. It wasn't as se",
+    "answer": "Yeah, I've had stuff like that before, where I couldn't go or my stomach hurt really bad, but it wasn't like this. It happens maybe once in a while, and it usually doesn't last this long or get so bad.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Obstruction of duodenum"
+  },
+  {
+    "vignette_index": 265,
+    "input": "**PATIENT CHARACTER:** Patient with Obstruction of duodenum\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 28 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Vomiting, which has become frequent and bile-stained\n- Abdominal distension that started suddenly and has progressively worsened\n- Failure to pass meconium (or in your case, since you\u2019re an adult, it\u2019s more about ongoing gastrointestinal discomfort and inability to pass stool normally)\n- Dehydration signs such as dry mouth and feeling very weak\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday, after a mild episode of nausea earlier that morning, and quickly worsened with persistent vomiting and abdominal bloating. You\u2019ve noticed that you haven't had a bowel movement in a couple of days, and now you\u2019re feeling extremely dehydrated, with dizziness and fatigue.Can you tell me about any previous times in the past when you had similar episodes of severe constipation, bloating, or stomach pain that made you feel like you were blocked, even if you didn't think they were as serious at the time or didn't seek medical help?baseline",
+    "output": "THINKING: I feel unsure about whether this has happened before or if I just ignored it. I don't really remember any similar times, but maybe I just didn't notice or think it was a big deal back then.\nANSWER: No, I don\u2019t think so. Nothing like this has happened to me before, at least not that I remember.",
+    "thinking": "I feel unsure about whether this has happened before or if I just ignored it. I don't really remember any similar times, but maybe I just didn't notice or think it was a big deal back then.",
+    "answer": "No, I don\u2019t think so. Nothing like this has happened to me before, at least not that I remember.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Obstruction of duodenum"
+  }
+]

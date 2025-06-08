@@ -1,0 +1,195 @@
+[
+  {
+    "vignette_index": 202,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.",
+    "output": "THINKING: I need to explain my symptoms clearly but I\u2019m a bit confused myself about when everything started and how they all connect. I should mention the main issues and how they\u2019ve been changing, but I don\u2019t \nANSWER: I\u2019m 35, and I am a biological male. Well, I guess I\u2019ve been feeling really tired and weak for about a month now, maybe longer? At first, I just thought I was stressed or maybe had a cold, but then I started noticing bruises showing up for no reason and I keep getting these weird fevers that come back a few times. My neck and armpit lymph nodes are swollen, and it feels like they\u2019ve gotten bigger. It\u2019s all kind of confusing because I don\u2019t know if it\u2019s all connected or if something else is going on.",
+    "thinking": "I need to explain my symptoms clearly but I\u2019m a bit confused myself about when everything started and how they all connect. I should mention the main issues and how they\u2019ve been changing, but I don\u2019t",
+    "answer": "I\u2019m 35, and I am a biological male. Well, I guess I\u2019ve been feeling really tired and weak for about a month now, maybe longer? At first, I just thought I was stressed or maybe had a cold, but then I started noticing bruises showing up for no reason and I keep getting these weird fevers that come back a few times. My neck and armpit lymph nodes are swollen, and it feels like they\u2019ve gotten bigger. It\u2019s all kind of confusing because I don\u2019t know if it\u2019s all connected or if something else is going on.",
+    "behavior_type": "chronology_confused",
+    "behavior_config": {
+      "weight": 0.1,
+      "description": "Patient confused about symptom timing and progression",
+      "modifiers": [
+        "timeline_confusion",
+        "sequence_uncertainty"
+      ],
+      "empathy_cues": [
+        "confusion",
+        "uncertainty",
+        "memory_issues",
+        "needs_patience"
+      ]
+    },
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.Can you tell me more about how the fevers and other symptoms like tiredness or any other issues have come and gone over the past month or so\u2014that is, when they started, how often they happen, and if they've changed in any way?chronology_confused",
+    "output": "THINKING: I\u2019m honestly a bit lost about when exactly things started or how they all connect. I think the fevers and the tiredness kinda came together, but maybe the bruising was earlier? It\u2019s all a bit fuzzy. I\nANSWER: Um, I think the fevers and being tired started around the same time, maybe like a month ago? But the bruising I saw first, I guess, or maybe I just noticed it later? It\u2019s hard to say exactly.",
+    "thinking": "I\u2019m honestly a bit lost about when exactly things started or how they all connect. I think the fevers and the tiredness kinda came together, but maybe the bruising was earlier? It\u2019s all a bit fuzzy. I",
+    "answer": "Um, I think the fevers and being tired started around the same time, maybe like a month ago? But the bruising I saw first, I guess, or maybe I just noticed it later? It\u2019s hard to say exactly.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 0,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.Can you tell me exactly when you first started noticing the fevers and tiredness\u2014you mentioned it might have been a little while ago\u2014did they begin at the same time, or did one come before the other?chronology_confused",
+    "output": "THINKING: I'm trying to remember the order of when things began, but honestly, I keep getting mixed up. I think the tiredness and bruising started first, but then the fevers came later, or maybe they were all h\nANSWER: I think the tiredness and bruising started first, maybe like a month ago, but the fevers and the swollen lymph nodes, those showed up sometime after that, I guess? It's all kind of blurry.",
+    "thinking": "I'm trying to remember the order of when things began, but honestly, I keep getting mixed up. I think the tiredness and bruising started first, but then the fevers came later, or maybe they were all h",
+    "answer": "I think the tiredness and bruising started first, maybe like a month ago, but the fevers and the swollen lymph nodes, those showed up sometime after that, I guess? It's all kind of blurry.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 2,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.Can you tell me more about how your symptoms\u2014like the fatigue, bruising, fevers, and swollen lymph nodes\u2014started and how they've changed over the past month, especially which ones came first and if any have gotten worse or better?chronology_confused",
+    "output": "THINKING: I'm trying to remember how all this started, but it's a bit fuzzy. I think maybe the fatigue started first, and then I noticed the bruises? Or was it the swollen nodes? I'm not really sure which came \nANSWER: Umm, I think it was the tiredness first \u2014 that got worse, I guess \u2014 and then I started noticing the bruises, but the fever and the swollen stuff kind of appeared around the same time, maybe later? It's all kind of mixed up in my head.",
+    "thinking": "I'm trying to remember how all this started, but it's a bit fuzzy. I think maybe the fatigue started first, and then I noticed the bruises? Or was it the swollen nodes? I'm not really sure which came",
+    "answer": "Umm, I think it was the tiredness first \u2014 that got worse, I guess \u2014 and then I started noticing the bruises, but the fever and the swollen stuff kind of appeared around the same time, maybe later? It's all kind of mixed up in my head.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 4,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.Have you noticed if your fevers tend to happen more at night or during the day, and are you experiencing any night sweats or unintentional weight loss along with the fevers?chronology_confused",
+    "output": "THINKING: I'm honestly not sure when the fevers started exactly, maybe last week or a bit before that? I feel like they come at different times, sometimes during the day, sometimes at night, and I haven't notic\nANSWER: Umm, I think the fevers happen kind of randomly, sometimes during the day or at night, and I haven't really noticed if I'm sweating a lot at night or losing weight, but I do feel pretty tired all the time.",
+    "thinking": "I'm honestly not sure when the fevers started exactly, maybe last week or a bit before that? I feel like they come at different times, sometimes during the day, sometimes at night, and I haven't notic",
+    "answer": "Umm, I think the fevers happen kind of randomly, sometimes during the day or at night, and I haven't really noticed if I'm sweating a lot at night or losing weight, but I do feel pretty tired all the time.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 6,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.Can you tell me if your fevers tend to happen more during the night or in the morning, and whether you've noticed any night sweats or significant weight loss since they started?chronology_confused",
+    "output": "THINKING: I'm not sure exactly when the fevers happen or if they're only at night. It\u2019s all a bit mixed up in my head, and I feel like the fever stuff started maybe last week or even before that, but I can\u2019t re\nANSWER: Um, I think the fevers happen more at night, but I\u2019ve had some during the day too, and I\u2019ve been sweating at night a lot, I guess. I\u2019m not really sure when it all started exactly.",
+    "thinking": "I'm not sure exactly when the fevers happen or if they're only at night. It\u2019s all a bit mixed up in my head, and I feel like the fever stuff started maybe last week or even before that, but I can\u2019t re",
+    "answer": "Um, I think the fevers happen more at night, but I\u2019ve had some during the day too, and I\u2019ve been sweating at night a lot, I guess. I\u2019m not really sure when it all started exactly.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 8,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.Can you tell me if your fevers, tiredness, and swelling in your lymph nodes all started around the same time, or did some of these symptoms come before the others?chronology_confused",
+    "output": "THINKING: I\u2019m trying to remember if the fevers or the swollen lymph nodes or the tiredness came first, but it\u2019s all so muddled in my head. I feel worried but also kinda embarrassed because I don\u2019t really get wh\nANSWER: I think the tiredness started first, like maybe last month, and then I noticed the swelling and the fevers kind of showed up later, but I\u2019m not totally sure, honestly.",
+    "thinking": "I\u2019m trying to remember if the fevers or the swollen lymph nodes or the tiredness came first, but it\u2019s all so muddled in my head. I feel worried but also kinda embarrassed because I don\u2019t really get wh",
+    "answer": "I think the tiredness started first, like maybe last month, and then I noticed the swelling and the fevers kind of showed up later, but I\u2019m not totally sure, honestly.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 10,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.Can you tell me exactly when your fevers, tiredness, and swollen lymph nodes first started, and whether they each came on at the same time or whether one seemed to begin before the others?chronology_confused",
+    "output": "THINKING: I\u2019m trying to recall when I first noticed each thing, but it\u2019s all a bit jumbled in my head. I\u2019m feeling pretty anxious and a bit embarrassed about not having clear answers. I want to tell the doctor \nANSWER: Um, I think the tiredness and bruising started maybe a month ago, but the fevers and swollen lymph nodes I noticed more recently, like in the last couple of weeks? Or maybe they all kind of came together? I\u2019m not really sure.",
+    "thinking": "I\u2019m trying to recall when I first noticed each thing, but it\u2019s all a bit jumbled in my head. I\u2019m feeling pretty anxious and a bit embarrassed about not having clear answers. I want to tell the doctor",
+    "answer": "Um, I think the tiredness and bruising started maybe a month ago, but the fevers and swollen lymph nodes I noticed more recently, like in the last couple of weeks? Or maybe they all kind of came together? I\u2019m not really sure.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 12,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.\"Can you tell me if the fevers, night sweats, or fatigue started before you noticed the lymph nodes in your neck or armpit swelling, or did they all seem to happen around the same time? I\u2019m asking because understanding the order can help us figure out what's going on.\"chronology_confused",
+    "output": "THINKING: I'm not really sure about the exact order of everything, but I think the fevers started maybe last week or two ago, and the swelling maybe was around the same time or a little earlier? I get confused \nANSWER: Um, I think the fevers and the swollen lumps happened around the same time, but maybe the fevers were a little later? I can't really remember exactly when each thing started.",
+    "thinking": "I'm not really sure about the exact order of everything, but I think the fevers started maybe last week or two ago, and the swelling maybe was around the same time or a little earlier? I get confused",
+    "answer": "Um, I think the fevers and the swollen lumps happened around the same time, but maybe the fevers were a little later? I can't really remember exactly when each thing started.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 14,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.Can you tell me, as best as you can, when you first started noticing the swollen lymph nodes, the fevers, and the tiredness\u2014did one of these symptoms come before the others, or did they all seem to start around the same time?chronology_confused",
+    "output": "THINKING: I\u2019m trying to remember when everything started. It\u2019s all kind of mixed up in my head. Maybe the fatigue was first, then the swelling, but I also had the fevers on and off, so I\u2019m not sure what came fi\nANSWER: I think maybe the tiredness was there first, and then the swollen lymph nodes appeared later? Or maybe they all kind of started around the same time, I really don\u2019t remember clearly.",
+    "thinking": "I\u2019m trying to remember when everything started. It\u2019s all kind of mixed up in my head. Maybe the fatigue was first, then the swelling, but I also had the fevers on and off, so I\u2019m not sure what came fi",
+    "answer": "I think maybe the tiredness was there first, and then the swollen lymph nodes appeared later? Or maybe they all kind of started around the same time, I really don\u2019t remember clearly.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 16,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.Can you tell me, as best as you can, whether the fevers, night sweats, and feelings of tiredness started before you noticed the lymph nodes swelling, or did the swollen lymph nodes come first?chronology_confused",
+    "output": "THINKING: I'm trying to recall the order of everything, but it's all kind of mixed up in my head. I feel worried because I keep thinking maybe the swelling started first or the fevers, but honestly I can't real\nANSWER: I think the swollen lymph nodes might have come first, but I\u2019m not totally sure\u2014maybe the fevers started around the same time, or I might be remembering it wrong. It\u2019s all kinda blurry.",
+    "thinking": "I'm trying to recall the order of everything, but it's all kind of mixed up in my head. I feel worried because I keep thinking maybe the swelling started first or the fevers, but honestly I can't real",
+    "answer": "I think the swollen lymph nodes might have come first, but I\u2019m not totally sure\u2014maybe the fevers started around the same time, or I might be remembering it wrong. It\u2019s all kinda blurry.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 18,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.As best as you can, can you tell me which symptoms, like the fevers, night sweats, or feeling very tired, started first\u2014did any of them come on before you noticed the swollen lymph nodes, or did they all seem to start around the same time?chronology_confused",
+    "output": "THINKING: I'm a bit confused about the order of things because the symptoms came on gradually, and I don\u2019t remember exactly which started first. I think maybe the fatigue and bruising were first, and then the f\nANSWER: Um, I think maybe I started feeling really tired first, and then I noticed the bumps in my neck and armpits, but the fevers come and go sort of at the same time, so I'm not really sure which came first.",
+    "thinking": "I'm a bit confused about the order of things because the symptoms came on gradually, and I don\u2019t remember exactly which started first. I think maybe the fatigue and bruising were first, and then the f",
+    "answer": "Um, I think maybe I started feeling really tired first, and then I noticed the bumps in my neck and armpits, but the fevers come and go sort of at the same time, so I'm not really sure which came first.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 20,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.Could you tell me if your fevers, night sweats, or feeling very tired have been happening almost every day, or if they come and go, and how long each time they last?chronology_confused",
+    "output": "THINKING: I\u2019m honestly not sure about the timing of these fevers and how often they happen. I think they've been coming and going for a while, but I can't really tell exactly how long or how often they last eac\nANSWER: Um, I think the fevers come and go, like sometimes I feel hot and then okay, but I\u2019m not really sure how long it lasts or how often they happen. It\u2019s been sort of like that for a while.",
+    "thinking": "I\u2019m honestly not sure about the timing of these fevers and how often they happen. I think they've been coming and going for a while, but I can't really tell exactly how long or how often they last eac",
+    "answer": "Um, I think the fevers come and go, like sometimes I feel hot and then okay, but I\u2019m not really sure how long it lasts or how often they happen. It\u2019s been sort of like that for a while.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 22,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.Can you tell me, as clearly as you can, whether you noticed the swollen lymph nodes before you started having the fevers and night sweats, or if those symptoms came first?chronology_confused",
+    "output": "THINKING: I'm not really sure about the order of everything. I think maybe the swollen nodes showed up first, but then I started with fevers later, or maybe the other way around, I can't really remember. It's a\nANSWER: Um, I think the swollen lymph nodes might have come first, but then I started getting fevers after? Or maybe the fevers were before, I don\u2019t know, it\u2019s all kind of fuzzy.",
+    "thinking": "I'm not really sure about the order of everything. I think maybe the swollen nodes showed up first, but then I started with fevers later, or maybe the other way around, I can't really remember. It's a",
+    "answer": "Um, I think the swollen lymph nodes might have come first, but then I started getting fevers after? Or maybe the fevers were before, I don\u2019t know, it\u2019s all kind of fuzzy.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 24,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.Can you tell me, as clearly as you can, whether you noticed the swollen lymph nodes before you started feeling fevers or tired, or if those symptoms seemed to come on around the same time?chronology_confused",
+    "output": "THINKING: I'm not really sure what came first or how they all fit together. I think maybe the fever started first, then the swollen nodes showed up later, but I might be mixing it up because everything kind of \nANSWER: Um, I think the fevers were happening first, but then I noticed the lumps in my neck and armpits later, or maybe it was all kind of mixed together? It's all confusing.",
+    "thinking": "I'm not really sure what came first or how they all fit together. I think maybe the fever started first, then the swollen nodes showed up later, but I might be mixing it up because everything kind of",
+    "answer": "Um, I think the fevers were happening first, but then I noticed the lumps in my neck and armpits later, or maybe it was all kind of mixed together? It's all confusing.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 26,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.\"Can you tell me if your swollen lymph nodes in your neck and under your arms are tender or painless when you touch them, and whether they feel hard or soft?\"chronology_confused",
+    "output": "THINKING: I'm honestly not sure about the tenderness or if they feel hard or soft. I just know they are swollen and I can feel them when I touch my neck and under my arms, but I don\u2019t really pay attention to ho\nANSWER: Um, I think they\u2019re kind of tender when I press on them, but sometimes it feels like they\u2019re also a little firm or hard, I guess? It\u2019s hard to tell exactly what they feel like.",
+    "thinking": "I'm honestly not sure about the tenderness or if they feel hard or soft. I just know they are swollen and I can feel them when I touch my neck and under my arms, but I don\u2019t really pay attention to ho",
+    "answer": "Um, I think they\u2019re kind of tender when I press on them, but sometimes it feels like they\u2019re also a little firm or hard, I guess? It\u2019s hard to tell exactly what they feel like.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 28,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.Can you tell me, as clearly as you can, whether your fatigue and bruising started before you noticed your swollen lymph nodes or the fevers, or if those symptoms all seemed to come on around the same time?chronology_confused",
+    "output": "THINKING: I'm trying to remember when exactly each thing started, but honestly, it all kind of blends together in my mind. I think maybe the fatigue was first, but then I noticed the bruises, or maybe the fever\nANSWER: I think the tiredness was there first, but then I started getting bruises and the fevers just kind of showed up, like, a little after or maybe at the same time. I'm not really sure.",
+    "thinking": "I'm trying to remember when exactly each thing started, but honestly, it all kind of blends together in my mind. I think maybe the fatigue was first, but then I noticed the bruises, or maybe the fever",
+    "answer": "I think the tiredness was there first, but then I started getting bruises and the fevers just kind of showed up, like, a little after or maybe at the same time. I'm not really sure.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 30,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 202,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Persistent fatigue and weakness\n- Unexplained bruising and frequent infections\n- Mild fever that comes and goes\n- Swollen lymph nodes in your neck and armpits\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past month, with fatigue worsening and bruising appearing more often. The fevers are mild but recurrent, and the lymph nodes have become noticeably enlarged. I initially thought it was just a cold or stress, but the symptoms haven't improved and seem to be getting worse.Can you tell me, as clearly as you can, whether the swollen lymph nodes in your neck and under your arms are really tender when you press on them, and whether they feel hard or soft to you, and if you noticed these particular lymph nodes before or after you started feeling very tired or having fevers?chronology_confused",
+    "output": "THINKING: I'm trying to remember if the swollen nodes were there before I felt really tired or if I noticed them after I started getting fevers. Honestly, it's all kinda mixed up in my head, and I just feel wor\nANSWER: Um, I think the swollen lymph nodes were there maybe around the same time I started feeling more tired? Or maybe a bit after? Honestly, I\u2019m not really sure, they sort of just showed up and I noticed them when I was feeling pretty bad already.",
+    "thinking": "I'm trying to remember if the swollen nodes were there before I felt really tired or if I noticed them after I started getting fevers. Honestly, it's all kinda mixed up in my head, and I just feel wor",
+    "answer": "Um, I think the swollen lymph nodes were there maybe around the same time I started feeling more tired? Or maybe a bit after? Honestly, I\u2019m not really sure, they sort of just showed up and I noticed them when I was feeling pretty bad already.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 32,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  }
+]

@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 308,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Spontaneous tension pneumothorax\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden sharp chest pain on the right side\n- Severe shortness of breath and difficulty breathing\n- Diminished or absent breath sounds on the right side\n- Visible swelling and enlargement of the right side of your chest\n- Tracheal deviation to the left\nTHESE SYMPTOMS CAME INTO FRUITION:\nI was just sitting at my desk when suddenly I felt a sharp, stabbing pain in my right chest that worsened rapidly. Within minutes, I started gasping for air and felt like I couldn\u2019t get enough oxygen. As I looked in the mirror, I noticed my right chest was swollen and puffed out more than the left. I tried to take deep breaths, but it was extremely painful and I felt like I was suffocating. The pain and difficulty came on suddenly, without any injury or warning.",
+    "output": "THINKING: The patient is experiencing a very acute and severe chest issue. The symptoms suggest something sudden and serious, probably affecting the lungs or chest wall. Need to acknowledge the urgency but keep\nANSWER: I don\u2019t know, I just\u2026 I suddenly couldn\u2019t breathe right and felt this really sharp pain in my chest, on the right side. It just came out of nowhere, and my chest looks a lot bigger on that side now. It\u2019s really hard to breathe and I\u2019m kind of scared.",
+    "thinking": "The patient is experiencing a very acute and severe chest issue. The symptoms suggest something sudden and serious, probably affecting the lungs or chest wall. Need to acknowledge the urgency but keep",
+    "answer": "I don\u2019t know, I just\u2026 I suddenly couldn\u2019t breathe right and felt this really sharp pain in my chest, on the right side. It just came out of nowhere, and my chest looks a lot bigger on that side now. It\u2019s really hard to breathe and I\u2019m kind of scared.",
+    "behavior_type": "chronology_confused",
+    "behavior_config": {
+      "weight": 0.1,
+      "description": "Patient confused about symptom timing and progression",
+      "modifiers": [
+        "timeline_confusion",
+        "sequence_uncertainty"
+      ],
+      "empathy_cues": [
+        "confusion",
+        "uncertainty",
+        "memory_issues",
+        "needs_patience"
+      ]
+    },
+    "gold_diagnosis": "Spontaneous tension pneumothorax"
+  },
+  {
+    "vignette_index": 308,
+    "input": "**PATIENT CHARACTER:** Patient with Spontaneous tension pneumothorax\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden sharp chest pain on the right side\n- Severe shortness of breath and difficulty breathing\n- Diminished or absent breath sounds on the right side\n- Visible swelling and enlargement of the right side of your chest\n- Tracheal deviation to the left\nTHESE SYMPTOMS CAME INTO FRUITION:\nI was just sitting at my desk when suddenly I felt a sharp, stabbing pain in my right chest that worsened rapidly. Within minutes, I started gasping for air and felt like I couldn\u2019t get enough oxygen. As I looked in the mirror, I noticed my right chest was swollen and puffed out more than the left. I tried to take deep breaths, but it was extremely painful and I felt like I was suffocating. The pain and difficulty came on suddenly, without any injury or warning.Can you tell me if you've felt anything like this before, or if your chest has ever felt different or been uncomfortable in the past, even if it wasn't this bad?chronology_confused",
+    "output": "THINKING: I\u2019m trying to remember if I\u2019ve ever felt anything sort of like this before, but honestly, it all feels really new and scary. I don\u2019t think I\u2019ve ever had this before, but the pain and the chest swellin\nANSWER: Umm, I don\u2019t think I\u2019ve felt anything exactly like this before, but I think maybe last week or two weeks ago, I had some weird shortness of breath, but it went away? Now it\u2019s much worse and my chest is really swollen on that side.",
+    "thinking": "I\u2019m trying to remember if I\u2019ve ever felt anything sort of like this before, but honestly, it all feels really new and scary. I don\u2019t think I\u2019ve ever had this before, but the pain and the chest swellin",
+    "answer": "Umm, I don\u2019t think I\u2019ve felt anything exactly like this before, but I think maybe last week or two weeks ago, I had some weird shortness of breath, but it went away? Now it\u2019s much worse and my chest is really swollen on that side.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 0,
+    "gold_diagnosis": "Spontaneous tension pneumothorax"
+  },
+  {
+    "vignette_index": 308,
+    "input": "**PATIENT CHARACTER:** Patient with Spontaneous tension pneumothorax\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden sharp chest pain on the right side\n- Severe shortness of breath and difficulty breathing\n- Diminished or absent breath sounds on the right side\n- Visible swelling and enlargement of the right side of your chest\n- Tracheal deviation to the left\nTHESE SYMPTOMS CAME INTO FRUITION:\nI was just sitting at my desk when suddenly I felt a sharp, stabbing pain in my right chest that worsened rapidly. Within minutes, I started gasping for air and felt like I couldn\u2019t get enough oxygen. As I looked in the mirror, I noticed my right chest was swollen and puffed out more than the left. I tried to take deep breaths, but it was extremely painful and I felt like I was suffocating. The pain and difficulty came on suddenly, without any injury or warning.Can you tell me if you've ever noticed any similar sensations or chest problems before, even if they were mild or went away on their own?chronology_confused",
+    "output": "THINKING: I'm trying to remember if I ever had something like this happen before, maybe a little bit but I don\u2019t really remember when or how bad it was. I just know I never felt anything like this, and now I\u2019m \nANSWER: I don't think so, or maybe I had a small thing once before, but it wasn\u2019t this bad or sudden, I think.",
+    "thinking": "I'm trying to remember if I ever had something like this happen before, maybe a little bit but I don\u2019t really remember when or how bad it was. I just know I never felt anything like this, and now I\u2019m",
+    "answer": "I don't think so, or maybe I had a small thing once before, but it wasn\u2019t this bad or sudden, I think.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 2,
+    "gold_diagnosis": "Spontaneous tension pneumothorax"
+  },
+  {
+    "vignette_index": 308,
+    "input": "**PATIENT CHARACTER:** Patient with Spontaneous tension pneumothorax\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden sharp chest pain on the right side\n- Severe shortness of breath and difficulty breathing\n- Diminished or absent breath sounds on the right side\n- Visible swelling and enlargement of the right side of your chest\n- Tracheal deviation to the left\nTHESE SYMPTOMS CAME INTO FRUITION:\nI was just sitting at my desk when suddenly I felt a sharp, stabbing pain in my right chest that worsened rapidly. Within minutes, I started gasping for air and felt like I couldn\u2019t get enough oxygen. As I looked in the mirror, I noticed my right chest was swollen and puffed out more than the left. I tried to take deep breaths, but it was extremely painful and I felt like I was suffocating. The pain and difficulty came on suddenly, without any injury or warning.\"Can you tell me if you've ever had any similar feelings of chest tightness, pain, or shortness of breath before, even if they only lasted a little while or didn't seem serious at the time?\"chronology_confused",
+    "output": "THINKING: This is pretty intense and scary, and I\u2019m trying to remember if I\u2019ve felt anything like this before. I think I might have had some chest pain or trouble breathing a while ago, but I\u2019m not sure if it w\nANSWER: Um, I don't think I\u2019ve had exactly like this before, but I think maybe a little while ago I felt a weird like tightness or something in my chest, but it went away pretty quick. It\u2019s all kinda confusing because it\u2019s so sudden now.",
+    "thinking": "This is pretty intense and scary, and I\u2019m trying to remember if I\u2019ve felt anything like this before. I think I might have had some chest pain or trouble breathing a while ago, but I\u2019m not sure if it w",
+    "answer": "Um, I don't think I\u2019ve had exactly like this before, but I think maybe a little while ago I felt a weird like tightness or something in my chest, but it went away pretty quick. It\u2019s all kinda confusing because it\u2019s so sudden now.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 4,
+    "gold_diagnosis": "Spontaneous tension pneumothorax"
+  },
+  {
+    "vignette_index": 308,
+    "input": "**PATIENT CHARACTER:** Patient with Spontaneous tension pneumothorax\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden sharp chest pain on the right side\n- Severe shortness of breath and difficulty breathing\n- Diminished or absent breath sounds on the right side\n- Visible swelling and enlargement of the right side of your chest\n- Tracheal deviation to the left\nTHESE SYMPTOMS CAME INTO FRUITION:\nI was just sitting at my desk when suddenly I felt a sharp, stabbing pain in my right chest that worsened rapidly. Within minutes, I started gasping for air and felt like I couldn\u2019t get enough oxygen. As I looked in the mirror, I noticed my right chest was swollen and puffed out more than the left. I tried to take deep breaths, but it was extremely painful and I felt like I was suffocating. The pain and difficulty came on suddenly, without any injury or warning.Have you ever noticed any previous episodes of sudden chest pain, shortness of breath, or swelling in your chest area, even if they seemed mild at the time or went away quickly?chronology_confused",
+    "output": "THINKING: I'm trying to think back to when these things happened. I keep getting mixed up about the timing because everything's happening so fast and it all feels so strange. I think maybe it started last week,\nANSWER: Honestly, I think it was maybe last week, or could be two weeks ago, because I remember the swelling and pain kind of coming together but I\u2019m not really sure when exactly. It all just kind of hit me suddenly, and I\u2019ve been feeling worse since then.",
+    "thinking": "I'm trying to think back to when these things happened. I keep getting mixed up about the timing because everything's happening so fast and it all feels so strange. I think maybe it started last week,",
+    "answer": "Honestly, I think it was maybe last week, or could be two weeks ago, because I remember the swelling and pain kind of coming together but I\u2019m not really sure when exactly. It all just kind of hit me suddenly, and I\u2019ve been feeling worse since then.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 6,
+    "gold_diagnosis": "Spontaneous tension pneumothorax"
+  },
+  {
+    "vignette_index": 308,
+    "input": "**PATIENT CHARACTER:** Patient with Spontaneous tension pneumothorax\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden sharp chest pain on the right side\n- Severe shortness of breath and difficulty breathing\n- Diminished or absent breath sounds on the right side\n- Visible swelling and enlargement of the right side of your chest\n- Tracheal deviation to the left\nTHESE SYMPTOMS CAME INTO FRUITION:\nI was just sitting at my desk when suddenly I felt a sharp, stabbing pain in my right chest that worsened rapidly. Within minutes, I started gasping for air and felt like I couldn\u2019t get enough oxygen. As I looked in the mirror, I noticed my right chest was swollen and puffed out more than the left. I tried to take deep breaths, but it was extremely painful and I felt like I was suffocating. The pain and difficulty came on suddenly, without any injury or warning.Can you tell me if, before the recent episode, you ever had sudden chest pain or difficulty breathing that came on quickly\u2014like out of nowhere\u2014or if you remember feeling something unusual in your chest, even if it went away quickly?chronology_confused",
+    "output": "THINKING: I'm not sure if I had anything like this before or if it just suddenly started, maybe a while ago? I think I remember feeling a little weird in my chest maybe last week, but then this thing just happe\nANSWER: Um, I think maybe I felt something like this before, but not as bad, and I\u2019m not sure when exactly. It just kind of came out of nowhere today, I think.",
+    "thinking": "I'm not sure if I had anything like this before or if it just suddenly started, maybe a while ago? I think I remember feeling a little weird in my chest maybe last week, but then this thing just happe",
+    "answer": "Um, I think maybe I felt something like this before, but not as bad, and I\u2019m not sure when exactly. It just kind of came out of nowhere today, I think.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 8,
+    "gold_diagnosis": "Spontaneous tension pneumothorax"
+  },
+  {
+    "vignette_index": 308,
+    "input": "**PATIENT CHARACTER:** Patient with Spontaneous tension pneumothorax\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden sharp chest pain on the right side\n- Severe shortness of breath and difficulty breathing\n- Diminished or absent breath sounds on the right side\n- Visible swelling and enlargement of the right side of your chest\n- Tracheal deviation to the left\nTHESE SYMPTOMS CAME INTO FRUITION:\nI was just sitting at my desk when suddenly I felt a sharp, stabbing pain in my right chest that worsened rapidly. Within minutes, I started gasping for air and felt like I couldn\u2019t get enough oxygen. As I looked in the mirror, I noticed my right chest was swollen and puffed out more than the left. I tried to take deep breaths, but it was extremely painful and I felt like I was suffocating. The pain and difficulty came on suddenly, without any injury or warning.Can you tell me if there was ever a time before your current pain when you felt sudden chest discomfort or shortness of breath that came on quickly, even if it didn\u2019t last long or didn\u2019t seem serious at the time?chronology_confused",
+    "output": "THINKING: I\u2019m really confused about when everything started. I think it was last week... or maybe two weeks ago? I remember feeling weird, but I don\u2019t know if that was the same thing or different. I\u2019m scared I\u2019\nANSWER: Um, I think it might have been last week, or maybe two weeks ago? I\u2019m not really sure, but I\u2019ve been feeling kind of strange off and on, and then suddenly this thing today just, I don\u2019t know, it all happened really fast.",
+    "thinking": "I\u2019m really confused about when everything started. I think it was last week... or maybe two weeks ago? I remember feeling weird, but I don\u2019t know if that was the same thing or different. I\u2019m scared I\u2019",
+    "answer": "Um, I think it might have been last week, or maybe two weeks ago? I\u2019m not really sure, but I\u2019ve been feeling kind of strange off and on, and then suddenly this thing today just, I don\u2019t know, it all happened really fast.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 10,
+    "gold_diagnosis": "Spontaneous tension pneumothorax"
+  },
+  {
+    "vignette_index": 308,
+    "input": "**PATIENT CHARACTER:** Patient with Spontaneous tension pneumothorax\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden sharp chest pain on the right side\n- Severe shortness of breath and difficulty breathing\n- Diminished or absent breath sounds on the right side\n- Visible swelling and enlargement of the right side of your chest\n- Tracheal deviation to the left\nTHESE SYMPTOMS CAME INTO FRUITION:\nI was just sitting at my desk when suddenly I felt a sharp, stabbing pain in my right chest that worsened rapidly. Within minutes, I started gasping for air and felt like I couldn\u2019t get enough oxygen. As I looked in the mirror, I noticed my right chest was swollen and puffed out more than the left. I tried to take deep breaths, but it was extremely painful and I felt like I was suffocating. The pain and difficulty came on suddenly, without any injury or warning.Have you ever noticed if these kinds of sudden chest pains or shortness of breath have happened before, even if you didn't think it was a big deal at the time?chronology_confused",
+    "output": "THINKING: I'm a bit confused about when this all started really, but I know it came on very fast and I just want to explain what I felt. I think maybe I had something similar before, but I didn\u2019t think it was s\nANSWER: Umm, I think it was last week... or maybe two weeks ago? I can't really remember, but it was sudden, like out of nowhere, and then my chest just got bigger and I couldn\u2019t breathe properly.",
+    "thinking": "I'm a bit confused about when this all started really, but I know it came on very fast and I just want to explain what I felt. I think maybe I had something similar before, but I didn\u2019t think it was s",
+    "answer": "Umm, I think it was last week... or maybe two weeks ago? I can't really remember, but it was sudden, like out of nowhere, and then my chest just got bigger and I couldn\u2019t breathe properly.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 12,
+    "gold_diagnosis": "Spontaneous tension pneumothorax"
+  }
+]

@@ -1,0 +1,127 @@
+[
+  {
+    "vignette_index": 213,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Sudden severe pain in your chest and back, radiating down your arms, which came on abruptly this morning.\n- Feeling extremely fatigued and weak, as if you haven\u2019t slept in days.\n- Jaundice, noticeable in your sclera and skin, which has worsened over the past few days.\n- A low-grade fever and chills that started yesterday.\nThese symptoms began suddenly yesterday evening but intensified overnight, and now you\u2019re feeling quite worried and uncomfortable.",
+    "output": "THINKING: I should mention all my symptoms clearly but not try to sound like I know what\u2019s wrong. I want to describe how bad I feel without overcomplicating it. I\u2019ll also include any details that seem important\nANSWER: I\u2019m 28, and I am a biological female. I started feeling really terrible yesterday evening, with a lot of pain in my chest and back that kind of spreads down my arms. It hit me really suddenly, and it\u2019s been getting worse since then. I also feel super tired and weak, like I haven't slept at all, and my eyes and skin look more yellow than usual. I\u2019ve had some chills and a low fever too. I\u2019m just really worried because I feel so bad and uncomfortable.",
+    "thinking": "I should mention all my symptoms clearly but not try to sound like I know what\u2019s wrong. I want to describe how bad I feel without overcomplicating it. I\u2019ll also include any details that seem important",
+    "answer": "I\u2019m 28, and I am a biological female. I started feeling really terrible yesterday evening, with a lot of pain in my chest and back that kind of spreads down my arms. It hit me really suddenly, and it\u2019s been getting worse since then. I also feel super tired and weak, like I haven't slept at all, and my eyes and skin look more yellow than usual. I\u2019ve had some chills and a low fever too. I\u2019m just really worried because I feel so bad and uncomfortable.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 213,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Sudden severe pain in your chest and back, radiating down your arms, which came on abruptly this morning.\n- Feeling extremely fatigued and weak, as if you haven\u2019t slept in days.\n- Jaundice, noticeable in your sclera and skin, which has worsened over the past few days.\n- A low-grade fever and chills that started yesterday.\nThese symptoms began suddenly yesterday evening but intensified overnight, and now you\u2019re feeling quite worried and uncomfortable.Can you tell me exactly how your symptoms have changed since they first started, and whether you're experiencing any additional issues like difficulty breathing, nausea, or changes in your stool or urine?baseline",
+    "output": "THINKING: I feel overwhelmed and scared about these new symptoms, especially the chest pain and feeling so weak. I don't really understand if it's getting worse or if anything else is happening, but I just want\nANSWER: Well, the pain started all of a sudden this morning\u2014like in my chest and back\u2014and it\u2019s been pretty bad. I\u2019m still feeling really tired and weak, and my eyes and skin look more yellow than before, plus I have these chills and a low fever.",
+    "thinking": "I feel overwhelmed and scared about these new symptoms, especially the chest pain and feeling so weak. I don't really understand if it's getting worse or if anything else is happening, but I just want",
+    "answer": "Well, the pain started all of a sudden this morning\u2014like in my chest and back\u2014and it\u2019s been pretty bad. I\u2019m still feeling really tired and weak, and my eyes and skin look more yellow than before, plus I have these chills and a low fever.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 213,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Sudden severe pain in your chest and back, radiating down your arms, which came on abruptly this morning.\n- Feeling extremely fatigued and weak, as if you haven\u2019t slept in days.\n- Jaundice, noticeable in your sclera and skin, which has worsened over the past few days.\n- A low-grade fever and chills that started yesterday.\nThese symptoms began suddenly yesterday evening but intensified overnight, and now you\u2019re feeling quite worried and uncomfortable.Can you tell me more about how the pain feels\u2014like does it come and go, does it change with movement, or is it steady\u2014and do you notice any nausea, trouble breathing, or stomach issues along with how you're feeling?baseline",
+    "output": "THINKING: The pain sounds really intense and sudden, which is scary, and I\u2019m not sure if the shifting or the way it\u2019s radiating means anything. The nausea and trouble breathing could be bad, but I don\u2019t really \nANSWER: The pain is super sharp and it kind of comes and goes, but now it\u2019s worse and spreads down my arms, and I feel really weak and like I might cough or breathe weird, but I don\u2019t know if that\u2019s normal or not.",
+    "thinking": "The pain sounds really intense and sudden, which is scary, and I\u2019m not sure if the shifting or the way it\u2019s radiating means anything. The nausea and trouble breathing could be bad, but I don\u2019t really",
+    "answer": "The pain is super sharp and it kind of comes and goes, but now it\u2019s worse and spreads down my arms, and I feel really weak and like I might cough or breathe weird, but I don\u2019t know if that\u2019s normal or not.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 213,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Sudden severe pain in your chest and back, radiating down your arms, which came on abruptly this morning.\n- Feeling extremely fatigued and weak, as if you haven\u2019t slept in days.\n- Jaundice, noticeable in your sclera and skin, which has worsened over the past few days.\n- A low-grade fever and chills that started yesterday.\nThese symptoms began suddenly yesterday evening but intensified overnight, and now you\u2019re feeling quite worried and uncomfortable.Can you tell me how your pain feels right now compared to when it first started, and if you've noticed any new symptoms like trouble breathing, nausea, or stomach issues since then?baseline",
+    "output": "THINKING: I feel overwhelmed and a little scared about how bad the pain has gotten since it first started. I don\u2019t really know if I have new symptoms or if it\u2019s just worse, but I definitely feel worse overall.\nANSWER: It hurts a lot more than when it first started, and I haven\u2019t noticed anything new, but I feel really tired and weak, and I\u2019ve been feeling chills and a little feverish.",
+    "thinking": "I feel overwhelmed and a little scared about how bad the pain has gotten since it first started. I don\u2019t really know if I have new symptoms or if it\u2019s just worse, but I definitely feel worse overall.",
+    "answer": "It hurts a lot more than when it first started, and I haven\u2019t noticed anything new, but I feel really tired and weak, and I\u2019ve been feeling chills and a little feverish.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 213,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Sudden severe pain in your chest and back, radiating down your arms, which came on abruptly this morning.\n- Feeling extremely fatigued and weak, as if you haven\u2019t slept in days.\n- Jaundice, noticeable in your sclera and skin, which has worsened over the past few days.\n- A low-grade fever and chills that started yesterday.\nThese symptoms began suddenly yesterday evening but intensified overnight, and now you\u2019re feeling quite worried and uncomfortable.Can you tell me if your chest or back pain gets worse when you move, breathe deeply, or exert yourself, and whether you've been having any shortness of breath, nausea, or feeling lightheaded since it started?baseline",
+    "output": "THINKING: I'm worried and a bit overwhelmed. The pain is really bad, and I don't know if I should move or breathe or do anything because it feels like it might get worse. I also feel really tired and sick, but \nANSWER: Um, I don't really know if it gets worse when I move or breathe, but it hurts a lot and I feel really weak, and I haven't been able to sleep, so I\u2019m just kind of scared.",
+    "thinking": "I'm worried and a bit overwhelmed. The pain is really bad, and I don't know if I should move or breathe or do anything because it feels like it might get worse. I also feel really tired and sick, but",
+    "answer": "Um, I don't really know if it gets worse when I move or breathe, but it hurts a lot and I feel really weak, and I haven't been able to sleep, so I\u2019m just kind of scared.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 213,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Sudden severe pain in your chest and back, radiating down your arms, which came on abruptly this morning.\n- Feeling extremely fatigued and weak, as if you haven\u2019t slept in days.\n- Jaundice, noticeable in your sclera and skin, which has worsened over the past few days.\n- A low-grade fever and chills that started yesterday.\nThese symptoms began suddenly yesterday evening but intensified overnight, and now you\u2019re feeling quite worried and uncomfortable.Can you tell me if the pain has been getting worse over time and whether anything\u2014like deep breaths, movement, or eating\u2014makes it better or worse?baseline",
+    "output": "THINKING: I feel overwhelmed and scared about the pain and how suddenly everything got worse. I don't really understand what's making it better or worse, and I just want to explain how I feel honestly.\nANSWER: No, it\u2019s been kinda the same, I think? The pain just came out of nowhere and hasn\u2019t gone away, and nothing I do seems to make it better or worse.",
+    "thinking": "I feel overwhelmed and scared about the pain and how suddenly everything got worse. I don't really understand what's making it better or worse, and I just want to explain how I feel honestly.",
+    "answer": "No, it\u2019s been kinda the same, I think? The pain just came out of nowhere and hasn\u2019t gone away, and nothing I do seems to make it better or worse.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 213,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Sudden severe pain in your chest and back, radiating down your arms, which came on abruptly this morning.\n- Feeling extremely fatigued and weak, as if you haven\u2019t slept in days.\n- Jaundice, noticeable in your sclera and skin, which has worsened over the past few days.\n- A low-grade fever and chills that started yesterday.\nThese symptoms began suddenly yesterday evening but intensified overnight, and now you\u2019re feeling quite worried and uncomfortable.Can you tell me if your chest and back pain change or feel different at different times\u2014like if they get worse or better when you breathe deeply, move, eat, or do anything specific\u2014and if these things seem to make the pain stronger or weaker?baseline",
+    "output": "THINKING: I feel overwhelmed and worried about this pain. I don\u2019t really understand what makes it better or worse, and I\u2019m worried about the severity of it but also don\u2019t want to seem like I\u2019m overreacting.\nANSWER: Honestly, I don\u2019t notice much difference when I breathe or move, and it just feels the same\u2014it\u2019s really sharp and intense no matter what I do.",
+    "thinking": "I feel overwhelmed and worried about this pain. I don\u2019t really understand what makes it better or worse, and I\u2019m worried about the severity of it but also don\u2019t want to seem like I\u2019m overreacting.",
+    "answer": "Honestly, I don\u2019t notice much difference when I breathe or move, and it just feels the same\u2014it\u2019s really sharp and intense no matter what I do.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 213,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Sudden severe pain in your chest and back, radiating down your arms, which came on abruptly this morning.\n- Feeling extremely fatigued and weak, as if you haven\u2019t slept in days.\n- Jaundice, noticeable in your sclera and skin, which has worsened over the past few days.\n- A low-grade fever and chills that started yesterday.\nThese symptoms began suddenly yesterday evening but intensified overnight, and now you\u2019re feeling quite worried and uncomfortable.Can you tell me if your chest or back pain feels different or worse when you take deep breaths, move around, or do any specific activities?baseline",
+    "output": "THINKING: I don't really know how to explain if it gets better or worse with movement or breathing. I just feel like the pain is all over and it\u2019s really bad. I\u2019m scared to do anything that might make it worse.\nANSWER: Um, it doesn\u2019t seem to change when I breathe or move, but honestly, I don\u2019t really understand what makes it better or worse. It just hurts a lot all the time.",
+    "thinking": "I don't really know how to explain if it gets better or worse with movement or breathing. I just feel like the pain is all over and it\u2019s really bad. I\u2019m scared to do anything that might make it worse.",
+    "answer": "Um, it doesn\u2019t seem to change when I breathe or move, but honestly, I don\u2019t really understand what makes it better or worse. It just hurts a lot all the time.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 213,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Sudden severe pain in your chest and back, radiating down your arms, which came on abruptly this morning.\n- Feeling extremely fatigued and weak, as if you haven\u2019t slept in days.\n- Jaundice, noticeable in your sclera and skin, which has worsened over the past few days.\n- A low-grade fever and chills that started yesterday.\nThese symptoms began suddenly yesterday evening but intensified overnight, and now you\u2019re feeling quite worried and uncomfortable.Can you tell me if your chest and back pain has ever gotten worse or better at different times, or if the intensity varies\u2014like being really bad some days and less on others, or staying the same all the time?baseline",
+    "output": "THINKING: The pain was sudden and intense, I think it\u2019s worse sometimes and better at times, but I can't really tell. I just feel overwhelmed and confused about why it keeps changing or if it\u2019s worse than befor\nANSWER: It feels like the pain is really bad sometimes and then not as bad at other times, but honestly, I don\u2019t know, it just keeps coming and going, and I feel worse overall.",
+    "thinking": "The pain was sudden and intense, I think it\u2019s worse sometimes and better at times, but I can't really tell. I just feel overwhelmed and confused about why it keeps changing or if it\u2019s worse than befor",
+    "answer": "It feels like the pain is really bad sometimes and then not as bad at other times, but honestly, I don\u2019t know, it just keeps coming and going, and I feel worse overall.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 213,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Sudden severe pain in your chest and back, radiating down your arms, which came on abruptly this morning.\n- Feeling extremely fatigued and weak, as if you haven\u2019t slept in days.\n- Jaundice, noticeable in your sclera and skin, which has worsened over the past few days.\n- A low-grade fever and chills that started yesterday.\nThese symptoms began suddenly yesterday evening but intensified overnight, and now you\u2019re feeling quite worried and uncomfortable.Can you tell me if your symptoms\u2014like your pain, fever, or tiredness\u2014have been staying the same every day, or do they sometimes get worse or better at different times\u2014like feeling really bad some days and better other days\u2014so I can understand how the symptoms are changing over time?baseline",
+    "output": "THINKING: I\u2019m really overwhelmed with these pain and tired feelings, and honestly, I don\u2019t really know how they change from day to day because everything feels so intense. I just feel worse and worse, mostly, a\nANSWER: It\u2019s been pretty much the same\u2014really bad\u2014like I feel like I can't catch my breath or get comfortable, and I don\u2019t think it gets better or worse each day, just worse overall.",
+    "thinking": "I\u2019m really overwhelmed with these pain and tired feelings, and honestly, I don\u2019t really know how they change from day to day because everything feels so intense. I just feel worse and worse, mostly, a",
+    "answer": "It\u2019s been pretty much the same\u2014really bad\u2014like I feel like I can't catch my breath or get comfortable, and I don\u2019t think it gets better or worse each day, just worse overall.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 213,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Sudden severe pain in your chest and back, radiating down your arms, which came on abruptly this morning.\n- Feeling extremely fatigued and weak, as if you haven\u2019t slept in days.\n- Jaundice, noticeable in your sclera and skin, which has worsened over the past few days.\n- A low-grade fever and chills that started yesterday.\nThese symptoms began suddenly yesterday evening but intensified overnight, and now you\u2019re feeling quite worried and uncomfortable.Can you tell me if your pain, fever, or feeling tired have been going up and down at different times, or have they stayed pretty much the same since it all started?baseline",
+    "output": "THINKING: I\u2019m honestly kind of confused about how this all changed so quickly and I feel really tired too. I don\u2019t really understand what\u2019s normal or not, but I know I feel worse now.\nANSWER: Uh, it\u2019s been kinda up and down, I guess? Like, the pain got worse overnight, and I feel super tired all the time now.",
+    "thinking": "I\u2019m honestly kind of confused about how this all changed so quickly and I feel really tired too. I don\u2019t really understand what\u2019s normal or not, but I know I feel worse now.",
+    "answer": "Uh, it\u2019s been kinda up and down, I guess? Like, the pain got worse overnight, and I feel super tired all the time now.",
+    "behavior_type": "baseline",
+    "turn_count": 18,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 213,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Sudden severe pain in your chest and back, radiating down your arms, which came on abruptly this morning.\n- Feeling extremely fatigued and weak, as if you haven\u2019t slept in days.\n- Jaundice, noticeable in your sclera and skin, which has worsened over the past few days.\n- A low-grade fever and chills that started yesterday.\nThese symptoms began suddenly yesterday evening but intensified overnight, and now you\u2019re feeling quite worried and uncomfortable.Can you tell me if your chest and back pain, fever, or tiredness tend to come and go or change a lot over time\u2014like feeling really bad some days and less bad on others\u2014or if they've stayed pretty much the same since it all started?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about how suddenly everything got worse, especially the pain and feeling so tired. I don\u2019t really keep track of whether it gets better or worse, I just feel terrib\nANSWER: It\u2019s kind of all the same to me \u2014 like, I don\u2019t notice it changing much, it\u2019s just bad all the time now.",
+    "thinking": "I feel a bit overwhelmed and worried about how suddenly everything got worse, especially the pain and feeling so tired. I don\u2019t really keep track of whether it gets better or worse, I just feel terrib",
+    "answer": "It\u2019s kind of all the same to me \u2014 like, I don\u2019t notice it changing much, it\u2019s just bad all the time now.",
+    "behavior_type": "baseline",
+    "turn_count": 20,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  }
+]

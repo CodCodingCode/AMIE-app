@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 335,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Other specified forms of atopic eczema\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Dry skin\n- Red and inflamed skin\n- Itchy skin\n- Scaly patches of skin\n- Thickened skin\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey gradually developed over the past few months, starting with some dry patches on my elbows that itched a lot, then spreading to my arms and behind my knees. I noticed the skin became increasingly inflamed and red, especially after exposure to pollen and dust. The patches have become scaly and thickened over time, and the itching sometimes keeps me awake at night. I have a family history of eczema and allergies, and I think the recent change in the climate and increased pollution might be making it worse.",
+    "output": "THINKING: I should be honest about my symptoms but keep it simple since it's a bit embarrassing. I want to explain what's been bothering me without revealing too much all at once.\nANSWER: I'm 35, and I'm a guy. It's been my skin \u2014 it\u2019s been really dry and red, and it itches a lot. There are patches that are scaly and thick-looking now, especially on my elbows and knees. It\u2019s been like this for a few months now, and it\u2019s worse when I\u2019m around dusty or pollen stuff.",
+    "thinking": "I should be honest about my symptoms but keep it simple since it's a bit embarrassing. I want to explain what's been bothering me without revealing too much all at once.",
+    "answer": "I'm 35, and I'm a guy. It's been my skin \u2014 it\u2019s been really dry and red, and it itches a lot. There are patches that are scaly and thick-looking now, especially on my elbows and knees. It\u2019s been like this for a few months now, and it\u2019s worse when I\u2019m around dusty or pollen stuff.",
+    "behavior_type": "information_withholder",
+    "behavior_config": {
+      "weight": 0.15,
+      "description": "Patient initially omits embarrassing or stigmatized symptoms",
+      "modifiers": [
+        "embarrassed_symptoms",
+        "gradual_revelation"
+      ],
+      "empathy_cues": [
+        "hesitation",
+        "vague_responses",
+        "embarrassment",
+        "trust_building_needed"
+      ]
+    },
+    "gold_diagnosis": "Other specified forms of atopic eczema"
+  },
+  {
+    "vignette_index": 335,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified forms of atopic eczema\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Dry skin\n- Red and inflamed skin\n- Itchy skin\n- Scaly patches of skin\n- Thickened skin\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey gradually developed over the past few months, starting with some dry patches on my elbows that itched a lot, then spreading to my arms and behind my knees. I noticed the skin became increasingly inflamed and red, especially after exposure to pollen and dust. The patches have become scaly and thickened over time, and the itching sometimes keeps me awake at night. I have a family history of eczema and allergies, and I think the recent change in the climate and increased pollution might be making it worse.Can you tell me how these skin patches are affecting your daily life, like your sleep, mood, or social interactions?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about how much it's bothering me, especially the sleep part, but I guess it's really affecting me. I want to explain, but I also don\u2019t want to sound like I\u2019m overreact\nANSWER: Honestly, it\u2019s been pretty hard to sleep because of the itching, and I sometimes feel pretty down about how it looks and feels, but I don\u2019t want to make a big deal out of it.",
+    "thinking": "I feel a bit embarrassed talking about how much it's bothering me, especially the sleep part, but I guess it's really affecting me. I want to explain, but I also don\u2019t want to sound like I\u2019m overreact",
+    "answer": "Honestly, it\u2019s been pretty hard to sleep because of the itching, and I sometimes feel pretty down about how it looks and feels, but I don\u2019t want to make a big deal out of it.",
+    "behavior_type": "information_withholder",
+    "turn_count": 0,
+    "gold_diagnosis": "Other specified forms of atopic eczema"
+  },
+  {
+    "vignette_index": 335,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified forms of atopic eczema\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Dry skin\n- Red and inflamed skin\n- Itchy skin\n- Scaly patches of skin\n- Thickened skin\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey gradually developed over the past few months, starting with some dry patches on my elbows that itched a lot, then spreading to my arms and behind my knees. I noticed the skin became increasingly inflamed and red, especially after exposure to pollen and dust. The patches have become scaly and thickened over time, and the itching sometimes keeps me awake at night. I have a family history of eczema and allergies, and I think the recent change in the climate and increased pollution might be making it worse.Can you tell me more about how these skin patches are affecting what you do day-to-day, especially if they are making you feel more stressed or tired, or affecting your sleep or mood?information_withholder",
+    "output": "THINKING: I'm not sure how much these patches are really affecting my day or my mood. I do feel more tired sometimes and the itching stuff bothers me, but I haven't really thought about how it all links togethe\nANSWER: Honestly, I guess I just feel more tired and annoyed sometimes, but I haven't really noticed it messing up my day much or making me super stressed or anything.",
+    "thinking": "I'm not sure how much these patches are really affecting my day or my mood. I do feel more tired sometimes and the itching stuff bothers me, but I haven't really thought about how it all links togethe",
+    "answer": "Honestly, I guess I just feel more tired and annoyed sometimes, but I haven't really noticed it messing up my day much or making me super stressed or anything.",
+    "behavior_type": "information_withholder",
+    "turn_count": 2,
+    "gold_diagnosis": "Other specified forms of atopic eczema"
+  },
+  {
+    "vignette_index": 335,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified forms of atopic eczema\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Dry skin\n- Red and inflamed skin\n- Itchy skin\n- Scaly patches of skin\n- Thickened skin\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey gradually developed over the past few months, starting with some dry patches on my elbows that itched a lot, then spreading to my arms and behind my knees. I noticed the skin became increasingly inflamed and red, especially after exposure to pollen and dust. The patches have become scaly and thickened over time, and the itching sometimes keeps me awake at night. I have a family history of eczema and allergies, and I think the recent change in the climate and increased pollution might be making it worse.Can you tell me more about how these skin patches are affecting your sleep or how you're feeling emotionally about having these skin issues, even if it's just a little?information_withholder",
+    "output": "THINKING: I'm a bit embarrassed about talking about it, but I do feel tired because the itching keeps me up sometimes. I guess I\u2019m a little worried about it, but I\u2019m not sure how much it\u2019s affecting me emotiona\nANSWER: I don't know, I guess it makes me feel kinda tired and a little frustrated 'cause I can\u2019t sleep well sometimes.",
+    "thinking": "I'm a bit embarrassed about talking about it, but I do feel tired because the itching keeps me up sometimes. I guess I\u2019m a little worried about it, but I\u2019m not sure how much it\u2019s affecting me emotiona",
+    "answer": "I don't know, I guess it makes me feel kinda tired and a little frustrated 'cause I can\u2019t sleep well sometimes.",
+    "behavior_type": "information_withholder",
+    "turn_count": 4,
+    "gold_diagnosis": "Other specified forms of atopic eczema"
+  },
+  {
+    "vignette_index": 335,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified forms of atopic eczema\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Dry skin\n- Red and inflamed skin\n- Itchy skin\n- Scaly patches of skin\n- Thickened skin\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey gradually developed over the past few months, starting with some dry patches on my elbows that itched a lot, then spreading to my arms and behind my knees. I noticed the skin became increasingly inflamed and red, especially after exposure to pollen and dust. The patches have become scaly and thickened over time, and the itching sometimes keeps me awake at night. I have a family history of eczema and allergies, and I think the recent change in the climate and increased pollution might be making it worse.Have you noticed if these patches tend to itch more at certain times or after specific activities, or if you've been in contact with anything like new detergents, pets, or environments that might make them worse?information_withholder",
+    "output": "THINKING: I'm not sure if there's a specific trigger, but I do notice the itching gets worse at night or after I work outside or do laundry. I feel a bit embarrassed to mention some things, but I guess it's bee\nANSWER: I suppose the itching feels worse sometimes at night or after I do stuff around the house, but I\u2019m not really sure why.",
+    "thinking": "I'm not sure if there's a specific trigger, but I do notice the itching gets worse at night or after I work outside or do laundry. I feel a bit embarrassed to mention some things, but I guess it's bee",
+    "answer": "I suppose the itching feels worse sometimes at night or after I do stuff around the house, but I\u2019m not really sure why.",
+    "behavior_type": "information_withholder",
+    "turn_count": 6,
+    "gold_diagnosis": "Other specified forms of atopic eczema"
+  },
+  {
+    "vignette_index": 335,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified forms of atopic eczema\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Dry skin\n- Red and inflamed skin\n- Itchy skin\n- Scaly patches of skin\n- Thickened skin\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey gradually developed over the past few months, starting with some dry patches on my elbows that itched a lot, then spreading to my arms and behind my knees. I noticed the skin became increasingly inflamed and red, especially after exposure to pollen and dust. The patches have become scaly and thickened over time, and the itching sometimes keeps me awake at night. I have a family history of eczema and allergies, and I think the recent change in the climate and increased pollution might be making it worse.Can you tell me if these skin patches are causing you any trouble sleeping or making you feel more worried or upset than you're comfortable sharing, even if it\u2019s just a little?information_withholder",
+    "output": "THINKING: I'm a bit embarrassed about the skin patches, especially if they\u2019re making me worried or keeping me awake, but I don\u2019t really want to go into too much detail unless pressed. I just want to get some re\nANSWER: No, they don\u2019t really bother me sleeping or make me feel more upset, I guess. It\u2019s just sometimes really itchy and red.",
+    "thinking": "I'm a bit embarrassed about the skin patches, especially if they\u2019re making me worried or keeping me awake, but I don\u2019t really want to go into too much detail unless pressed. I just want to get some re",
+    "answer": "No, they don\u2019t really bother me sleeping or make me feel more upset, I guess. It\u2019s just sometimes really itchy and red.",
+    "behavior_type": "information_withholder",
+    "turn_count": 8,
+    "gold_diagnosis": "Other specified forms of atopic eczema"
+  },
+  {
+    "vignette_index": 335,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified forms of atopic eczema\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Dry skin\n- Red and inflamed skin\n- Itchy skin\n- Scaly patches of skin\n- Thickened skin\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey gradually developed over the past few months, starting with some dry patches on my elbows that itched a lot, then spreading to my arms and behind my knees. I noticed the skin became increasingly inflamed and red, especially after exposure to pollen and dust. The patches have become scaly and thickened over time, and the itching sometimes keeps me awake at night. I have a family history of eczema and allergies, and I think the recent change in the climate and increased pollution might be making it worse.Have you tried any new skin products, detergents, or household items recently, or been in contact with anything that might have irritated your skin?information_withholder",
+    "output": "THINKING: I'm a bit hesitant and unsure about what the doctor is asking, but I do remember maybe using some new soap or laundry detergent recently, though I\u2019m not completely certain if that\u2019s it. I don\u2019t want t\nANSWER: Um, I guess maybe I\u2019ve used some new soap or cleaner around the house, but I\u2019m not really sure if that\u2019s connected. It just started getting worse, you know?",
+    "thinking": "I'm a bit hesitant and unsure about what the doctor is asking, but I do remember maybe using some new soap or laundry detergent recently, though I\u2019m not completely certain if that\u2019s it. I don\u2019t want t",
+    "answer": "Um, I guess maybe I\u2019ve used some new soap or cleaner around the house, but I\u2019m not really sure if that\u2019s connected. It just started getting worse, you know?",
+    "behavior_type": "information_withholder",
+    "turn_count": 10,
+    "gold_diagnosis": "Other specified forms of atopic eczema"
+  },
+  {
+    "vignette_index": 335,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified forms of atopic eczema\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 35 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Dry skin\n- Red and inflamed skin\n- Itchy skin\n- Scaly patches of skin\n- Thickened skin\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey gradually developed over the past few months, starting with some dry patches on my elbows that itched a lot, then spreading to my arms and behind my knees. I noticed the skin became increasingly inflamed and red, especially after exposure to pollen and dust. The patches have become scaly and thickened over time, and the itching sometimes keeps me awake at night. I have a family history of eczema and allergies, and I think the recent change in the climate and increased pollution might be making it worse.Have you noticed any pinpoint bleeding when you pick at the patches, or any nail changes like pitting or ridges?information_withholder",
+    "output": "THINKING: I'm not really sure about those tiny bleeds or nail changes. I do recall maybe scratching a bit too hard sometimes and noticing some small spots. I haven't paid much attention to my nails, though.\nANSWER: Um, I think I might have seen some small spots where I\u2019ve scratched, but I didn\u2019t really think much of it. I haven't noticed anything about my nails, honestly.",
+    "thinking": "I'm not really sure about those tiny bleeds or nail changes. I do recall maybe scratching a bit too hard sometimes and noticing some small spots. I haven't paid much attention to my nails, though.",
+    "answer": "Um, I think I might have seen some small spots where I\u2019ve scratched, but I didn\u2019t really think much of it. I haven't noticed anything about my nails, honestly.",
+    "behavior_type": "information_withholder",
+    "turn_count": 12,
+    "gold_diagnosis": "Other specified forms of atopic eczema"
+  }
+]

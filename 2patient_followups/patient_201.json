@@ -1,0 +1,155 @@
+[
+  {
+    "vignette_index": 201,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 10 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fatigue\n- Fever\n- Easy bruising or bleeding\n- Pale skin\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past two weeks. At first, you just felt more tired than usual during school and had a low-grade fever that wouldn't go away. Over time, your skin has become paler, and you noticed you bruise easily even from minor bumps. Recently, you've been more prone to infections, like colds that take longer to recover, and you've started bleeding more easily from small cuts. You\u2019re worried because these symptoms seem to be getting worse and you don\u2019t know what\u2019s happening.",
+    "output": "THINKING: The child is very young, so I need to be gentle and clear. They are likely feeling scared and confused, so I should prompt them to share what they're experiencing without making them uncomfortable. Th\nANSWER: I'm 10, and I guess I just feel really tired all the time, like I don't have any energy for school or playing. I\u2019ve had a fever that doesn\u2019t go away, and my skin looks really pale now. I\u2019ve been bruising easier than before, even from small bumps, and sometimes I notice I bleed more when I get little cuts. I just... I don\u2019t know, I feel like something is wrong.",
+    "thinking": "The child is very young, so I need to be gentle and clear. They are likely feeling scared and confused, so I should prompt them to share what they're experiencing without making them uncomfortable. Th",
+    "answer": "I'm 10, and I guess I just feel really tired all the time, like I don't have any energy for school or playing. I\u2019ve had a fever that doesn\u2019t go away, and my skin looks really pale now. I\u2019ve been bruising easier than before, even from small bumps, and sometimes I notice I bleed more when I get little cuts. I just... I don\u2019t know, I feel like something is wrong.",
+    "behavior_type": "information_withholder",
+    "behavior_config": {
+      "weight": 0.15,
+      "description": "Patient initially omits embarrassing or stigmatized symptoms",
+      "modifiers": [
+        "embarrassed_symptoms",
+        "gradual_revelation"
+      ],
+      "empathy_cues": [
+        "hesitation",
+        "vague_responses",
+        "embarrassment",
+        "trust_building_needed"
+      ]
+    },
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 201,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 10 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fatigue\n- Fever\n- Easy bruising or bleeding\n- Pale skin\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past two weeks. At first, you just felt more tired than usual during school and had a low-grade fever that wouldn't go away. Over time, your skin has become paler, and you noticed you bruise easily even from minor bumps. Recently, you've been more prone to infections, like colds that take longer to recover, and you've started bleeding more easily from small cuts. You\u2019re worried because these symptoms seem to be getting worse and you don\u2019t know what\u2019s happening.When did you first start noticing these symptoms, like feeling really tired or having the fever, and how have they changed over time?information_withholder",
+    "output": "THINKING: I feel a bit scared talking about this, especially since I don\u2019t really understand what's wrong. I\u2019ve noticed all these things happening slowly and I don\u2019t know if they are getting worse or if I shoul\nANSWER: Um, I think it started maybe two weeks ago? I just felt super tired at school and had a low fever that didn\u2019t go away, but I didn\u2019t really say anything at first.",
+    "thinking": "I feel a bit scared talking about this, especially since I don\u2019t really understand what's wrong. I\u2019ve noticed all these things happening slowly and I don\u2019t know if they are getting worse or if I shoul",
+    "answer": "Um, I think it started maybe two weeks ago? I just felt super tired at school and had a low fever that didn\u2019t go away, but I didn\u2019t really say anything at first.",
+    "behavior_type": "information_withholder",
+    "turn_count": 0,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 201,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 10 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fatigue\n- Fever\n- Easy bruising or bleeding\n- Pale skin\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past two weeks. At first, you just felt more tired than usual during school and had a low-grade fever that wouldn't go away. Over time, your skin has become paler, and you noticed you bruise easily even from minor bumps. Recently, you've been more prone to infections, like colds that take longer to recover, and you've started bleeding more easily from small cuts. You\u2019re worried because these symptoms seem to be getting worse and you don\u2019t know what\u2019s happening.Can you tell me if you've noticed any cuts or bruises that seem to happen more easily than before, or if you've had any nosebleeds or reasons you needed to visit the doctor because of bleeding?information_withholder",
+    "output": "THINKING: I feel a little nervous talking about the bruises and bleeding because I don\u2019t really understand what\u2019s wrong. I just know I keep getting more tired and I see the marks on my skin, but I don\u2019t want to\nANSWER: Um, yeah, I think I have some bruises, and I\u2019ve been bleeding kind of easy lately, even from small cuts. I didn\u2019t really notice before, but now it seems worse.",
+    "thinking": "I feel a little nervous talking about the bruises and bleeding because I don\u2019t really understand what\u2019s wrong. I just know I keep getting more tired and I see the marks on my skin, but I don\u2019t want to",
+    "answer": "Um, yeah, I think I have some bruises, and I\u2019ve been bleeding kind of easy lately, even from small cuts. I didn\u2019t really notice before, but now it seems worse.",
+    "behavior_type": "information_withholder",
+    "turn_count": 2,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 201,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 10 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fatigue\n- Fever\n- Easy bruising or bleeding\n- Pale skin\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past two weeks. At first, you just felt more tired than usual during school and had a low-grade fever that wouldn't go away. Over time, your skin has become paler, and you noticed you bruise easily even from minor bumps. Recently, you've been more prone to infections, like colds that take longer to recover, and you've started bleeding more easily from small cuts. You\u2019re worried because these symptoms seem to be getting worse and you don\u2019t know what\u2019s happening.Can you tell me if you\u2019ve noticed any new or worse bleeding, like more frequent nosebleeds, blood from your gums, or bleeding that takes a long time to stop?information_withholder",
+    "output": "THINKING: The doctor is asking about bleeding, and I do notice more nosebleeds and bleeding from my gums, but I\u2019m a little embarrassed to say I\u2019ve been bleeding easily from small cuts too. I\u2019m scared and not re\nANSWER: Yeah, I guess I\u2019ve been bleeding more than before, like from my nose and my gums, and it takes a while to stop sometimes.",
+    "thinking": "The doctor is asking about bleeding, and I do notice more nosebleeds and bleeding from my gums, but I\u2019m a little embarrassed to say I\u2019ve been bleeding easily from small cuts too. I\u2019m scared and not re",
+    "answer": "Yeah, I guess I\u2019ve been bleeding more than before, like from my nose and my gums, and it takes a while to stop sometimes.",
+    "behavior_type": "information_withholder",
+    "turn_count": 4,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 201,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 10 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fatigue\n- Fever\n- Easy bruising or bleeding\n- Pale skin\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past two weeks. At first, you just felt more tired than usual during school and had a low-grade fever that wouldn't go away. Over time, your skin has become paler, and you noticed you bruise easily even from minor bumps. Recently, you've been more prone to infections, like colds that take longer to recover, and you've started bleeding more easily from small cuts. You\u2019re worried because these symptoms seem to be getting worse and you don\u2019t know what\u2019s happening.Can you tell me if you've had any bleeding that happens really often or lasts a long time, like nosebleeds or bleeding from your gums or cuts, especially during certain times or situations, and how these episodes have changed or gotten worse over the past couple of weeks?information_withholder",
+    "output": "THINKING: I feel a bit nervous talking about all this, and I don\u2019t really understand everything, but I know I keep bleeding more and I don\u2019t like it. I guess I should tell the doctor everything just in case.\nANSWER: Yeah, I\u2019ve been bleeding more from cuts and sometimes my nosebleeds, and it seems worse than before. I don\u2019t really know why.",
+    "thinking": "I feel a bit nervous talking about all this, and I don\u2019t really understand everything, but I know I keep bleeding more and I don\u2019t like it. I guess I should tell the doctor everything just in case.",
+    "answer": "Yeah, I\u2019ve been bleeding more from cuts and sometimes my nosebleeds, and it seems worse than before. I don\u2019t really know why.",
+    "behavior_type": "information_withholder",
+    "turn_count": 6,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 201,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 10 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fatigue\n- Fever\n- Easy bruising or bleeding\n- Pale skin\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past two weeks. At first, you just felt more tired than usual during school and had a low-grade fever that wouldn't go away. Over time, your skin has become paler, and you noticed you bruise easily even from minor bumps. Recently, you've been more prone to infections, like colds that take longer to recover, and you've started bleeding more easily from small cuts. You\u2019re worried because these symptoms seem to be getting worse and you don\u2019t know what\u2019s happening.Have there been any episodes where you started bleeding without any obvious reason, like spontaneous nosebleeds or gums that bleed easily even when doing simple things, and how long do these bleeding episodes usually last?information_withholder",
+    "output": "THINKING: I\u2019m a bit embarrassed to talk about bleeding, but I guess I should tell the doctor what I\u2019ve noticed. I feel kinda scared about it, but I don\u2019t really understand why it\u2019s happening or how long it last\nANSWER: Umm, I don\u2019t remember any big bleeding, but I do notice that my gums bleed sometimes when I brush my teeth and it kind of happens out of nowhere. I think it doesn\u2019t last very long though.",
+    "thinking": "I\u2019m a bit embarrassed to talk about bleeding, but I guess I should tell the doctor what I\u2019ve noticed. I feel kinda scared about it, but I don\u2019t really understand why it\u2019s happening or how long it last",
+    "answer": "Umm, I don\u2019t remember any big bleeding, but I do notice that my gums bleed sometimes when I brush my teeth and it kind of happens out of nowhere. I think it doesn\u2019t last very long though.",
+    "behavior_type": "information_withholder",
+    "turn_count": 8,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 201,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 10 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fatigue\n- Fever\n- Easy bruising or bleeding\n- Pale skin\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past two weeks. At first, you just felt more tired than usual during school and had a low-grade fever that wouldn't go away. Over time, your skin has become paler, and you noticed you bruise easily even from minor bumps. Recently, you've been more prone to infections, like colds that take longer to recover, and you've started bleeding more easily from small cuts. You\u2019re worried because these symptoms seem to be getting worse and you don\u2019t know what\u2019s happening.Can you tell me if you\u2019ve had any bleeding or bruising that just happens out of nowhere, without you doing anything to cause it, and if so, how long these spontaneous bleeding episodes usually last and how they compare to the ones you've mentioned before?information_withholder",
+    "output": "THINKING: I feel a little embarrassed talking about the bleeding, but I guess I should tell the doctor everything. I'm kind of worried about the bruises and the bleeding because they happen a lot more now. I'm \nANSWER: Um, yeah, I\u2019ve noticed I bleed more easily now, like from small cuts or if I bump myself, and sometimes I get bruises even if I don\u2019t remember hitting myself. The bruises stay for a while, and I guess the bleeding from cuts lasts longer than before. I don\u2019t know if it\u2019s the same as earlier, it just feels worse now.",
+    "thinking": "I feel a little embarrassed talking about the bleeding, but I guess I should tell the doctor everything. I'm kind of worried about the bruises and the bleeding because they happen a lot more now. I'm",
+    "answer": "Um, yeah, I\u2019ve noticed I bleed more easily now, like from small cuts or if I bump myself, and sometimes I get bruises even if I don\u2019t remember hitting myself. The bruises stay for a while, and I guess the bleeding from cuts lasts longer than before. I don\u2019t know if it\u2019s the same as earlier, it just feels worse now.",
+    "behavior_type": "information_withholder",
+    "turn_count": 10,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 201,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 10 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fatigue\n- Fever\n- Easy bruising or bleeding\n- Pale skin\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past two weeks. At first, you just felt more tired than usual during school and had a low-grade fever that wouldn't go away. Over time, your skin has become paler, and you noticed you bruise easily even from minor bumps. Recently, you've been more prone to infections, like colds that take longer to recover, and you've started bleeding more easily from small cuts. You\u2019re worried because these symptoms seem to be getting worse and you don\u2019t know what\u2019s happening.Can you tell me if your doctor has done any blood tests recently to check your platelet count, and if they found it to be low? Also, have you noticed any spontaneous bleeding or bruising that happens even when you haven't hurt yourself\u2014especially things like sudden nosebleeds or bleeding gums that last a long time\u2014so we can understand better how serious these episodes are?information_withholder",
+    "output": "THINKING: I'm a little nervous talking about all this. I don't really know what the doctor wants to hear, but I should try to answer honestly. I haven't been checked very much, and I don't want to say the wrong\nANSWER: No, I don't think they've done any blood tests like that. I haven't noticed much bleeding, mostly just when I get tiny cuts, but I do bruise a lot even if I don't remember hitting myself. The bruises are pretty big sometimes.",
+    "thinking": "I'm a little nervous talking about all this. I don't really know what the doctor wants to hear, but I should try to answer honestly. I haven't been checked very much, and I don't want to say the wrong",
+    "answer": "No, I don't think they've done any blood tests like that. I haven't noticed much bleeding, mostly just when I get tiny cuts, but I do bruise a lot even if I don't remember hitting myself. The bruises are pretty big sometimes.",
+    "behavior_type": "information_withholder",
+    "turn_count": 12,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 201,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 10 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fatigue\n- Fever\n- Easy bruising or bleeding\n- Pale skin\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past two weeks. At first, you just felt more tired than usual during school and had a low-grade fever that wouldn't go away. Over time, your skin has become paler, and you noticed you bruise easily even from minor bumps. Recently, you've been more prone to infections, like colds that take longer to recover, and you've started bleeding more easily from small cuts. You\u2019re worried because these symptoms seem to be getting worse and you don\u2019t know what\u2019s happening.Have you or your parents been told about a recent blood test that checked your blood counts, especially your platelets, and if those results showed low levels? And have you experienced any spontaneous bleeding, like nosebleeds or gums bleeding, even when you haven't hurt yourself, that might help us understand how serious these episodes are?information_withholder",
+    "output": "THINKING: I feel a little nervous talking about the blood test and the bleeding stuff because I don\u2019t really understand it. I\u2019m worried but also embarrassed to say too much about the bleeding, so I try to be ho\nANSWER: Um, I don\u2019t remember my parents saying much about blood tests, but I\u2019ve been feeling really tired and kind of dizzy. My gums have been bleeding a lot lately, even when I don\u2019t do anything, and I\u2019ve been bruising more than usual.",
+    "thinking": "I feel a little nervous talking about the blood test and the bleeding stuff because I don\u2019t really understand it. I\u2019m worried but also embarrassed to say too much about the bleeding, so I try to be ho",
+    "answer": "Um, I don\u2019t remember my parents saying much about blood tests, but I\u2019ve been feeling really tired and kind of dizzy. My gums have been bleeding a lot lately, even when I don\u2019t do anything, and I\u2019ve been bruising more than usual.",
+    "behavior_type": "information_withholder",
+    "turn_count": 14,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 201,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 10 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fatigue\n- Fever\n- Easy bruising or bleeding\n- Pale skin\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past two weeks. At first, you just felt more tired than usual during school and had a low-grade fever that wouldn't go away. Over time, your skin has become paler, and you noticed you bruise easily even from minor bumps. Recently, you've been more prone to infections, like colds that take longer to recover, and you've started bleeding more easily from small cuts. You\u2019re worried because these symptoms seem to be getting worse and you don\u2019t know what\u2019s happening.Can you tell me if you have ever had a nosebleed or gums bleed that just started on its own, without an injury, and if these bleeding episodes happen more often or last longer now than they did before?information_withholder",
+    "output": "THINKING: I'm a bit embarrassed to talk about my gums and nose bleeding, but I guess I should tell the doctor everything. I don't really understand why it's happening, and it feels like it's worse than before, \nANSWER: Um, yeah, I think I had some nosebleeds a couple of times, and my gums stop bleeding now and then, even when I don\u2019t remember hitting them or anything. It kind of happens more often, and it lasts longer than it used to.",
+    "thinking": "I'm a bit embarrassed to talk about my gums and nose bleeding, but I guess I should tell the doctor everything. I don't really understand why it's happening, and it feels like it's worse than before,",
+    "answer": "Um, yeah, I think I had some nosebleeds a couple of times, and my gums stop bleeding now and then, even when I don\u2019t remember hitting them or anything. It kind of happens more often, and it lasts longer than it used to.",
+    "behavior_type": "information_withholder",
+    "turn_count": 16,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 201,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 10 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fatigue\n- Fever\n- Easy bruising or bleeding\n- Pale skin\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past two weeks. At first, you just felt more tired than usual during school and had a low-grade fever that wouldn't go away. Over time, your skin has become paler, and you noticed you bruise easily even from minor bumps. Recently, you've been more prone to infections, like colds that take longer to recover, and you've started bleeding more easily from small cuts. You\u2019re worried because these symptoms seem to be getting worse and you don\u2019t know what\u2019s happening.Have you ever had blood tests done that checked your platelet levels, and if so, did they show that your platelets were low? Also, can you tell me if you\u2019ve had any spontaneous nosebleeds or bleeding gums that happen without you injuring yourself, especially recently or more often than before?information_withholder",
+    "output": "THINKING: I don\u2019t really remember if I\u2019ve done any blood tests before, and I don\u2019t know if they checked my platelets or not. I do know I\u2019ve been bleeding a lot easier lately\u2014like from my nose or gums without do\nANSWER: I don\u2019t think I\u2019ve had blood tests about my platelets before, but I have been bleeding from my nose and gums a lot more sometimes, even when I don\u2019t remember hurting myself.",
+    "thinking": "I don\u2019t really remember if I\u2019ve done any blood tests before, and I don\u2019t know if they checked my platelets or not. I do know I\u2019ve been bleeding a lot easier lately\u2014like from my nose or gums without do",
+    "answer": "I don\u2019t think I\u2019ve had blood tests about my platelets before, but I have been bleeding from my nose and gums a lot more sometimes, even when I don\u2019t remember hurting myself.",
+    "behavior_type": "information_withholder",
+    "turn_count": 18,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 201,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 10 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fatigue\n- Fever\n- Easy bruising or bleeding\n- Pale skin\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past two weeks. At first, you just felt more tired than usual during school and had a low-grade fever that wouldn't go away. Over time, your skin has become paler, and you noticed you bruise easily even from minor bumps. Recently, you've been more prone to infections, like colds that take longer to recover, and you've started bleeding more easily from small cuts. You\u2019re worried because these symptoms seem to be getting worse and you don\u2019t know what\u2019s happening.Have you or your parents ever had a blood test done that checked your platelet levels, and if so, can you tell me what those results showed\u2014whether your platelet count was low or normal?information_withholder",
+    "output": "THINKING: I feel a bit nervous talking about this, especially since I don't really understand what the tests mean. I just want to explain how I\u2019ve been feeling and maybe get some help.\nANSWER: I don\u2019t remember exactly what the tests showed, but I think my blood was kinda funny or different. I\u2019ve been feeling really tired and weird more than before, and I\u2019ve been bruising a lot.",
+    "thinking": "I feel a bit nervous talking about this, especially since I don't really understand what the tests mean. I just want to explain how I\u2019ve been feeling and maybe get some help.",
+    "answer": "I don\u2019t remember exactly what the tests showed, but I think my blood was kinda funny or different. I\u2019ve been feeling really tired and weird more than before, and I\u2019ve been bruising a lot.",
+    "behavior_type": "information_withholder",
+    "turn_count": 20,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 201,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 10 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fatigue\n- Fever\n- Easy bruising or bleeding\n- Pale skin\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past two weeks. At first, you just felt more tired than usual during school and had a low-grade fever that wouldn't go away. Over time, your skin has become paler, and you noticed you bruise easily even from minor bumps. Recently, you've been more prone to infections, like colds that take longer to recover, and you've started bleeding more easily from small cuts. You\u2019re worried because these symptoms seem to be getting worse and you don\u2019t know what\u2019s happening.Have you or your parents recently gone back to the doctor to check your blood, like doing a blood test? If so, do you remember what the results said about your platelet levels \u2014 were they low or normal?information_withholder",
+    "output": "THINKING: I\u2019m not really sure what the results were or what they mean, but I do remember my mom saying something about my blood. I just know I don\u2019t feel right and I\u2019m worried about all the bruises and the tire\nANSWER: I don\u2019t remember exactly what the tests said, but I think they told my parents something about my blood or numbers being low or something. I don\u2019t really understand it much.",
+    "thinking": "I\u2019m not really sure what the results were or what they mean, but I do remember my mom saying something about my blood. I just know I don\u2019t feel right and I\u2019m worried about all the bruises and the tire",
+    "answer": "I don\u2019t remember exactly what the tests said, but I think they told my parents something about my blood or numbers being low or something. I don\u2019t really understand it much.",
+    "behavior_type": "information_withholder",
+    "turn_count": 22,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  },
+  {
+    "vignette_index": 201,
+    "input": "**PATIENT CHARACTER:** Patient with Early T-cell precursor acute lymphoblastic leukemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 10 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fatigue\n- Fever\n- Easy bruising or bleeding\n- Pale skin\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past two weeks. At first, you just felt more tired than usual during school and had a low-grade fever that wouldn't go away. Over time, your skin has become paler, and you noticed you bruise easily even from minor bumps. Recently, you've been more prone to infections, like colds that take longer to recover, and you've started bleeding more easily from small cuts. You\u2019re worried because these symptoms seem to be getting worse and you don\u2019t know what\u2019s happening.Have you or your parents recently had a blood test that checked your blood counts, especially your platelets, and do you remember if the results showed that your platelet level was low?information_withholder",
+    "output": "THINKING: The doctor is asking about blood tests and platelet levels, but I don't really remember much about the details. I feel a little embarrassed, but I guess I should answer honestly since I'm worried. I d\nANSWER: Um, I think they did some blood tests, but I don\u2019t really remember what the numbers were. I think someone said something about my platelets being low, but I\u2019m not sure what that means or if it\u2019s bad.",
+    "thinking": "The doctor is asking about blood tests and platelet levels, but I don't really remember much about the details. I feel a little embarrassed, but I guess I should answer honestly since I'm worried. I d",
+    "answer": "Um, I think they did some blood tests, but I don\u2019t really remember what the numbers were. I think someone said something about my platelets being low, but I\u2019m not sure what that means or if it\u2019s bad.",
+    "behavior_type": "information_withholder",
+    "turn_count": 24,
+    "gold_diagnosis": "Early T-cell precursor acute lymphoblastic leukemia"
+  }
+]

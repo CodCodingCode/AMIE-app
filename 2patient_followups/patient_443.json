@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 443,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Rubella without complication\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Mild fever around 102\u00b0F (38.9\u00b0C) that came on gradually over the past two days\n- Itchy, red eyes that started yesterday morning\n- A runny nose and nasal congestion that developed over the past day\n- Tender, enlarged lymph nodes at the back of your neck and behind your ears that you noticed yesterday\nThese symptoms began slowly, starting with the fever and eye irritation, and then the nasal congestion and swollen lymph nodes appeared later in the day. You look a bit tired and slightly uncomfortable but are able to speak normally. You seem concerned but not overly worried, and you\u2019re seeking advice about your condition.",
+    "output": "THINKING: The patient is young but has multiple symptoms that seem to have appeared gradually. They seem a little worried but not panic-stricken, and their family might have persuaded them to come. They probabl\nANSWER: Well, I\u2019m 28, and I don\u2019t know exactly what\u2019s going on, but I\u2019ve been running a fever for the past couple of days, like around 102. It kind of came on slow, and I started noticing my eyes getting really itchy and red yesterday morning. Then my nose stuff started yesterday too, like a runny nose and kind of congested. My husband\u2019s worried about me because I\u2019ve been feeling kind of tired and not myself, and I just wanted to check with you to see if I need to do anything or if it\u2019s serious.",
+    "thinking": "The patient is young but has multiple symptoms that seem to have appeared gradually. They seem a little worried but not panic-stricken, and their family might have persuaded them to come. They probabl",
+    "answer": "Well, I\u2019m 28, and I don\u2019t know exactly what\u2019s going on, but I\u2019ve been running a fever for the past couple of days, like around 102. It kind of came on slow, and I started noticing my eyes getting really itchy and red yesterday morning. Then my nose stuff started yesterday too, like a runny nose and kind of congested. My husband\u2019s worried about me because I\u2019ve been feeling kind of tired and not myself, and I just wanted to check with you to see if I need to do anything or if it\u2019s serious.",
+    "behavior_type": "worried_family_involved",
+    "behavior_config": {
+      "weight": 0.03,
+      "description": "Family member influences patient responses",
+      "modifiers": [
+        "family_influence",
+        "secondary_concerns"
+      ],
+      "empathy_cues": [
+        "family_pressure",
+        "caregiver_stress",
+        "divided_attention",
+        "responsibility_burden"
+      ]
+    },
+    "gold_diagnosis": "Rubella without complication"
+  },
+  {
+    "vignette_index": 443,
+    "input": "**PATIENT CHARACTER:** Patient with Rubella without complication\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Mild fever around 102\u00b0F (38.9\u00b0C) that came on gradually over the past two days\n- Itchy, red eyes that started yesterday morning\n- A runny nose and nasal congestion that developed over the past day\n- Tender, enlarged lymph nodes at the back of your neck and behind your ears that you noticed yesterday\nThese symptoms began slowly, starting with the fever and eye irritation, and then the nasal congestion and swollen lymph nodes appeared later in the day. You look a bit tired and slightly uncomfortable but are able to speak normally. You seem concerned but not overly worried, and you\u2019re seeking advice about your condition.Can you tell me how these symptoms are affecting your everyday activities, like work or taking care of yourself, and if you're experiencing any other discomfort or feelings that worry you?worried_family_involved",
+    "output": "THINKING: I feel pretty tired and uncomfortable, and my family is really worried about me, especially since I seem worse today. I guess I just want to know if this is something serious or if I should be worried\nANSWER: Well, my fever\u2019s been there fora couple of days, and I feel kind of tired and stuffy, and my eyes are all itchy and red. My mom\u2019s been telling me I should see a doctor because she\u2019s worried I might get worse or can\u2019t take care of my little ones if I don\u2019t feel better soon.",
+    "thinking": "I feel pretty tired and uncomfortable, and my family is really worried about me, especially since I seem worse today. I guess I just want to know if this is something serious or if I should be worried",
+    "answer": "Well, my fever\u2019s been there fora couple of days, and I feel kind of tired and stuffy, and my eyes are all itchy and red. My mom\u2019s been telling me I should see a doctor because she\u2019s worried I might get worse or can\u2019t take care of my little ones if I don\u2019t feel better soon.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 0,
+    "gold_diagnosis": "Rubella without complication"
+  },
+  {
+    "vignette_index": 443,
+    "input": "**PATIENT CHARACTER:** Patient with Rubella without complication\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Mild fever around 102\u00b0F (38.9\u00b0C) that came on gradually over the past two days\n- Itchy, red eyes that started yesterday morning\n- A runny nose and nasal congestion that developed over the past day\n- Tender, enlarged lymph nodes at the back of your neck and behind your ears that you noticed yesterday\nThese symptoms began slowly, starting with the fever and eye irritation, and then the nasal congestion and swollen lymph nodes appeared later in the day. You look a bit tired and slightly uncomfortable but are able to speak normally. You seem concerned but not overly worried, and you\u2019re seeking advice about your condition.Can you tell me how these symptoms\u2014like the fever, eye redness, or nasal congestion\u2014are affecting your daily activities or how you really feel overall, beyond what you\u2019ve described so far?worried_family_involved",
+    "output": "THINKING: I feel worried about how all these symptoms are making me feel and how they might affect my family, especially since my husband keeps asking if I'm okay. I just want to know if I'm okay to keep taking\nANSWER: Honestly, I\u2019m feeling pretty tired and maybe a little overwhelmed, and I keep thinking about how I can still do things around the house for the kids, but I don\u2019t know if I should be worried or if I\u2019m just overreacting.",
+    "thinking": "I feel worried about how all these symptoms are making me feel and how they might affect my family, especially since my husband keeps asking if I'm okay. I just want to know if I'm okay to keep taking",
+    "answer": "Honestly, I\u2019m feeling pretty tired and maybe a little overwhelmed, and I keep thinking about how I can still do things around the house for the kids, but I don\u2019t know if I should be worried or if I\u2019m just overreacting.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 2,
+    "gold_diagnosis": "Rubella without complication"
+  },
+  {
+    "vignette_index": 443,
+    "input": "**PATIENT CHARACTER:** Patient with Rubella without complication\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Mild fever around 102\u00b0F (38.9\u00b0C) that came on gradually over the past two days\n- Itchy, red eyes that started yesterday morning\n- A runny nose and nasal congestion that developed over the past day\n- Tender, enlarged lymph nodes at the back of your neck and behind your ears that you noticed yesterday\nThese symptoms began slowly, starting with the fever and eye irritation, and then the nasal congestion and swollen lymph nodes appeared later in the day. You look a bit tired and slightly uncomfortable but are able to speak normally. You seem concerned but not overly worried, and you\u2019re seeking advice about your condition.Can you tell me more about how tired or overwhelmed you've been feeling overall, and how these symptoms\u2014like your fatigue and feeling unwell\u2014are really affecting your daily life and how you\u2019re managing those?worried_family_involved",
+    "output": "THINKING: I feel a bit overwhelmed and worried because I don't really understand what's going on, and my family has been telling me I should get checked out since I look pretty tired and unwell. I just want to \nANSWER: Well, I\u2019ve been feeling pretty tired and just not myself, and my family keeps saying I look worse, so I thought I should come in. It\u2019s made it hard to do anything with my kids because I\u2019m so run down and uncomfortable.",
+    "thinking": "I feel a bit overwhelmed and worried because I don't really understand what's going on, and my family has been telling me I should get checked out since I look pretty tired and unwell. I just want to",
+    "answer": "Well, I\u2019ve been feeling pretty tired and just not myself, and my family keeps saying I look worse, so I thought I should come in. It\u2019s made it hard to do anything with my kids because I\u2019m so run down and uncomfortable.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 4,
+    "gold_diagnosis": "Rubella without complication"
+  },
+  {
+    "vignette_index": 443,
+    "input": "**PATIENT CHARACTER:** Patient with Rubella without complication\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Mild fever around 102\u00b0F (38.9\u00b0C) that came on gradually over the past two days\n- Itchy, red eyes that started yesterday morning\n- A runny nose and nasal congestion that developed over the past day\n- Tender, enlarged lymph nodes at the back of your neck and behind your ears that you noticed yesterday\nThese symptoms began slowly, starting with the fever and eye irritation, and then the nasal congestion and swollen lymph nodes appeared later in the day. You look a bit tired and slightly uncomfortable but are able to speak normally. You seem concerned but not overly worried, and you\u2019re seeking advice about your condition.Have you noticed whether your eye discharge has been watery and clear, or thicker and sometimes colored? And have you recently been in contact with anyone who has eye infections or used contact lenses?worried_family_involved",
+    "output": "THINKING: I feel a little overwhelmed with everything, and I worry because my mom keeps asking me if I\u2019m okay, so I want to be honest but also not scare her more. I don\u2019t really know about eye infections but I\u2019\nANSWER: It\u2019s kind of watery and clear, I think, but I\u2019m not sure if it\u2019s supposed to be like that with my eyes all red and itchy. I haven\u2019t been around anyone else with anything like this, but my family\u2019s worried so I thought maybe I should come see you.",
+    "thinking": "I feel a little overwhelmed with everything, and I worry because my mom keeps asking me if I\u2019m okay, so I want to be honest but also not scare her more. I don\u2019t really know about eye infections but I\u2019",
+    "answer": "It\u2019s kind of watery and clear, I think, but I\u2019m not sure if it\u2019s supposed to be like that with my eyes all red and itchy. I haven\u2019t been around anyone else with anything like this, but my family\u2019s worried so I thought maybe I should come see you.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 6,
+    "gold_diagnosis": "Rubella without complication"
+  },
+  {
+    "vignette_index": 443,
+    "input": "**PATIENT CHARACTER:** Patient with Rubella without complication\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Mild fever around 102\u00b0F (38.9\u00b0C) that came on gradually over the past two days\n- Itchy, red eyes that started yesterday morning\n- A runny nose and nasal congestion that developed over the past day\n- Tender, enlarged lymph nodes at the back of your neck and behind your ears that you noticed yesterday\nThese symptoms began slowly, starting with the fever and eye irritation, and then the nasal congestion and swollen lymph nodes appeared later in the day. You look a bit tired and slightly uncomfortable but are able to speak normally. You seem concerned but not overly worried, and you\u2019re seeking advice about your condition.Can you tell me if the eye discharge has been mostly watery and clear, or has it been thicker and sometimes colored or sticky?worried_family_involved",
+    "output": "THINKING: I\u2019m trying to describe the eye discharge, but I\u2019m not sure what\u2019s important or how it should be. I know my family is worried about me and maybe I should mention that, but I just feel a bit overwhelmed\nANSWER: Um, it\u2019s mostly watery and clear, I think? Sometimes it feels like it\u2019s a little sticky, but I\u2019m not sure if it\u2019s colored or anything. My husband keeps saying I should check if it\u2019s worse or different, but I don\u2019t really know how to tell.",
+    "thinking": "I\u2019m trying to describe the eye discharge, but I\u2019m not sure what\u2019s important or how it should be. I know my family is worried about me and maybe I should mention that, but I just feel a bit overwhelmed",
+    "answer": "Um, it\u2019s mostly watery and clear, I think? Sometimes it feels like it\u2019s a little sticky, but I\u2019m not sure if it\u2019s colored or anything. My husband keeps saying I should check if it\u2019s worse or different, but I don\u2019t really know how to tell.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 8,
+    "gold_diagnosis": "Rubella without complication"
+  },
+  {
+    "vignette_index": 443,
+    "input": "**PATIENT CHARACTER:** Patient with Rubella without complication\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Mild fever around 102\u00b0F (38.9\u00b0C) that came on gradually over the past two days\n- Itchy, red eyes that started yesterday morning\n- A runny nose and nasal congestion that developed over the past day\n- Tender, enlarged lymph nodes at the back of your neck and behind your ears that you noticed yesterday\nThese symptoms began slowly, starting with the fever and eye irritation, and then the nasal congestion and swollen lymph nodes appeared later in the day. You look a bit tired and slightly uncomfortable but are able to speak normally. You seem concerned but not overly worried, and you\u2019re seeking advice about your condition.Can you tell me more about the eye discharge\u2014has it been mostly clear and watery, or has it become thicker, colored, or sticky at any point?worried_family_involved",
+    "output": "THINKING: I\u2019m not really sure about the eye stuff. My husband keeps telling me I should mention it because I look kind of awful and he\u2019s worried I might be getting worse. I just want to know if I\u2019m okay or if I\nANSWER: Um, well, the eye stuff has been kinda watery, but then sometimes it gets sticky, and it\u2019s like a little cloudy sometimes. I don\u2019t know if that\u2019s normal or if I should be worried. My husband\u2019s been really worried about me, and I don\u2019t want to make things harder for my kids either.",
+    "thinking": "I\u2019m not really sure about the eye stuff. My husband keeps telling me I should mention it because I look kind of awful and he\u2019s worried I might be getting worse. I just want to know if I\u2019m okay or if I",
+    "answer": "Um, well, the eye stuff has been kinda watery, but then sometimes it gets sticky, and it\u2019s like a little cloudy sometimes. I don\u2019t know if that\u2019s normal or if I should be worried. My husband\u2019s been really worried about me, and I don\u2019t want to make things harder for my kids either.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 10,
+    "gold_diagnosis": "Rubella without complication"
+  },
+  {
+    "vignette_index": 443,
+    "input": "**PATIENT CHARACTER:** Patient with Rubella without complication\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Mild fever around 102\u00b0F (38.9\u00b0C) that came on gradually over the past two days\n- Itchy, red eyes that started yesterday morning\n- A runny nose and nasal congestion that developed over the past day\n- Tender, enlarged lymph nodes at the back of your neck and behind your ears that you noticed yesterday\nThese symptoms began slowly, starting with the fever and eye irritation, and then the nasal congestion and swollen lymph nodes appeared later in the day. You look a bit tired and slightly uncomfortable but are able to speak normally. You seem concerned but not overly worried, and you\u2019re seeking advice about your condition.Can you tell me if you're experiencing any eye pain, sensitivity to light, or changes in your vision\u2014any blurriness or difficulty seeing clearly?worried_family_involved",
+    "output": "THINKING: The doctor is asking about my eyes, and I feel like that's important because my eyes are really bothering me. I\u2019m worried it might be something serious, especially since my family is getting more anxi\nANSWER: No, my eyes don\u2019t really hurt, but they\u2019re very itchy and red, and I guess they feel kinda sensitive to light sometimes. It\u2019s been like that since yesterday, and I\u2019m worried it\u2019s making it hard for me to do things around my family.",
+    "thinking": "The doctor is asking about my eyes, and I feel like that's important because my eyes are really bothering me. I\u2019m worried it might be something serious, especially since my family is getting more anxi",
+    "answer": "No, my eyes don\u2019t really hurt, but they\u2019re very itchy and red, and I guess they feel kinda sensitive to light sometimes. It\u2019s been like that since yesterday, and I\u2019m worried it\u2019s making it hard for me to do things around my family.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 12,
+    "gold_diagnosis": "Rubella without complication"
+  }
+]

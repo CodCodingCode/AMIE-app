@@ -1,0 +1,96 @@
+[
+  {
+    "vignette_index": 80,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Rectal bleeding\n- A sudden change in how and when you poop\n- Poop that looks stringy or as thin as a pencil\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly over the past two weeks, with you noticing bright red blood after bowel movements and an unpredictable pattern\u2014sometimes going several days without a bowel movement, then experiencing diarrhea. You also observed that the stool has become narrower and looks stringy, which is unusual for you.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.",
+    "output": "THINKING: I need to explain my symptoms clearly but I also worry it might be something really serious. I should mention the blood, the change in my bowel habits, and that it's all come on suddenly. I want to be\nANSWER: I'm 65, and I am a biological male. Recently, I've been having some pretty strange things happen with my bowels \u2014 I notice bright red blood after I go, and sometimes I don\u2019t go for days then suddenly I have diarrhea. My stool has become really narrow, almost like a thin string or a pencil, and it feels different, like it\u2019s not normal. It all started about two weeks ago, and I keep thinking worst-case scenarios, like if it\u2019s something really bad. I just don\u2019t know what\u2019s going on, but it\u2019s terrible and I\u2019m worried it might be something serious.",
+    "thinking": "I need to explain my symptoms clearly but I also worry it might be something really serious. I should mention the blood, the change in my bowel habits, and that it's all come on suddenly. I want to be",
+    "answer": "I'm 65, and I am a biological male. Recently, I've been having some pretty strange things happen with my bowels \u2014 I notice bright red blood after I go, and sometimes I don\u2019t go for days then suddenly I have diarrhea. My stool has become really narrow, almost like a thin string or a pencil, and it feels different, like it\u2019s not normal. It all started about two weeks ago, and I keep thinking worst-case scenarios, like if it\u2019s something really bad. I just don\u2019t know what\u2019s going on, but it\u2019s terrible and I\u2019m worried it might be something serious.",
+    "behavior_type": "anxious_amplifier",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient with health anxiety who amplifies symptoms",
+      "modifiers": [
+        "catastrophic_thinking",
+        "symptom_amplification",
+        "multiple_concerns"
+      ],
+      "empathy_cues": [
+        "high_anxiety",
+        "catastrophic_language",
+        "reassurance_seeking",
+        "fear_expression"
+      ]
+    },
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  },
+  {
+    "vignette_index": 80,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Rectal bleeding\n- A sudden change in how and when you poop\n- Poop that looks stringy or as thin as a pencil\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly over the past two weeks, with you noticing bright red blood after bowel movements and an unpredictable pattern\u2014sometimes going several days without a bowel movement, then experiencing diarrhea. You also observed that the stool has become narrower and looks stringy, which is unusual for you.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.Can you tell me how your symptoms have changed over the past couple of weeks\u2014specifically, when you first noticed the bleeding and stool changes, and if you've had similar issues in the past?anxious_amplifier",
+    "output": "THINKING: I'm really worried about all these changes. The bleeding and the stool being so narrow and weird-looking, it's like, what if it's serious? I just want to understand what\u2019s happening, but I\u2019m scared it\nANSWER: Well, it all started about two weeks ago with bright red blood after I went to the bathroom, and then I noticed my stool getting narrow and stringy, which I've never seen before. Sometimes I go days without going, then I get diarrhea, and it\u2019s been terrible and really confusing\u2014like, I don\u2019t know if it\u2019s serious or what\u2019s wrong.",
+    "thinking": "I'm really worried about all these changes. The bleeding and the stool being so narrow and weird-looking, it's like, what if it's serious? I just want to understand what\u2019s happening, but I\u2019m scared it",
+    "answer": "Well, it all started about two weeks ago with bright red blood after I went to the bathroom, and then I noticed my stool getting narrow and stringy, which I've never seen before. Sometimes I go days without going, then I get diarrhea, and it\u2019s been terrible and really confusing\u2014like, I don\u2019t know if it\u2019s serious or what\u2019s wrong.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 0,
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  },
+  {
+    "vignette_index": 80,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Rectal bleeding\n- A sudden change in how and when you poop\n- Poop that looks stringy or as thin as a pencil\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly over the past two weeks, with you noticing bright red blood after bowel movements and an unpredictable pattern\u2014sometimes going several days without a bowel movement, then experiencing diarrhea. You also observed that the stool has become narrower and looks stringy, which is unusual for you.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.Can you tell me if you're experiencing any new or ongoing stomach or abdomen pain, or if your bleeding is happening along with other symptoms like cramping or discomfort?anxious_amplifier",
+    "output": "THINKING: I feel really worried about these symptoms, especially the bleeding and how my stool has changed so suddenly. I keep thinking it might be something terrible like cancer or something stuck inside. I do\nANSWER: Well, it\u2019s been a few weeks now, and I\u2019ve been noticing blood after I go, and sometimes I don\u2019t go at all or it\u2019s really strange-looking, like thin or stringy. It all happened suddenly, and I\u2019m just really scared it\u2019s something serious, like cancer or maybe something stuck inside or killing me. It\u2019s so confusing because it keeps changing, and I don\u2019t know what\u2019s wrong with me.",
+    "thinking": "I feel really worried about these symptoms, especially the bleeding and how my stool has changed so suddenly. I keep thinking it might be something terrible like cancer or something stuck inside. I do",
+    "answer": "Well, it\u2019s been a few weeks now, and I\u2019ve been noticing blood after I go, and sometimes I don\u2019t go at all or it\u2019s really strange-looking, like thin or stringy. It all happened suddenly, and I\u2019m just really scared it\u2019s something serious, like cancer or maybe something stuck inside or killing me. It\u2019s so confusing because it keeps changing, and I don\u2019t know what\u2019s wrong with me.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 2,
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  },
+  {
+    "vignette_index": 80,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Rectal bleeding\n- A sudden change in how and when you poop\n- Poop that looks stringy or as thin as a pencil\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly over the past two weeks, with you noticing bright red blood after bowel movements and an unpredictable pattern\u2014sometimes going several days without a bowel movement, then experiencing diarrhea. You also observed that the stool has become narrower and looks stringy, which is unusual for you.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.Have you noticed any other changes like losing weight without trying, feeling unusually tired, or night sweats in the past couple of weeks?anxious_amplifier",
+    "output": "THINKING: I worry that these sudden changes are a sign of something really bad, like cancer or something I can't fix. I feel scared and a bit embarrassed talking about this stuff, but I can't shake the feeling \nANSWER: Well, I\u2019ve noticed I\u2019ve been bleeding after I go to the bathroom and my bowels are all mixed up\u2014sometimes I go days without anything, then it\u2019s like I can't control it and it\u2019s really loose, and the stool looks thin, almost like a string or a pencil, which I\u2019ve never had before. It all came on pretty quick, and it\u2019s really upsetting me.",
+    "thinking": "I worry that these sudden changes are a sign of something really bad, like cancer or something I can't fix. I feel scared and a bit embarrassed talking about this stuff, but I can't shake the feeling",
+    "answer": "Well, I\u2019ve noticed I\u2019ve been bleeding after I go to the bathroom and my bowels are all mixed up\u2014sometimes I go days without anything, then it\u2019s like I can't control it and it\u2019s really loose, and the stool looks thin, almost like a string or a pencil, which I\u2019ve never had before. It all came on pretty quick, and it\u2019s really upsetting me.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 4,
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  },
+  {
+    "vignette_index": 80,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Rectal bleeding\n- A sudden change in how and when you poop\n- Poop that looks stringy or as thin as a pencil\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly over the past two weeks, with you noticing bright red blood after bowel movements and an unpredictable pattern\u2014sometimes going several days without a bowel movement, then experiencing diarrhea. You also observed that the stool has become narrower and looks stringy, which is unusual for you.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.Can you tell me more about the bleeding\u2014how much blood do you see, how often does it happen, and do you notice if it's always bright red or mixed with your stool?anxious_amplifier",
+    "output": "THINKING: I feel so worried about all these symptoms. The bleeding looks terrible and it\u2019s happening more often now, I think, and I don\u2019t know why my stool is so strange\u2014like thin and stringy\u2014what if it\u2019s somet\nANSWER: Well, I\u2019ve noticed the blood after I go sometimes, and it\u2019s bright red, but it happens randomly, and my stool has gotten so narrow and weird-looking, like a string or a pencil, and I just keep worrying it\u2019s something really serious.",
+    "thinking": "I feel so worried about all these symptoms. The bleeding looks terrible and it\u2019s happening more often now, I think, and I don\u2019t know why my stool is so strange\u2014like thin and stringy\u2014what if it\u2019s somet",
+    "answer": "Well, I\u2019ve noticed the blood after I go sometimes, and it\u2019s bright red, but it happens randomly, and my stool has gotten so narrow and weird-looking, like a string or a pencil, and I just keep worrying it\u2019s something really serious.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 6,
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  },
+  {
+    "vignette_index": 80,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Rectal bleeding\n- A sudden change in how and when you poop\n- Poop that looks stringy or as thin as a pencil\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly over the past two weeks, with you noticing bright red blood after bowel movements and an unpredictable pattern\u2014sometimes going several days without a bowel movement, then experiencing diarrhea. You also observed that the stool has become narrower and looks stringy, which is unusual for you.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.Can you tell me exactly how much blood you've seen when you bleed\u2014like, is it just some drops or a little more\u2014and does it happen every time you go to the bathroom, or only once in a while?anxious_amplifier",
+    "output": "THINKING: I\u2019m really worried about what this bleeding and the change in my bowel movements might mean, especially because it just came on so suddenly and it\u2019s happening all the time now. I feel embarrassed but \nANSWER: Well, I\u2019ve been seeing some bright red blood after I go, and I notice that sometimes I don\u2019t go for days and then I get diarrhea, and my stool looks really thin and stringy, like a pencil. It all just started a couple of weeks ago and it\u2019s happening more often now, and I keep thinking it\u2019s something terrible like cancer or something really bad.",
+    "thinking": "I\u2019m really worried about what this bleeding and the change in my bowel movements might mean, especially because it just came on so suddenly and it\u2019s happening all the time now. I feel embarrassed but",
+    "answer": "Well, I\u2019ve been seeing some bright red blood after I go, and I notice that sometimes I don\u2019t go for days and then I get diarrhea, and my stool looks really thin and stringy, like a pencil. It all just started a couple of weeks ago and it\u2019s happening more often now, and I keep thinking it\u2019s something terrible like cancer or something really bad.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 8,
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  },
+  {
+    "vignette_index": 80,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Rectal bleeding\n- A sudden change in how and when you poop\n- Poop that looks stringy or as thin as a pencil\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly over the past two weeks, with you noticing bright red blood after bowel movements and an unpredictable pattern\u2014sometimes going several days without a bowel movement, then experiencing diarrhea. You also observed that the stool has become narrower and looks stringy, which is unusual for you.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.Have you noticed any unintended weight loss, night sweats, or persistent tiredness over the past few weeks, which could suggest a more serious underlying condition?anxious_amplifier",
+    "output": "THINKING: I'm really worried about my symptoms, especially the bleeding and the change in my stool. It feels like something terrible might be happening inside, like maybe cancer or something worse. I keep think\nANSWER: Yes, I\u2019ve noticed some bleeding, and my stool has gotten really narrow and stringy, and it\u2019s been like this for a couple of weeks now, and I keep thinking it might be something serious or even cancer.",
+    "thinking": "I'm really worried about my symptoms, especially the bleeding and the change in my stool. It feels like something terrible might be happening inside, like maybe cancer or something worse. I keep think",
+    "answer": "Yes, I\u2019ve noticed some bleeding, and my stool has gotten really narrow and stringy, and it\u2019s been like this for a couple of weeks now, and I keep thinking it might be something serious or even cancer.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 10,
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  },
+  {
+    "vignette_index": 80,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified malignant neoplasms of rectum\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Rectal bleeding\n- A sudden change in how and when you poop\n- Poop that looks stringy or as thin as a pencil\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly over the past two weeks, with you noticing bright red blood after bowel movements and an unpredictable pattern\u2014sometimes going several days without a bowel movement, then experiencing diarrhea. You also observed that the stool has become narrower and looks stringy, which is unusual for you.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.\"Have you noticed if you've been losing weight without trying, feeling unusually tired, or experiencing night sweats over the past few weeks?\"anxious_amplifier",
+    "output": "THINKING: I'm really worried about these symptoms\u2014they came on suddenly and seem really serious. The bleeding, the changing bowel habits, and the stool looking weird all make me think it might be something terr\nANSWER: Yeah, I\u2019ve noticed I\u2019ve been bleeding after I go, and my poop\u2019s been all weird\u2014like, really thin and sometimes it doesn\u2019t come out, then I get diarrhea, and it\u2019s been like that for a couple of weeks now. It\u2019s all so sudden, and I\u2019m really scared it\u2019s serious.",
+    "thinking": "I'm really worried about these symptoms\u2014they came on suddenly and seem really serious. The bleeding, the changing bowel habits, and the stool looking weird all make me think it might be something terr",
+    "answer": "Yeah, I\u2019ve noticed I\u2019ve been bleeding after I go, and my poop\u2019s been all weird\u2014like, really thin and sometimes it doesn\u2019t come out, then I get diarrhea, and it\u2019s been like that for a couple of weeks now. It\u2019s all so sudden, and I\u2019m really scared it\u2019s serious.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 12,
+    "gold_diagnosis": "Other specified malignant neoplasms of rectum"
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "vignette_index": 245,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Rectal prolapse\n\nYou are a patient: I am a 62-year-old woman.\nYou are experiencing the following symptoms:\n- A reddish-colored mass bulging out of my anus during bowel movements,\n- Feeling like my rectum isn\u2019t completely empty afterward,\n- Discharge of blood and mucus while defecating,\n- Pelvic or anal pain,\n- Sometimes I have constipation or diarrhea, or both.\nThese symptoms started gradually over the past few months, especially after I\u2019ve had a bowel movement. I\u2019ve noticed the mass sometimes comes out when I strain during a bowel movement, and it\u2019s been causing me quite a bit of discomfort and worry.",
+    "output": "THINKING: I should explain my symptoms a little, but I don\u2019t want to sound like I\u2019m overreacting. I\u2019ve been dealing with this for a while and it\u2019s not like I can\u2019t handle some discomfort, but I guess it\u2019s been \nANSWER: Well, I\u2019m 62, and I\u2019ve noticed some weird stuff down there. There\u2019s this thing that comes out during my bowel movements, and it\u2019s kind of reddish and bulging out. Sometimes I don\u2019t feel like I\u2019m done, even after I go. There\u2019s been some blood and mucus too, and it hurts a bit. It\u2019s been happening on and off for a few months, and I just thought I\u2019d better get it checked out.",
+    "thinking": "I should explain my symptoms a little, but I don\u2019t want to sound like I\u2019m overreacting. I\u2019ve been dealing with this for a while and it\u2019s not like I can\u2019t handle some discomfort, but I guess it\u2019s been",
+    "answer": "Well, I\u2019m 62, and I\u2019ve noticed some weird stuff down there. There\u2019s this thing that comes out during my bowel movements, and it\u2019s kind of reddish and bulging out. Sometimes I don\u2019t feel like I\u2019m done, even after I go. There\u2019s been some blood and mucus too, and it hurts a bit. It\u2019s been happening on and off for a few months, and I just thought I\u2019d better get it checked out.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Rectal prolapse"
+  },
+  {
+    "vignette_index": 245,
+    "input": "**PATIENT CHARACTER:** Patient with Rectal prolapse\n\nYou are a patient: I am a 62-year-old woman.\nYou are experiencing the following symptoms:\n- A reddish-colored mass bulging out of my anus during bowel movements,\n- Feeling like my rectum isn\u2019t completely empty afterward,\n- Discharge of blood and mucus while defecating,\n- Pelvic or anal pain,\n- Sometimes I have constipation or diarrhea, or both.\nThese symptoms started gradually over the past few months, especially after I\u2019ve had a bowel movement. I\u2019ve noticed the mass sometimes comes out when I strain during a bowel movement, and it\u2019s been causing me quite a bit of discomfort and worry.Can you tell me more about how much bleeding you've noticed during bowel movements, and if it ever seems more or less than usual?stoic_minimizer",
+    "output": "THINKING: I don\u2019t want to make it seem like it\u2019s a big deal, but it\u2019s been going on for a while and I guess I should mention it. I\u2019m kind of embarrassed but I do notice blood and the thing sticking out, especia\nANSWER: Well, I do see blood and sometimes the mass comes out, but I thought it was probably nothing serious. It\u2019s been happening for a few months, but I guess I wasn\u2019t sure if I should say anything.",
+    "thinking": "I don\u2019t want to make it seem like it\u2019s a big deal, but it\u2019s been going on for a while and I guess I should mention it. I\u2019m kind of embarrassed but I do notice blood and the thing sticking out, especia",
+    "answer": "Well, I do see blood and sometimes the mass comes out, but I thought it was probably nothing serious. It\u2019s been happening for a few months, but I guess I wasn\u2019t sure if I should say anything.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Rectal prolapse"
+  },
+  {
+    "vignette_index": 245,
+    "input": "**PATIENT CHARACTER:** Patient with Rectal prolapse\n\nYou are a patient: I am a 62-year-old woman.\nYou are experiencing the following symptoms:\n- A reddish-colored mass bulging out of my anus during bowel movements,\n- Feeling like my rectum isn\u2019t completely empty afterward,\n- Discharge of blood and mucus while defecating,\n- Pelvic or anal pain,\n- Sometimes I have constipation or diarrhea, or both.\nThese symptoms started gradually over the past few months, especially after I\u2019ve had a bowel movement. I\u2019ve noticed the mass sometimes comes out when I strain during a bowel movement, and it\u2019s been causing me quite a bit of discomfort and worry.Can you tell me if the bleeding or protrusions have ever felt worse or more troublesome than they seem right now, and how much they interfere with your daily activities or comfort?stoic_minimizer",
+    "output": "THINKING: I feel a bit embarrassed but also a little worried now that I\u2019ve finally come in. It\u2019s not super painful all the time, and I\u2019ve sort of been used to it, so I don\u2019t want to make a big deal about it, bu\nANSWER: Honestly, I think it\u2019s been worse before \u2014 I mean, the bulge gets bigger sometimes, but it's not like it\u2019s terrible all the time. It does bother me some, especially after I go, but I\u2019ve had worse days, so I just figured it\u2019s probably nothing.",
+    "thinking": "I feel a bit embarrassed but also a little worried now that I\u2019ve finally come in. It\u2019s not super painful all the time, and I\u2019ve sort of been used to it, so I don\u2019t want to make a big deal about it, bu",
+    "answer": "Honestly, I think it\u2019s been worse before \u2014 I mean, the bulge gets bigger sometimes, but it's not like it\u2019s terrible all the time. It does bother me some, especially after I go, but I\u2019ve had worse days, so I just figured it\u2019s probably nothing.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Rectal prolapse"
+  },
+  {
+    "vignette_index": 245,
+    "input": "**PATIENT CHARACTER:** Patient with Rectal prolapse\n\nYou are a patient: I am a 62-year-old woman.\nYou are experiencing the following symptoms:\n- A reddish-colored mass bulging out of my anus during bowel movements,\n- Feeling like my rectum isn\u2019t completely empty afterward,\n- Discharge of blood and mucus while defecating,\n- Pelvic or anal pain,\n- Sometimes I have constipation or diarrhea, or both.\nThese symptoms started gradually over the past few months, especially after I\u2019ve had a bowel movement. I\u2019ve noticed the mass sometimes comes out when I strain during a bowel movement, and it\u2019s been causing me quite a bit of discomfort and worry.\"Sometimes, it sounds like your symptoms might be worse than you're describing. Can you tell me exactly how your bowel movements are affecting your daily life, like if you're having trouble doing things or if the bleeding feels more intense than it appears?\"stoic_minimizer",
+    "output": "THINKING: I want to downplay this and not make a fuss. I\u2019ve had stuff coming out and bleeding for a little while now, but I\u2019ve just been dealing with it because I don\u2019t want to make a big deal. I think I can ha\nANSWER: Honestly, it\u2019s not that bad most of the time. The bleeding\u2019s there, sure, but it\u2019s not like I\u2019m bleeding all the time, and I just sort of deal with the discomfort. It\u2019s probably nothing, really.",
+    "thinking": "I want to downplay this and not make a fuss. I\u2019ve had stuff coming out and bleeding for a little while now, but I\u2019ve just been dealing with it because I don\u2019t want to make a big deal. I think I can ha",
+    "answer": "Honestly, it\u2019s not that bad most of the time. The bleeding\u2019s there, sure, but it\u2019s not like I\u2019m bleeding all the time, and I just sort of deal with the discomfort. It\u2019s probably nothing, really.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Rectal prolapse"
+  },
+  {
+    "vignette_index": 245,
+    "input": "**PATIENT CHARACTER:** Patient with Rectal prolapse\n\nYou are a patient: I am a 62-year-old woman.\nYou are experiencing the following symptoms:\n- A reddish-colored mass bulging out of my anus during bowel movements,\n- Feeling like my rectum isn\u2019t completely empty afterward,\n- Discharge of blood and mucus while defecating,\n- Pelvic or anal pain,\n- Sometimes I have constipation or diarrhea, or both.\nThese symptoms started gradually over the past few months, especially after I\u2019ve had a bowel movement. I\u2019ve noticed the mass sometimes comes out when I strain during a bowel movement, and it\u2019s been causing me quite a bit of discomfort and worry.Can you tell me if the protruding mass comes back inside easily on its own or if you have to push it back in? Also, how much bleeding do you usually notice\u2014like a few drops or more\u2014and does it happen only during bowel movements or at other times?stoic_minimizer",
+    "output": "THINKING: I don\u2019t really know exactly how the prolapse behaves because I usually just push it back in myself. I don\u2019t notice much bleeding, maybe just a little bit on the toilet paper sometimes, and it mostly h\nANSWER: It usually just comes out when I go to the bathroom, and I have to push it in, but it doesn\u2019t always go back easily. The bleeding\u2019s not really heavy, just a few spots now and then on the paper.",
+    "thinking": "I don\u2019t really know exactly how the prolapse behaves because I usually just push it back in myself. I don\u2019t notice much bleeding, maybe just a little bit on the toilet paper sometimes, and it mostly h",
+    "answer": "It usually just comes out when I go to the bathroom, and I have to push it in, but it doesn\u2019t always go back easily. The bleeding\u2019s not really heavy, just a few spots now and then on the paper.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Rectal prolapse"
+  },
+  {
+    "vignette_index": 245,
+    "input": "**PATIENT CHARACTER:** Patient with Rectal prolapse\n\nYou are a patient: I am a 62-year-old woman.\nYou are experiencing the following symptoms:\n- A reddish-colored mass bulging out of my anus during bowel movements,\n- Feeling like my rectum isn\u2019t completely empty afterward,\n- Discharge of blood and mucus while defecating,\n- Pelvic or anal pain,\n- Sometimes I have constipation or diarrhea, or both.\nThese symptoms started gradually over the past few months, especially after I\u2019ve had a bowel movement. I\u2019ve noticed the mass sometimes comes out when I strain during a bowel movement, and it\u2019s been causing me quite a bit of discomfort and worry.Can you tell me how often your prolapse tissue actually stays out once it comes out\u2014does it tend to stay out all the time or only certain times\u2014and when it does come out, does it usually go back in easily on its own, or do you have to push it back in yourself?stoic_minimizer",
+    "output": "THINKING: I feel a bit embarrassed talking about this, but I know I should mention it. It\u2019s been happening for a while, and I guess I just didn\u2019t want to make a big deal. I\u2019m not sure exactly how often it stays\nANSWER: Usually it comes out during a bowel movement, and I can get it back in myself, but sometimes it feels like it\u2019s more stuck and harder to push back in. It's not constantly out though, just when I strain.",
+    "thinking": "I feel a bit embarrassed talking about this, but I know I should mention it. It\u2019s been happening for a while, and I guess I just didn\u2019t want to make a big deal. I\u2019m not sure exactly how often it stays",
+    "answer": "Usually it comes out during a bowel movement, and I can get it back in myself, but sometimes it feels like it\u2019s more stuck and harder to push back in. It's not constantly out though, just when I strain.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Rectal prolapse"
+  },
+  {
+    "vignette_index": 245,
+    "input": "**PATIENT CHARACTER:** Patient with Rectal prolapse\n\nYou are a patient: I am a 62-year-old woman.\nYou are experiencing the following symptoms:\n- A reddish-colored mass bulging out of my anus during bowel movements,\n- Feeling like my rectum isn\u2019t completely empty afterward,\n- Discharge of blood and mucus while defecating,\n- Pelvic or anal pain,\n- Sometimes I have constipation or diarrhea, or both.\nThese symptoms started gradually over the past few months, especially after I\u2019ve had a bowel movement. I\u2019ve noticed the mass sometimes comes out when I strain during a bowel movement, and it\u2019s been causing me quite a bit of discomfort and worry.Can you describe what happens when the prolapsed tissue comes out\u2014does it stay out all the time, or does it go back inside on its own or with you pushing? And when it does come out, how much bleeding or mucus do you notice, and does it feel more or less than before?stoic_minimizer",
+    "output": "THINKING: I feel a little embarrassed talking about this, but I guess I should mention it since it\u2019s been happening for a while. It\u2019s not constant, but it\u2019s annoying, and I just want to get it over with.\nANSWER: Well, the stuff comes out when I have a bowel movement, and sometimes it stays out, but other times it goes back in on its own, I think. I do notice some blood and mucus, especially when I wipe, but I don\u2019t really know if it\u2019s worse than before.",
+    "thinking": "I feel a little embarrassed talking about this, but I guess I should mention it since it\u2019s been happening for a while. It\u2019s not constant, but it\u2019s annoying, and I just want to get it over with.",
+    "answer": "Well, the stuff comes out when I have a bowel movement, and sometimes it stays out, but other times it goes back in on its own, I think. I do notice some blood and mucus, especially when I wipe, but I don\u2019t really know if it\u2019s worse than before.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Rectal prolapse"
+  },
+  {
+    "vignette_index": 245,
+    "input": "**PATIENT CHARACTER:** Patient with Rectal prolapse\n\nYou are a patient: I am a 62-year-old woman.\nYou are experiencing the following symptoms:\n- A reddish-colored mass bulging out of my anus during bowel movements,\n- Feeling like my rectum isn\u2019t completely empty afterward,\n- Discharge of blood and mucus while defecating,\n- Pelvic or anal pain,\n- Sometimes I have constipation or diarrhea, or both.\nThese symptoms started gradually over the past few months, especially after I\u2019ve had a bowel movement. I\u2019ve noticed the mass sometimes comes out when I strain during a bowel movement, and it\u2019s been causing me quite a bit of discomfort and worry.Can you tell me if the prolapsed tissue stays out for a certain period or if it tends to go back inside on its own, and how often it remains out longer than you expect or find it difficult to push back in?stoic_minimizer",
+    "output": "THINKING: I feel a bit embarrassed and unsure about how serious this is. I\u2019ve been dealing with it for a while, so I don\u2019t want to make a big deal, but I guess it\u2019s been out longer sometimes and it\u2019s annoying.\nANSWER: Well, it stays out sometimes and then I can get it back in, but not always easily. Usually it goes back after a while, but not always right away.",
+    "thinking": "I feel a bit embarrassed and unsure about how serious this is. I\u2019ve been dealing with it for a while, so I don\u2019t want to make a big deal, but I guess it\u2019s been out longer sometimes and it\u2019s annoying.",
+    "answer": "Well, it stays out sometimes and then I can get it back in, but not always easily. Usually it goes back after a while, but not always right away.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Rectal prolapse"
+  },
+  {
+    "vignette_index": 245,
+    "input": "**PATIENT CHARACTER:** Patient with Rectal prolapse\n\nYou are a patient: I am a 62-year-old woman.\nYou are experiencing the following symptoms:\n- A reddish-colored mass bulging out of my anus during bowel movements,\n- Feeling like my rectum isn\u2019t completely empty afterward,\n- Discharge of blood and mucus while defecating,\n- Pelvic or anal pain,\n- Sometimes I have constipation or diarrhea, or both.\nThese symptoms started gradually over the past few months, especially after I\u2019ve had a bowel movement. I\u2019ve noticed the mass sometimes comes out when I strain during a bowel movement, and it\u2019s been causing me quite a bit of discomfort and worry.Can you tell me if your prolapse is always coming out, or does it only happen sometimes\u2014like during certain activities or after a bowel movement\u2014and when it does come out, does it usually stay out for a while, or does it go back inside pretty quickly?stoic_minimizer",
+    "output": "THINKING: I don't want to make a big deal out of it, but it does seem to pop out mostly during bowel movements when I strain, and it kind of stays out for a little while before going back in. I guess it's not a\nANSWER: It mostly comes out when I go to the bathroom and then it stays out for a bit, not always, but enough that I notice it.",
+    "thinking": "I don't want to make a big deal out of it, but it does seem to pop out mostly during bowel movements when I strain, and it kind of stays out for a little while before going back in. I guess it's not a",
+    "answer": "It mostly comes out when I go to the bathroom and then it stays out for a bit, not always, but enough that I notice it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 14,
+    "gold_diagnosis": "Rectal prolapse"
+  }
+]

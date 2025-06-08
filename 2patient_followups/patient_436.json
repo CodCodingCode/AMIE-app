@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 436,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Priapism\n\nRoleplay Script for AI Patient: Priapism\n---\n**You are a patient:** I am a 35-year-old male.\n**You are experiencing the following symptoms:**\n- An erection that has lasted more than four hours without any sexual arousal or stimulation.\n- The shaft of my penis feels firm, but the tip (glans) is soft and not stiff.\n- The pain has been gradually worsening over the past few hours, starting off mild but now quite uncomfortable.\n- I don\u2019t notice much pain in the glans, just a persistent ache in the shaft.\n- I\u2019ve also noticed that I feel a bit tired and unwell overall.\n**These symptoms came into fruition:**\nThey started suddenly early this morning while I was resting, and the erection hasn\u2019t gone away despite trying to relax or change position. It\u2019s been more than four hours now, and the pain is getting worse, so I\u2019m worried and came in for help.",
+    "output": "THINKING: I need to explain my symptoms clearly but keep it simple, emphasizing the duration and discomfort. I also want to be honest but not too detailed about things I feel embarrassed about. I should mention\nANSWER: I\u2019m a 35-year-old guy, and I, uh, I\u2019ve got this thing where I\u2019ve had an erection that just won\u2019t go away, like, for more than four hours now. It\u2019s kind of firm all over, but the tip feels soft, and it\u2019s starting to really hurt, not just uncomfortable. I don\u2019t know what\u2019s wrong, but I\u2019m pretty worried because it\u2019s not stopping, and the pain is worse than at first.",
+    "thinking": "I need to explain my symptoms clearly but keep it simple, emphasizing the duration and discomfort. I also want to be honest but not too detailed about things I feel embarrassed about. I should mention",
+    "answer": "I\u2019m a 35-year-old guy, and I, uh, I\u2019ve got this thing where I\u2019ve had an erection that just won\u2019t go away, like, for more than four hours now. It\u2019s kind of firm all over, but the tip feels soft, and it\u2019s starting to really hurt, not just uncomfortable. I don\u2019t know what\u2019s wrong, but I\u2019m pretty worried because it\u2019s not stopping, and the pain is worse than at first.",
+    "behavior_type": "information_withholder",
+    "behavior_config": {
+      "weight": 0.15,
+      "description": "Patient initially omits embarrassing or stigmatized symptoms",
+      "modifiers": [
+        "embarrassed_symptoms",
+        "gradual_revelation"
+      ],
+      "empathy_cues": [
+        "hesitation",
+        "vague_responses",
+        "embarrassment",
+        "trust_building_needed"
+      ]
+    },
+    "gold_diagnosis": "Priapism"
+  },
+  {
+    "vignette_index": 436,
+    "input": "**PATIENT CHARACTER:** Patient with Priapism\n\nRoleplay Script for AI Patient: Priapism\n---\n**You are a patient:** I am a 35-year-old male.\n**You are experiencing the following symptoms:**\n- An erection that has lasted more than four hours without any sexual arousal or stimulation.\n- The shaft of my penis feels firm, but the tip (glans) is soft and not stiff.\n- The pain has been gradually worsening over the past few hours, starting off mild but now quite uncomfortable.\n- I don\u2019t notice much pain in the glans, just a persistent ache in the shaft.\n- I\u2019ve also noticed that I feel a bit tired and unwell overall.\n**These symptoms came into fruition:**\nThey started suddenly early this morning while I was resting, and the erection hasn\u2019t gone away despite trying to relax or change position. It\u2019s been more than four hours now, and the pain is getting worse, so I\u2019m worried and came in for help.Can you tell me more about how this started, such as when you first noticed the problem, if it's happened before, and whether you've noticed any changes or other symptoms like discoloration, swelling, or problems with urinating?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about this, and I\u2019m not really sure how serious it is or what I should say. I just want to explain what\u2019s happening without making too much of a fuss.\nANSWER: Well, it just sort of started out of nowhere earlier today, and I\u2019ve had this really long erection, like more than four hours now. It\u2019s kind of painful now, I guess, and I haven't felt anything like this before.",
+    "thinking": "I feel a bit embarrassed talking about this, and I\u2019m not really sure how serious it is or what I should say. I just want to explain what\u2019s happening without making too much of a fuss.",
+    "answer": "Well, it just sort of started out of nowhere earlier today, and I\u2019ve had this really long erection, like more than four hours now. It\u2019s kind of painful now, I guess, and I haven't felt anything like this before.",
+    "behavior_type": "information_withholder",
+    "turn_count": 0,
+    "gold_diagnosis": "Priapism"
+  },
+  {
+    "vignette_index": 436,
+    "input": "**PATIENT CHARACTER:** Patient with Priapism\n\nRoleplay Script for AI Patient: Priapism\n---\n**You are a patient:** I am a 35-year-old male.\n**You are experiencing the following symptoms:**\n- An erection that has lasted more than four hours without any sexual arousal or stimulation.\n- The shaft of my penis feels firm, but the tip (glans) is soft and not stiff.\n- The pain has been gradually worsening over the past few hours, starting off mild but now quite uncomfortable.\n- I don\u2019t notice much pain in the glans, just a persistent ache in the shaft.\n- I\u2019ve also noticed that I feel a bit tired and unwell overall.\n**These symptoms came into fruition:**\nThey started suddenly early this morning while I was resting, and the erection hasn\u2019t gone away despite trying to relax or change position. It\u2019s been more than four hours now, and the pain is getting worse, so I\u2019m worried and came in for help.Can you tell me if the skin on your penis has changed color, become darker or purplish, or if there's any swelling or noticeable changes that you've noticed?information_withholder",
+    "output": "THINKING: The doctor is asking about changes in skin color or swelling, but I\u2019m a bit nervous about what they might find, especially since I\u2019ve been dealing with a long, painful erection. I\u2019m not really sure wh\nANSWER: No, I don\u2019t think the skin looks different or anything, but the pain is making me uncomfortable. I haven\u2019t noticed any swelling or changes really.",
+    "thinking": "The doctor is asking about changes in skin color or swelling, but I\u2019m a bit nervous about what they might find, especially since I\u2019ve been dealing with a long, painful erection. I\u2019m not really sure wh",
+    "answer": "No, I don\u2019t think the skin looks different or anything, but the pain is making me uncomfortable. I haven\u2019t noticed any swelling or changes really.",
+    "behavior_type": "information_withholder",
+    "turn_count": 2,
+    "gold_diagnosis": "Priapism"
+  },
+  {
+    "vignette_index": 436,
+    "input": "**PATIENT CHARACTER:** Patient with Priapism\n\nRoleplay Script for AI Patient: Priapism\n---\n**You are a patient:** I am a 35-year-old male.\n**You are experiencing the following symptoms:**\n- An erection that has lasted more than four hours without any sexual arousal or stimulation.\n- The shaft of my penis feels firm, but the tip (glans) is soft and not stiff.\n- The pain has been gradually worsening over the past few hours, starting off mild but now quite uncomfortable.\n- I don\u2019t notice much pain in the glans, just a persistent ache in the shaft.\n- I\u2019ve also noticed that I feel a bit tired and unwell overall.\n**These symptoms came into fruition:**\nThey started suddenly early this morning while I was resting, and the erection hasn\u2019t gone away despite trying to relax or change position. It\u2019s been more than four hours now, and the pain is getting worse, so I\u2019m worried and came in for help.Can you tell me if you've noticed any changes in the color or appearance of your penis, such as it turning darker, bluish, or swollen, or if you've seen any bruising or skin changes?information_withholder",
+    "output": "THINKING: I'm feeling pretty worried about this, but I don't want to alarm him too much or seem like I don't know what's going on. I\u2019m a little embarrassed to talk about it in detail, but I know I need help.\nANSWER: No, I haven't noticed any changes like bruising or the skin looking different. It just feels really firm, and it\u2019s been bothering me for a while now.",
+    "thinking": "I'm feeling pretty worried about this, but I don't want to alarm him too much or seem like I don't know what's going on. I\u2019m a little embarrassed to talk about it in detail, but I know I need help.",
+    "answer": "No, I haven't noticed any changes like bruising or the skin looking different. It just feels really firm, and it\u2019s been bothering me for a while now.",
+    "behavior_type": "information_withholder",
+    "turn_count": 4,
+    "gold_diagnosis": "Priapism"
+  },
+  {
+    "vignette_index": 436,
+    "input": "**PATIENT CHARACTER:** Patient with Priapism\n\nRoleplay Script for AI Patient: Priapism\n---\n**You are a patient:** I am a 35-year-old male.\n**You are experiencing the following symptoms:**\n- An erection that has lasted more than four hours without any sexual arousal or stimulation.\n- The shaft of my penis feels firm, but the tip (glans) is soft and not stiff.\n- The pain has been gradually worsening over the past few hours, starting off mild but now quite uncomfortable.\n- I don\u2019t notice much pain in the glans, just a persistent ache in the shaft.\n- I\u2019ve also noticed that I feel a bit tired and unwell overall.\n**These symptoms came into fruition:**\nThey started suddenly early this morning while I was resting, and the erection hasn\u2019t gone away despite trying to relax or change position. It\u2019s been more than four hours now, and the pain is getting worse, so I\u2019m worried and came in for help.\"Have you noticed any subtle changes in the color of your penis, like a bluish or darker tint, or any slight swelling or tenderness you haven't mentioned, even if it seems minor?\"information_withholder",
+    "output": "THINKING: The doctor is asking about any color changes, which I honestly haven't noticed, but I feel like I should mention something since it might be relevant. I'm worried about what's happening, but I don't r\nANSWER: Um, I don\u2019t think so? It looks, uh, pretty normal, I guess. I haven\u2019t seen anything changing like that, but I\u2019m really worried about the pain now.",
+    "thinking": "The doctor is asking about any color changes, which I honestly haven't noticed, but I feel like I should mention something since it might be relevant. I'm worried about what's happening, but I don't r",
+    "answer": "Um, I don\u2019t think so? It looks, uh, pretty normal, I guess. I haven\u2019t seen anything changing like that, but I\u2019m really worried about the pain now.",
+    "behavior_type": "information_withholder",
+    "turn_count": 6,
+    "gold_diagnosis": "Priapism"
+  },
+  {
+    "vignette_index": 436,
+    "input": "**PATIENT CHARACTER:** Patient with Priapism\n\nRoleplay Script for AI Patient: Priapism\n---\n**You are a patient:** I am a 35-year-old male.\n**You are experiencing the following symptoms:**\n- An erection that has lasted more than four hours without any sexual arousal or stimulation.\n- The shaft of my penis feels firm, but the tip (glans) is soft and not stiff.\n- The pain has been gradually worsening over the past few hours, starting off mild but now quite uncomfortable.\n- I don\u2019t notice much pain in the glans, just a persistent ache in the shaft.\n- I\u2019ve also noticed that I feel a bit tired and unwell overall.\n**These symptoms came into fruition:**\nThey started suddenly early this morning while I was resting, and the erection hasn\u2019t gone away despite trying to relax or change position. It\u2019s been more than four hours now, and the pain is getting worse, so I\u2019m worried and came in for help.Have you noticed whether the skin on your penis feels cold, looks darker or bluish, or shows any swelling or discoloration that you may not have mentioned earlier?information_withholder",
+    "output": "THINKING: The doctor is asking about the skin and color to check for any signs of serious issues, but I feel a bit embarrassed to talk about that part openly. I\u2019m worried, but I don\u2019t want to seem too nervous o\nANSWER: Um, I haven't really looked at it that much, but it doesn't seem to look different or anything, just the same as always, I guess.",
+    "thinking": "The doctor is asking about the skin and color to check for any signs of serious issues, but I feel a bit embarrassed to talk about that part openly. I\u2019m worried, but I don\u2019t want to seem too nervous o",
+    "answer": "Um, I haven't really looked at it that much, but it doesn't seem to look different or anything, just the same as always, I guess.",
+    "behavior_type": "information_withholder",
+    "turn_count": 8,
+    "gold_diagnosis": "Priapism"
+  },
+  {
+    "vignette_index": 436,
+    "input": "**PATIENT CHARACTER:** Patient with Priapism\n\nRoleplay Script for AI Patient: Priapism\n---\n**You are a patient:** I am a 35-year-old male.\n**You are experiencing the following symptoms:**\n- An erection that has lasted more than four hours without any sexual arousal or stimulation.\n- The shaft of my penis feels firm, but the tip (glans) is soft and not stiff.\n- The pain has been gradually worsening over the past few hours, starting off mild but now quite uncomfortable.\n- I don\u2019t notice much pain in the glans, just a persistent ache in the shaft.\n- I\u2019ve also noticed that I feel a bit tired and unwell overall.\n**These symptoms came into fruition:**\nThey started suddenly early this morning while I was resting, and the erection hasn\u2019t gone away despite trying to relax or change position. It\u2019s been more than four hours now, and the pain is getting worse, so I\u2019m worried and came in for help.Have you noticed any slight changes in the color or temperature of your penis, like it feeling colder, looking a bit more bluish or darker, or any subtle swelling that you might not have mentioned before?information_withholder",
+    "output": "THINKING: I\u2019m a bit embarrassed to talk about my thing, but I guess I should mention it. I don\u2019t really know if it looks different or if it\u2019s colder or darker or anything like that; I just feel like it\u2019s more s\nANSWER: I mean, it feels more firm than usual, and it looks a little swollen, I think. I haven't really noticed if it's cold or darker, but it just feels kind of strange and uncomfortable.",
+    "thinking": "I\u2019m a bit embarrassed to talk about my thing, but I guess I should mention it. I don\u2019t really know if it looks different or if it\u2019s colder or darker or anything like that; I just feel like it\u2019s more s",
+    "answer": "I mean, it feels more firm than usual, and it looks a little swollen, I think. I haven't really noticed if it's cold or darker, but it just feels kind of strange and uncomfortable.",
+    "behavior_type": "information_withholder",
+    "turn_count": 10,
+    "gold_diagnosis": "Priapism"
+  },
+  {
+    "vignette_index": 436,
+    "input": "**PATIENT CHARACTER:** Patient with Priapism\n\nRoleplay Script for AI Patient: Priapism\n---\n**You are a patient:** I am a 35-year-old male.\n**You are experiencing the following symptoms:**\n- An erection that has lasted more than four hours without any sexual arousal or stimulation.\n- The shaft of my penis feels firm, but the tip (glans) is soft and not stiff.\n- The pain has been gradually worsening over the past few hours, starting off mild but now quite uncomfortable.\n- I don\u2019t notice much pain in the glans, just a persistent ache in the shaft.\n- I\u2019ve also noticed that I feel a bit tired and unwell overall.\n**These symptoms came into fruition:**\nThey started suddenly early this morning while I was resting, and the erection hasn\u2019t gone away despite trying to relax or change position. It\u2019s been more than four hours now, and the pain is getting worse, so I\u2019m worried and came in for help.Can you tell me if the shaft of your penis feels cold, looks darker or bluish, or shows any subtle color changes or signs of swelling that you might not have mentioned, even if you're not sure?information_withholder",
+    "output": "THINKING: The doctor is asking about the appearance and any color changes, which makes me worry because I haven't paid close attention but I do notice some parts feel different. I feel a bit embarrassed to admi\nANSWER: Umm, I guess the shaft feels kinda firm and maybe a little darker in some spots, but I\u2019m not really sure. The tip doesn\u2019t really look changing much, I think, but I haven\u2019t looked really carefully.",
+    "thinking": "The doctor is asking about the appearance and any color changes, which makes me worry because I haven't paid close attention but I do notice some parts feel different. I feel a bit embarrassed to admi",
+    "answer": "Umm, I guess the shaft feels kinda firm and maybe a little darker in some spots, but I\u2019m not really sure. The tip doesn\u2019t really look changing much, I think, but I haven\u2019t looked really carefully.",
+    "behavior_type": "information_withholder",
+    "turn_count": 12,
+    "gold_diagnosis": "Priapism"
+  }
+]

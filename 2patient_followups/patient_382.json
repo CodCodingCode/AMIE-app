@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 382,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Alcohol withdrawal, unspecified\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Tremors, anxiety, nausea, headache, and vomiting.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after I stopped drinking alcohol completely for the first time in weeks. I\u2019ve been binge drinking heavily\u2014more than 20 drinks over the past few days\u2014and I suddenly cut back because I was feeling really anxious and not sleeping well. Last night, I woke up with shaky hands, a pounding headache, and felt extremely anxious, like I couldn\u2019t calm down. I also started feeling nauseous and ended up vomiting a couple of times.",
+    "output": "THINKING: I need to explain my symptoms clearly but I feel embarrassed and scared about what\u2019s happening. I should mention the abrupt start of symptoms after stopping drinking and focus on the main things that \nANSWER: I\u2019m 45, and I\u2019m a woman. I guess I just started feeling really strange last night, like I was shaking and super anxious for no reason. I also got a really bad headache and started throwing up. I haven\u2019t been feeling right since I stopped drinking alcohol yesterday.",
+    "thinking": "I need to explain my symptoms clearly but I feel embarrassed and scared about what\u2019s happening. I should mention the abrupt start of symptoms after stopping drinking and focus on the main things that",
+    "answer": "I\u2019m 45, and I\u2019m a woman. I guess I just started feeling really strange last night, like I was shaking and super anxious for no reason. I also got a really bad headache and started throwing up. I haven\u2019t been feeling right since I stopped drinking alcohol yesterday.",
+    "behavior_type": "information_withholder",
+    "behavior_config": {
+      "weight": 0.15,
+      "description": "Patient initially omits embarrassing or stigmatized symptoms",
+      "modifiers": [
+        "embarrassed_symptoms",
+        "gradual_revelation"
+      ],
+      "empathy_cues": [
+        "hesitation",
+        "vague_responses",
+        "embarrassment",
+        "trust_building_needed"
+      ]
+    },
+    "gold_diagnosis": "Alcohol withdrawal, unspecified"
+  },
+  {
+    "vignette_index": 382,
+    "input": "**PATIENT CHARACTER:** Patient with Alcohol withdrawal, unspecified\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Tremors, anxiety, nausea, headache, and vomiting.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after I stopped drinking alcohol completely for the first time in weeks. I\u2019ve been binge drinking heavily\u2014more than 20 drinks over the past few days\u2014and I suddenly cut back because I was feeling really anxious and not sleeping well. Last night, I woke up with shaky hands, a pounding headache, and felt extremely anxious, like I couldn\u2019t calm down. I also started feeling nauseous and ended up vomiting a couple of times.Can you tell me more about how much and how often you usually drank before you stopped, and if you've ever experienced these kinds of symptoms before after stopping or reducing alcohol?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about how much I was drinking, but I know I need to explain. I guess I drank a lot\u2014more than I was supposed to\u2014and now I feel horrible. I haven't really thought about \nANSWER: I was drinking a lot every day, maybe like 20 or more drinks, for a few days. I don't really remember if I felt like this before when I stopped or cut down.",
+    "thinking": "I feel a bit embarrassed talking about how much I was drinking, but I know I need to explain. I guess I drank a lot\u2014more than I was supposed to\u2014and now I feel horrible. I haven't really thought about",
+    "answer": "I was drinking a lot every day, maybe like 20 or more drinks, for a few days. I don't really remember if I felt like this before when I stopped or cut down.",
+    "behavior_type": "information_withholder",
+    "turn_count": 0,
+    "gold_diagnosis": "Alcohol withdrawal, unspecified"
+  },
+  {
+    "vignette_index": 382,
+    "input": "**PATIENT CHARACTER:** Patient with Alcohol withdrawal, unspecified\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Tremors, anxiety, nausea, headache, and vomiting.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after I stopped drinking alcohol completely for the first time in weeks. I\u2019ve been binge drinking heavily\u2014more than 20 drinks over the past few days\u2014and I suddenly cut back because I was feeling really anxious and not sleeping well. Last night, I woke up with shaky hands, a pounding headache, and felt extremely anxious, like I couldn\u2019t calm down. I also started feeling nauseous and ended up vomiting a couple of times.Can you tell me if you've ever noticed any particularly strange or troubling experiences\u2014like hallucinations, seizures, or being really confused\u2014that occurred after stopping or cutting back on alcohol in the past?information_withholder",
+    "output": "THINKING: I'm not sure if I should tell her everything about what I was drinking or if that matters. I feel nervous and a little embarrassed about how much I was drinking, so I'm just going to say it was a lot \nANSWER: Um, I guess I might have had some strange feelings? Like I was really out of it or confused, but I wasn't sure if that was normal or not.",
+    "thinking": "I'm not sure if I should tell her everything about what I was drinking or if that matters. I feel nervous and a little embarrassed about how much I was drinking, so I'm just going to say it was a lot",
+    "answer": "Um, I guess I might have had some strange feelings? Like I was really out of it or confused, but I wasn't sure if that was normal or not.",
+    "behavior_type": "information_withholder",
+    "turn_count": 2,
+    "gold_diagnosis": "Alcohol withdrawal, unspecified"
+  },
+  {
+    "vignette_index": 382,
+    "input": "**PATIENT CHARACTER:** Patient with Alcohol withdrawal, unspecified\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Tremors, anxiety, nausea, headache, and vomiting.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after I stopped drinking alcohol completely for the first time in weeks. I\u2019ve been binge drinking heavily\u2014more than 20 drinks over the past few days\u2014and I suddenly cut back because I was feeling really anxious and not sleeping well. Last night, I woke up with shaky hands, a pounding headache, and felt extremely anxious, like I couldn\u2019t calm down. I also started feeling nauseous and ended up vomiting a couple of times.Can you tell me more about how much you usually drank each day, and whether you've ever noticed any particularly strange or frightening experiences\u2014like hallucinations, seizures, or feeling really confused\u2014after stopping or reducing your drinking before?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about this, but I also really want help. I\u2019m not sure what\u2019s normal or not, and I\u2019m kind of scared since I\u2019ve never had this before. I don\u2019t want to seem like I\u2019m over\nANSWER: I was drinking quite a lot every day, like more than I should, and I stopped suddenly, so I guess that might be why I feel this way now. I haven't really noticed anything else weird, no hallucinations or anything, but I do feel really awful.",
+    "thinking": "I feel a bit embarrassed talking about this, but I also really want help. I\u2019m not sure what\u2019s normal or not, and I\u2019m kind of scared since I\u2019ve never had this before. I don\u2019t want to seem like I\u2019m over",
+    "answer": "I was drinking quite a lot every day, like more than I should, and I stopped suddenly, so I guess that might be why I feel this way now. I haven't really noticed anything else weird, no hallucinations or anything, but I do feel really awful.",
+    "behavior_type": "information_withholder",
+    "turn_count": 4,
+    "gold_diagnosis": "Alcohol withdrawal, unspecified"
+  },
+  {
+    "vignette_index": 382,
+    "input": "**PATIENT CHARACTER:** Patient with Alcohol withdrawal, unspecified\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Tremors, anxiety, nausea, headache, and vomiting.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after I stopped drinking alcohol completely for the first time in weeks. I\u2019ve been binge drinking heavily\u2014more than 20 drinks over the past few days\u2014and I suddenly cut back because I was feeling really anxious and not sleeping well. Last night, I woke up with shaky hands, a pounding headache, and felt extremely anxious, like I couldn\u2019t calm down. I also started feeling nauseous and ended up vomiting a couple of times.Have you ever experienced hallucinations, seizures, or severe confusion when stopping or reducing alcohol in the past, and if so, can you tell me more about what those episodes were like?information_withholder",
+    "output": "THINKING: The question about hallucinations or seizures makes me nervous, and I don\u2019t really understand what counts or if what I experienced was serious. I feel embarrassed to say too much, but I guess I should\nANSWER: No, I haven't really seen or heard things like that, but I did feel really strange and scared last night when I woke up. It was like everything was just really intense and I couldn't settle down.",
+    "thinking": "The question about hallucinations or seizures makes me nervous, and I don\u2019t really understand what counts or if what I experienced was serious. I feel embarrassed to say too much, but I guess I should",
+    "answer": "No, I haven't really seen or heard things like that, but I did feel really strange and scared last night when I woke up. It was like everything was just really intense and I couldn't settle down.",
+    "behavior_type": "information_withholder",
+    "turn_count": 6,
+    "gold_diagnosis": "Alcohol withdrawal, unspecified"
+  },
+  {
+    "vignette_index": 382,
+    "input": "**PATIENT CHARACTER:** Patient with Alcohol withdrawal, unspecified\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Tremors, anxiety, nausea, headache, and vomiting.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after I stopped drinking alcohol completely for the first time in weeks. I\u2019ve been binge drinking heavily\u2014more than 20 drinks over the past few days\u2014and I suddenly cut back because I was feeling really anxious and not sleeping well. Last night, I woke up with shaky hands, a pounding headache, and felt extremely anxious, like I couldn\u2019t calm down. I also started feeling nauseous and ended up vomiting a couple of times.Have you ever experienced any visual or auditory hallucinations, even if they only lasted a little while, or seizures, when you tried to stop or cut back on drinking before?information_withholder",
+    "output": "THINKING: I feel a little embarrassed to talk about my drinking, but I want to be honest. I\u2019m worried about what\u2019s happening, but I don\u2019t really understand some of the questions the doctor is asking.\nANSWER: Um, I guess I don\u2019t really remember seeing or hearing anything weird, but I\u2019ve been feeling really off, and my head's been pounding. I didn\u2019t really think about seizures or anything like that.",
+    "thinking": "I feel a little embarrassed to talk about my drinking, but I want to be honest. I\u2019m worried about what\u2019s happening, but I don\u2019t really understand some of the questions the doctor is asking.",
+    "answer": "Um, I guess I don\u2019t really remember seeing or hearing anything weird, but I\u2019ve been feeling really off, and my head's been pounding. I didn\u2019t really think about seizures or anything like that.",
+    "behavior_type": "information_withholder",
+    "turn_count": 8,
+    "gold_diagnosis": "Alcohol withdrawal, unspecified"
+  },
+  {
+    "vignette_index": 382,
+    "input": "**PATIENT CHARACTER:** Patient with Alcohol withdrawal, unspecified\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Tremors, anxiety, nausea, headache, and vomiting.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after I stopped drinking alcohol completely for the first time in weeks. I\u2019ve been binge drinking heavily\u2014more than 20 drinks over the past few days\u2014and I suddenly cut back because I was feeling really anxious and not sleeping well. Last night, I woke up with shaky hands, a pounding headache, and felt extremely anxious, like I couldn\u2019t calm down. I also started feeling nauseous and ended up vomiting a couple of times.Have you ever experienced hallucinations\u2014like seeing or hearing things that weren't really there\u2014or had a seizure when you stopped drinking or during past times when you cut back?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about these things, but I guess I should be honest. I\u2019m not really sure what counts as hallucinations, and I don\u2019t think I\u2019ve had seizures, but I\u2019ve been feeling reall\nANSWER: Um, I don\u2019t know if I\u2019ve seen or heard anything weird like that. I\u2019ve just been really anxious and my head hurt and I vomited a couple of times. I don\u2019t know if it\u2019s related, but I\u2019ve been feeling off.",
+    "thinking": "I feel a bit embarrassed talking about these things, but I guess I should be honest. I\u2019m not really sure what counts as hallucinations, and I don\u2019t think I\u2019ve had seizures, but I\u2019ve been feeling reall",
+    "answer": "Um, I don\u2019t know if I\u2019ve seen or heard anything weird like that. I\u2019ve just been really anxious and my head hurt and I vomited a couple of times. I don\u2019t know if it\u2019s related, but I\u2019ve been feeling off.",
+    "behavior_type": "information_withholder",
+    "turn_count": 10,
+    "gold_diagnosis": "Alcohol withdrawal, unspecified"
+  },
+  {
+    "vignette_index": 382,
+    "input": "**PATIENT CHARACTER:** Patient with Alcohol withdrawal, unspecified\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Tremors, anxiety, nausea, headache, and vomiting.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after I stopped drinking alcohol completely for the first time in weeks. I\u2019ve been binge drinking heavily\u2014more than 20 drinks over the past few days\u2014and I suddenly cut back because I was feeling really anxious and not sleeping well. Last night, I woke up with shaky hands, a pounding headache, and felt extremely anxious, like I couldn\u2019t calm down. I also started feeling nauseous and ended up vomiting a couple of times.Have you experienced any seeing or hearing things that weren\u2019t there, or episodes where you felt really confused or unable to control your body, since you stopped drinking?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about everything, especially about what I\u2019ve been drinking. I\u2019m worried but also confused about what\u2019s happening to me, and I\u2019m not sure what\u2019s serious or not. I just \nANSWER: Well, I don't think I saw or heard anything strange, but I\u2019ve been feeling really off\u2014like my mind isn\u2019t clear and I feel like I might lose control of myself sometimes. It\u2019s hard to explain exactly.",
+    "thinking": "I feel a bit embarrassed talking about everything, especially about what I\u2019ve been drinking. I\u2019m worried but also confused about what\u2019s happening to me, and I\u2019m not sure what\u2019s serious or not. I just",
+    "answer": "Well, I don't think I saw or heard anything strange, but I\u2019ve been feeling really off\u2014like my mind isn\u2019t clear and I feel like I might lose control of myself sometimes. It\u2019s hard to explain exactly.",
+    "behavior_type": "information_withholder",
+    "turn_count": 12,
+    "gold_diagnosis": "Alcohol withdrawal, unspecified"
+  }
+]

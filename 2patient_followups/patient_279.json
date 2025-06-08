@@ -1,0 +1,96 @@
+[
+  {
+    "vignette_index": 279,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Complete trisomy 18\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 52 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Low birth weight and growth deficiency\n- Severe intellectual disability\n- Heart defects, including occasional rapid heartbeat\n- Kidney problems, such as swelling in your legs and frequent urination\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey have been gradually worsening over the past few months. I\u2019ve noticed I get tired very easily, and I often feel short of breath, especially when standing or walking short distances. My family mentioned that I was smaller than other children when I was young, and I have always had some difficulty understanding complex instructions. Recently, I\u2019ve been experiencing swelling in my legs and around my ankles, which I think might be related to my kidney issues.",
+    "output": "THINKING: I need to explain my problems clearly but I am worried I might be making a big deal out of small things. I also worry it might be something serious, like my heart or my kidneys, because I feel worse a\nANSWER: Well, doctor, I\u2019m not feeling right lately. I get really tired, and I feel kind of short of breath when I walk even a little, like I can\u2019t catch my breath. My legs are swelling up more than they used to, and I have to pee a lot too. I think these things are getting worse, and I\u2019m scared it\u2019s something serious about my heart or my kidneys because I just don\u2019t feel good at all.",
+    "thinking": "I need to explain my problems clearly but I am worried I might be making a big deal out of small things. I also worry it might be something serious, like my heart or my kidneys, because I feel worse a",
+    "answer": "Well, doctor, I\u2019m not feeling right lately. I get really tired, and I feel kind of short of breath when I walk even a little, like I can\u2019t catch my breath. My legs are swelling up more than they used to, and I have to pee a lot too. I think these things are getting worse, and I\u2019m scared it\u2019s something serious about my heart or my kidneys because I just don\u2019t feel good at all.",
+    "behavior_type": "anxious_amplifier",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient with health anxiety who amplifies symptoms",
+      "modifiers": [
+        "catastrophic_thinking",
+        "symptom_amplification",
+        "multiple_concerns"
+      ],
+      "empathy_cues": [
+        "high_anxiety",
+        "catastrophic_language",
+        "reassurance_seeking",
+        "fear_expression"
+      ]
+    },
+    "gold_diagnosis": "Complete trisomy 18"
+  },
+  {
+    "vignette_index": 279,
+    "input": "**PATIENT CHARACTER:** Patient with Complete trisomy 18\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 52 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Low birth weight and growth deficiency\n- Severe intellectual disability\n- Heart defects, including occasional rapid heartbeat\n- Kidney problems, such as swelling in your legs and frequent urination\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey have been gradually worsening over the past few months. I\u2019ve noticed I get tired very easily, and I often feel short of breath, especially when standing or walking short distances. My family mentioned that I was smaller than other children when I was young, and I have always had some difficulty understanding complex instructions. Recently, I\u2019ve been experiencing swelling in my legs and around my ankles, which I think might be related to my kidney issues.Can you tell me more about when these symptoms first started, how they've changed since then, and how they are affecting your daily life right now?anxious_amplifier",
+    "output": "THINKING: I'm really worried that these symptoms have been getting worse and that it might be something serious. I don't understand a lot about what\u2019s happening, but I keep feeling more tired and the swelling i\nANSWER: Well, it\u2019s been happening for a few months now, and I get so tired and out of breath even just walking a little. Recently, my legs swell up so much I can\u2019t really walk or stand without hurting, and I\u2019m scared that it\u2019s something really bad.",
+    "thinking": "I'm really worried that these symptoms have been getting worse and that it might be something serious. I don't understand a lot about what\u2019s happening, but I keep feeling more tired and the swelling i",
+    "answer": "Well, it\u2019s been happening for a few months now, and I get so tired and out of breath even just walking a little. Recently, my legs swell up so much I can\u2019t really walk or stand without hurting, and I\u2019m scared that it\u2019s something really bad.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 0,
+    "gold_diagnosis": "Complete trisomy 18"
+  },
+  {
+    "vignette_index": 279,
+    "input": "**PATIENT CHARACTER:** Patient with Complete trisomy 18\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 52 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Low birth weight and growth deficiency\n- Severe intellectual disability\n- Heart defects, including occasional rapid heartbeat\n- Kidney problems, such as swelling in your legs and frequent urination\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey have been gradually worsening over the past few months. I\u2019ve noticed I get tired very easily, and I often feel short of breath, especially when standing or walking short distances. My family mentioned that I was smaller than other children when I was young, and I have always had some difficulty understanding complex instructions. Recently, I\u2019ve been experiencing swelling in my legs and around my ankles, which I think might be related to my kidney issues.Can you tell me exactly how your symptoms\u2014like your feeling of being out of breath and your leg swelling\u2014started, how they have changed over time, and whether they happen on both sides equally or just one?anxious_amplifier",
+    "output": "THINKING: I\u2019m worried that my symptoms might be getting worse or that I have something really serious now, like my heart or kidneys. I feel overwhelmed and scared, so I want to tell her everything that's been b\nANSWER: Well, it all just kind of started lately, and I don\u2019t really remember exactly when but I think it got worse little by little. The shortness of breath is mostly when I stand up or walk a little, and the swelling is mainly in my legs and ankles, and it\u2019s the same on both sides I think.",
+    "thinking": "I\u2019m worried that my symptoms might be getting worse or that I have something really serious now, like my heart or kidneys. I feel overwhelmed and scared, so I want to tell her everything that's been b",
+    "answer": "Well, it all just kind of started lately, and I don\u2019t really remember exactly when but I think it got worse little by little. The shortness of breath is mostly when I stand up or walk a little, and the swelling is mainly in my legs and ankles, and it\u2019s the same on both sides I think.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 2,
+    "gold_diagnosis": "Complete trisomy 18"
+  },
+  {
+    "vignette_index": 279,
+    "input": "**PATIENT CHARACTER:** Patient with Complete trisomy 18\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 52 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Low birth weight and growth deficiency\n- Severe intellectual disability\n- Heart defects, including occasional rapid heartbeat\n- Kidney problems, such as swelling in your legs and frequent urination\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey have been gradually worsening over the past few months. I\u2019ve noticed I get tired very easily, and I often feel short of breath, especially when standing or walking short distances. My family mentioned that I was smaller than other children when I was young, and I have always had some difficulty understanding complex instructions. Recently, I\u2019ve been experiencing swelling in my legs and around my ankles, which I think might be related to my kidney issues.Can you tell me more about exactly when you first started noticing these symptoms and how they've changed or gotten worse over time, step by step?anxious_amplifier",
+    "output": "THINKING: I worry that these symptoms are getting worse and might be signs of something really serious, maybe even life-threatening. I feel overwhelmed and scared, especially about the swelling and the shortnes\nANSWER: Well, I started noticing I get tired really easily and I breathe weird sometimes when I walk or stand, and now my legs swell up more and I have to pee all the time, so I guess it\u2019s been worse the last few months, but I don\u2019t know if it\u2019s just me or if it\u2019s something terrible.",
+    "thinking": "I worry that these symptoms are getting worse and might be signs of something really serious, maybe even life-threatening. I feel overwhelmed and scared, especially about the swelling and the shortnes",
+    "answer": "Well, I started noticing I get tired really easily and I breathe weird sometimes when I walk or stand, and now my legs swell up more and I have to pee all the time, so I guess it\u2019s been worse the last few months, but I don\u2019t know if it\u2019s just me or if it\u2019s something terrible.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 4,
+    "gold_diagnosis": "Complete trisomy 18"
+  },
+  {
+    "vignette_index": 279,
+    "input": "**PATIENT CHARACTER:** Patient with Complete trisomy 18\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 52 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Low birth weight and growth deficiency\n- Severe intellectual disability\n- Heart defects, including occasional rapid heartbeat\n- Kidney problems, such as swelling in your legs and frequent urination\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey have been gradually worsening over the past few months. I\u2019ve noticed I get tired very easily, and I often feel short of breath, especially when standing or walking short distances. My family mentioned that I was smaller than other children when I was young, and I have always had some difficulty understanding complex instructions. Recently, I\u2019ve been experiencing swelling in my legs and around my ankles, which I think might be related to my kidney issues.Can you tell me if the swelling in your legs feels tight or hard, if there are any changes to the skin like redness or warmth, or if you've noticed any wounds or infections in those areas?anxious_amplifier",
+    "output": "THINKING: I feel really worried about the swelling in my legs. Maybe it\u2019s something serious, like my heart or kidneys getting worse, and I don\u2019t want to ignore it or make it worse. I hope it\u2019s nothing really ba\nANSWER: Oh, yes, I do feel like it\u2019s tight and a little hard sometimes, and my skin looks red around there, and it\u2019s warm too. I worry it might be a big problem, maybe my heart or something with my kidneys, but I don\u2019t really know what it is.",
+    "thinking": "I feel really worried about the swelling in my legs. Maybe it\u2019s something serious, like my heart or kidneys getting worse, and I don\u2019t want to ignore it or make it worse. I hope it\u2019s nothing really ba",
+    "answer": "Oh, yes, I do feel like it\u2019s tight and a little hard sometimes, and my skin looks red around there, and it\u2019s warm too. I worry it might be a big problem, maybe my heart or something with my kidneys, but I don\u2019t really know what it is.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 6,
+    "gold_diagnosis": "Complete trisomy 18"
+  },
+  {
+    "vignette_index": 279,
+    "input": "**PATIENT CHARACTER:** Patient with Complete trisomy 18\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 52 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Low birth weight and growth deficiency\n- Severe intellectual disability\n- Heart defects, including occasional rapid heartbeat\n- Kidney problems, such as swelling in your legs and frequent urination\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey have been gradually worsening over the past few months. I\u2019ve noticed I get tired very easily, and I often feel short of breath, especially when standing or walking short distances. My family mentioned that I was smaller than other children when I was young, and I have always had some difficulty understanding complex instructions. Recently, I\u2019ve been experiencing swelling in my legs and around my ankles, which I think might be related to my kidney issues.Can you tell me if the areas of redness and warmth on your legs have any kind of pus, blistering, or open sores, or if they feel tender when you touch them?anxious_amplifier",
+    "output": "THINKING: I'm really worried about these red and warm spots on my legs. I haven't seen pus or blisters, but they do feel sore when I touch them, and it\u2019s making me nervous\u2014like, could it be something really bad\nANSWER: No, I don\u2019t see any pus or blisters, but they do hurt when I touch them, and the redness and warmth just keep spreading, and it's making me freak out, like it\u2019s an infection or something\u2014I'm scared it will get worse.",
+    "thinking": "I'm really worried about these red and warm spots on my legs. I haven't seen pus or blisters, but they do feel sore when I touch them, and it\u2019s making me nervous\u2014like, could it be something really bad",
+    "answer": "No, I don\u2019t see any pus or blisters, but they do hurt when I touch them, and the redness and warmth just keep spreading, and it's making me freak out, like it\u2019s an infection or something\u2014I'm scared it will get worse.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 8,
+    "gold_diagnosis": "Complete trisomy 18"
+  },
+  {
+    "vignette_index": 279,
+    "input": "**PATIENT CHARACTER:** Patient with Complete trisomy 18\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 52 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Low birth weight and growth deficiency\n- Severe intellectual disability\n- Heart defects, including occasional rapid heartbeat\n- Kidney problems, such as swelling in your legs and frequent urination\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey have been gradually worsening over the past few months. I\u2019ve noticed I get tired very easily, and I often feel short of breath, especially when standing or walking short distances. My family mentioned that I was smaller than other children when I was young, and I have always had some difficulty understanding complex instructions. Recently, I\u2019ve been experiencing swelling in my legs and around my ankles, which I think might be related to my kidney issues.Can you tell me whether the red and warm areas on your legs have any open sores, blisters, or pus, or do they feel just tender and hard without any breaks in the skin?anxious_amplifier",
+    "output": "THINKING: I'm really worried that these red and warm spots could be infected or something really serious. I don\u2019t see any blisters or open sores, but they\u2019re tender and hard, and I just feel like it\u2019s getting w\nANSWER: They just feel like really tender, kind of hard, and warm, but I don\u2019t see anything open or pus or blisters\u2014just red and hot, and I\u2019m worried it\u2019s something terrible.",
+    "thinking": "I'm really worried that these red and warm spots could be infected or something really serious. I don\u2019t see any blisters or open sores, but they\u2019re tender and hard, and I just feel like it\u2019s getting w",
+    "answer": "They just feel like really tender, kind of hard, and warm, but I don\u2019t see anything open or pus or blisters\u2014just red and hot, and I\u2019m worried it\u2019s something terrible.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 10,
+    "gold_diagnosis": "Complete trisomy 18"
+  },
+  {
+    "vignette_index": 279,
+    "input": "**PATIENT CHARACTER:** Patient with Complete trisomy 18\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 52 AND YOUR BIOLOGICAL GENDER IS FEMALE\nYou are experiencing the following symptoms:\n- Low birth weight and growth deficiency\n- Severe intellectual disability\n- Heart defects, including occasional rapid heartbeat\n- Kidney problems, such as swelling in your legs and frequent urination\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey have been gradually worsening over the past few months. I\u2019ve noticed I get tired very easily, and I often feel short of breath, especially when standing or walking short distances. My family mentioned that I was smaller than other children when I was young, and I have always had some difficulty understanding complex instructions. Recently, I\u2019ve been experiencing swelling in my legs and around my ankles, which I think might be related to my kidney issues.Have you noticed any other signs of heart problems, such as difficulty breathing when lying down, a feeling of your neck veins getting more prominent, or any chest discomfort, in addition to your leg swelling?anxious_amplifier",
+    "output": "THINKING: I feel really anxious about what the doctor might say. I worry that these symptoms could mean something very bad, like my heart getting worse or something terrible happening, especially since I alread\nANSWER: Yes, I do have trouble breathing when I lie down, and my neck veins sometimes look more puffy than before, like they\u2019re popping out. Also, my chest sometimes hurts, and I keep thinking maybe it\u2019s something serious.",
+    "thinking": "I feel really anxious about what the doctor might say. I worry that these symptoms could mean something very bad, like my heart getting worse or something terrible happening, especially since I alread",
+    "answer": "Yes, I do have trouble breathing when I lie down, and my neck veins sometimes look more puffy than before, like they\u2019re popping out. Also, my chest sometimes hurts, and I keep thinking maybe it\u2019s something serious.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 12,
+    "gold_diagnosis": "Complete trisomy 18"
+  }
+]

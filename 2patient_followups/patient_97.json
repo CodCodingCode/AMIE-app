@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 97,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Other specified trachoma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 10-YEAR-OLD CHILD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Itchy, red eyes with follicular conjunctivitis\n- Mild eyelid swelling and some redness due to papillary conjunctivitis\n- Partial inward turning of your lower eyelids (entropion) causing your eyelashes to rub against your cornea\n- Trichiasis, where some eyelashes are now scratching your eye surface\n- Some cloudy areas on your cornea indicating scarring\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually worsening over time.\n(Act as if you're explaining your situation in a somewhat worried tone, occasionally rubbing your eyes or blinking slowly.)",
+    "output": "THINKING: I need to tell the doctor what\u2019s been bothering me, but I\u2019m kind of scared and not sure what\u2019s important. I should mention my eyes and the way they look and how they feel, but I don\u2019t really understan\nANSWER: My eyes have been really itchy and red, and they sometimes hurt, especially with my eyelashes rubbing against them. It\u2019s been like this for a few months, and it\u2019s worse now, I think.",
+    "thinking": "I need to tell the doctor what\u2019s been bothering me, but I\u2019m kind of scared and not sure what\u2019s important. I should mention my eyes and the way they look and how they feel, but I don\u2019t really understan",
+    "answer": "My eyes have been really itchy and red, and they sometimes hurt, especially with my eyelashes rubbing against them. It\u2019s been like this for a few months, and it\u2019s worse now, I think.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Other specified trachoma"
+  },
+  {
+    "vignette_index": 97,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified trachoma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 10-YEAR-OLD CHILD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Itchy, red eyes with follicular conjunctivitis\n- Mild eyelid swelling and some redness due to papillary conjunctivitis\n- Partial inward turning of your lower eyelids (entropion) causing your eyelashes to rub against your cornea\n- Trichiasis, where some eyelashes are now scratching your eye surface\n- Some cloudy areas on your cornea indicating scarring\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually worsening over time.\n(Act as if you're explaining your situation in a somewhat worried tone, occasionally rubbing your eyes or blinking slowly.)Can you tell me how these eye symptoms are affecting your usual activities, like school or playing, and if you've tried anything to help make them better?baseline",
+    "output": "THINKING: I'm feeling a bit worried about how my eyes are messing with me, especially since it's been getting worse and I don't really understand what\u2019s wrong. I want to explain it simply and honestly, even if \nANSWER: Well, my eyes bother me a lot, and I can't really do much like I used to. I tried putting water on them and resting, but it doesn\u2019t get much better.",
+    "thinking": "I'm feeling a bit worried about how my eyes are messing with me, especially since it's been getting worse and I don't really understand what\u2019s wrong. I want to explain it simply and honestly, even if",
+    "answer": "Well, my eyes bother me a lot, and I can't really do much like I used to. I tried putting water on them and resting, but it doesn\u2019t get much better.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Other specified trachoma"
+  },
+  {
+    "vignette_index": 97,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified trachoma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 10-YEAR-OLD CHILD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Itchy, red eyes with follicular conjunctivitis\n- Mild eyelid swelling and some redness due to papillary conjunctivitis\n- Partial inward turning of your lower eyelids (entropion) causing your eyelashes to rub against your cornea\n- Trichiasis, where some eyelashes are now scratching your eye surface\n- Some cloudy areas on your cornea indicating scarring\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually worsening over time.\n(Act as if you're explaining your situation in a somewhat worried tone, occasionally rubbing your eyes or blinking slowly.)Can you tell me more about how these eye symptoms have been affecting your daily activities, like school, playing, or focusing on things, and if you've tried any treatments or methods to make them feel better?baseline",
+    "output": "THINKING: I'm worried about my eyes because they\u2019re itchy and red, and they bother me a lot. I don\u2019t really know what to do or if I should be worried, but it\u2019s pretty uncomfortable, and I feel a little embarras\nANSWER: My eyes itch and are really red, and sometimes it hurts when I blink or when my eyelashes rub against them. I haven\u2019t really tried anything except just trying to keep them clean, but it doesn\u2019t seem to help much.",
+    "thinking": "I'm worried about my eyes because they\u2019re itchy and red, and they bother me a lot. I don\u2019t really know what to do or if I should be worried, but it\u2019s pretty uncomfortable, and I feel a little embarras",
+    "answer": "My eyes itch and are really red, and sometimes it hurts when I blink or when my eyelashes rub against them. I haven\u2019t really tried anything except just trying to keep them clean, but it doesn\u2019t seem to help much.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Other specified trachoma"
+  },
+  {
+    "vignette_index": 97,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified trachoma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 10-YEAR-OLD CHILD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Itchy, red eyes with follicular conjunctivitis\n- Mild eyelid swelling and some redness due to papillary conjunctivitis\n- Partial inward turning of your lower eyelids (entropion) causing your eyelashes to rub against your cornea\n- Trichiasis, where some eyelashes are now scratching your eye surface\n- Some cloudy areas on your cornea indicating scarring\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually worsening over time.\n(Act as if you're explaining your situation in a somewhat worried tone, occasionally rubbing your eyes or blinking slowly.)Can you tell me how these eye symptoms have been affecting your daily activities, like reading, watching, or feeling comfortable in light, and whether you've noticed any tearing, discharge, or changes in your vision?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about all these eye problems. I don't really understand what\u2019s happening or if it\u2019s serious, but I know my eyes hurt and I keep rubbing them. I want to tell the do\nANSWER: Well, my eyes feel itchy and red all the time, and sometimes I see blurry stuff. My eyelids look puffy, and the eyelashes are weird because some are turning inward and rubbing my eye, which makes it hurt more.",
+    "thinking": "I feel a bit overwhelmed and worried about all these eye problems. I don't really understand what\u2019s happening or if it\u2019s serious, but I know my eyes hurt and I keep rubbing them. I want to tell the do",
+    "answer": "Well, my eyes feel itchy and red all the time, and sometimes I see blurry stuff. My eyelids look puffy, and the eyelashes are weird because some are turning inward and rubbing my eye, which makes it hurt more.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Other specified trachoma"
+  },
+  {
+    "vignette_index": 97,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified trachoma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 10-YEAR-OLD CHILD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Itchy, red eyes with follicular conjunctivitis\n- Mild eyelid swelling and some redness due to papillary conjunctivitis\n- Partial inward turning of your lower eyelids (entropion) causing your eyelashes to rub against your cornea\n- Trichiasis, where some eyelashes are now scratching your eye surface\n- Some cloudy areas on your cornea indicating scarring\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually worsening over time.\n(Act as if you're explaining your situation in a somewhat worried tone, occasionally rubbing your eyes or blinking slowly.)Have you noticed if your eyelids or eyelashes have any crust, dirt, or sticky stuff on them, or anything that looks like flakes or scales?baseline",
+    "output": "THINKING: I'm worried about these crusty stuff and flakes on my eyes because it feels yukky and makes me feel uncomfortable, but I don\u2019t really understand what it is or if it\u2019s serious. I just want it to go awa\nANSWER: Um, yeah, sometimes I see like, yucky stuff on my eyelashes and it kind of sticks to them, especially when I wake up. I don\u2019t know if that\u2019s normal or not.",
+    "thinking": "I'm worried about these crusty stuff and flakes on my eyes because it feels yukky and makes me feel uncomfortable, but I don\u2019t really understand what it is or if it\u2019s serious. I just want it to go awa",
+    "answer": "Um, yeah, sometimes I see like, yucky stuff on my eyelashes and it kind of sticks to them, especially when I wake up. I don\u2019t know if that\u2019s normal or not.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Other specified trachoma"
+  },
+  {
+    "vignette_index": 97,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified trachoma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 10-YEAR-OLD CHILD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Itchy, red eyes with follicular conjunctivitis\n- Mild eyelid swelling and some redness due to papillary conjunctivitis\n- Partial inward turning of your lower eyelids (entropion) causing your eyelashes to rub against your cornea\n- Trichiasis, where some eyelashes are now scratching your eye surface\n- Some cloudy areas on your cornea indicating scarring\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually worsening over time.\n(Act as if you're explaining your situation in a somewhat worried tone, occasionally rubbing your eyes or blinking slowly.)Have you ever tried any treatments specifically for your eyelid or eye symptoms, like cleaning your eyelids, using medications, or anything your doctor might have given you, and if so, have they helped or made your symptoms better or worse?baseline",
+    "output": "THINKING: I feel a bit embarrassed and confused about all these different things going on with my eyes. I don't really understand what I\u2019ve done or what\u2019s supposed to help, so I just want to tell the doctor wha\nANSWER: No, I haven't really tried anything for my eyes. I just keep rubbing them because they feel itchy and red. Nothing's helped so far, I guess.",
+    "thinking": "I feel a bit embarrassed and confused about all these different things going on with my eyes. I don't really understand what I\u2019ve done or what\u2019s supposed to help, so I just want to tell the doctor wha",
+    "answer": "No, I haven't really tried anything for my eyes. I just keep rubbing them because they feel itchy and red. Nothing's helped so far, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Other specified trachoma"
+  },
+  {
+    "vignette_index": 97,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified trachoma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 10-YEAR-OLD CHILD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Itchy, red eyes with follicular conjunctivitis\n- Mild eyelid swelling and some redness due to papillary conjunctivitis\n- Partial inward turning of your lower eyelids (entropion) causing your eyelashes to rub against your cornea\n- Trichiasis, where some eyelashes are now scratching your eye surface\n- Some cloudy areas on your cornea indicating scarring\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually worsening over time.\n(Act as if you're explaining your situation in a somewhat worried tone, occasionally rubbing your eyes or blinking slowly.)Can you tell me if your eyelashes or eyelids have any kind of crust, sticky stuff, or discharge\u2014like a yellow or white yucky substance\u2014that you notice, especially when you wake up or after blinking?baseline",
+    "output": "THINKING: I feel a little embarrassed and worried, but I want to tell the doctor what I see. I notice stuff on my eyelashes and around my eyes, so I need to explain that clearly even if I don\u2019t know what it mea\nANSWER: Um, sometimes my eyelashes have this yucky stuff that sticks to them, and when I wake up, my eyes are kinda sticky and crusty.",
+    "thinking": "I feel a little embarrassed and worried, but I want to tell the doctor what I see. I notice stuff on my eyelashes and around my eyes, so I need to explain that clearly even if I don\u2019t know what it mea",
+    "answer": "Um, sometimes my eyelashes have this yucky stuff that sticks to them, and when I wake up, my eyes are kinda sticky and crusty.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Other specified trachoma"
+  },
+  {
+    "vignette_index": 97,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified trachoma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 10-YEAR-OLD CHILD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Itchy, red eyes with follicular conjunctivitis\n- Mild eyelid swelling and some redness due to papillary conjunctivitis\n- Partial inward turning of your lower eyelids (entropion) causing your eyelashes to rub against your cornea\n- Trichiasis, where some eyelashes are now scratching your eye surface\n- Some cloudy areas on your cornea indicating scarring\nTHESE SYMPTOMS CAME INTO FRUITION about three months ago, gradually worsening over time.\n(Act as if you're explaining your situation in a somewhat worried tone, occasionally rubbing your eyes or blinking slowly.)Can you tell me if any of your eyelashes are turned inward or point inwards\u2014like they\u2019re sticking into your eye\u2014and if that has ever made your eye feel scratchy or uncomfortable?baseline",
+    "output": "THINKING: I'm a little nervous and not sure what to say, but I want to tell the doctor what\u2019s been happening. I keep rubbing my eyes because they feel itchy and uncomfortable, and I\u2019ve noticed my eyelashes some\nANSWER: Yeah, some of my eyelashes look like they\u2019re turned inward and I think they\u2019re scratching my eye. It makes it feel weird and sometimes I get this. . . I don\u2019t know, a scratchy feeling.",
+    "thinking": "I'm a little nervous and not sure what to say, but I want to tell the doctor what\u2019s been happening. I keep rubbing my eyes because they feel itchy and uncomfortable, and I\u2019ve noticed my eyelashes some",
+    "answer": "Yeah, some of my eyelashes look like they\u2019re turned inward and I think they\u2019re scratching my eye. It makes it feel weird and sometimes I get this. . . I don\u2019t know, a scratchy feeling.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Other specified trachoma"
+  }
+]

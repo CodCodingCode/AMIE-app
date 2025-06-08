@@ -1,0 +1,97 @@
+[
+  {
+    "vignette_index": 61,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Puerperal sepsis\n\nYou are a 55-year-old woman. You are experiencing the following symptoms: a high fever that came on suddenly yesterday, chills that have been persistent, body aches that started gradually last evening, and a general feeling of malaise with loss of appetite. These symptoms began about 24 hours ago, and you\u2019ve noticed that you feel increasingly weak and uncomfortable. You recently had a vaginal delivery two weeks ago, and you recall some minor tearing during the process. You are worried because you feel very unwell and can't seem to shake off this discomfort.",
+    "output": "THINKING: The patient is clearly quite unwell, and her symptoms started suddenly a day ago with high fever and chills. She mentions a recent delivery and some tearing, which could be relevant. She seems worried\nANSWER: I don\u2019t know, I just suddenly started feeling really hot and terrible yesterday, like I was freezing then burning up. I\u2019ve been tired and achy all over, and I just feel so weak. I had my baby a couple of weeks ago, and I think something\u2019s wrong because I don\u2019t feel right and I don\u2019t want to get worse.",
+    "thinking": "The patient is clearly quite unwell, and her symptoms started suddenly a day ago with high fever and chills. She mentions a recent delivery and some tearing, which could be relevant. She seems worried",
+    "answer": "I don\u2019t know, I just suddenly started feeling really hot and terrible yesterday, like I was freezing then burning up. I\u2019ve been tired and achy all over, and I just feel so weak. I had my baby a couple of weeks ago, and I think something\u2019s wrong because I don\u2019t feel right and I don\u2019t want to get worse.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Puerperal sepsis"
+  },
+  {
+    "vignette_index": 61,
+    "input": "**PATIENT CHARACTER:** Patient with Puerperal sepsis\n\nYou are a 55-year-old woman. You are experiencing the following symptoms: a high fever that came on suddenly yesterday, chills that have been persistent, body aches that started gradually last evening, and a general feeling of malaise with loss of appetite. These symptoms began about 24 hours ago, and you\u2019ve noticed that you feel increasingly weak and uncomfortable. You recently had a vaginal delivery two weeks ago, and you recall some minor tearing during the process. You are worried because you feel very unwell and can't seem to shake off this discomfort.\"Can you tell me if you have noticed any unusual vaginal discharge, foul smell, or tenderness in your belly area since your delivery?\"baseline",
+    "output": "THINKING: I'm really worried about how sick I feel, and I don't understand all the medical words. I just want to tell the doctor what's been happening with me honestly and simply, even if I don't know if it's n\nANSWER: Umm, I haven't noticed any unusual discharge or smell, but I feel pretty bad overall. My belly hurts a little, but I mostly have chills and I feel weak.",
+    "thinking": "I'm really worried about how sick I feel, and I don't understand all the medical words. I just want to tell the doctor what's been happening with me honestly and simply, even if I don't know if it's n",
+    "answer": "Umm, I haven't noticed any unusual discharge or smell, but I feel pretty bad overall. My belly hurts a little, but I mostly have chills and I feel weak.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Puerperal sepsis"
+  },
+  {
+    "vignette_index": 61,
+    "input": "**PATIENT CHARACTER:** Patient with Puerperal sepsis\n\nYou are a 55-year-old woman. You are experiencing the following symptoms: a high fever that came on suddenly yesterday, chills that have been persistent, body aches that started gradually last evening, and a general feeling of malaise with loss of appetite. These symptoms began about 24 hours ago, and you\u2019ve noticed that you feel increasingly weak and uncomfortable. You recently had a vaginal delivery two weeks ago, and you recall some minor tearing during the process. You are worried because you feel very unwell and can't seem to shake off this discomfort.\"I understand some details might feel personal, but could you tell me if you've noticed any unusual vaginal discharge, a foul smell, or tenderness in your lower belly area since your delivery? You can tell me whatever feels comfortable.\"baseline",
+    "output": "THINKING: I feel really tired and a bit scared because I\u2019ve never felt this way before and I don't quite understand everything. The fever and chills are worst, and I keep thinking it might be something serious \nANSWER: I\u2019ve had a high fever since yesterday, and I feel cold and really weak. My body hurts all over, and I just feel so worn out, like I can't do anything.",
+    "thinking": "I feel really tired and a bit scared because I\u2019ve never felt this way before and I don't quite understand everything. The fever and chills are worst, and I keep thinking it might be something serious",
+    "answer": "I\u2019ve had a high fever since yesterday, and I feel cold and really weak. My body hurts all over, and I just feel so worn out, like I can't do anything.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Puerperal sepsis"
+  },
+  {
+    "vignette_index": 61,
+    "input": "**PATIENT CHARACTER:** Patient with Puerperal sepsis\n\nYou are a 55-year-old woman. You are experiencing the following symptoms: a high fever that came on suddenly yesterday, chills that have been persistent, body aches that started gradually last evening, and a general feeling of malaise with loss of appetite. These symptoms began about 24 hours ago, and you\u2019ve noticed that you feel increasingly weak and uncomfortable. You recently had a vaginal delivery two weeks ago, and you recall some minor tearing during the process. You are worried because you feel very unwell and can't seem to shake off this discomfort.I know some of these topics can feel a bit personal, but to better understand what might be going on, could you tell me if you've noticed any unusual vaginal discharge, a foul smell, or tenderness in your lower belly area since your delivery?baseline",
+    "output": "THINKING: I feel really sick and worried, but I don\u2019t fully understand what\u2019s happening or if it\u2019s something serious. I just know I feel worse and haven\u2019t felt like this before after the delivery.\nANSWER: No, I haven\u2019t noticed anything weird like that. I just feel really bad all over and hot and cold, but I don\u2019t know if that\u2019s normal or not.",
+    "thinking": "I feel really sick and worried, but I don\u2019t fully understand what\u2019s happening or if it\u2019s something serious. I just know I feel worse and haven\u2019t felt like this before after the delivery.",
+    "answer": "No, I haven\u2019t noticed anything weird like that. I just feel really bad all over and hot and cold, but I don\u2019t know if that\u2019s normal or not.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Puerperal sepsis"
+  },
+  {
+    "vignette_index": 61,
+    "input": "**PATIENT CHARACTER:** Patient with Puerperal sepsis\n\nYou are a 55-year-old woman. You are experiencing the following symptoms: a high fever that came on suddenly yesterday, chills that have been persistent, body aches that started gradually last evening, and a general feeling of malaise with loss of appetite. These symptoms began about 24 hours ago, and you\u2019ve noticed that you feel increasingly weak and uncomfortable. You recently had a vaginal delivery two weeks ago, and you recall some minor tearing during the process. You are worried because you feel very unwell and can't seem to shake off this discomfort.I understand that talking about personal issues can be uncomfortable, but could you please tell me if you've noticed any unusual vaginal discharge, any foul smell, or tenderness in your lower belly area since your delivery\u2014even if you think it might not be a big deal?baseline",
+    "output": "THINKING: I feel like I should tell the doctor something, but I\u2019m also scared I might make things sound worse than they are or just say the wrong thing. I just want to be honest without overthinking it too much\nANSWER: Um, well, I don\u2019t know if this is related, but I\u2019ve been feeling really hot and chilly all the time since yesterday, and I feel tired and kinda gross. My stomach hurts a little too, but I don\u2019t know if that\u2019s normal after giving birth.",
+    "thinking": "I feel like I should tell the doctor something, but I\u2019m also scared I might make things sound worse than they are or just say the wrong thing. I just want to be honest without overthinking it too much",
+    "answer": "Um, well, I don\u2019t know if this is related, but I\u2019ve been feeling really hot and chilly all the time since yesterday, and I feel tired and kinda gross. My stomach hurts a little too, but I don\u2019t know if that\u2019s normal after giving birth.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Puerperal sepsis"
+  },
+  {
+    "vignette_index": 61,
+    "input": "**PATIENT CHARACTER:** Patient with Puerperal sepsis\n\nYou are a 55-year-old woman. You are experiencing the following symptoms: a high fever that came on suddenly yesterday, chills that have been persistent, body aches that started gradually last evening, and a general feeling of malaise with loss of appetite. These symptoms began about 24 hours ago, and you\u2019ve noticed that you feel increasingly weak and uncomfortable. You recently had a vaginal delivery two weeks ago, and you recall some minor tearing during the process. You are worried because you feel very unwell and can't seem to shake off this discomfort.Given that you mentioned feeling unwell and having some mild abdominal discomfort, can you tell me if you've noticed any unusual vaginal discharge, a foul smell, or tenderness in your lower belly area since your delivery, even if it feels a little uncomfortable or embarrassing to talk about?baseline",
+    "output": "THINKING: I'm feeling quite sick and a bit embarrassed about my concerns, especially since I just had the baby and I don't really want to talk about things like discharge or anything weird down there, but I kno\nANSWER: Um, I haven't noticed much discharge or anything, but my belly's been tender or uncomfortable, and I feel kind of sick all over with a fever and chills.",
+    "thinking": "I'm feeling quite sick and a bit embarrassed about my concerns, especially since I just had the baby and I don't really want to talk about things like discharge or anything weird down there, but I kno",
+    "answer": "Um, I haven't noticed much discharge or anything, but my belly's been tender or uncomfortable, and I feel kind of sick all over with a fever and chills.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Puerperal sepsis"
+  },
+  {
+    "vignette_index": 61,
+    "input": "**PATIENT CHARACTER:** Patient with Puerperal sepsis\n\nYou are a 55-year-old woman. You are experiencing the following symptoms: a high fever that came on suddenly yesterday, chills that have been persistent, body aches that started gradually last evening, and a general feeling of malaise with loss of appetite. These symptoms began about 24 hours ago, and you\u2019ve noticed that you feel increasingly weak and uncomfortable. You recently had a vaginal delivery two weeks ago, and you recall some minor tearing during the process. You are worried because you feel very unwell and can't seem to shake off this discomfort.\"Understanding that discussing these issues can feel a bit sensitive, could you please tell me if you've noticed any increased vaginal discharge, especially if it's foul-smelling, or if there's tenderness or pain in your lower belly that might be bothering you\u2014even if you're feeling uncomfortable talking about it?\"baseline",
+    "output": "THINKING: The doctor is asking about my discharge and pain, which I'm not even sure I understand completely, but I do feel worse now and just want to explain how bad I feel overall. I\u2019m worried about all these \nANSWER: Umm, I haven\u2019t noticed any strange smell or anything like that, but I do feel really feverish and full of chills, and my belly feels kind of sore. I don\u2019t know if it\u2019s related, but I just feel worse today.",
+    "thinking": "The doctor is asking about my discharge and pain, which I'm not even sure I understand completely, but I do feel worse now and just want to explain how bad I feel overall. I\u2019m worried about all these",
+    "answer": "Umm, I haven\u2019t noticed any strange smell or anything like that, but I do feel really feverish and full of chills, and my belly feels kind of sore. I don\u2019t know if it\u2019s related, but I just feel worse today.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Puerperal sepsis"
+  },
+  {
+    "vignette_index": 61,
+    "input": "**PATIENT CHARACTER:** Patient with Puerperal sepsis\n\nYou are a 55-year-old woman. You are experiencing the following symptoms: a high fever that came on suddenly yesterday, chills that have been persistent, body aches that started gradually last evening, and a general feeling of malaise with loss of appetite. These symptoms began about 24 hours ago, and you\u2019ve noticed that you feel increasingly weak and uncomfortable. You recently had a vaginal delivery two weeks ago, and you recall some minor tearing during the process. You are worried because you feel very unwell and can't seem to shake off this discomfort.I understand these topics can be sensitive, but could you please tell me if you've noticed any unusual vaginal discharge, especially if it has a foul smell, or any tenderness or pain in your lower belly area since your delivery?baseline",
+    "output": "THINKING: I'm feeling really sick, chills and body aches, and I just want to explain everything but I might forget some details. I should tell the doctor what\u2019s happening clearly but honestly, I just feel prett\nANSWER: I\u2019ve had these chills and a fever since yesterday, and I feel really weak and achy all over. I also don\u2019t really have much of an appetite anymore, and I just feel worse and worse, especially since my delivery a couple of weeks ago.",
+    "thinking": "I'm feeling really sick, chills and body aches, and I just want to explain everything but I might forget some details. I should tell the doctor what\u2019s happening clearly but honestly, I just feel prett",
+    "answer": "I\u2019ve had these chills and a fever since yesterday, and I feel really weak and achy all over. I also don\u2019t really have much of an appetite anymore, and I just feel worse and worse, especially since my delivery a couple of weeks ago.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Puerperal sepsis"
+  },
+  {
+    "vignette_index": 61,
+    "input": "**PATIENT CHARACTER:** Patient with Puerperal sepsis\n\nYou are a 55-year-old woman. You are experiencing the following symptoms: a high fever that came on suddenly yesterday, chills that have been persistent, body aches that started gradually last evening, and a general feeling of malaise with loss of appetite. These symptoms began about 24 hours ago, and you\u2019ve noticed that you feel increasingly weak and uncomfortable. You recently had a vaginal delivery two weeks ago, and you recall some minor tearing during the process. You are worried because you feel very unwell and can't seem to shake off this discomfort.Given your systemic symptoms like fever and malaise, it's really helpful to understand whether you also feel any tenderness or pain in your lower belly area, or if you've noticed any unusual vaginal discharge or a foul smell\u2014can you tell me a bit more about how you're feeling in those specific areas?baseline",
+    "output": "THINKING: I'm not exactly sure if there's pain there or anything unusual, but I do feel kind of sore and uncomfortable down there, especially around where I tore. I haven't noticed anything strange like a bad s\nANSWER: Um, I do feel kind of sore and uncomfortable in that area, but I haven\u2019t seen or smelled anything odd. It just feels worse than before.",
+    "thinking": "I'm not exactly sure if there's pain there or anything unusual, but I do feel kind of sore and uncomfortable down there, especially around where I tore. I haven't noticed anything strange like a bad s",
+    "answer": "Um, I do feel kind of sore and uncomfortable in that area, but I haven\u2019t seen or smelled anything odd. It just feels worse than before.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Puerperal sepsis"
+  }
+]

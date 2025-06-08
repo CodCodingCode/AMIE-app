@@ -1,0 +1,106 @@
+[
+  {
+    "vignette_index": 449,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Radial styloid tenosynovitis\n\nYou are a patient: You are a 45-year-old woman. You are experiencing the following symptoms:\n- Pain at the base of your right thumb\n- Swelling and tenderness at the base of the thumb\n- Pain that radiates up your forearm\n- Increasing discomfort with thumb and wrist movements\nThese symptoms came on gradually over the past two weeks, especially after you\u2019ve been doing repetitive gripping and lifting tasks at work. You noticed the pain worsens when you try to open jars or pick up heavy objects, and the swelling has become more noticeable. You\u2019ve tried resting your hand and using over-the-counter NSAIDs, but the pain and swelling persist and seem to be worsening.",
+    "output": "THINKING: I need to explain my symptoms clearly, showing I\u2019m worried this might be something serious, but I don\u2019t understand all the medical stuff. I want to describe how badly I feel and how it\u2019s getting worse\nANSWER: I\u2019m a 45-year-old woman, and I\u2019ve been having really bad pain at the base of my right thumb and swelling there, too. It\u2019s been maybe two weeks, and it\u2019s gotten worse, especially when I try to do things like open jars or pick stuff up. The pain even kind of shoots up into my forearm, and I\u2019m worried it\u2019s not getting better even though I\u2019ve been resting and taking some pain medicine my friend recommended. I\u2019m really scared it\u2019s something serious or that I won\u2019t be able to do my normal stuff anymore.",
+    "thinking": "I need to explain my symptoms clearly, showing I\u2019m worried this might be something serious, but I don\u2019t understand all the medical stuff. I want to describe how badly I feel and how it\u2019s getting worse",
+    "answer": "I\u2019m a 45-year-old woman, and I\u2019ve been having really bad pain at the base of my right thumb and swelling there, too. It\u2019s been maybe two weeks, and it\u2019s gotten worse, especially when I try to do things like open jars or pick stuff up. The pain even kind of shoots up into my forearm, and I\u2019m worried it\u2019s not getting better even though I\u2019ve been resting and taking some pain medicine my friend recommended. I\u2019m really scared it\u2019s something serious or that I won\u2019t be able to do my normal stuff anymore.",
+    "behavior_type": "anxious_amplifier",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient with health anxiety who amplifies symptoms",
+      "modifiers": [
+        "catastrophic_thinking",
+        "symptom_amplification",
+        "multiple_concerns"
+      ],
+      "empathy_cues": [
+        "high_anxiety",
+        "catastrophic_language",
+        "reassurance_seeking",
+        "fear_expression"
+      ]
+    },
+    "gold_diagnosis": "Radial styloid tenosynovitis"
+  },
+  {
+    "vignette_index": 449,
+    "input": "**PATIENT CHARACTER:** Patient with Radial styloid tenosynovitis\n\nYou are a patient: You are a 45-year-old woman. You are experiencing the following symptoms:\n- Pain at the base of your right thumb\n- Swelling and tenderness at the base of the thumb\n- Pain that radiates up your forearm\n- Increasing discomfort with thumb and wrist movements\nThese symptoms came on gradually over the past two weeks, especially after you\u2019ve been doing repetitive gripping and lifting tasks at work. You noticed the pain worsens when you try to open jars or pick up heavy objects, and the swelling has become more noticeable. You\u2019ve tried resting your hand and using over-the-counter NSAIDs, but the pain and swelling persist and seem to be worsening.Can you tell me more about how this pain and swelling have affected your daily activities and how it has changed over time since it first started?anxious_amplifier",
+    "output": "THINKING: I feel overwhelmed and worried because it\u2019s gotten worse and I don\u2019t know if it\u2019s something serious. I\u2019m afraid I won\u2019t be able to do my everyday stuff or maybe I\u2019ll lose my grip altogether.\nANSWER: Oh, it\u2019s terrible, doctor. It\u2019s made everything harder, and I\u2019m scared it\u2019s just going to keep getting worse, like I won\u2019t be able to do anything at all soon.",
+    "thinking": "I feel overwhelmed and worried because it\u2019s gotten worse and I don\u2019t know if it\u2019s something serious. I\u2019m afraid I won\u2019t be able to do my everyday stuff or maybe I\u2019ll lose my grip altogether.",
+    "answer": "Oh, it\u2019s terrible, doctor. It\u2019s made everything harder, and I\u2019m scared it\u2019s just going to keep getting worse, like I won\u2019t be able to do anything at all soon.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 0,
+    "gold_diagnosis": "Radial styloid tenosynovitis"
+  },
+  {
+    "vignette_index": 449,
+    "input": "**PATIENT CHARACTER:** Patient with Radial styloid tenosynovitis\n\nYou are a patient: You are a 45-year-old woman. You are experiencing the following symptoms:\n- Pain at the base of your right thumb\n- Swelling and tenderness at the base of the thumb\n- Pain that radiates up your forearm\n- Increasing discomfort with thumb and wrist movements\nThese symptoms came on gradually over the past two weeks, especially after you\u2019ve been doing repetitive gripping and lifting tasks at work. You noticed the pain worsens when you try to open jars or pick up heavy objects, and the swelling has become more noticeable. You\u2019ve tried resting your hand and using over-the-counter NSAIDs, but the pain and swelling persist and seem to be worsening.Can you tell me if the swelling and pain have been there all the time since it started, or if they come and go? Also, have you noticed any redness, warmth, or other parts of your hand or wrist feeling different?anxious_amplifier",
+    "output": "THINKING: I really don\u2019t like the idea that it\u2019s been there all the time and never stops, but I also keep wondering if it\u2019s worse at certain times or if I\u2019m just imagining things. I feel anxious that it might b\nANSWER: It\u2019s been pretty much there all the time, but it\u2019s worse sometimes, especially when I try to do stuff like open jars or lift things, and the pain just feels unbearable, like it\u2019s spreading up my arm and I don\u2019t know what\u2019s wrong.",
+    "thinking": "I really don\u2019t like the idea that it\u2019s been there all the time and never stops, but I also keep wondering if it\u2019s worse at certain times or if I\u2019m just imagining things. I feel anxious that it might b",
+    "answer": "It\u2019s been pretty much there all the time, but it\u2019s worse sometimes, especially when I try to do stuff like open jars or lift things, and the pain just feels unbearable, like it\u2019s spreading up my arm and I don\u2019t know what\u2019s wrong.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 2,
+    "gold_diagnosis": "Radial styloid tenosynovitis"
+  },
+  {
+    "vignette_index": 449,
+    "input": "**PATIENT CHARACTER:** Patient with Radial styloid tenosynovitis\n\nYou are a patient: You are a 45-year-old woman. You are experiencing the following symptoms:\n- Pain at the base of your right thumb\n- Swelling and tenderness at the base of the thumb\n- Pain that radiates up your forearm\n- Increasing discomfort with thumb and wrist movements\nThese symptoms came on gradually over the past two weeks, especially after you\u2019ve been doing repetitive gripping and lifting tasks at work. You noticed the pain worsens when you try to open jars or pick up heavy objects, and the swelling has become more noticeable. You\u2019ve tried resting your hand and using over-the-counter NSAIDs, but the pain and swelling persist and seem to be worsening.Can you tell me if your swelling and pain have come and gone at any times, or have they stayed about the same since they first started?anxious_amplifier",
+    "output": "THINKING: I\u2019m really worried because the pain and swelling keep getting worse, and I\u2019m not sure if they\u2019ll ever get better or if it\u2019s something really serious like arthritis or worse. I feel like it\u2019s just terr\nANSWER: It\u2019s been pretty much the same, but sometimes it feels worse or more swollen than before, and I just don\u2019t know if it\u2019s supposed to stay like this or if I should be worried it\u2019s something really bad.",
+    "thinking": "I\u2019m really worried because the pain and swelling keep getting worse, and I\u2019m not sure if they\u2019ll ever get better or if it\u2019s something really serious like arthritis or worse. I feel like it\u2019s just terr",
+    "answer": "It\u2019s been pretty much the same, but sometimes it feels worse or more swollen than before, and I just don\u2019t know if it\u2019s supposed to stay like this or if I should be worried it\u2019s something really bad.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 4,
+    "gold_diagnosis": "Radial styloid tenosynovitis"
+  },
+  {
+    "vignette_index": 449,
+    "input": "**PATIENT CHARACTER:** Patient with Radial styloid tenosynovitis\n\nYou are a patient: You are a 45-year-old woman. You are experiencing the following symptoms:\n- Pain at the base of your right thumb\n- Swelling and tenderness at the base of the thumb\n- Pain that radiates up your forearm\n- Increasing discomfort with thumb and wrist movements\nThese symptoms came on gradually over the past two weeks, especially after you\u2019ve been doing repetitive gripping and lifting tasks at work. You noticed the pain worsens when you try to open jars or pick up heavy objects, and the swelling has become more noticeable. You\u2019ve tried resting your hand and using over-the-counter NSAIDs, but the pain and swelling persist and seem to be worsening.Have you noticed any numbness, tingling, or weakness in your thumb, fingers, or hand, especially during your activities or at different times?anxious_amplifier",
+    "output": "THINKING: I\u2019m really worried because I do feel some numbness and tingling sometimes, and I keep thinking maybe it's something serious like nerve damage or a stroke or something bad. I don\u2019t fully understand all\nANSWER: Umm, yes, I think I do feel some tingling and numbness in my fingers sometimes, especially when I use my hand a lot, and I keep worrying it might be something worse like nerve problems or a stroke or something\u2014I'm just really scared because it\u2019s been getting worse.",
+    "thinking": "I\u2019m really worried because I do feel some numbness and tingling sometimes, and I keep thinking maybe it's something serious like nerve damage or a stroke or something bad. I don\u2019t fully understand all",
+    "answer": "Umm, yes, I think I do feel some tingling and numbness in my fingers sometimes, especially when I use my hand a lot, and I keep worrying it might be something worse like nerve problems or a stroke or something\u2014I'm just really scared because it\u2019s been getting worse.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 6,
+    "gold_diagnosis": "Radial styloid tenosynovitis"
+  },
+  {
+    "vignette_index": 449,
+    "input": "**PATIENT CHARACTER:** Patient with Radial styloid tenosynovitis\n\nYou are a patient: You are a 45-year-old woman. You are experiencing the following symptoms:\n- Pain at the base of your right thumb\n- Swelling and tenderness at the base of the thumb\n- Pain that radiates up your forearm\n- Increasing discomfort with thumb and wrist movements\nThese symptoms came on gradually over the past two weeks, especially after you\u2019ve been doing repetitive gripping and lifting tasks at work. You noticed the pain worsens when you try to open jars or pick up heavy objects, and the swelling has become more noticeable. You\u2019ve tried resting your hand and using over-the-counter NSAIDs, but the pain and swelling persist and seem to be worsening.Have you ever experienced similar thumb or hand problems before, like swelling or pain coming and going, and if so, when did they happen and what was different about those times?anxious_amplifier",
+    "output": "THINKING: I'm really worried this might be something serious like arthritis or even worse, a fracture or tendon tear. The pain has been getting worse and I just want to figure out what\u2019s wrong because I can\u2019t e\nANSWER: No, I\u2019ve never had anything like this before, but it\u2019s been terrible lately and I\u2019m so worried it could be something really bad, like I\u2019ve done a lot of damage or it\u2019s some kind of disease I\u2019ve never had before.",
+    "thinking": "I'm really worried this might be something serious like arthritis or even worse, a fracture or tendon tear. The pain has been getting worse and I just want to figure out what\u2019s wrong because I can\u2019t e",
+    "answer": "No, I\u2019ve never had anything like this before, but it\u2019s been terrible lately and I\u2019m so worried it could be something really bad, like I\u2019ve done a lot of damage or it\u2019s some kind of disease I\u2019ve never had before.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 8,
+    "gold_diagnosis": "Radial styloid tenosynovitis"
+  },
+  {
+    "vignette_index": 449,
+    "input": "**PATIENT CHARACTER:** Patient with Radial styloid tenosynovitis\n\nYou are a patient: You are a 45-year-old woman. You are experiencing the following symptoms:\n- Pain at the base of your right thumb\n- Swelling and tenderness at the base of the thumb\n- Pain that radiates up your forearm\n- Increasing discomfort with thumb and wrist movements\nThese symptoms came on gradually over the past two weeks, especially after you\u2019ve been doing repetitive gripping and lifting tasks at work. You noticed the pain worsens when you try to open jars or pick up heavy objects, and the swelling has become more noticeable. You\u2019ve tried resting your hand and using over-the-counter NSAIDs, but the pain and swelling persist and seem to be worsening.Have you noticed any actual weakness or difficulty moving your fingers or thumb, like dropping things or trouble gripping, or any increased numbness or tingling that feels different from before?anxious_amplifier",
+    "output": "THINKING: I'm really worried that if I have any weakness or trouble with my hand or fingers, it could be something serious like nerve damage or even some kind of crazy disease. I feel like things are getting wo\nANSWER: No, I haven\u2019t noticed any dropping things or trouble gripping, but sometimes it feels like my hand is just really weak, and I worry it\u2019s getting worse or something else is wrong.",
+    "thinking": "I'm really worried that if I have any weakness or trouble with my hand or fingers, it could be something serious like nerve damage or even some kind of crazy disease. I feel like things are getting wo",
+    "answer": "No, I haven\u2019t noticed any dropping things or trouble gripping, but sometimes it feels like my hand is just really weak, and I worry it\u2019s getting worse or something else is wrong.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 10,
+    "gold_diagnosis": "Radial styloid tenosynovitis"
+  },
+  {
+    "vignette_index": 449,
+    "input": "**PATIENT CHARACTER:** Patient with Radial styloid tenosynovitis\n\nYou are a patient: You are a 45-year-old woman. You are experiencing the following symptoms:\n- Pain at the base of your right thumb\n- Swelling and tenderness at the base of the thumb\n- Pain that radiates up your forearm\n- Increasing discomfort with thumb and wrist movements\nThese symptoms came on gradually over the past two weeks, especially after you\u2019ve been doing repetitive gripping and lifting tasks at work. You noticed the pain worsens when you try to open jars or pick up heavy objects, and the swelling has become more noticeable. You\u2019ve tried resting your hand and using over-the-counter NSAIDs, but the pain and swelling persist and seem to be worsening.Can I gently ask you to describe exactly what I might see on your hand and thumb when I examine it \u2014 such as any swelling, deformity, or movements that cause clicking or instability \u2014 so we can better understand what's happening with your joint?anxious_amplifier",
+    "output": "THINKING: I feel nervous about what the doctor might see and whether it\u2019s something serious like a fracture or worse. I want to describe it clearly but also worry I might miss something important or say the wro\nANSWER: Well, the area at the base of my thumb is swollen and tender, and it looks a little puffy. When you touch it, it feels kind of warm, and I think I see some redness, too. It hurts a lot when I move my thumb or try to grip things.",
+    "thinking": "I feel nervous about what the doctor might see and whether it\u2019s something serious like a fracture or worse. I want to describe it clearly but also worry I might miss something important or say the wro",
+    "answer": "Well, the area at the base of my thumb is swollen and tender, and it looks a little puffy. When you touch it, it feels kind of warm, and I think I see some redness, too. It hurts a lot when I move my thumb or try to grip things.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 12,
+    "gold_diagnosis": "Radial styloid tenosynovitis"
+  },
+  {
+    "vignette_index": 449,
+    "input": "**PATIENT CHARACTER:** Patient with Radial styloid tenosynovitis\n\nYou are a patient: You are a 45-year-old woman. You are experiencing the following symptoms:\n- Pain at the base of your right thumb\n- Swelling and tenderness at the base of the thumb\n- Pain that radiates up your forearm\n- Increasing discomfort with thumb and wrist movements\nThese symptoms came on gradually over the past two weeks, especially after you\u2019ve been doing repetitive gripping and lifting tasks at work. You noticed the pain worsens when you try to open jars or pick up heavy objects, and the swelling has become more noticeable. You\u2019ve tried resting your hand and using over-the-counter NSAIDs, but the pain and swelling persist and seem to be worsening.Have you noticed any numbness, tingling, or weakness specifically in your thumb, index finger, or middle finger\u2014like if they feel 'pins and needles' or if you have trouble feeling or moving them\u2014especially at rest or during activities?anxious_amplifier",
+    "output": "THINKING: I\u2019m worried about the numbness and tingling because I keep thinking it might be something serious like nerve damage or even a stroke. I don\u2019t want to sound overreacting, but the symptoms are really bo\nANSWER: No, I haven\u2019t really noticed any numbness or tingling, but I keep thinking, what if it\u2019s something really bad happening with my nerves or my brain? It\u2019s just this pain and swelling that won\u2019t go away, but I keep worrying about the other stuff too.",
+    "thinking": "I\u2019m worried about the numbness and tingling because I keep thinking it might be something serious like nerve damage or even a stroke. I don\u2019t want to sound overreacting, but the symptoms are really bo",
+    "answer": "No, I haven\u2019t really noticed any numbness or tingling, but I keep thinking, what if it\u2019s something really bad happening with my nerves or my brain? It\u2019s just this pain and swelling that won\u2019t go away, but I keep worrying about the other stuff too.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 14,
+    "gold_diagnosis": "Radial styloid tenosynovitis"
+  }
+]

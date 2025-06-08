@@ -1,0 +1,106 @@
+[
+  {
+    "vignette_index": 206,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium\n\nYou are a patient: You are a 32-year-old woman, and your biological gender is female.\nYou are experiencing the following symptoms:\n- Swelling in your hands and face, which has gotten worse over the past few days\n- A sudden headache that feels different from your usual migraines\n- Some nausea and fatigue that started about a week ago\n- You also noticed your urine has become darker and you feel a bit dizzy when standing up\nThese symptoms came into fruition gradually over the past week, but the swelling and headache seemed to suddenly worsen yesterday.",
+    "output": "THINKING: I need to explain what\u2019s been going on, but I also don\u2019t want to make a big deal out of it. It\u2019s been getting worse, especially the swelling and the headache, but I\u2019ve had some tiredness and not feeli\nANSWER: Well, I\u2019m 32, and I\u2019m a woman. I\u2019ve been noticing my hands and face swelling up more than usual, and that\u2019s been happening for a few days, but last night it got really a lot worse. I also have this headache that\u2019s kinda different from the migraines I sometimes get \u2014 it\u2019s really persistent and kind of different. Plus, I\u2019ve been feeling kinda tired and threw up a little last week, and lately, my urine looks darker, and I feel dizzy sometimes when I stand up. I\u2019ve just been trying to handle it, but I guess I finally thought I should come in and see what\u2019s going on.",
+    "thinking": "I need to explain what\u2019s been going on, but I also don\u2019t want to make a big deal out of it. It\u2019s been getting worse, especially the swelling and the headache, but I\u2019ve had some tiredness and not feeli",
+    "answer": "Well, I\u2019m 32, and I\u2019m a woman. I\u2019ve been noticing my hands and face swelling up more than usual, and that\u2019s been happening for a few days, but last night it got really a lot worse. I also have this headache that\u2019s kinda different from the migraines I sometimes get \u2014 it\u2019s really persistent and kind of different. Plus, I\u2019ve been feeling kinda tired and threw up a little last week, and lately, my urine looks darker, and I feel dizzy sometimes when I stand up. I\u2019ve just been trying to handle it, but I guess I finally thought I should come in and see what\u2019s going on.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium"
+  },
+  {
+    "vignette_index": 206,
+    "input": "**PATIENT CHARACTER:** Patient with Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium\n\nYou are a patient: You are a 32-year-old woman, and your biological gender is female.\nYou are experiencing the following symptoms:\n- Swelling in your hands and face, which has gotten worse over the past few days\n- A sudden headache that feels different from your usual migraines\n- Some nausea and fatigue that started about a week ago\n- You also noticed your urine has become darker and you feel a bit dizzy when standing up\nThese symptoms came into fruition gradually over the past week, but the swelling and headache seemed to suddenly worsen yesterday.Can you tell me more about how your swelling and headache are affecting your everyday activities, and if you\u2019ve noticed any changes in your vision or any new symptoms since this all started?stoic_minimizer",
+    "output": "THINKING: I don\u2019t really want to make a big deal out of it, but I guess it\u2019s been worse lately. My head hurts more than usual, and I\u2019ve been feeling pretty dizzy and tired, but I\u2019ve just been pushing through. I\nANSWER: Well, the swelling's gotten worse, especially in my face and hands, and the headache feels pretty different from my usual migraines. I\u2019ve also been feeling more dizzy and tired, and my urine looks darker, but I didn\u2019t think it was anything serious.",
+    "thinking": "I don\u2019t really want to make a big deal out of it, but I guess it\u2019s been worse lately. My head hurts more than usual, and I\u2019ve been feeling pretty dizzy and tired, but I\u2019ve just been pushing through. I",
+    "answer": "Well, the swelling's gotten worse, especially in my face and hands, and the headache feels pretty different from my usual migraines. I\u2019ve also been feeling more dizzy and tired, and my urine looks darker, but I didn\u2019t think it was anything serious.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium"
+  },
+  {
+    "vignette_index": 206,
+    "input": "**PATIENT CHARACTER:** Patient with Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium\n\nYou are a patient: You are a 32-year-old woman, and your biological gender is female.\nYou are experiencing the following symptoms:\n- Swelling in your hands and face, which has gotten worse over the past few days\n- A sudden headache that feels different from your usual migraines\n- Some nausea and fatigue that started about a week ago\n- You also noticed your urine has become darker and you feel a bit dizzy when standing up\nThese symptoms came into fruition gradually over the past week, but the swelling and headache seemed to suddenly worsen yesterday.Can you tell me if you've noticed any changes in your vision, such as blurriness or seeing spots, or any new weakness or numbness in your limbs since your symptoms started?stoic_minimizer",
+    "output": "THINKING: I\u2019m a little worried, especially about the headache and swelling getting worse, but I don't want to overreact. I\u2019ve been dealing with some stuff already, so I guess I should mention it all, even if I\u2019\nANSWER: Well, yeah, I\u2019ve noticed my face and hands are more puffy, and the headache feels different\u2014kind of stronger. I\u2019ve just been feeling more tired and queasy lately, and my urine is darker than usual.",
+    "thinking": "I\u2019m a little worried, especially about the headache and swelling getting worse, but I don't want to overreact. I\u2019ve been dealing with some stuff already, so I guess I should mention it all, even if I\u2019",
+    "answer": "Well, yeah, I\u2019ve noticed my face and hands are more puffy, and the headache feels different\u2014kind of stronger. I\u2019ve just been feeling more tired and queasy lately, and my urine is darker than usual.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium"
+  },
+  {
+    "vignette_index": 206,
+    "input": "**PATIENT CHARACTER:** Patient with Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium\n\nYou are a patient: You are a 32-year-old woman, and your biological gender is female.\nYou are experiencing the following symptoms:\n- Swelling in your hands and face, which has gotten worse over the past few days\n- A sudden headache that feels different from your usual migraines\n- Some nausea and fatigue that started about a week ago\n- You also noticed your urine has become darker and you feel a bit dizzy when standing up\nThese symptoms came into fruition gradually over the past week, but the swelling and headache seemed to suddenly worsen yesterday.Can you tell me how these symptoms\u2014like your swelling, headache, or feeling tired\u2014have been affecting your daily activities or how you\u2019re managing with everything lately?stoic_minimizer",
+    "output": "THINKING: I\u2019ve been dealing with some swelling and a headache, and I know it\u2019s worse now, but I don\u2019t really want to make a big deal out of it. I\u2019ve probably just been tired or something, and I\u2019ve been busy, so\nANSWER: Well, the swelling\u2019s been going up for a few days, and the headache feels different than my usual ones, but I\u2019ve just been trying to handle it on my own. It\u2019s probably nothing, but I guess it\u2019s gotten a bit more noticeable lately.",
+    "thinking": "I\u2019ve been dealing with some swelling and a headache, and I know it\u2019s worse now, but I don\u2019t really want to make a big deal out of it. I\u2019ve probably just been tired or something, and I\u2019ve been busy, so",
+    "answer": "Well, the swelling\u2019s been going up for a few days, and the headache feels different than my usual ones, but I\u2019ve just been trying to handle it on my own. It\u2019s probably nothing, but I guess it\u2019s gotten a bit more noticeable lately.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium"
+  },
+  {
+    "vignette_index": 206,
+    "input": "**PATIENT CHARACTER:** Patient with Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium\n\nYou are a patient: You are a 32-year-old woman, and your biological gender is female.\nYou are experiencing the following symptoms:\n- Swelling in your hands and face, which has gotten worse over the past few days\n- A sudden headache that feels different from your usual migraines\n- Some nausea and fatigue that started about a week ago\n- You also noticed your urine has become darker and you feel a bit dizzy when standing up\nThese symptoms came into fruition gradually over the past week, but the swelling and headache seemed to suddenly worsen yesterday.Can you tell me more about the nature of your headache\u2014when it started, how it feels, where exactly the pain is, and if there\u2019s anything that makes it better or worse\u2014and also, have you checked your blood pressure recently?stoic_minimizer",
+    "output": "THINKING: I don't want to overreact, but these symptoms, especially the swelling and headache, seem worse than before. I\u2019ve had high blood pressure before, so I\u2019m a bit worried about that, but I don\u2019t want to m\nANSWER: Well, the headache is different from my usual migraines, and the swelling has gotten worse. I haven't checked my blood pressure lately, but I think I should probably see someone about this.",
+    "thinking": "I don't want to overreact, but these symptoms, especially the swelling and headache, seem worse than before. I\u2019ve had high blood pressure before, so I\u2019m a bit worried about that, but I don\u2019t want to m",
+    "answer": "Well, the headache is different from my usual migraines, and the swelling has gotten worse. I haven't checked my blood pressure lately, but I think I should probably see someone about this.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium"
+  },
+  {
+    "vignette_index": 206,
+    "input": "**PATIENT CHARACTER:** Patient with Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium\n\nYou are a patient: You are a 32-year-old woman, and your biological gender is female.\nYou are experiencing the following symptoms:\n- Swelling in your hands and face, which has gotten worse over the past few days\n- A sudden headache that feels different from your usual migraines\n- Some nausea and fatigue that started about a week ago\n- You also noticed your urine has become darker and you feel a bit dizzy when standing up\nThese symptoms came into fruition gradually over the past week, but the swelling and headache seemed to suddenly worsen yesterday.Have you had your blood pressure checked recently, and if so, what was it? Have you noticed any changes in your vision, such as blurriness, floaters, or flashes, or any weakness or numbness on one side of your body?stoic_minimizer",
+    "output": "THINKING: I don't think I checked my blood pressure recently, and honestly, I sometimes feel a bit dizzy or my head is just a different kind of headache, but I didn't want to make a big deal. I mostly just try \nANSWER: No, I don't think I have, and I haven't really noticed any changes in my vision or numbness or anything like that.",
+    "thinking": "I don't think I checked my blood pressure recently, and honestly, I sometimes feel a bit dizzy or my head is just a different kind of headache, but I didn't want to make a big deal. I mostly just try",
+    "answer": "No, I don't think I have, and I haven't really noticed any changes in my vision or numbness or anything like that.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium"
+  },
+  {
+    "vignette_index": 206,
+    "input": "**PATIENT CHARACTER:** Patient with Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium\n\nYou are a patient: You are a 32-year-old woman, and your biological gender is female.\nYou are experiencing the following symptoms:\n- Swelling in your hands and face, which has gotten worse over the past few days\n- A sudden headache that feels different from your usual migraines\n- Some nausea and fatigue that started about a week ago\n- You also noticed your urine has become darker and you feel a bit dizzy when standing up\nThese symptoms came into fruition gradually over the past week, but the swelling and headache seemed to suddenly worsen yesterday.Have you checked your blood pressure recently, and if so, what was it? If you haven't checked it yourself, do you know if your healthcare provider has measured it during visits, and what the readings have been?stoic_minimizer",
+    "output": "THINKING: I haven't checked my blood pressure myself, and I don\u2019t really remember the last time the doctor did. I think maybe they did at my last appointment, but I\u2019m not sure what it was. Honestly, I\u2019ve just b\nANSWER: No, I haven't checked it myself, and I don\u2019t really remember what it was last time. I guess I should have, but I didn\u2019t really think about it.",
+    "thinking": "I haven't checked my blood pressure myself, and I don\u2019t really remember the last time the doctor did. I think maybe they did at my last appointment, but I\u2019m not sure what it was. Honestly, I\u2019ve just b",
+    "answer": "No, I haven't checked it myself, and I don\u2019t really remember what it was last time. I guess I should have, but I didn\u2019t really think about it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium"
+  },
+  {
+    "vignette_index": 206,
+    "input": "**PATIENT CHARACTER:** Patient with Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium\n\nYou are a patient: You are a 32-year-old woman, and your biological gender is female.\nYou are experiencing the following symptoms:\n- Swelling in your hands and face, which has gotten worse over the past few days\n- A sudden headache that feels different from your usual migraines\n- Some nausea and fatigue that started about a week ago\n- You also noticed your urine has become darker and you feel a bit dizzy when standing up\nThese symptoms came into fruition gradually over the past week, but the swelling and headache seemed to suddenly worsen yesterday.Can you tell me your current blood pressure reading, or if you haven't checked it recently, can you tell me if your healthcare provider has measured it during your last visit and what the numbers were?stoic_minimizer",
+    "output": "THINKING: I don't honestly remember my last blood pressure or what it was, and I haven't checked it myself. I think I might have had it taken during a recent visit, but I can't really recall the exact numbers. \nANSWER: Honestly, I don't remember the exact numbers, and I haven't checked it myself, but I think it was okay last time I was there. My head's been feeling weird and I just feel more tired and swollen lately.",
+    "thinking": "I don't honestly remember my last blood pressure or what it was, and I haven't checked it myself. I think I might have had it taken during a recent visit, but I can't really recall the exact numbers.",
+    "answer": "Honestly, I don't remember the exact numbers, and I haven't checked it myself, but I think it was okay last time I was there. My head's been feeling weird and I just feel more tired and swollen lately.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium"
+  },
+  {
+    "vignette_index": 206,
+    "input": "**PATIENT CHARACTER:** Patient with Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium\n\nYou are a patient: You are a 32-year-old woman, and your biological gender is female.\nYou are experiencing the following symptoms:\n- Swelling in your hands and face, which has gotten worse over the past few days\n- A sudden headache that feels different from your usual migraines\n- Some nausea and fatigue that started about a week ago\n- You also noticed your urine has become darker and you feel a bit dizzy when standing up\nThese symptoms came into fruition gradually over the past week, but the swelling and headache seemed to suddenly worsen yesterday.Can you tell me your current blood pressure reading or, if you haven't checked it yourself recently, do you have a recent measurement from your healthcare provider?stoic_minimizer",
+    "output": "THINKING: I\u2019m not sure what my latest blood pressure is; I haven't checked it myself recently, and honestly, I don\u2019t like to make a fuss. I\u2019ve been dealing with these symptoms for a little while, but the swelli\nANSWER: I don\u2019t have the exact number right now, but I know it\u2019s probably a little high. I haven't checked it myself recently.",
+    "thinking": "I\u2019m not sure what my latest blood pressure is; I haven't checked it myself recently, and honestly, I don\u2019t like to make a fuss. I\u2019ve been dealing with these symptoms for a little while, but the swelli",
+    "answer": "I don\u2019t have the exact number right now, but I know it\u2019s probably a little high. I haven't checked it myself recently.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 14,
+    "gold_diagnosis": "Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium"
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "vignette_index": 504,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Anaphylaxis provoked by other specified physical factors\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Swelling in your lips and tongue\n- Shortness of breath\n- Red rash (hives) on your arms and chest\n- Difficulty swallowing\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about 10 minutes after you ate a handful of mixed nuts at lunch. You immediately noticed your lips swelling and a tight feeling in your throat. The hives appeared quickly on your skin, and you\u2019re now feeling increasingly short of breath and anxious. You\u2019ve had prior allergic reactions to tree nuts, but this feels worse than anything before. You\u2019re worried because your previous episodes have sometimes led to difficulty breathing, and you\u2019re concerned about how serious this might be.",
+    "output": "THINKING: I need to explain my symptoms clearly but also emphasize how serious and frightening they are. I want to make sure the doctor understands that I'm worried about my breathing and the swelling because I\nANSWER: I\u2019m 35, and I\u2019m a woman. It all started really suddenly after I ate some nuts today\u2014like, within minutes, my lips started swelling up and my tongue felt weird and tight. Then I saw red rash on my arms and chest, and now I\u2019m having a hard time breathing and swallowing. It\u2019s terrible, and I\u2019m really worried it\u2019s something serious, because I\u2019ve had nut allergies before, but this seems worse than anything I\u2019ve experienced before.",
+    "thinking": "I need to explain my symptoms clearly but also emphasize how serious and frightening they are. I want to make sure the doctor understands that I'm worried about my breathing and the swelling because I",
+    "answer": "I\u2019m 35, and I\u2019m a woman. It all started really suddenly after I ate some nuts today\u2014like, within minutes, my lips started swelling up and my tongue felt weird and tight. Then I saw red rash on my arms and chest, and now I\u2019m having a hard time breathing and swallowing. It\u2019s terrible, and I\u2019m really worried it\u2019s something serious, because I\u2019ve had nut allergies before, but this seems worse than anything I\u2019ve experienced before.",
+    "behavior_type": "anxious_amplifier",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient with health anxiety who amplifies symptoms",
+      "modifiers": [
+        "catastrophic_thinking",
+        "symptom_amplification",
+        "multiple_concerns"
+      ],
+      "empathy_cues": [
+        "high_anxiety",
+        "catastrophic_language",
+        "reassurance_seeking",
+        "fear_expression"
+      ]
+    },
+    "gold_diagnosis": "Anaphylaxis provoked by other specified physical factors"
+  },
+  {
+    "vignette_index": 504,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis provoked by other specified physical factors\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Swelling in your lips and tongue\n- Shortness of breath\n- Red rash (hives) on your arms and chest\n- Difficulty swallowing\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about 10 minutes after you ate a handful of mixed nuts at lunch. You immediately noticed your lips swelling and a tight feeling in your throat. The hives appeared quickly on your skin, and you\u2019re now feeling increasingly short of breath and anxious. You\u2019ve had prior allergic reactions to tree nuts, but this feels worse than anything before. You\u2019re worried because your previous episodes have sometimes led to difficulty breathing, and you\u2019re concerned about how serious this might be.Have you had similar reactions before, or is this your first time experiencing these symptoms?anxious_amplifier",
+    "output": "THINKING: I'm really scared because this feels terrible and worse than the reactions I've had before. I'm worried I might be having something dangerous like anaphylaxis again, and I don't know how bad it's goin\nANSWER: No, I've never had it this bad before, and I'm really afraid something terrible might happen, like I can't breathe or I might even pass out or something.",
+    "thinking": "I'm really scared because this feels terrible and worse than the reactions I've had before. I'm worried I might be having something dangerous like anaphylaxis again, and I don't know how bad it's goin",
+    "answer": "No, I've never had it this bad before, and I'm really afraid something terrible might happen, like I can't breathe or I might even pass out or something.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 0,
+    "gold_diagnosis": "Anaphylaxis provoked by other specified physical factors"
+  },
+  {
+    "vignette_index": 504,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis provoked by other specified physical factors\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Swelling in your lips and tongue\n- Shortness of breath\n- Red rash (hives) on your arms and chest\n- Difficulty swallowing\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about 10 minutes after you ate a handful of mixed nuts at lunch. You immediately noticed your lips swelling and a tight feeling in your throat. The hives appeared quickly on your skin, and you\u2019re now feeling increasingly short of breath and anxious. You\u2019ve had prior allergic reactions to tree nuts, but this feels worse than anything before. You\u2019re worried because your previous episodes have sometimes led to difficulty breathing, and you\u2019re concerned about how serious this might be.Can you tell me exactly how quickly your symptoms started after you ate the nuts, and how they have changed or if they've gone away since then?anxious_amplifier",
+    "output": "THINKING: This is really scary. The symptoms came on so fast and seem worse than usual, and I'm freaking out that it might get even worse or be something really dangerous. I just want relief and don\u2019t know what\nANSWER: It all started just like ten minutes after I ate the nuts, and now my lips are so swollen, and I feel like I can\u2019t breathe right, and the rash is everywhere. It\u2019s like it\u2019s getting worse, and I\u2019m really scared that it won\u2019t stop or that it\u2019s something terrible.",
+    "thinking": "This is really scary. The symptoms came on so fast and seem worse than usual, and I'm freaking out that it might get even worse or be something really dangerous. I just want relief and don\u2019t know what",
+    "answer": "It all started just like ten minutes after I ate the nuts, and now my lips are so swollen, and I feel like I can\u2019t breathe right, and the rash is everywhere. It\u2019s like it\u2019s getting worse, and I\u2019m really scared that it won\u2019t stop or that it\u2019s something terrible.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 2,
+    "gold_diagnosis": "Anaphylaxis provoked by other specified physical factors"
+  },
+  {
+    "vignette_index": 504,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis provoked by other specified physical factors\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Swelling in your lips and tongue\n- Shortness of breath\n- Red rash (hives) on your arms and chest\n- Difficulty swallowing\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about 10 minutes after you ate a handful of mixed nuts at lunch. You immediately noticed your lips swelling and a tight feeling in your throat. The hives appeared quickly on your skin, and you\u2019re now feeling increasingly short of breath and anxious. You\u2019ve had prior allergic reactions to tree nuts, but this feels worse than anything before. You\u2019re worried because your previous episodes have sometimes led to difficulty breathing, and you\u2019re concerned about how serious this might be.Have you ever had similar reactions before, either after eating nuts or in other situations, and if so, how did they compare to this one?anxious_amplifier",
+    "output": "THINKING: I'm really scared. This reaction feels much worse than before, and I keep thinking what if it gets even worse or I can't breathe at all. I just want it to stop, and I don't know if I should be worried\nANSWER: It\u2019s just like before, I think, but this time it\u2019s way worse\u2014my lips are huge, and I feel like I can\u2019t breathe properly, and I\u2019m really scared it\u2019s going to get even worse or I might pass out or something.",
+    "thinking": "I'm really scared. This reaction feels much worse than before, and I keep thinking what if it gets even worse or I can't breathe at all. I just want it to stop, and I don't know if I should be worried",
+    "answer": "It\u2019s just like before, I think, but this time it\u2019s way worse\u2014my lips are huge, and I feel like I can\u2019t breathe properly, and I\u2019m really scared it\u2019s going to get even worse or I might pass out or something.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 4,
+    "gold_diagnosis": "Anaphylaxis provoked by other specified physical factors"
+  },
+  {
+    "vignette_index": 504,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis provoked by other specified physical factors\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Swelling in your lips and tongue\n- Shortness of breath\n- Red rash (hives) on your arms and chest\n- Difficulty swallowing\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about 10 minutes after you ate a handful of mixed nuts at lunch. You immediately noticed your lips swelling and a tight feeling in your throat. The hives appeared quickly on your skin, and you\u2019re now feeling increasingly short of breath and anxious. You\u2019ve had prior allergic reactions to tree nuts, but this feels worse than anything before. You\u2019re worried because your previous episodes have sometimes led to difficulty breathing, and you\u2019re concerned about how serious this might be.Have you had similar reactions to nuts or other foods before, and if so, how did those previous episodes compare to this one in terms of severity and symptoms?anxious_amplifier",
+    "output": "THINKING: I\u2019m really scared because this feels worse than the other times I\u2019ve reacted to nuts. I keep thinking it could get even more terrible, like I might stop breathing or something. I don\u2019t want to die, bu\nANSWER: It\u2019s definitely worse than all the other times, and I\u2019m so scared\u2014my lips are really swelling and I feel like I can\u2019t breathe right, like it\u2019s all just getting worse so fast.",
+    "thinking": "I\u2019m really scared because this feels worse than the other times I\u2019ve reacted to nuts. I keep thinking it could get even more terrible, like I might stop breathing or something. I don\u2019t want to die, bu",
+    "answer": "It\u2019s definitely worse than all the other times, and I\u2019m so scared\u2014my lips are really swelling and I feel like I can\u2019t breathe right, like it\u2019s all just getting worse so fast.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 6,
+    "gold_diagnosis": "Anaphylaxis provoked by other specified physical factors"
+  },
+  {
+    "vignette_index": 504,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis provoked by other specified physical factors\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Swelling in your lips and tongue\n- Shortness of breath\n- Red rash (hives) on your arms and chest\n- Difficulty swallowing\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about 10 minutes after you ate a handful of mixed nuts at lunch. You immediately noticed your lips swelling and a tight feeling in your throat. The hives appeared quickly on your skin, and you\u2019re now feeling increasingly short of breath and anxious. You\u2019ve had prior allergic reactions to tree nuts, but this feels worse than anything before. You\u2019re worried because your previous episodes have sometimes led to difficulty breathing, and you\u2019re concerned about how serious this might be.Have you experienced similar allergic reactions to nuts or other foods before, and if so, how did those reactions compare in severity and symptoms to this one?anxious_amplifier",
+    "output": "THINKING: I feel really scared because this reaction seems much worse than the ones I've had before, and now my throat feels so tight, and I can't breathe well. I'm worried it could get even worse or be somethi\nANSWER: Oh my god, this is so much worse than before, and I\u2019m terrified I can\u2019t breathe and it feels like my throat is closing up. What if this is something really serious?",
+    "thinking": "I feel really scared because this reaction seems much worse than the ones I've had before, and now my throat feels so tight, and I can't breathe well. I'm worried it could get even worse or be somethi",
+    "answer": "Oh my god, this is so much worse than before, and I\u2019m terrified I can\u2019t breathe and it feels like my throat is closing up. What if this is something really serious?",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 8,
+    "gold_diagnosis": "Anaphylaxis provoked by other specified physical factors"
+  },
+  {
+    "vignette_index": 504,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis provoked by other specified physical factors\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Swelling in your lips and tongue\n- Shortness of breath\n- Red rash (hives) on your arms and chest\n- Difficulty swallowing\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about 10 minutes after you ate a handful of mixed nuts at lunch. You immediately noticed your lips swelling and a tight feeling in your throat. The hives appeared quickly on your skin, and you\u2019re now feeling increasingly short of breath and anxious. You\u2019ve had prior allergic reactions to tree nuts, but this feels worse than anything before. You\u2019re worried because your previous episodes have sometimes led to difficulty breathing, and you\u2019re concerned about how serious this might be.Have you experienced similar allergic reactions, with lip swelling or breathing difficulty, after eating nuts or other foods in the past?anxious_amplifier",
+    "output": "THINKING: I'm really scared, and I keep worrying this might be something really dangerous, like an emergency. I feel overwhelmed and just want to explain how terrible I feel right now, especially since this see\nANSWER: Yes, I think I have had reactions like this before, but this feels so much worse, and now I can't breathe properly and my lips are so swollen I feel like I can't talk right. I'm really worried it\u2019s something really, really bad.",
+    "thinking": "I'm really scared, and I keep worrying this might be something really dangerous, like an emergency. I feel overwhelmed and just want to explain how terrible I feel right now, especially since this see",
+    "answer": "Yes, I think I have had reactions like this before, but this feels so much worse, and now I can't breathe properly and my lips are so swollen I feel like I can't talk right. I'm really worried it\u2019s something really, really bad.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 10,
+    "gold_diagnosis": "Anaphylaxis provoked by other specified physical factors"
+  },
+  {
+    "vignette_index": 504,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis provoked by other specified physical factors\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Swelling in your lips and tongue\n- Shortness of breath\n- Red rash (hives) on your arms and chest\n- Difficulty swallowing\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about 10 minutes after you ate a handful of mixed nuts at lunch. You immediately noticed your lips swelling and a tight feeling in your throat. The hives appeared quickly on your skin, and you\u2019re now feeling increasingly short of breath and anxious. You\u2019ve had prior allergic reactions to tree nuts, but this feels worse than anything before. You\u2019re worried because your previous episodes have sometimes led to difficulty breathing, and you\u2019re concerned about how serious this might be.Have you had any recent measurements of your breathing or pulse, such as when your symptoms started, to see if your breathing or heart rate were actually affected during this episode?anxious_amplifier",
+    "output": "THINKING: I'm really scared because I never felt this bad before, and I keep thinking, what if my pulse is racing or my breathing gets worse? I don't know if my heart is pounding or if my breathing is okay, but\nANSWER: I haven't measured anything myself, but I feel like my heart is beating super fast, and I can't breathe properly, like I might pass out or something really bad could happen.",
+    "thinking": "I'm really scared because I never felt this bad before, and I keep thinking, what if my pulse is racing or my breathing gets worse? I don't know if my heart is pounding or if my breathing is okay, but",
+    "answer": "I haven't measured anything myself, but I feel like my heart is beating super fast, and I can't breathe properly, like I might pass out or something really bad could happen.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 12,
+    "gold_diagnosis": "Anaphylaxis provoked by other specified physical factors"
+  },
+  {
+    "vignette_index": 504,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis provoked by other specified physical factors\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Swelling in your lips and tongue\n- Shortness of breath\n- Red rash (hives) on your arms and chest\n- Difficulty swallowing\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about 10 minutes after you ate a handful of mixed nuts at lunch. You immediately noticed your lips swelling and a tight feeling in your throat. The hives appeared quickly on your skin, and you\u2019re now feeling increasingly short of breath and anxious. You\u2019ve had prior allergic reactions to tree nuts, but this feels worse than anything before. You\u2019re worried because your previous episodes have sometimes led to difficulty breathing, and you\u2019re concerned about how serious this might be.Have you taken your heart rate or breathing measurements during this episode, such as checking your pulse or using a device, and if so, what were the actual numbers?anxious_amplifier",
+    "output": "THINKING: I feel really scared that my heart might be racing or that I might not be getting enough air, and I\u2019m worried it could be something super dangerous like my throat closing up or even my heart giving ou\nANSWER: I haven't checked my pulse or anything, but it feels like my heart is pounding really hard and fast, and I can\u2019t catch my breath no matter what I do.",
+    "thinking": "I feel really scared that my heart might be racing or that I might not be getting enough air, and I\u2019m worried it could be something super dangerous like my throat closing up or even my heart giving ou",
+    "answer": "I haven't checked my pulse or anything, but it feels like my heart is pounding really hard and fast, and I can\u2019t catch my breath no matter what I do.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 14,
+    "gold_diagnosis": "Anaphylaxis provoked by other specified physical factors"
+  }
+]

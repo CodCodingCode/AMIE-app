@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 403,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Volvulus of large intestine\n\nYOU ARE A PATIENT: YOU ARE 68 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Abdominal distention, feeling like your belly is swollen and tight\n- Sudden onset of vomiting that\u2019s been ongoing for the past few hours\n- Blood in your stools today, which is alarming to you\n- Constipation that has been persistent for several days but suddenly worsened\nThese symptoms came into fruition suddenly yesterday evening after a day of worsening abdominal discomfort, and now you feel quite anxious about what might be happening.",
+    "output": "THINKING: I need to explain my symptoms clearly but simply because I feel worried and a little embarrassed about some of these things. I should mention the most obvious problems first, like the stomach swelling\nANSWER: I'm 68, and I'm a man. Well, my belly's been getting all swollen and tight, and recently, I've been throwing up a lot \u2014 it's been going on for a few hours now. Also, I saw some blood in my stool today, which really scared me. I haven't been able to go to the bathroom properly for a few days, and it suddenly got worse yesterday evening. I just feel pretty anxious about all this.",
+    "thinking": "I need to explain my symptoms clearly but simply because I feel worried and a little embarrassed about some of these things. I should mention the most obvious problems first, like the stomach swelling",
+    "answer": "I'm 68, and I'm a man. Well, my belly's been getting all swollen and tight, and recently, I've been throwing up a lot \u2014 it's been going on for a few hours now. Also, I saw some blood in my stool today, which really scared me. I haven't been able to go to the bathroom properly for a few days, and it suddenly got worse yesterday evening. I just feel pretty anxious about all this.",
+    "behavior_type": "information_withholder",
+    "behavior_config": {
+      "weight": 0.15,
+      "description": "Patient initially omits embarrassing or stigmatized symptoms",
+      "modifiers": [
+        "embarrassed_symptoms",
+        "gradual_revelation"
+      ],
+      "empathy_cues": [
+        "hesitation",
+        "vague_responses",
+        "embarrassment",
+        "trust_building_needed"
+      ]
+    },
+    "gold_diagnosis": "Volvulus of large intestine"
+  },
+  {
+    "vignette_index": 403,
+    "input": "**PATIENT CHARACTER:** Patient with Volvulus of large intestine\n\nYOU ARE A PATIENT: YOU ARE 68 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Abdominal distention, feeling like your belly is swollen and tight\n- Sudden onset of vomiting that\u2019s been ongoing for the past few hours\n- Blood in your stools today, which is alarming to you\n- Constipation that has been persistent for several days but suddenly worsened\nThese symptoms came into fruition suddenly yesterday evening after a day of worsening abdominal discomfort, and now you feel quite anxious about what might be happening.Can you tell me more about the amount and how often you notice blood in your stool\u2014do you see it every time you go, or only occasionally?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed about the blood, and I\u2019m worried but also unsure about how often it happens or what it means. I just want the doctor to know it\u2019s there, but I don\u2019t want to go into too much d\nANSWER: Um, I think I see some blood sometimes when I go, but I\u2019m not sure if it\u2019s every single time or just now and then. I don\u2019t really keep track.",
+    "thinking": "I feel a bit embarrassed about the blood, and I\u2019m worried but also unsure about how often it happens or what it means. I just want the doctor to know it\u2019s there, but I don\u2019t want to go into too much d",
+    "answer": "Um, I think I see some blood sometimes when I go, but I\u2019m not sure if it\u2019s every single time or just now and then. I don\u2019t really keep track.",
+    "behavior_type": "information_withholder",
+    "turn_count": 0,
+    "gold_diagnosis": "Volvulus of large intestine"
+  },
+  {
+    "vignette_index": 403,
+    "input": "**PATIENT CHARACTER:** Patient with Volvulus of large intestine\n\nYOU ARE A PATIENT: YOU ARE 68 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Abdominal distention, feeling like your belly is swollen and tight\n- Sudden onset of vomiting that\u2019s been ongoing for the past few hours\n- Blood in your stools today, which is alarming to you\n- Constipation that has been persistent for several days but suddenly worsened\nThese symptoms came into fruition suddenly yesterday evening after a day of worsening abdominal discomfort, and now you feel quite anxious about what might be happening.\"Can you tell me how much blood you've noticed in your stool when it happens\u2014do you see a little, a lot, or anything in between\u2014and how often have you seen blood during your recent bowel movements?\"information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about this, but I know I need to. I'm worried about the blood, but I don\u2019t really know what\u2019s normal or not, and I don\u2019t want to seem strange. I just want to get whate\nANSWER: I\u2019ve seen some blood in my stool today, but I don\u2019t know how much exactly. It\u2019s been mixed in with it, I guess, and I\u2019ve only noticed it today.",
+    "thinking": "I feel a bit embarrassed talking about this, but I know I need to. I'm worried about the blood, but I don\u2019t really know what\u2019s normal or not, and I don\u2019t want to seem strange. I just want to get whate",
+    "answer": "I\u2019ve seen some blood in my stool today, but I don\u2019t know how much exactly. It\u2019s been mixed in with it, I guess, and I\u2019ve only noticed it today.",
+    "behavior_type": "information_withholder",
+    "turn_count": 2,
+    "gold_diagnosis": "Volvulus of large intestine"
+  },
+  {
+    "vignette_index": 403,
+    "input": "**PATIENT CHARACTER:** Patient with Volvulus of large intestine\n\nYOU ARE A PATIENT: YOU ARE 68 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Abdominal distention, feeling like your belly is swollen and tight\n- Sudden onset of vomiting that\u2019s been ongoing for the past few hours\n- Blood in your stools today, which is alarming to you\n- Constipation that has been persistent for several days but suddenly worsened\nThese symptoms came into fruition suddenly yesterday evening after a day of worsening abdominal discomfort, and now you feel quite anxious about what might be happening.\"When you see blood in your stool, can you tell me if it's just a little now and then, or do you notice bigger amounts\u2014like possibly enough to make you worried or to see on the toilet paper?\"information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about the blood, but I know I should explain honestly. I'm worried but also confused about how much blood there's been, and I don't really know how to measure it. I'm \nANSWER: Um, I think it's been a little, like, on and off, but today I saw some on the toilet paper, and it kinda scared me because it seemed like more than just a drop.",
+    "thinking": "I feel a bit embarrassed talking about the blood, but I know I should explain honestly. I'm worried but also confused about how much blood there's been, and I don't really know how to measure it. I'm",
+    "answer": "Um, I think it's been a little, like, on and off, but today I saw some on the toilet paper, and it kinda scared me because it seemed like more than just a drop.",
+    "behavior_type": "information_withholder",
+    "turn_count": 4,
+    "gold_diagnosis": "Volvulus of large intestine"
+  },
+  {
+    "vignette_index": 403,
+    "input": "**PATIENT CHARACTER:** Patient with Volvulus of large intestine\n\nYOU ARE A PATIENT: YOU ARE 68 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Abdominal distention, feeling like your belly is swollen and tight\n- Sudden onset of vomiting that\u2019s been ongoing for the past few hours\n- Blood in your stools today, which is alarming to you\n- Constipation that has been persistent for several days but suddenly worsened\nThese symptoms came into fruition suddenly yesterday evening after a day of worsening abdominal discomfort, and now you feel quite anxious about what might be happening.\"I understand it might be difficult to describe, but could you tell me more specifically about how much blood you've noticed when you bleed\u2014do you see just a little on the toilet paper, or has it been enough to fill the toilet or make you worry that you're losing a lot? And do you notice this blood happening regularly, or just now and then?\"information_withholder",
+    "output": "THINKING: I'm a bit embarrassed about the blood, but I know it's important. I don\u2019t really understand what\u2019s normal or not, and I feel pretty overwhelmed trying to explain it. I just want to be honest but also \nANSWER: Um, I guess I saw some blood, but I don\u2019t know if it was a lot or just a little. I saw it in the toilet after I went, but I haven\u2019t really seen it happen every time or anything.",
+    "thinking": "I'm a bit embarrassed about the blood, but I know it's important. I don\u2019t really understand what\u2019s normal or not, and I feel pretty overwhelmed trying to explain it. I just want to be honest but also",
+    "answer": "Um, I guess I saw some blood, but I don\u2019t know if it was a lot or just a little. I saw it in the toilet after I went, but I haven\u2019t really seen it happen every time or anything.",
+    "behavior_type": "information_withholder",
+    "turn_count": 6,
+    "gold_diagnosis": "Volvulus of large intestine"
+  },
+  {
+    "vignette_index": 403,
+    "input": "**PATIENT CHARACTER:** Patient with Volvulus of large intestine\n\nYOU ARE A PATIENT: YOU ARE 68 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Abdominal distention, feeling like your belly is swollen and tight\n- Sudden onset of vomiting that\u2019s been ongoing for the past few hours\n- Blood in your stools today, which is alarming to you\n- Constipation that has been persistent for several days but suddenly worsened\nThese symptoms came into fruition suddenly yesterday evening after a day of worsening abdominal discomfort, and now you feel quite anxious about what might be happening.Can you tell me if the blood you've noticed has been enough to fill the toilet or make a noticeable mess, or is it just a small amount on the toilet paper that you barely see?information_withholder",
+    "output": "THINKING: I'm feeling pretty worried and a bit embarrassed about the blood, but I guess I should tell the doctor everything. I'm not sure how much blood is enough to notice or if it's serious, but it feels like\nANSWER: It's just a little on the toilet paper, I don't think I\u2019ve seen it enough to fill the toilet or anything, but definitely more than just a tiny spot.",
+    "thinking": "I'm feeling pretty worried and a bit embarrassed about the blood, but I guess I should tell the doctor everything. I'm not sure how much blood is enough to notice or if it's serious, but it feels like",
+    "answer": "It's just a little on the toilet paper, I don't think I\u2019ve seen it enough to fill the toilet or anything, but definitely more than just a tiny spot.",
+    "behavior_type": "information_withholder",
+    "turn_count": 8,
+    "gold_diagnosis": "Volvulus of large intestine"
+  },
+  {
+    "vignette_index": 403,
+    "input": "**PATIENT CHARACTER:** Patient with Volvulus of large intestine\n\nYOU ARE A PATIENT: YOU ARE 68 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Abdominal distention, feeling like your belly is swollen and tight\n- Sudden onset of vomiting that\u2019s been ongoing for the past few hours\n- Blood in your stools today, which is alarming to you\n- Constipation that has been persistent for several days but suddenly worsened\nThese symptoms came into fruition suddenly yesterday evening after a day of worsening abdominal discomfort, and now you feel quite anxious about what might be happening.\"Could you tell me honestly, on your worst days, how much blood you think you've been losing\u2014like, would it be enough to see in the toilet or on the toilet paper, or is it just tiny spots that are hard to measure?\"information_withholder",
+    "output": "THINKING: I feel really worried about the blood I saw, but I\u2019m not sure how much is too much or how to describe it. I want to tell the doctor, but I also feel embarrassed and not exactly sure what they need to \nANSWER: Umm, I think there was blood when I went to the bathroom today, and it looked like quite a bit? I mean, it wasn\u2019t just a tiny spot\u2014more than that, I guess. But I\u2019m not really sure how to tell if it\u2019s a lot or not.",
+    "thinking": "I feel really worried about the blood I saw, but I\u2019m not sure how much is too much or how to describe it. I want to tell the doctor, but I also feel embarrassed and not exactly sure what they need to",
+    "answer": "Umm, I think there was blood when I went to the bathroom today, and it looked like quite a bit? I mean, it wasn\u2019t just a tiny spot\u2014more than that, I guess. But I\u2019m not really sure how to tell if it\u2019s a lot or not.",
+    "behavior_type": "information_withholder",
+    "turn_count": 10,
+    "gold_diagnosis": "Volvulus of large intestine"
+  },
+  {
+    "vignette_index": 403,
+    "input": "**PATIENT CHARACTER:** Patient with Volvulus of large intestine\n\nYOU ARE A PATIENT: YOU ARE 68 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Abdominal distention, feeling like your belly is swollen and tight\n- Sudden onset of vomiting that\u2019s been ongoing for the past few hours\n- Blood in your stools today, which is alarming to you\n- Constipation that has been persistent for several days but suddenly worsened\nThese symptoms came into fruition suddenly yesterday evening after a day of worsening abdominal discomfort, and now you feel quite anxious about what might be happening.\"Have you noticed any new symptoms like feeling very tired, dizzy, feeling faint when standing up, or having a fast heartbeat that concerns you recently, which might suggest you're losing a lot of blood or becoming more unwell?\"information_withholder",
+    "output": "THINKING: I'm worried about the blood and the constant vomiting, but I feel a bit awkward bringing up some of the other things I noticed. Still, I guess these symptoms are pretty serious, I think.\nANSWER: Yeah, I did notice some blood in my stool today, and my stomach feels really swollen and tight. I\u2019ve been vomiting a lot since yesterday, and it just keeps happening, so I\u2019m pretty worried.",
+    "thinking": "I'm worried about the blood and the constant vomiting, but I feel a bit awkward bringing up some of the other things I noticed. Still, I guess these symptoms are pretty serious, I think.",
+    "answer": "Yeah, I did notice some blood in my stool today, and my stomach feels really swollen and tight. I\u2019ve been vomiting a lot since yesterday, and it just keeps happening, so I\u2019m pretty worried.",
+    "behavior_type": "information_withholder",
+    "turn_count": 12,
+    "gold_diagnosis": "Volvulus of large intestine"
+  }
+]

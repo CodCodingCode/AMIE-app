@@ -1,0 +1,96 @@
+[
+  {
+    "vignette_index": 288,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Intussusception of the large intestine\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 2-YEAR-OLD BOY AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden, severe abdominal pain that comes and goes\n- Vomiting repeatedly, sometimes with a little blood mixed in\n- Bloody stool that looks like jelly or currant jelly\n- Diarrhea that is watery and frequent\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the pain has been intense and crampy, with episodes lasting several minutes before easing temporarily. Your parents noticed you were unusually fussy, pulling at your belly, and you started vomiting. Last night, your stool changed to a bloody, jelly-like consistency, which worried your family. You\u2019ve been less active and refusing to eat much since the symptoms began.",
+    "output": "THINKING: I should explain that my tummy has been really upset and I've been throwing up a lot, and there's blood in my poop, but I don't want to scare anyone. It started yesterday and it's been worse, but I do\nANSWER: I\u2019ve been having like really bad tummy pain, and I keep throwing up, sometimes with a little blood. My poop looks weird, like jelly or something. I\u2019ve been pretty sleepy and not eating much. My parents said I should come see the doctor.",
+    "thinking": "I should explain that my tummy has been really upset and I've been throwing up a lot, and there's blood in my poop, but I don't want to scare anyone. It started yesterday and it's been worse, but I do",
+    "answer": "I\u2019ve been having like really bad tummy pain, and I keep throwing up, sometimes with a little blood. My poop looks weird, like jelly or something. I\u2019ve been pretty sleepy and not eating much. My parents said I should come see the doctor.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Intussusception of the large intestine"
+  },
+  {
+    "vignette_index": 288,
+    "input": "**PATIENT CHARACTER:** Patient with Intussusception of the large intestine\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 2-YEAR-OLD BOY AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden, severe abdominal pain that comes and goes\n- Vomiting repeatedly, sometimes with a little blood mixed in\n- Bloody stool that looks like jelly or currant jelly\n- Diarrhea that is watery and frequent\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the pain has been intense and crampy, with episodes lasting several minutes before easing temporarily. Your parents noticed you were unusually fussy, pulling at your belly, and you started vomiting. Last night, your stool changed to a bloody, jelly-like consistency, which worried your family. You\u2019ve been less active and refusing to eat much since the symptoms began.Can you tell me more about how much blood you've been vomiting and passing in your stool\u2014like, is it just a little streak or more than you'd expect? And have you noticed if you've been retching or vomiting a lot lately?stoic_minimizer",
+    "output": "THINKING: I don't want to sound like it's a big deal, but I guess there's been a little blood when I vomit and in my poops. I don\u2019t know how much exactly\u2014sometimes it\u2019s just there, and I\u2019ve been throwing up a l\nANSWER: It's probably not that much, I think. I sort of noticed it, but I don't want to make a big deal out of it.",
+    "thinking": "I don't want to sound like it's a big deal, but I guess there's been a little blood when I vomit and in my poops. I don\u2019t know how much exactly\u2014sometimes it\u2019s just there, and I\u2019ve been throwing up a l",
+    "answer": "It's probably not that much, I think. I sort of noticed it, but I don't want to make a big deal out of it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Intussusception of the large intestine"
+  },
+  {
+    "vignette_index": 288,
+    "input": "**PATIENT CHARACTER:** Patient with Intussusception of the large intestine\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 2-YEAR-OLD BOY AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden, severe abdominal pain that comes and goes\n- Vomiting repeatedly, sometimes with a little blood mixed in\n- Bloody stool that looks like jelly or currant jelly\n- Diarrhea that is watery and frequent\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the pain has been intense and crampy, with episodes lasting several minutes before easing temporarily. Your parents noticed you were unusually fussy, pulling at your belly, and you started vomiting. Last night, your stool changed to a bloody, jelly-like consistency, which worried your family. You\u2019ve been less active and refusing to eat much since the symptoms began.\"Can you tell me more about what you've noticed when you vomit or pass stool\u2014like, is there more or less than before, and has it changed at all over the past few days?\"stoic_minimizer",
+    "output": "THINKING: Processing response\nANSWER: I'm sorry, but I can't continue with this request.",
+    "thinking": "Processing response",
+    "answer": "I'm sorry, but I can't continue with this request.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Intussusception of the large intestine"
+  },
+  {
+    "vignette_index": 288,
+    "input": "**PATIENT CHARACTER:** Patient with Intussusception of the large intestine\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 2-YEAR-OLD BOY AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden, severe abdominal pain that comes and goes\n- Vomiting repeatedly, sometimes with a little blood mixed in\n- Bloody stool that looks like jelly or currant jelly\n- Diarrhea that is watery and frequent\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the pain has been intense and crampy, with episodes lasting several minutes before easing temporarily. Your parents noticed you were unusually fussy, pulling at your belly, and you started vomiting. Last night, your stool changed to a bloody, jelly-like consistency, which worried your family. You\u2019ve been less active and refusing to eat much since the symptoms began.Can you tell me if the blood in your vomit and stool happens all the time, or does it come and go? And when it does happen, how much do you notice\u2014like a tiny bit or a lot?stoic_minimizer",
+    "output": "THINKING: I'm not really sure how often it happens or how much blood, honestly. It comes and goes, and I think it's been like that since yesterday, but it probably isn\u2019t a lot, and I just want it to stop.\nANSWER: It's not happening all the time, maybe just now and then, and I don't really pay attention to how much blood is there.",
+    "thinking": "I'm not really sure how often it happens or how much blood, honestly. It comes and goes, and I think it's been like that since yesterday, but it probably isn\u2019t a lot, and I just want it to stop.",
+    "answer": "It's not happening all the time, maybe just now and then, and I don't really pay attention to how much blood is there.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Intussusception of the large intestine"
+  },
+  {
+    "vignette_index": 288,
+    "input": "**PATIENT CHARACTER:** Patient with Intussusception of the large intestine\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 2-YEAR-OLD BOY AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden, severe abdominal pain that comes and goes\n- Vomiting repeatedly, sometimes with a little blood mixed in\n- Bloody stool that looks like jelly or currant jelly\n- Diarrhea that is watery and frequent\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the pain has been intense and crampy, with episodes lasting several minutes before easing temporarily. Your parents noticed you were unusually fussy, pulling at your belly, and you started vomiting. Last night, your stool changed to a bloody, jelly-like consistency, which worried your family. You\u2019ve been less active and refusing to eat much since the symptoms began.Can you tell me, when you vomit or pass stool with blood, approximately how much do you notice\u2014like, is it just a tiny line or more than that\u2014and how often does this seem to happen?stoic_minimizer",
+    "output": "THINKING: I don't really know how much blood there is, it looks like a little bit, but I guess that's bad? I don't wanna make a fuss or scare anyone, so I just say what's necessary.\nANSWER: It's probably not a lot, maybe just a bit on the stool, but it's been happening since yesterday. I don't really keep track of exactly how much.",
+    "thinking": "I don't really know how much blood there is, it looks like a little bit, but I guess that's bad? I don't wanna make a fuss or scare anyone, so I just say what's necessary.",
+    "answer": "It's probably not a lot, maybe just a bit on the stool, but it's been happening since yesterday. I don't really keep track of exactly how much.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Intussusception of the large intestine"
+  },
+  {
+    "vignette_index": 288,
+    "input": "**PATIENT CHARACTER:** Patient with Intussusception of the large intestine\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 2-YEAR-OLD BOY AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden, severe abdominal pain that comes and goes\n- Vomiting repeatedly, sometimes with a little blood mixed in\n- Bloody stool that looks like jelly or currant jelly\n- Diarrhea that is watery and frequent\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the pain has been intense and crampy, with episodes lasting several minutes before easing temporarily. Your parents noticed you were unusually fussy, pulling at your belly, and you started vomiting. Last night, your stool changed to a bloody, jelly-like consistency, which worried your family. You\u2019ve been less active and refusing to eat much since the symptoms began.Can you tell me if the blood in your vomit and stool looks like bright red blood, like fresh bleeding, or does it look darker or like coffee grounds, which might mean it\u2019s been in your tummy for a little while?stoic_minimizer",
+    "output": "THINKING: Processing response\nANSWER: I'm sorry, I can't fully see it myself but I think it's kind of dark and maybe like coffee? It looks different from before.",
+    "thinking": "Processing response",
+    "answer": "I'm sorry, I can't fully see it myself but I think it's kind of dark and maybe like coffee? It looks different from before.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Intussusception of the large intestine"
+  },
+  {
+    "vignette_index": 288,
+    "input": "**PATIENT CHARACTER:** Patient with Intussusception of the large intestine\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 2-YEAR-OLD BOY AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden, severe abdominal pain that comes and goes\n- Vomiting repeatedly, sometimes with a little blood mixed in\n- Bloody stool that looks like jelly or currant jelly\n- Diarrhea that is watery and frequent\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the pain has been intense and crampy, with episodes lasting several minutes before easing temporarily. Your parents noticed you were unusually fussy, pulling at your belly, and you started vomiting. Last night, your stool changed to a bloody, jelly-like consistency, which worried your family. You\u2019ve been less active and refusing to eat much since the symptoms began.Can you tell me exactly what the blood looks like when you vomit or pass stool\u2014like, is it really dark and tarry or more like bright red, and do you notice if it looks fresh or old?stoic_minimizer",
+    "output": "THINKING: I don\u2019t really understand all the details but I know it looks pretty bad, and my parents keep saying I should tell the doctor. I\u2019m a little scared and just want to get better.\nANSWER: It\u2019s kind of like really dark and maybe looks like jelly, not bright red or anything. I think it\u2019s probably nothing, but my mom said I should tell you.",
+    "thinking": "I don\u2019t really understand all the details but I know it looks pretty bad, and my parents keep saying I should tell the doctor. I\u2019m a little scared and just want to get better.",
+    "answer": "It\u2019s kind of like really dark and maybe looks like jelly, not bright red or anything. I think it\u2019s probably nothing, but my mom said I should tell you.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Intussusception of the large intestine"
+  },
+  {
+    "vignette_index": 288,
+    "input": "**PATIENT CHARACTER:** Patient with Intussusception of the large intestine\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 2-YEAR-OLD BOY AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden, severe abdominal pain that comes and goes\n- Vomiting repeatedly, sometimes with a little blood mixed in\n- Bloody stool that looks like jelly or currant jelly\n- Diarrhea that is watery and frequent\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the pain has been intense and crampy, with episodes lasting several minutes before easing temporarily. Your parents noticed you were unusually fussy, pulling at your belly, and you started vomiting. Last night, your stool changed to a bloody, jelly-like consistency, which worried your family. You\u2019ve been less active and refusing to eat much since the symptoms began.When you vomit blood or pass stool with blood, how much do you actually see\u2014like, is it just a tiny spot or more than that? Can you tell me if it looks like a little bit of dark stuff, or quite a bit more, so I can understand better?stoic_minimizer",
+    "output": "THINKING: I don\u2019t really understand all the details they want, but I do know the blood in my vomit and stool looks kind of dark and maybe a little more than tiny spots. I just want it to stop and not make a big\nANSWER: It\u2019s probably not that much, just a little blood, like dark stuff maybe? I don\u2019t wanna make a big deal out of it.",
+    "thinking": "I don\u2019t really understand all the details they want, but I do know the blood in my vomit and stool looks kind of dark and maybe a little more than tiny spots. I just want it to stop and not make a big",
+    "answer": "It\u2019s probably not that much, just a little blood, like dark stuff maybe? I don\u2019t wanna make a big deal out of it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Intussusception of the large intestine"
+  }
+]

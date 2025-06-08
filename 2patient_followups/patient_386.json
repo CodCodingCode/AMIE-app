@@ -1,0 +1,127 @@
+[
+  {
+    "vignette_index": 386,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Acute haemorrhagic rectal ulcer\n\nYou are a patient: You are 72 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless, massive rectal bleeding with large volume hematochezia\n- No signs of upper gastrointestinal bleeding, such as vomiting blood or melena\n- Feeling weak and lightheaded, with a sense of dizziness when standing up\n- You recently had a history of constipation and have been mostly bedridden due to other health issues\nThese symptoms came into fruition suddenly yesterday morning, and you've noticed the bleeding hasn't stopped since then. You're worried because you've never experienced this amount of bleeding before and feel quite faint.",
+    "output": "THINKING: I need to explain my symptoms clearly but simply, so the doctor understands I'm really worried and feeling pretty bad. I should mention the sudden bleeding and how it\u2019s been continuous, plus how weak \nANSWER: I\u2019m a 72-year-old man, and I came in because I suddenly started bleeding a lot from my backside yesterday morning. It\u2019s been going on ever since, and I feel really weak and lightheaded when I stand up. I\u2019ve not had anything like this before, and it\u2019s scared me a lot.",
+    "thinking": "I need to explain my symptoms clearly but simply, so the doctor understands I'm really worried and feeling pretty bad. I should mention the sudden bleeding and how it\u2019s been continuous, plus how weak",
+    "answer": "I\u2019m a 72-year-old man, and I came in because I suddenly started bleeding a lot from my backside yesterday morning. It\u2019s been going on ever since, and I feel really weak and lightheaded when I stand up. I\u2019ve not had anything like this before, and it\u2019s scared me a lot.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Acute haemorrhagic rectal ulcer"
+  },
+  {
+    "vignette_index": 386,
+    "input": "**PATIENT CHARACTER:** Patient with Acute haemorrhagic rectal ulcer\n\nYou are a patient: You are 72 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless, massive rectal bleeding with large volume hematochezia\n- No signs of upper gastrointestinal bleeding, such as vomiting blood or melena\n- Feeling weak and lightheaded, with a sense of dizziness when standing up\n- You recently had a history of constipation and have been mostly bedridden due to other health issues\nThese symptoms came into fruition suddenly yesterday morning, and you've noticed the bleeding hasn't stopped since then. You're worried because you've never experienced this amount of bleeding before and feel quite faint.Can you tell me exactly how the bleeding looks\u2014does it happen during bowel movements, or is it there all the time? And how much blood do you typically notice?baseline",
+    "output": "THINKING: I'm feeling pretty worried and a bit overwhelmed. I don't really know how much blood is normal or what to expect, but I see a lot of blood most of the time now, and it's kind of scary.\nANSWER: It\u2019s like a lot of bright blood, and I\u2019m noticing it all the time, not just when I go to the bathroom, and I feel pretty dizzy and weak now.",
+    "thinking": "I'm feeling pretty worried and a bit overwhelmed. I don't really know how much blood is normal or what to expect, but I see a lot of blood most of the time now, and it's kind of scary.",
+    "answer": "It\u2019s like a lot of bright blood, and I\u2019m noticing it all the time, not just when I go to the bathroom, and I feel pretty dizzy and weak now.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Acute haemorrhagic rectal ulcer"
+  },
+  {
+    "vignette_index": 386,
+    "input": "**PATIENT CHARACTER:** Patient with Acute haemorrhagic rectal ulcer\n\nYou are a patient: You are 72 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless, massive rectal bleeding with large volume hematochezia\n- No signs of upper gastrointestinal bleeding, such as vomiting blood or melena\n- Feeling weak and lightheaded, with a sense of dizziness when standing up\n- You recently had a history of constipation and have been mostly bedridden due to other health issues\nThese symptoms came into fruition suddenly yesterday morning, and you've noticed the bleeding hasn't stopped since then. You're worried because you've never experienced this amount of bleeding before and feel quite faint.Can you tell me if this is the first time you've noticed bleeding like this, or have you had similar episodes before? And when you look at how much blood there is, is it just a little spot, or do you see quite a lot each time?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about how much blood I see, and I\u2019m not sure if this has ever happened before or what it means. I just know I feel weak and scared, so I want to be honest but not \nANSWER: No, I\u2019ve never seen so much blood before, and it just keeps coming. It\u2019s like a lot all at once, and I feel really faint.",
+    "thinking": "I feel a bit overwhelmed and worried about how much blood I see, and I\u2019m not sure if this has ever happened before or what it means. I just know I feel weak and scared, so I want to be honest but not",
+    "answer": "No, I\u2019ve never seen so much blood before, and it just keeps coming. It\u2019s like a lot all at once, and I feel really faint.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Acute haemorrhagic rectal ulcer"
+  },
+  {
+    "vignette_index": 386,
+    "input": "**PATIENT CHARACTER:** Patient with Acute haemorrhagic rectal ulcer\n\nYou are a patient: You are 72 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless, massive rectal bleeding with large volume hematochezia\n- No signs of upper gastrointestinal bleeding, such as vomiting blood or melena\n- Feeling weak and lightheaded, with a sense of dizziness when standing up\n- You recently had a history of constipation and have been mostly bedridden due to other health issues\nThese symptoms came into fruition suddenly yesterday morning, and you've noticed the bleeding hasn't stopped since then. You're worried because you've never experienced this amount of bleeding before and feel quite faint.Have you noticed any previous episodes of rectal bleeding like this, or is this the first time? If you've had bleeding before, how often did it happen, and how did it compare to this episode?baseline",
+    "output": "THINKING: I\u2019m worried because I\u2019ve never seen so much blood before and it just came on all of a sudden. I don\u2019t remember bleeding like this, and it\u2019s making me feel really weak and dizzy. I\u2019m not sure if I had \nANSWER: No, I don\u2019t think so, I\u2019ve never bled like this before, and it just started yesterday morning. It\u2019s a lot, and I feel really faint.",
+    "thinking": "I\u2019m worried because I\u2019ve never seen so much blood before and it just came on all of a sudden. I don\u2019t remember bleeding like this, and it\u2019s making me feel really weak and dizzy. I\u2019m not sure if I had",
+    "answer": "No, I don\u2019t think so, I\u2019ve never bled like this before, and it just started yesterday morning. It\u2019s a lot, and I feel really faint.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Acute haemorrhagic rectal ulcer"
+  },
+  {
+    "vignette_index": 386,
+    "input": "**PATIENT CHARACTER:** Patient with Acute haemorrhagic rectal ulcer\n\nYou are a patient: You are 72 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless, massive rectal bleeding with large volume hematochezia\n- No signs of upper gastrointestinal bleeding, such as vomiting blood or melena\n- Feeling weak and lightheaded, with a sense of dizziness when standing up\n- You recently had a history of constipation and have been mostly bedridden due to other health issues\nThese symptoms came into fruition suddenly yesterday morning, and you've noticed the bleeding hasn't stopped since then. You're worried because you've never experienced this amount of bleeding before and feel quite faint.Have you ever noticed bleeding like this before, even if it was mild or went unnoticed, or is this the first time you've experienced bleeding like this?baseline",
+    "output": "THINKING: I'm really worried because this feels different from anything I've had before, and it's not stopping. I don't recall bleeding like this, but I'm not sure if I might have missed some small stuff earlie\nANSWER: No, I don't think so. I\u2019ve never seen blood like this before, and it's been just, like, a lot all at once.",
+    "thinking": "I'm really worried because this feels different from anything I've had before, and it's not stopping. I don't recall bleeding like this, but I'm not sure if I might have missed some small stuff earlie",
+    "answer": "No, I don't think so. I\u2019ve never seen blood like this before, and it's been just, like, a lot all at once.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Acute haemorrhagic rectal ulcer"
+  },
+  {
+    "vignette_index": 386,
+    "input": "**PATIENT CHARACTER:** Patient with Acute haemorrhagic rectal ulcer\n\nYou are a patient: You are 72 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless, massive rectal bleeding with large volume hematochezia\n- No signs of upper gastrointestinal bleeding, such as vomiting blood or melena\n- Feeling weak and lightheaded, with a sense of dizziness when standing up\n- You recently had a history of constipation and have been mostly bedridden due to other health issues\nThese symptoms came into fruition suddenly yesterday morning, and you've noticed the bleeding hasn't stopped since then. You're worried because you've never experienced this amount of bleeding before and feel quite faint.Have you ever experienced any minor rectal bleeding in the past that you might have dismissed or not paid much attention to, even if it wasn't as obvious or as heavy as this time?baseline",
+    "output": "THINKING: I feel worried about the bleeding, and I don\u2019t really remember noticing anything like this before. It\u2019s sudden and quite a lot, and I feel pretty faint. I want to tell the doctor everything that\u2019s hap\nANSWER: I don\u2019t think I\u2019ve ever seen so much blood before. I\u2019ve had some small stuff in the past, but not like this, and I feel really weak now.",
+    "thinking": "I feel worried about the bleeding, and I don\u2019t really remember noticing anything like this before. It\u2019s sudden and quite a lot, and I feel pretty faint. I want to tell the doctor everything that\u2019s hap",
+    "answer": "I don\u2019t think I\u2019ve ever seen so much blood before. I\u2019ve had some small stuff in the past, but not like this, and I feel really weak now.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Acute haemorrhagic rectal ulcer"
+  },
+  {
+    "vignette_index": 386,
+    "input": "**PATIENT CHARACTER:** Patient with Acute haemorrhagic rectal ulcer\n\nYou are a patient: You are 72 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless, massive rectal bleeding with large volume hematochezia\n- No signs of upper gastrointestinal bleeding, such as vomiting blood or melena\n- Feeling weak and lightheaded, with a sense of dizziness when standing up\n- You recently had a history of constipation and have been mostly bedridden due to other health issues\nThese symptoms came into fruition suddenly yesterday morning, and you've noticed the bleeding hasn't stopped since then. You're worried because you've never experienced this amount of bleeding before and feel quite faint.Have you noticed any small amounts of blood in your stool, or on the toilet paper, in the past, even if you didn't think it was serious?baseline",
+    "output": "THINKING: I feel worried about what the doctor might say, but I also don't really understand all the medical stuff. I just know I saw some blood and it's been a lot and hasn't gone away. I feel kind of dizzy, a\nANSWER: Yeah, I think I saw some blood in the toilet paper earlier, and it's been coming out a lot. It's kind of scary because it hasn't stopped.",
+    "thinking": "I feel worried about what the doctor might say, but I also don't really understand all the medical stuff. I just know I saw some blood and it's been a lot and hasn't gone away. I feel kind of dizzy, a",
+    "answer": "Yeah, I think I saw some blood in the toilet paper earlier, and it's been coming out a lot. It's kind of scary because it hasn't stopped.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Acute haemorrhagic rectal ulcer"
+  },
+  {
+    "vignette_index": 386,
+    "input": "**PATIENT CHARACTER:** Patient with Acute haemorrhagic rectal ulcer\n\nYou are a patient: You are 72 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless, massive rectal bleeding with large volume hematochezia\n- No signs of upper gastrointestinal bleeding, such as vomiting blood or melena\n- Feeling weak and lightheaded, with a sense of dizziness when standing up\n- You recently had a history of constipation and have been mostly bedridden due to other health issues\nThese symptoms came into fruition suddenly yesterday morning, and you've noticed the bleeding hasn't stopped since then. You're worried because you've never experienced this amount of bleeding before and feel quite faint.Have you noticed any small amounts of blood in your stool or on the toilet paper in the past, even if you didn't think it was serious or it was just a little?baseline",
+    "output": "THINKING: I feel really worried and confused about the bleeding and how long it's been going on. I don't really understand what's happening, but I know it's not right and I feel very weak.\nANSWER: Yeah, there was some blood in the toilet paper before, but it was just a little. Now, it\u2019s a lot and it won\u2019t stop.",
+    "thinking": "I feel really worried and confused about the bleeding and how long it's been going on. I don't really understand what's happening, but I know it's not right and I feel very weak.",
+    "answer": "Yeah, there was some blood in the toilet paper before, but it was just a little. Now, it\u2019s a lot and it won\u2019t stop.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Acute haemorrhagic rectal ulcer"
+  },
+  {
+    "vignette_index": 386,
+    "input": "**PATIENT CHARACTER:** Patient with Acute haemorrhagic rectal ulcer\n\nYou are a patient: You are 72 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless, massive rectal bleeding with large volume hematochezia\n- No signs of upper gastrointestinal bleeding, such as vomiting blood or melena\n- Feeling weak and lightheaded, with a sense of dizziness when standing up\n- You recently had a history of constipation and have been mostly bedridden due to other health issues\nThese symptoms came into fruition suddenly yesterday morning, and you've noticed the bleeding hasn't stopped since then. You're worried because you've never experienced this amount of bleeding before and feel quite faint.Have you ever been told by a doctor that you have hemorrhoids, an anal fissure, or other rectal problems before this episode?baseline",
+    "output": "THINKING: I'm pretty worried about all this bleeding, and I feel so weak. I don\u2019t really know if I\u2019ve had stuff like this before, and I\u2019m not sure what the doctor wants to know, but I want to be honest and clea\nANSWER: No, I don\u2019t think anyone has ever told me I had hemorrhoids or anything like that before. It just came on suddenly and won't stop.",
+    "thinking": "I'm pretty worried about all this bleeding, and I feel so weak. I don\u2019t really know if I\u2019ve had stuff like this before, and I\u2019m not sure what the doctor wants to know, but I want to be honest and clea",
+    "answer": "No, I don\u2019t think anyone has ever told me I had hemorrhoids or anything like that before. It just came on suddenly and won't stop.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Acute haemorrhagic rectal ulcer"
+  },
+  {
+    "vignette_index": 386,
+    "input": "**PATIENT CHARACTER:** Patient with Acute haemorrhagic rectal ulcer\n\nYou are a patient: You are 72 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless, massive rectal bleeding with large volume hematochezia\n- No signs of upper gastrointestinal bleeding, such as vomiting blood or melena\n- Feeling weak and lightheaded, with a sense of dizziness when standing up\n- You recently had a history of constipation and have been mostly bedridden due to other health issues\nThese symptoms came into fruition suddenly yesterday morning, and you've noticed the bleeding hasn't stopped since then. You're worried because you've never experienced this amount of bleeding before and feel quite faint.Have you ever been told by a doctor that you have hemorrhoids, anal fissures, or other rectal problems before this episode?baseline",
+    "output": "THINKING: I feel a bit embarrassed to talk about my rectal area, but I know I need help because this bleeding is scary and doesn't stop. I\u2019m confused about what\u2019s wrong and worried because I feel so weak and li\nANSWER: No, no one\u2019s told me anything about hemorrhoids or anything like that before. I just suddenly started bleeding a lot yesterday, and it hasn\u2019t stopped. I feel really faint and kinda dizzy.",
+    "thinking": "I feel a bit embarrassed to talk about my rectal area, but I know I need help because this bleeding is scary and doesn't stop. I\u2019m confused about what\u2019s wrong and worried because I feel so weak and li",
+    "answer": "No, no one\u2019s told me anything about hemorrhoids or anything like that before. I just suddenly started bleeding a lot yesterday, and it hasn\u2019t stopped. I feel really faint and kinda dizzy.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Acute haemorrhagic rectal ulcer"
+  },
+  {
+    "vignette_index": 386,
+    "input": "**PATIENT CHARACTER:** Patient with Acute haemorrhagic rectal ulcer\n\nYou are a patient: You are 72 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless, massive rectal bleeding with large volume hematochezia\n- No signs of upper gastrointestinal bleeding, such as vomiting blood or melena\n- Feeling weak and lightheaded, with a sense of dizziness when standing up\n- You recently had a history of constipation and have been mostly bedridden due to other health issues\nThese symptoms came into fruition suddenly yesterday morning, and you've noticed the bleeding hasn't stopped since then. You're worried because you've never experienced this amount of bleeding before and feel quite faint.Have you noticed any patterns of minor bleeding, such as small amounts of blood in your stool or on toilet paper, in the past months or years, even if you thought it wasn\u2019t serious or just occasional?baseline",
+    "output": "THINKING: The doctor is asking if I saw any blood before, but honestly, I don\u2019t remember noticing it before. I\u2019ve been kind of dizzy and weak, and now this bleeding is just\u2026 a lot. I think I\u2019d remember if I saw\nANSWER: No, I don\u2019t think so. I mean, I don\u2019t really remember seeing blood before, like, not any small amount or anything. This is all new and scary.",
+    "thinking": "The doctor is asking if I saw any blood before, but honestly, I don\u2019t remember noticing it before. I\u2019ve been kind of dizzy and weak, and now this bleeding is just\u2026 a lot. I think I\u2019d remember if I saw",
+    "answer": "No, I don\u2019t think so. I mean, I don\u2019t really remember seeing blood before, like, not any small amount or anything. This is all new and scary.",
+    "behavior_type": "baseline",
+    "turn_count": 18,
+    "gold_diagnosis": "Acute haemorrhagic rectal ulcer"
+  },
+  {
+    "vignette_index": 386,
+    "input": "**PATIENT CHARACTER:** Patient with Acute haemorrhagic rectal ulcer\n\nYou are a patient: You are 72 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless, massive rectal bleeding with large volume hematochezia\n- No signs of upper gastrointestinal bleeding, such as vomiting blood or melena\n- Feeling weak and lightheaded, with a sense of dizziness when standing up\n- You recently had a history of constipation and have been mostly bedridden due to other health issues\nThese symptoms came into fruition suddenly yesterday morning, and you've noticed the bleeding hasn't stopped since then. You're worried because you've never experienced this amount of bleeding before and feel quite faint.\"Have you ever noticed small amounts of blood in your stool, on the toilet paper, or in your underwear in the past, even if you didn\u2019t think it was serious or just occasional? Sometimes these minor issues can be related to hemorrhoids or other conditions.\"baseline",
+    "output": "THINKING: This is pretty scary, and I don\u2019t really understand what\u2019s happening, but I know I\u2019ve seen some blood in the toilet before, just small amounts, maybe. Now, it\u2019s a lot more and keeps going, and I feel \nANSWER: Well, I\u2019ve seen blood in the toilet before, but not like this. It just kept coming and was a lot, and now I feel really weak and dizzy, like I might fall over.",
+    "thinking": "This is pretty scary, and I don\u2019t really understand what\u2019s happening, but I know I\u2019ve seen some blood in the toilet before, just small amounts, maybe. Now, it\u2019s a lot more and keeps going, and I feel",
+    "answer": "Well, I\u2019ve seen blood in the toilet before, but not like this. It just kept coming and was a lot, and now I feel really weak and dizzy, like I might fall over.",
+    "behavior_type": "baseline",
+    "turn_count": 20,
+    "gold_diagnosis": "Acute haemorrhagic rectal ulcer"
+  }
+]

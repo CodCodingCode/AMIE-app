@@ -1,0 +1,96 @@
+[
+  {
+    "vignette_index": 250,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Polycythaemia due to hypoxia, including high altitude\n\nYou are a patient: You are 62 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Dizziness and a sensation of unsteadiness when walking\n- Vertigo that makes the room seem to spin, especially when turning your head\n- Mild weakness on your right side, making it difficult to perform some simple hand and finger movements\n- Elevated hemoglobin levels, which your doctor mentioned might be related to your recent blood tests\nThese symptoms came into fruition gradually over the past two weeks, initially just feeling a bit more tired and off-bloat than usual, but now you're struggling to balance and feeling quite dizzy, especially when trying to stand up quickly.",
+    "output": "THINKING: I need to explain my symptoms clearly, but I\u2019m also pretty frightened because I don\u2019t understand what\u2019s happening to me. I probably sound worried but I should mention my dizziness and weakness, and th\nANSWER: Well, I\u2019m 62, and I\u2019m a man. Lately, I\u2019ve been feeling really unsteady, like I might fall over when I walk or turn my head too fast. I\u2019ve also got this weird spinning feeling, like everything\u2019s moving around me, especially when I turn. And I think I\u2019ve noticed some weakness on my right side, like I can\u2019t do some simple hand movements right. It\u2019s been happening for about two weeks now, and I got real worried because it\u2019s gotten worse, and I feel really dizzy, especially when I stand up quick. I don\u2019t know what\u2019s wrong, but it feels pretty bad.",
+    "thinking": "I need to explain my symptoms clearly, but I\u2019m also pretty frightened because I don\u2019t understand what\u2019s happening to me. I probably sound worried but I should mention my dizziness and weakness, and th",
+    "answer": "Well, I\u2019m 62, and I\u2019m a man. Lately, I\u2019ve been feeling really unsteady, like I might fall over when I walk or turn my head too fast. I\u2019ve also got this weird spinning feeling, like everything\u2019s moving around me, especially when I turn. And I think I\u2019ve noticed some weakness on my right side, like I can\u2019t do some simple hand movements right. It\u2019s been happening for about two weeks now, and I got real worried because it\u2019s gotten worse, and I feel really dizzy, especially when I stand up quick. I don\u2019t know what\u2019s wrong, but it feels pretty bad.",
+    "behavior_type": "anxious_amplifier",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient with health anxiety who amplifies symptoms",
+      "modifiers": [
+        "catastrophic_thinking",
+        "symptom_amplification",
+        "multiple_concerns"
+      ],
+      "empathy_cues": [
+        "high_anxiety",
+        "catastrophic_language",
+        "reassurance_seeking",
+        "fear_expression"
+      ]
+    },
+    "gold_diagnosis": "Polycythaemia due to hypoxia, including high altitude"
+  },
+  {
+    "vignette_index": 250,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia due to hypoxia, including high altitude\n\nYou are a patient: You are 62 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Dizziness and a sensation of unsteadiness when walking\n- Vertigo that makes the room seem to spin, especially when turning your head\n- Mild weakness on your right side, making it difficult to perform some simple hand and finger movements\n- Elevated hemoglobin levels, which your doctor mentioned might be related to your recent blood tests\nThese symptoms came into fruition gradually over the past two weeks, initially just feeling a bit more tired and off-bloat than usual, but now you're struggling to balance and feeling quite dizzy, especially when trying to stand up quickly.Can you tell me more about how the weakness in your hand feels\u2014did it come on suddenly or gradually, and is it always there or does it come and go?anxious_amplifier",
+    "output": "THINKING: I am really worried about this weakness because it feels terrible and like it might be something serious or even life-threatening. I keep thinking it might be a stroke or brain problem, especially sin\nANSWER: It feels like it just suddenly got worse, and it\u2019s always there now, like my hand is heavy and uncooperative, and I\u2019m afraid it\u2019s only going to get worse or mean something terrible is happening.",
+    "thinking": "I am really worried about this weakness because it feels terrible and like it might be something serious or even life-threatening. I keep thinking it might be a stroke or brain problem, especially sin",
+    "answer": "It feels like it just suddenly got worse, and it\u2019s always there now, like my hand is heavy and uncooperative, and I\u2019m afraid it\u2019s only going to get worse or mean something terrible is happening.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 0,
+    "gold_diagnosis": "Polycythaemia due to hypoxia, including high altitude"
+  },
+  {
+    "vignette_index": 250,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia due to hypoxia, including high altitude\n\nYou are a patient: You are 62 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Dizziness and a sensation of unsteadiness when walking\n- Vertigo that makes the room seem to spin, especially when turning your head\n- Mild weakness on your right side, making it difficult to perform some simple hand and finger movements\n- Elevated hemoglobin levels, which your doctor mentioned might be related to your recent blood tests\nThese symptoms came into fruition gradually over the past two weeks, initially just feeling a bit more tired and off-bloat than usual, but now you're struggling to balance and feeling quite dizzy, especially when trying to stand up quickly.Can you tell me if your unsteadiness and weakness have been constant since they started, or do they come and go at different times?anxious_amplifier",
+    "output": "THINKING: I'm really worried about these symptoms coming and going, and I keep thinking, what if this is something serious like a stroke or a brain problem? The dizziness and weakness are so unpredictable; I ju\nANSWER: Oh, it\u2019s not always there all the time, but when I stand up or turn my head, the room spins and everything feels worse, and sometimes I feel really weak on my right side, like I can\u2019t even hold a cup right.",
+    "thinking": "I'm really worried about these symptoms coming and going, and I keep thinking, what if this is something serious like a stroke or a brain problem? The dizziness and weakness are so unpredictable; I ju",
+    "answer": "Oh, it\u2019s not always there all the time, but when I stand up or turn my head, the room spins and everything feels worse, and sometimes I feel really weak on my right side, like I can\u2019t even hold a cup right.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 2,
+    "gold_diagnosis": "Polycythaemia due to hypoxia, including high altitude"
+  },
+  {
+    "vignette_index": 250,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia due to hypoxia, including high altitude\n\nYou are a patient: You are 62 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Dizziness and a sensation of unsteadiness when walking\n- Vertigo that makes the room seem to spin, especially when turning your head\n- Mild weakness on your right side, making it difficult to perform some simple hand and finger movements\n- Elevated hemoglobin levels, which your doctor mentioned might be related to your recent blood tests\nThese symptoms came into fruition gradually over the past two weeks, initially just feeling a bit more tired and off-bloat than usual, but now you're struggling to balance and feeling quite dizzy, especially when trying to stand up quickly.Can you tell me how your symptoms have been over these two weeks\u2014whether they started suddenly, gradually worsened, or if they have come and gone at different times?anxious_amplifier",
+    "output": "THINKING: I'm really worried these symptoms mean something terrible is happening, like a stroke or a brain problem. I can't shake the feeling that it's only going to get worse, and I keep thinking about all the\nANSWER: Well, at first, I just felt a little more tired and kind of off-bloat, but now I get dizzy all the time and the room spins when I turn my head, especially when I stand up, and I have this weakness on my right side that makes even tying my shoelaces hard.",
+    "thinking": "I'm really worried these symptoms mean something terrible is happening, like a stroke or a brain problem. I can't shake the feeling that it's only going to get worse, and I keep thinking about all the",
+    "answer": "Well, at first, I just felt a little more tired and kind of off-bloat, but now I get dizzy all the time and the room spins when I turn my head, especially when I stand up, and I have this weakness on my right side that makes even tying my shoelaces hard.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 4,
+    "gold_diagnosis": "Polycythaemia due to hypoxia, including high altitude"
+  },
+  {
+    "vignette_index": 250,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia due to hypoxia, including high altitude\n\nYou are a patient: You are 62 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Dizziness and a sensation of unsteadiness when walking\n- Vertigo that makes the room seem to spin, especially when turning your head\n- Mild weakness on your right side, making it difficult to perform some simple hand and finger movements\n- Elevated hemoglobin levels, which your doctor mentioned might be related to your recent blood tests\nThese symptoms came into fruition gradually over the past two weeks, initially just feeling a bit more tired and off-bloat than usual, but now you're struggling to balance and feeling quite dizzy, especially when trying to stand up quickly.Have you ever experienced similar dizziness, weakness, or coordination problems in the past, or have these kinds of symptoms happened before, even if they were milder or went away on their own?anxious_amplifier",
+    "output": "THINKING: I\u2019m really worried because these symptoms seem worse than anything I\u2019ve felt before, and I keep thinking it might be something serious like a stroke or a blood clot. I\u2019m scared to move because the roo\nANSWER: No, I\u2019ve never felt anything like this before, and it\u2019s been getting worse. The dizziness and the feeling like I might fall, it\u2019s really terrible, and I keep thinking it might be something dangerous like a stroke or a blood clot or\u2014I don\u2019t know\u2014something really bad.",
+    "thinking": "I\u2019m really worried because these symptoms seem worse than anything I\u2019ve felt before, and I keep thinking it might be something serious like a stroke or a blood clot. I\u2019m scared to move because the roo",
+    "answer": "No, I\u2019ve never felt anything like this before, and it\u2019s been getting worse. The dizziness and the feeling like I might fall, it\u2019s really terrible, and I keep thinking it might be something dangerous like a stroke or a blood clot or\u2014I don\u2019t know\u2014something really bad.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 6,
+    "gold_diagnosis": "Polycythaemia due to hypoxia, including high altitude"
+  },
+  {
+    "vignette_index": 250,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia due to hypoxia, including high altitude\n\nYou are a patient: You are 62 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Dizziness and a sensation of unsteadiness when walking\n- Vertigo that makes the room seem to spin, especially when turning your head\n- Mild weakness on your right side, making it difficult to perform some simple hand and finger movements\n- Elevated hemoglobin levels, which your doctor mentioned might be related to your recent blood tests\nThese symptoms came into fruition gradually over the past two weeks, initially just feeling a bit more tired and off-bloat than usual, but now you're struggling to balance and feeling quite dizzy, especially when trying to stand up quickly.Can you tell me if the weakness on your right side has been constant since it started, or does it come and go? Also, have you ever noticed similar weakness or coordination issues in the past?anxious_amplifier",
+    "output": "THINKING: I\u2019m really worried about this weakness and the vertigo. It\u2019s like, sometimes I feel okay, but then it suddenly gets worse, and I just don\u2019t know if it\u2019s something serious like a stroke or if I\u2019m going\nANSWER: It\u2019s not always the same\u2014sometimes I feel it more, and other times it\u2019s better, but it\u2019s definitely there most of the time, and I just can\u2019t shake the feeling that it\u2019s something really bad.",
+    "thinking": "I\u2019m really worried about this weakness and the vertigo. It\u2019s like, sometimes I feel okay, but then it suddenly gets worse, and I just don\u2019t know if it\u2019s something serious like a stroke or if I\u2019m going",
+    "answer": "It\u2019s not always the same\u2014sometimes I feel it more, and other times it\u2019s better, but it\u2019s definitely there most of the time, and I just can\u2019t shake the feeling that it\u2019s something really bad.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 8,
+    "gold_diagnosis": "Polycythaemia due to hypoxia, including high altitude"
+  },
+  {
+    "vignette_index": 250,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia due to hypoxia, including high altitude\n\nYou are a patient: You are 62 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Dizziness and a sensation of unsteadiness when walking\n- Vertigo that makes the room seem to spin, especially when turning your head\n- Mild weakness on your right side, making it difficult to perform some simple hand and finger movements\n- Elevated hemoglobin levels, which your doctor mentioned might be related to your recent blood tests\nThese symptoms came into fruition gradually over the past two weeks, initially just feeling a bit more tired and off-bloat than usual, but now you're struggling to balance and feeling quite dizzy, especially when trying to stand up quickly.Can you describe exactly what the vertigo feels like\u2014does it spin you around, or do you feel unsteady? Also, are there specific positions or movements that make it worse, and have you experienced similar episodes before, even if they were milder or brief?anxious_amplifier",
+    "output": "THINKING: I'm really scared that this dizziness and spinning feeling might be something serious like a stroke or something wrong with my brain, especially since it's so sudden and I feel weak now. I want to exp\nANSWER: It\u2019s like the room spins so much I feel like I might fall over, and when I turn my head or stand up quick, it\u2019s way worse. I\u2019ve never felt anything like this before, and I\u2019m really worried it\u2019s something terrible.",
+    "thinking": "I'm really scared that this dizziness and spinning feeling might be something serious like a stroke or something wrong with my brain, especially since it's so sudden and I feel weak now. I want to exp",
+    "answer": "It\u2019s like the room spins so much I feel like I might fall over, and when I turn my head or stand up quick, it\u2019s way worse. I\u2019ve never felt anything like this before, and I\u2019m really worried it\u2019s something terrible.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 10,
+    "gold_diagnosis": "Polycythaemia due to hypoxia, including high altitude"
+  },
+  {
+    "vignette_index": 250,
+    "input": "**PATIENT CHARACTER:** Patient with Polycythaemia due to hypoxia, including high altitude\n\nYou are a patient: You are 62 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Dizziness and a sensation of unsteadiness when walking\n- Vertigo that makes the room seem to spin, especially when turning your head\n- Mild weakness on your right side, making it difficult to perform some simple hand and finger movements\n- Elevated hemoglobin levels, which your doctor mentioned might be related to your recent blood tests\nThese symptoms came into fruition gradually over the past two weeks, initially just feeling a bit more tired and off-bloat than usual, but now you're struggling to balance and feeling quite dizzy, especially when trying to stand up quickly.Can you tell me if you've ever experienced similar episodes of dizziness or weakness before, even if they were milder or went away quickly, or if this is the first time you've felt these symptoms like this?anxious_amplifier",
+    "output": "THINKING: I'm really worried that this might be something serious, maybe a stroke or blood clot, especially since I feel weak and unsteady now. I keep thinking, what if it gets worse or I faint or something ter\nANSWER: No, I don\u2019t think so, I\u2019ve never felt like this before. It\u2019s all new to me and it just keeps getting worse, especially when I stand up or turn my head, and I\u2019m really scared it\u2019s something bad.",
+    "thinking": "I'm really worried that this might be something serious, maybe a stroke or blood clot, especially since I feel weak and unsteady now. I keep thinking, what if it gets worse or I faint or something ter",
+    "answer": "No, I don\u2019t think so, I\u2019ve never felt like this before. It\u2019s all new to me and it just keeps getting worse, especially when I stand up or turn my head, and I\u2019m really scared it\u2019s something bad.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 12,
+    "gold_diagnosis": "Polycythaemia due to hypoxia, including high altitude"
+  }
+]

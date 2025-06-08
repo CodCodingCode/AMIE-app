@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 274,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 3 MONTHS OLD AND YOUR BIOLOGICAL GENDER IS NEUTERED (as an infant)\nYou are experiencing the following symptoms:\n- Vomiting\n- Difficulty walking\n- Vision changes\nTHOSE SYMPTOMS CAME INTO FRUITION suddenly yesterday after a mild fall off the couch. You haven't been able to hold up your head properly and seem to be irritable and fussy. Your parents noticed you seem more unsteady and are concerned because you've also been vomiting multiple times today. Your parents are worried because they heard about head injuries and are bringing you to urgent care.",
+    "output": "THINKING: I need to explain my symptoms clearly but simply since I'm just a baby and can't talk. I should mention the fall and how I\u2019ve been acting different, especially with my head and the falling and vomitin\nANSWER: Umm, I fell off the couch yesterday and now I can't hold up my head good, and I\u2019ve been crying a lot and throwing up a few times today. I\u2019m also acting strange and unsteady, and my eyes look funny.",
+    "thinking": "I need to explain my symptoms clearly but simply since I'm just a baby and can't talk. I should mention the fall and how I\u2019ve been acting different, especially with my head and the falling and vomitin",
+    "answer": "Umm, I fell off the couch yesterday and now I can't hold up my head good, and I\u2019ve been crying a lot and throwing up a few times today. I\u2019m also acting strange and unsteady, and my eyes look funny.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  },
+  {
+    "vignette_index": 274,
+    "input": "**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 3 MONTHS OLD AND YOUR BIOLOGICAL GENDER IS NEUTERED (as an infant)\nYou are experiencing the following symptoms:\n- Vomiting\n- Difficulty walking\n- Vision changes\nTHOSE SYMPTOMS CAME INTO FRUITION suddenly yesterday after a mild fall off the couch. You haven't been able to hold up your head properly and seem to be irritable and fussy. Your parents noticed you seem more unsteady and are concerned because you've also been vomiting multiple times today. Your parents are worried because they heard about head injuries and are bringing you to urgent care.Can you tell me if the baby seems to be more sleepy or more irritable than usual since the fall, or if any of the symptoms have gotten worse or stayed the same?baseline",
+    "output": "THINKING: I feel worried and a little overwhelmed. I want to tell the doctor everything I notice but I'm worried they might think it's not serious or maybe I\u2019m overreacting. I should just say what I see without\nANSWER: Um, he seems more fussy and he\u2019s not holding his head right and he keeps vomit like more than before. Since he fell, he looks different, kind of.",
+    "thinking": "I feel worried and a little overwhelmed. I want to tell the doctor everything I notice but I'm worried they might think it's not serious or maybe I\u2019m overreacting. I should just say what I see without",
+    "answer": "Um, he seems more fussy and he\u2019s not holding his head right and he keeps vomit like more than before. Since he fell, he looks different, kind of.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  },
+  {
+    "vignette_index": 274,
+    "input": "**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 3 MONTHS OLD AND YOUR BIOLOGICAL GENDER IS NEUTERED (as an infant)\nYou are experiencing the following symptoms:\n- Vomiting\n- Difficulty walking\n- Vision changes\nTHOSE SYMPTOMS CAME INTO FRUITION suddenly yesterday after a mild fall off the couch. You haven't been able to hold up your head properly and seem to be irritable and fussy. Your parents noticed you seem more unsteady and are concerned because you've also been vomiting multiple times today. Your parents are worried because they heard about head injuries and are bringing you to urgent care.Can you tell me exactly how the child's movements or responses have changed since the fall, especially any new or worsening problems with their eyes, how they feel when they wake up, or if they've been more sleepy or difficult to wake up?baseline",
+    "output": "THINKING: I feel worried and a bit overwhelmed because my baby has been acting really strange since the fall. I don't understand all these symptoms, but I know something isn't right and I need help.\nANSWER: Um, my baby has been really fussy and not holding his head up right, and he's been vomiting a lot. His eyes seem different, and he's been extra sleepy but also hard to wake sometimes.",
+    "thinking": "I feel worried and a bit overwhelmed because my baby has been acting really strange since the fall. I don't understand all these symptoms, but I know something isn't right and I need help.",
+    "answer": "Um, my baby has been really fussy and not holding his head up right, and he's been vomiting a lot. His eyes seem different, and he's been extra sleepy but also hard to wake sometimes.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  },
+  {
+    "vignette_index": 274,
+    "input": "**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 3 MONTHS OLD AND YOUR BIOLOGICAL GENDER IS NEUTERED (as an infant)\nYou are experiencing the following symptoms:\n- Vomiting\n- Difficulty walking\n- Vision changes\nTHOSE SYMPTOMS CAME INTO FRUITION suddenly yesterday after a mild fall off the couch. You haven't been able to hold up your head properly and seem to be irritable and fussy. Your parents noticed you seem more unsteady and are concerned because you've also been vomiting multiple times today. Your parents are worried because they heard about head injuries and are bringing you to urgent care.Can you tell me if the baby is more sleepy than usual, having a hard time waking up, or if their eyes look different or if they seem to be acting differently when they wake up?baseline",
+    "output": "THINKING: I feel scared because I don't understand what\u2019s happening and I don't want to be hurt more. I want to tell the doctor that I don\u2019t feel right but I don't really know how to say it properly.\nANSWER: Um, I\u2019ve been fussier and I can\u2019t sit up right like before, and I keep trying to cry but it\u2019s hard. I\u2019ve vomited a lot today and I feel really weird.",
+    "thinking": "I feel scared because I don't understand what\u2019s happening and I don't want to be hurt more. I want to tell the doctor that I don\u2019t feel right but I don't really know how to say it properly.",
+    "answer": "Um, I\u2019ve been fussier and I can\u2019t sit up right like before, and I keep trying to cry but it\u2019s hard. I\u2019ve vomited a lot today and I feel really weird.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  },
+  {
+    "vignette_index": 274,
+    "input": "**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 3 MONTHS OLD AND YOUR BIOLOGICAL GENDER IS NEUTERED (as an infant)\nYou are experiencing the following symptoms:\n- Vomiting\n- Difficulty walking\n- Vision changes\nTHOSE SYMPTOMS CAME INTO FRUITION suddenly yesterday after a mild fall off the couch. You haven't been able to hold up your head properly and seem to be irritable and fussy. Your parents noticed you seem more unsteady and are concerned because you've also been vomiting multiple times today. Your parents are worried because they heard about head injuries and are bringing you to urgent care.Can you tell me if the baby has any new or different responses when you call his name or try to get him to wake up\u2014like is he still able to respond normally, or has there been any change in how alert or responsive he seems since the fall?baseline",
+    "output": "THINKING: I'm really worried about how he responds because he\u2019s been different since the fall. I don\u2019t know if he\u2019s still okay or if something\u2019s really wrong now. I just want him to be okay.\nANSWER: When I try to call him or wake him up, he doesn\u2019t really respond like he used to, and sometimes he just kind of stays still or looks away.",
+    "thinking": "I'm really worried about how he responds because he\u2019s been different since the fall. I don\u2019t know if he\u2019s still okay or if something\u2019s really wrong now. I just want him to be okay.",
+    "answer": "When I try to call him or wake him up, he doesn\u2019t really respond like he used to, and sometimes he just kind of stays still or looks away.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  },
+  {
+    "vignette_index": 274,
+    "input": "**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 3 MONTHS OLD AND YOUR BIOLOGICAL GENDER IS NEUTERED (as an infant)\nYou are experiencing the following symptoms:\n- Vomiting\n- Difficulty walking\n- Vision changes\nTHOSE SYMPTOMS CAME INTO FRUITION suddenly yesterday after a mild fall off the couch. You haven't been able to hold up your head properly and seem to be irritable and fussy. Your parents noticed you seem more unsteady and are concerned because you've also been vomiting multiple times today. Your parents are worried because they heard about head injuries and are bringing you to urgent care.Can you tell me if the child's pupils are equal and responsive to light, and if he has any new or unusual movements or responses when you gently stimulate or try to examine him?baseline",
+    "output": "THINKING: I feel worried and a bit overwhelmed because all these things are happening suddenly and I don't really understand what it means. I want to tell the doctor what I see and how I feel, but I can't say i\nANSWER: I think his eyes look different, and I'm not sure if they react when the light is shined, but he doesn\u2019t move much when we try to check him. He's just kinda fussing and looks uncomfortable.",
+    "thinking": "I feel worried and a bit overwhelmed because all these things are happening suddenly and I don't really understand what it means. I want to tell the doctor what I see and how I feel, but I can't say i",
+    "answer": "I think his eyes look different, and I'm not sure if they react when the light is shined, but he doesn\u2019t move much when we try to check him. He's just kinda fussing and looks uncomfortable.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  },
+  {
+    "vignette_index": 274,
+    "input": "**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 3 MONTHS OLD AND YOUR BIOLOGICAL GENDER IS NEUTERED (as an infant)\nYou are experiencing the following symptoms:\n- Vomiting\n- Difficulty walking\n- Vision changes\nTHOSE SYMPTOMS CAME INTO FRUITION suddenly yesterday after a mild fall off the couch. You haven't been able to hold up your head properly and seem to be irritable and fussy. Your parents noticed you seem more unsteady and are concerned because you've also been vomiting multiple times today. Your parents are worried because they heard about head injuries and are bringing you to urgent care.Can you tell me if the child's pupils are equal in size and respond normally when you shine a light into each eye, and whether he has any unusual movements or responses when you gently try to examine his eyes or limbs?baseline",
+    "output": "THINKING: I feel worried because my baby has been acting weird after falling, and the symptoms got worse. I don\u2019t really understand what the doctor is asking but want to make sure everything's okay for him.\nANSWER: Uh, I don't know, everything just looks kind of different, and he's not moving right and keeps fussing. His eyes might be the same, but I can't tell if they react right.",
+    "thinking": "I feel worried because my baby has been acting weird after falling, and the symptoms got worse. I don\u2019t really understand what the doctor is asking but want to make sure everything's okay for him.",
+    "answer": "Uh, I don't know, everything just looks kind of different, and he's not moving right and keeps fussing. His eyes might be the same, but I can't tell if they react right.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  },
+  {
+    "vignette_index": 274,
+    "input": "**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 3 MONTHS OLD AND YOUR BIOLOGICAL GENDER IS NEUTERED (as an infant)\nYou are experiencing the following symptoms:\n- Vomiting\n- Difficulty walking\n- Vision changes\nTHOSE SYMPTOMS CAME INTO FRUITION suddenly yesterday after a mild fall off the couch. You haven't been able to hold up your head properly and seem to be irritable and fussy. Your parents noticed you seem more unsteady and are concerned because you've also been vomiting multiple times today. Your parents are worried because they heard about head injuries and are bringing you to urgent care.Can I perform a quick, gentle examination of the child's pupils to see if they are equal and responsive to light, and check if he is able to move his limbs normally when I ask?baseline",
+    "output": "THINKING: I'm worried and a bit overwhelmed. The doctor wants to look at my eyes and check my movements, but I don\u2019t really understand why, and I just want to feel better. I hope they can help me quick.\nANSWER: Uh, okay. You wanna look at my eyes? I guess that\u2019s okay. I don\u2019t really like it, but I guess it\u2019s important.",
+    "thinking": "I'm worried and a bit overwhelmed. The doctor wants to look at my eyes and check my movements, but I don\u2019t really understand why, and I just want to feel better. I hope they can help me quick.",
+    "answer": "Uh, okay. You wanna look at my eyes? I guess that\u2019s okay. I don\u2019t really like it, but I guess it\u2019s important.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  }
+]

@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 420,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Atrophic senile gingivitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Swollen, tender gums\n- Bleeding gums when you brush\n- Receding gums, making your teeth look longer\n- Bad breath that won\u2019t go away\n- Some of your teeth feel loose\nTHESE SYMPTOMS CAME INTO FRICTION over the past month, gradually worsening. You\u2019ve noticed that your gums are increasingly inflamed and tender, especially when eating or brushing, and the bleeding has become more frequent. You\u2019ve also observed that a couple of your teeth seem to be shifting or feeling loose lately. You admit you haven\u2019t been consistent with your dental hygiene and you\u2019re a smoker, which runs in your family. You\u2019re worried because you\u2019ve never experienced anything like this before and don\u2019t want it to get worse.",
+    "output": "THINKING: I need to explain my symptoms clearly but I\u2019m nervous and a little confused about what\u2019s happening. I should mention my age and gender first, then describe my current issues without sounding like I un\nANSWER: I\u2019m 70 years old, and I\u2019m a man. My gums have been really swollen and sore, especially when I eat or brush my teeth. They bleed all the time now, and some of my teeth feel like they\u2019re loose or shifting. My breath smells bad even after I brush, and I haven\u2019t been keeping up with my dental stuff like I should. I\u2019m kinda worried because I\u2019ve never had this happen before.",
+    "thinking": "I need to explain my symptoms clearly but I\u2019m nervous and a little confused about what\u2019s happening. I should mention my age and gender first, then describe my current issues without sounding like I un",
+    "answer": "I\u2019m 70 years old, and I\u2019m a man. My gums have been really swollen and sore, especially when I eat or brush my teeth. They bleed all the time now, and some of my teeth feel like they\u2019re loose or shifting. My breath smells bad even after I brush, and I haven\u2019t been keeping up with my dental stuff like I should. I\u2019m kinda worried because I\u2019ve never had this happen before.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Atrophic senile gingivitis"
+  },
+  {
+    "vignette_index": 420,
+    "input": "**PATIENT CHARACTER:** Patient with Atrophic senile gingivitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Swollen, tender gums\n- Bleeding gums when you brush\n- Receding gums, making your teeth look longer\n- Bad breath that won\u2019t go away\n- Some of your teeth feel loose\nTHESE SYMPTOMS CAME INTO FRICTION over the past month, gradually worsening. You\u2019ve noticed that your gums are increasingly inflamed and tender, especially when eating or brushing, and the bleeding has become more frequent. You\u2019ve also observed that a couple of your teeth seem to be shifting or feeling loose lately. You admit you haven\u2019t been consistent with your dental hygiene and you\u2019re a smoker, which runs in your family. You\u2019re worried because you\u2019ve never experienced anything like this before and don\u2019t want it to get worse.Can you tell me how your gum problems are affecting your ability to eat, speak, or do everyday activities?baseline",
+    "output": "THINKING: I'm honestly worried about how bad my gums are now. Eating and brushing hurt, and I'm kind of embarrassed about the bleeding and the teeth feeling loose. I just want to know if it\u2019s serious or if I ca\nANSWER: It makes it hard to eat good sometimes because my gums hurt and bleed, and I don\u2019t want my teeth to fall out or look bad.",
+    "thinking": "I'm honestly worried about how bad my gums are now. Eating and brushing hurt, and I'm kind of embarrassed about the bleeding and the teeth feeling loose. I just want to know if it\u2019s serious or if I ca",
+    "answer": "It makes it hard to eat good sometimes because my gums hurt and bleed, and I don\u2019t want my teeth to fall out or look bad.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Atrophic senile gingivitis"
+  },
+  {
+    "vignette_index": 420,
+    "input": "**PATIENT CHARACTER:** Patient with Atrophic senile gingivitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Swollen, tender gums\n- Bleeding gums when you brush\n- Receding gums, making your teeth look longer\n- Bad breath that won\u2019t go away\n- Some of your teeth feel loose\nTHESE SYMPTOMS CAME INTO FRICTION over the past month, gradually worsening. You\u2019ve noticed that your gums are increasingly inflamed and tender, especially when eating or brushing, and the bleeding has become more frequent. You\u2019ve also observed that a couple of your teeth seem to be shifting or feeling loose lately. You admit you haven\u2019t been consistent with your dental hygiene and you\u2019re a smoker, which runs in your family. You\u2019re worried because you\u2019ve never experienced anything like this before and don\u2019t want it to get worse.Can you tell me when these gum problems first started and whether they've been getting worse quickly or gradually? Have you noticed any other new symptoms like fever, fatigue, or weight loss?baseline",
+    "output": "THINKING: I feel a bit worried and embarrassed about how my gums are changing, and I\u2019m not sure if it\u2019s something serious or just normal aging. I want to tell the doctor what\u2019s been happening without sounding t\nANSWER: It started about a month ago, I think, and it\u2019s just been getting worse little by little. I haven\u2019t had any fever or anything like that, but my gums are sore and bleeding more, and some of my teeth feel loose now.",
+    "thinking": "I feel a bit worried and embarrassed about how my gums are changing, and I\u2019m not sure if it\u2019s something serious or just normal aging. I want to tell the doctor what\u2019s been happening without sounding t",
+    "answer": "It started about a month ago, I think, and it\u2019s just been getting worse little by little. I haven\u2019t had any fever or anything like that, but my gums are sore and bleeding more, and some of my teeth feel loose now.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Atrophic senile gingivitis"
+  },
+  {
+    "vignette_index": 420,
+    "input": "**PATIENT CHARACTER:** Patient with Atrophic senile gingivitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Swollen, tender gums\n- Bleeding gums when you brush\n- Receding gums, making your teeth look longer\n- Bad breath that won\u2019t go away\n- Some of your teeth feel loose\nTHESE SYMPTOMS CAME INTO FRICTION over the past month, gradually worsening. You\u2019ve noticed that your gums are increasingly inflamed and tender, especially when eating or brushing, and the bleeding has become more frequent. You\u2019ve also observed that a couple of your teeth seem to be shifting or feeling loose lately. You admit you haven\u2019t been consistent with your dental hygiene and you\u2019re a smoker, which runs in your family. You\u2019re worried because you\u2019ve never experienced anything like this before and don\u2019t want it to get worse.Can you tell me more about how these gum problems are affecting your ability to eat, speak, or do your usual daily activities\u2014are they making things difficult, and if so, how?baseline",
+    "output": "THINKING: I feel a bit embarrassed and unsure, like I don\u2019t really know what\u2019s happening but I do notice I have trouble eating and brushing because it hurts, and I guess it\u2019s kind of gotten worse. I\u2019m worried a\nANSWER: Yeah, it\u2019s been hard to eat or even brush 'cause it hurts, and my teeth feel like they\u2019re loose or moving.",
+    "thinking": "I feel a bit embarrassed and unsure, like I don\u2019t really know what\u2019s happening but I do notice I have trouble eating and brushing because it hurts, and I guess it\u2019s kind of gotten worse. I\u2019m worried a",
+    "answer": "Yeah, it\u2019s been hard to eat or even brush 'cause it hurts, and my teeth feel like they\u2019re loose or moving.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Atrophic senile gingivitis"
+  },
+  {
+    "vignette_index": 420,
+    "input": "**PATIENT CHARACTER:** Patient with Atrophic senile gingivitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Swollen, tender gums\n- Bleeding gums when you brush\n- Receding gums, making your teeth look longer\n- Bad breath that won\u2019t go away\n- Some of your teeth feel loose\nTHESE SYMPTOMS CAME INTO FRICTION over the past month, gradually worsening. You\u2019ve noticed that your gums are increasingly inflamed and tender, especially when eating or brushing, and the bleeding has become more frequent. You\u2019ve also observed that a couple of your teeth seem to be shifting or feeling loose lately. You admit you haven\u2019t been consistent with your dental hygiene and you\u2019re a smoker, which runs in your family. You\u2019re worried because you\u2019ve never experienced anything like this before and don\u2019t want it to get worse.Have you noticed any sudden, intense pain, ulcerated areas, or a foul smell or taste in your mouth recently that seemed different from your usual gum problems?baseline",
+    "output": "THINKING: I think about how uncomfortable and worried I feel. I want to tell the doctor everything, but it's hard to explain what seems different about my mouth. I wonder if it\u2019s something serious or just old a\nANSWER: Well, my gums are real swollen and it hurts when I touch them, and they bleed when I brush. I also notice my teeth look longer and a couple feel like they\u2019re moving. I keep having bad breath no matter what I do.",
+    "thinking": "I think about how uncomfortable and worried I feel. I want to tell the doctor everything, but it's hard to explain what seems different about my mouth. I wonder if it\u2019s something serious or just old a",
+    "answer": "Well, my gums are real swollen and it hurts when I touch them, and they bleed when I brush. I also notice my teeth look longer and a couple feel like they\u2019re moving. I keep having bad breath no matter what I do.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Atrophic senile gingivitis"
+  },
+  {
+    "vignette_index": 420,
+    "input": "**PATIENT CHARACTER:** Patient with Atrophic senile gingivitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Swollen, tender gums\n- Bleeding gums when you brush\n- Receding gums, making your teeth look longer\n- Bad breath that won\u2019t go away\n- Some of your teeth feel loose\nTHESE SYMPTOMS CAME INTO FRICTION over the past month, gradually worsening. You\u2019ve noticed that your gums are increasingly inflamed and tender, especially when eating or brushing, and the bleeding has become more frequent. You\u2019ve also observed that a couple of your teeth seem to be shifting or feeling loose lately. You admit you haven\u2019t been consistent with your dental hygiene and you\u2019re a smoker, which runs in your family. You\u2019re worried because you\u2019ve never experienced anything like this before and don\u2019t want it to get worse.Can you describe exactly how the gum pain feels\u2014like how intense it is, whether it radiates anywhere, and if anything makes it better or worse?baseline",
+    "output": "THINKING: I feel worried about the pain and the bleeding, but I\u2019m not sure how bad it really is or if it\u2019s normal. I just want to explain it clearly but I\u2019m not sure what details matter.\nANSWER: It feels kind of sore and tender all the time, and sometimes it hurts more when I eat or brush, and the bleeding happens a lot now.",
+    "thinking": "I feel worried about the pain and the bleeding, but I\u2019m not sure how bad it really is or if it\u2019s normal. I just want to explain it clearly but I\u2019m not sure what details matter.",
+    "answer": "It feels kind of sore and tender all the time, and sometimes it hurts more when I eat or brush, and the bleeding happens a lot now.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Atrophic senile gingivitis"
+  },
+  {
+    "vignette_index": 420,
+    "input": "**PATIENT CHARACTER:** Patient with Atrophic senile gingivitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Swollen, tender gums\n- Bleeding gums when you brush\n- Receding gums, making your teeth look longer\n- Bad breath that won\u2019t go away\n- Some of your teeth feel loose\nTHESE SYMPTOMS CAME INTO FRICTION over the past month, gradually worsening. You\u2019ve noticed that your gums are increasingly inflamed and tender, especially when eating or brushing, and the bleeding has become more frequent. You\u2019ve also observed that a couple of your teeth seem to be shifting or feeling loose lately. You admit you haven\u2019t been consistent with your dental hygiene and you\u2019re a smoker, which runs in your family. You\u2019re worried because you\u2019ve never experienced anything like this before and don\u2019t want it to get worse.Have you noticed any recent episodes where the swelling or soreness suddenly got worse, or where you felt a burst of pain, maybe with pus or a foul taste coming from that area?baseline",
+    "output": "THINKING: I'm a bit worried about all this, especially the pain and bleeding. I haven't noticed any pus or bad taste, but it all feels worse sometimes, and I don't really understand why. I just want to know if \nANSWER: No, I haven't really seen or felt any pus or smelled anything weird, just the pain and bleeding are worse sometimes, and my gums are really bothering me.",
+    "thinking": "I'm a bit worried about all this, especially the pain and bleeding. I haven't noticed any pus or bad taste, but it all feels worse sometimes, and I don't really understand why. I just want to know if",
+    "answer": "No, I haven't really seen or felt any pus or smelled anything weird, just the pain and bleeding are worse sometimes, and my gums are really bothering me.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Atrophic senile gingivitis"
+  },
+  {
+    "vignette_index": 420,
+    "input": "**PATIENT CHARACTER:** Patient with Atrophic senile gingivitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Swollen, tender gums\n- Bleeding gums when you brush\n- Receding gums, making your teeth look longer\n- Bad breath that won\u2019t go away\n- Some of your teeth feel loose\nTHESE SYMPTOMS CAME INTO FRICTION over the past month, gradually worsening. You\u2019ve noticed that your gums are increasingly inflamed and tender, especially when eating or brushing, and the bleeding has become more frequent. You\u2019ve also observed that a couple of your teeth seem to be shifting or feeling loose lately. You admit you haven\u2019t been consistent with your dental hygiene and you\u2019re a smoker, which runs in your family. You\u2019re worried because you\u2019ve never experienced anything like this before and don\u2019t want it to get worse.Have you noticed any pus or foul smell or taste in your mouth recently, especially in the affected gum areas?baseline",
+    "output": "THINKING: The doctor is asking about any smell or taste that might be unusual, and I feel a bit embarrassed or worried about what it could mean. I haven't really paid attention to that, but I do notice it's bee\nANSWER: Um, yeah, I think so. My mouth\u2019s been kinda funny, and I still have that bad smell, no matter what I do.",
+    "thinking": "The doctor is asking about any smell or taste that might be unusual, and I feel a bit embarrassed or worried about what it could mean. I haven't really paid attention to that, but I do notice it's bee",
+    "answer": "Um, yeah, I think so. My mouth\u2019s been kinda funny, and I still have that bad smell, no matter what I do.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Atrophic senile gingivitis"
+  }
+]

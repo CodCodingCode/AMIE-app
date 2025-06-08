@@ -1,0 +1,97 @@
+[
+  {
+    "vignette_index": 218,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Balance problems and difficulty walking steadily\n- Dizziness and a feeling of vertigo that worsens when turning your head\n- Involuntary eye movements, including nystagmus, and occasional double vision\n- Mild decreased muscle tone in your limbs, making movements feel less coordinated\n- Occasionally, you notice your eyes drift involuntarily, especially when focusing on objects\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past six months, worsening slowly but steadily, making daily activities increasingly challenging and causing concern about your health.",
+    "output": "THINKING: I need to explain how I'm feeling without sounding too worried or confusing. I should mention all the symptoms I\u2019ve been experiencing gradually getting worse over time, and try to keep it simple but c\nANSWER: Well, I\u2019m 55, and I\u2019m a woman. Lately, I\u2019ve been having trouble staying balanced when I walk, and I feel sorta dizzy and off-balance, especially when I turn my head. My eyes sometimes do weird movements, like they jump around or I see double, and I feel like my muscles aren\u2019t as steady as they used to be. It\u2019s been getting worse over the last few months, and I\u2019m really worried it\u2019s not going away.",
+    "thinking": "I need to explain how I'm feeling without sounding too worried or confusing. I should mention all the symptoms I\u2019ve been experiencing gradually getting worse over time, and try to keep it simple but c",
+    "answer": "Well, I\u2019m 55, and I\u2019m a woman. Lately, I\u2019ve been having trouble staying balanced when I walk, and I feel sorta dizzy and off-balance, especially when I turn my head. My eyes sometimes do weird movements, like they jump around or I see double, and I feel like my muscles aren\u2019t as steady as they used to be. It\u2019s been getting worse over the last few months, and I\u2019m really worried it\u2019s not going away.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  },
+  {
+    "vignette_index": 218,
+    "input": "**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Balance problems and difficulty walking steadily\n- Dizziness and a feeling of vertigo that worsens when turning your head\n- Involuntary eye movements, including nystagmus, and occasional double vision\n- Mild decreased muscle tone in your limbs, making movements feel less coordinated\n- Occasionally, you notice your eyes drift involuntarily, especially when focusing on objects\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past six months, worsening slowly but steadily, making daily activities increasingly challenging and causing concern about your health.Can you tell me how these balance and coordination difficulties are affecting your daily life\u2014like your ability to walk, do errands, or perform everyday activities\u2014and whether they feel worse during certain times or activities?baseline",
+    "output": "THINKING: I'm worried about how much this is messing up my day-to-day stuff, like walking or trying to do simple things around the house. It feels worse when I turn my head or try to focus on things, and I'm no\nANSWER: It\u2019s kind of hard to walk straight sometimes, and I feel dizzy a lot, especially when I turn my head or look at things. It seems like things are worse when I try to do stuff quickly or move around.",
+    "thinking": "I'm worried about how much this is messing up my day-to-day stuff, like walking or trying to do simple things around the house. It feels worse when I turn my head or try to focus on things, and I'm no",
+    "answer": "It\u2019s kind of hard to walk straight sometimes, and I feel dizzy a lot, especially when I turn my head or look at things. It seems like things are worse when I try to do stuff quickly or move around.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  },
+  {
+    "vignette_index": 218,
+    "input": "**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Balance problems and difficulty walking steadily\n- Dizziness and a feeling of vertigo that worsens when turning your head\n- Involuntary eye movements, including nystagmus, and occasional double vision\n- Mild decreased muscle tone in your limbs, making movements feel less coordinated\n- Occasionally, you notice your eyes drift involuntarily, especially when focusing on objects\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past six months, worsening slowly but steadily, making daily activities increasingly challenging and causing concern about your health.Can you tell me more about how these balance problems and dizziness have affected your everyday activities\u2014like walking, driving, or maintaining your safety\u2014and whether you've had any falls or close calls?baseline",
+    "output": "THINKING: I'm worried about how much my balance problems are affecting me. I'm not sure if I've had any close calls, but I do feel unsafe sometimes, especially when I turn my head or try to walk. I guess I have\nANSWER: Well, I guess it\u2019s made walking kind of tricky, and I avoid turning my head quickly because it makes me dizzy. I haven't fallen, but I worry I might if I\u2019m not careful.",
+    "thinking": "I'm worried about how much my balance problems are affecting me. I'm not sure if I've had any close calls, but I do feel unsafe sometimes, especially when I turn my head or try to walk. I guess I have",
+    "answer": "Well, I guess it\u2019s made walking kind of tricky, and I avoid turning my head quickly because it makes me dizzy. I haven't fallen, but I worry I might if I\u2019m not careful.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  },
+  {
+    "vignette_index": 218,
+    "input": "**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Balance problems and difficulty walking steadily\n- Dizziness and a feeling of vertigo that worsens when turning your head\n- Involuntary eye movements, including nystagmus, and occasional double vision\n- Mild decreased muscle tone in your limbs, making movements feel less coordinated\n- Occasionally, you notice your eyes drift involuntarily, especially when focusing on objects\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past six months, worsening slowly but steadily, making daily activities increasingly challenging and causing concern about your health.Can you tell me if you've had any close calls or situations where you've almost fallen, or if walking in certain places or performing specific activities feels more unsteady than you'd like?baseline",
+    "output": "THINKING: The doctor wants to know if I've had any near falls or if certain actions make me more unsteady. I feel a bit embarrassed and worried because I don't want to admit how often I feel off balance, but I \nANSWER: Well, I guess I've almost fallen a few times, especially when turning or if I try to walk faster. I feel more unsteady sometimes, like I might lose my balance more in certain places.",
+    "thinking": "The doctor wants to know if I've had any near falls or if certain actions make me more unsteady. I feel a bit embarrassed and worried because I don't want to admit how often I feel off balance, but I",
+    "answer": "Well, I guess I've almost fallen a few times, especially when turning or if I try to walk faster. I feel more unsteady sometimes, like I might lose my balance more in certain places.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  },
+  {
+    "vignette_index": 218,
+    "input": "**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Balance problems and difficulty walking steadily\n- Dizziness and a feeling of vertigo that worsens when turning your head\n- Involuntary eye movements, including nystagmus, and occasional double vision\n- Mild decreased muscle tone in your limbs, making movements feel less coordinated\n- Occasionally, you notice your eyes drift involuntarily, especially when focusing on objects\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past six months, worsening slowly but steadily, making daily activities increasingly challenging and causing concern about your health.Can you tell me more about how often you've experienced moments where you felt unsteady or almost fell\u2014like in the past few weeks\u2014and whether there have been times when your balance has suddenly worsened or you felt unsafe, even if you didn't actually fall?baseline",
+    "output": "THINKING: I feel a bit anxious talking about this stuff, and I don\u2019t really understand if what I\u2019m feeling is normal or if I should be worried. I keep thinking maybe I\u2019m just overthinking it, but it\u2019s been happ\nANSWER: Um, yeah, sometimes I feel really unsteady, especially when I turn my head or look to the side, and it\u2019s like the room spins or something. And I\u2019ve almost fallen a few times but never actually fell.",
+    "thinking": "I feel a bit anxious talking about this stuff, and I don\u2019t really understand if what I\u2019m feeling is normal or if I should be worried. I keep thinking maybe I\u2019m just overthinking it, but it\u2019s been happ",
+    "answer": "Um, yeah, sometimes I feel really unsteady, especially when I turn my head or look to the side, and it\u2019s like the room spins or something. And I\u2019ve almost fallen a few times but never actually fell.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  },
+  {
+    "vignette_index": 218,
+    "input": "**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Balance problems and difficulty walking steadily\n- Dizziness and a feeling of vertigo that worsens when turning your head\n- Involuntary eye movements, including nystagmus, and occasional double vision\n- Mild decreased muscle tone in your limbs, making movements feel less coordinated\n- Occasionally, you notice your eyes drift involuntarily, especially when focusing on objects\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past six months, worsening slowly but steadily, making daily activities increasingly challenging and causing concern about your health.Can you tell me if when you feel dizzy or off balance, you experience a spinning or whirling sensation lasting a few seconds or minutes, or do you mostly feel unsteady or wobbly without that spinning feeling?baseline",
+    "output": "THINKING: I guess I feel kind of dizzy most of the time, but I'm not sure if it\u2019s that spinning kind or just unsteady. When I turn my head, it feels worse, and I really don't know what the difference is. It\u2019s a\nANSWER: Um, I think I mostly feel unsteady, like I wobble around, but sometimes when I turn my head, it feels like I\u2019m spinning or like the world is moving. I\u2019m not really sure, honestly.",
+    "thinking": "I guess I feel kind of dizzy most of the time, but I'm not sure if it\u2019s that spinning kind or just unsteady. When I turn my head, it feels worse, and I really don't know what the difference is. It\u2019s a",
+    "answer": "Um, I think I mostly feel unsteady, like I wobble around, but sometimes when I turn my head, it feels like I\u2019m spinning or like the world is moving. I\u2019m not really sure, honestly.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  },
+  {
+    "vignette_index": 218,
+    "input": "**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Balance problems and difficulty walking steadily\n- Dizziness and a feeling of vertigo that worsens when turning your head\n- Involuntary eye movements, including nystagmus, and occasional double vision\n- Mild decreased muscle tone in your limbs, making movements feel less coordinated\n- Occasionally, you notice your eyes drift involuntarily, especially when focusing on objects\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past six months, worsening slowly but steadily, making daily activities increasingly challenging and causing concern about your health.Can you describe in more detail the specific movements or eye behaviors you notice when your symptoms are at their worst\u2014such as jumping, flickering, or double vision\u2014and whether these happen all the time or only in certain positions or movements?baseline",
+    "output": "THINKING: I\u2019m a bit nervous about explaining these eye movements. I don\u2019t really understand what's happening myself, and I just want to make them sound clear enough but honestly, I\u2019m worried it's all just going\nANSWER: Well, sometimes my eyes kind of jump or flicker and I see double, but only sometimes, not all the time. It seems worse when I turn my head or look at certain things.",
+    "thinking": "I\u2019m a bit nervous about explaining these eye movements. I don\u2019t really understand what's happening myself, and I just want to make them sound clear enough but honestly, I\u2019m worried it's all just going",
+    "answer": "Well, sometimes my eyes kind of jump or flicker and I see double, but only sometimes, not all the time. It seems worse when I turn my head or look at certain things.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  },
+  {
+    "vignette_index": 218,
+    "input": "**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Balance problems and difficulty walking steadily\n- Dizziness and a feeling of vertigo that worsens when turning your head\n- Involuntary eye movements, including nystagmus, and occasional double vision\n- Mild decreased muscle tone in your limbs, making movements feel less coordinated\n- Occasionally, you notice your eyes drift involuntarily, especially when focusing on objects\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past six months, worsening slowly but steadily, making daily activities increasingly challenging and causing concern about your health.When your symptoms are at their worst, do you notice your eyes jumping or flickering more than usual, and do these episodes seem to happen when you turn your head quickly or look in certain directions?baseline",
+    "output": "THINKING: I feel a little worried when the doctor asks about my eyes flickering. I honestly haven't noticed if it happens more when I move my head or look a certain way, but I do see my eyes drifting sometimes,\nANSWER: Um, I think sometimes my eyes do move on their own, but I don\u2019t really pay attention to when it happens exactly. It kind of just happens whenever I\u2019m trying to look at something.",
+    "thinking": "I feel a little worried when the doctor asks about my eyes flickering. I honestly haven't noticed if it happens more when I move my head or look a certain way, but I do see my eyes drifting sometimes,",
+    "answer": "Um, I think sometimes my eyes do move on their own, but I don\u2019t really pay attention to when it happens exactly. It kind of just happens whenever I\u2019m trying to look at something.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  },
+  {
+    "vignette_index": 218,
+    "input": "**PATIENT CHARACTER:** Patient with Late onset cerebellar cortical atrophy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Balance problems and difficulty walking steadily\n- Dizziness and a feeling of vertigo that worsens when turning your head\n- Involuntary eye movements, including nystagmus, and occasional double vision\n- Mild decreased muscle tone in your limbs, making movements feel less coordinated\n- Occasionally, you notice your eyes drift involuntarily, especially when focusing on objects\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past six months, worsening slowly but steadily, making daily activities increasingly challenging and causing concern about your health.When you notice your dizziness or imbalance getting worse, do you see your eyes start to jump or flicker more when you turn your head to specific positions, such as looking up or to the side, and do these episodes happen only when you move your head in certain ways?baseline",
+    "output": "THINKING: I'm not sure exactly when the eye flickering happens, but I do notice that sometimes my eyes jump around more when I turn my head in certain ways. It's all a bit confusing, and I just want to understa\nANSWER: I think maybe my eyes do flicker more when I turn my head, but I can't always tell, and it seems to happen only sometimes, not all the time.",
+    "thinking": "I'm not sure exactly when the eye flickering happens, but I do notice that sometimes my eyes jump around more when I turn my head in certain ways. It's all a bit confusing, and I just want to understa",
+    "answer": "I think maybe my eyes do flicker more when I turn my head, but I can't always tell, and it seems to happen only sometimes, not all the time.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Late onset cerebellar cortical atrophy"
+  }
+]

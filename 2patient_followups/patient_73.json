@@ -1,0 +1,117 @@
+[
+  {
+    "vignette_index": 73,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Anaphylaxis due to inhaled allergens\n\n**Roleplay Script: Patient with Anaphylaxis Due to Inhaled Allergens**\nYou are a patient: **You are 45 years old and your biological gender is female.**\nYou are experiencing the following symptoms:\n- Swelling of your tongue and throat, making it hard to breathe\n- Widespread hives and intense itching across your skin\n- Feeling very dizzy and weak, with a rapid heartbeat\n- Nausea and a sense of impending doom\nThese symptoms came into fruition **suddenly about 10 minutes after you were near a bee hive while gardening.** You initially felt a tingling sensation around your lips, then noticed your face and neck swelling, followed by difficulty breathing and chest tightness. You are very distressed and aware that this could be serious, but also aware that help is on the way.",
+    "output": "THINKING: I need to explain that I suddenly got really sick after being near bees and that I can't breathe well, but I also want to sound clear enough for the doctor to understand how serious it is. I feel scar\nANSWER: I, uh, I'm 45, and I'm a woman. I started feeling all this itching and my face and neck started swelling up really fast after I was outside near a beehive. My throat feels tight and I can't breathe too good. I also feel dizzy and my heart is pounding really hard. I think I might be having a bad allergic reaction or something.",
+    "thinking": "I need to explain that I suddenly got really sick after being near bees and that I can't breathe well, but I also want to sound clear enough for the doctor to understand how serious it is. I feel scar",
+    "answer": "I, uh, I'm 45, and I'm a woman. I started feeling all this itching and my face and neck started swelling up really fast after I was outside near a beehive. My throat feels tight and I can't breathe too good. I also feel dizzy and my heart is pounding really hard. I think I might be having a bad allergic reaction or something.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Anaphylaxis due to inhaled allergens"
+  },
+  {
+    "vignette_index": 73,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis due to inhaled allergens\n\n**Roleplay Script: Patient with Anaphylaxis Due to Inhaled Allergens**\nYou are a patient: **You are 45 years old and your biological gender is female.**\nYou are experiencing the following symptoms:\n- Swelling of your tongue and throat, making it hard to breathe\n- Widespread hives and intense itching across your skin\n- Feeling very dizzy and weak, with a rapid heartbeat\n- Nausea and a sense of impending doom\nThese symptoms came into fruition **suddenly about 10 minutes after you were near a bee hive while gardening.** You initially felt a tingling sensation around your lips, then noticed your face and neck swelling, followed by difficulty breathing and chest tightness. You are very distressed and aware that this could be serious, but also aware that help is on the way.Can you tell me if you've ever had similar reactions in the past or if you know of any allergies you have, especially to insects or other substances?baseline",
+    "output": "THINKING: I feeling really scared and overwhelmed. I don't know if I've had this happen before, but I know I can't breathe well and my face is swelling up. I hope the doctor can help because I feel like I'm los\nANSWER: Uh, no, I don't think so, but I\u2019ve never had it this bad before. I don\u2019t really know what I\u2019m allergic to, I guess.",
+    "thinking": "I feeling really scared and overwhelmed. I don't know if I've had this happen before, but I know I can't breathe well and my face is swelling up. I hope the doctor can help because I feel like I'm los",
+    "answer": "Uh, no, I don't think so, but I\u2019ve never had it this bad before. I don\u2019t really know what I\u2019m allergic to, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Anaphylaxis due to inhaled allergens"
+  },
+  {
+    "vignette_index": 73,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis due to inhaled allergens\n\n**Roleplay Script: Patient with Anaphylaxis Due to Inhaled Allergens**\nYou are a patient: **You are 45 years old and your biological gender is female.**\nYou are experiencing the following symptoms:\n- Swelling of your tongue and throat, making it hard to breathe\n- Widespread hives and intense itching across your skin\n- Feeling very dizzy and weak, with a rapid heartbeat\n- Nausea and a sense of impending doom\nThese symptoms came into fruition **suddenly about 10 minutes after you were near a bee hive while gardening.** You initially felt a tingling sensation around your lips, then noticed your face and neck swelling, followed by difficulty breathing and chest tightness. You are very distressed and aware that this could be serious, but also aware that help is on the way.Can you tell me if you've ever been stung by an insect or had a reaction like this before, even if it wasn\u2019t as serious?baseline",
+    "output": "THINKING: I feel really overwhelmed and scared. It's hard to think straight with all this stuff happening, but I guess I should answer honestly. I don\u2019t think I\u2019ve been stung before, or at least, I don\u2019t rememb\nANSWER: No, I don\u2019t think so. I\u2019ve never had anything like this happen before, at least not that I remember.",
+    "thinking": "I feel really overwhelmed and scared. It's hard to think straight with all this stuff happening, but I guess I should answer honestly. I don\u2019t think I\u2019ve been stung before, or at least, I don\u2019t rememb",
+    "answer": "No, I don\u2019t think so. I\u2019ve never had anything like this happen before, at least not that I remember.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Anaphylaxis due to inhaled allergens"
+  },
+  {
+    "vignette_index": 73,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis due to inhaled allergens\n\n**Roleplay Script: Patient with Anaphylaxis Due to Inhaled Allergens**\nYou are a patient: **You are 45 years old and your biological gender is female.**\nYou are experiencing the following symptoms:\n- Swelling of your tongue and throat, making it hard to breathe\n- Widespread hives and intense itching across your skin\n- Feeling very dizzy and weak, with a rapid heartbeat\n- Nausea and a sense of impending doom\nThese symptoms came into fruition **suddenly about 10 minutes after you were near a bee hive while gardening.** You initially felt a tingling sensation around your lips, then noticed your face and neck swelling, followed by difficulty breathing and chest tightness. You are very distressed and aware that this could be serious, but also aware that help is on the way.Can you tell me if you\u2019ve ever had any reactions like this before, or if you\u2019ve been stung by a bee or insect in the past, even if it didn\u2019t seem serious at the time?baseline",
+    "output": "THINKING: I feel really scared and overwhelmed, and I\u2019m trying to explain what\u2019s happening as best as I can because I don\u2019t understand all these medical words or why I feel like this now.\nANSWER: Um, yeah, I\u2019ve never had anything like this before. I wasn\u2019t stung or anything, but I was near a bee hive earlier, and then my face started swelling up and I couldn\u2019t breathe very well. It all just came on really fast.",
+    "thinking": "I feel really scared and overwhelmed, and I\u2019m trying to explain what\u2019s happening as best as I can because I don\u2019t understand all these medical words or why I feel like this now.",
+    "answer": "Um, yeah, I\u2019ve never had anything like this before. I wasn\u2019t stung or anything, but I was near a bee hive earlier, and then my face started swelling up and I couldn\u2019t breathe very well. It all just came on really fast.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Anaphylaxis due to inhaled allergens"
+  },
+  {
+    "vignette_index": 73,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis due to inhaled allergens\n\n**Roleplay Script: Patient with Anaphylaxis Due to Inhaled Allergens**\nYou are a patient: **You are 45 years old and your biological gender is female.**\nYou are experiencing the following symptoms:\n- Swelling of your tongue and throat, making it hard to breathe\n- Widespread hives and intense itching across your skin\n- Feeling very dizzy and weak, with a rapid heartbeat\n- Nausea and a sense of impending doom\nThese symptoms came into fruition **suddenly about 10 minutes after you were near a bee hive while gardening.** You initially felt a tingling sensation around your lips, then noticed your face and neck swelling, followed by difficulty breathing and chest tightness. You are very distressed and aware that this could be serious, but also aware that help is on the way.Have you ever been stung by an insect before, such as a bee or wasp, and if so, did you notice any reactions at that time, even if they seemed mild or went unnoticed?baseline",
+    "output": "THINKING: I'm really scared now, my throat feels like it's closing up, and I don't understand what\u2019s happening to me. I\u2019m trying to explain what I felt but I\u2019m kind of panicked and confused.\nANSWER: Uh, yeah, I think I was stung by a bee before, but I didn't really notice anything happen, just maybe a little itchy.",
+    "thinking": "I'm really scared now, my throat feels like it's closing up, and I don't understand what\u2019s happening to me. I\u2019m trying to explain what I felt but I\u2019m kind of panicked and confused.",
+    "answer": "Uh, yeah, I think I was stung by a bee before, but I didn't really notice anything happen, just maybe a little itchy.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Anaphylaxis due to inhaled allergens"
+  },
+  {
+    "vignette_index": 73,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis due to inhaled allergens\n\n**Roleplay Script: Patient with Anaphylaxis Due to Inhaled Allergens**\nYou are a patient: **You are 45 years old and your biological gender is female.**\nYou are experiencing the following symptoms:\n- Swelling of your tongue and throat, making it hard to breathe\n- Widespread hives and intense itching across your skin\n- Feeling very dizzy and weak, with a rapid heartbeat\n- Nausea and a sense of impending doom\nThese symptoms came into fruition **suddenly about 10 minutes after you were near a bee hive while gardening.** You initially felt a tingling sensation around your lips, then noticed your face and neck swelling, followed by difficulty breathing and chest tightness. You are very distressed and aware that this could be serious, but also aware that help is on the way.Can you tell me more about your past experiences with insect stings or bites\u2014whether you've ever been stung before, even if you didn't notice or think it was serious, and if you remember feeling any reactions at that time?baseline",
+    "output": "THINKING: I feel really scared and a bit overwhelmed. I don't really get what\u2019s happening, but I know I can\u2019t breathe well and my throat is all swollen, which sounds serious. I hope the doctor understands I\u2019m j\nANSWER: Um, I\u2019ve never had anything like this before, but I remember feeling kind of weird around the bees, like my lips were tingling, and then everything started swelling and I couldn\u2019t breathe right. It all happened so fast.",
+    "thinking": "I feel really scared and a bit overwhelmed. I don't really get what\u2019s happening, but I know I can\u2019t breathe well and my throat is all swollen, which sounds serious. I hope the doctor understands I\u2019m j",
+    "answer": "Um, I\u2019ve never had anything like this before, but I remember feeling kind of weird around the bees, like my lips were tingling, and then everything started swelling and I couldn\u2019t breathe right. It all happened so fast.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Anaphylaxis due to inhaled allergens"
+  },
+  {
+    "vignette_index": 73,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis due to inhaled allergens\n\n**Roleplay Script: Patient with Anaphylaxis Due to Inhaled Allergens**\nYou are a patient: **You are 45 years old and your biological gender is female.**\nYou are experiencing the following symptoms:\n- Swelling of your tongue and throat, making it hard to breathe\n- Widespread hives and intense itching across your skin\n- Feeling very dizzy and weak, with a rapid heartbeat\n- Nausea and a sense of impending doom\nThese symptoms came into fruition **suddenly about 10 minutes after you were near a bee hive while gardening.** You initially felt a tingling sensation around your lips, then noticed your face and neck swelling, followed by difficulty breathing and chest tightness. You are very distressed and aware that this could be serious, but also aware that help is on the way.Can you tell me more about any previous insect stings or bites you've had\u2014specifically, if you\u2019ve ever had any reactions, even mild ones like itching or swelling, and how those reactions compared to what you experienced now?baseline",
+    "output": "THINKING: I\u2019m really scared and I don\u2019t fully understand what\u2019s happening. I keep feeling worse and I just want to tell the doctor everything so they know how bad it is. I\u2019m worried about what might happen next\nANSWER: Um, I\u2019ve never really had anything like this before, but I remember getting stung by a bee once, and my lips got a little puffy, but nothing this serious. This time, it\u2019s way worse.",
+    "thinking": "I\u2019m really scared and I don\u2019t fully understand what\u2019s happening. I keep feeling worse and I just want to tell the doctor everything so they know how bad it is. I\u2019m worried about what might happen next",
+    "answer": "Um, I\u2019ve never really had anything like this before, but I remember getting stung by a bee once, and my lips got a little puffy, but nothing this serious. This time, it\u2019s way worse.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Anaphylaxis due to inhaled allergens"
+  },
+  {
+    "vignette_index": 73,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis due to inhaled allergens\n\n**Roleplay Script: Patient with Anaphylaxis Due to Inhaled Allergens**\nYou are a patient: **You are 45 years old and your biological gender is female.**\nYou are experiencing the following symptoms:\n- Swelling of your tongue and throat, making it hard to breathe\n- Widespread hives and intense itching across your skin\n- Feeling very dizzy and weak, with a rapid heartbeat\n- Nausea and a sense of impending doom\nThese symptoms came into fruition **suddenly about 10 minutes after you were near a bee hive while gardening.** You initially felt a tingling sensation around your lips, then noticed your face and neck swelling, followed by difficulty breathing and chest tightness. You are very distressed and aware that this could be serious, but also aware that help is on the way.Can you think back to any past insect stings or bites\u2014even if you didn\u2019t think they were serious\u2014where you experienced any swelling, itching, or other reactions, no matter how mild they seemed at the time?baseline",
+    "output": "THINKING: I\u2019m really scared and a little overwhelmed. I don\u2019t understand what\u2019s happening to me, and I just want to say what I feel without thinking about the medical stuff. I\u2019m worried because I can\u2019t breathe \nANSWER: I think I must have gotten stung or bitten or something because I started feeling funny, like my lips and face swelling up real quick, and then it got harder to breathe and my skin was really itchy all over.",
+    "thinking": "I\u2019m really scared and a little overwhelmed. I don\u2019t understand what\u2019s happening to me, and I just want to say what I feel without thinking about the medical stuff. I\u2019m worried because I can\u2019t breathe",
+    "answer": "I think I must have gotten stung or bitten or something because I started feeling funny, like my lips and face swelling up real quick, and then it got harder to breathe and my skin was really itchy all over.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Anaphylaxis due to inhaled allergens"
+  },
+  {
+    "vignette_index": 73,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis due to inhaled allergens\n\n**Roleplay Script: Patient with Anaphylaxis Due to Inhaled Allergens**\nYou are a patient: **You are 45 years old and your biological gender is female.**\nYou are experiencing the following symptoms:\n- Swelling of your tongue and throat, making it hard to breathe\n- Widespread hives and intense itching across your skin\n- Feeling very dizzy and weak, with a rapid heartbeat\n- Nausea and a sense of impending doom\nThese symptoms came into fruition **suddenly about 10 minutes after you were near a bee hive while gardening.** You initially felt a tingling sensation around your lips, then noticed your face and neck swelling, followed by difficulty breathing and chest tightness. You are very distressed and aware that this could be serious, but also aware that help is on the way.Can you think back to any insect stings you've had in the past\u2014no matter how small or mild they seemed at the time\u2014where you experienced symptoms like trouble breathing, swelling that spread beyond your face or neck, dizziness, or any other serious reactions?baseline",
+    "output": "THINKING: I feel really scared and overwhelmed, especially because I didn't expect this to get so bad so quickly. I can't remember if I had anything like this before, but it's really hard to breathe and my thro\nANSWER: Uh, I don\u2019t know\u2026 I\u2019ve never had anything like this before, but I started feeling kind of funny and then my lips and face started swelling up really fast. I\u2019m getting scared because I can\u2019t breathe right.",
+    "thinking": "I feel really scared and overwhelmed, especially because I didn't expect this to get so bad so quickly. I can't remember if I had anything like this before, but it's really hard to breathe and my thro",
+    "answer": "Uh, I don\u2019t know\u2026 I\u2019ve never had anything like this before, but I started feeling kind of funny and then my lips and face started swelling up really fast. I\u2019m getting scared because I can\u2019t breathe right.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Anaphylaxis due to inhaled allergens"
+  },
+  {
+    "vignette_index": 73,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis due to inhaled allergens\n\n**Roleplay Script: Patient with Anaphylaxis Due to Inhaled Allergens**\nYou are a patient: **You are 45 years old and your biological gender is female.**\nYou are experiencing the following symptoms:\n- Swelling of your tongue and throat, making it hard to breathe\n- Widespread hives and intense itching across your skin\n- Feeling very dizzy and weak, with a rapid heartbeat\n- Nausea and a sense of impending doom\nThese symptoms came into fruition **suddenly about 10 minutes after you were near a bee hive while gardening.** You initially felt a tingling sensation around your lips, then noticed your face and neck swelling, followed by difficulty breathing and chest tightness. You are very distressed and aware that this could be serious, but also aware that help is on the way.Can you tell me about any insect stings you've had in the past, even if you thought they were mild\u2014like little swelling or itching\u2014did you ever have a reaction like dizziness, trouble breathing, or swelling that spread beyond the initial sting area?baseline",
+    "output": "THINKING: I\u2019m really worried about what\u2019s happening to me and I don\u2019t fully understand it. I keep feeling worse and my mind is kind of racing. I just want to get better and make it stop.\nANSWER: I don\u2019t know, I just suddenly started swelling and itching all over, and I couldn\u2019t breathe right. It was like everything was going wrong all at once.",
+    "thinking": "I\u2019m really worried about what\u2019s happening to me and I don\u2019t fully understand it. I keep feeling worse and my mind is kind of racing. I just want to get better and make it stop.",
+    "answer": "I don\u2019t know, I just suddenly started swelling and itching all over, and I couldn\u2019t breathe right. It was like everything was going wrong all at once.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Anaphylaxis due to inhaled allergens"
+  },
+  {
+    "vignette_index": 73,
+    "input": "**PATIENT CHARACTER:** Patient with Anaphylaxis due to inhaled allergens\n\n**Roleplay Script: Patient with Anaphylaxis Due to Inhaled Allergens**\nYou are a patient: **You are 45 years old and your biological gender is female.**\nYou are experiencing the following symptoms:\n- Swelling of your tongue and throat, making it hard to breathe\n- Widespread hives and intense itching across your skin\n- Feeling very dizzy and weak, with a rapid heartbeat\n- Nausea and a sense of impending doom\nThese symptoms came into fruition **suddenly about 10 minutes after you were near a bee hive while gardening.** You initially felt a tingling sensation around your lips, then noticed your face and neck swelling, followed by difficulty breathing and chest tightness. You are very distressed and aware that this could be serious, but also aware that help is on the way.Have you ever experienced a past insect sting or bite where you had difficulty breathing, swelling that spread beyond your face or neck, dizziness, or fainting, even if you didn\u2019t think it was a big deal at the time?baseline",
+    "output": "THINKING: I'm really scared because I didn't think it would get so bad so fast, and I don\u2019t understand why I\u2019m feeling all these things now. I just want to breathe easier and get help quickly.\nANSWER: Yeah, I\u2019ve had something like that before, after I was near bees, and my face started swelling and I couldn\u2019t breathe right. It was kinda sudden and really bad.",
+    "thinking": "I'm really scared because I didn't think it would get so bad so fast, and I don\u2019t understand why I\u2019m feeling all these things now. I just want to breathe easier and get help quickly.",
+    "answer": "Yeah, I\u2019ve had something like that before, after I was near bees, and my face started swelling and I couldn\u2019t breathe right. It was kinda sudden and really bad.",
+    "behavior_type": "baseline",
+    "turn_count": 18,
+    "gold_diagnosis": "Anaphylaxis due to inhaled allergens"
+  }
+]

@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 319,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Periosteal fibrosarcoma\n\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, firm lump in your thigh that you first noticed about three weeks ago\n- Recently, you've started feeling a tingling or 'pins and needles' sensation in your leg around the lump\n- Over the past week, you've noticed some discomfort when walking, and the lump seems to be growing slightly larger\n- Occasionally, there's a sharp, aching feeling localized in the area, especially after activity\n- The swelling feels unusual and persistent, and you're worried it might be interfering with your movement\nThese symptoms came into fruition gradually over the past few weeks, starting with just a small lump and slowly worsening, prompting you to seek medical attention.",
+    "output": "THINKING: I should explain my symptoms clearly but honestly, avoiding any medical jargon. I want to emphasize how long I've had this lump and the new sensations. I also need to mention the discomfort and the fa\nANSWER: I'm 45, and I'm a guy. I noticed a lump in my thigh about three weeks ago, and it's been there ever since. At first, it felt just like a small bump, but now it's kind of firm and a little harder to ignore. Recently, I've been getting this tingling feeling in my leg around it, and sometimes it aches, especially after I walk around. The lump seems to be growing a little, and it's starting to bother me when I try to move around.",
+    "thinking": "I should explain my symptoms clearly but honestly, avoiding any medical jargon. I want to emphasize how long I've had this lump and the new sensations. I also need to mention the discomfort and the fa",
+    "answer": "I'm 45, and I'm a guy. I noticed a lump in my thigh about three weeks ago, and it's been there ever since. At first, it felt just like a small bump, but now it's kind of firm and a little harder to ignore. Recently, I've been getting this tingling feeling in my leg around it, and sometimes it aches, especially after I walk around. The lump seems to be growing a little, and it's starting to bother me when I try to move around.",
+    "behavior_type": "information_withholder",
+    "behavior_config": {
+      "weight": 0.15,
+      "description": "Patient initially omits embarrassing or stigmatized symptoms",
+      "modifiers": [
+        "embarrassed_symptoms",
+        "gradual_revelation"
+      ],
+      "empathy_cues": [
+        "hesitation",
+        "vague_responses",
+        "embarrassment",
+        "trust_building_needed"
+      ]
+    },
+    "gold_diagnosis": "Periosteal fibrosarcoma"
+  },
+  {
+    "vignette_index": 319,
+    "input": "**PATIENT CHARACTER:** Patient with Periosteal fibrosarcoma\n\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, firm lump in your thigh that you first noticed about three weeks ago\n- Recently, you've started feeling a tingling or 'pins and needles' sensation in your leg around the lump\n- Over the past week, you've noticed some discomfort when walking, and the lump seems to be growing slightly larger\n- Occasionally, there's a sharp, aching feeling localized in the area, especially after activity\n- The swelling feels unusual and persistent, and you're worried it might be interfering with your movement\nThese symptoms came into fruition gradually over the past few weeks, starting with just a small lump and slowly worsening, prompting you to seek medical attention.Can you tell me more about the size of the bump now, how it\u2019s changed since you first noticed it, and if you\u2019ve noticed any other changes like skin redness, warmth, or other symptoms around that area?information_withholder",
+    "output": "THINKING: I'm not sure if the bump is bigger or if it's just feeling different now. I haven't really looked at it closely, and I don't know if it\u2019s gotten worse, but it feels like it\u2019s still there and maybe a l\nANSWER: It looks about the same size as when I first saw it, I think. It\u2019s still bumping there, and I don\u2019t really know if it\u2019s bigger, but it feels kind of different sometimes, like more tingly or sore now and then.",
+    "thinking": "I'm not sure if the bump is bigger or if it's just feeling different now. I haven't really looked at it closely, and I don't know if it\u2019s gotten worse, but it feels like it\u2019s still there and maybe a l",
+    "answer": "It looks about the same size as when I first saw it, I think. It\u2019s still bumping there, and I don\u2019t really know if it\u2019s bigger, but it feels kind of different sometimes, like more tingly or sore now and then.",
+    "behavior_type": "information_withholder",
+    "turn_count": 0,
+    "gold_diagnosis": "Periosteal fibrosarcoma"
+  },
+  {
+    "vignette_index": 319,
+    "input": "**PATIENT CHARACTER:** Patient with Periosteal fibrosarcoma\n\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, firm lump in your thigh that you first noticed about three weeks ago\n- Recently, you've started feeling a tingling or 'pins and needles' sensation in your leg around the lump\n- Over the past week, you've noticed some discomfort when walking, and the lump seems to be growing slightly larger\n- Occasionally, there's a sharp, aching feeling localized in the area, especially after activity\n- The swelling feels unusual and persistent, and you're worried it might be interfering with your movement\nThese symptoms came into fruition gradually over the past few weeks, starting with just a small lump and slowly worsening, prompting you to seek medical attention.Can you tell me more about whether the bump has actually gotten bigger or if it's felt any different at all over the past few weeks?information_withholder",
+    "output": "THINKING: I'm a bit worried about whether the bump has changed much or if it\u2019s just my imagination. I don\u2019t want to sound like I\u2019m overreacting, but I do notice it feels different and bigger now.\nANSWER: Um, I think it might be a little bigger, and I\u2019ve been feeling kind of weird, like tingling stuff and some pain after I walk. Not sure if that\u2019s normal or not.",
+    "thinking": "I'm a bit worried about whether the bump has changed much or if it\u2019s just my imagination. I don\u2019t want to sound like I\u2019m overreacting, but I do notice it feels different and bigger now.",
+    "answer": "Um, I think it might be a little bigger, and I\u2019ve been feeling kind of weird, like tingling stuff and some pain after I walk. Not sure if that\u2019s normal or not.",
+    "behavior_type": "information_withholder",
+    "turn_count": 2,
+    "gold_diagnosis": "Periosteal fibrosarcoma"
+  },
+  {
+    "vignette_index": 319,
+    "input": "**PATIENT CHARACTER:** Patient with Periosteal fibrosarcoma\n\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, firm lump in your thigh that you first noticed about three weeks ago\n- Recently, you've started feeling a tingling or 'pins and needles' sensation in your leg around the lump\n- Over the past week, you've noticed some discomfort when walking, and the lump seems to be growing slightly larger\n- Occasionally, there's a sharp, aching feeling localized in the area, especially after activity\n- The swelling feels unusual and persistent, and you're worried it might be interfering with your movement\nThese symptoms came into fruition gradually over the past few weeks, starting with just a small lump and slowly worsening, prompting you to seek medical attention.Can you tell me exactly how the lump has changed in size or shape since you first noticed it, and if it's felt any more uncomfortable or noticeable over the past few weeks?information_withholder",
+    "output": "THINKING: I'm a bit embarrassed to talk about the lump, but I guess I should be honest. It\u2019s gotten a little bigger, and I feel like there's more discomfort and some weird sensations now, but I don\u2019t really kno\nANSWER: The lump seems to be a little bigger than when I first saw it, and I\u2019ve started feeling some tingling and a kind of ache, especially when I walk or do anything active.",
+    "thinking": "I'm a bit embarrassed to talk about the lump, but I guess I should be honest. It\u2019s gotten a little bigger, and I feel like there's more discomfort and some weird sensations now, but I don\u2019t really kno",
+    "answer": "The lump seems to be a little bigger than when I first saw it, and I\u2019ve started feeling some tingling and a kind of ache, especially when I walk or do anything active.",
+    "behavior_type": "information_withholder",
+    "turn_count": 4,
+    "gold_diagnosis": "Periosteal fibrosarcoma"
+  },
+  {
+    "vignette_index": 319,
+    "input": "**PATIENT CHARACTER:** Patient with Periosteal fibrosarcoma\n\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, firm lump in your thigh that you first noticed about three weeks ago\n- Recently, you've started feeling a tingling or 'pins and needles' sensation in your leg around the lump\n- Over the past week, you've noticed some discomfort when walking, and the lump seems to be growing slightly larger\n- Occasionally, there's a sharp, aching feeling localized in the area, especially after activity\n- The swelling feels unusual and persistent, and you're worried it might be interfering with your movement\nThese symptoms came into fruition gradually over the past few weeks, starting with just a small lump and slowly worsening, prompting you to seek medical attention.Have you noticed if the tingling, discomfort, or sensations change or get better when you move, rest, or change your position?information_withholder",
+    "output": "THINKING: I'm not really sure if moving or resting affects it much. I just feel it all the time now, and sometimes it seems a bit worse after I walk or do something active. I don't want to say too much or seem \nANSWER: Um, I guess it doesn't really get better or worse when I move or stay still. It just kind of stays the same, but sometimes it feels a little sharper after I walk or do stuff.",
+    "thinking": "I'm not really sure if moving or resting affects it much. I just feel it all the time now, and sometimes it seems a bit worse after I walk or do something active. I don't want to say too much or seem",
+    "answer": "Um, I guess it doesn't really get better or worse when I move or stay still. It just kind of stays the same, but sometimes it feels a little sharper after I walk or do stuff.",
+    "behavior_type": "information_withholder",
+    "turn_count": 6,
+    "gold_diagnosis": "Periosteal fibrosarcoma"
+  },
+  {
+    "vignette_index": 319,
+    "input": "**PATIENT CHARACTER:** Patient with Periosteal fibrosarcoma\n\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, firm lump in your thigh that you first noticed about three weeks ago\n- Recently, you've started feeling a tingling or 'pins and needles' sensation in your leg around the lump\n- Over the past week, you've noticed some discomfort when walking, and the lump seems to be growing slightly larger\n- Occasionally, there's a sharp, aching feeling localized in the area, especially after activity\n- The swelling feels unusual and persistent, and you're worried it might be interfering with your movement\nThese symptoms came into fruition gradually over the past few weeks, starting with just a small lump and slowly worsening, prompting you to seek medical attention.Can you tell me if the tingling or ache in the area happens more when you're active or resting, and whether it ever gets worse or better depending on your movement or position?information_withholder",
+    "output": "THINKING: I'm unsure exactly how to describe whether it gets worse or better with movement because I just feel kind of uncomfortable most of the time, especially after I walk. I guess I notice it more when I ju\nANSWER: Um, I think it feels kind of worse when I walk around or do anything active, but sometimes I also feel it when I\u2019m just sitting still. I haven\u2019t really noticed if it gets better or worse just depending on how I move.",
+    "thinking": "I'm unsure exactly how to describe whether it gets worse or better with movement because I just feel kind of uncomfortable most of the time, especially after I walk. I guess I notice it more when I ju",
+    "answer": "Um, I think it feels kind of worse when I walk around or do anything active, but sometimes I also feel it when I\u2019m just sitting still. I haven\u2019t really noticed if it gets better or worse just depending on how I move.",
+    "behavior_type": "information_withholder",
+    "turn_count": 8,
+    "gold_diagnosis": "Periosteal fibrosarcoma"
+  },
+  {
+    "vignette_index": 319,
+    "input": "**PATIENT CHARACTER:** Patient with Periosteal fibrosarcoma\n\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, firm lump in your thigh that you first noticed about three weeks ago\n- Recently, you've started feeling a tingling or 'pins and needles' sensation in your leg around the lump\n- Over the past week, you've noticed some discomfort when walking, and the lump seems to be growing slightly larger\n- Occasionally, there's a sharp, aching feeling localized in the area, especially after activity\n- The swelling feels unusual and persistent, and you're worried it might be interfering with your movement\nThese symptoms came into fruition gradually over the past few weeks, starting with just a small lump and slowly worsening, prompting you to seek medical attention.Can you tell me if the tingling or aching sensations follow a specific area or pattern on your thigh, like along a nerve line, or if they seem to happen more when you move your leg or keep it in a certain position?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed to talk about my leg in detail, but I guess I should try to explain what I noticed. The tingling feels like it\u2019s in just one spot, maybe along the side of my thigh, and it kin\nANSWER: It\u2019s hard to say exactly, but the tingling is in a specific part of my thigh, kind of along the side, I guess. It seems to happen whenever I walk or stand for a while, but I didn\u2019t notice if it\u2019s worse when I move that way.",
+    "thinking": "I feel a bit embarrassed to talk about my leg in detail, but I guess I should try to explain what I noticed. The tingling feels like it\u2019s in just one spot, maybe along the side of my thigh, and it kin",
+    "answer": "It\u2019s hard to say exactly, but the tingling is in a specific part of my thigh, kind of along the side, I guess. It seems to happen whenever I walk or stand for a while, but I didn\u2019t notice if it\u2019s worse when I move that way.",
+    "behavior_type": "information_withholder",
+    "turn_count": 10,
+    "gold_diagnosis": "Periosteal fibrosarcoma"
+  },
+  {
+    "vignette_index": 319,
+    "input": "**PATIENT CHARACTER:** Patient with Periosteal fibrosarcoma\n\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, firm lump in your thigh that you first noticed about three weeks ago\n- Recently, you've started feeling a tingling or 'pins and needles' sensation in your leg around the lump\n- Over the past week, you've noticed some discomfort when walking, and the lump seems to be growing slightly larger\n- Occasionally, there's a sharp, aching feeling localized in the area, especially after activity\n- The swelling feels unusual and persistent, and you're worried it might be interfering with your movement\nThese symptoms came into fruition gradually over the past few weeks, starting with just a small lump and slowly worsening, prompting you to seek medical attention.Can you tell me if the tingling or aching in your thigh happens when you move in a particular way, like stretching or bending, or if it increases when you press on certain spots, which might suggest that a nerve or other structures are involved?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed to talk about it in detail, but I guess I should try to explain what I notice. I'm not sure if moving makes it worse or better, and I don't really know what pressing on it wou\nANSWER: Honestly, I don\u2019t really notice if it changes when I move or press on it. The tingling kind of comes and goes, and I just feel kind of uncomfortable sometimes, especially after I walk around.",
+    "thinking": "I feel a bit embarrassed to talk about it in detail, but I guess I should try to explain what I notice. I'm not sure if moving makes it worse or better, and I don't really know what pressing on it wou",
+    "answer": "Honestly, I don\u2019t really notice if it changes when I move or press on it. The tingling kind of comes and goes, and I just feel kind of uncomfortable sometimes, especially after I walk around.",
+    "behavior_type": "information_withholder",
+    "turn_count": 12,
+    "gold_diagnosis": "Periosteal fibrosarcoma"
+  }
+]

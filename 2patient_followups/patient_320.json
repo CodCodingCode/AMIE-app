@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 320,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Phoenix abscess\n\nYou are a patient: You are 45 AND your biological gender is male.\nYou are experiencing the following symptoms:\n- Severe, persistent pain in the lower right molar area\n- Tenderness and swelling around the affected tooth\n- Increased mobility of the tooth\n- Exacerbated pain when biting or applying pressure\n- Loss of dental vitality in that tooth\nThese symptoms came into fruition gradually over the past two weeks, starting with mild discomfort that worsened after a recent root canal treatment. The pain has become intense and persistent, sometimes waking me up at night. I notice that the tooth feels loose and there's some swelling and tenderness when I press on it. I also realize that the tooth no longer responds to cold or heat, indicating it may have lost its vitality.",
+    "output": "THINKING: The doctor is asking why I came in today, so I should explain my symptoms clearly but without trying to sound like I know too much. I need to mention the pain, swelling, and that it's gotten worse ove\nANSWER: I'm a 45-year-old man, and my lower right molar has been hurting really bad for the past couple of weeks. It started with just a little discomfort, but now the pain is constant, and it's really bad when I bite or press on it. It feels loose, and there's some swelling around it. After the root canal I had, the pain just got worse, and sometimes I wake up at night from it.",
+    "thinking": "The doctor is asking why I came in today, so I should explain my symptoms clearly but without trying to sound like I know too much. I need to mention the pain, swelling, and that it's gotten worse ove",
+    "answer": "I'm a 45-year-old man, and my lower right molar has been hurting really bad for the past couple of weeks. It started with just a little discomfort, but now the pain is constant, and it's really bad when I bite or press on it. It feels loose, and there's some swelling around it. After the root canal I had, the pain just got worse, and sometimes I wake up at night from it.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Phoenix abscess"
+  },
+  {
+    "vignette_index": 320,
+    "input": "**PATIENT CHARACTER:** Patient with Phoenix abscess\n\nYou are a patient: You are 45 AND your biological gender is male.\nYou are experiencing the following symptoms:\n- Severe, persistent pain in the lower right molar area\n- Tenderness and swelling around the affected tooth\n- Increased mobility of the tooth\n- Exacerbated pain when biting or applying pressure\n- Loss of dental vitality in that tooth\nThese symptoms came into fruition gradually over the past two weeks, starting with mild discomfort that worsened after a recent root canal treatment. The pain has become intense and persistent, sometimes waking me up at night. I notice that the tooth feels loose and there's some swelling and tenderness when I press on it. I also realize that the tooth no longer responds to cold or heat, indicating it may have lost its vitality.\"Have you noticed any fever, chills, or feeling generally unwell along with the tooth pain?\"baseline",
+    "output": "THINKING: I\u2019ve been really worried about the pain getting worse, and I don\u2019t feel good overall, but I\u2019m not really sure about all these other things like fever or chills. I just feel kind of achy and sick in my\nANSWER: No, I don\u2019t think I had a fever or chills, but I do feel pretty bad in my jaw and the pain's been almost all the time now.",
+    "thinking": "I\u2019ve been really worried about the pain getting worse, and I don\u2019t feel good overall, but I\u2019m not really sure about all these other things like fever or chills. I just feel kind of achy and sick in my",
+    "answer": "No, I don\u2019t think I had a fever or chills, but I do feel pretty bad in my jaw and the pain's been almost all the time now.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Phoenix abscess"
+  },
+  {
+    "vignette_index": 320,
+    "input": "**PATIENT CHARACTER:** Patient with Phoenix abscess\n\nYou are a patient: You are 45 AND your biological gender is male.\nYou are experiencing the following symptoms:\n- Severe, persistent pain in the lower right molar area\n- Tenderness and swelling around the affected tooth\n- Increased mobility of the tooth\n- Exacerbated pain when biting or applying pressure\n- Loss of dental vitality in that tooth\nThese symptoms came into fruition gradually over the past two weeks, starting with mild discomfort that worsened after a recent root canal treatment. The pain has become intense and persistent, sometimes waking me up at night. I notice that the tooth feels loose and there's some swelling and tenderness when I press on it. I also realize that the tooth no longer responds to cold or heat, indicating it may have lost its vitality.Have you noticed any changes like feeling unusually hot or cold, having chills, or just feeling \"off\" overall since your symptoms started?baseline",
+    "output": "THINKING: I feel a little embarrassed to admit, but I haven't really noticed much about being hot or cold. I just feel kinda off because the pain is really bad and won't go away, so I guess I feel more tired or\nANSWER: I haven't really noticed feeling hot or cold or chills or anything, just the pain is so bad and I feel kinda drained, I guess.",
+    "thinking": "I feel a little embarrassed to admit, but I haven't really noticed much about being hot or cold. I just feel kinda off because the pain is really bad and won't go away, so I guess I feel more tired or",
+    "answer": "I haven't really noticed feeling hot or cold or chills or anything, just the pain is so bad and I feel kinda drained, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Phoenix abscess"
+  },
+  {
+    "vignette_index": 320,
+    "input": "**PATIENT CHARACTER:** Patient with Phoenix abscess\n\nYou are a patient: You are 45 AND your biological gender is male.\nYou are experiencing the following symptoms:\n- Severe, persistent pain in the lower right molar area\n- Tenderness and swelling around the affected tooth\n- Increased mobility of the tooth\n- Exacerbated pain when biting or applying pressure\n- Loss of dental vitality in that tooth\nThese symptoms came into fruition gradually over the past two weeks, starting with mild discomfort that worsened after a recent root canal treatment. The pain has become intense and persistent, sometimes waking me up at night. I notice that the tooth feels loose and there's some swelling and tenderness when I press on it. I also realize that the tooth no longer responds to cold or heat, indicating it may have lost its vitality.Have you noticed any episodes of feeling unusually hot or cold, or any chills or fever since your symptoms started?baseline",
+    "output": "THINKING: I feel a bit embarrassed talking about feeling hot or cold because I haven't paid much attention, but I guess I have been feeling more hot than cold sometimes, and I think I had some chills that come \nANSWER: Yeah, I think I\u2019ve been feeling sort of hot sometimes, like my face gets warm, and I guess I might have had some chills too, but I\u2019m not really sure if it\u2019s a fever or not.",
+    "thinking": "I feel a bit embarrassed talking about feeling hot or cold because I haven't paid much attention, but I guess I have been feeling more hot than cold sometimes, and I think I had some chills that come",
+    "answer": "Yeah, I think I\u2019ve been feeling sort of hot sometimes, like my face gets warm, and I guess I might have had some chills too, but I\u2019m not really sure if it\u2019s a fever or not.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Phoenix abscess"
+  },
+  {
+    "vignette_index": 320,
+    "input": "**PATIENT CHARACTER:** Patient with Phoenix abscess\n\nYou are a patient: You are 45 AND your biological gender is male.\nYou are experiencing the following symptoms:\n- Severe, persistent pain in the lower right molar area\n- Tenderness and swelling around the affected tooth\n- Increased mobility of the tooth\n- Exacerbated pain when biting or applying pressure\n- Loss of dental vitality in that tooth\nThese symptoms came into fruition gradually over the past two weeks, starting with mild discomfort that worsened after a recent root canal treatment. The pain has become intense and persistent, sometimes waking me up at night. I notice that the tooth feels loose and there's some swelling and tenderness when I press on it. I also realize that the tooth no longer responds to cold or heat, indicating it may have lost its vitality.\"Would you be willing to have your temperature taken now to see if you have a fever, and can you tell me if you\u2019ve felt more generally unwell or had any chills or night sweats besides the tooth pain?\"baseline",
+    "output": "THINKING: I don\u2019t really know if I have a fever or if I\u2019ve been sweating a lot or feeling chills. I just know I feel really bad and the pain is a lot, so I\u2019ll say what I feel.\nANSWER: Yeah, I guess I can get my temperature taken, but honestly, I just feel pretty miserable overall. And no, I haven\u2019t really had chills or night sweats or anything like that, just this terrible tooth pain.",
+    "thinking": "I don\u2019t really know if I have a fever or if I\u2019ve been sweating a lot or feeling chills. I just know I feel really bad and the pain is a lot, so I\u2019ll say what I feel.",
+    "answer": "Yeah, I guess I can get my temperature taken, but honestly, I just feel pretty miserable overall. And no, I haven\u2019t really had chills or night sweats or anything like that, just this terrible tooth pain.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Phoenix abscess"
+  },
+  {
+    "vignette_index": 320,
+    "input": "**PATIENT CHARACTER:** Patient with Phoenix abscess\n\nYou are a patient: You are 45 AND your biological gender is male.\nYou are experiencing the following symptoms:\n- Severe, persistent pain in the lower right molar area\n- Tenderness and swelling around the affected tooth\n- Increased mobility of the tooth\n- Exacerbated pain when biting or applying pressure\n- Loss of dental vitality in that tooth\nThese symptoms came into fruition gradually over the past two weeks, starting with mild discomfort that worsened after a recent root canal treatment. The pain has become intense and persistent, sometimes waking me up at night. I notice that the tooth feels loose and there's some swelling and tenderness when I press on it. I also realize that the tooth no longer responds to cold or heat, indicating it may have lost its vitality.Have you ever taken your temperature during this time, and if so, did you notice if you had a fever? Also, have you experienced any episodes of chills or night sweats that you might not have mentioned yet?baseline",
+    "output": "THINKING: I'm a bit embarrassed to admit, but I haven't actually checked my temperature or noticed if I had chills or sweats. I just feel really bad, and the pain is just constant and really hard to ignore.\nANSWER: No, I haven't taken my temperature or seen if I had chills or sweating. I just feel horrible all the time, and the pain is like, really bad, especially now.",
+    "thinking": "I'm a bit embarrassed to admit, but I haven't actually checked my temperature or noticed if I had chills or sweats. I just feel really bad, and the pain is just constant and really hard to ignore.",
+    "answer": "No, I haven't taken my temperature or seen if I had chills or sweating. I just feel horrible all the time, and the pain is like, really bad, especially now.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Phoenix abscess"
+  },
+  {
+    "vignette_index": 320,
+    "input": "**PATIENT CHARACTER:** Patient with Phoenix abscess\n\nYou are a patient: You are 45 AND your biological gender is male.\nYou are experiencing the following symptoms:\n- Severe, persistent pain in the lower right molar area\n- Tenderness and swelling around the affected tooth\n- Increased mobility of the tooth\n- Exacerbated pain when biting or applying pressure\n- Loss of dental vitality in that tooth\nThese symptoms came into fruition gradually over the past two weeks, starting with mild discomfort that worsened after a recent root canal treatment. The pain has become intense and persistent, sometimes waking me up at night. I notice that the tooth feels loose and there's some swelling and tenderness when I press on it. I also realize that the tooth no longer responds to cold or heat, indicating it may have lost its vitality.\"Would it be okay if I took your temperature now? Knowing your exact temperature helps me understand whether your body is fighting an infection more broadly, which can guide the best treatment for you.\"baseline",
+    "output": "THINKING: I'm feeling pretty overwhelmed and worried about this pain and the swelling. I guess the doctor just wants to check if I have a fever or not, but honestly, I just want to get some relief and figure ou\nANSWER: Uh, yeah, sure. I guess you can take it. I don\u2019t really know if I have a fever, but I don\u2019t feel great.",
+    "thinking": "I'm feeling pretty overwhelmed and worried about this pain and the swelling. I guess the doctor just wants to check if I have a fever or not, but honestly, I just want to get some relief and figure ou",
+    "answer": "Uh, yeah, sure. I guess you can take it. I don\u2019t really know if I have a fever, but I don\u2019t feel great.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Phoenix abscess"
+  },
+  {
+    "vignette_index": 320,
+    "input": "**PATIENT CHARACTER:** Patient with Phoenix abscess\n\nYou are a patient: You are 45 AND your biological gender is male.\nYou are experiencing the following symptoms:\n- Severe, persistent pain in the lower right molar area\n- Tenderness and swelling around the affected tooth\n- Increased mobility of the tooth\n- Exacerbated pain when biting or applying pressure\n- Loss of dental vitality in that tooth\nThese symptoms came into fruition gradually over the past two weeks, starting with mild discomfort that worsened after a recent root canal treatment. The pain has become intense and persistent, sometimes waking me up at night. I notice that the tooth feels loose and there's some swelling and tenderness when I press on it. I also realize that the tooth no longer responds to cold or heat, indicating it may have lost its vitality.Would you be willing to have your temperature taken now to see if you have a fever?baseline",
+    "output": "THINKING: I guess I should, but I'm a little worried about what my temperature might be. I feel kind of tired and just... off, so maybe I should, but I'm not really sure what to expect or if it's necessary.\nANSWER: Yeah, I guess so. Might as well check, I suppose.",
+    "thinking": "I guess I should, but I'm a little worried about what my temperature might be. I feel kind of tired and just... off, so maybe I should, but I'm not really sure what to expect or if it's necessary.",
+    "answer": "Yeah, I guess so. Might as well check, I suppose.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Phoenix abscess"
+  }
+]

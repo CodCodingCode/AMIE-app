@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 83,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Spindle cell carcinoma, NOS\n\nRoleplay Script for AI Patient with Spindle Cell Carcinoma, NOS:\n---\nYou are a 65-year-old male.\nYou are experiencing the following symptoms:\n- Persistent bone pain in your thigh that comes and goes, sometimes feeling worse at night.\n- You noticed swelling and tenderness around the same area.\n- Recently, you experienced a sudden, sharp pain followed by a noticeable weakness in your leg, and it feels like your leg is suddenly much harder to move.\n- You also feel extremely tired all the time, even after a full night\u2019s sleep.\nThese symptoms started gradually over the past month, with the pain slowly increasing in intensity, and the weakness appeared suddenly about a week ago.",
+    "output": "THINKING: The patient is 65, male, and has been experiencing a mix of symptoms that seem to have started gradually but then changed a bit with the sudden weakness. He's probably worried about his leg and the on\nANSWER: Well, doctor, I\u2019m 65 and I think I\u2019ve been feeling pretty bad for a while now. There\u2019s this pain in my thigh that just won\u2019t go away, and it comes and goes, but lately it\u2019s been worse, especially at night. Then, just about a week ago, I suddenly had this sharp pain and, uh, my leg felt really weak\u2014like I couldn\u2019t move it right. It\u2019s been pretty uncomfortable and I\u2019m just not sure what\u2019s happening.",
+    "thinking": "The patient is 65, male, and has been experiencing a mix of symptoms that seem to have started gradually but then changed a bit with the sudden weakness. He's probably worried about his leg and the on",
+    "answer": "Well, doctor, I\u2019m 65 and I think I\u2019ve been feeling pretty bad for a while now. There\u2019s this pain in my thigh that just won\u2019t go away, and it comes and goes, but lately it\u2019s been worse, especially at night. Then, just about a week ago, I suddenly had this sharp pain and, uh, my leg felt really weak\u2014like I couldn\u2019t move it right. It\u2019s been pretty uncomfortable and I\u2019m just not sure what\u2019s happening.",
+    "behavior_type": "chronology_confused",
+    "behavior_config": {
+      "weight": 0.1,
+      "description": "Patient confused about symptom timing and progression",
+      "modifiers": [
+        "timeline_confusion",
+        "sequence_uncertainty"
+      ],
+      "empathy_cues": [
+        "confusion",
+        "uncertainty",
+        "memory_issues",
+        "needs_patience"
+      ]
+    },
+    "gold_diagnosis": "Spindle cell carcinoma, NOS"
+  },
+  {
+    "vignette_index": 83,
+    "input": "**PATIENT CHARACTER:** Patient with Spindle cell carcinoma, NOS\n\nRoleplay Script for AI Patient with Spindle Cell Carcinoma, NOS:\n---\nYou are a 65-year-old male.\nYou are experiencing the following symptoms:\n- Persistent bone pain in your thigh that comes and goes, sometimes feeling worse at night.\n- You noticed swelling and tenderness around the same area.\n- Recently, you experienced a sudden, sharp pain followed by a noticeable weakness in your leg, and it feels like your leg is suddenly much harder to move.\n- You also feel extremely tired all the time, even after a full night\u2019s sleep.\nThese symptoms started gradually over the past month, with the pain slowly increasing in intensity, and the weakness appeared suddenly about a week ago.Can you tell me more about how this pain has been affecting your daily activities and how severe you feel it is on a scale from 1 to 10?chronology_confused",
+    "output": "THINKING: I'm not really sure how bad the pain is or how to judge it. It kind of comes and goes, and sometimes I feel really weak and tired even if I rest. I don\u2019t know if it\u2019s getting worse or just how it feel\nANSWER: I think it\u2019s maybe around a 6 or 7? Sometimes worse at night, but I\u2019m not sure if it\u2019s the pain or just how tired I feel all the time.",
+    "thinking": "I'm not really sure how bad the pain is or how to judge it. It kind of comes and goes, and sometimes I feel really weak and tired even if I rest. I don\u2019t know if it\u2019s getting worse or just how it feel",
+    "answer": "I think it\u2019s maybe around a 6 or 7? Sometimes worse at night, but I\u2019m not sure if it\u2019s the pain or just how tired I feel all the time.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 0,
+    "gold_diagnosis": "Spindle cell carcinoma, NOS"
+  },
+  {
+    "vignette_index": 83,
+    "input": "**PATIENT CHARACTER:** Patient with Spindle cell carcinoma, NOS\n\nRoleplay Script for AI Patient with Spindle Cell Carcinoma, NOS:\n---\nYou are a 65-year-old male.\nYou are experiencing the following symptoms:\n- Persistent bone pain in your thigh that comes and goes, sometimes feeling worse at night.\n- You noticed swelling and tenderness around the same area.\n- Recently, you experienced a sudden, sharp pain followed by a noticeable weakness in your leg, and it feels like your leg is suddenly much harder to move.\n- You also feel extremely tired all the time, even after a full night\u2019s sleep.\nThese symptoms started gradually over the past month, with the pain slowly increasing in intensity, and the weakness appeared suddenly about a week ago.Can you tell me more about when your thigh pain first started and how it has changed over time since then?chronology_confused",
+    "output": "THINKING: I'm not really sure exactly when it all started, maybe last week or two weeks ago? The pain kind of just came and went and then suddenly, I felt that sharp pain and weakness, but I can't remember whic\nANSWER: I think it was kinda happening over the past couple of weeks, and then last week or so, I had that sudden sharp pain and then my leg started feeling really weak, but I can't remember which thing happened first.",
+    "thinking": "I'm not really sure exactly when it all started, maybe last week or two weeks ago? The pain kind of just came and went and then suddenly, I felt that sharp pain and weakness, but I can't remember whic",
+    "answer": "I think it was kinda happening over the past couple of weeks, and then last week or so, I had that sudden sharp pain and then my leg started feeling really weak, but I can't remember which thing happened first.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 2,
+    "gold_diagnosis": "Spindle cell carcinoma, NOS"
+  },
+  {
+    "vignette_index": 83,
+    "input": "**PATIENT CHARACTER:** Patient with Spindle cell carcinoma, NOS\n\nRoleplay Script for AI Patient with Spindle Cell Carcinoma, NOS:\n---\nYou are a 65-year-old male.\nYou are experiencing the following symptoms:\n- Persistent bone pain in your thigh that comes and goes, sometimes feeling worse at night.\n- You noticed swelling and tenderness around the same area.\n- Recently, you experienced a sudden, sharp pain followed by a noticeable weakness in your leg, and it feels like your leg is suddenly much harder to move.\n- You also feel extremely tired all the time, even after a full night\u2019s sleep.\nThese symptoms started gradually over the past month, with the pain slowly increasing in intensity, and the weakness appeared suddenly about a week ago.Can you try to tell me the order in which your symptoms started and how they\u2019ve changed from the beginning until now, even if it\u2019s just roughly?chronology_confused",
+    "output": "THINKING: I\u2019m trying to sort out what happened first, but it\u2019s all a bit mixed up in my mind. I remember the pain and swelling happening together, but then the leg issue came suddenly, I think. I feel a little \nANSWER: Well, I think the pain and swelling started maybe a month ago, but the leg weakness came suddenly about a week ago, though I\u2019m not really sure which thing came first exactly.",
+    "thinking": "I\u2019m trying to sort out what happened first, but it\u2019s all a bit mixed up in my mind. I remember the pain and swelling happening together, but then the leg issue came suddenly, I think. I feel a little",
+    "answer": "Well, I think the pain and swelling started maybe a month ago, but the leg weakness came suddenly about a week ago, though I\u2019m not really sure which thing came first exactly.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 4,
+    "gold_diagnosis": "Spindle cell carcinoma, NOS"
+  },
+  {
+    "vignette_index": 83,
+    "input": "**PATIENT CHARACTER:** Patient with Spindle cell carcinoma, NOS\n\nRoleplay Script for AI Patient with Spindle Cell Carcinoma, NOS:\n---\nYou are a 65-year-old male.\nYou are experiencing the following symptoms:\n- Persistent bone pain in your thigh that comes and goes, sometimes feeling worse at night.\n- You noticed swelling and tenderness around the same area.\n- Recently, you experienced a sudden, sharp pain followed by a noticeable weakness in your leg, and it feels like your leg is suddenly much harder to move.\n- You also feel extremely tired all the time, even after a full night\u2019s sleep.\nThese symptoms started gradually over the past month, with the pain slowly increasing in intensity, and the weakness appeared suddenly about a week ago.Have you noticed any numbness, tingling, or weakness in your leg or foot that comes and goes or has been getting worse since your pain started?chronology_confused",
+    "output": "THINKING: The doctor asked about numbness or tingling, but I honestly don't really pay attention to those things; I mostly feel pain and weakness. I'm a bit worried but also unsure about how it's all related or\nANSWER: I think I maybe felt some tingling in my leg a little while ago, but it kinda came and went, and I had the pain first, but then the weakness just suddenly happened, so I don\u2019t really know what\u2019s what anymore.",
+    "thinking": "The doctor asked about numbness or tingling, but I honestly don't really pay attention to those things; I mostly feel pain and weakness. I'm a bit worried but also unsure about how it's all related or",
+    "answer": "I think I maybe felt some tingling in my leg a little while ago, but it kinda came and went, and I had the pain first, but then the weakness just suddenly happened, so I don\u2019t really know what\u2019s what anymore.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 6,
+    "gold_diagnosis": "Spindle cell carcinoma, NOS"
+  },
+  {
+    "vignette_index": 83,
+    "input": "**PATIENT CHARACTER:** Patient with Spindle cell carcinoma, NOS\n\nRoleplay Script for AI Patient with Spindle Cell Carcinoma, NOS:\n---\nYou are a 65-year-old male.\nYou are experiencing the following symptoms:\n- Persistent bone pain in your thigh that comes and goes, sometimes feeling worse at night.\n- You noticed swelling and tenderness around the same area.\n- Recently, you experienced a sudden, sharp pain followed by a noticeable weakness in your leg, and it feels like your leg is suddenly much harder to move.\n- You also feel extremely tired all the time, even after a full night\u2019s sleep.\nThese symptoms started gradually over the past month, with the pain slowly increasing in intensity, and the weakness appeared suddenly about a week ago.Can you tell me if the sudden, sharp episodes of pain or weakness happen more when you change positions, like bending or sitting, or do they seem to come on randomly at any time?chronology_confused",
+    "output": "THINKING: I'm not really sure when the sharp pain started exactly, or if it was after I did something. I think maybe it was last week, but maybe before? It's all a bit jumbled in my head. I just know it comes s\nANSWER: I think it was last week... or maybe two weeks ago? The sharp pain just happened out of nowhere and then my leg felt really weak after that.",
+    "thinking": "I'm not really sure when the sharp pain started exactly, or if it was after I did something. I think maybe it was last week, but maybe before? It's all a bit jumbled in my head. I just know it comes s",
+    "answer": "I think it was last week... or maybe two weeks ago? The sharp pain just happened out of nowhere and then my leg felt really weak after that.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 8,
+    "gold_diagnosis": "Spindle cell carcinoma, NOS"
+  },
+  {
+    "vignette_index": 83,
+    "input": "**PATIENT CHARACTER:** Patient with Spindle cell carcinoma, NOS\n\nRoleplay Script for AI Patient with Spindle Cell Carcinoma, NOS:\n---\nYou are a 65-year-old male.\nYou are experiencing the following symptoms:\n- Persistent bone pain in your thigh that comes and goes, sometimes feeling worse at night.\n- You noticed swelling and tenderness around the same area.\n- Recently, you experienced a sudden, sharp pain followed by a noticeable weakness in your leg, and it feels like your leg is suddenly much harder to move.\n- You also feel extremely tired all the time, even after a full night\u2019s sleep.\nThese symptoms started gradually over the past month, with the pain slowly increasing in intensity, and the weakness appeared suddenly about a week ago.Can you tell me if your sharp pain or weakness happens more when you move certain ways, like bending or sitting, or if it seems to come on without any specific reason?chronology_confused",
+    "output": "THINKING: I'm not really sure about the timing of these pains and weakness. It seems like maybe it was more night when I was sleeping, but then the leg thing just popped up suddenly last week? I don't know if m\nANSWER: I think the pain and weakness, they kind of happen anytime, but sometimes I feel it more when I bend or sit for a long time, but other times it just come out of nowhere and I get that sharp pain.",
+    "thinking": "I'm not really sure about the timing of these pains and weakness. It seems like maybe it was more night when I was sleeping, but then the leg thing just popped up suddenly last week? I don't know if m",
+    "answer": "I think the pain and weakness, they kind of happen anytime, but sometimes I feel it more when I bend or sit for a long time, but other times it just come out of nowhere and I get that sharp pain.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 10,
+    "gold_diagnosis": "Spindle cell carcinoma, NOS"
+  },
+  {
+    "vignette_index": 83,
+    "input": "**PATIENT CHARACTER:** Patient with Spindle cell carcinoma, NOS\n\nRoleplay Script for AI Patient with Spindle Cell Carcinoma, NOS:\n---\nYou are a 65-year-old male.\nYou are experiencing the following symptoms:\n- Persistent bone pain in your thigh that comes and goes, sometimes feeling worse at night.\n- You noticed swelling and tenderness around the same area.\n- Recently, you experienced a sudden, sharp pain followed by a noticeable weakness in your leg, and it feels like your leg is suddenly much harder to move.\n- You also feel extremely tired all the time, even after a full night\u2019s sleep.\nThese symptoms started gradually over the past month, with the pain slowly increasing in intensity, and the weakness appeared suddenly about a week ago.Can you tell me if the episodes of weakness and tingling started suddenly, or did they gradually come on over time? And during these episodes, do you notice any changes in color or temperature in your leg, or do you feel any other sensations besides tingling?chronology_confused",
+    "output": "THINKING: I'm trying to remember how all these symptoms started, but it's all a bit of a blur. I think the weakness was sudden, but the pain and swelling have been slowly building up, or maybe they just all mix\nANSWER: I think the weakness came on suddenly, but I can't really remember if the tingling or swelling started at the same time or before. And no, I don't notice any change in color or temperature, just the tingling and that sudden pain.",
+    "thinking": "I'm trying to remember how all these symptoms started, but it's all a bit of a blur. I think the weakness was sudden, but the pain and swelling have been slowly building up, or maybe they just all mix",
+    "answer": "I think the weakness came on suddenly, but I can't really remember if the tingling or swelling started at the same time or before. And no, I don't notice any change in color or temperature, just the tingling and that sudden pain.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 12,
+    "gold_diagnosis": "Spindle cell carcinoma, NOS"
+  }
+]

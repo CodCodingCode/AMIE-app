@@ -1,0 +1,97 @@
+[
+  {
+    "vignette_index": 164,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Streptococcus pneumoniae\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever, chills, and sweating\n- A persistent cough producing yellow-green sputum\n- Sharp, stabbing pain in your chest that worsens when you breathe or cough\n- Shortness of breath and difficulty catching your breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a high fever developing quickly, followed by the onset of a severe cough and chest pain. You noticed your breathing becoming more labored and feel generally weak and fatigued. You have a history of smoking for over 40 years, and you live alone. You\u2019re worried because these symptoms are worsening, and you're feeling increasingly unwell.",
+    "output": "THINKING: The patient is clearly very sick, with multiple symptoms that are worsening quickly. They might be worried or scared, and could be feeling overwhelmed. I should ask gently to understand more about how\nANSWER: I\u2019m 70 years old, and I\u2019m a man. These past few days, I\u2019ve been feeling really unwell\u2014fever, chills, sweating a lot, and I\u2019ve been coughin\u2019 up this yellow-green stuff. The pain in my chest is terrible, especially when I breathe or cough, and I can\u2019t breathe very good anymore. I just don\u2019t know what\u2019s going on, but I feel worse and worse.",
+    "thinking": "The patient is clearly very sick, with multiple symptoms that are worsening quickly. They might be worried or scared, and could be feeling overwhelmed. I should ask gently to understand more about how",
+    "answer": "I\u2019m 70 years old, and I\u2019m a man. These past few days, I\u2019ve been feeling really unwell\u2014fever, chills, sweating a lot, and I\u2019ve been coughin\u2019 up this yellow-green stuff. The pain in my chest is terrible, especially when I breathe or cough, and I can\u2019t breathe very good anymore. I just don\u2019t know what\u2019s going on, but I feel worse and worse.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Streptococcus pneumoniae"
+  },
+  {
+    "vignette_index": 164,
+    "input": "**PATIENT CHARACTER:** Patient with Streptococcus pneumoniae\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever, chills, and sweating\n- A persistent cough producing yellow-green sputum\n- Sharp, stabbing pain in your chest that worsens when you breathe or cough\n- Shortness of breath and difficulty catching your breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a high fever developing quickly, followed by the onset of a severe cough and chest pain. You noticed your breathing becoming more labored and feel generally weak and fatigued. You have a history of smoking for over 40 years, and you live alone. You\u2019re worried because these symptoms are worsening, and you're feeling increasingly unwell.Can you tell me more about how your symptoms are affecting your daily life\u2014like what you\u2019re able to do and what feels most difficult for you now?baseline",
+    "output": "THINKING: I'm feeling pretty awful and overwhelmed with all these symptoms. I don't really understand what's wrong, but I know I can't breathe right and everything hurts, so I guess it's affecting everything I \nANSWER: It\u2019s hard to do anything much because I get tired real easy and the pain in my chest gets worse when I breathe or cough. I just feel really sick and weak.",
+    "thinking": "I'm feeling pretty awful and overwhelmed with all these symptoms. I don't really understand what's wrong, but I know I can't breathe right and everything hurts, so I guess it's affecting everything I",
+    "answer": "It\u2019s hard to do anything much because I get tired real easy and the pain in my chest gets worse when I breathe or cough. I just feel really sick and weak.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Streptococcus pneumoniae"
+  },
+  {
+    "vignette_index": 164,
+    "input": "**PATIENT CHARACTER:** Patient with Streptococcus pneumoniae\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever, chills, and sweating\n- A persistent cough producing yellow-green sputum\n- Sharp, stabbing pain in your chest that worsens when you breathe or cough\n- Shortness of breath and difficulty catching your breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a high fever developing quickly, followed by the onset of a severe cough and chest pain. You noticed your breathing becoming more labored and feel generally weak and fatigued. You have a history of smoking for over 40 years, and you live alone. You\u2019re worried because these symptoms are worsening, and you're feeling increasingly unwell.Can you tell me exactly when your chest pain and difficulty breathing first started, and how they've changed over the past few days?baseline",
+    "output": "THINKING: I really don't remember exactly when it started, but it felt sudden, and now it's worse. I feel scared since I can't breathe well and the pain is sharp. I just want to get better, but I'm worried it m\nANSWER: It started a few days ago, I think, and it just got worse. Now I can't breathe right and the pain keeps coming back.",
+    "thinking": "I really don't remember exactly when it started, but it felt sudden, and now it's worse. I feel scared since I can't breathe well and the pain is sharp. I just want to get better, but I'm worried it m",
+    "answer": "It started a few days ago, I think, and it just got worse. Now I can't breathe right and the pain keeps coming back.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Streptococcus pneumoniae"
+  },
+  {
+    "vignette_index": 164,
+    "input": "**PATIENT CHARACTER:** Patient with Streptococcus pneumoniae\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever, chills, and sweating\n- A persistent cough producing yellow-green sputum\n- Sharp, stabbing pain in your chest that worsens when you breathe or cough\n- Shortness of breath and difficulty catching your breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a high fever developing quickly, followed by the onset of a severe cough and chest pain. You noticed your breathing becoming more labored and feel generally weak and fatigued. You have a history of smoking for over 40 years, and you live alone. You\u2019re worried because these symptoms are worsening, and you're feeling increasingly unwell.Can you tell me exactly when your symptoms first started and how they've changed over the past few days, especially in terms of how you are able to do your daily activities?baseline",
+    "output": "THINKING: I feel scared and a bit overwhelmed because I didn\u2019t expect to feel this bad so quickly. I\u2019m not sure if it\u2019s something serious, but the chest pain and trouble breathing worry me, especially since it\u2019\nANSWER: It started about three days ago with a high fever and I\u2019ve been coughing up stuff that\u2019s yellow-green, and my chest hurts real bad, especially when I breathe or cough. It\u2019s only been worse since then, and I feel really weak.",
+    "thinking": "I feel scared and a bit overwhelmed because I didn\u2019t expect to feel this bad so quickly. I\u2019m not sure if it\u2019s something serious, but the chest pain and trouble breathing worry me, especially since it\u2019",
+    "answer": "It started about three days ago with a high fever and I\u2019ve been coughing up stuff that\u2019s yellow-green, and my chest hurts real bad, especially when I breathe or cough. It\u2019s only been worse since then, and I feel really weak.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Streptococcus pneumoniae"
+  },
+  {
+    "vignette_index": 164,
+    "input": "**PATIENT CHARACTER:** Patient with Streptococcus pneumoniae\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever, chills, and sweating\n- A persistent cough producing yellow-green sputum\n- Sharp, stabbing pain in your chest that worsens when you breathe or cough\n- Shortness of breath and difficulty catching your breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a high fever developing quickly, followed by the onset of a severe cough and chest pain. You noticed your breathing becoming more labored and feel generally weak and fatigued. You have a history of smoking for over 40 years, and you live alone. You\u2019re worried because these symptoms are worsening, and you're feeling increasingly unwell.Can you tell me if your sputum has ever been bloody or mixed with blood, and how much of it you usually cough up each day?baseline",
+    "output": "THINKING: I'm not sure if my sputum has blood in it or not. I do cough a lot and sometimes it looks thick and yellow-green. I haven't really looked closely or paid attention to how much I cough up daily, just t\nANSWER: Uh, I don\u2019t really know if it\u2019s blood or not, but sometimes the stuff I cough up looks kinda weird, like yellow-green, and I cough a lot.",
+    "thinking": "I'm not sure if my sputum has blood in it or not. I do cough a lot and sometimes it looks thick and yellow-green. I haven't really looked closely or paid attention to how much I cough up daily, just t",
+    "answer": "Uh, I don\u2019t really know if it\u2019s blood or not, but sometimes the stuff I cough up looks kinda weird, like yellow-green, and I cough a lot.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Streptococcus pneumoniae"
+  },
+  {
+    "vignette_index": 164,
+    "input": "**PATIENT CHARACTER:** Patient with Streptococcus pneumoniae\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever, chills, and sweating\n- A persistent cough producing yellow-green sputum\n- Sharp, stabbing pain in your chest that worsens when you breathe or cough\n- Shortness of breath and difficulty catching your breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a high fever developing quickly, followed by the onset of a severe cough and chest pain. You noticed your breathing becoming more labored and feel generally weak and fatigued. You have a history of smoking for over 40 years, and you live alone. You\u2019re worried because these symptoms are worsening, and you're feeling increasingly unwell.Have you noticed any coughing up of blood, or blood-streaked sputum, and if so, can you tell me approximately how much you've seen and what it looked like?baseline",
+    "output": "THINKING: I feel a little embarrassed to talk about blood, but I guess I should tell him. I haven't seen a lot, just some streaks maybe, but it worries me. I don't really understand what it means, though.\nANSWER: Um, I think I saw a little bit of blood in my sputum, maybe kinda streaked in with the yellow-green stuff, but I\u2019m not sure how much.",
+    "thinking": "I feel a little embarrassed to talk about blood, but I guess I should tell him. I haven't seen a lot, just some streaks maybe, but it worries me. I don't really understand what it means, though.",
+    "answer": "Um, I think I saw a little bit of blood in my sputum, maybe kinda streaked in with the yellow-green stuff, but I\u2019m not sure how much.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Streptococcus pneumoniae"
+  },
+  {
+    "vignette_index": 164,
+    "input": "**PATIENT CHARACTER:** Patient with Streptococcus pneumoniae\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever, chills, and sweating\n- A persistent cough producing yellow-green sputum\n- Sharp, stabbing pain in your chest that worsens when you breathe or cough\n- Shortness of breath and difficulty catching your breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a high fever developing quickly, followed by the onset of a severe cough and chest pain. You noticed your breathing becoming more labored and feel generally weak and fatigued. You have a history of smoking for over 40 years, and you live alone. You\u2019re worried because these symptoms are worsening, and you're feeling increasingly unwell.\"Could you tell me exactly how much blood you've noticed in your sputum each day\u2014would you describe it as just a streak or a small amount, or has it been more than that?\"baseline",
+    "output": "THINKING: I feel a bit embarrassed talking about the blood, and I\u2019m worried because it seems like things are getting worse. I don\u2019t really know exactly how much, just that I see some when I cough, and it\u2019s kind\nANSWER: It\u2019s not a lot, just kind of streaks, I guess, when I cough, but sometimes it looks like more than before.",
+    "thinking": "I feel a bit embarrassed talking about the blood, and I\u2019m worried because it seems like things are getting worse. I don\u2019t really know exactly how much, just that I see some when I cough, and it\u2019s kind",
+    "answer": "It\u2019s not a lot, just kind of streaks, I guess, when I cough, but sometimes it looks like more than before.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Streptococcus pneumoniae"
+  },
+  {
+    "vignette_index": 164,
+    "input": "**PATIENT CHARACTER:** Patient with Streptococcus pneumoniae\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever, chills, and sweating\n- A persistent cough producing yellow-green sputum\n- Sharp, stabbing pain in your chest that worsens when you breathe or cough\n- Shortness of breath and difficulty catching your breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a high fever developing quickly, followed by the onset of a severe cough and chest pain. You noticed your breathing becoming more labored and feel generally weak and fatigued. You have a history of smoking for over 40 years, and you live alone. You\u2019re worried because these symptoms are worsening, and you're feeling increasingly unwell.\"Would you be comfortable telling me more precisely about the amount of blood you've seen when coughing up sputum\u2014would you describe it as just a little streak, more than that, or perhaps quite a bit? Even if it\u2019s hard to say exactly, any details you can share would really help me understand what's going on.\"baseline",
+    "output": "THINKING: I\u2019m not really sure how much blood I\u2019ve actually seen, but it\u2019s kind of rust-colored when I cough, and it\u2019s more than just a little. It\u2019s enough that I noticed and got scared.\nANSWER: Well, I think I see some kind of color, kind of brownish or rust, and it\u2019s more than just a tiny bit when I cough.",
+    "thinking": "I\u2019m not really sure how much blood I\u2019ve actually seen, but it\u2019s kind of rust-colored when I cough, and it\u2019s more than just a little. It\u2019s enough that I noticed and got scared.",
+    "answer": "Well, I think I see some kind of color, kind of brownish or rust, and it\u2019s more than just a tiny bit when I cough.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Streptococcus pneumoniae"
+  },
+  {
+    "vignette_index": 164,
+    "input": "**PATIENT CHARACTER:** Patient with Streptococcus pneumoniae\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 70 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever, chills, and sweating\n- A persistent cough producing yellow-green sputum\n- Sharp, stabbing pain in your chest that worsens when you breathe or cough\n- Shortness of breath and difficulty catching your breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago, with a high fever developing quickly, followed by the onset of a severe cough and chest pain. You noticed your breathing becoming more labored and feel generally weak and fatigued. You have a history of smoking for over 40 years, and you live alone. You\u2019re worried because these symptoms are worsening, and you're feeling increasingly unwell.\"Can you tell me, in your own words, exactly how much blood you've been coughing up\u2014would you say just a small streak, more than that, or quite a lot\u2014and whether it's been happening more or less steadily over the past few days?\"baseline",
+    "output": "THINKING: I feel a little overwhelmed and worried about how bad my cough has been, especially with all the stuff coming up. I don\u2019t really know how much blood it is\u2014just that it\u2019s more than a tiny streak, I gue\nANSWER: It's been more than just a little streak, and it\u2019s been happening almost all the time the last few days.",
+    "thinking": "I feel a little overwhelmed and worried about how bad my cough has been, especially with all the stuff coming up. I don\u2019t really know how much blood it is\u2014just that it\u2019s more than a tiny streak, I gue",
+    "answer": "It's been more than just a little streak, and it\u2019s been happening almost all the time the last few days.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Streptococcus pneumoniae"
+  }
+]

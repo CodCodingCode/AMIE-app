@@ -1,0 +1,97 @@
+[
+  {
+    "vignette_index": 172,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Congenital malformations of choroid\n\nYou are a patient: You are a 10-year-old boy and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden flashes of light in your vision, like tiny lightning bolts.\n- Some blurry spots or floaters drifting across your sight.\n- You notice your vision has become dimmer in one eye.\nThese symptoms came into fruition suddenly yesterday while you were playing outside. You feel a bit scared because your parents say your eye looks different and you've never had anything like this before. You\u2019re worried because it feels kind of strange and you don\u2019t want to lose your sight.",
+    "output": "THINKING: The patient is young and visibly distressed, probably feeling scared about sudden changes in vision. I should reassure him a bit but also listen carefully to what he's experiencing. His description is\nANSWER: I\u2019m 10, and I\u2019m a boy. Yesterday, when I was playing outside, I saw, like, tiny lightning bolts in one eye and some blurry spots, and now one of my eyes looks kind of different. It\u2019s like my sight got really dim or something, and I don\u2019t know why. I feel a little scared because I\u2019ve never seen anything like this before, and my parents said my eye looks strange.",
+    "thinking": "The patient is young and visibly distressed, probably feeling scared about sudden changes in vision. I should reassure him a bit but also listen carefully to what he's experiencing. His description is",
+    "answer": "I\u2019m 10, and I\u2019m a boy. Yesterday, when I was playing outside, I saw, like, tiny lightning bolts in one eye and some blurry spots, and now one of my eyes looks kind of different. It\u2019s like my sight got really dim or something, and I don\u2019t know why. I feel a little scared because I\u2019ve never seen anything like this before, and my parents said my eye looks strange.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Congenital malformations of choroid"
+  },
+  {
+    "vignette_index": 172,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital malformations of choroid\n\nYou are a patient: You are a 10-year-old boy and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden flashes of light in your vision, like tiny lightning bolts.\n- Some blurry spots or floaters drifting across your sight.\n- You notice your vision has become dimmer in one eye.\nThese symptoms came into fruition suddenly yesterday while you were playing outside. You feel a bit scared because your parents say your eye looks different and you've never had anything like this before. You\u2019re worried because it feels kind of strange and you don\u2019t want to lose your sight.Can you tell me how long you've been noticing these flashes and blurry areas, and if they have been changing or staying the same over time?baseline",
+    "output": "THINKING: I feel really worried and a little overwhelmed. I don't understand what all these things mean, but I know something is wrong because my eye looks weird and I saw flashes. I just want it to stop and no\nANSWER: Um, I started seeing flashes yesterday and these spots keep drifting across my eye, and it kind of looks darker in one eye now. It just suddenly happened while I was outside playing.",
+    "thinking": "I feel really worried and a little overwhelmed. I don't understand what all these things mean, but I know something is wrong because my eye looks weird and I saw flashes. I just want it to stop and no",
+    "answer": "Um, I started seeing flashes yesterday and these spots keep drifting across my eye, and it kind of looks darker in one eye now. It just suddenly happened while I was outside playing.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Congenital malformations of choroid"
+  },
+  {
+    "vignette_index": 172,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital malformations of choroid\n\nYou are a patient: You are a 10-year-old boy and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden flashes of light in your vision, like tiny lightning bolts.\n- Some blurry spots or floaters drifting across your sight.\n- You notice your vision has become dimmer in one eye.\nThese symptoms came into fruition suddenly yesterday while you were playing outside. You feel a bit scared because your parents say your eye looks different and you've never had anything like this before. You\u2019re worried because it feels kind of strange and you don\u2019t want to lose your sight.Can you tell me if your flashes and blurry spots have been changing or staying the same since you first noticed them, and how long you've been feeling this way?baseline",
+    "output": "THINKING: I'm worried about what\u2019s happening but I don\u2019t really understand all the words the doctor is using. I just want to tell them what I see and how I feel without making it complicated.\nANSWER: Um, yeah, there are still the little flashes like lightning in my eye, and I see some spots that move around. It kinda looks the same but it\u2019s scaring me a little.",
+    "thinking": "I'm worried about what\u2019s happening but I don\u2019t really understand all the words the doctor is using. I just want to tell them what I see and how I feel without making it complicated.",
+    "answer": "Um, yeah, there are still the little flashes like lightning in my eye, and I see some spots that move around. It kinda looks the same but it\u2019s scaring me a little.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Congenital malformations of choroid"
+  },
+  {
+    "vignette_index": 172,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital malformations of choroid\n\nYou are a patient: You are a 10-year-old boy and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden flashes of light in your vision, like tiny lightning bolts.\n- Some blurry spots or floaters drifting across your sight.\n- You notice your vision has become dimmer in one eye.\nThese symptoms came into fruition suddenly yesterday while you were playing outside. You feel a bit scared because your parents say your eye looks different and you've never had anything like this before. You\u2019re worried because it feels kind of strange and you don\u2019t want to lose your sight.Can you tell me if these flashes or blurry spots have kept happening since yesterday, or if they come and go? Have you noticed them more often or lasting longer, and has your vision in that eye changed anymore since you first felt this way?baseline",
+    "output": "THINKING: I feel worried and kind of scared because I saw those flashes and spots, and now my eye feels weird. I don\u2019t really understand what\u2019s happening, and it\u2019s all new and a little scary, especially since i\nANSWER: Yeah, I\u2019ve still been seeing the flashes and the blurry stuff, and it\u2019s like, coming and going, but it feels worse when I look around. My eye looks different too.",
+    "thinking": "I feel worried and kind of scared because I saw those flashes and spots, and now my eye feels weird. I don\u2019t really understand what\u2019s happening, and it\u2019s all new and a little scary, especially since i",
+    "answer": "Yeah, I\u2019ve still been seeing the flashes and the blurry stuff, and it\u2019s like, coming and going, but it feels worse when I look around. My eye looks different too.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Congenital malformations of choroid"
+  },
+  {
+    "vignette_index": 172,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital malformations of choroid\n\nYou are a patient: You are a 10-year-old boy and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden flashes of light in your vision, like tiny lightning bolts.\n- Some blurry spots or floaters drifting across your sight.\n- You notice your vision has become dimmer in one eye.\nThese symptoms came into fruition suddenly yesterday while you were playing outside. You feel a bit scared because your parents say your eye looks different and you've never had anything like this before. You\u2019re worried because it feels kind of strange and you don\u2019t want to lose your sight.Have you or anyone else touched, bumped, or injured your eye recently, or experienced any kind of trauma during outdoor activities in the days before these symptoms started?baseline",
+    "output": "THINKING: I feel nervous about what the doctor will say and I don\u2019t really understand all the words. I just want to tell the truth but I\u2019m kind of scared that I\u2019ve never had this happen before and it\u2019s kind of \nANSWER: No, I don\u2019t think so. I was just playing outside and then suddenly everything looked funny and I saw these little flashes, and my eye feels weird now.",
+    "thinking": "I feel nervous about what the doctor will say and I don\u2019t really understand all the words. I just want to tell the truth but I\u2019m kind of scared that I\u2019ve never had this happen before and it\u2019s kind of",
+    "answer": "No, I don\u2019t think so. I was just playing outside and then suddenly everything looked funny and I saw these little flashes, and my eye feels weird now.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Congenital malformations of choroid"
+  },
+  {
+    "vignette_index": 172,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital malformations of choroid\n\nYou are a patient: You are a 10-year-old boy and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden flashes of light in your vision, like tiny lightning bolts.\n- Some blurry spots or floaters drifting across your sight.\n- You notice your vision has become dimmer in one eye.\nThese symptoms came into fruition suddenly yesterday while you were playing outside. You feel a bit scared because your parents say your eye looks different and you've never had anything like this before. You\u2019re worried because it feels kind of strange and you don\u2019t want to lose your sight.Have you or anyone else bumped or hit your eye or head recently, especially during playing outside or sports, that might have caused an injury?baseline",
+    "output": "THINKING: I\u2019m really worried because I saw flashes and things float in my eye, and it\u2019s all pretty strange and new to me. I don\u2019t think I hit my eye, but now it looks different, and I feel kind of scared about \nANSWER: No, I didn\u2019t bump or hit it, but I don\u2019t know, it just started doing weird stuff yesterday while I was outside playing. My eye looks different too.",
+    "thinking": "I\u2019m really worried because I saw flashes and things float in my eye, and it\u2019s all pretty strange and new to me. I don\u2019t think I hit my eye, but now it looks different, and I feel kind of scared about",
+    "answer": "No, I didn\u2019t bump or hit it, but I don\u2019t know, it just started doing weird stuff yesterday while I was outside playing. My eye looks different too.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Congenital malformations of choroid"
+  },
+  {
+    "vignette_index": 172,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital malformations of choroid\n\nYou are a patient: You are a 10-year-old boy and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden flashes of light in your vision, like tiny lightning bolts.\n- Some blurry spots or floaters drifting across your sight.\n- You notice your vision has become dimmer in one eye.\nThese symptoms came into fruition suddenly yesterday while you were playing outside. You feel a bit scared because your parents say your eye looks different and you've never had anything like this before. You\u2019re worried because it feels kind of strange and you don\u2019t want to lose your sight.Can you tell me if anyone or anything, like a ball or a stick, bumped or hit your eye or head while you were playing outside yesterday or recently?baseline",
+    "output": "THINKING: I feel a little worried and confused about the flashing and the blurry, dark spots. It all happened out of nowhere, and I don\u2019t really know if I got hit or anything like that. I just want to tell the \nANSWER: No, nobody hit me or threw anything at my eye or head while I was playing. I didn\u2019t see any balls or sticks or anything bump me.",
+    "thinking": "I feel a little worried and confused about the flashing and the blurry, dark spots. It all happened out of nowhere, and I don\u2019t really know if I got hit or anything like that. I just want to tell the",
+    "answer": "No, nobody hit me or threw anything at my eye or head while I was playing. I didn\u2019t see any balls or sticks or anything bump me.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Congenital malformations of choroid"
+  },
+  {
+    "vignette_index": 172,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital malformations of choroid\n\nYou are a patient: You are a 10-year-old boy and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden flashes of light in your vision, like tiny lightning bolts.\n- Some blurry spots or floaters drifting across your sight.\n- You notice your vision has become dimmer in one eye.\nThese symptoms came into fruition suddenly yesterday while you were playing outside. You feel a bit scared because your parents say your eye looks different and you've never had anything like this before. You\u2019re worried because it feels kind of strange and you don\u2019t want to lose your sight.Have you noticed if your vision suddenly got much worse or even your whole sight going out in that eye, like a curtain coming down, or just flashes and blurry spots?baseline",
+    "output": "THINKING: I feel worried and a little scared. I don\u2019t really understand what\u2019s happening to my eye, and I\u2019m worried I might go blind or something bad. I just want to tell all the weird stuff I see and hope some\nANSWER: Yeah, I think so. I saw these little lightning things and spots drifting, and my eye looks kinda different, like it\u2019s darker or something. It all happened kinda sudden.",
+    "thinking": "I feel worried and a little scared. I don\u2019t really understand what\u2019s happening to my eye, and I\u2019m worried I might go blind or something bad. I just want to tell all the weird stuff I see and hope some",
+    "answer": "Yeah, I think so. I saw these little lightning things and spots drifting, and my eye looks kinda different, like it\u2019s darker or something. It all happened kinda sudden.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Congenital malformations of choroid"
+  },
+  {
+    "vignette_index": 172,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital malformations of choroid\n\nYou are a patient: You are a 10-year-old boy and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden flashes of light in your vision, like tiny lightning bolts.\n- Some blurry spots or floaters drifting across your sight.\n- You notice your vision has become dimmer in one eye.\nThese symptoms came into fruition suddenly yesterday while you were playing outside. You feel a bit scared because your parents say your eye looks different and you've never had anything like this before. You\u2019re worried because it feels kind of strange and you don\u2019t want to lose your sight.Can you tell me if you\u2019ve noticed any sudden pain in your eye or if your vision suddenly went completely dark or like a curtain is coming down over your eye since these symptoms started?baseline",
+    "output": "THINKING: I feel worried and a little scared about what\u2019s happening. I don\u2019t really understand all the words, but I know my eye feels funny and I see weird lights. I hope the doctor can fix it.\nANSWER: Yeah, I saw some flashing lights and stuff drifting across my eye, and it\u2019s like it\u2019s not as clear like it was before. My eye looks different too, I think.",
+    "thinking": "I feel worried and a little scared about what\u2019s happening. I don\u2019t really understand all the words, but I know my eye feels funny and I see weird lights. I hope the doctor can fix it.",
+    "answer": "Yeah, I saw some flashing lights and stuff drifting across my eye, and it\u2019s like it\u2019s not as clear like it was before. My eye looks different too, I think.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Congenital malformations of choroid"
+  }
+]

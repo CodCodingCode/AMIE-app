@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 44,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Atypical hantavirus disease\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Fever, muscle aches, and cough.\n- Shortness of breath and dizziness.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, after I was working outside on my farm, cleaning out a barn where I noticed a lot of rodent droppings and urine. At first, I just thought I had the flu, but the muscle aches got worse, and I began to feel really dizzy and short of breath, especially when I exert myself. I\u2019ve also been feeling pretty fatigued and nauseous, and I\u2019ve had some chills and headaches that won\u2019t go away. I\u2019m worried because I\u2019ve been exposed to rodents, and I\u2019m starting to feel worse even though I\u2019ve been resting.",
+    "output": "THINKING: I need to explain my symptoms clearly but in a way that shows I\u2019m worried and confused, since I don\u2019t really know what\u2019s wrong. I should mention the suddenness and the things I\u2019ve been feeling, especi\nANSWER: Well, I\u2019m a 45-year-old man, and I\u2019ve been feeling really bad these past couple days. I started with fever and muscle aches, and then I began coughing and having trouble breathing. I\u2019ve been feeling dizzy and super tired, and I just can\u2019t seem to shake off the chills and headache. I work outside on my farm, and I was cleaning out this old barn with a lot of rodent droppings and urine, so I think I might have just\u2026 I don\u2019t know, caught something? I\u2019m worried because I\u2019m feeling worse even though I\u2019ve been resting.",
+    "thinking": "I need to explain my symptoms clearly but in a way that shows I\u2019m worried and confused, since I don\u2019t really know what\u2019s wrong. I should mention the suddenness and the things I\u2019ve been feeling, especi",
+    "answer": "Well, I\u2019m a 45-year-old man, and I\u2019ve been feeling really bad these past couple days. I started with fever and muscle aches, and then I began coughing and having trouble breathing. I\u2019ve been feeling dizzy and super tired, and I just can\u2019t seem to shake off the chills and headache. I work outside on my farm, and I was cleaning out this old barn with a lot of rodent droppings and urine, so I think I might have just\u2026 I don\u2019t know, caught something? I\u2019m worried because I\u2019m feeling worse even though I\u2019ve been resting.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Atypical hantavirus disease"
+  },
+  {
+    "vignette_index": 44,
+    "input": "**PATIENT CHARACTER:** Patient with Atypical hantavirus disease\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Fever, muscle aches, and cough.\n- Shortness of breath and dizziness.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, after I was working outside on my farm, cleaning out a barn where I noticed a lot of rodent droppings and urine. At first, I just thought I had the flu, but the muscle aches got worse, and I began to feel really dizzy and short of breath, especially when I exert myself. I\u2019ve also been feeling pretty fatigued and nauseous, and I\u2019ve had some chills and headaches that won\u2019t go away. I\u2019m worried because I\u2019ve been exposed to rodents, and I\u2019m starting to feel worse even though I\u2019ve been resting.Can you tell me exactly how difficult it is for you to breathe right now compared to when your symptoms first started, and if you've experienced any chest pain or feeling like your breathing is really labored?baseline",
+    "output": "THINKING: I'm trying to assess how bad my breathing feels now compared to earlier, and also if there's any chest pain or it feels really hard to breathe, but I'm not sure how to describe it accurately. I feel l\nANSWER: It's kind of harder to breathe now than when I first started feeling bad, and I haven't really had chest pain, but it feels like I'm struggling more to get enough air sometimes.",
+    "thinking": "I'm trying to assess how bad my breathing feels now compared to earlier, and also if there's any chest pain or it feels really hard to breathe, but I'm not sure how to describe it accurately. I feel l",
+    "answer": "It's kind of harder to breathe now than when I first started feeling bad, and I haven't really had chest pain, but it feels like I'm struggling more to get enough air sometimes.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Atypical hantavirus disease"
+  },
+  {
+    "vignette_index": 44,
+    "input": "**PATIENT CHARACTER:** Patient with Atypical hantavirus disease\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Fever, muscle aches, and cough.\n- Shortness of breath and dizziness.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, after I was working outside on my farm, cleaning out a barn where I noticed a lot of rodent droppings and urine. At first, I just thought I had the flu, but the muscle aches got worse, and I began to feel really dizzy and short of breath, especially when I exert myself. I\u2019ve also been feeling pretty fatigued and nauseous, and I\u2019ve had some chills and headaches that won\u2019t go away. I\u2019m worried because I\u2019ve been exposed to rodents, and I\u2019m starting to feel worse even though I\u2019ve been resting.Can you tell me if, when you're trying to breathe right now, it feels like you're working really hard to get enough air, or if you notice any times when your breathing feels more difficult than usual?baseline",
+    "output": "THINKING: I'm feeling a bit panicked and confused about how hard it is to breathe sometimes, especially since I'm not sure if it's normal or not. I want to tell him honestly but I don\u2019t really know how to expla\nANSWER: Yeah, it feels like I have to really try to breathe sometimes, especially when I move around or do anything, and I just get really tired trying to catch my breath.",
+    "thinking": "I'm feeling a bit panicked and confused about how hard it is to breathe sometimes, especially since I'm not sure if it's normal or not. I want to tell him honestly but I don\u2019t really know how to expla",
+    "answer": "Yeah, it feels like I have to really try to breathe sometimes, especially when I move around or do anything, and I just get really tired trying to catch my breath.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Atypical hantavirus disease"
+  },
+  {
+    "vignette_index": 44,
+    "input": "**PATIENT CHARACTER:** Patient with Atypical hantavirus disease\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Fever, muscle aches, and cough.\n- Shortness of breath and dizziness.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, after I was working outside on my farm, cleaning out a barn where I noticed a lot of rodent droppings and urine. At first, I just thought I had the flu, but the muscle aches got worse, and I began to feel really dizzy and short of breath, especially when I exert myself. I\u2019ve also been feeling pretty fatigued and nauseous, and I\u2019ve had some chills and headaches that won\u2019t go away. I\u2019m worried because I\u2019ve been exposed to rodents, and I\u2019m starting to feel worse even though I\u2019ve been resting.Can you tell me how hard it feels for you to breathe right now\u2014like whether you're really working to get air or if it\u2019s just a little bit more effort than usual\u2014and whether that feeling is anything you notice more when you're resting or when you're moving around?baseline",
+    "output": "THINKING: I'm a bit worried about how hard it feels to breathe and whether it's worse when I move around or just sitting still. I'm not really sure what to make of it, but it\u2019s definitely there and making me ne\nANSWER: Uh, it feels kinda harder to breathe now, like I gotta work at it more than before, and it seems worse when I'm walking around or if I do anything active.",
+    "thinking": "I'm a bit worried about how hard it feels to breathe and whether it's worse when I move around or just sitting still. I'm not really sure what to make of it, but it\u2019s definitely there and making me ne",
+    "answer": "Uh, it feels kinda harder to breathe now, like I gotta work at it more than before, and it seems worse when I'm walking around or if I do anything active.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Atypical hantavirus disease"
+  },
+  {
+    "vignette_index": 44,
+    "input": "**PATIENT CHARACTER:** Patient with Atypical hantavirus disease\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Fever, muscle aches, and cough.\n- Shortness of breath and dizziness.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, after I was working outside on my farm, cleaning out a barn where I noticed a lot of rodent droppings and urine. At first, I just thought I had the flu, but the muscle aches got worse, and I began to feel really dizzy and short of breath, especially when I exert myself. I\u2019ve also been feeling pretty fatigued and nauseous, and I\u2019ve had some chills and headaches that won\u2019t go away. I\u2019m worried because I\u2019ve been exposed to rodents, and I\u2019m starting to feel worse even though I\u2019ve been resting.When you think about your breathing now, can you tell me if you notice that symptoms like feeling really short of breath happen even when you're just sitting still, or do they mostly come on when you're moving around or exerting yourself?baseline",
+    "output": "THINKING: I'm not exactly sure if I feel short of breath all the time or only when I do stuff. I just feel kind of crappy and more tired, but I do get dizzy sometimes too.\nANSWER: Umm, I think I mostly feel it when I move around or do anything, but sometimes I feel kind of like I can't breathe right even just sitting here.",
+    "thinking": "I'm not exactly sure if I feel short of breath all the time or only when I do stuff. I just feel kind of crappy and more tired, but I do get dizzy sometimes too.",
+    "answer": "Umm, I think I mostly feel it when I move around or do anything, but sometimes I feel kind of like I can't breathe right even just sitting here.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Atypical hantavirus disease"
+  },
+  {
+    "vignette_index": 44,
+    "input": "**PATIENT CHARACTER:** Patient with Atypical hantavirus disease\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Fever, muscle aches, and cough.\n- Shortness of breath and dizziness.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, after I was working outside on my farm, cleaning out a barn where I noticed a lot of rodent droppings and urine. At first, I just thought I had the flu, but the muscle aches got worse, and I began to feel really dizzy and short of breath, especially when I exert myself. I\u2019ve also been feeling pretty fatigued and nauseous, and I\u2019ve had some chills and headaches that won\u2019t go away. I\u2019m worried because I\u2019ve been exposed to rodents, and I\u2019m starting to feel worse even though I\u2019ve been resting.\"Would you be willing to let me check your oxygen levels with a little clip on your finger or a blood test, so I can see how well you're actually getting enough air? Sometimes people feel okay but are actually not getting enough oxygen, and this helps us figure out how serious things might be.\"baseline",
+    "output": "THINKING: I don\u2019t really understand what the doctor wants to do, but I know I feel pretty bad and I\u2019m worried about my breathing. I guess I\u2019m okay with checking my oxygen just in case it helps, but I\u2019m kind of \nANSWER: Um, yeah, I guess so. If it might tell you how I'm doing, that\u2019s fine. Just, I really don\u2019t know if it\u2019s bad or not.",
+    "thinking": "I don\u2019t really understand what the doctor wants to do, but I know I feel pretty bad and I\u2019m worried about my breathing. I guess I\u2019m okay with checking my oxygen just in case it helps, but I\u2019m kind of",
+    "answer": "Um, yeah, I guess so. If it might tell you how I'm doing, that\u2019s fine. Just, I really don\u2019t know if it\u2019s bad or not.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Atypical hantavirus disease"
+  },
+  {
+    "vignette_index": 44,
+    "input": "**PATIENT CHARACTER:** Patient with Atypical hantavirus disease\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Fever, muscle aches, and cough.\n- Shortness of breath and dizziness.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, after I was working outside on my farm, cleaning out a barn where I noticed a lot of rodent droppings and urine. At first, I just thought I had the flu, but the muscle aches got worse, and I began to feel really dizzy and short of breath, especially when I exert myself. I\u2019ve also been feeling pretty fatigued and nauseous, and I\u2019ve had some chills and headaches that won\u2019t go away. I\u2019m worried because I\u2019ve been exposed to rodents, and I\u2019m starting to feel worse even though I\u2019ve been resting.Would you be willing to allow us to check your oxygen levels now with a simple clip on your finger, so we can see exactly how well you're getting enough air and make sure you're getting the right care?baseline",
+    "output": "THINKING: I don\u2019t really understand what they mean by checking my oxygen levels, but I suppose it\u2019s to see if I\u2019m okay. I\u2019m a little nervous about what they might find, but I guess I should let them do it if it\nANSWER: Uh, sure, I guess. If it\u2019ll show if I\u2019m okay or not.",
+    "thinking": "I don\u2019t really understand what they mean by checking my oxygen levels, but I suppose it\u2019s to see if I\u2019m okay. I\u2019m a little nervous about what they might find, but I guess I should let them do it if it",
+    "answer": "Uh, sure, I guess. If it\u2019ll show if I\u2019m okay or not.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Atypical hantavirus disease"
+  },
+  {
+    "vignette_index": 44,
+    "input": "**PATIENT CHARACTER:** Patient with Atypical hantavirus disease\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Fever, muscle aches, and cough.\n- Shortness of breath and dizziness.\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, after I was working outside on my farm, cleaning out a barn where I noticed a lot of rodent droppings and urine. At first, I just thought I had the flu, but the muscle aches got worse, and I began to feel really dizzy and short of breath, especially when I exert myself. I\u2019ve also been feeling pretty fatigued and nauseous, and I\u2019ve had some chills and headaches that won\u2019t go away. I\u2019m worried because I\u2019ve been exposed to rodents, and I\u2019m starting to feel worse even though I\u2019ve been resting.Would you be willing to let me check your oxygen saturation with a small clip on your finger now, so I can see how well you're actually getting enough air?baseline",
+    "output": "THINKING: I'm a bit nervous about what the doctor might find, and I don't really know what they\u2019re looking for. I guess I want to be honest but also hoping it\u2019s nothing serious.\nANSWER: Uh, sure, I guess. I don\u2019t really know what it\u2019ll show, but if it helps, yeah.",
+    "thinking": "I'm a bit nervous about what the doctor might find, and I don't really know what they\u2019re looking for. I guess I want to be honest but also hoping it\u2019s nothing serious.",
+    "answer": "Uh, sure, I guess. I don\u2019t really know what it\u2019ll show, but if it helps, yeah.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Atypical hantavirus disease"
+  }
+]

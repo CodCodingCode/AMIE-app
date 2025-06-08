@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 146,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are a 65-year-old male. You are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye\n- Reduced central and inferior visual fields in that eye\n- No pain or discomfort around your eye or head\n- Sometimes, you notice the vision loss seems stable but occasionally worsens slightly over a few days\nThese symptoms came into fruition suddenly yesterday morning, while you were reading your newspaper. You have a history of high blood pressure and diabetes, and you're worried because your vision loss happened so quickly without any pain.",
+    "output": "THINKING: I need to explain my situation clearly but I\u2019m also worried and confused about what\u2019s happening to me. I should mention my age and gender, explain the sudden vision issue, and hint that my family is c\nANSWER: I\u2019m 65, and I\u2019m a man. I suddenly lost vision in my right eye, and it wasn\u2019t painful or anything, but it just happened yesterday morning while I was reading the newspaper. My wife saw it and got really worried, saying I should see someone. My vision is pretty blurry now, especially in the middle and lower part of that eye, and I don\u2019t really understand what\u2019s going on. It\u2019s been a little better some times and worse others, but I\u2019m scared because I don\u2019t know if it\u2019s serious or if it will get worse.",
+    "thinking": "I need to explain my situation clearly but I\u2019m also worried and confused about what\u2019s happening to me. I should mention my age and gender, explain the sudden vision issue, and hint that my family is c",
+    "answer": "I\u2019m 65, and I\u2019m a man. I suddenly lost vision in my right eye, and it wasn\u2019t painful or anything, but it just happened yesterday morning while I was reading the newspaper. My wife saw it and got really worried, saying I should see someone. My vision is pretty blurry now, especially in the middle and lower part of that eye, and I don\u2019t really understand what\u2019s going on. It\u2019s been a little better some times and worse others, but I\u2019m scared because I don\u2019t know if it\u2019s serious or if it will get worse.",
+    "behavior_type": "worried_family_involved",
+    "behavior_config": {
+      "weight": 0.03,
+      "description": "Family member influences patient responses",
+      "modifiers": [
+        "family_influence",
+        "secondary_concerns"
+      ],
+      "empathy_cues": [
+        "family_pressure",
+        "caregiver_stress",
+        "divided_attention",
+        "responsibility_burden"
+      ]
+    },
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 146,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are a 65-year-old male. You are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye\n- Reduced central and inferior visual fields in that eye\n- No pain or discomfort around your eye or head\n- Sometimes, you notice the vision loss seems stable but occasionally worsens slightly over a few days\nThese symptoms came into fruition suddenly yesterday morning, while you were reading your newspaper. You have a history of high blood pressure and diabetes, and you're worried because your vision loss happened so quickly without any pain.Can you tell me if you've ever experienced similar changes in your vision before, or if this is the first time you've noticed anything like this?worried_family_involved",
+    "output": "THINKING: I'm worried because I've never seen anything like this before, and it happened so suddenly. My wife is really upset and keeps asking if it's serious, so I guess I should tell the doctor everything, bu\nANSWER: No, I don\u2019t think I\u2019ve had anything like this before. It just started yesterday morning out of nowhere, and I can\u2019t see quite right in that eye now, and it worries me because I don\u2019t know what\u2019s happening.",
+    "thinking": "I'm worried because I've never seen anything like this before, and it happened so suddenly. My wife is really upset and keeps asking if it's serious, so I guess I should tell the doctor everything, bu",
+    "answer": "No, I don\u2019t think I\u2019ve had anything like this before. It just started yesterday morning out of nowhere, and I can\u2019t see quite right in that eye now, and it worries me because I don\u2019t know what\u2019s happening.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 0,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 146,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are a 65-year-old male. You are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye\n- Reduced central and inferior visual fields in that eye\n- No pain or discomfort around your eye or head\n- Sometimes, you notice the vision loss seems stable but occasionally worsens slightly over a few days\nThese symptoms came into fruition suddenly yesterday morning, while you were reading your newspaper. You have a history of high blood pressure and diabetes, and you're worried because your vision loss happened so quickly without any pain.Can you tell me if your vision was completely clear before yesterday morning and if the blurriness has stayed the same, gotten worse, or come and gone since it first started?worried_family_involved",
+    "output": "THINKING: I'm really worried about my sight, especially since it happened so fast and I can't see as well now. My wife keeps asking if I'm okay, and I feel like I need to find out what's going on before it gets\nANSWER: Honestly, I can't remember if my vision was perfectly clear before yesterday, but I think it was okay until I woke up that morning. It feels like it\u2019s been the same, maybe a little worse at times, kinda blurry and strange.",
+    "thinking": "I'm really worried about my sight, especially since it happened so fast and I can't see as well now. My wife keeps asking if I'm okay, and I feel like I need to find out what's going on before it gets",
+    "answer": "Honestly, I can't remember if my vision was perfectly clear before yesterday, but I think it was okay until I woke up that morning. It feels like it\u2019s been the same, maybe a little worse at times, kinda blurry and strange.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 2,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 146,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are a 65-year-old male. You are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye\n- Reduced central and inferior visual fields in that eye\n- No pain or discomfort around your eye or head\n- Sometimes, you notice the vision loss seems stable but occasionally worsens slightly over a few days\nThese symptoms came into fruition suddenly yesterday morning, while you were reading your newspaper. You have a history of high blood pressure and diabetes, and you're worried because your vision loss happened so quickly without any pain.Can you tell me if you've noticed any changes in your vision gradually developing over time before yesterday, or did it truly happen suddenly without any warning signs?worried_family_involved",
+    "output": "THINKING: I'm really scared about what just happened and I keep thinking maybe this is something I should have noticed before. My wife is worried too and she keeps telling me to see someone, so I guess I have t\nANSWER: Honestly, I didn't notice anything getting worse before yesterday, it just suddenly happened when I was reading. Now I can't see clearly out of my right eye and it's making me worried about how I can even take care of my family if this gets worse.",
+    "thinking": "I'm really scared about what just happened and I keep thinking maybe this is something I should have noticed before. My wife is worried too and she keeps telling me to see someone, so I guess I have t",
+    "answer": "Honestly, I didn't notice anything getting worse before yesterday, it just suddenly happened when I was reading. Now I can't see clearly out of my right eye and it's making me worried about how I can even take care of my family if this gets worse.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 4,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 146,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are a 65-year-old male. You are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye\n- Reduced central and inferior visual fields in that eye\n- No pain or discomfort around your eye or head\n- Sometimes, you notice the vision loss seems stable but occasionally worsens slightly over a few days\nThese symptoms came into fruition suddenly yesterday morning, while you were reading your newspaper. You have a history of high blood pressure and diabetes, and you're worried because your vision loss happened so quickly without any pain.Can you tell me if, before this sudden loss of vision yesterday, you noticed any brief episodes of flickering, partial missing parts in your vision, or anything that came and went quickly\u2014sort of like little flashes or flickers\u2014especially in that same eye?worried_family_involved",
+    "output": "THINKING: I feel a bit panicked about what he's asking because I honestly didn't notice any flashes or flickering before, just this sudden blackout. My wife is worried now too, so I want to tell him everything \nANSWER: No, I didn't see any flashes or anything like that before. It just suddenly went dark in my eye yesterday.",
+    "thinking": "I feel a bit panicked about what he's asking because I honestly didn't notice any flashes or flickering before, just this sudden blackout. My wife is worried now too, so I want to tell him everything",
+    "answer": "No, I didn't see any flashes or anything like that before. It just suddenly went dark in my eye yesterday.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 6,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 146,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are a 65-year-old male. You are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye\n- Reduced central and inferior visual fields in that eye\n- No pain or discomfort around your eye or head\n- Sometimes, you notice the vision loss seems stable but occasionally worsens slightly over a few days\nThese symptoms came into fruition suddenly yesterday morning, while you were reading your newspaper. You have a history of high blood pressure and diabetes, and you're worried because your vision loss happened so quickly without any pain.Have you noticed any brief flashes of light, visual \"clouds,\" or areas where your vision seemed to flicker or come and go quickly before this happened?worried_family_involved",
+    "output": "THINKING: I don\u2019t really understand all the fancy words, but I\u2019ve definitely seen some flickering or clouds in my vision before it got worse. My wife keeps asking if I\u2019m okay and says I should tell the doctor b\nANSWER: Uh, yeah, I think I saw some flickering stuff, like clouds, before my vision suddenly got worse. My wife keeps telling me I should get checked because she\u2019s worried I might go blind.",
+    "thinking": "I don\u2019t really understand all the fancy words, but I\u2019ve definitely seen some flickering or clouds in my vision before it got worse. My wife keeps asking if I\u2019m okay and says I should tell the doctor b",
+    "answer": "Uh, yeah, I think I saw some flickering stuff, like clouds, before my vision suddenly got worse. My wife keeps telling me I should get checked because she\u2019s worried I might go blind.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 8,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 146,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are a 65-year-old male. You are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye\n- Reduced central and inferior visual fields in that eye\n- No pain or discomfort around your eye or head\n- Sometimes, you notice the vision loss seems stable but occasionally worsens slightly over a few days\nThese symptoms came into fruition suddenly yesterday morning, while you were reading your newspaper. You have a history of high blood pressure and diabetes, and you're worried because your vision loss happened so quickly without any pain.Before this recent vision loss, did you notice any brief flashes of light, flickering, or parts of your vision that would come and go quickly\u2014like little clouds or flickers\u2014especially in the same eye?worried_family_involved",
+    "output": "THINKING: I'm worried because I don't remember seeing any flashes or flickering, but my wife keeps saying I should mention everything. I'm scared this could be serious, and I worry about how it's affecting my e\nANSWER: No, I don't think I saw any flashes or anything like that before my vision went out. My wife keeps saying I should tell you everything that happens, even if I think it's not important.",
+    "thinking": "I'm worried because I don't remember seeing any flashes or flickering, but my wife keeps saying I should mention everything. I'm scared this could be serious, and I worry about how it's affecting my e",
+    "answer": "No, I don't think I saw any flashes or anything like that before my vision went out. My wife keeps saying I should tell you everything that happens, even if I think it's not important.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 10,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 146,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are a 65-year-old male. You are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye\n- Reduced central and inferior visual fields in that eye\n- No pain or discomfort around your eye or head\n- Sometimes, you notice the vision loss seems stable but occasionally worsens slightly over a few days\nThese symptoms came into fruition suddenly yesterday morning, while you were reading your newspaper. You have a history of high blood pressure and diabetes, and you're worried because your vision loss happened so quickly without any pain.\"Earlier, before your vision suddenly got worse yesterday, did you notice any brief episodes where your vision in that eye temporarily flickered, showed clouds, or had any parts that seemed to go missing or come and go quickly, even if they seemed minor or fleeting?\"worried_family_involved",
+    "output": "THINKING: I\u2019m trying to remember if I saw any flickering or clouds before everything went dark, but honestly, I don\u2019t really remember. My wife kept asking if I was okay when she saw me, so I figured I should as\nANSWER: I don\u2019t think I noticed anything like flickering or missing parts before it got worse\u2014everything just suddenly went dark in that eye yesterday.",
+    "thinking": "I\u2019m trying to remember if I saw any flickering or clouds before everything went dark, but honestly, I don\u2019t really remember. My wife kept asking if I was okay when she saw me, so I figured I should as",
+    "answer": "I don\u2019t think I noticed anything like flickering or missing parts before it got worse\u2014everything just suddenly went dark in that eye yesterday.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 12,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  }
+]

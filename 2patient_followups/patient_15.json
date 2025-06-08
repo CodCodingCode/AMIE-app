@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 15,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Acid hypersecretion\n\nYou are a patient: You are 45 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Burning sensation in the chest (heartburn)\n- Regurgitation of sour liquid\n- Difficulty swallowing\n- Chronic cough\nThese symptoms started gradually over the past two months, especially after eating spicy or fatty foods, and have been getting worse lately. You\u2019ve also noticed a persistent cough that seems worse at night and sometimes feel like food is getting stuck when you try to swallow. You have a family history of GERD and your weight has increased over the past few years, which you think might be contributing. You occasionally smoke and tend to eat a diet high in greasy, spicy foods.",
+    "output": "THINKING: The patient is experiencing multiple symptoms that have been worsening over time, with some specifics about their habits and family history mentioned. They might feel embarrassed or unsure about discu\nANSWER: I'm a 45-year-old guy, and I\u2019ve been having this burning in my chest and a sour kinda taste in my mouth. It\u2019s been worse after I eat spicy or greasy stuff, and I sometimes feel like food gets stuck when I try to swallow. I also have this nagging cough, mostly at night, and I don\u2019t know, I guess I just don\u2019t feel right lately and thought I should maybe get looked at.",
+    "thinking": "The patient is experiencing multiple symptoms that have been worsening over time, with some specifics about their habits and family history mentioned. They might feel embarrassed or unsure about discu",
+    "answer": "I'm a 45-year-old guy, and I\u2019ve been having this burning in my chest and a sour kinda taste in my mouth. It\u2019s been worse after I eat spicy or greasy stuff, and I sometimes feel like food gets stuck when I try to swallow. I also have this nagging cough, mostly at night, and I don\u2019t know, I guess I just don\u2019t feel right lately and thought I should maybe get looked at.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Acid hypersecretion"
+  },
+  {
+    "vignette_index": 15,
+    "input": "**PATIENT CHARACTER:** Patient with Acid hypersecretion\n\nYou are a patient: You are 45 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Burning sensation in the chest (heartburn)\n- Regurgitation of sour liquid\n- Difficulty swallowing\n- Chronic cough\nThese symptoms started gradually over the past two months, especially after eating spicy or fatty foods, and have been getting worse lately. You\u2019ve also noticed a persistent cough that seems worse at night and sometimes feel like food is getting stuck when you try to swallow. You have a family history of GERD and your weight has increased over the past few years, which you think might be contributing. You occasionally smoke and tend to eat a diet high in greasy, spicy foods.Can you tell me more about how your symptoms have changed over time, especially if they've gotten worse or if you've noticed any weight loss or new kinds of pain?baseline",
+    "output": "THINKING: I feel a bit worried about what\u2019s been happening, especially since it\u2019s been getting worse and I\u2019m not sure if it\u2019s serious. I don\u2019t really understand all the medical stuff the doctor might be looking\nANSWER: Well, it\u2019s like I keep getting this burning in my chest, and sometimes that sour thing comes up, and it\u2019s hard to swallow sometimes. It\u2019s been happening more and more, and I cough a lot at night, it\u2019s annoying.",
+    "thinking": "I feel a bit worried about what\u2019s been happening, especially since it\u2019s been getting worse and I\u2019m not sure if it\u2019s serious. I don\u2019t really understand all the medical stuff the doctor might be looking",
+    "answer": "Well, it\u2019s like I keep getting this burning in my chest, and sometimes that sour thing comes up, and it\u2019s hard to swallow sometimes. It\u2019s been happening more and more, and I cough a lot at night, it\u2019s annoying.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Acid hypersecretion"
+  },
+  {
+    "vignette_index": 15,
+    "input": "**PATIENT CHARACTER:** Patient with Acid hypersecretion\n\nYou are a patient: You are 45 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Burning sensation in the chest (heartburn)\n- Regurgitation of sour liquid\n- Difficulty swallowing\n- Chronic cough\nThese symptoms started gradually over the past two months, especially after eating spicy or fatty foods, and have been getting worse lately. You\u2019ve also noticed a persistent cough that seems worse at night and sometimes feel like food is getting stuck when you try to swallow. You have a family history of GERD and your weight has increased over the past few years, which you think might be contributing. You occasionally smoke and tend to eat a diet high in greasy, spicy foods.Can you tell me if you've noticed any changes like losing weight without trying, blood in your stool or vomit, or if your symptoms are sometimes so bad that they interfere with your daily activities?baseline",
+    "output": "THINKING: I'm worried because these symptoms have been getting worse, and I don't really understand if it's something serious or if I should just change my diet. I'm a little embarrassed about the cough and the\nANSWER: Well, yeah, I guess I\u2019ve noticed I feel more pain and like I\u2019m regurgitating stuff more, and it\u2019s hard to swallow sometimes. The cough has been worse, too.",
+    "thinking": "I'm worried because these symptoms have been getting worse, and I don't really understand if it's something serious or if I should just change my diet. I'm a little embarrassed about the cough and the",
+    "answer": "Well, yeah, I guess I\u2019ve noticed I feel more pain and like I\u2019m regurgitating stuff more, and it\u2019s hard to swallow sometimes. The cough has been worse, too.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Acid hypersecretion"
+  },
+  {
+    "vignette_index": 15,
+    "input": "**PATIENT CHARACTER:** Patient with Acid hypersecretion\n\nYou are a patient: You are 45 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Burning sensation in the chest (heartburn)\n- Regurgitation of sour liquid\n- Difficulty swallowing\n- Chronic cough\nThese symptoms started gradually over the past two months, especially after eating spicy or fatty foods, and have been getting worse lately. You\u2019ve also noticed a persistent cough that seems worse at night and sometimes feel like food is getting stuck when you try to swallow. You have a family history of GERD and your weight has increased over the past few years, which you think might be contributing. You occasionally smoke and tend to eat a diet high in greasy, spicy foods.Have you noticed any unintended weight loss, blood in your stool or vomit, or that your symptoms sometimes become so bad that they interfere with your daily life?baseline",
+    "output": "THINKING: I'm a little worried about what he's asking, but I guess he's looking for serious stuff. I haven't noticed anything like bleeding or losing weight, but I do feel worse and it's pretty annoying. Maybe \nANSWER: No, I haven't seen any blood or lost weight or anything like that. My stuff just keeps getting worse, I guess.",
+    "thinking": "I'm a little worried about what he's asking, but I guess he's looking for serious stuff. I haven't noticed anything like bleeding or losing weight, but I do feel worse and it's pretty annoying. Maybe",
+    "answer": "No, I haven't seen any blood or lost weight or anything like that. My stuff just keeps getting worse, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Acid hypersecretion"
+  },
+  {
+    "vignette_index": 15,
+    "input": "**PATIENT CHARACTER:** Patient with Acid hypersecretion\n\nYou are a patient: You are 45 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Burning sensation in the chest (heartburn)\n- Regurgitation of sour liquid\n- Difficulty swallowing\n- Chronic cough\nThese symptoms started gradually over the past two months, especially after eating spicy or fatty foods, and have been getting worse lately. You\u2019ve also noticed a persistent cough that seems worse at night and sometimes feel like food is getting stuck when you try to swallow. You have a family history of GERD and your weight has increased over the past few years, which you think might be contributing. You occasionally smoke and tend to eat a diet high in greasy, spicy foods.Have you noticed any blood in your vomit or stool, or have you lost weight without trying, even if it feels minor or you haven't paid much attention to it?baseline",
+    "output": "THINKING: I\u2019m worried because I do feel a little weird sometimes, and I don\u2019t want to miss anything important, but I\u2019m not sure what I\u2019m supposed to be looking for or saying. I just want to get this over with w\nANSWER: No, I haven\u2019t really noticed any blood or anything, and I guess I haven\u2019t lost any weight on purpose, but I might have gained a little. It\u2019s hard to tell.",
+    "thinking": "I\u2019m worried because I do feel a little weird sometimes, and I don\u2019t want to miss anything important, but I\u2019m not sure what I\u2019m supposed to be looking for or saying. I just want to get this over with w",
+    "answer": "No, I haven\u2019t really noticed any blood or anything, and I guess I haven\u2019t lost any weight on purpose, but I might have gained a little. It\u2019s hard to tell.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Acid hypersecretion"
+  },
+  {
+    "vignette_index": 15,
+    "input": "**PATIENT CHARACTER:** Patient with Acid hypersecretion\n\nYou are a patient: You are 45 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Burning sensation in the chest (heartburn)\n- Regurgitation of sour liquid\n- Difficulty swallowing\n- Chronic cough\nThese symptoms started gradually over the past two months, especially after eating spicy or fatty foods, and have been getting worse lately. You\u2019ve also noticed a persistent cough that seems worse at night and sometimes feel like food is getting stuck when you try to swallow. You have a family history of GERD and your weight has increased over the past few years, which you think might be contributing. You occasionally smoke and tend to eat a diet high in greasy, spicy foods.Have you noticed any increased fatigue, weakness, or dizziness that might suggest you're losing more blood than you're aware of, or have you experienced any episodes of feeling unusually tired or short of breath?baseline",
+    "output": "THINKING: The doctor asked about tiredness and dizziness, but honestly, I haven't really noticed feeling dizzy or super tired; I mostly just feel like I have this burning in my chest and stuff coming back up, a\nANSWER: No, I haven't really felt dizzy or weak, but I do get tired easily sometimes and I just feel like there's this burning all the time, and I struggle to swallow food properly.",
+    "thinking": "The doctor asked about tiredness and dizziness, but honestly, I haven't really noticed feeling dizzy or super tired; I mostly just feel like I have this burning in my chest and stuff coming back up, a",
+    "answer": "No, I haven't really felt dizzy or weak, but I do get tired easily sometimes and I just feel like there's this burning all the time, and I struggle to swallow food properly.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Acid hypersecretion"
+  },
+  {
+    "vignette_index": 15,
+    "input": "**PATIENT CHARACTER:** Patient with Acid hypersecretion\n\nYou are a patient: You are 45 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Burning sensation in the chest (heartburn)\n- Regurgitation of sour liquid\n- Difficulty swallowing\n- Chronic cough\nThese symptoms started gradually over the past two months, especially after eating spicy or fatty foods, and have been getting worse lately. You\u2019ve also noticed a persistent cough that seems worse at night and sometimes feel like food is getting stuck when you try to swallow. You have a family history of GERD and your weight has increased over the past few years, which you think might be contributing. You occasionally smoke and tend to eat a diet high in greasy, spicy foods.Have you noticed any unintended weight loss, blood in your vomit or stool, or episodes where your difficulty swallowing or chest discomfort suddenly became much worse or more persistent?baseline",
+    "output": "THINKING: The doctor is asking about serious symptoms like bleeding or trouble swallowing, and I\u2019m a little worried but also not really sure what I should be looking or listening for. I don\u2019t want to scare myse\nANSWER: Uh, I haven\u2019t seen blood or anything like that, but sometimes it feels like food gets stuck and I get like a gagging thing, especially at night. My chest feels kinda tight sometimes too.",
+    "thinking": "The doctor is asking about serious symptoms like bleeding or trouble swallowing, and I\u2019m a little worried but also not really sure what I should be looking or listening for. I don\u2019t want to scare myse",
+    "answer": "Uh, I haven\u2019t seen blood or anything like that, but sometimes it feels like food gets stuck and I get like a gagging thing, especially at night. My chest feels kinda tight sometimes too.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Acid hypersecretion"
+  },
+  {
+    "vignette_index": 15,
+    "input": "**PATIENT CHARACTER:** Patient with Acid hypersecretion\n\nYou are a patient: You are 45 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Burning sensation in the chest (heartburn)\n- Regurgitation of sour liquid\n- Difficulty swallowing\n- Chronic cough\nThese symptoms started gradually over the past two months, especially after eating spicy or fatty foods, and have been getting worse lately. You\u2019ve also noticed a persistent cough that seems worse at night and sometimes feel like food is getting stuck when you try to swallow. You have a family history of GERD and your weight has increased over the past few years, which you think might be contributing. You occasionally smoke and tend to eat a diet high in greasy, spicy foods.Have you noticed any dark, tarry stools or vomiting that looks like coffee grounds, or have you been feeling more tired, weak, or dizzy than usual, which could suggest you've been losing blood without realizing it?baseline",
+    "output": "THINKING: I\u2019m a bit worried because I\u2019ve had this burning in my chest and sometimes I feel like I can\u2019t swallow properly. I don\u2019t know if what I\u2019m eating is making it worse or if it\u2019s serious or just indigestio\nANSWER: No, I haven\u2019t seen any dark poop or threw up anything like coffee grounds, but I do feel really tired and sometimes dizzy, especially after I eat, I think.",
+    "thinking": "I\u2019m a bit worried because I\u2019ve had this burning in my chest and sometimes I feel like I can\u2019t swallow properly. I don\u2019t know if what I\u2019m eating is making it worse or if it\u2019s serious or just indigestio",
+    "answer": "No, I haven\u2019t seen any dark poop or threw up anything like coffee grounds, but I do feel really tired and sometimes dizzy, especially after I eat, I think.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Acid hypersecretion"
+  }
+]

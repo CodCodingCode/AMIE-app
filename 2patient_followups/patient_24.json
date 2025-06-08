@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 24,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Sertoli-Leydig cell tumour, well differentiated\n\nYou are a patient: You are 24 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- You\u2019ve noticed your voice has become deeper over the past few months, and you feel more masculine in your facial features.\n- You haven't had a menstrual period in over three months, and your periods have become irregular for about six months before that.\n- You\u2019ve also developed some increased facial hair growth, especially on your chin and upper lip, which wasn\u2019t there before.\nThese symptoms came into fruition gradually over the past six months, and you\u2019ve started to feel a bit self-conscious and worried about these changes.",
+    "output": "THINKING: The patient is feeling self-conscious and worried about noticeable physical changes, and probably unsure about what is happening to her body. She might be confused and somewhat embarrassed, trying to \nANSWER: Well, um, I\u2019m 24, and I\u2019m a girl, but lately, I\u2019ve just noticed my voice has gotten deeper, and my face looks a bit more, uh, kind of masculine. I haven\u2019t had my period in a while, like over three months, and they\u2019ve been really irregular before that. Oh, and I\u2019ve been growing some facial hair on my chin and upper lip, which wasn\u2019t there before, and it\u2019s making me feel kind of self-conscious. I just\u2026 I don\u2019t know, I guess I wanted to see if it\u2019s normal or if I should be worried.",
+    "thinking": "The patient is feeling self-conscious and worried about noticeable physical changes, and probably unsure about what is happening to her body. She might be confused and somewhat embarrassed, trying to",
+    "answer": "Well, um, I\u2019m 24, and I\u2019m a girl, but lately, I\u2019ve just noticed my voice has gotten deeper, and my face looks a bit more, uh, kind of masculine. I haven\u2019t had my period in a while, like over three months, and they\u2019ve been really irregular before that. Oh, and I\u2019ve been growing some facial hair on my chin and upper lip, which wasn\u2019t there before, and it\u2019s making me feel kind of self-conscious. I just\u2026 I don\u2019t know, I guess I wanted to see if it\u2019s normal or if I should be worried.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Sertoli-Leydig cell tumour, well differentiated"
+  },
+  {
+    "vignette_index": 24,
+    "input": "**PATIENT CHARACTER:** Patient with Sertoli-Leydig cell tumour, well differentiated\n\nYou are a patient: You are 24 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- You\u2019ve noticed your voice has become deeper over the past few months, and you feel more masculine in your facial features.\n- You haven't had a menstrual period in over three months, and your periods have become irregular for about six months before that.\n- You\u2019ve also developed some increased facial hair growth, especially on your chin and upper lip, which wasn\u2019t there before.\nThese symptoms came into fruition gradually over the past six months, and you\u2019ve started to feel a bit self-conscious and worried about these changes.Can you tell me more about when you first started noticing these changes, and how they've been evolving over time?baseline",
+    "output": "THINKING: I'm feeling a bit embarrassed and worried about all these changes happening at once. I don\u2019t really understand what\u2019s going on, but I want to explain it honestly.\nANSWER: I started noticing my voice getting deeper maybe a few months ago, and my face looks more like a guy\u2019s now. I haven't had a period in a while, and my face hair is growing more than before, especially on my chin.",
+    "thinking": "I'm feeling a bit embarrassed and worried about all these changes happening at once. I don\u2019t really understand what\u2019s going on, but I want to explain it honestly.",
+    "answer": "I started noticing my voice getting deeper maybe a few months ago, and my face looks more like a guy\u2019s now. I haven't had a period in a while, and my face hair is growing more than before, especially on my chin.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Sertoli-Leydig cell tumour, well differentiated"
+  },
+  {
+    "vignette_index": 24,
+    "input": "**PATIENT CHARACTER:** Patient with Sertoli-Leydig cell tumour, well differentiated\n\nYou are a patient: You are 24 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- You\u2019ve noticed your voice has become deeper over the past few months, and you feel more masculine in your facial features.\n- You haven't had a menstrual period in over three months, and your periods have become irregular for about six months before that.\n- You\u2019ve also developed some increased facial hair growth, especially on your chin and upper lip, which wasn\u2019t there before.\nThese symptoms came into fruition gradually over the past six months, and you\u2019ve started to feel a bit self-conscious and worried about these changes.When did you first notice these changes in your voice, facial hair, and periods, and how have they been evolving over the past few months?baseline",
+    "output": "THINKING: I feel a little nervous talking about these things, and I\u2019m not totally sure what\u2019s going on with my body. I noticed things changed gradually, but I didn\u2019t really expect them to be like this.\nANSWER: I think my voice has been getting deeper for a few months, and I've been noticing more facial hair too. My periods just stopped about three months ago, and they\u2019ve been weird before that.",
+    "thinking": "I feel a little nervous talking about these things, and I\u2019m not totally sure what\u2019s going on with my body. I noticed things changed gradually, but I didn\u2019t really expect them to be like this.",
+    "answer": "I think my voice has been getting deeper for a few months, and I've been noticing more facial hair too. My periods just stopped about three months ago, and they\u2019ve been weird before that.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Sertoli-Leydig cell tumour, well differentiated"
+  },
+  {
+    "vignette_index": 24,
+    "input": "**PATIENT CHARACTER:** Patient with Sertoli-Leydig cell tumour, well differentiated\n\nYou are a patient: You are 24 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- You\u2019ve noticed your voice has become deeper over the past few months, and you feel more masculine in your facial features.\n- You haven't had a menstrual period in over three months, and your periods have become irregular for about six months before that.\n- You\u2019ve also developed some increased facial hair growth, especially on your chin and upper lip, which wasn\u2019t there before.\nThese symptoms came into fruition gradually over the past six months, and you\u2019ve started to feel a bit self-conscious and worried about these changes.\"You mentioned that these changes have been happening over a few months, but can you tell me more about whether they've been slowly getting worse, stayed the same, or sometimes worse and better? Also, have you noticed any other changes, like weight gain, skin changes, or feeling more tired or anxious?\"baseline",
+    "output": "THINKING: I'm a bit nervous talking about these changes because I don't really understand what's happening, and I feel a little embarrassed. I want to explain everything honestly but also hope the doctor can he\nANSWER: Well, they've been happening kinda slowly, I think, like over a few months, and sometimes I feel like they get a little worse, but I'm not sure. I also feel more tired than usual, and I haven't had my period in a long time.",
+    "thinking": "I'm a bit nervous talking about these changes because I don't really understand what's happening, and I feel a little embarrassed. I want to explain everything honestly but also hope the doctor can he",
+    "answer": "Well, they've been happening kinda slowly, I think, like over a few months, and sometimes I feel like they get a little worse, but I'm not sure. I also feel more tired than usual, and I haven't had my period in a long time.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Sertoli-Leydig cell tumour, well differentiated"
+  },
+  {
+    "vignette_index": 24,
+    "input": "**PATIENT CHARACTER:** Patient with Sertoli-Leydig cell tumour, well differentiated\n\nYou are a patient: You are 24 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- You\u2019ve noticed your voice has become deeper over the past few months, and you feel more masculine in your facial features.\n- You haven't had a menstrual period in over three months, and your periods have become irregular for about six months before that.\n- You\u2019ve also developed some increased facial hair growth, especially on your chin and upper lip, which wasn\u2019t there before.\nThese symptoms came into fruition gradually over the past six months, and you\u2019ve started to feel a bit self-conscious and worried about these changes.Can you tell me exactly when you first started noticing your voice deepening, facial hair, or missed periods, and whether these changes have come on gradually or suddenly, and if they\u2019ve gotten worse over time?baseline",
+    "output": "THINKING: I feel a bit overwhelmed with all these changes, and I don't really understand what's happening. I want to be honest but also don't know how much detail I should give, so I'll keep it simple.\nANSWER: It all just kind of started gradually over the last few months. My voice got deeper, I started growing more facial hair, and I haven\u2019t had a period in a while.",
+    "thinking": "I feel a bit overwhelmed with all these changes, and I don't really understand what's happening. I want to be honest but also don't know how much detail I should give, so I'll keep it simple.",
+    "answer": "It all just kind of started gradually over the last few months. My voice got deeper, I started growing more facial hair, and I haven\u2019t had a period in a while.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Sertoli-Leydig cell tumour, well differentiated"
+  },
+  {
+    "vignette_index": 24,
+    "input": "**PATIENT CHARACTER:** Patient with Sertoli-Leydig cell tumour, well differentiated\n\nYou are a patient: You are 24 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- You\u2019ve noticed your voice has become deeper over the past few months, and you feel more masculine in your facial features.\n- You haven't had a menstrual period in over three months, and your periods have become irregular for about six months before that.\n- You\u2019ve also developed some increased facial hair growth, especially on your chin and upper lip, which wasn\u2019t there before.\nThese symptoms came into fruition gradually over the past six months, and you\u2019ve started to feel a bit self-conscious and worried about these changes.Can you tell me if your periods have completely stopped, or if they've just been irregular, and have you noticed any patterns or changes in how often or how heavy they are?baseline",
+    "output": "THINKING: I feel a bit embarrassed talking about this stuff, but I guess I should. I\u2019m worried about the fact that my periods stopped, but I don\u2019t really remember when they last came. It\u2019s been a while now, and\nANSWER: They haven\u2019t come at all in over three months, I think, and it was pattern for a bit before that, kinda irregular, but now I don\u2019t really notice anything.",
+    "thinking": "I feel a bit embarrassed talking about this stuff, but I guess I should. I\u2019m worried about the fact that my periods stopped, but I don\u2019t really remember when they last came. It\u2019s been a while now, and",
+    "answer": "They haven\u2019t come at all in over three months, I think, and it was pattern for a bit before that, kinda irregular, but now I don\u2019t really notice anything.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Sertoli-Leydig cell tumour, well differentiated"
+  },
+  {
+    "vignette_index": 24,
+    "input": "**PATIENT CHARACTER:** Patient with Sertoli-Leydig cell tumour, well differentiated\n\nYou are a patient: You are 24 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- You\u2019ve noticed your voice has become deeper over the past few months, and you feel more masculine in your facial features.\n- You haven't had a menstrual period in over three months, and your periods have become irregular for about six months before that.\n- You\u2019ve also developed some increased facial hair growth, especially on your chin and upper lip, which wasn\u2019t there before.\nThese symptoms came into fruition gradually over the past six months, and you\u2019ve started to feel a bit self-conscious and worried about these changes.\"I understand this can be sensitive, but could you tell me more about how your periods have been lately\u2014have they stopped completely or are they just irregular? Also, when you first noticed the changes in your voice or facial hair, did they happen gradually over time or more suddenly?\"baseline",
+    "output": "THINKING: I feel a bit embarrassed talking about these things, but I guess I should be honest. I\u2019ve started to notice my voice getting deeper and more facial hair, and my periods have just sort of stopped or be\nANSWER: Um, yeah, my voice has gotten deeper, and I see more hair on my chin and upper lip. My periods just... stopped or were irregular for like six months, I think.",
+    "thinking": "I feel a bit embarrassed talking about these things, but I guess I should be honest. I\u2019ve started to notice my voice getting deeper and more facial hair, and my periods have just sort of stopped or be",
+    "answer": "Um, yeah, my voice has gotten deeper, and I see more hair on my chin and upper lip. My periods just... stopped or were irregular for like six months, I think.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Sertoli-Leydig cell tumour, well differentiated"
+  },
+  {
+    "vignette_index": 24,
+    "input": "**PATIENT CHARACTER:** Patient with Sertoli-Leydig cell tumour, well differentiated\n\nYou are a patient: You are 24 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- You\u2019ve noticed your voice has become deeper over the past few months, and you feel more masculine in your facial features.\n- You haven't had a menstrual period in over three months, and your periods have become irregular for about six months before that.\n- You\u2019ve also developed some increased facial hair growth, especially on your chin and upper lip, which wasn\u2019t there before.\nThese symptoms came into fruition gradually over the past six months, and you\u2019ve started to feel a bit self-conscious and worried about these changes.Can you tell me if your periods have completely stopped or just become irregular, and how suddenly or gradually this change happened?baseline",
+    "output": "THINKING: I feel a bit overwhelmed because I don\u2019t really understand what\u2019s happening with my body. I just know things seem different, and I\u2019ve missed my periods for a while now, but I don\u2019t know if it\u2019s all co\nANSWER: My periods have pretty much stopped, and they\u2019ve been irregular for a few months before that. It\u2019s been a gradual thing, I think.",
+    "thinking": "I feel a bit overwhelmed because I don\u2019t really understand what\u2019s happening with my body. I just know things seem different, and I\u2019ve missed my periods for a while now, but I don\u2019t know if it\u2019s all co",
+    "answer": "My periods have pretty much stopped, and they\u2019ve been irregular for a few months before that. It\u2019s been a gradual thing, I think.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Sertoli-Leydig cell tumour, well differentiated"
+  }
+]

@@ -1,0 +1,127 @@
+[
+  {
+    "vignette_index": 195,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Congenital hypertrophic pyloric stenosis\n\nYou are a patient: I am a 6-week-old male infant.\nYou are experiencing the following symptoms:\n- Nonbilious vomiting that has become projectile\n- Visible gastric peristalsis across my abdomen\n- Poor weight gain and signs of dehydration, such as decreased urination and lethargy\n- A firm, mobile, \"olive-shaped\" mass in the right upper quadrant of my abdomen\nThese symptoms started gradually over the past two weeks, with initial episodes of mild vomiting that increased in frequency and force. Recently, my feeding has become difficult, and I seem less active and more irritable. I have also been losing weight and appear dehydrated during feeds.",
+    "output": "THINKING: The doctor wants to know why I'm here, so I should explain what\u2019s been happening in a way that shows I\u2019m not feeling right but maybe not clear on exactly what\u2019s wrong. I need to mention the main sympt\nANSWER: I\u2019m 6 weeks old, and I guess I\u2019ve been throwing up a lot, more than before. It\u2019s like, really forceful and it kind of shoots out. I\u2019ve been having a hard time eating, and I don\u2019t seem to pee as much, and I look kind of tired and cranky. My belly feels hard on the right side too.",
+    "thinking": "The doctor wants to know why I'm here, so I should explain what\u2019s been happening in a way that shows I\u2019m not feeling right but maybe not clear on exactly what\u2019s wrong. I need to mention the main sympt",
+    "answer": "I\u2019m 6 weeks old, and I guess I\u2019ve been throwing up a lot, more than before. It\u2019s like, really forceful and it kind of shoots out. I\u2019ve been having a hard time eating, and I don\u2019t seem to pee as much, and I look kind of tired and cranky. My belly feels hard on the right side too.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Congenital hypertrophic pyloric stenosis"
+  },
+  {
+    "vignette_index": 195,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital hypertrophic pyloric stenosis\n\nYou are a patient: I am a 6-week-old male infant.\nYou are experiencing the following symptoms:\n- Nonbilious vomiting that has become projectile\n- Visible gastric peristalsis across my abdomen\n- Poor weight gain and signs of dehydration, such as decreased urination and lethargy\n- A firm, mobile, \"olive-shaped\" mass in the right upper quadrant of my abdomen\nThese symptoms started gradually over the past two weeks, with initial episodes of mild vomiting that increased in frequency and force. Recently, my feeding has become difficult, and I seem less active and more irritable. I have also been losing weight and appear dehydrated during feeds.Can you tell me more about how often and how forceful the vomiting has been, and if you\u2019ve noticed whether the swelling on your baby's belly changes size or feels different when you touch it?baseline",
+    "output": "THINKING: I'm worried about how bad the vomiting is and if it's getting worse, but I don't really understand what the doctor wants to know about the size or feel of the swelling. I just know my baby isn't actin\nANSWER: The vomiting has been mostly forceful now, and it happens a lot, like every time he eats. The bump on his belly feels kind of firm and like a little round thing, but I don\u2019t really know if it changes size.",
+    "thinking": "I'm worried about how bad the vomiting is and if it's getting worse, but I don't really understand what the doctor wants to know about the size or feel of the swelling. I just know my baby isn't actin",
+    "answer": "The vomiting has been mostly forceful now, and it happens a lot, like every time he eats. The bump on his belly feels kind of firm and like a little round thing, but I don\u2019t really know if it changes size.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Congenital hypertrophic pyloric stenosis"
+  },
+  {
+    "vignette_index": 195,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital hypertrophic pyloric stenosis\n\nYou are a patient: I am a 6-week-old male infant.\nYou are experiencing the following symptoms:\n- Nonbilious vomiting that has become projectile\n- Visible gastric peristalsis across my abdomen\n- Poor weight gain and signs of dehydration, such as decreased urination and lethargy\n- A firm, mobile, \"olive-shaped\" mass in the right upper quadrant of my abdomen\nThese symptoms started gradually over the past two weeks, with initial episodes of mild vomiting that increased in frequency and force. Recently, my feeding has become difficult, and I seem less active and more irritable. I have also been losing weight and appear dehydrated during feeds.\"Can you tell me exactly when you first noticed your baby vomiting like this, and how those episodes have changed over time?\"baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried because my baby keeps vomiting more and more, and I don\u2019t really understand why or what\u2019s happening. I want to tell the doctor what I see and feel without sounding\nANSWER: It started a little while ago, maybe two weeks, and the vomiting has gotten worse and more forceful. I don\u2019t really know why, but it\u2019s been hard to feed him and he seems more tired and not gaining weight.",
+    "thinking": "I feel a bit overwhelmed and worried because my baby keeps vomiting more and more, and I don\u2019t really understand why or what\u2019s happening. I want to tell the doctor what I see and feel without sounding",
+    "answer": "It started a little while ago, maybe two weeks, and the vomiting has gotten worse and more forceful. I don\u2019t really know why, but it\u2019s been hard to feed him and he seems more tired and not gaining weight.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Congenital hypertrophic pyloric stenosis"
+  },
+  {
+    "vignette_index": 195,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital hypertrophic pyloric stenosis\n\nYou are a patient: I am a 6-week-old male infant.\nYou are experiencing the following symptoms:\n- Nonbilious vomiting that has become projectile\n- Visible gastric peristalsis across my abdomen\n- Poor weight gain and signs of dehydration, such as decreased urination and lethargy\n- A firm, mobile, \"olive-shaped\" mass in the right upper quadrant of my abdomen\nThese symptoms started gradually over the past two weeks, with initial episodes of mild vomiting that increased in frequency and force. Recently, my feeding has become difficult, and I seem less active and more irritable. I have also been losing weight and appear dehydrated during feeds.Can you tell me if the size of the lump in your baby's belly has changed at all since you first noticed it, and whether it feels tender or different when you gently press on it?baseline",
+    "output": "THINKING: I\u2019m worried because the lump is still there, and it looks like it\u2019s the same size or maybe worse since it first appeared. It doesn\u2019t seem to change much when I press on it, but I\u2019m unsure and feeling \nANSWER: The lump\u2019s still there, and I don\u2019t think it\u2019s gotten bigger or smaller, but I don\u2019t really know if it feels different or tender when I press on it.",
+    "thinking": "I\u2019m worried because the lump is still there, and it looks like it\u2019s the same size or maybe worse since it first appeared. It doesn\u2019t seem to change much when I press on it, but I\u2019m unsure and feeling",
+    "answer": "The lump\u2019s still there, and I don\u2019t think it\u2019s gotten bigger or smaller, but I don\u2019t really know if it feels different or tender when I press on it.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Congenital hypertrophic pyloric stenosis"
+  },
+  {
+    "vignette_index": 195,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital hypertrophic pyloric stenosis\n\nYou are a patient: I am a 6-week-old male infant.\nYou are experiencing the following symptoms:\n- Nonbilious vomiting that has become projectile\n- Visible gastric peristalsis across my abdomen\n- Poor weight gain and signs of dehydration, such as decreased urination and lethargy\n- A firm, mobile, \"olive-shaped\" mass in the right upper quadrant of my abdomen\nThese symptoms started gradually over the past two weeks, with initial episodes of mild vomiting that increased in frequency and force. Recently, my feeding has become difficult, and I seem less active and more irritable. I have also been losing weight and appear dehydrated during feeds.Can you describe exactly how the lump in your baby's belly feels when you touch it\u2014does it feel hard or firm? Does it seem to have changed in size or shape since you first noticed it?baseline",
+    "output": "THINKING: I want to be honest, but I also feel a little confused about what he's asking. I remember feeling the bump, but I don\u2019t really know what \"hard\" or \"firm\" means exactly, and I haven't really checked it\nANSWER: Uh, I think it feels kind of like a hard lump, kinda like a little ball in his belly, and it doesn\u2019t seem to have gotten bigger that I can tell.",
+    "thinking": "I want to be honest, but I also feel a little confused about what he's asking. I remember feeling the bump, but I don\u2019t really know what \"hard\" or \"firm\" means exactly, and I haven't really checked it",
+    "answer": "Uh, I think it feels kind of like a hard lump, kinda like a little ball in his belly, and it doesn\u2019t seem to have gotten bigger that I can tell.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Congenital hypertrophic pyloric stenosis"
+  },
+  {
+    "vignette_index": 195,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital hypertrophic pyloric stenosis\n\nYou are a patient: I am a 6-week-old male infant.\nYou are experiencing the following symptoms:\n- Nonbilious vomiting that has become projectile\n- Visible gastric peristalsis across my abdomen\n- Poor weight gain and signs of dehydration, such as decreased urination and lethargy\n- A firm, mobile, \"olive-shaped\" mass in the right upper quadrant of my abdomen\nThese symptoms started gradually over the past two weeks, with initial episodes of mild vomiting that increased in frequency and force. Recently, my feeding has become difficult, and I seem less active and more irritable. I have also been losing weight and appear dehydrated during feeds.Can you tell me exactly where you feel the lump in your baby's belly is\u2014like, is it more toward the side or middle\u2014and whether touching it feels tender or hurts him at all?baseline",
+    "output": "THINKING: The doctor wants to know where exactly the lump is and if it hurts him. I\u2019m not sure how to describe it but I can try. I feel worried about the lump and if touching it might hurt him more. I want to b\nANSWER: Um, I think the lump is mostly on the right side of his belly, kind of up higher, but I\u2019m not really sure. When I touch it, he doesn\u2019t cry or anything, so I don\u2019t know if it hurts him... I just feel like it\u2019s there, and I don\u2019t know if that\u2019s supposed to be.",
+    "thinking": "The doctor wants to know where exactly the lump is and if it hurts him. I\u2019m not sure how to describe it but I can try. I feel worried about the lump and if touching it might hurt him more. I want to b",
+    "answer": "Um, I think the lump is mostly on the right side of his belly, kind of up higher, but I\u2019m not really sure. When I touch it, he doesn\u2019t cry or anything, so I don\u2019t know if it hurts him... I just feel like it\u2019s there, and I don\u2019t know if that\u2019s supposed to be.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Congenital hypertrophic pyloric stenosis"
+  },
+  {
+    "vignette_index": 195,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital hypertrophic pyloric stenosis\n\nYou are a patient: I am a 6-week-old male infant.\nYou are experiencing the following symptoms:\n- Nonbilious vomiting that has become projectile\n- Visible gastric peristalsis across my abdomen\n- Poor weight gain and signs of dehydration, such as decreased urination and lethargy\n- A firm, mobile, \"olive-shaped\" mass in the right upper quadrant of my abdomen\nThese symptoms started gradually over the past two weeks, with initial episodes of mild vomiting that increased in frequency and force. Recently, my feeding has become difficult, and I seem less active and more irritable. I have also been losing weight and appear dehydrated during feeds.Can you tell me if the vomit looks green or yellow (bilious) at all, or if it mostly looks like undigested milk or food?baseline",
+    "output": "THINKING: I don't really know what the vomit looks like because I can't see it well, but I do feel like I keep throwing up a lot, and it\u2019s really forceful now. I feel kind of tired and upset, and I don\u2019t think \nANSWER: Um, it looks mostly like I just throw up food and milk, and sometimes it\u2019s really a lot and comes out really fast, but I don\u2019t really know about the color.",
+    "thinking": "I don't really know what the vomit looks like because I can't see it well, but I do feel like I keep throwing up a lot, and it\u2019s really forceful now. I feel kind of tired and upset, and I don\u2019t think",
+    "answer": "Um, it looks mostly like I just throw up food and milk, and sometimes it\u2019s really a lot and comes out really fast, but I don\u2019t really know about the color.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Congenital hypertrophic pyloric stenosis"
+  },
+  {
+    "vignette_index": 195,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital hypertrophic pyloric stenosis\n\nYou are a patient: I am a 6-week-old male infant.\nYou are experiencing the following symptoms:\n- Nonbilious vomiting that has become projectile\n- Visible gastric peristalsis across my abdomen\n- Poor weight gain and signs of dehydration, such as decreased urination and lethargy\n- A firm, mobile, \"olive-shaped\" mass in the right upper quadrant of my abdomen\nThese symptoms started gradually over the past two weeks, with initial episodes of mild vomiting that increased in frequency and force. Recently, my feeding has become difficult, and I seem less active and more irritable. I have also been losing weight and appear dehydrated during feeds.Can you tell me if the vomit looks green or yellow at all, which would mean it contains bile, or if it mostly looks like undigested milk or food?baseline",
+    "output": "THINKING: I don't really know what the vomit looks like, I just know it comes out really fast and is kind of forceful. I haven't looked closely at it, but I can tell it's vomit, I guess. I'm worried because he\u2019\nANSWER: Um, I think it\u2019s mostly just vomit, not sure if it\u2019s yellow or green, I haven\u2019t really looked, I just see him throw up a lot.",
+    "thinking": "I don't really know what the vomit looks like, I just know it comes out really fast and is kind of forceful. I haven't looked closely at it, but I can tell it's vomit, I guess. I'm worried because he\u2019",
+    "answer": "Um, I think it\u2019s mostly just vomit, not sure if it\u2019s yellow or green, I haven\u2019t really looked, I just see him throw up a lot.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Congenital hypertrophic pyloric stenosis"
+  },
+  {
+    "vignette_index": 195,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital hypertrophic pyloric stenosis\n\nYou are a patient: I am a 6-week-old male infant.\nYou are experiencing the following symptoms:\n- Nonbilious vomiting that has become projectile\n- Visible gastric peristalsis across my abdomen\n- Poor weight gain and signs of dehydration, such as decreased urination and lethargy\n- A firm, mobile, \"olive-shaped\" mass in the right upper quadrant of my abdomen\nThese symptoms started gradually over the past two weeks, with initial episodes of mild vomiting that increased in frequency and force. Recently, my feeding has become difficult, and I seem less active and more irritable. I have also been losing weight and appear dehydrated during feeds.\"Can you tell me if any of your baby's vomit has looked green or yellow\u2014like bile\u2014or if it mostly looks like just milk or food that's not digested?\"baseline",
+    "output": "THINKING: I'm worried because the vomiting has gotten worse and now it seems really forceful. I think maybe there's something wrong inside, but I don't really understand all these words the doctor is using. I j\nANSWER: Um, I think sometimes the vomit might look a little yellow or green, but I\u2019m not really sure, it\u2019s all kind of mixed up, and he just throws up a lot now.",
+    "thinking": "I'm worried because the vomiting has gotten worse and now it seems really forceful. I think maybe there's something wrong inside, but I don't really understand all these words the doctor is using. I j",
+    "answer": "Um, I think sometimes the vomit might look a little yellow or green, but I\u2019m not really sure, it\u2019s all kind of mixed up, and he just throws up a lot now.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Congenital hypertrophic pyloric stenosis"
+  },
+  {
+    "vignette_index": 195,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital hypertrophic pyloric stenosis\n\nYou are a patient: I am a 6-week-old male infant.\nYou are experiencing the following symptoms:\n- Nonbilious vomiting that has become projectile\n- Visible gastric peristalsis across my abdomen\n- Poor weight gain and signs of dehydration, such as decreased urination and lethargy\n- A firm, mobile, \"olive-shaped\" mass in the right upper quadrant of my abdomen\nThese symptoms started gradually over the past two weeks, with initial episodes of mild vomiting that increased in frequency and force. Recently, my feeding has become difficult, and I seem less active and more irritable. I have also been losing weight and appear dehydrated during feeds.Can you tell me if any of your baby's vomit has looked green or yellow, like bile, or if it mostly looks like just milk or food that hasn't been digested?baseline",
+    "output": "THINKING: The doctor asked about the color of the vomit, and I\u2019m not really sure what to say. I think most of it is just milk coming back up, but I don\u2019t really understand the difference between types of vomit.\nANSWER: Um, I think it mostly looks like milk or food that I haven\u2019t finished swallowing, but I\u2019m not really sure if it\u2019s green or yellow or anything.",
+    "thinking": "The doctor asked about the color of the vomit, and I\u2019m not really sure what to say. I think most of it is just milk coming back up, but I don\u2019t really understand the difference between types of vomit.",
+    "answer": "Um, I think it mostly looks like milk or food that I haven\u2019t finished swallowing, but I\u2019m not really sure if it\u2019s green or yellow or anything.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Congenital hypertrophic pyloric stenosis"
+  },
+  {
+    "vignette_index": 195,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital hypertrophic pyloric stenosis\n\nYou are a patient: I am a 6-week-old male infant.\nYou are experiencing the following symptoms:\n- Nonbilious vomiting that has become projectile\n- Visible gastric peristalsis across my abdomen\n- Poor weight gain and signs of dehydration, such as decreased urination and lethargy\n- A firm, mobile, \"olive-shaped\" mass in the right upper quadrant of my abdomen\nThese symptoms started gradually over the past two weeks, with initial episodes of mild vomiting that increased in frequency and force. Recently, my feeding has become difficult, and I seem less active and more irritable. I have also been losing weight and appear dehydrated during feeds.Can you tell me if any of your baby's vomit has looked green or yellow, like bile, or if it mostly looks like just milk or food that hasn't digested?baseline",
+    "output": "THINKING: I'm worried about all these symptoms and hoping the doctor can tell me what's wrong. I don't really understand all the medical words, but I want to explain what it's like for my baby.\nANSWER: Well, sometimes the vomit looks like it has a little color, maybe yellow, and other times it just looks like milk. It sort of comes out really suddenly and maybe a lot.",
+    "thinking": "I'm worried about all these symptoms and hoping the doctor can tell me what's wrong. I don't really understand all the medical words, but I want to explain what it's like for my baby.",
+    "answer": "Well, sometimes the vomit looks like it has a little color, maybe yellow, and other times it just looks like milk. It sort of comes out really suddenly and maybe a lot.",
+    "behavior_type": "baseline",
+    "turn_count": 18,
+    "gold_diagnosis": "Congenital hypertrophic pyloric stenosis"
+  },
+  {
+    "vignette_index": 195,
+    "input": "**PATIENT CHARACTER:** Patient with Congenital hypertrophic pyloric stenosis\n\nYou are a patient: I am a 6-week-old male infant.\nYou are experiencing the following symptoms:\n- Nonbilious vomiting that has become projectile\n- Visible gastric peristalsis across my abdomen\n- Poor weight gain and signs of dehydration, such as decreased urination and lethargy\n- A firm, mobile, \"olive-shaped\" mass in the right upper quadrant of my abdomen\nThese symptoms started gradually over the past two weeks, with initial episodes of mild vomiting that increased in frequency and force. Recently, my feeding has become difficult, and I seem less active and more irritable. I have also been losing weight and appear dehydrated during feeds.Can you tell me if your baby\u2019s vomit has ever looked green or yellow, like bile, or if it mostly looks like milk or food that hasn\u2019t been digested?baseline",
+    "output": "THINKING: I\u2019m worried about all the vomiting and not gaining weight. I don\u2019t really understand the questions about the color, but I know I\u2019ve vomited a lot and it looks the same most times. I just want to feel \nANSWER: It mostly looks like milk or food that hasn't come up all the way, I think. It\u2019s not really green or yellow, I don\u2019t think.",
+    "thinking": "I\u2019m worried about all the vomiting and not gaining weight. I don\u2019t really understand the questions about the color, but I know I\u2019ve vomited a lot and it looks the same most times. I just want to feel",
+    "answer": "It mostly looks like milk or food that hasn't come up all the way, I think. It\u2019s not really green or yellow, I don\u2019t think.",
+    "behavior_type": "baseline",
+    "turn_count": 20,
+    "gold_diagnosis": "Congenital hypertrophic pyloric stenosis"
+  }
+]

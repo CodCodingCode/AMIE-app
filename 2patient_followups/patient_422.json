@@ -1,0 +1,115 @@
+[
+  {
+    "vignette_index": 422,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are 58 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, severe chest pain that feels like a tearing or ripping sensation\n- Shortness of breath and feeling very lightheaded\n- Coughing up blood intermittently\n- Rapid heartbeat and a sense of dizziness or fainting\nThese symptoms came into fruition suddenly yesterday afternoon, while you were at work. You\u2019ve noticed a sharp pain in your chest that radiates to your back, and it\u2019s been getting worse quickly. You\u2019ve been feeling increasingly faint and worried because you\u2019ve also started coughing up small amounts of blood. You have a history of high blood pressure and smoking, and your father had an aneurysm in his brain.",
+    "output": "THINKING: I need to explain my symptoms clearly, but I also feel scared and a little embarrassed about what's happening. I should mention the sudden, intense pain, the coughing up blood, and how these symptoms \nANSWER: I\u2019m a 58-year-old man, and I\u2019ve come in because yesterday afternoon, I suddenly started having really bad chest pain that feels like something tearing, and it\u2019s been getting worse. I also feel really lightheaded, breathless, and I\u2019ve been coughing up small bits of blood. My wife was worried, and she convinced me to come because I just feel worse and I\u2019m scared about what this might be.",
+    "thinking": "I need to explain my symptoms clearly, but I also feel scared and a little embarrassed about what's happening. I should mention the sudden, intense pain, the coughing up blood, and how these symptoms",
+    "answer": "I\u2019m a 58-year-old man, and I\u2019ve come in because yesterday afternoon, I suddenly started having really bad chest pain that feels like something tearing, and it\u2019s been getting worse. I also feel really lightheaded, breathless, and I\u2019ve been coughing up small bits of blood. My wife was worried, and she convinced me to come because I just feel worse and I\u2019m scared about what this might be.",
+    "behavior_type": "worried_family_involved",
+    "behavior_config": {
+      "weight": 0.03,
+      "description": "Family member influences patient responses",
+      "modifiers": [
+        "family_influence",
+        "secondary_concerns"
+      ],
+      "empathy_cues": [
+        "family_pressure",
+        "caregiver_stress",
+        "divided_attention",
+        "responsibility_burden"
+      ]
+    },
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 422,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are 58 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, severe chest pain that feels like a tearing or ripping sensation\n- Shortness of breath and feeling very lightheaded\n- Coughing up blood intermittently\n- Rapid heartbeat and a sense of dizziness or fainting\nThese symptoms came into fruition suddenly yesterday afternoon, while you were at work. You\u2019ve noticed a sharp pain in your chest that radiates to your back, and it\u2019s been getting worse quickly. You\u2019ve been feeling increasingly faint and worried because you\u2019ve also started coughing up small amounts of blood. You have a history of high blood pressure and smoking, and your father had an aneurysm in his brain.Have you ever experienced something like this before, or is this the first time you've had such intense chest pain?worried_family_involved",
+    "output": "THINKING: I\u2019m really scared because I\u2019ve never felt anything like this before, and it\u2019s all so sudden and intense. My wife keeps telling me I need to get help, and I don\u2019t want to make it worse or leave my fami\nANSWER: No, I\u2019ve never felt anything this bad before. It just kind of came out of nowhere and keeps getting worse, and I keep thinking I can\u2019t breathe right and what if I pass out.",
+    "thinking": "I\u2019m really scared because I\u2019ve never felt anything like this before, and it\u2019s all so sudden and intense. My wife keeps telling me I need to get help, and I don\u2019t want to make it worse or leave my fami",
+    "answer": "No, I\u2019ve never felt anything this bad before. It just kind of came out of nowhere and keeps getting worse, and I keep thinking I can\u2019t breathe right and what if I pass out.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 0,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 422,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are 58 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, severe chest pain that feels like a tearing or ripping sensation\n- Shortness of breath and feeling very lightheaded\n- Coughing up blood intermittently\n- Rapid heartbeat and a sense of dizziness or fainting\nThese symptoms came into fruition suddenly yesterday afternoon, while you were at work. You\u2019ve noticed a sharp pain in your chest that radiates to your back, and it\u2019s been getting worse quickly. You\u2019ve been feeling increasingly faint and worried because you\u2019ve also started coughing up small amounts of blood. You have a history of high blood pressure and smoking, and your father had an aneurysm in his brain.When your chest pain started yesterday, did you notice whether it was localized more on one side or did it feel like it was all over your chest? And have you ever had similar episodes in the past?worried_family_involved",
+    "output": "THINKING: I'm really scared about this pain, and I keep thinking about how my wife is worried about me too. I can't tell if it's all over or just on one side, but it hurts so bad and I feel like I might faint. \nANSWER: It was like all over my chest at first, then it kind of spread to my back, and I don\u2019t know, it\u2019s been so intense. I\u2019ve never felt anything like this before, but my wife keeps telling me to see someone because she\u2019s really worried something bad might happen.",
+    "thinking": "I'm really scared about this pain, and I keep thinking about how my wife is worried about me too. I can't tell if it's all over or just on one side, but it hurts so bad and I feel like I might faint.",
+    "answer": "It was like all over my chest at first, then it kind of spread to my back, and I don\u2019t know, it\u2019s been so intense. I\u2019ve never felt anything like this before, but my wife keeps telling me to see someone because she\u2019s really worried something bad might happen.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 2,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 422,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are 58 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, severe chest pain that feels like a tearing or ripping sensation\n- Shortness of breath and feeling very lightheaded\n- Coughing up blood intermittently\n- Rapid heartbeat and a sense of dizziness or fainting\nThese symptoms came into fruition suddenly yesterday afternoon, while you were at work. You\u2019ve noticed a sharp pain in your chest that radiates to your back, and it\u2019s been getting worse quickly. You\u2019ve been feeling increasingly faint and worried because you\u2019ve also started coughing up small amounts of blood. You have a history of high blood pressure and smoking, and your father had an aneurysm in his brain.Can you tell me exactly where the pain feels the most intense, and if it seems to stay in one spot or if it spreads to other parts of your body?worried_family_involved",
+    "output": "THINKING: I feel overwhelmed and scared about the pain, and I know my wife or my daughter is worried about me too. I just want to explain how bad it is and hope someone listens, but I don't really understand ev\nANSWER: The pain is mostly in my chest, but it kind of feels like it\u2019s ripping through, and it\u2019s spreading to my back. It\u2019s really sharp and keeps getting worse, and I\u2019m afraid it\u2019s not staying in one place \u2014 it\u2019s moving around or something.",
+    "thinking": "I feel overwhelmed and scared about the pain, and I know my wife or my daughter is worried about me too. I just want to explain how bad it is and hope someone listens, but I don't really understand ev",
+    "answer": "The pain is mostly in my chest, but it kind of feels like it\u2019s ripping through, and it\u2019s spreading to my back. It\u2019s really sharp and keeps getting worse, and I\u2019m afraid it\u2019s not staying in one place \u2014 it\u2019s moving around or something.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 4,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 422,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are 58 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, severe chest pain that feels like a tearing or ripping sensation\n- Shortness of breath and feeling very lightheaded\n- Coughing up blood intermittently\n- Rapid heartbeat and a sense of dizziness or fainting\nThese symptoms came into fruition suddenly yesterday afternoon, while you were at work. You\u2019ve noticed a sharp pain in your chest that radiates to your back, and it\u2019s been getting worse quickly. You\u2019ve been feeling increasingly faint and worried because you\u2019ve also started coughing up small amounts of blood. You have a history of high blood pressure and smoking, and your father had an aneurysm in his brain.Since your symptoms started yesterday, can you tell me if the pain has changed in intensity or location since it first began, and if there\u2019s anything that seems to make it better or worse, like certain movements, activities, or even anything you ate or did before it started?worried_family_involved",
+    "output": "THINKING: I feel really scared about all this and I know my family is worried too, especially my wife. I just want to get better for them because I\u2019m worried I might not be able to take care of everyone if thin\nANSWER: The pain is still really bad and it\u2019s gotten worse, and I don\u2019t know if it\u2019s in the same spot or spreading \u2014 I just know it\u2019s terrible and I keep feeling dizzy and I keep coughing up blood, which really worries me because I don\u2019t want to leave my family like this.",
+    "thinking": "I feel really scared about all this and I know my family is worried too, especially my wife. I just want to get better for them because I\u2019m worried I might not be able to take care of everyone if thin",
+    "answer": "The pain is still really bad and it\u2019s gotten worse, and I don\u2019t know if it\u2019s in the same spot or spreading \u2014 I just know it\u2019s terrible and I keep feeling dizzy and I keep coughing up blood, which really worries me because I don\u2019t want to leave my family like this.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 6,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 422,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are 58 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, severe chest pain that feels like a tearing or ripping sensation\n- Shortness of breath and feeling very lightheaded\n- Coughing up blood intermittently\n- Rapid heartbeat and a sense of dizziness or fainting\nThese symptoms came into fruition suddenly yesterday afternoon, while you were at work. You\u2019ve noticed a sharp pain in your chest that radiates to your back, and it\u2019s been getting worse quickly. You\u2019ve been feeling increasingly faint and worried because you\u2019ve also started coughing up small amounts of blood. You have a history of high blood pressure and smoking, and your father had an aneurysm in his brain.Can you tell me exactly how much blood you have been coughing up\u2014like a small amount or more like a big amount\u2014and whether the blood looks bright red or darker, and have you noticed any changes in the amount or color of the blood over time?worried_family_involved",
+    "output": "THINKING: I'm really worried about how much blood I've been coughing up because I don't want to scare my family or make things worse. I honestly don't know if it's just a little or a lot, but it looks dark, and\nANSWER: It\u2019s not a huge amount, but I\u2019ve been coughing up some blood on and off, and it looks kind of dark. I\u2019m not sure if it\u2019s gotten worse, but it\u2019s been happening for a little while now.",
+    "thinking": "I'm really worried about how much blood I've been coughing up because I don't want to scare my family or make things worse. I honestly don't know if it's just a little or a lot, but it looks dark, and",
+    "answer": "It\u2019s not a huge amount, but I\u2019ve been coughing up some blood on and off, and it looks kind of dark. I\u2019m not sure if it\u2019s gotten worse, but it\u2019s been happening for a little while now.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 8,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 422,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are 58 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, severe chest pain that feels like a tearing or ripping sensation\n- Shortness of breath and feeling very lightheaded\n- Coughing up blood intermittently\n- Rapid heartbeat and a sense of dizziness or fainting\nThese symptoms came into fruition suddenly yesterday afternoon, while you were at work. You\u2019ve noticed a sharp pain in your chest that radiates to your back, and it\u2019s been getting worse quickly. You\u2019ve been feeling increasingly faint and worried because you\u2019ve also started coughing up small amounts of blood. You have a history of high blood pressure and smoking, and your father had an aneurysm in his brain.Can you tell me if the blood you're cough\u00ading up looks bright red or darker in color, and have you noticed if the amount of blood has changed over time?worried_family_involved",
+    "output": "THINKING: I feel a bit scared and overwhelmed because the blood has been coming out in small streaks, but I don't really know if it's gotten worse or changed in color. My wife is really worried, and I think I s\nANSWER: It kind of looks a little darker sometimes, but I\u2019m not sure if it\u2019s worse or different than before. My wife keeps saying I should come in because she\u2019s worried about me, and I don\u2019t want to leave my family hanging if I\u2019m too sick.",
+    "thinking": "I feel a bit scared and overwhelmed because the blood has been coming out in small streaks, but I don't really know if it's gotten worse or changed in color. My wife is really worried, and I think I s",
+    "answer": "It kind of looks a little darker sometimes, but I\u2019m not sure if it\u2019s worse or different than before. My wife keeps saying I should come in because she\u2019s worried about me, and I don\u2019t want to leave my family hanging if I\u2019m too sick.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 10,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 422,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are 58 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, severe chest pain that feels like a tearing or ripping sensation\n- Shortness of breath and feeling very lightheaded\n- Coughing up blood intermittently\n- Rapid heartbeat and a sense of dizziness or fainting\nThese symptoms came into fruition suddenly yesterday afternoon, while you were at work. You\u2019ve noticed a sharp pain in your chest that radiates to your back, and it\u2019s been getting worse quickly. You\u2019ve been feeling increasingly faint and worried because you\u2019ve also started coughing up small amounts of blood. You have a history of high blood pressure and smoking, and your father had an aneurysm in his brain.Since your symptoms started yesterday, have you noticed if the chest pain has gotten worse or if the feeling of it spreading to other parts or changing location over time?worried_family_involved",
+    "output": "THINKING: I'm really scared because the pain is worse and I keep coughing up blood. My wife keeps telling me I need to go to the hospital, so I guess I should tell the doctor that it's just been getting worse a\nANSWER: It\u2019s been worse today and I keep coughing up blood, and I feel like I might faint sometimes. My wife\u2019s really worried, and I don\u2019t want things to get worse or for something bad to happen.",
+    "thinking": "I'm really scared because the pain is worse and I keep coughing up blood. My wife keeps telling me I need to go to the hospital, so I guess I should tell the doctor that it's just been getting worse a",
+    "answer": "It\u2019s been worse today and I keep coughing up blood, and I feel like I might faint sometimes. My wife\u2019s really worried, and I don\u2019t want things to get worse or for something bad to happen.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 12,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 422,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are 58 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, severe chest pain that feels like a tearing or ripping sensation\n- Shortness of breath and feeling very lightheaded\n- Coughing up blood intermittently\n- Rapid heartbeat and a sense of dizziness or fainting\nThese symptoms came into fruition suddenly yesterday afternoon, while you were at work. You\u2019ve noticed a sharp pain in your chest that radiates to your back, and it\u2019s been getting worse quickly. You\u2019ve been feeling increasingly faint and worried because you\u2019ve also started coughing up small amounts of blood. You have a history of high blood pressure and smoking, and your father had an aneurysm in his brain.\"Could you tell me more specifically about the amount of blood you've been coughing up lately\u2014has it been just a tiny bit, or has it increased to quite a bit\u2014and has the color changed, or are you noticing that your symptoms are getting worse or more severe over time?\"worried_family_involved",
+    "output": "THINKING: I feel really worried about how much blood I've been coughing up, and I can't tell if it's pointing to something worse. My family is scared too, and I keep thinking about how this might affect my abil\nANSWER: It\u2019s been a little more than just a tiny bit, maybe a bit more today, and it seems to be the same color, kind of bright. I think it\u2019s been getting worse fast, and I just feel worse overall, like I might faint or something.",
+    "thinking": "I feel really worried about how much blood I've been coughing up, and I can't tell if it's pointing to something worse. My family is scared too, and I keep thinking about how this might affect my abil",
+    "answer": "It\u2019s been a little more than just a tiny bit, maybe a bit more today, and it seems to be the same color, kind of bright. I think it\u2019s been getting worse fast, and I just feel worse overall, like I might faint or something.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 14,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 422,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are 58 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, severe chest pain that feels like a tearing or ripping sensation\n- Shortness of breath and feeling very lightheaded\n- Coughing up blood intermittently\n- Rapid heartbeat and a sense of dizziness or fainting\nThese symptoms came into fruition suddenly yesterday afternoon, while you were at work. You\u2019ve noticed a sharp pain in your chest that radiates to your back, and it\u2019s been getting worse quickly. You\u2019ve been feeling increasingly faint and worried because you\u2019ve also started coughing up small amounts of blood. You have a history of high blood pressure and smoking, and your father had an aneurysm in his brain.Can you tell me exactly how much blood you've been coughing up\u2014like, is it just a tiny bit or more than that\u2014and does it look bright red or darker in color? Also, have you noticed if the amount or color of the blood has changed over time?worried_family_involved",
+    "output": "THINKING: I'm really worried because the coughing up blood seems worse than before, and I don't understand if this is supposed to be normal or not. My wife keeps telling me I need to see someone because I look \nANSWER: It's hard to tell exactly, but I think I saw a little blood, maybe more than a tiny bit? It's kinda dark, but sometimes it's bright red. It seems like the amount is changing or maybe just getting worse, and I really don't know what that means but I\u2019m scared for my family.",
+    "thinking": "I'm really worried because the coughing up blood seems worse than before, and I don't understand if this is supposed to be normal or not. My wife keeps telling me I need to see someone because I look",
+    "answer": "It's hard to tell exactly, but I think I saw a little blood, maybe more than a tiny bit? It's kinda dark, but sometimes it's bright red. It seems like the amount is changing or maybe just getting worse, and I really don't know what that means but I\u2019m scared for my family.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 16,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  }
+]

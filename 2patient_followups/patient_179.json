@@ -1,0 +1,97 @@
+[
+  {
+    "vignette_index": 179,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Migraine disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 22 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- A severe, throbbing headache usually on one side of your head\n- Nausea and occasional vomiting\n- Increased sensitivity to light and sound\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the headache has gradually worsened throughout the day. I noticed that bright lights and loud noises make the pain worse, and I feel really nauseous, almost like I might vomit. Sometimes I see a visual disturbance, like flashing lights or zigzag lines, before the headache begins. I\u2019ve had similar episodes in the past, especially around my period, but this one feels more intense and persistent.",
+    "output": "THINKING: I should explain my symptoms clearly but also just be honest about how I'm feeling, even if I sound a little overwhelmed or confused. I want the doctor to understand that things are worse than usual a\nANSWER: I\u2019m 22 and a girl. Last night, I started getting this really bad, throbbing pain on one side of my head, and it\u2019s been worse as the day went on. I also feel super sick and like I might throw up, and the lights and loud noises make everything worse. Sometimes I see flashing lights or zigzags before the pain starts. It feels a little different from when I usually get migraines, and I\u2019m kinda scared because it\u2019s so intense this time.",
+    "thinking": "I should explain my symptoms clearly but also just be honest about how I'm feeling, even if I sound a little overwhelmed or confused. I want the doctor to understand that things are worse than usual a",
+    "answer": "I\u2019m 22 and a girl. Last night, I started getting this really bad, throbbing pain on one side of my head, and it\u2019s been worse as the day went on. I also feel super sick and like I might throw up, and the lights and loud noises make everything worse. Sometimes I see flashing lights or zigzags before the pain starts. It feels a little different from when I usually get migraines, and I\u2019m kinda scared because it\u2019s so intense this time.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Migraine disorder (TM1)"
+  },
+  {
+    "vignette_index": 179,
+    "input": "**PATIENT CHARACTER:** Patient with Migraine disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 22 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- A severe, throbbing headache usually on one side of your head\n- Nausea and occasional vomiting\n- Increased sensitivity to light and sound\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the headache has gradually worsened throughout the day. I noticed that bright lights and loud noises make the pain worse, and I feel really nauseous, almost like I might vomit. Sometimes I see a visual disturbance, like flashing lights or zigzag lines, before the headache begins. I\u2019ve had similar episodes in the past, especially around my period, but this one feels more intense and persistent.Can you tell me if you've experienced anything similar before, like other headaches or visual changes, and how often these kinds of episodes happen?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about these symptoms, especially since they seem worse than before. I struggle to remember if they\u2019ve happened like this, but I know I\u2019ve had headaches before, jus\nANSWER: Uh, I think I\u2019ve had headaches before, maybe around my period, but not like this, and I\u2019ve never had the flashing lights or feeling sick like this at the same time. It\u2019s been happening more and it\u2019s worse today.",
+    "thinking": "I feel a bit overwhelmed and worried about these symptoms, especially since they seem worse than before. I struggle to remember if they\u2019ve happened like this, but I know I\u2019ve had headaches before, jus",
+    "answer": "Uh, I think I\u2019ve had headaches before, maybe around my period, but not like this, and I\u2019ve never had the flashing lights or feeling sick like this at the same time. It\u2019s been happening more and it\u2019s worse today.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Migraine disorder (TM1)"
+  },
+  {
+    "vignette_index": 179,
+    "input": "**PATIENT CHARACTER:** Patient with Migraine disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 22 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- A severe, throbbing headache usually on one side of your head\n- Nausea and occasional vomiting\n- Increased sensitivity to light and sound\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the headache has gradually worsened throughout the day. I noticed that bright lights and loud noises make the pain worse, and I feel really nauseous, almost like I might vomit. Sometimes I see a visual disturbance, like flashing lights or zigzag lines, before the headache begins. I\u2019ve had similar episodes in the past, especially around my period, but this one feels more intense and persistent.Can you tell me more about whether you've had similar headaches or visual changes before, how often those occurred, and if they were as intense or different from what you're experiencing now?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried, especially since this sounds worse than before and is lasting longer. I don\u2019t really remember exactly what my past headaches were like but I know I\u2019ve had similar\nANSWER: Um, yeah, I think I\u2019ve had stuff kind of like this before, mostly around my period, but this time seems way worse and it\u2019s not going away.",
+    "thinking": "I feel a bit overwhelmed and worried, especially since this sounds worse than before and is lasting longer. I don\u2019t really remember exactly what my past headaches were like but I know I\u2019ve had similar",
+    "answer": "Um, yeah, I think I\u2019ve had stuff kind of like this before, mostly around my period, but this time seems way worse and it\u2019s not going away.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Migraine disorder (TM1)"
+  },
+  {
+    "vignette_index": 179,
+    "input": "**PATIENT CHARACTER:** Patient with Migraine disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 22 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- A severe, throbbing headache usually on one side of your head\n- Nausea and occasional vomiting\n- Increased sensitivity to light and sound\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the headache has gradually worsened throughout the day. I noticed that bright lights and loud noises make the pain worse, and I feel really nauseous, almost like I might vomit. Sometimes I see a visual disturbance, like flashing lights or zigzag lines, before the headache begins. I\u2019ve had similar episodes in the past, especially around my period, but this one feels more intense and persistent.Can you tell me how often you usually have headaches like this, and how they compare in intensity and symptoms to your current episode?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and just want to explain how this feels compared to what I usually get, but I\u2019m not sure if it\u2019s worse or just the same. I hope the doctor understands what I mean.\nANSWER: I guess I get headaches like this sometimes, but this one feels a lot more intense and it\u2019s been going on all day. It\u2019s really bad with bright lights and sounds, and I feel sick, like I might throw up.",
+    "thinking": "I feel a bit overwhelmed and just want to explain how this feels compared to what I usually get, but I\u2019m not sure if it\u2019s worse or just the same. I hope the doctor understands what I mean.",
+    "answer": "I guess I get headaches like this sometimes, but this one feels a lot more intense and it\u2019s been going on all day. It\u2019s really bad with bright lights and sounds, and I feel sick, like I might throw up.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Migraine disorder (TM1)"
+  },
+  {
+    "vignette_index": 179,
+    "input": "**PATIENT CHARACTER:** Patient with Migraine disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 22 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- A severe, throbbing headache usually on one side of your head\n- Nausea and occasional vomiting\n- Increased sensitivity to light and sound\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the headache has gradually worsened throughout the day. I noticed that bright lights and loud noises make the pain worse, and I feel really nauseous, almost like I might vomit. Sometimes I see a visual disturbance, like flashing lights or zigzag lines, before the headache begins. I\u2019ve had similar episodes in the past, especially around my period, but this one feels more intense and persistent.Can you tell me more about the visual changes you've experienced, like how they start, how long they last, and if they become more or less intense over time?baseline",
+    "output": "THINKING: I'm a bit overwhelmed by everything, and I want to tell her what I noticed without sounding like I know too much. I'm worried and just want help figuring out what\u2019s going on.\nANSWER: Um, so, I see those flashing lights or zigzags before the headache starts, and then the pain just gets worse and lasts a long time, like all day. It feels like it\u2019s worse than before.",
+    "thinking": "I'm a bit overwhelmed by everything, and I want to tell her what I noticed without sounding like I know too much. I'm worried and just want help figuring out what\u2019s going on.",
+    "answer": "Um, so, I see those flashing lights or zigzags before the headache starts, and then the pain just gets worse and lasts a long time, like all day. It feels like it\u2019s worse than before.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Migraine disorder (TM1)"
+  },
+  {
+    "vignette_index": 179,
+    "input": "**PATIENT CHARACTER:** Patient with Migraine disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 22 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- A severe, throbbing headache usually on one side of your head\n- Nausea and occasional vomiting\n- Increased sensitivity to light and sound\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the headache has gradually worsened throughout the day. I noticed that bright lights and loud noises make the pain worse, and I feel really nauseous, almost like I might vomit. Sometimes I see a visual disturbance, like flashing lights or zigzag lines, before the headache begins. I\u2019ve had similar episodes in the past, especially around my period, but this one feels more intense and persistent.Can you tell me how often you used to have headaches like this before, about how long they lasted, and whether you ever experienced any neurological symptoms like weakness or numbness during those times?baseline",
+    "output": "THINKING: The doctor is asking about my past headaches and if I've had any weird symptoms like weakness or numbness, but honestly, I don't really remember exactly how often I had them before or if anything else\nANSWER: Um, I think I've had headaches like this before a few times, maybe during my period, but they weren't as strong or lasted this long. I don't really remember feeling weak or numb during those.",
+    "thinking": "The doctor is asking about my past headaches and if I've had any weird symptoms like weakness or numbness, but honestly, I don't really remember exactly how often I had them before or if anything else",
+    "answer": "Um, I think I've had headaches like this before a few times, maybe during my period, but they weren't as strong or lasted this long. I don't really remember feeling weak or numb during those.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Migraine disorder (TM1)"
+  },
+  {
+    "vignette_index": 179,
+    "input": "**PATIENT CHARACTER:** Patient with Migraine disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 22 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- A severe, throbbing headache usually on one side of your head\n- Nausea and occasional vomiting\n- Increased sensitivity to light and sound\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the headache has gradually worsened throughout the day. I noticed that bright lights and loud noises make the pain worse, and I feel really nauseous, almost like I might vomit. Sometimes I see a visual disturbance, like flashing lights or zigzag lines, before the headache begins. I\u2019ve had similar episodes in the past, especially around my period, but this one feels more intense and persistent.Can you tell me more about your previous headaches\u2014how often they happened, how long they lasted, and if you ever noticed any neurological changes like weakness, numbness, or vision problems during those times?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and uncertain about what she's asking. I remember having headaches before, but I'm not really sure how often or how long they lasted, and I haven't noticed any weakness or num\nANSWER: Um, I\u2019ve had headaches before, mostly when I\u2019m on my period, but they didn\u2019t last this long or feel this bad. I don\u2019t think I\u2019ve noticed any weakness or numbness, but I see flashing lights and zigzags before the headache.",
+    "thinking": "I feel a bit overwhelmed and uncertain about what she's asking. I remember having headaches before, but I'm not really sure how often or how long they lasted, and I haven't noticed any weakness or num",
+    "answer": "Um, I\u2019ve had headaches before, mostly when I\u2019m on my period, but they didn\u2019t last this long or feel this bad. I don\u2019t think I\u2019ve noticed any weakness or numbness, but I see flashing lights and zigzags before the headache.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Migraine disorder (TM1)"
+  },
+  {
+    "vignette_index": 179,
+    "input": "**PATIENT CHARACTER:** Patient with Migraine disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 22 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- A severe, throbbing headache usually on one side of your head\n- Nausea and occasional vomiting\n- Increased sensitivity to light and sound\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the headache has gradually worsened throughout the day. I noticed that bright lights and loud noises make the pain worse, and I feel really nauseous, almost like I might vomit. Sometimes I see a visual disturbance, like flashing lights or zigzag lines, before the headache begins. I\u2019ve had similar episodes in the past, especially around my period, but this one feels more intense and persistent.Have you ever noticed any neurological symptoms like weakness, numbness, difficulty speaking, or confusion during your headaches or visual aura episodes in the past?baseline",
+    "output": "THINKING: I'm a bit worried because I don't really understand all the medical stuff he's asking, and I just want to explain what I feel without sounding dumb. I hope I don't say something weird or get told I ne\nANSWER: Um, I don\u2019t think so? Like, I haven\u2019t noticed anything like that before, just the headache and the light stuff, but I get those sometimes, and I guess I feel a little confused sometimes when the headache is really bad.",
+    "thinking": "I'm a bit worried because I don't really understand all the medical stuff he's asking, and I just want to explain what I feel without sounding dumb. I hope I don't say something weird or get told I ne",
+    "answer": "Um, I don\u2019t think so? Like, I haven\u2019t noticed anything like that before, just the headache and the light stuff, but I get those sometimes, and I guess I feel a little confused sometimes when the headache is really bad.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Migraine disorder (TM1)"
+  },
+  {
+    "vignette_index": 179,
+    "input": "**PATIENT CHARACTER:** Patient with Migraine disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 22 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- A severe, throbbing headache usually on one side of your head\n- Nausea and occasional vomiting\n- Increased sensitivity to light and sound\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the headache has gradually worsened throughout the day. I noticed that bright lights and loud noises make the pain worse, and I feel really nauseous, almost like I might vomit. Sometimes I see a visual disturbance, like flashing lights or zigzag lines, before the headache begins. I\u2019ve had similar episodes in the past, especially around my period, but this one feels more intense and persistent.Have you ever noticed any neurological symptoms like weakness, numbness, difficulty speaking, or confusion during your headaches or visual aura episodes?baseline",
+    "output": "THINKING: The doctor is asking about neurological symptoms, and I honestly don't know if I've had any real weakness or trouble talking. I do sometimes see flashing lights and feel kinda brain foggy, but I don\u2019t\nANSWER: Umm, I don't think so? I mean, I do see those weird flashing lights sometimes, but I haven't noticed anything like weakness or stuff like that. I just feel really out of it and kind of foggy.",
+    "thinking": "The doctor is asking about neurological symptoms, and I honestly don't know if I've had any real weakness or trouble talking. I do sometimes see flashing lights and feel kinda brain foggy, but I don\u2019t",
+    "answer": "Umm, I don't think so? I mean, I do see those weird flashing lights sometimes, but I haven't noticed anything like weakness or stuff like that. I just feel really out of it and kind of foggy.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Migraine disorder (TM1)"
+  }
+]

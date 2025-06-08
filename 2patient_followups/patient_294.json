@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 294,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Secondary hyperaldosteronism\n\nYou are a patient: You are 55 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- High blood pressure that has been difficult to control with medication\n- Swelling in your ankles and legs that has gotten worse over the past few weeks\n- Muscle weakness and cramping, especially in your legs\n- Feeling more tired than usual and sometimes feeling dizzy when standing quickly\nThese symptoms came into fruition gradually over the past two months, and you\u2019ve noticed your blood pressure readings at home are consistently high despite taking your medication regularly.",
+    "output": "THINKING: I should explain my symptoms clearly, mention how long they've been happening, and show that I'm worried about what's going on. I want to be honest but also not make it sound more serious than it feel\nANSWER: Well, Doctor, I\u2019m 55, and I\u2019m a guy. Lately, I\u2019ve been having a lot of trouble with my blood pressure \u2014 it just won\u2019t go down no matter what I do. My ankles and legs have been swelling up more than usual, and I\u2019ve been feeling really tired and weak, and I get these cramps in my legs too. Sometimes I feel dizzy when I stand up fast. It\u2019s been like this for a couple of months, and I\u2019ve been using my medication but nothing really helps.",
+    "thinking": "I should explain my symptoms clearly, mention how long they've been happening, and show that I'm worried about what's going on. I want to be honest but also not make it sound more serious than it feel",
+    "answer": "Well, Doctor, I\u2019m 55, and I\u2019m a guy. Lately, I\u2019ve been having a lot of trouble with my blood pressure \u2014 it just won\u2019t go down no matter what I do. My ankles and legs have been swelling up more than usual, and I\u2019ve been feeling really tired and weak, and I get these cramps in my legs too. Sometimes I feel dizzy when I stand up fast. It\u2019s been like this for a couple of months, and I\u2019ve been using my medication but nothing really helps.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Secondary hyperaldosteronism"
+  },
+  {
+    "vignette_index": 294,
+    "input": "**PATIENT CHARACTER:** Patient with Secondary hyperaldosteronism\n\nYou are a patient: You are 55 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- High blood pressure that has been difficult to control with medication\n- Swelling in your ankles and legs that has gotten worse over the past few weeks\n- Muscle weakness and cramping, especially in your legs\n- Feeling more tired than usual and sometimes feeling dizzy when standing quickly\nThese symptoms came into fruition gradually over the past two months, and you\u2019ve noticed your blood pressure readings at home are consistently high despite taking your medication regularly.Can you tell me if your swelling or dizziness tends to happen at certain times or during specific activities, or if anything seems to make these symptoms better or worse?baseline",
+    "output": "THINKING: I wonder if the swelling and dizziness are related or if it's something worse. I feel like they happen all the time now, but maybe worse when I stand up quickly. I don't really know what makes it bett\nANSWER: Um, I guess the swelling and dizziness kind of come and go, but they seem worse sometimes, like when I stand up fast or after I\u2019ve been sitting a while. I haven\u2019t noticed anything that really helps.",
+    "thinking": "I wonder if the swelling and dizziness are related or if it's something worse. I feel like they happen all the time now, but maybe worse when I stand up quickly. I don't really know what makes it bett",
+    "answer": "Um, I guess the swelling and dizziness kind of come and go, but they seem worse sometimes, like when I stand up fast or after I\u2019ve been sitting a while. I haven\u2019t noticed anything that really helps.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Secondary hyperaldosteronism"
+  },
+  {
+    "vignette_index": 294,
+    "input": "**PATIENT CHARACTER:** Patient with Secondary hyperaldosteronism\n\nYou are a patient: You are 55 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- High blood pressure that has been difficult to control with medication\n- Swelling in your ankles and legs that has gotten worse over the past few weeks\n- Muscle weakness and cramping, especially in your legs\n- Feeling more tired than usual and sometimes feeling dizzy when standing quickly\nThese symptoms came into fruition gradually over the past two months, and you\u2019ve noticed your blood pressure readings at home are consistently high despite taking your medication regularly.Can you tell me more about when your swelling or dizziness tends to happen\u2014are there times of day, activities, or situations where it feels different or worse, and how it has changed over the past couple of months?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about how all these symptoms are coming together. I don't really understand it all, but I want to explain what I\u2019ve been noticing without sounding like I know too \nANSWER: I mostly notice the swelling and dizziness comes more when I\u2019m standing up quickly, and it\u2019s been worse over the last couple of weeks. Sometimes I feel more tired and the cramps in my legs are worse than before.",
+    "thinking": "I feel a bit overwhelmed and worried about how all these symptoms are coming together. I don't really understand it all, but I want to explain what I\u2019ve been noticing without sounding like I know too",
+    "answer": "I mostly notice the swelling and dizziness comes more when I\u2019m standing up quickly, and it\u2019s been worse over the last couple of weeks. Sometimes I feel more tired and the cramps in my legs are worse than before.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Secondary hyperaldosteronism"
+  },
+  {
+    "vignette_index": 294,
+    "input": "**PATIENT CHARACTER:** Patient with Secondary hyperaldosteronism\n\nYou are a patient: You are 55 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- High blood pressure that has been difficult to control with medication\n- Swelling in your ankles and legs that has gotten worse over the past few weeks\n- Muscle weakness and cramping, especially in your legs\n- Feeling more tired than usual and sometimes feeling dizzy when standing quickly\nThese symptoms came into fruition gradually over the past two months, and you\u2019ve noticed your blood pressure readings at home are consistently high despite taking your medication regularly.Can you tell me how these symptoms\u2014like the swelling and dizziness\u2014affect your day-to-day activities, and whether they seem to be worse at certain times of day or after specific activities?baseline",
+    "output": "THINKING: I\u2019m feeling a bit overwhelmed and unsure how these symptoms tie together. I just want to understand what\u2019s going on and how it affects my days, especially since I feel worse sometimes and don\u2019t know w\nANSWER: Um, well, I guess the swelling gets worse as the day goes on, and I feel kind of dizzy if I stand up too fast, like I might fall. It\u2019s been messing with me, especially when I try to do things around the house or even walk upstairs.",
+    "thinking": "I\u2019m feeling a bit overwhelmed and unsure how these symptoms tie together. I just want to understand what\u2019s going on and how it affects my days, especially since I feel worse sometimes and don\u2019t know w",
+    "answer": "Um, well, I guess the swelling gets worse as the day goes on, and I feel kind of dizzy if I stand up too fast, like I might fall. It\u2019s been messing with me, especially when I try to do things around the house or even walk upstairs.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Secondary hyperaldosteronism"
+  },
+  {
+    "vignette_index": 294,
+    "input": "**PATIENT CHARACTER:** Patient with Secondary hyperaldosteronism\n\nYou are a patient: You are 55 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- High blood pressure that has been difficult to control with medication\n- Swelling in your ankles and legs that has gotten worse over the past few weeks\n- Muscle weakness and cramping, especially in your legs\n- Feeling more tired than usual and sometimes feeling dizzy when standing quickly\nThese symptoms came into fruition gradually over the past two months, and you\u2019ve noticed your blood pressure readings at home are consistently high despite taking your medication regularly.Can you tell me if your symptoms\u2014such as swelling and dizziness\u2014tend to get worse when you stand up, sit for a while, or during certain times of the day, and what you notice about them when you rest or lie down?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried, especially since the symptoms are getting worse gradually. I\u2019m not sure what\u2019s causing it, but I notice I feel more dizzy when I stand up quickly and the swelling\nANSWER: Yeah, I think the dizziness and swelling seem worse when I stand up fast or after sitting for a while, and sometimes I just feel more tired.",
+    "thinking": "I feel a bit overwhelmed and worried, especially since the symptoms are getting worse gradually. I\u2019m not sure what\u2019s causing it, but I notice I feel more dizzy when I stand up quickly and the swelling",
+    "answer": "Yeah, I think the dizziness and swelling seem worse when I stand up fast or after sitting for a while, and sometimes I just feel more tired.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Secondary hyperaldosteronism"
+  },
+  {
+    "vignette_index": 294,
+    "input": "**PATIENT CHARACTER:** Patient with Secondary hyperaldosteronism\n\nYou are a patient: You are 55 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- High blood pressure that has been difficult to control with medication\n- Swelling in your ankles and legs that has gotten worse over the past few weeks\n- Muscle weakness and cramping, especially in your legs\n- Feeling more tired than usual and sometimes feeling dizzy when standing quickly\nThese symptoms came into fruition gradually over the past two months, and you\u2019ve noticed your blood pressure readings at home are consistently high despite taking your medication regularly.\"You mentioned feeling kind of dizzy when you stand up or sit for a while. Can you tell me exactly how long the dizziness lasts, whether it goes away when you sit or lie down, and if it happens every time you change position or only sometimes?\"baseline",
+    "output": "THINKING: I'm a bit worried about the dizziness and want to explain it clearly, but I don't really remember exactly how long it lasts or if it always happens. I just want the doctor to understand that it\u2019s been\nANSWER: It kinda comes and goes, I think. Sometimes when I stand up it feels like the room spins for a few seconds, and it stops when I sit back down or lie down, but it\u2019s been happening more often lately.",
+    "thinking": "I'm a bit worried about the dizziness and want to explain it clearly, but I don't really remember exactly how long it lasts or if it always happens. I just want the doctor to understand that it\u2019s been",
+    "answer": "It kinda comes and goes, I think. Sometimes when I stand up it feels like the room spins for a few seconds, and it stops when I sit back down or lie down, but it\u2019s been happening more often lately.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Secondary hyperaldosteronism"
+  },
+  {
+    "vignette_index": 294,
+    "input": "**PATIENT CHARACTER:** Patient with Secondary hyperaldosteronism\n\nYou are a patient: You are 55 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- High blood pressure that has been difficult to control with medication\n- Swelling in your ankles and legs that has gotten worse over the past few weeks\n- Muscle weakness and cramping, especially in your legs\n- Feeling more tired than usual and sometimes feeling dizzy when standing quickly\nThese symptoms came into fruition gradually over the past two months, and you\u2019ve noticed your blood pressure readings at home are consistently high despite taking your medication regularly.Can you describe exactly how long your dizziness episodes last when they happen\u2014do they go away right after you sit or lie down, and do they only occur when you change positions, like standing up or sitting down, or do they happen at other times as well?baseline",
+    "output": "THINKING: I'm not really sure exactly how long the dizziness lasts. Sometimes it feels like it just comes and goes quickly, but I also feel weird when I get up or sit down fast, so I'm not sure if that's all th\nANSWER: Um, I think the dizziness only lasts a little while when I get up or move around quickly, but I'm not sure if it happens at other times too.",
+    "thinking": "I'm not really sure exactly how long the dizziness lasts. Sometimes it feels like it just comes and goes quickly, but I also feel weird when I get up or sit down fast, so I'm not sure if that's all th",
+    "answer": "Um, I think the dizziness only lasts a little while when I get up or move around quickly, but I'm not sure if it happens at other times too.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Secondary hyperaldosteronism"
+  },
+  {
+    "vignette_index": 294,
+    "input": "**PATIENT CHARACTER:** Patient with Secondary hyperaldosteronism\n\nYou are a patient: You are 55 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- High blood pressure that has been difficult to control with medication\n- Swelling in your ankles and legs that has gotten worse over the past few weeks\n- Muscle weakness and cramping, especially in your legs\n- Feeling more tired than usual and sometimes feeling dizzy when standing quickly\nThese symptoms came into fruition gradually over the past two months, and you\u2019ve noticed your blood pressure readings at home are consistently high despite taking your medication regularly.Can you tell me exactly how long your dizziness episodes last when they happen\u2014do they start immediately when you stand up or sit down, and do they happen every time or only sometimes when you change position?baseline",
+    "output": "THINKING: I'm not really sure how long the dizziness lasts or exactly when it happens. I just feel dizzy sometimes when I get up quick or move in certain ways, but I can't say it\u2019s always the same or how long i\nANSWER: Well, the dizziness kind of comes and goes, I think\u2014it happens sometimes when I stand up fast, but not all the time. It's pretty sudden when it does happen.",
+    "thinking": "I'm not really sure how long the dizziness lasts or exactly when it happens. I just feel dizzy sometimes when I get up quick or move in certain ways, but I can't say it\u2019s always the same or how long i",
+    "answer": "Well, the dizziness kind of comes and goes, I think\u2014it happens sometimes when I stand up fast, but not all the time. It's pretty sudden when it does happen.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Secondary hyperaldosteronism"
+  }
+]

@@ -1,0 +1,105 @@
+[
+  {
+    "vignette_index": 448,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Dysphagia disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 75 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Difficulty with swallowing, especially liquids\n- Feeling like food gets stuck in your throat\n- Difficulty with chewing solid foods\n- Mild chest discomfort after eating\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two months, I\u2019ve noticed it\u2019s become harder to swallow my drinks, and solid foods like bread or meat feel like they\u2019re getting stuck. Sometimes I have to sip water to help things go down, and I\u2019ve started avoiding certain foods altogether. I also feel a bit of pressure or discomfort in my chest after eating, which worries me. I don\u2019t recall any recent surgeries or head and neck cancer, but I do have some age-related changes and mild neurological issues that run in my family.",
+    "output": "THINKING: I should explain my main issues clearly but also show that I'm worried about what it might be. I don't want to sound like I'm overthinking, but I do want to make sure I get checked out. I\u2019ll mention t\nANSWER: Well, I\u2019m 75, and I\u2019m a man. Lately, I\u2019ve been having trouble swallowing, especially liquids, and sometimes it feels like food gets stuck in my throat. I also have a bit of discomfort in my chest after I eat. It\u2019s been going on for a couple of months now, and I just thought I should get it looked at.",
+    "thinking": "I should explain my main issues clearly but also show that I'm worried about what it might be. I don't want to sound like I'm overthinking, but I do want to make sure I get checked out. I\u2019ll mention t",
+    "answer": "Well, I\u2019m 75, and I\u2019m a man. Lately, I\u2019ve been having trouble swallowing, especially liquids, and sometimes it feels like food gets stuck in my throat. I also have a bit of discomfort in my chest after I eat. It\u2019s been going on for a couple of months now, and I just thought I should get it looked at.",
+    "behavior_type": "information_withholder",
+    "behavior_config": {
+      "weight": 0.15,
+      "description": "Patient initially omits embarrassing or stigmatized symptoms",
+      "modifiers": [
+        "embarrassed_symptoms",
+        "gradual_revelation"
+      ],
+      "empathy_cues": [
+        "hesitation",
+        "vague_responses",
+        "embarrassment",
+        "trust_building_needed"
+      ]
+    },
+    "gold_diagnosis": "Dysphagia disorder (TM1)"
+  },
+  {
+    "vignette_index": 448,
+    "input": "**PATIENT CHARACTER:** Patient with Dysphagia disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 75 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Difficulty with swallowing, especially liquids\n- Feeling like food gets stuck in your throat\n- Difficulty with chewing solid foods\n- Mild chest discomfort after eating\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two months, I\u2019ve noticed it\u2019s become harder to swallow my drinks, and solid foods like bread or meat feel like they\u2019re getting stuck. Sometimes I have to sip water to help things go down, and I\u2019ve started avoiding certain foods altogether. I also feel a bit of pressure or discomfort in my chest after eating, which worries me. I don\u2019t recall any recent surgeries or head and neck cancer, but I do have some age-related changes and mild neurological issues that run in my family.Can you tell me more about how these swallowing difficulties are affecting your daily life, like whether you've noticed losing weight or having trouble eating certain foods?information_withholder",
+    "output": "THINKING: I'm a bit embarrassed about all this and not really sure what to say. I guess I don't really want to admit how much it's bothering me, but I do see that it's making things harder. I probably should te\nANSWER: Well, I guess it\u2019s kind of hard to eat normally now, and I do notice sometimes I just choke a bit or have to take small bites. I haven\u2019t noticed losing weight or anything really, but it worries me some.",
+    "thinking": "I'm a bit embarrassed about all this and not really sure what to say. I guess I don't really want to admit how much it's bothering me, but I do see that it's making things harder. I probably should te",
+    "answer": "Well, I guess it\u2019s kind of hard to eat normally now, and I do notice sometimes I just choke a bit or have to take small bites. I haven\u2019t noticed losing weight or anything really, but it worries me some.",
+    "behavior_type": "information_withholder",
+    "turn_count": 0,
+    "gold_diagnosis": "Dysphagia disorder (TM1)"
+  },
+  {
+    "vignette_index": 448,
+    "input": "**PATIENT CHARACTER:** Patient with Dysphagia disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 75 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Difficulty with swallowing, especially liquids\n- Feeling like food gets stuck in your throat\n- Difficulty with chewing solid foods\n- Mild chest discomfort after eating\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two months, I\u2019ve noticed it\u2019s become harder to swallow my drinks, and solid foods like bread or meat feel like they\u2019re getting stuck. Sometimes I have to sip water to help things go down, and I\u2019ve started avoiding certain foods altogether. I also feel a bit of pressure or discomfort in my chest after eating, which worries me. I don\u2019t recall any recent surgeries or head and neck cancer, but I do have some age-related changes and mild neurological issues that run in my family.Have you noticed any changes in your weight, strength, or energy levels since your symptoms started, or any difficulties keeping your food down that concern you?information_withholder",
+    "output": "THINKING: The doctor asked about weight, strength, and food, but I don't really want to talk about that. I mainly just want to tell them how hard it is now to swallow and how it feels like food gets stuck, but \nANSWER: I haven't really noticed much about my weight or strength, but I do feel like food gets stuck in my throat and sometimes I get a weird pressure in my chest after I eat.",
+    "thinking": "The doctor asked about weight, strength, and food, but I don't really want to talk about that. I mainly just want to tell them how hard it is now to swallow and how it feels like food gets stuck, but",
+    "answer": "I haven't really noticed much about my weight or strength, but I do feel like food gets stuck in my throat and sometimes I get a weird pressure in my chest after I eat.",
+    "behavior_type": "information_withholder",
+    "turn_count": 2,
+    "gold_diagnosis": "Dysphagia disorder (TM1)"
+  },
+  {
+    "vignette_index": 448,
+    "input": "**PATIENT CHARACTER:** Patient with Dysphagia disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 75 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Difficulty with swallowing, especially liquids\n- Feeling like food gets stuck in your throat\n- Difficulty with chewing solid foods\n- Mild chest discomfort after eating\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two months, I\u2019ve noticed it\u2019s become harder to swallow my drinks, and solid foods like bread or meat feel like they\u2019re getting stuck. Sometimes I have to sip water to help things go down, and I\u2019ve started avoiding certain foods altogether. I also feel a bit of pressure or discomfort in my chest after eating, which worries me. I don\u2019t recall any recent surgeries or head and neck cancer, but I do have some age-related changes and mild neurological issues that run in my family.Can you tell me if you've noticed losing weight or struggling more with certain types of foods or drinks, and how this has changed your eating habits or energy levels over the past couple of months?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed about talking too much or explaining everything clearly. I just want to get through this and maybe understand what's wrong, but I don't want to sound like I'm overreacting. I'\nANSWER: Um, yeah, I think I\u2019ve been having a little trouble swallowing lately. Like, drinks feel strange, and sometimes food gets stuck, especially bread or meat. I\u2019ve just been avoiding some things because of it.",
+    "thinking": "I feel a bit embarrassed about talking too much or explaining everything clearly. I just want to get through this and maybe understand what's wrong, but I don't want to sound like I'm overreacting. I'",
+    "answer": "Um, yeah, I think I\u2019ve been having a little trouble swallowing lately. Like, drinks feel strange, and sometimes food gets stuck, especially bread or meat. I\u2019ve just been avoiding some things because of it.",
+    "behavior_type": "information_withholder",
+    "turn_count": 4,
+    "gold_diagnosis": "Dysphagia disorder (TM1)"
+  },
+  {
+    "vignette_index": 448,
+    "input": "**PATIENT CHARACTER:** Patient with Dysphagia disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 75 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Difficulty with swallowing, especially liquids\n- Feeling like food gets stuck in your throat\n- Difficulty with chewing solid foods\n- Mild chest discomfort after eating\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two months, I\u2019ve noticed it\u2019s become harder to swallow my drinks, and solid foods like bread or meat feel like they\u2019re getting stuck. Sometimes I have to sip water to help things go down, and I\u2019ve started avoiding certain foods altogether. I also feel a bit of pressure or discomfort in my chest after eating, which worries me. I don\u2019t recall any recent surgeries or head and neck cancer, but I do have some age-related changes and mild neurological issues that run in my family.\"I understand you\u2019ve mentioned some difficulty swallowing and feeling food get lodged, but could you tell me more about whether you've noticed losing weight, feeling weaker, or having more trouble eating over these past couple of months? Even if you haven\u2019t thought it was a big deal, I want to understand how this has really been affecting you.\"information_withholder",
+    "output": "THINKING: I'm a bit embarrassed to talk about all this, but I guess I should mention that I've been avoiding eating certain things and the chest discomfort is bothering me a little. I'm not sure how serious it \nANSWER: Well, I guess I have been having trouble swallowing more than before, especially with drinks and some solid foods, and I\u2019ve been feeling this pressure in my chest after eating. It\u2019s been happening for a little while now.",
+    "thinking": "I'm a bit embarrassed to talk about all this, but I guess I should mention that I've been avoiding eating certain things and the chest discomfort is bothering me a little. I'm not sure how serious it",
+    "answer": "Well, I guess I have been having trouble swallowing more than before, especially with drinks and some solid foods, and I\u2019ve been feeling this pressure in my chest after eating. It\u2019s been happening for a little while now.",
+    "behavior_type": "information_withholder",
+    "turn_count": 6,
+    "gold_diagnosis": "Dysphagia disorder (TM1)"
+  },
+  {
+    "vignette_index": 448,
+    "input": "**PATIENT CHARACTER:** Patient with Dysphagia disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 75 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Difficulty with swallowing, especially liquids\n- Feeling like food gets stuck in your throat\n- Difficulty with chewing solid foods\n- Mild chest discomfort after eating\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two months, I\u2019ve noticed it\u2019s become harder to swallow my drinks, and solid foods like bread or meat feel like they\u2019re getting stuck. Sometimes I have to sip water to help things go down, and I\u2019ve started avoiding certain foods altogether. I also feel a bit of pressure or discomfort in my chest after eating, which worries me. I don\u2019t recall any recent surgeries or head and neck cancer, but I do have some age-related changes and mild neurological issues that run in my family.\"Given how your swallowing has been getting worse over the past couple of months, have you noticed or experienced any unintentional weight loss, weakness, or feeling more tired than usual, even if you haven't brought it up before?\"information_withholder",
+    "output": "THINKING: The doctor is asking about weight loss and tiredness, which I haven\u2019t really thought about, but maybe I should mention if I have lost weight without trying or feel weaker. I feel a bit nervous talking\nANSWER: I don\u2019t really know if I\u2019ve lost weight, and I haven\u2019t been feeling more tired or anything, but I do feel kind of worn out sometimes after eating, if that makes sense.",
+    "thinking": "The doctor is asking about weight loss and tiredness, which I haven\u2019t really thought about, but maybe I should mention if I have lost weight without trying or feel weaker. I feel a bit nervous talking",
+    "answer": "I don\u2019t really know if I\u2019ve lost weight, and I haven\u2019t been feeling more tired or anything, but I do feel kind of worn out sometimes after eating, if that makes sense.",
+    "behavior_type": "information_withholder",
+    "turn_count": 8,
+    "gold_diagnosis": "Dysphagia disorder (TM1)"
+  },
+  {
+    "vignette_index": 448,
+    "input": "**PATIENT CHARACTER:** Patient with Dysphagia disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 75 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Difficulty with swallowing, especially liquids\n- Feeling like food gets stuck in your throat\n- Difficulty with chewing solid foods\n- Mild chest discomfort after eating\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two months, I\u2019ve noticed it\u2019s become harder to swallow my drinks, and solid foods like bread or meat feel like they\u2019re getting stuck. Sometimes I have to sip water to help things go down, and I\u2019ve started avoiding certain foods altogether. I also feel a bit of pressure or discomfort in my chest after eating, which worries me. I don\u2019t recall any recent surgeries or head and neck cancer, but I do have some age-related changes and mild neurological issues that run in my family.\"I know you mentioned swallowing problems, but I want to be sure we're understanding everything about how this has been affecting you\u2014have you noticed losing weight, feeling weaker, or having a harder time eating or drinking over these past couple of months, even if it\u2019s just a little, or maybe other changes that worry you?\"information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about this, especially the swallowing part, but I guess he wants to know everything. I don\u2019t want to sound like I\u2019m overreacting, but I do feel it\u2019s been a bit worse r\nANSWER: Well, I\u2019ve noticed it\u2019s gotten harder to swallow drinks, and sometimes it feels like food gets stuck in my throat. I\u2019ve been avoiding some foods because of that, and I do get a little pressure after eating, but I wasn\u2019t sure if it\u2019s anything serious.",
+    "thinking": "I feel a bit embarrassed talking about this, especially the swallowing part, but I guess he wants to know everything. I don\u2019t want to sound like I\u2019m overreacting, but I do feel it\u2019s been a bit worse r",
+    "answer": "Well, I\u2019ve noticed it\u2019s gotten harder to swallow drinks, and sometimes it feels like food gets stuck in my throat. I\u2019ve been avoiding some foods because of that, and I do get a little pressure after eating, but I wasn\u2019t sure if it\u2019s anything serious.",
+    "behavior_type": "information_withholder",
+    "turn_count": 10,
+    "gold_diagnosis": "Dysphagia disorder (TM1)"
+  },
+  {
+    "vignette_index": 448,
+    "input": "**PATIENT CHARACTER:** Patient with Dysphagia disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 75 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Difficulty with swallowing, especially liquids\n- Feeling like food gets stuck in your throat\n- Difficulty with chewing solid foods\n- Mild chest discomfort after eating\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two months, I\u2019ve noticed it\u2019s become harder to swallow my drinks, and solid foods like bread or meat feel like they\u2019re getting stuck. Sometimes I have to sip water to help things go down, and I\u2019ve started avoiding certain foods altogether. I also feel a bit of pressure or discomfort in my chest after eating, which worries me. I don\u2019t recall any recent surgeries or head and neck cancer, but I do have some age-related changes and mild neurological issues that run in my family.\"I know you\u2019ve mentioned some difficulty swallowing and feeling food get lodged, but I want to understand better\u2014have you noticed any unintentional weight loss, or that you're feeling weaker or more tired than before, especially since these symptoms started? Even just a little\u2014it's important for me to understand how this is affecting your overall health.\"information_withholder",
+    "output": "THINKING: I don't really want to admit to feeling weak or losing weight, but I know I feel more tired lately. I guess I might've lost a little weight, but it's not something I paid much attention to. I'm just w\nANSWER: Well, I do feel more tired than I used to, and I might have lost a bit of weight, but it's not like I\u2019m wildly different. The main thing is that swallowing has gotten harder, and I sometimes feel that pressure after eating.",
+    "thinking": "I don't really want to admit to feeling weak or losing weight, but I know I feel more tired lately. I guess I might've lost a little weight, but it's not something I paid much attention to. I'm just w",
+    "answer": "Well, I do feel more tired than I used to, and I might have lost a bit of weight, but it's not like I\u2019m wildly different. The main thing is that swallowing has gotten harder, and I sometimes feel that pressure after eating.",
+    "behavior_type": "information_withholder",
+    "turn_count": 12,
+    "gold_diagnosis": "Dysphagia disorder (TM1)"
+  },
+  {
+    "vignette_index": 448,
+    "input": "**PATIENT CHARACTER:** Patient with Dysphagia disorder (TM1)\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 75 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Difficulty with swallowing, especially liquids\n- Feeling like food gets stuck in your throat\n- Difficulty with chewing solid foods\n- Mild chest discomfort after eating\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two months, I\u2019ve noticed it\u2019s become harder to swallow my drinks, and solid foods like bread or meat feel like they\u2019re getting stuck. Sometimes I have to sip water to help things go down, and I\u2019ve started avoiding certain foods altogether. I also feel a bit of pressure or discomfort in my chest after eating, which worries me. I don\u2019t recall any recent surgeries or head and neck cancer, but I do have some age-related changes and mild neurological issues that run in my family.\"I understand it might be difficult to talk about this, but could you tell me if you've noticed whether you've been losing weight without trying, feeling more tired or weaker than usual, especially over the past couple of months\u2014that is, even if you weren't sure how much it really is?\"information_withholder",
+    "output": "THINKING: The doctor is asking about weight loss and fatigue, which I haven't really thought about much. I guess I do feel kind of tired sometimes, but I didn't connect it to that. I don\u2019t want to sound like I\u2019\nANSWER: Um, well, I guess I have been feeling a bit more tired than usual, and I think I might have lost some weight, but I\u2019m not really sure how much. I just feel kind of weak and worn out sometimes, especially after eating.",
+    "thinking": "The doctor is asking about weight loss and fatigue, which I haven't really thought about much. I guess I do feel kind of tired sometimes, but I didn't connect it to that. I don\u2019t want to sound like I\u2019",
+    "answer": "Um, well, I guess I have been feeling a bit more tired than usual, and I think I might have lost some weight, but I\u2019m not really sure how much. I just feel kind of weak and worn out sometimes, especially after eating.",
+    "behavior_type": "information_withholder",
+    "turn_count": 14,
+    "gold_diagnosis": "Dysphagia disorder (TM1)"
+  }
+]

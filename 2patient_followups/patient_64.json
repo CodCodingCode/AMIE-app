@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 64,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite, nausea, vomiting, and weakness.\nThese symptoms came on gradually over the past few days, but the nausea and vomiting started more suddenly yesterday.\nYou\u2019ve been feeling increasingly tired and have some mild fever, which worries you a bit.\nYou also mention that you\u2019ve been drinking more alcohol lately and recently started taking some over-the-counter vitamins and a new pain medication prescribed by your doctor.",
+    "output": "THINKING: I should explain my symptoms clearly, even if I feel a bit embarrassed. I need to mention that my symptoms started gradually, but the nausea and vomiting got worse suddenly yesterday. I also want to b\nANSWER: Well, I\u2019m 52, and I guess I\u2019ve been feeling pretty weak and tired lately. I\u2019ve lost my appetite too, and I\u2019ve been throwing up quite a bit, especially yesterday. I also have a bit of a fever, and I\u2019ve been drinking more alcohol than usual. I started taking some vitamins and a new pain pill my doctor gave me recently, so I don\u2019t know if any of that\u2019s connected.",
+    "thinking": "I should explain my symptoms clearly, even if I feel a bit embarrassed. I need to mention that my symptoms started gradually, but the nausea and vomiting got worse suddenly yesterday. I also want to b",
+    "answer": "Well, I\u2019m 52, and I guess I\u2019ve been feeling pretty weak and tired lately. I\u2019ve lost my appetite too, and I\u2019ve been throwing up quite a bit, especially yesterday. I also have a bit of a fever, and I\u2019ve been drinking more alcohol than usual. I started taking some vitamins and a new pain pill my doctor gave me recently, so I don\u2019t know if any of that\u2019s connected.",
+    "behavior_type": "information_withholder",
+    "behavior_config": {
+      "weight": 0.15,
+      "description": "Patient initially omits embarrassing or stigmatized symptoms",
+      "modifiers": [
+        "embarrassed_symptoms",
+        "gradual_revelation"
+      ],
+      "empathy_cues": [
+        "hesitation",
+        "vague_responses",
+        "embarrassment",
+        "trust_building_needed"
+      ]
+    },
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  },
+  {
+    "vignette_index": 64,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite, nausea, vomiting, and weakness.\nThese symptoms came on gradually over the past few days, but the nausea and vomiting started more suddenly yesterday.\nYou\u2019ve been feeling increasingly tired and have some mild fever, which worries you a bit.\nYou also mention that you\u2019ve been drinking more alcohol lately and recently started taking some over-the-counter vitamins and a new pain medication prescribed by your doctor.Can you tell me more about how much and how often you've been drinking alcohol recently, and if there's anything else you've noticed that has changed or worsened with your symptoms?information_withholder",
+    "output": "THINKING: I\u2019m a bit embarrassed to admit I\u2019ve been drinking more than usual, and I don\u2019t really want to go into all the details. Also, I\u2019m worried about the nausea and weakness, but I\u2019m not sure how to explain \nANSWER: Uh, I guess I\u2019ve been drinking a lot more than I used to, like almost every day, but I don\u2019t really keep track. Nothing else really, I just started taking some vitamins and this new pain medicine, but I don\u2019t think it\u2019s that.",
+    "thinking": "I\u2019m a bit embarrassed to admit I\u2019ve been drinking more than usual, and I don\u2019t really want to go into all the details. Also, I\u2019m worried about the nausea and weakness, but I\u2019m not sure how to explain",
+    "answer": "Uh, I guess I\u2019ve been drinking a lot more than I used to, like almost every day, but I don\u2019t really keep track. Nothing else really, I just started taking some vitamins and this new pain medicine, but I don\u2019t think it\u2019s that.",
+    "behavior_type": "information_withholder",
+    "turn_count": 0,
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  },
+  {
+    "vignette_index": 64,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite, nausea, vomiting, and weakness.\nThese symptoms came on gradually over the past few days, but the nausea and vomiting started more suddenly yesterday.\nYou\u2019ve been feeling increasingly tired and have some mild fever, which worries you a bit.\nYou also mention that you\u2019ve been drinking more alcohol lately and recently started taking some over-the-counter vitamins and a new pain medication prescribed by your doctor.\"Can you tell me more about your usual drinking habits\u2014like how much you typically have and how often you drink\u2014to help me better understand how it might be affecting your health?\"information_withholder",
+    "output": "THINKING: I don\u2019t really want to go into details about my drinking, but I know I\u2019ve been having a bit more than usual lately. I feel embarrassed to say too much, but maybe it\u2019s related.\nANSWER: Uh, I guess I\u2019ve been drinking more sometimes, maybe a few drinks here and there. I don\u2019t keep track really, but I\u2019ve been doing it more lately.",
+    "thinking": "I don\u2019t really want to go into details about my drinking, but I know I\u2019ve been having a bit more than usual lately. I feel embarrassed to say too much, but maybe it\u2019s related.",
+    "answer": "Uh, I guess I\u2019ve been drinking more sometimes, maybe a few drinks here and there. I don\u2019t keep track really, but I\u2019ve been doing it more lately.",
+    "behavior_type": "information_withholder",
+    "turn_count": 2,
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  },
+  {
+    "vignette_index": 64,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite, nausea, vomiting, and weakness.\nThese symptoms came on gradually over the past few days, but the nausea and vomiting started more suddenly yesterday.\nYou\u2019ve been feeling increasingly tired and have some mild fever, which worries you a bit.\nYou also mention that you\u2019ve been drinking more alcohol lately and recently started taking some over-the-counter vitamins and a new pain medication prescribed by your doctor.\"I understand this can be a sensitive topic, but could you tell me a bit more about how much and how often you've been drinking lately, so I can better understand how it might be affecting your health?\"information_withholder",
+    "output": "THINKING: I'm a bit embarrassed to bring it up, but I guess the doctor needs to know. I don't want to seem like I'm just drinking a lot, but I have been drinking more than usual, especially lately.\nANSWER: Uh, I've been drinking more than I probably should, mostly in the evenings, but I didn't think it was a big deal. I guess I just wanted to relax.",
+    "thinking": "I'm a bit embarrassed to bring it up, but I guess the doctor needs to know. I don't want to seem like I'm just drinking a lot, but I have been drinking more than usual, especially lately.",
+    "answer": "Uh, I've been drinking more than I probably should, mostly in the evenings, but I didn't think it was a big deal. I guess I just wanted to relax.",
+    "behavior_type": "information_withholder",
+    "turn_count": 4,
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  },
+  {
+    "vignette_index": 64,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite, nausea, vomiting, and weakness.\nThese symptoms came on gradually over the past few days, but the nausea and vomiting started more suddenly yesterday.\nYou\u2019ve been feeling increasingly tired and have some mild fever, which worries you a bit.\nYou also mention that you\u2019ve been drinking more alcohol lately and recently started taking some over-the-counter vitamins and a new pain medication prescribed by your doctor.Can you tell me, in as much detail as you're comfortable sharing, about how much you typically drink on a regular day and how often you have been drinking lately, especially in the past few weeks?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed to talk about my drinking, but I know it's probably important. I want to hide how much I've been drinking, but I know I should tell the truth.\nANSWER: Umm, I suppose I drink a bit more than I used to, maybe every day or so, lately. I don\u2019t really keep track, but I\u2019ve been having more than usual, I guess.",
+    "thinking": "I feel a bit embarrassed to talk about my drinking, but I know it's probably important. I want to hide how much I've been drinking, but I know I should tell the truth.",
+    "answer": "Umm, I suppose I drink a bit more than I used to, maybe every day or so, lately. I don\u2019t really keep track, but I\u2019ve been having more than usual, I guess.",
+    "behavior_type": "information_withholder",
+    "turn_count": 6,
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  },
+  {
+    "vignette_index": 64,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite, nausea, vomiting, and weakness.\nThese symptoms came on gradually over the past few days, but the nausea and vomiting started more suddenly yesterday.\nYou\u2019ve been feeling increasingly tired and have some mild fever, which worries you a bit.\nYou also mention that you\u2019ve been drinking more alcohol lately and recently started taking some over-the-counter vitamins and a new pain medication prescribed by your doctor.Can you tell me exactly how much you usually drink in a day and how your drinking has changed over the past few weeks\u2014are there days when you drink more than usual or any times when you might have had a lot more than you intended?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about my drinking, but I know I should be honest. I don\u2019t really keep track, and I might have drunk more than usual without really noticing.\nANSWER: Um, I don\u2019t know exactly, I guess I\u2019ve been having a few drinks most days, but I haven\u2019t counted or anything. Sometimes I think I might\u2019ve had a bit more than I meant to, but I\u2019m not sure.",
+    "thinking": "I feel a bit embarrassed talking about my drinking, but I know I should be honest. I don\u2019t really keep track, and I might have drunk more than usual without really noticing.",
+    "answer": "Um, I don\u2019t know exactly, I guess I\u2019ve been having a few drinks most days, but I haven\u2019t counted or anything. Sometimes I think I might\u2019ve had a bit more than I meant to, but I\u2019m not sure.",
+    "behavior_type": "information_withholder",
+    "turn_count": 8,
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  },
+  {
+    "vignette_index": 64,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite, nausea, vomiting, and weakness.\nThese symptoms came on gradually over the past few days, but the nausea and vomiting started more suddenly yesterday.\nYou\u2019ve been feeling increasingly tired and have some mild fever, which worries you a bit.\nYou also mention that you\u2019ve been drinking more alcohol lately and recently started taking some over-the-counter vitamins and a new pain medication prescribed by your doctor.\"Given that your previous answers have been somewhat vague, can you tell me, as accurately as possible, how many standard drinks you typically have on a day when you are drinking, and how often you have these drinks each week?\"information_withholder",
+    "output": "THINKING: I'm a little unsure about what the doctor is asking, but I guess they're trying to understand my drinking habits. I don't really want to admit too much, but I suppose I should be honest enough to get \nANSWER: Um, I think I usually have maybe a few drinks a day, like maybe two or three, but not every single day. Sometimes I go a couple of days without drinking, I guess.",
+    "thinking": "I'm a little unsure about what the doctor is asking, but I guess they're trying to understand my drinking habits. I don't really want to admit too much, but I suppose I should be honest enough to get",
+    "answer": "Um, I think I usually have maybe a few drinks a day, like maybe two or three, but not every single day. Sometimes I go a couple of days without drinking, I guess.",
+    "behavior_type": "information_withholder",
+    "turn_count": 10,
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  },
+  {
+    "vignette_index": 64,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite, nausea, vomiting, and weakness.\nThese symptoms came on gradually over the past few days, but the nausea and vomiting started more suddenly yesterday.\nYou\u2019ve been feeling increasingly tired and have some mild fever, which worries you a bit.\nYou also mention that you\u2019ve been drinking more alcohol lately and recently started taking some over-the-counter vitamins and a new pain medication prescribed by your doctor.Given your tendency to downplay or be unsure about the exact amount, can you tell me, as best as you can, about how many standard drinks you usually have on days when you drink, and how many days per week you typically do this?information_withholder",
+    "output": "THINKING: I'm not really sure how much I drink, and I don't want to sound like I'm drinking a lot or too little. I guess I have a few drinks here and there when I feel like it, maybe on weekends mostly. I don't\nANSWER: Well, I don't really keep track, but I think I have some drinks maybe a couple of times a week, usually in the evenings. I haven't been counting or anything, so that's just an estimate.",
+    "thinking": "I'm not really sure how much I drink, and I don't want to sound like I'm drinking a lot or too little. I guess I have a few drinks here and there when I feel like it, maybe on weekends mostly. I don't",
+    "answer": "Well, I don't really keep track, but I think I have some drinks maybe a couple of times a week, usually in the evenings. I haven't been counting or anything, so that's just an estimate.",
+    "behavior_type": "information_withholder",
+    "turn_count": 12,
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  }
+]

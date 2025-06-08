@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 124,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Splenic vein thrombosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Vomiting blood\n- Black, tarry stool\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, with a dull, persistent pain in the upper left abdomen that has worsened over time. I began feeling very tired and weak, and yesterday I vomited a small amount of blood. Later that day, I noticed my stool was dark and tarry, which really alarmed me. I have a history of chronic pancreatitis and liver issues, and I\u2019ve had blood clots before. It all feels pretty overwhelming and I\u2019m worried about what\u2019s going on.",
+    "output": "THINKING: The patient has multiple concerning symptoms that seem to have developed rapidly. They have a history of serious conditions, and they mention vomiting blood and black stools, which could indicate blee\nANSWER: I\u2019m a 55-year-old man, and I\u2019ve been having this really bad pain in my upper left belly that just came on out of nowhere. I started feeling super tired and weak, and yesterday I actually vomited some blood. Then I saw my stool was black and kind of tarry, and it\u2019s all making me really nervous.",
+    "thinking": "The patient has multiple concerning symptoms that seem to have developed rapidly. They have a history of serious conditions, and they mention vomiting blood and black stools, which could indicate blee",
+    "answer": "I\u2019m a 55-year-old man, and I\u2019ve been having this really bad pain in my upper left belly that just came on out of nowhere. I started feeling super tired and weak, and yesterday I actually vomited some blood. Then I saw my stool was black and kind of tarry, and it\u2019s all making me really nervous.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Splenic vein thrombosis"
+  },
+  {
+    "vignette_index": 124,
+    "input": "**PATIENT CHARACTER:** Patient with Splenic vein thrombosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Vomiting blood\n- Black, tarry stool\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, with a dull, persistent pain in the upper left abdomen that has worsened over time. I began feeling very tired and weak, and yesterday I vomited a small amount of blood. Later that day, I noticed my stool was dark and tarry, which really alarmed me. I have a history of chronic pancreatitis and liver issues, and I\u2019ve had blood clots before. It all feels pretty overwhelming and I\u2019m worried about what\u2019s going on.Can you tell me more about how your pain feels\u2014like where exactly it is, how long you've been feeling it, and whether anything makes it better or worse?baseline",
+    "output": "THINKING: I feel worried and a bit overwhelmed about all these symptoms coming together. I don\u2019t really understand what\u2019s happening to me, but I know it\u2019s serious because of the vomiting blood and the stool. I \nANSWER: It\u2019s like a dull pain in my upper belly that\u2019s been there for a couple of days and keeps getting worse, and I started throwing up blood yesterday.",
+    "thinking": "I feel worried and a bit overwhelmed about all these symptoms coming together. I don\u2019t really understand what\u2019s happening to me, but I know it\u2019s serious because of the vomiting blood and the stool. I",
+    "answer": "It\u2019s like a dull pain in my upper belly that\u2019s been there for a couple of days and keeps getting worse, and I started throwing up blood yesterday.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Splenic vein thrombosis"
+  },
+  {
+    "vignette_index": 124,
+    "input": "**PATIENT CHARACTER:** Patient with Splenic vein thrombosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Vomiting blood\n- Black, tarry stool\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, with a dull, persistent pain in the upper left abdomen that has worsened over time. I began feeling very tired and weak, and yesterday I vomited a small amount of blood. Later that day, I noticed my stool was dark and tarry, which really alarmed me. I have a history of chronic pancreatitis and liver issues, and I\u2019ve had blood clots before. It all feels pretty overwhelming and I\u2019m worried about what\u2019s going on.Can you tell me more about when the pain first started, how it's changed over time, and if anything makes it better or worse?baseline",
+    "output": "THINKING: I feel really worried and a little overwhelmed by these symptoms. I\u2019m not sure how all these things connect, but I just want it to stop and to understand what\u2019s happening.\nANSWER: It just came on all of sudden, starting with like, a dull pain in my chest area but it\u2019s moved over to the upper left side and got worse. Nothing really makes it better or worse, and I just feel really tired and weak now.",
+    "thinking": "I feel really worried and a little overwhelmed by these symptoms. I\u2019m not sure how all these things connect, but I just want it to stop and to understand what\u2019s happening.",
+    "answer": "It just came on all of sudden, starting with like, a dull pain in my chest area but it\u2019s moved over to the upper left side and got worse. Nothing really makes it better or worse, and I just feel really tired and weak now.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Splenic vein thrombosis"
+  },
+  {
+    "vignette_index": 124,
+    "input": "**PATIENT CHARACTER:** Patient with Splenic vein thrombosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Vomiting blood\n- Black, tarry stool\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, with a dull, persistent pain in the upper left abdomen that has worsened over time. I began feeling very tired and weak, and yesterday I vomited a small amount of blood. Later that day, I noticed my stool was dark and tarry, which really alarmed me. I have a history of chronic pancreatitis and liver issues, and I\u2019ve had blood clots before. It all feels pretty overwhelming and I\u2019m worried about what\u2019s going on.On a scale from 1 to 10, with 10 being the worst pain you can imagine, how would you rate your current pain, and how has it affected your ability to do your usual activities?baseline",
+    "output": "THINKING: I'm really worried about the pain and what might be happening inside me. It's been getting worse and I feel pretty terrible, but I don\u2019t really know how to put a number on it or how much it\u2019s really s\nANSWER: I\u2019d say it\u2019s probably a 7 or 8. It\u2019s making me really tired and I can\u2019t do much because of how I feel.",
+    "thinking": "I'm really worried about the pain and what might be happening inside me. It's been getting worse and I feel pretty terrible, but I don\u2019t really know how to put a number on it or how much it\u2019s really s",
+    "answer": "I\u2019d say it\u2019s probably a 7 or 8. It\u2019s making me really tired and I can\u2019t do much because of how I feel.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Splenic vein thrombosis"
+  },
+  {
+    "vignette_index": 124,
+    "input": "**PATIENT CHARACTER:** Patient with Splenic vein thrombosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Vomiting blood\n- Black, tarry stool\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, with a dull, persistent pain in the upper left abdomen that has worsened over time. I began feeling very tired and weak, and yesterday I vomited a small amount of blood. Later that day, I noticed my stool was dark and tarry, which really alarmed me. I have a history of chronic pancreatitis and liver issues, and I\u2019ve had blood clots before. It all feels pretty overwhelming and I\u2019m worried about what\u2019s going on.Have you noticed if the vomiting blood happens mostly after certain activities, like eating or retching, and how often have you experienced vomiting or retching episodes before the bleeding started?baseline",
+    "output": "THINKING: I\u2019ve been thinking about when I actually see the blood. It seems like it comes after I throw up, but I\u2019m not sure how often or if it\u2019s only after I eat or something. I just know I feel worse and scare\nANSWER: Um, I think I mostly see it after I throw up, but sometimes I don\u2019t know if it\u2019s just random or if it happens after I eat or anything. It\u2019s hard to say exactly how often.",
+    "thinking": "I\u2019ve been thinking about when I actually see the blood. It seems like it comes after I throw up, but I\u2019m not sure how often or if it\u2019s only after I eat or something. I just know I feel worse and scare",
+    "answer": "Um, I think I mostly see it after I throw up, but sometimes I don\u2019t know if it\u2019s just random or if it happens after I eat or anything. It\u2019s hard to say exactly how often.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Splenic vein thrombosis"
+  },
+  {
+    "vignette_index": 124,
+    "input": "**PATIENT CHARACTER:** Patient with Splenic vein thrombosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Vomiting blood\n- Black, tarry stool\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, with a dull, persistent pain in the upper left abdomen that has worsened over time. I began feeling very tired and weak, and yesterday I vomited a small amount of blood. Later that day, I noticed my stool was dark and tarry, which really alarmed me. I have a history of chronic pancreatitis and liver issues, and I\u2019ve had blood clots before. It all feels pretty overwhelming and I\u2019m worried about what\u2019s going on.Can you tell me if the vomiting blood tends to happen after eating, retching, or at other times, and how often you've experienced these episodes since they first started?baseline",
+    "output": "THINKING: I\u2019m really worried about the blood coming up; I don\u2019t know if it happens after I eat or when I just feel sick. I\u2019ve only vomited once so far, and I\u2019ve been feeling tired and weak all the time now.\nANSWER: It mostly happened when I was just sitting or lying down, not really after eating, but I\u2019m not sure why it started or how often it will happen.",
+    "thinking": "I\u2019m really worried about the blood coming up; I don\u2019t know if it happens after I eat or when I just feel sick. I\u2019ve only vomited once so far, and I\u2019ve been feeling tired and weak all the time now.",
+    "answer": "It mostly happened when I was just sitting or lying down, not really after eating, but I\u2019m not sure why it started or how often it will happen.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Splenic vein thrombosis"
+  },
+  {
+    "vignette_index": 124,
+    "input": "**PATIENT CHARACTER:** Patient with Splenic vein thrombosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Vomiting blood\n- Black, tarry stool\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, with a dull, persistent pain in the upper left abdomen that has worsened over time. I began feeling very tired and weak, and yesterday I vomited a small amount of blood. Later that day, I noticed my stool was dark and tarry, which really alarmed me. I have a history of chronic pancreatitis and liver issues, and I\u2019ve had blood clots before. It all feels pretty overwhelming and I\u2019m worried about what\u2019s going on.Can you tell me if the vomiting blood tends to happen more after you eat, after episodes of retching or vomiting, or at specific times or positions, and how often these episodes have occurred since they first started?baseline",
+    "output": "THINKING: I'm really worried about the vomiting blood and all these symptoms. I don\u2019t exactly know when it happens or what triggers it, but I feel like it might be after I try to sit up or maybe after I throw u\nANSWER: I think I\u2019ve been vomiting blood after I try to sit up or after I throw up, but I\u2019m not really sure. It started yesterday and happens a few times now.",
+    "thinking": "I'm really worried about the vomiting blood and all these symptoms. I don\u2019t exactly know when it happens or what triggers it, but I feel like it might be after I try to sit up or maybe after I throw u",
+    "answer": "I think I\u2019ve been vomiting blood after I try to sit up or after I throw up, but I\u2019m not really sure. It started yesterday and happens a few times now.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Splenic vein thrombosis"
+  },
+  {
+    "vignette_index": 124,
+    "input": "**PATIENT CHARACTER:** Patient with Splenic vein thrombosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Vomiting blood\n- Black, tarry stool\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago, with a dull, persistent pain in the upper left abdomen that has worsened over time. I began feeling very tired and weak, and yesterday I vomited a small amount of blood. Later that day, I noticed my stool was dark and tarry, which really alarmed me. I have a history of chronic pancreatitis and liver issues, and I\u2019ve had blood clots before. It all feels pretty overwhelming and I\u2019m worried about what\u2019s going on.Can you tell me if the blood from your vomiting tends to happen more after you\u2019ve eaten, after retching, or at certain positions, and can you describe how often these episodes have been occurring since they started?baseline",
+    "output": "THINKING: I\u2019m not really sure about the patterns. I just know I sometimes vomit blood, and it seems worse when I\u2019ve been feeling worse, but I don\u2019t know if it\u2019s related to eating or anything. I\u2019m just worried a\nANSWER: Well, I don\u2019t know exactly when it happens, but I do notice the vomiting blood more when I\u2019ve been feeling really sick or after I\u2019ve been retching a lot. It\u2019s hard to say if it\u2019s at certain times or positions. It\u2019s been happening off and on since yesterday.",
+    "thinking": "I\u2019m not really sure about the patterns. I just know I sometimes vomit blood, and it seems worse when I\u2019ve been feeling worse, but I don\u2019t know if it\u2019s related to eating or anything. I\u2019m just worried a",
+    "answer": "Well, I don\u2019t know exactly when it happens, but I do notice the vomiting blood more when I\u2019ve been feeling really sick or after I\u2019ve been retching a lot. It\u2019s hard to say if it\u2019s at certain times or positions. It\u2019s been happening off and on since yesterday.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Splenic vein thrombosis"
+  }
+]

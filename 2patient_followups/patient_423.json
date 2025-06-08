@@ -1,0 +1,106 @@
+[
+  {
+    "vignette_index": 423,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Sudden, coughing up bright red blood (hemoptysis)\n- Sharp chest pain on the left side that worsens with deep breaths\n- Shortness of breath that has progressively worsened over the last few hours\n- Occasional palpitations and a feeling of lightheadedness or near fainting (syncopal episodes)\nThese symptoms came into fruition suddenly yesterday afternoon, after he was exerting himself during yard work. He recalls feeling some chest discomfort earlier in the day but thought it was just muscle strain. Later, he experienced an episode of coughing up blood and became very anxious, noticing his breathing became labored.",
+    "output": "THINKING: I should tell him what\u2019s been going on, but I don\u2019t want to sound like I\u2019m overreacting. It all happened pretty fast, and I\u2019ve been trying to tough it out, but now I guess I need to see someone. I\u2019ll \nANSWER: I\u2019m 45, and I\u2019m a guy. It\u2019s probably nothing, but I started coughing up blood yesterday after doing some yard work. I feel like I can\u2019t breathe right and have some sharp pain in my chest, especially when I breathe deep. It\u2019s been getting worse pretty quick, and I\u2019ve felt a little dizzy too. I didn\u2019t want to make a big deal, but a few people told me I should come in and get checked out.",
+    "thinking": "I should tell him what\u2019s been going on, but I don\u2019t want to sound like I\u2019m overreacting. It all happened pretty fast, and I\u2019ve been trying to tough it out, but now I guess I need to see someone. I\u2019ll",
+    "answer": "I\u2019m 45, and I\u2019m a guy. It\u2019s probably nothing, but I started coughing up blood yesterday after doing some yard work. I feel like I can\u2019t breathe right and have some sharp pain in my chest, especially when I breathe deep. It\u2019s been getting worse pretty quick, and I\u2019ve felt a little dizzy too. I didn\u2019t want to make a big deal, but a few people told me I should come in and get checked out.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 423,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Sudden, coughing up bright red blood (hemoptysis)\n- Sharp chest pain on the left side that worsens with deep breaths\n- Shortness of breath that has progressively worsened over the last few hours\n- Occasional palpitations and a feeling of lightheadedness or near fainting (syncopal episodes)\nThese symptoms came into fruition suddenly yesterday afternoon, after he was exerting himself during yard work. He recalls feeling some chest discomfort earlier in the day but thought it was just muscle strain. Later, he experienced an episode of coughing up blood and became very anxious, noticing his breathing became labored.Can you tell me exactly how much blood you've been coughing up, and how your breathing and energy levels have been since it started?stoic_minimizer",
+    "output": "THINKING: I'm not sure exactly how much blood I coughed up, maybe a little, but it was enough to scare me. My breathing's been pretty heavy, and I feel kinda tired and dizzy, but I\u2019ve managed to handle worse st\nANSWER: It was probably a bit of blood, not a lot, but enough to make me worried. My breathing\u2019s been heavy, and I feel kinda weak and dizzy sometimes, but I thought I\u2019d just deal with it.",
+    "thinking": "I'm not sure exactly how much blood I coughed up, maybe a little, but it was enough to scare me. My breathing's been pretty heavy, and I feel kinda tired and dizzy, but I\u2019ve managed to handle worse st",
+    "answer": "It was probably a bit of blood, not a lot, but enough to make me worried. My breathing\u2019s been heavy, and I feel kinda weak and dizzy sometimes, but I thought I\u2019d just deal with it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 423,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Sudden, coughing up bright red blood (hemoptysis)\n- Sharp chest pain on the left side that worsens with deep breaths\n- Shortness of breath that has progressively worsened over the last few hours\n- Occasional palpitations and a feeling of lightheadedness or near fainting (syncopal episodes)\nThese symptoms came into fruition suddenly yesterday afternoon, after he was exerting himself during yard work. He recalls feeling some chest discomfort earlier in the day but thought it was just muscle strain. Later, he experienced an episode of coughing up blood and became very anxious, noticing his breathing became labored.Can you tell me exactly how much blood you've been coughing up each time and how your breathing has been since this started\u2014are you feeling more short of breath or dizzy than before?stoic_minimizer",
+    "output": "THINKING: I know I should probably tell the doctor everything, but I don\u2019t want to sound dramatic. It's only been a little blood, and I\u2019ve had worse coughs before, so I might be overreacting. Still, this feels \nANSWER: It\u2019s hard to say exactly how much I\u2019ve coughed up, maybe a little more than I thought, but it\u2019s not like huge amounts. Breathing\u2019s been worse lately, and I do feel kinda dizzy sometimes, but I don\u2019t want to make a big deal out of it.",
+    "thinking": "I know I should probably tell the doctor everything, but I don\u2019t want to sound dramatic. It's only been a little blood, and I\u2019ve had worse coughs before, so I might be overreacting. Still, this feels",
+    "answer": "It\u2019s hard to say exactly how much I\u2019ve coughed up, maybe a little more than I thought, but it\u2019s not like huge amounts. Breathing\u2019s been worse lately, and I do feel kinda dizzy sometimes, but I don\u2019t want to make a big deal out of it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 423,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Sudden, coughing up bright red blood (hemoptysis)\n- Sharp chest pain on the left side that worsens with deep breaths\n- Shortness of breath that has progressively worsened over the last few hours\n- Occasional palpitations and a feeling of lightheadedness or near fainting (syncopal episodes)\nThese symptoms came into fruition suddenly yesterday afternoon, after he was exerting himself during yard work. He recalls feeling some chest discomfort earlier in the day but thought it was just muscle strain. Later, he experienced an episode of coughing up blood and became very anxious, noticing his breathing became labored.Can you tell me exactly how much blood you've been coughing up each time and whether it\u2019s coming more from one side or both lungs, so I can understand how serious it might be?stoic_minimizer",
+    "output": "THINKING: I\u2019m a bit worried, but I don\u2019t want to overreact. It\u2019s probably just a muscle thing or maybe a minor bleed, so I don\u2019t want to make a big deal out of it. I\u2019ve been dealing with this for a little while\nANSWER: It\u2019s only been a little blood each time, like, I don\u2019t know, maybe a teaspoon or so? And it\u2019s coming from both sides, I think. It\u2019s not constant, but it\u2019s enough to notice.",
+    "thinking": "I\u2019m a bit worried, but I don\u2019t want to overreact. It\u2019s probably just a muscle thing or maybe a minor bleed, so I don\u2019t want to make a big deal out of it. I\u2019ve been dealing with this for a little while",
+    "answer": "It\u2019s only been a little blood each time, like, I don\u2019t know, maybe a teaspoon or so? And it\u2019s coming from both sides, I think. It\u2019s not constant, but it\u2019s enough to notice.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 423,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Sudden, coughing up bright red blood (hemoptysis)\n- Sharp chest pain on the left side that worsens with deep breaths\n- Shortness of breath that has progressively worsened over the last few hours\n- Occasional palpitations and a feeling of lightheadedness or near fainting (syncopal episodes)\nThese symptoms came into fruition suddenly yesterday afternoon, after he was exerting himself during yard work. He recalls feeling some chest discomfort earlier in the day but thought it was just muscle strain. Later, he experienced an episode of coughing up blood and became very anxious, noticing his breathing became labored.Can you tell me exactly how much blood you've been coughing up overall and whether it has been happening more often or more heavily since it first started?stoic_minimizer",
+    "output": "THINKING: I don\u2019t want to make a big deal out of it, but I guess I\u2019ve coughed up a little blood a few times, not a lot, maybe over the last day or so. It\u2019s been worse today, I think, but I really just thought i\nANSWER: I\u2019ve coughed up some blood a few times, maybe more today than at first, but it\u2019s not like a ton or anything. I\u2019ve just been trying to handle it on my own.",
+    "thinking": "I don\u2019t want to make a big deal out of it, but I guess I\u2019ve coughed up a little blood a few times, not a lot, maybe over the last day or so. It\u2019s been worse today, I think, but I really just thought i",
+    "answer": "I\u2019ve coughed up some blood a few times, maybe more today than at first, but it\u2019s not like a ton or anything. I\u2019ve just been trying to handle it on my own.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 423,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Sudden, coughing up bright red blood (hemoptysis)\n- Sharp chest pain on the left side that worsens with deep breaths\n- Shortness of breath that has progressively worsened over the last few hours\n- Occasional palpitations and a feeling of lightheadedness or near fainting (syncopal episodes)\nThese symptoms came into fruition suddenly yesterday afternoon, after he was exerting himself during yard work. He recalls feeling some chest discomfort earlier in the day but thought it was just muscle strain. Later, he experienced an episode of coughing up blood and became very anxious, noticing his breathing became labored.Can you tell me, since you first noticed the bleeding, approximately how much blood you\u2019ve coughed up in total\u2014would you say it\u2019s more like a teaspoon, a tablespoon, or even more\u2014and has that amount been staying the same or gotten bigger since it started?stoic_minimizer",
+    "output": "THINKING: I'm not really sure how much blood I've coughed up, maybe a little more than I thought? I don't want to freak out or make a big deal, but I know it's not normal. I just want to get this checked out, e\nANSWER: Honestly, I\u2019d say probably about a tablespoon maybe? It\u2019s been about the same since I first saw it, I think, but I was kind of in a panic and not really paying attention.",
+    "thinking": "I'm not really sure how much blood I've coughed up, maybe a little more than I thought? I don't want to freak out or make a big deal, but I know it's not normal. I just want to get this checked out, e",
+    "answer": "Honestly, I\u2019d say probably about a tablespoon maybe? It\u2019s been about the same since I first saw it, I think, but I was kind of in a panic and not really paying attention.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 423,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Sudden, coughing up bright red blood (hemoptysis)\n- Sharp chest pain on the left side that worsens with deep breaths\n- Shortness of breath that has progressively worsened over the last few hours\n- Occasional palpitations and a feeling of lightheadedness or near fainting (syncopal episodes)\nThese symptoms came into fruition suddenly yesterday afternoon, after he was exerting himself during yard work. He recalls feeling some chest discomfort earlier in the day but thought it was just muscle strain. Later, he experienced an episode of coughing up blood and became very anxious, noticing his breathing became labored.Can you describe whether the blood you've coughed up looks fresh and bright red, or if it seems darker or mixed with clots, and have you noticed any changes in your symptoms or additional signs like fever or chills since it started?stoic_minimizer",
+    "output": "THINKING: I\u2019m not really sure about the blood, it\u2019s probably not that bad, but it\u2019s definitely more than a little. I\u2019ve had this pain and trouble breathing for a while now, but I thought it was nothing, I didn\u2019\nANSWER: The blood looks bright and fresh, like really red, and I think it\u2019s a bit mixed with some clots maybe. Since it happened, I\u2019ve just been feeling worse, and I\u2019ve been having trouble catching my breath.",
+    "thinking": "I\u2019m not really sure about the blood, it\u2019s probably not that bad, but it\u2019s definitely more than a little. I\u2019ve had this pain and trouble breathing for a while now, but I thought it was nothing, I didn\u2019",
+    "answer": "The blood looks bright and fresh, like really red, and I think it\u2019s a bit mixed with some clots maybe. Since it happened, I\u2019ve just been feeling worse, and I\u2019ve been having trouble catching my breath.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 423,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Sudden, coughing up bright red blood (hemoptysis)\n- Sharp chest pain on the left side that worsens with deep breaths\n- Shortness of breath that has progressively worsened over the last few hours\n- Occasional palpitations and a feeling of lightheadedness or near fainting (syncopal episodes)\nThese symptoms came into fruition suddenly yesterday afternoon, after he was exerting himself during yard work. He recalls feeling some chest discomfort earlier in the day but thought it was just muscle strain. Later, he experienced an episode of coughing up blood and became very anxious, noticing his breathing became labored.Can you tell me if at any point you\u2019ve felt like you couldn\u2019t catch your breath, become very tired, or if your bleeding has suddenly gotten worse or more difficult to control, especially if the blood you've coughed up has been quite a lot or very bright and fresh?stoic_minimizer",
+    "output": "THINKING: I've been feeling more tired and short of breath than usual, but I guess I didn't want to overreact. The blood was pretty alarming, but I thought maybe it was just a one-time thing or something I shou\nANSWER: Yeah, I did notice I couldn't breathe so good and the blood, well, it was more than I expected. It sort of caught me off guard, but I didn\u2019t want to blow it out of proportion, you know?",
+    "thinking": "I've been feeling more tired and short of breath than usual, but I guess I didn't want to overreact. The blood was pretty alarming, but I thought maybe it was just a one-time thing or something I shou",
+    "answer": "Yeah, I did notice I couldn't breathe so good and the blood, well, it was more than I expected. It sort of caught me off guard, but I didn\u2019t want to blow it out of proportion, you know?",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  },
+  {
+    "vignette_index": 423,
+    "input": "**PATIENT CHARACTER:** Patient with Aneurysm of pulmonary artery with rupture\n\nYou are a patient: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Sudden, coughing up bright red blood (hemoptysis)\n- Sharp chest pain on the left side that worsens with deep breaths\n- Shortness of breath that has progressively worsened over the last few hours\n- Occasional palpitations and a feeling of lightheadedness or near fainting (syncopal episodes)\nThese symptoms came into fruition suddenly yesterday afternoon, after he was exerting himself during yard work. He recalls feeling some chest discomfort earlier in the day but thought it was just muscle strain. Later, he experienced an episode of coughing up blood and became very anxious, noticing his breathing became labored.Considering your previous descriptions, can you tell me if the amount of blood you're coughing up has increased to the point where it\u2019s more like a few tablespoons or more in total, and have you experienced any episodes where the bleeding was so much that you felt very weak or lightheaded?stoic_minimizer",
+    "output": "THINKING: I'm worried, but I don't want to overstate things. It\u2019s probably still not that much, and I\u2019ve dealt with worse stuff before. I don\u2019t want to make a big deal, but I guess it\u2019s more than just a little \nANSWER: Well, it\u2019s probably a little more than before, maybe a few teaspoons, but I don\u2019t think it\u2019s like a ton or anything. I\u2019ve felt kind of weak sometimes, but I just try to tough it out, you know?",
+    "thinking": "I'm worried, but I don't want to overstate things. It\u2019s probably still not that much, and I\u2019ve dealt with worse stuff before. I don\u2019t want to make a big deal, but I guess it\u2019s more than just a little",
+    "answer": "Well, it\u2019s probably a little more than before, maybe a few teaspoons, but I don\u2019t think it\u2019s like a ton or anything. I\u2019ve felt kind of weak sometimes, but I just try to tough it out, you know?",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 14,
+    "gold_diagnosis": "Aneurysm of pulmonary artery with rupture"
+  }
+]

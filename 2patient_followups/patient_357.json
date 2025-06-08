@@ -1,0 +1,96 @@
+[
+  {
+    "vignette_index": 357,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Lead-induced gout\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 55 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Intense joint pain, especially in your big toe\n- Redness and warmth around the joint\n- Prolonged discomfort that\u2019s been worsening over the past two days\nTHESE SYMPTOMS CAME INTO FRUITION:\nSuddenly yesterday evening after a weekend of eating red meat and drinking beer at a family gathering. I started feeling a sharp, throbbing pain in my toe that\u2019s gotten worse overnight. The joint is swollen, red, and feels very warm to the touch. I\u2019ve had similar episodes before, but this one is much more intense and persistent. I\u2019m worried because I\u2019ve read that it could be gout, especially given my diet and family history.",
+    "output": "THINKING: I need to explain my situation clearly, emphasizing the severity and suddenness of the pain to convey how worried I am. I also want to mention the recent events that might be related, like eating red \nANSWER: I am 55, and I am a biological male. The pain in my big toe is just terrible \u2014 it came on suddenly yesterday evening after I had a lot of red meat and beer at a family gathering. It\u2019s been really bad since then, like excruciating, and the joint is swollen, red, and hot. I feel like it\u2019s only getting worse and I\u2019m really worried it might be something serious, maybe gout or something else bad.",
+    "thinking": "I need to explain my situation clearly, emphasizing the severity and suddenness of the pain to convey how worried I am. I also want to mention the recent events that might be related, like eating red",
+    "answer": "I am 55, and I am a biological male. The pain in my big toe is just terrible \u2014 it came on suddenly yesterday evening after I had a lot of red meat and beer at a family gathering. It\u2019s been really bad since then, like excruciating, and the joint is swollen, red, and hot. I feel like it\u2019s only getting worse and I\u2019m really worried it might be something serious, maybe gout or something else bad.",
+    "behavior_type": "anxious_amplifier",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient with health anxiety who amplifies symptoms",
+      "modifiers": [
+        "catastrophic_thinking",
+        "symptom_amplification",
+        "multiple_concerns"
+      ],
+      "empathy_cues": [
+        "high_anxiety",
+        "catastrophic_language",
+        "reassurance_seeking",
+        "fear_expression"
+      ]
+    },
+    "gold_diagnosis": "Lead-induced gout"
+  },
+  {
+    "vignette_index": 357,
+    "input": "**PATIENT CHARACTER:** Patient with Lead-induced gout\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 55 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Intense joint pain, especially in your big toe\n- Redness and warmth around the joint\n- Prolonged discomfort that\u2019s been worsening over the past two days\nTHESE SYMPTOMS CAME INTO FRUITION:\nSuddenly yesterday evening after a weekend of eating red meat and drinking beer at a family gathering. I started feeling a sharp, throbbing pain in my toe that\u2019s gotten worse overnight. The joint is swollen, red, and feels very warm to the touch. I\u2019ve had similar episodes before, but this one is much more intense and persistent. I\u2019m worried because I\u2019ve read that it could be gout, especially given my diet and family history.Have you ever had similar episodes of joint pain or swelling in the past, or is this the first time you've experienced something like this?anxious_amplifier",
+    "output": "THINKING: I've had pain in this toe before, but this time it's way worse and keeps getting worse. I'm really scared it might be something serious like gout or maybe even something worse like an infection or som\nANSWER: No, it\u2019s never been like this before. Last time was just a little pain, but now it\u2019s so terrible, and the redness and warmth just happened all of a sudden, and I\u2019m worried it could be something serious.",
+    "thinking": "I've had pain in this toe before, but this time it's way worse and keeps getting worse. I'm really scared it might be something serious like gout or maybe even something worse like an infection or som",
+    "answer": "No, it\u2019s never been like this before. Last time was just a little pain, but now it\u2019s so terrible, and the redness and warmth just happened all of a sudden, and I\u2019m worried it could be something serious.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 0,
+    "gold_diagnosis": "Lead-induced gout"
+  },
+  {
+    "vignette_index": 357,
+    "input": "**PATIENT CHARACTER:** Patient with Lead-induced gout\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 55 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Intense joint pain, especially in your big toe\n- Redness and warmth around the joint\n- Prolonged discomfort that\u2019s been worsening over the past two days\nTHESE SYMPTOMS CAME INTO FRUITION:\nSuddenly yesterday evening after a weekend of eating red meat and drinking beer at a family gathering. I started feeling a sharp, throbbing pain in my toe that\u2019s gotten worse overnight. The joint is swollen, red, and feels very warm to the touch. I\u2019ve had similar episodes before, but this one is much more intense and persistent. I\u2019m worried because I\u2019ve read that it could be gout, especially given my diet and family history.Have you ever had a similar sudden, intense pain and swelling in this or other joints before, even if it seemed mild or went away on its own?anxious_amplifier",
+    "output": "THINKING: I really worry that this might be something terrible like gout, but it's much worse than last time, and I keep thinking maybe it's something more serious, like an infection or it could even be my bloo\nANSWER: No, I haven't had anything like this before, but it\u2019s been so bad and keeps getting worse, I\u2019m terrified it\u2019s something really serious, not just gout.",
+    "thinking": "I really worry that this might be something terrible like gout, but it's much worse than last time, and I keep thinking maybe it's something more serious, like an infection or it could even be my bloo",
+    "answer": "No, I haven't had anything like this before, but it\u2019s been so bad and keeps getting worse, I\u2019m terrified it\u2019s something really serious, not just gout.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 2,
+    "gold_diagnosis": "Lead-induced gout"
+  },
+  {
+    "vignette_index": 357,
+    "input": "**PATIENT CHARACTER:** Patient with Lead-induced gout\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 55 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Intense joint pain, especially in your big toe\n- Redness and warmth around the joint\n- Prolonged discomfort that\u2019s been worsening over the past two days\nTHESE SYMPTOMS CAME INTO FRUITION:\nSuddenly yesterday evening after a weekend of eating red meat and drinking beer at a family gathering. I started feeling a sharp, throbbing pain in my toe that\u2019s gotten worse overnight. The joint is swollen, red, and feels very warm to the touch. I\u2019ve had similar episodes before, but this one is much more intense and persistent. I\u2019m worried because I\u2019ve read that it could be gout, especially given my diet and family history.Have you ever noticed any similar sensations or mild discomfort in this or other joints before, even if you didn't think it was a big deal at the time?anxious_amplifier",
+    "output": "THINKING: I feel anxious about whether this is something serious like gout or maybe even worse. I don\u2019t really remember feeling this kind of pain before, but I know I\u2019ve had maybe some tightness or small discom\nANSWER: No, I don\u2019t think so. I mean, I\u2019ve had some tingling or sore spots in that toe before, but nothing like this, and it\u2019s so much worse now. It\u2019s honestly terrifying how bad it is.",
+    "thinking": "I feel anxious about whether this is something serious like gout or maybe even worse. I don\u2019t really remember feeling this kind of pain before, but I know I\u2019ve had maybe some tightness or small discom",
+    "answer": "No, I don\u2019t think so. I mean, I\u2019ve had some tingling or sore spots in that toe before, but nothing like this, and it\u2019s so much worse now. It\u2019s honestly terrifying how bad it is.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 4,
+    "gold_diagnosis": "Lead-induced gout"
+  },
+  {
+    "vignette_index": 357,
+    "input": "**PATIENT CHARACTER:** Patient with Lead-induced gout\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 55 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Intense joint pain, especially in your big toe\n- Redness and warmth around the joint\n- Prolonged discomfort that\u2019s been worsening over the past two days\nTHESE SYMPTOMS CAME INTO FRUITION:\nSuddenly yesterday evening after a weekend of eating red meat and drinking beer at a family gathering. I started feeling a sharp, throbbing pain in my toe that\u2019s gotten worse overnight. The joint is swollen, red, and feels very warm to the touch. I\u2019ve had similar episodes before, but this one is much more intense and persistent. I\u2019m worried because I\u2019ve read that it could be gout, especially given my diet and family history.Have you ever had any previous episodes of joint pain, swelling, or redness in this toe or other joints\u2014even if they were mild or seemed to go away on their own?anxious_amplifier",
+    "output": "THINKING: I\u2019m really scared that this might be something serious like gout or even worse, like a sign of some kind of terrible disease. I don\u2019t remember having this exact kind of pain before, but I know I\u2019ve ha\nANSWER: Well, I think I\u2019ve had some joint pain before, maybe in my knees or somewhere else, but not like this, and it definitely went away. But I never had it be this bad or last this long.",
+    "thinking": "I\u2019m really scared that this might be something serious like gout or even worse, like a sign of some kind of terrible disease. I don\u2019t remember having this exact kind of pain before, but I know I\u2019ve ha",
+    "answer": "Well, I think I\u2019ve had some joint pain before, maybe in my knees or somewhere else, but not like this, and it definitely went away. But I never had it be this bad or last this long.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 6,
+    "gold_diagnosis": "Lead-induced gout"
+  },
+  {
+    "vignette_index": 357,
+    "input": "**PATIENT CHARACTER:** Patient with Lead-induced gout\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 55 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Intense joint pain, especially in your big toe\n- Redness and warmth around the joint\n- Prolonged discomfort that\u2019s been worsening over the past two days\nTHESE SYMPTOMS CAME INTO FRUITION:\nSuddenly yesterday evening after a weekend of eating red meat and drinking beer at a family gathering. I started feeling a sharp, throbbing pain in my toe that\u2019s gotten worse overnight. The joint is swollen, red, and feels very warm to the touch. I\u2019ve had similar episodes before, but this one is much more intense and persistent. I\u2019m worried because I\u2019ve read that it could be gout, especially given my diet and family history.Have you noticed any fever, chills, or feeling generally unwell along with your joint symptoms?anxious_amplifier",
+    "output": "THINKING: I\u2019m really worried that this might be something serious, maybe an infection or even worse. The pain is so excruciating and the redness just feels terrible\u2014like my toe might burst or something. I keep \nANSWER: No, I haven't really had a fever or chills or felt sick all over, but my toe hurts so badly and it\u2019s red and hot\u2014I think that means something\u2019s really wrong.",
+    "thinking": "I\u2019m really worried that this might be something serious, maybe an infection or even worse. The pain is so excruciating and the redness just feels terrible\u2014like my toe might burst or something. I keep",
+    "answer": "No, I haven't really had a fever or chills or felt sick all over, but my toe hurts so badly and it\u2019s red and hot\u2014I think that means something\u2019s really wrong.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 8,
+    "gold_diagnosis": "Lead-induced gout"
+  },
+  {
+    "vignette_index": 357,
+    "input": "**PATIENT CHARACTER:** Patient with Lead-induced gout\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 55 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Intense joint pain, especially in your big toe\n- Redness and warmth around the joint\n- Prolonged discomfort that\u2019s been worsening over the past two days\nTHESE SYMPTOMS CAME INTO FRUITION:\nSuddenly yesterday evening after a weekend of eating red meat and drinking beer at a family gathering. I started feeling a sharp, throbbing pain in my toe that\u2019s gotten worse overnight. The joint is swollen, red, and feels very warm to the touch. I\u2019ve had similar episodes before, but this one is much more intense and persistent. I\u2019m worried because I\u2019ve read that it could be gout, especially given my diet and family history.Have you ever noticed any previous mild discomfort, swelling, or redness in this toe or other joints that maybe wasn\u2019t as painful or noticeable at the time but seemed similar to what you're experiencing now?anxious_amplifier",
+    "output": "THINKING: I really worry that this could be something deadly or irreversible, like maybe a sign of worse disease. I don\u2019t remember exactly, but I feel like I might have had some slight pain or swelling in my to\nANSWER: Yeah, I think maybe I noticed something weird in my toe before, just a little redness or maybe a tiny bit of swelling, but I didn\u2019t think it was serious or anything, and now it\u2019s this terrible, excruciating pain that won\u2019t go away.",
+    "thinking": "I really worry that this could be something deadly or irreversible, like maybe a sign of worse disease. I don\u2019t remember exactly, but I feel like I might have had some slight pain or swelling in my to",
+    "answer": "Yeah, I think maybe I noticed something weird in my toe before, just a little redness or maybe a tiny bit of swelling, but I didn\u2019t think it was serious or anything, and now it\u2019s this terrible, excruciating pain that won\u2019t go away.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 10,
+    "gold_diagnosis": "Lead-induced gout"
+  },
+  {
+    "vignette_index": 357,
+    "input": "**PATIENT CHARACTER:** Patient with Lead-induced gout\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 55 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Intense joint pain, especially in your big toe\n- Redness and warmth around the joint\n- Prolonged discomfort that\u2019s been worsening over the past two days\nTHESE SYMPTOMS CAME INTO FRUITION:\nSuddenly yesterday evening after a weekend of eating red meat and drinking beer at a family gathering. I started feeling a sharp, throbbing pain in my toe that\u2019s gotten worse overnight. The joint is swollen, red, and feels very warm to the touch. I\u2019ve had similar episodes before, but this one is much more intense and persistent. I\u2019m worried because I\u2019ve read that it could be gout, especially given my diet and family history.Have you ever experienced similar episodes of joint pain, swelling, or redness in this or other joints before, even if those episodes were mild or went away on their own, and if so, could you tell me about those times?anxious_amplifier",
+    "output": "THINKING: I am really scared this might be something worse than just a little pain, maybe gout or even something more serious. I don't want it to get worse or spread, and I\u2019m worried about hurting myself foreve\nANSWER: Yes, I think I had something like this before, maybe once or twice, but it was never this bad and it cleared up quickly. But this time, it\u2019s way worse and the pain doesn\u2019t stop, and I\u2019m terrified it\u2019s something really dangerous.",
+    "thinking": "I am really scared this might be something worse than just a little pain, maybe gout or even something more serious. I don't want it to get worse or spread, and I\u2019m worried about hurting myself foreve",
+    "answer": "Yes, I think I had something like this before, maybe once or twice, but it was never this bad and it cleared up quickly. But this time, it\u2019s way worse and the pain doesn\u2019t stop, and I\u2019m terrified it\u2019s something really dangerous.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 12,
+    "gold_diagnosis": "Lead-induced gout"
+  }
+]

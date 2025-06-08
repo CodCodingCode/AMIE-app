@@ -1,0 +1,116 @@
+[
+  {
+    "vignette_index": 280,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Malignant mesenchymal neoplasm of unspecified type\n\nYou are a patient: You are 72 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue, shortness of breath, and weight loss.\nThese symptoms came into fruition gradually over the past few months, initially noticing that you felt more tired than usual and had some difficulty catching your breath even with minimal exertion. Over the last few weeks, you\u2019ve also observed a noticeable weight loss and some episodes of diarrhea.\nYou tend to be a former smoker and have struggled with obesity for several years, and your family has a history of cancer. You\u2019re feeling increasingly anxious about your health but unsure what\u2019s causing these symptoms.",
+    "output": "THINKING: I should explain my symptoms vaguely, mention that I\u2019ve been feeling different for a while, but try not to sound overly worried. I want to seem tough and downplay the seriousness, though inside I migh\nANSWER: Well, I\u2019m 72, and I\u2019m a man. I\u2019ve just been feeling more tired than usual, and I get short of breath even when I don\u2019t do much. I\u2019ve noticed I\u2019ve lost some weight and I\u2019ve been having these episodes of diarrhea sometimes. I just thought it was probably nothing, but people kept telling me I should get checked out. It\u2019s not that bad most of the time, but it\u2019s been going on for a while now, so I figured I better come see someone.",
+    "thinking": "I should explain my symptoms vaguely, mention that I\u2019ve been feeling different for a while, but try not to sound overly worried. I want to seem tough and downplay the seriousness, though inside I migh",
+    "answer": "Well, I\u2019m 72, and I\u2019m a man. I\u2019ve just been feeling more tired than usual, and I get short of breath even when I don\u2019t do much. I\u2019ve noticed I\u2019ve lost some weight and I\u2019ve been having these episodes of diarrhea sometimes. I just thought it was probably nothing, but people kept telling me I should get checked out. It\u2019s not that bad most of the time, but it\u2019s been going on for a while now, so I figured I better come see someone.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Malignant mesenchymal neoplasm of unspecified type"
+  },
+  {
+    "vignette_index": 280,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant mesenchymal neoplasm of unspecified type\n\nYou are a patient: You are 72 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue, shortness of breath, and weight loss.\nThese symptoms came into fruition gradually over the past few months, initially noticing that you felt more tired than usual and had some difficulty catching your breath even with minimal exertion. Over the last few weeks, you\u2019ve also observed a noticeable weight loss and some episodes of diarrhea.\nYou tend to be a former smoker and have struggled with obesity for several years, and your family has a history of cancer. You\u2019re feeling increasingly anxious about your health but unsure what\u2019s causing these symptoms.Can you tell me when you first started noticing these symptoms and how they have changed over time?stoic_minimizer",
+    "output": "THINKING: I'm not sure exactly when it started, maybe a few months ago, and I just brushed it off because I thought it was nothing. I don't want to make a big deal out of it, but it's been getting a bit worse l\nANSWER: Well, I think it was around a few months ago when I started feeling more tired and out of breath, and lately I've lost some weight and had a few episodes of diarrhea, but I didn't want to worry about it.",
+    "thinking": "I'm not sure exactly when it started, maybe a few months ago, and I just brushed it off because I thought it was nothing. I don't want to make a big deal out of it, but it's been getting a bit worse l",
+    "answer": "Well, I think it was around a few months ago when I started feeling more tired and out of breath, and lately I've lost some weight and had a few episodes of diarrhea, but I didn't want to worry about it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Malignant mesenchymal neoplasm of unspecified type"
+  },
+  {
+    "vignette_index": 280,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant mesenchymal neoplasm of unspecified type\n\nYou are a patient: You are 72 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue, shortness of breath, and weight loss.\nThese symptoms came into fruition gradually over the past few months, initially noticing that you felt more tired than usual and had some difficulty catching your breath even with minimal exertion. Over the last few weeks, you\u2019ve also observed a noticeable weight loss and some episodes of diarrhea.\nYou tend to be a former smoker and have struggled with obesity for several years, and your family has a history of cancer. You\u2019re feeling increasingly anxious about your health but unsure what\u2019s causing these symptoms.Can you tell me more about how these symptoms affect you during the day\u2014what you\u2019re able to do and what you find most challenging?stoic_minimizer",
+    "output": "THINKING: I don\u2019t want to make a big fuss about it, but I guess it\u2019s been hard to do much without feeling tired all the time. Even walking to the mailbox leaves me breathless sometimes.\nANSWER: Well, I don\u2019t do much really, just trying to get through the day\u2026 but I get pretty tired pretty quick, and things like walking or even standing for a bit can be a problem.",
+    "thinking": "I don\u2019t want to make a big fuss about it, but I guess it\u2019s been hard to do much without feeling tired all the time. Even walking to the mailbox leaves me breathless sometimes.",
+    "answer": "Well, I don\u2019t do much really, just trying to get through the day\u2026 but I get pretty tired pretty quick, and things like walking or even standing for a bit can be a problem.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Malignant mesenchymal neoplasm of unspecified type"
+  },
+  {
+    "vignette_index": 280,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant mesenchymal neoplasm of unspecified type\n\nYou are a patient: You are 72 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue, shortness of breath, and weight loss.\nThese symptoms came into fruition gradually over the past few months, initially noticing that you felt more tired than usual and had some difficulty catching your breath even with minimal exertion. Over the last few weeks, you\u2019ve also observed a noticeable weight loss and some episodes of diarrhea.\nYou tend to be a former smoker and have struggled with obesity for several years, and your family has a history of cancer. You\u2019re feeling increasingly anxious about your health but unsure what\u2019s causing these symptoms.Can you tell me exactly how your symptoms\u2014like being tired or short of breath\u2014have affected your ability to do everyday things, such as walking around, cooking, or taking care of yourself?stoic_minimizer",
+    "output": "THINKING: I'm not sure how serious it really is. I manage to do most things, I guess, but I do feel more tired and out of breath. I don\u2019t want to make a big deal, but I thought I should mention it since it\u2019s be\nANSWER: Well, I can still do most stuff, but I get tired more easily and breathe a bit harder than I used to, even when I\u2019m just walking around.",
+    "thinking": "I'm not sure how serious it really is. I manage to do most things, I guess, but I do feel more tired and out of breath. I don\u2019t want to make a big deal, but I thought I should mention it since it\u2019s be",
+    "answer": "Well, I can still do most stuff, but I get tired more easily and breathe a bit harder than I used to, even when I\u2019m just walking around.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Malignant mesenchymal neoplasm of unspecified type"
+  },
+  {
+    "vignette_index": 280,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant mesenchymal neoplasm of unspecified type\n\nYou are a patient: You are 72 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue, shortness of breath, and weight loss.\nThese symptoms came into fruition gradually over the past few months, initially noticing that you felt more tired than usual and had some difficulty catching your breath even with minimal exertion. Over the last few weeks, you\u2019ve also observed a noticeable weight loss and some episodes of diarrhea.\nYou tend to be a former smoker and have struggled with obesity for several years, and your family has a history of cancer. You\u2019re feeling increasingly anxious about your health but unsure what\u2019s causing these symptoms.Can you tell me more about your episodes of diarrhea\u2014how often they happen, what they look like when you have them, and if you\u2019ve noticed anything that seems to trigger or worsen them?stoic_minimizer",
+    "output": "THINKING: I don't want to make a big deal out of this. Diarrhea isn't new to me, but it\u2019s been a bit more frequent lately, and it\u2019s probably not something serious. I\u2019ve just been dealing with everything else, a\nANSWER: Oh, it\u2019s not that often, maybe a couple of times a week, and I don't really notice anything that sets it off or makes it worse. It\u2019s probably nothing, I guess.",
+    "thinking": "I don't want to make a big deal out of this. Diarrhea isn't new to me, but it\u2019s been a bit more frequent lately, and it\u2019s probably not something serious. I\u2019ve just been dealing with everything else, a",
+    "answer": "Oh, it\u2019s not that often, maybe a couple of times a week, and I don't really notice anything that sets it off or makes it worse. It\u2019s probably nothing, I guess.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Malignant mesenchymal neoplasm of unspecified type"
+  },
+  {
+    "vignette_index": 280,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant mesenchymal neoplasm of unspecified type\n\nYou are a patient: You are 72 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue, shortness of breath, and weight loss.\nThese symptoms came into fruition gradually over the past few months, initially noticing that you felt more tired than usual and had some difficulty catching your breath even with minimal exertion. Over the last few weeks, you\u2019ve also observed a noticeable weight loss and some episodes of diarrhea.\nYou tend to be a former smoker and have struggled with obesity for several years, and your family has a history of cancer. You\u2019re feeling increasingly anxious about your health but unsure what\u2019s causing these symptoms.Have you noticed any blood, mucus, or changes in the color or consistency of your diarrhea, and have you had any abdominal pain or cramping along with it?stoic_minimizer",
+    "output": "THINKING: I\u2019m not really sure what the doctor is asking or what it all means, but I don\u2019t want to make a big deal about it. I\u2019ve had some diarrhea, maybe a little blood but probably nothing, and I\u2019ve been tired\nANSWER: Uhh, I\u2019ve noticed some diarrhea and I think maybe there was a little blood? I honestly don\u2019t know, it\u2019s probably nothing, and I\u2019ve just been tired too.",
+    "thinking": "I\u2019m not really sure what the doctor is asking or what it all means, but I don\u2019t want to make a big deal about it. I\u2019ve had some diarrhea, maybe a little blood but probably nothing, and I\u2019ve been tired",
+    "answer": "Uhh, I\u2019ve noticed some diarrhea and I think maybe there was a little blood? I honestly don\u2019t know, it\u2019s probably nothing, and I\u2019ve just been tired too.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Malignant mesenchymal neoplasm of unspecified type"
+  },
+  {
+    "vignette_index": 280,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant mesenchymal neoplasm of unspecified type\n\nYou are a patient: You are 72 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue, shortness of breath, and weight loss.\nThese symptoms came into fruition gradually over the past few months, initially noticing that you felt more tired than usual and had some difficulty catching your breath even with minimal exertion. Over the last few weeks, you\u2019ve also observed a noticeable weight loss and some episodes of diarrhea.\nYou tend to be a former smoker and have struggled with obesity for several years, and your family has a history of cancer. You\u2019re feeling increasingly anxious about your health but unsure what\u2019s causing these symptoms.Can you tell me more about the blood you've noticed in your stool\u2014what it looks like, when you see it, and whether it appears mostly during diarrhea episodes or at other times?stoic_minimizer",
+    "output": "THINKING: I don\u2019t want to make a big deal out of it, but I\u2019ve noticed some blood\u2026and I think it\u2019s mainly when I have diarrhea. It\u2019s probably nothing serious, but I thought I should mention it because it\u2019s been \nANSWER: Yeah, I\u2019ve seen blood in my stool a few times, mostly when I have diarrhea, but I don\u2019t know, it\u2019s probably nothing.",
+    "thinking": "I don\u2019t want to make a big deal out of it, but I\u2019ve noticed some blood\u2026and I think it\u2019s mainly when I have diarrhea. It\u2019s probably nothing serious, but I thought I should mention it because it\u2019s been",
+    "answer": "Yeah, I\u2019ve seen blood in my stool a few times, mostly when I have diarrhea, but I don\u2019t know, it\u2019s probably nothing.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Malignant mesenchymal neoplasm of unspecified type"
+  },
+  {
+    "vignette_index": 280,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant mesenchymal neoplasm of unspecified type\n\nYou are a patient: You are 72 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue, shortness of breath, and weight loss.\nThese symptoms came into fruition gradually over the past few months, initially noticing that you felt more tired than usual and had some difficulty catching your breath even with minimal exertion. Over the last few weeks, you\u2019ve also observed a noticeable weight loss and some episodes of diarrhea.\nYou tend to be a former smoker and have struggled with obesity for several years, and your family has a history of cancer. You\u2019re feeling increasingly anxious about your health but unsure what\u2019s causing these symptoms.Can you tell me exactly how much blood you've noticed in your stool\u2014does it appear only occasionally or more frequently\u2014and whether it\u2019s bright red or darker, which can help determine how serious it might be?stoic_minimizer",
+    "output": "THINKING: I don\u2019t want to make a big deal out of this, but I do wonder how serious it might be. I\u2019ve noticed some blood, but it\u2019s not constant, and honestly, I\u2019m not sure if it\u2019s just little spots or more. I\u2019ve\nANSWER: It\u2019s probably nothing, really, just some blood here and there\u2014I don\u2019t see it every time I go. It\u2019s mostly bright red, I guess, but I\u2019m not sure. I think I\u2019ve had it for a bit now.",
+    "thinking": "I don\u2019t want to make a big deal out of this, but I do wonder how serious it might be. I\u2019ve noticed some blood, but it\u2019s not constant, and honestly, I\u2019m not sure if it\u2019s just little spots or more. I\u2019ve",
+    "answer": "It\u2019s probably nothing, really, just some blood here and there\u2014I don\u2019t see it every time I go. It\u2019s mostly bright red, I guess, but I\u2019m not sure. I think I\u2019ve had it for a bit now.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Malignant mesenchymal neoplasm of unspecified type"
+  },
+  {
+    "vignette_index": 280,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant mesenchymal neoplasm of unspecified type\n\nYou are a patient: You are 72 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue, shortness of breath, and weight loss.\nThese symptoms came into fruition gradually over the past few months, initially noticing that you felt more tired than usual and had some difficulty catching your breath even with minimal exertion. Over the last few weeks, you\u2019ve also observed a noticeable weight loss and some episodes of diarrhea.\nYou tend to be a former smoker and have struggled with obesity for several years, and your family has a history of cancer. You\u2019re feeling increasingly anxious about your health but unsure what\u2019s causing these symptoms.Can you tell me exactly how much blood you've noticed in your stool\u2014does it appear only occasionally or more often, and is it bright red, darker, or mixed in with the stool\u2014that way, I can better understand how serious it might be?stoic_minimizer",
+    "output": "THINKING: I don\u2019t want to make a big deal out of it, and it probably isn\u2019t anything serious, but I guess I should mention it since it\u2019s been happening. Maybe the blood isn\u2019t really a big deal, but I\u2019ve just not\nANSWER: It\u2019s probably just a little, mostly bright red stuff, and I\u2019ve seen it maybe a couple of times, but it\u2019s not constant or anything.",
+    "thinking": "I don\u2019t want to make a big deal out of it, and it probably isn\u2019t anything serious, but I guess I should mention it since it\u2019s been happening. Maybe the blood isn\u2019t really a big deal, but I\u2019ve just not",
+    "answer": "It\u2019s probably just a little, mostly bright red stuff, and I\u2019ve seen it maybe a couple of times, but it\u2019s not constant or anything.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 14,
+    "gold_diagnosis": "Malignant mesenchymal neoplasm of unspecified type"
+  },
+  {
+    "vignette_index": 280,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant mesenchymal neoplasm of unspecified type\n\nYou are a patient: You are 72 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Fatigue, shortness of breath, and weight loss.\nThese symptoms came into fruition gradually over the past few months, initially noticing that you felt more tired than usual and had some difficulty catching your breath even with minimal exertion. Over the last few weeks, you\u2019ve also observed a noticeable weight loss and some episodes of diarrhea.\nYou tend to be a former smoker and have struggled with obesity for several years, and your family has a history of cancer. You\u2019re feeling increasingly anxious about your health but unsure what\u2019s causing these symptoms.\"You've mentioned seeing some blood in your stool, but I\u2019m not sure how much or how often it happens. Could you tell me, more specifically, whether the bleeding has been more frequent or heavier than you initially said, and if you\u2019re finding it more concerning now?\"stoic_minimizer",
+    "output": "THINKING: I think about how I\u2019ve been dealing with this for a while and don\u2019t want to make a big deal out of it, but I know it\u2019s not normal. I also feel a bit embarrassed but realize I should mention it anyway.\nANSWER: Well, it\u2019s not like it\u2019s every day or super heavy, but I\u2019ve seen the blood a few times, and it\u2019s probably nothing, but I guess it\u2019s more than when I first noticed it. I just thought I\u2019d mention it.",
+    "thinking": "I think about how I\u2019ve been dealing with this for a while and don\u2019t want to make a big deal out of it, but I know it\u2019s not normal. I also feel a bit embarrassed but realize I should mention it anyway.",
+    "answer": "Well, it\u2019s not like it\u2019s every day or super heavy, but I\u2019ve seen the blood a few times, and it\u2019s probably nothing, but I guess it\u2019s more than when I first noticed it. I just thought I\u2019d mention it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 16,
+    "gold_diagnosis": "Malignant mesenchymal neoplasm of unspecified type"
+  }
+]

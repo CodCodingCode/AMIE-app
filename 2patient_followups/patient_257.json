@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 257,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Protein deficiency\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Swelling and pain in your left calf\n- Shortness of breath and chest discomfort\n- Noticeable skin discoloration and warmth over the affected area\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after a long flight, and the swelling has gradually worsened since then. You\u2019ve noticed that your leg feels tight and tender, and today you also began experiencing some mild chest pain and difficulty breathing. You have a family history of blood clots on your mother\u2019s side, and you\u2019re aware of a recent diagnosis of autoimmune disorder. You\u2019re worried because these symptoms appeared so quickly and are quite concerning.",
+    "output": "THINKING: I need to explain my situation clearly but I\u2019m also a bit scared and confused because everything's happening all at once. I want to tell the doctor about how suddenly I started feeling awful after the\nANSWER: I\u2019m a 35-year-old woman, and I think I came in because or, I mean, I\u2019ve been having this swelling and pain in my left calf, and it kind of started suddenly yesterday, I guess, after I flew somewhere. It\u2019s been getting worse, and today I also feel kind of short of breath and a little chest pain, and the skin on my leg looks weird, kind of discolored and warm. I\u2019m worried because it all happened so fast, and my mom had blood clots, so I thought I should get checked.",
+    "thinking": "I need to explain my situation clearly but I\u2019m also a bit scared and confused because everything's happening all at once. I want to tell the doctor about how suddenly I started feeling awful after the",
+    "answer": "I\u2019m a 35-year-old woman, and I think I came in because or, I mean, I\u2019ve been having this swelling and pain in my left calf, and it kind of started suddenly yesterday, I guess, after I flew somewhere. It\u2019s been getting worse, and today I also feel kind of short of breath and a little chest pain, and the skin on my leg looks weird, kind of discolored and warm. I\u2019m worried because it all happened so fast, and my mom had blood clots, so I thought I should get checked.",
+    "behavior_type": "chronology_confused",
+    "behavior_config": {
+      "weight": 0.1,
+      "description": "Patient confused about symptom timing and progression",
+      "modifiers": [
+        "timeline_confusion",
+        "sequence_uncertainty"
+      ],
+      "empathy_cues": [
+        "confusion",
+        "uncertainty",
+        "memory_issues",
+        "needs_patience"
+      ]
+    },
+    "gold_diagnosis": "Protein deficiency"
+  },
+  {
+    "vignette_index": 257,
+    "input": "**PATIENT CHARACTER:** Patient with Protein deficiency\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Swelling and pain in your left calf\n- Shortness of breath and chest discomfort\n- Noticeable skin discoloration and warmth over the affected area\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after a long flight, and the swelling has gradually worsened since then. You\u2019ve noticed that your leg feels tight and tender, and today you also began experiencing some mild chest pain and difficulty breathing. You have a family history of blood clots on your mother\u2019s side, and you\u2019re aware of a recent diagnosis of autoimmune disorder. You\u2019re worried because these symptoms appeared so quickly and are quite concerning.\"Can you tell me exactly when your calf started feeling this way, like what happened first, and how it has changed since then?\"chronology_confused",
+    "output": "THINKING: I\u2019m a bit overwhelmed and unsure, especially about the timing. I remember some swelling before, maybe last week, but the pain and all this other stuff just started suddenly yesterday after the flight,\nANSWER: I think it was last week when I first noticed the swelling, but then it got worse pretty quickly yesterday after I flew, and now I also have this chest feeling and I feel kind of short of breath, so I\u2019m not really sure what happened first or how it all connects.",
+    "thinking": "I\u2019m a bit overwhelmed and unsure, especially about the timing. I remember some swelling before, maybe last week, but the pain and all this other stuff just started suddenly yesterday after the flight,",
+    "answer": "I think it was last week when I first noticed the swelling, but then it got worse pretty quickly yesterday after I flew, and now I also have this chest feeling and I feel kind of short of breath, so I\u2019m not really sure what happened first or how it all connects.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 0,
+    "gold_diagnosis": "Protein deficiency"
+  },
+  {
+    "vignette_index": 257,
+    "input": "**PATIENT CHARACTER:** Patient with Protein deficiency\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Swelling and pain in your left calf\n- Shortness of breath and chest discomfort\n- Noticeable skin discoloration and warmth over the affected area\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after a long flight, and the swelling has gradually worsened since then. You\u2019ve noticed that your leg feels tight and tender, and today you also began experiencing some mild chest pain and difficulty breathing. You have a family history of blood clots on your mother\u2019s side, and you\u2019re aware of a recent diagnosis of autoimmune disorder. You\u2019re worried because these symptoms appeared so quickly and are quite concerning.Can you tell me exactly when your chest discomfort first started, and how it has changed since then in relation to your leg symptoms?chronology_confused",
+    "output": "THINKING: I'm not really sure exactly when it all started, but it seems like it was yesterday after the flight. The leg got worse pretty quickly and then I started feeling short of breath and the chest pain tod\nANSWER: Um, I think it was yesterday after I flew, but maybe it was a little earlier? My leg felt really tight and sore, and then today I started having that kind of chest pain and I feel like I can't breathe right.",
+    "thinking": "I'm not really sure exactly when it all started, but it seems like it was yesterday after the flight. The leg got worse pretty quickly and then I started feeling short of breath and the chest pain tod",
+    "answer": "Um, I think it was yesterday after I flew, but maybe it was a little earlier? My leg felt really tight and sore, and then today I started having that kind of chest pain and I feel like I can't breathe right.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 2,
+    "gold_diagnosis": "Protein deficiency"
+  },
+  {
+    "vignette_index": 257,
+    "input": "**PATIENT CHARACTER:** Patient with Protein deficiency\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Swelling and pain in your left calf\n- Shortness of breath and chest discomfort\n- Noticeable skin discoloration and warmth over the affected area\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after a long flight, and the swelling has gradually worsened since then. You\u2019ve noticed that your leg feels tight and tender, and today you also began experiencing some mild chest pain and difficulty breathing. You have a family history of blood clots on your mother\u2019s side, and you\u2019re aware of a recent diagnosis of autoimmune disorder. You\u2019re worried because these symptoms appeared so quickly and are quite concerning.Could you tell me more about how your chest discomfort and shortness of breath started\u2014did they come on at the same time as your calf swelling, or did they begin after the calf symptoms started? Please try to describe what you noticed first and how it has changed since then.chronology_confused",
+    "output": "THINKING: I feel a bit overwhelmed and confused about how everything started, but I remember the leg swelling and pain happening first after the flight, and now the chest and breathing issues seem to have come \nANSWER: Uh, I think the leg swelling and pain was first, maybe right after I got off the plane yesterday, and then today I started having that pretty bad chest ache and couldn\u2019t breathe right, but I\u2019m not sure if they all happened exactly in that order.",
+    "thinking": "I feel a bit overwhelmed and confused about how everything started, but I remember the leg swelling and pain happening first after the flight, and now the chest and breathing issues seem to have come",
+    "answer": "Uh, I think the leg swelling and pain was first, maybe right after I got off the plane yesterday, and then today I started having that pretty bad chest ache and couldn\u2019t breathe right, but I\u2019m not sure if they all happened exactly in that order.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 4,
+    "gold_diagnosis": "Protein deficiency"
+  },
+  {
+    "vignette_index": 257,
+    "input": "**PATIENT CHARACTER:** Patient with Protein deficiency\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Swelling and pain in your left calf\n- Shortness of breath and chest discomfort\n- Noticeable skin discoloration and warmth over the affected area\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after a long flight, and the swelling has gradually worsened since then. You\u2019ve noticed that your leg feels tight and tender, and today you also began experiencing some mild chest pain and difficulty breathing. You have a family history of blood clots on your mother\u2019s side, and you\u2019re aware of a recent diagnosis of autoimmune disorder. You\u2019re worried because these symptoms appeared so quickly and are quite concerning.Can you try to tell me whether your chest discomfort and shortness of breath started at the same time as your leg swelling, or did they come on after or before? If you're not sure exactly, that's okay\u2014any sense of what felt earlier or later would help.chronology_confused",
+    "output": "THINKING: I'm trying to piece together when everything started, but I honestly can't remember exactly. It all happened really fast, and I feel a bit panicked about what might be happening. I think the leg swell\nANSWER: Um, I think the leg swelling and pain started first, like yesterday after I got off the plane, but I also started feeling some chest pain and shortness of breath today. Or maybe they happened together, I don't really know.",
+    "thinking": "I'm trying to piece together when everything started, but I honestly can't remember exactly. It all happened really fast, and I feel a bit panicked about what might be happening. I think the leg swell",
+    "answer": "Um, I think the leg swelling and pain started first, like yesterday after I got off the plane, but I also started feeling some chest pain and shortness of breath today. Or maybe they happened together, I don't really know.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 6,
+    "gold_diagnosis": "Protein deficiency"
+  },
+  {
+    "vignette_index": 257,
+    "input": "**PATIENT CHARACTER:** Patient with Protein deficiency\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Swelling and pain in your left calf\n- Shortness of breath and chest discomfort\n- Noticeable skin discoloration and warmth over the affected area\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after a long flight, and the swelling has gradually worsened since then. You\u2019ve noticed that your leg feels tight and tender, and today you also began experiencing some mild chest pain and difficulty breathing. You have a family history of blood clots on your mother\u2019s side, and you\u2019re aware of a recent diagnosis of autoimmune disorder. You\u2019re worried because these symptoms appeared so quickly and are quite concerning.Can you tell me which symptoms\u2014your calf swelling, chest discomfort, or shortness of breath\u2014started first, and how they changed over time?chronology_confused",
+    "output": "THINKING: I really don\u2019t know exactly which started first. I think maybe the swelling in my leg was the first thing I noticed, then later I started feeling some tightness and a bit of chest pain, but it all kin\nANSWER: I think the swelling in my leg was first, but then I started feeling the chest pain and shortness of breath later, or maybe it was all at once, I\u2019m not sure.",
+    "thinking": "I really don\u2019t know exactly which started first. I think maybe the swelling in my leg was the first thing I noticed, then later I started feeling some tightness and a bit of chest pain, but it all kin",
+    "answer": "I think the swelling in my leg was first, but then I started feeling the chest pain and shortness of breath later, or maybe it was all at once, I\u2019m not sure.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 8,
+    "gold_diagnosis": "Protein deficiency"
+  },
+  {
+    "vignette_index": 257,
+    "input": "**PATIENT CHARACTER:** Patient with Protein deficiency\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Swelling and pain in your left calf\n- Shortness of breath and chest discomfort\n- Noticeable skin discoloration and warmth over the affected area\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after a long flight, and the swelling has gradually worsened since then. You\u2019ve noticed that your leg feels tight and tender, and today you also began experiencing some mild chest pain and difficulty breathing. You have a family history of blood clots on your mother\u2019s side, and you\u2019re aware of a recent diagnosis of autoimmune disorder. You\u2019re worried because these symptoms appeared so quickly and are quite concerning.Could you tell me more specifically whether your chest discomfort and shortness of breath started at the same time as your leg swelling, or did they come on after or before? If you\u2019re not completely sure, any sense of which symptoms you noticed first or which came on earlier or later would really help.chronology_confused",
+    "output": "THINKING: I\u2019m not really sure which started first, honestly. I think maybe the leg swelling was earlier and then the chest and breathing issues just kind of showed up later? Or was it the other way around? It a\nANSWER: Um, I think the swelling in my leg started first, maybe yesterday after I got off the plane, but then today I also started feeling like my chest was tight and I had some shortness of breath, so I\u2019m not really sure which came first.",
+    "thinking": "I\u2019m not really sure which started first, honestly. I think maybe the leg swelling was earlier and then the chest and breathing issues just kind of showed up later? Or was it the other way around? It a",
+    "answer": "Um, I think the swelling in my leg started first, maybe yesterday after I got off the plane, but then today I also started feeling like my chest was tight and I had some shortness of breath, so I\u2019m not really sure which came first.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 10,
+    "gold_diagnosis": "Protein deficiency"
+  },
+  {
+    "vignette_index": 257,
+    "input": "**PATIENT CHARACTER:** Patient with Protein deficiency\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Swelling and pain in your left calf\n- Shortness of breath and chest discomfort\n- Noticeable skin discoloration and warmth over the affected area\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday after a long flight, and the swelling has gradually worsened since then. You\u2019ve noticed that your leg feels tight and tender, and today you also began experiencing some mild chest pain and difficulty breathing. You have a family history of blood clots on your mother\u2019s side, and you\u2019re aware of a recent diagnosis of autoimmune disorder. You\u2019re worried because these symptoms appeared so quickly and are quite concerning.Can you tell me which symptoms you noticed first\u2014your leg swelling or your chest pain and shortness of breath\u2014and how they have changed over time from what you remember?chronology_confused",
+    "output": "THINKING: I'm a bit confused about what I actually noticed first, because everything kind of happened quickly and I was focused on my leg first, but now there's this chest pain too... I feel worried and a littl\nANSWER: I think it was my leg swelling first, maybe yesterday after the flight, but then today I started feeling this chest pain and I can't breathe very well, so I'm not sure which came exactly first.",
+    "thinking": "I'm a bit confused about what I actually noticed first, because everything kind of happened quickly and I was focused on my leg first, but now there's this chest pain too... I feel worried and a littl",
+    "answer": "I think it was my leg swelling first, maybe yesterday after the flight, but then today I started feeling this chest pain and I can't breathe very well, so I'm not sure which came exactly first.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 12,
+    "gold_diagnosis": "Protein deficiency"
+  }
+]

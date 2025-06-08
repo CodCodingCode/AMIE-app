@@ -1,0 +1,107 @@
+[
+  {
+    "vignette_index": 473,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Paediatric onset systemic sclerosis\n\nRoleplay Script:\nYou are a patient: you are 12 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Your fingers and hands feel very tight, and it\u2019s hard to move them normally.\n- You notice small, red, enlarged blood vessels on the skin of your face, hands, and around your nail beds.\n- You have some areas under your skin that feel hard or calcified, especially near your elbows and knees.\n- Your joints are stiff and sometimes painful, especially in the mornings.\n- Recently, your skin has become less stretchy and more rigid, making it feel like everything is tightening around you.\nThese symptoms came into fruition gradually over the past few months, starting with the stiffness and skin tightening, then the appearance of the red blood vessels and calcifications.",
+    "output": "THINKING: I need to explain my symptoms without sounding too worried or like I understand what's happening. I should mention the main concerns and how they\u2019ve been bothering me over time.\nANSWER: I\u2019m 12, and I\u2019m a girl. My fingers and hands feel really tight and weird, and I can\u2019t move them like I used to. My skin is kind of hard and less stretchy, and I saw some little red blood vessels that are bigger than normal on my face and hands. Sometimes my joints hurt, especially in the mornings, and I\u2019ve noticed my skin feels more stiff and tight all over.",
+    "thinking": "I need to explain my symptoms without sounding too worried or like I understand what's happening. I should mention the main concerns and how they\u2019ve been bothering me over time.",
+    "answer": "I\u2019m 12, and I\u2019m a girl. My fingers and hands feel really tight and weird, and I can\u2019t move them like I used to. My skin is kind of hard and less stretchy, and I saw some little red blood vessels that are bigger than normal on my face and hands. Sometimes my joints hurt, especially in the mornings, and I\u2019ve noticed my skin feels more stiff and tight all over.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Paediatric onset systemic sclerosis"
+  },
+  {
+    "vignette_index": 473,
+    "input": "**PATIENT CHARACTER:** Patient with Paediatric onset systemic sclerosis\n\nRoleplay Script:\nYou are a patient: you are 12 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Your fingers and hands feel very tight, and it\u2019s hard to move them normally.\n- You notice small, red, enlarged blood vessels on the skin of your face, hands, and around your nail beds.\n- You have some areas under your skin that feel hard or calcified, especially near your elbows and knees.\n- Your joints are stiff and sometimes painful, especially in the mornings.\n- Recently, your skin has become less stretchy and more rigid, making it feel like everything is tightening around you.\nThese symptoms came into fruition gradually over the past few months, starting with the stiffness and skin tightening, then the appearance of the red blood vessels and calcifications.Can you tell me when you first noticed these skin changes and how they have changed or affected you over time?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and unsure about how to explain everything clearly, but I do remember when I first noticed the tightness and how it\u2019s been getting worse slowly. It\u2019s kinda scary to think abou\nANSWER: I think I first saw the skin getting really tight a few months ago, and then the red blood vessels and hard spots on my skin showed up after that. It\u2019s been changing slowly and it all feels kind of scary and weird.",
+    "thinking": "I feel a bit overwhelmed and unsure about how to explain everything clearly, but I do remember when I first noticed the tightness and how it\u2019s been getting worse slowly. It\u2019s kinda scary to think abou",
+    "answer": "I think I first saw the skin getting really tight a few months ago, and then the red blood vessels and hard spots on my skin showed up after that. It\u2019s been changing slowly and it all feels kind of scary and weird.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Paediatric onset systemic sclerosis"
+  },
+  {
+    "vignette_index": 473,
+    "input": "**PATIENT CHARACTER:** Patient with Paediatric onset systemic sclerosis\n\nRoleplay Script:\nYou are a patient: you are 12 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Your fingers and hands feel very tight, and it\u2019s hard to move them normally.\n- You notice small, red, enlarged blood vessels on the skin of your face, hands, and around your nail beds.\n- You have some areas under your skin that feel hard or calcified, especially near your elbows and knees.\n- Your joints are stiff and sometimes painful, especially in the mornings.\n- Recently, your skin has become less stretchy and more rigid, making it feel like everything is tightening around you.\nThese symptoms came into fruition gradually over the past few months, starting with the stiffness and skin tightening, then the appearance of the red blood vessels and calcifications.Can you tell me how these skin and joint symptoms are impacting your daily life, things you enjoy or need to do but now find more difficult, or how you're feeling about all of this?baseline",
+    "output": "THINKING: I'm feeling a bit overwhelmed and sad about how all this makes me feel different and uncomfortable. I want to do things like before, but it's hard now with my hands and skin feeling so tight.\nANSWER: It\u2019s really hard to do normal things like play or even write because my hands hurt and feel so tight. I don\u2019t like how I look with the red vessels and stuff on my face, and I feel kind of worried about it all.",
+    "thinking": "I'm feeling a bit overwhelmed and sad about how all this makes me feel different and uncomfortable. I want to do things like before, but it's hard now with my hands and skin feeling so tight.",
+    "answer": "It\u2019s really hard to do normal things like play or even write because my hands hurt and feel so tight. I don\u2019t like how I look with the red vessels and stuff on my face, and I feel kind of worried about it all.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Paediatric onset systemic sclerosis"
+  },
+  {
+    "vignette_index": 473,
+    "input": "**PATIENT CHARACTER:** Patient with Paediatric onset systemic sclerosis\n\nRoleplay Script:\nYou are a patient: you are 12 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Your fingers and hands feel very tight, and it\u2019s hard to move them normally.\n- You notice small, red, enlarged blood vessels on the skin of your face, hands, and around your nail beds.\n- You have some areas under your skin that feel hard or calcified, especially near your elbows and knees.\n- Your joints are stiff and sometimes painful, especially in the mornings.\n- Recently, your skin has become less stretchy and more rigid, making it feel like everything is tightening around you.\nThese symptoms came into fruition gradually over the past few months, starting with the stiffness and skin tightening, then the appearance of the red blood vessels and calcifications.Can you tell me if the skin tightness, induration, and blood vessel changes are happening all over your body or just in certain areas like your face and hands?baseline",
+    "output": "THINKING: I feel worried about all the changes happening to my skin and my body, and I don\u2019t really understand why it\u2019s just some parts or why it\u2019s getting worse. I want to tell the doctor honestly, but I\u2019m a l\nANSWER: Um, I think it\u2019s mostly on my face and hands, but I\u2019ve seen some of those blood vessels around my nails too. It\u2019s not like everywhere though.",
+    "thinking": "I feel worried about all the changes happening to my skin and my body, and I don\u2019t really understand why it\u2019s just some parts or why it\u2019s getting worse. I want to tell the doctor honestly, but I\u2019m a l",
+    "answer": "Um, I think it\u2019s mostly on my face and hands, but I\u2019ve seen some of those blood vessels around my nails too. It\u2019s not like everywhere though.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Paediatric onset systemic sclerosis"
+  },
+  {
+    "vignette_index": 473,
+    "input": "**PATIENT CHARACTER:** Patient with Paediatric onset systemic sclerosis\n\nRoleplay Script:\nYou are a patient: you are 12 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Your fingers and hands feel very tight, and it\u2019s hard to move them normally.\n- You notice small, red, enlarged blood vessels on the skin of your face, hands, and around your nail beds.\n- You have some areas under your skin that feel hard or calcified, especially near your elbows and knees.\n- Your joints are stiff and sometimes painful, especially in the mornings.\n- Recently, your skin has become less stretchy and more rigid, making it feel like everything is tightening around you.\nThese symptoms came into fruition gradually over the past few months, starting with the stiffness and skin tightening, then the appearance of the red blood vessels and calcifications.Have you noticed if you have any trouble swallowing, chest pain, or changes in how your fingers or toes feel when it's cold, like turning white or blue?baseline",
+    "output": "THINKING: I feel a little nervous talking about this stuff because it\u2019s all been happening gradually, and I don\u2019t really understand what\u2019s going on, but it feels weird and sometimes like my fingers turn cold or\nANSWER: No, I haven\u2019t really noticed if I have trouble swallowing or pain like that, but my fingers and toes sometimes feel cold and go all white or blue when I\u2019m cold or stressed.",
+    "thinking": "I feel a little nervous talking about this stuff because it\u2019s all been happening gradually, and I don\u2019t really understand what\u2019s going on, but it feels weird and sometimes like my fingers turn cold or",
+    "answer": "No, I haven\u2019t really noticed if I have trouble swallowing or pain like that, but my fingers and toes sometimes feel cold and go all white or blue when I\u2019m cold or stressed.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Paediatric onset systemic sclerosis"
+  },
+  {
+    "vignette_index": 473,
+    "input": "**PATIENT CHARACTER:** Patient with Paediatric onset systemic sclerosis\n\nRoleplay Script:\nYou are a patient: you are 12 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Your fingers and hands feel very tight, and it\u2019s hard to move them normally.\n- You notice small, red, enlarged blood vessels on the skin of your face, hands, and around your nail beds.\n- You have some areas under your skin that feel hard or calcified, especially near your elbows and knees.\n- Your joints are stiff and sometimes painful, especially in the mornings.\n- Recently, your skin has become less stretchy and more rigid, making it feel like everything is tightening around you.\nThese symptoms came into fruition gradually over the past few months, starting with the stiffness and skin tightening, then the appearance of the red blood vessels and calcifications.Have you noticed any problems with swallowing, acid reflux, or feeling out of breath, especially when doing things like climbing stairs or playing?baseline",
+    "output": "THINKING: The doctor is asking about trouble swallowing or breathing, which I haven't thought about much before, but now I feel a little worried because I do get tired easily and sometimes I feel like I can't c\nANSWER: Um, I don\u2019t really notice trouble swallowing or breathing, but I get tired faster and sometimes I feel kind of short of breath when I climb stairs or do stuff.",
+    "thinking": "The doctor is asking about trouble swallowing or breathing, which I haven't thought about much before, but now I feel a little worried because I do get tired easily and sometimes I feel like I can't c",
+    "answer": "Um, I don\u2019t really notice trouble swallowing or breathing, but I get tired faster and sometimes I feel kind of short of breath when I climb stairs or do stuff.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Paediatric onset systemic sclerosis"
+  },
+  {
+    "vignette_index": 473,
+    "input": "**PATIENT CHARACTER:** Patient with Paediatric onset systemic sclerosis\n\nRoleplay Script:\nYou are a patient: you are 12 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Your fingers and hands feel very tight, and it\u2019s hard to move them normally.\n- You notice small, red, enlarged blood vessels on the skin of your face, hands, and around your nail beds.\n- You have some areas under your skin that feel hard or calcified, especially near your elbows and knees.\n- Your joints are stiff and sometimes painful, especially in the mornings.\n- Recently, your skin has become less stretchy and more rigid, making it feel like everything is tightening around you.\nThese symptoms came into fruition gradually over the past few months, starting with the stiffness and skin tightening, then the appearance of the red blood vessels and calcifications.Have you noticed any episodes of feeling short of breath, chest tightness, or difficulty swallowing recently, even if they seem minor or happen only sometimes?baseline",
+    "output": "THINKING: I feel a little nervous that the doctor is asking about breathing stuff, but I honestly haven't noticed anything like that. I'm not sure what they want to hear, but I'll try to answer honestly.\nANSWER: No, I haven't really had problems just with breathing or getting stuff down my throat or anything.",
+    "thinking": "I feel a little nervous that the doctor is asking about breathing stuff, but I honestly haven't noticed anything like that. I'm not sure what they want to hear, but I'll try to answer honestly.",
+    "answer": "No, I haven't really had problems just with breathing or getting stuff down my throat or anything.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Paediatric onset systemic sclerosis"
+  },
+  {
+    "vignette_index": 473,
+    "input": "**PATIENT CHARACTER:** Patient with Paediatric onset systemic sclerosis\n\nRoleplay Script:\nYou are a patient: you are 12 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Your fingers and hands feel very tight, and it\u2019s hard to move them normally.\n- You notice small, red, enlarged blood vessels on the skin of your face, hands, and around your nail beds.\n- You have some areas under your skin that feel hard or calcified, especially near your elbows and knees.\n- Your joints are stiff and sometimes painful, especially in the mornings.\n- Recently, your skin has become less stretchy and more rigid, making it feel like everything is tightening around you.\nThese symptoms came into fruition gradually over the past few months, starting with the stiffness and skin tightening, then the appearance of the red blood vessels and calcifications.\"Sometimes, when people have skin or joint symptoms like yours, they might notice there are also changes inside their body, like having trouble swallowing, feeling or sometimes wheezing when they breathe, or feeling more short of breath than usual\u2014especially when doing things like climbing stairs or playing. Could you tell me if you've noticed any of these kinds of issues, even if they seem minor or happen only sometimes?\"baseline",
+    "output": "THINKING: I\u2019m a little nervous about what the doctor is asking. I don\u2019t really feel like I have trouble swallowing or breathing, but I guess you never know. Maybe I should say something just in case, even if I \nANSWER: No, I haven\u2019t had any trouble swallowing or breathing or anything like that. It\u2019s mostly my fingers and skin that feel really tight, and sometimes my joints hurt.",
+    "thinking": "I\u2019m a little nervous about what the doctor is asking. I don\u2019t really feel like I have trouble swallowing or breathing, but I guess you never know. Maybe I should say something just in case, even if I",
+    "answer": "No, I haven\u2019t had any trouble swallowing or breathing or anything like that. It\u2019s mostly my fingers and skin that feel really tight, and sometimes my joints hurt.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Paediatric onset systemic sclerosis"
+  },
+  {
+    "vignette_index": 473,
+    "input": "**PATIENT CHARACTER:** Patient with Paediatric onset systemic sclerosis\n\nRoleplay Script:\nYou are a patient: you are 12 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Your fingers and hands feel very tight, and it\u2019s hard to move them normally.\n- You notice small, red, enlarged blood vessels on the skin of your face, hands, and around your nail beds.\n- You have some areas under your skin that feel hard or calcified, especially near your elbows and knees.\n- Your joints are stiff and sometimes painful, especially in the mornings.\n- Recently, your skin has become less stretchy and more rigid, making it feel like everything is tightening around you.\nThese symptoms came into fruition gradually over the past few months, starting with the stiffness and skin tightening, then the appearance of the red blood vessels and calcifications.\"Sometimes, if there's lung involvement, people might notice they feel more out of breath than usual or have trouble breathing deeply, especially when climbing stairs or during exertion\u2014things like a persistent cough or feeling like it's harder to breathe. Have you noticed anything like that, even if it seems small or only happens once in a while?\"baseline",
+    "output": "THINKING: The doctor is asking about breathing issues, but honestly, I haven't really noticed I can't breathe well or get out of breath. Still, I wonder if maybe I should say something just in case because it f\nANSWER: No, I don\u2019t think so. I haven\u2019t really felt like I can\u2019t breathe or that I get tired more than normal.",
+    "thinking": "The doctor is asking about breathing issues, but honestly, I haven't really noticed I can't breathe well or get out of breath. Still, I wonder if maybe I should say something just in case because it f",
+    "answer": "No, I don\u2019t think so. I haven\u2019t really felt like I can\u2019t breathe or that I get tired more than normal.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Paediatric onset systemic sclerosis"
+  },
+  {
+    "vignette_index": 473,
+    "input": "**PATIENT CHARACTER:** Patient with Paediatric onset systemic sclerosis\n\nRoleplay Script:\nYou are a patient: you are 12 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Your fingers and hands feel very tight, and it\u2019s hard to move them normally.\n- You notice small, red, enlarged blood vessels on the skin of your face, hands, and around your nail beds.\n- You have some areas under your skin that feel hard or calcified, especially near your elbows and knees.\n- Your joints are stiff and sometimes painful, especially in the mornings.\n- Recently, your skin has become less stretchy and more rigid, making it feel like everything is tightening around you.\nThese symptoms came into fruition gradually over the past few months, starting with the stiffness and skin tightening, then the appearance of the red blood vessels and calcifications.Have you noticed if it's become a bit harder to breathe deeply, especially when climbing stairs or playing, or if you've had a dry cough that doesn't go away, even if it feels small or only happens sometimes?baseline",
+    "output": "THINKING: I feel a little worried when you ask about my breathing. I haven't really noticed it being hard to breathe, but I do get tired easily sometimes, especially when I climb the stairs. The cough thing, I \nANSWER: Um, I don\u2019t think it\u2019s been really hard to breathe deeply, but I do get tired faster than before. The cough I sometimes have, but it doesn\u2019t last long or anything.",
+    "thinking": "I feel a little worried when you ask about my breathing. I haven't really noticed it being hard to breathe, but I do get tired easily sometimes, especially when I climb the stairs. The cough thing, I",
+    "answer": "Um, I don\u2019t think it\u2019s been really hard to breathe deeply, but I do get tired faster than before. The cough I sometimes have, but it doesn\u2019t last long or anything.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Paediatric onset systemic sclerosis"
+  }
+]

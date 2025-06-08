@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 60,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Ovotesticular disorder of sex development\n\nYou are a patient: You are 28 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Ambiguous genitalia, with some swelling and unusual tissue development.\n- Menstrual irregularities, including occasional light bleeding.\n- Delayed puberty, as you haven't developed typical secondary sexual characteristics like facial hair or a deeper voice.\nThese symptoms came into fruition gradually over the past few years, but the noticeable changes in genitalia and the irregular bleeding only became more apparent in the last six months.\nYou\u2019ve also noticed that you sometimes feel a sense of discomfort or swelling in the pelvic area, which has made you concerned about your development and overall health.",
+    "output": "THINKING: I need to explain my situation without sounding too complicated or like I understand what\u2019s happening. I should mention my age, gender, and what\u2019s been bothering me, especially the weird feelings and \nANSWER: I\u2019m 28, and I\u2019m a guy, but I guess I\u2019ve always had kind of strange parts down there. Lately, things have been kind of off\u2014for a while now, I\u2019ve noticed some swelling and weird tissue, and I\u2019ve been having these light bleeding episodes that don\u2019t make much sense to me. I also haven\u2019t gone through any puberty stuff like most guys do, and I just feel uncomfortable in my pelvic area sometimes. I thought I should get checked out because it\u2019s been bothering me, and I don\u2019t really understand what\u2019s going on.",
+    "thinking": "I need to explain my situation without sounding too complicated or like I understand what\u2019s happening. I should mention my age, gender, and what\u2019s been bothering me, especially the weird feelings and",
+    "answer": "I\u2019m 28, and I\u2019m a guy, but I guess I\u2019ve always had kind of strange parts down there. Lately, things have been kind of off\u2014for a while now, I\u2019ve noticed some swelling and weird tissue, and I\u2019ve been having these light bleeding episodes that don\u2019t make much sense to me. I also haven\u2019t gone through any puberty stuff like most guys do, and I just feel uncomfortable in my pelvic area sometimes. I thought I should get checked out because it\u2019s been bothering me, and I don\u2019t really understand what\u2019s going on.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Ovotesticular disorder of sex development"
+  },
+  {
+    "vignette_index": 60,
+    "input": "**PATIENT CHARACTER:** Patient with Ovotesticular disorder of sex development\n\nYou are a patient: You are 28 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Ambiguous genitalia, with some swelling and unusual tissue development.\n- Menstrual irregularities, including occasional light bleeding.\n- Delayed puberty, as you haven't developed typical secondary sexual characteristics like facial hair or a deeper voice.\nThese symptoms came into fruition gradually over the past few years, but the noticeable changes in genitalia and the irregular bleeding only became more apparent in the last six months.\nYou\u2019ve also noticed that you sometimes feel a sense of discomfort or swelling in the pelvic area, which has made you concerned about your development and overall health.Can you tell me more about when this all first started, and what exactly the changes look or feel like whenever you notice them?baseline",
+    "output": "THINKING: I noticed stuff changing over a few years, but the last half year it\u2019s been more obvious, especially the bleeding and swelling in my area. I\u2019m worried because I don\u2019t really understand what\u2019s happenin\nANSWER: Well, it started a few years ago, but more recently I\u2019ve had the bleeding and the swelling more often, and I just feel weird down there, like uncomfortable and not sure what it all means.",
+    "thinking": "I noticed stuff changing over a few years, but the last half year it\u2019s been more obvious, especially the bleeding and swelling in my area. I\u2019m worried because I don\u2019t really understand what\u2019s happenin",
+    "answer": "Well, it started a few years ago, but more recently I\u2019ve had the bleeding and the swelling more often, and I just feel weird down there, like uncomfortable and not sure what it all means.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Ovotesticular disorder of sex development"
+  },
+  {
+    "vignette_index": 60,
+    "input": "**PATIENT CHARACTER:** Patient with Ovotesticular disorder of sex development\n\nYou are a patient: You are 28 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Ambiguous genitalia, with some swelling and unusual tissue development.\n- Menstrual irregularities, including occasional light bleeding.\n- Delayed puberty, as you haven't developed typical secondary sexual characteristics like facial hair or a deeper voice.\nThese symptoms came into fruition gradually over the past few years, but the noticeable changes in genitalia and the irregular bleeding only became more apparent in the last six months.\nYou\u2019ve also noticed that you sometimes feel a sense of discomfort or swelling in the pelvic area, which has made you concerned about your development and overall health.Can you tell me more about what the tissue or lump feels like when you notice it\u2014does it feel hard or soft, and how often do you see or notice bleeding or discomfort?baseline",
+    "output": "THINKING: I\u2019m not really sure how to describe it. I think it\u2019s kind of hard sometimes, but then other times it almost feels soft. I don\u2019t notice any bleeding all the time, just now and then. I guess I just worr\nANSWER: It\u2019s kind of hard when I feel it, but sometimes it feels soft, and I don\u2019t see bleeding all the time, just sometimes. It makes me worry but I don\u2019t really know how to describe it properly.",
+    "thinking": "I\u2019m not really sure how to describe it. I think it\u2019s kind of hard sometimes, but then other times it almost feels soft. I don\u2019t notice any bleeding all the time, just now and then. I guess I just worr",
+    "answer": "It\u2019s kind of hard when I feel it, but sometimes it feels soft, and I don\u2019t see bleeding all the time, just sometimes. It makes me worry but I don\u2019t really know how to describe it properly.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Ovotesticular disorder of sex development"
+  },
+  {
+    "vignette_index": 60,
+    "input": "**PATIENT CHARACTER:** Patient with Ovotesticular disorder of sex development\n\nYou are a patient: You are 28 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Ambiguous genitalia, with some swelling and unusual tissue development.\n- Menstrual irregularities, including occasional light bleeding.\n- Delayed puberty, as you haven't developed typical secondary sexual characteristics like facial hair or a deeper voice.\nThese symptoms came into fruition gradually over the past few years, but the noticeable changes in genitalia and the irregular bleeding only became more apparent in the last six months.\nYou\u2019ve also noticed that you sometimes feel a sense of discomfort or swelling in the pelvic area, which has made you concerned about your development and overall health.Can you tell me more about the actual look and feel of the tissue\u2014do you notice any color changes, ulcers, or other unusual features on the surface, and does it tend to be on one side or both sides?baseline",
+    "output": "THINKING: I'm not really sure what to look for or what they want to hear. I feel a bit embarrassed about the whole thing and just want to explain what I see and feel without sounding like I know anything.\nANSWER: Well, I guess it looks kinda weird, like there\u2019s some swelling or tissue that doesn\u2019t look normal to me, and it\u2019s on both sides sometimes. I haven\u2019t noticed any ulcers or anything like that, just changes maybe.",
+    "thinking": "I'm not really sure what to look for or what they want to hear. I feel a bit embarrassed about the whole thing and just want to explain what I see and feel without sounding like I know anything.",
+    "answer": "Well, I guess it looks kinda weird, like there\u2019s some swelling or tissue that doesn\u2019t look normal to me, and it\u2019s on both sides sometimes. I haven\u2019t noticed any ulcers or anything like that, just changes maybe.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Ovotesticular disorder of sex development"
+  },
+  {
+    "vignette_index": 60,
+    "input": "**PATIENT CHARACTER:** Patient with Ovotesticular disorder of sex development\n\nYou are a patient: You are 28 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Ambiguous genitalia, with some swelling and unusual tissue development.\n- Menstrual irregularities, including occasional light bleeding.\n- Delayed puberty, as you haven't developed typical secondary sexual characteristics like facial hair or a deeper voice.\nThese symptoms came into fruition gradually over the past few years, but the noticeable changes in genitalia and the irregular bleeding only became more apparent in the last six months.\nYou\u2019ve also noticed that you sometimes feel a sense of discomfort or swelling in the pelvic area, which has made you concerned about your development and overall health.Can you tell me if the bleeding happens suddenly and without reason, or is it usually after something like injury or activity\u2014also, how heavy or messy does the bleeding tend to be when it occurs?baseline",
+    "output": "THINKING: I'm not really sure how to describe it. Sometimes it just happens out of nowhere, other times I think it might be after I do something, but I really don\u2019t know. It feels messy, I guess, but I\u2019m not su\nANSWER: I think it just happens sometimes, and I guess it\u2019s kind of messy, but I don't really know if it\u2019s from anything specific or how bad it is.",
+    "thinking": "I'm not really sure how to describe it. Sometimes it just happens out of nowhere, other times I think it might be after I do something, but I really don\u2019t know. It feels messy, I guess, but I\u2019m not su",
+    "answer": "I think it just happens sometimes, and I guess it\u2019s kind of messy, but I don't really know if it\u2019s from anything specific or how bad it is.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Ovotesticular disorder of sex development"
+  },
+  {
+    "vignette_index": 60,
+    "input": "**PATIENT CHARACTER:** Patient with Ovotesticular disorder of sex development\n\nYou are a patient: You are 28 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Ambiguous genitalia, with some swelling and unusual tissue development.\n- Menstrual irregularities, including occasional light bleeding.\n- Delayed puberty, as you haven't developed typical secondary sexual characteristics like facial hair or a deeper voice.\nThese symptoms came into fruition gradually over the past few years, but the noticeable changes in genitalia and the irregular bleeding only became more apparent in the last six months.\nYou\u2019ve also noticed that you sometimes feel a sense of discomfort or swelling in the pelvic area, which has made you concerned about your development and overall health.Can you tell me more specifically about the bleeding\u2014like how much blood you notice during those episodes, whether it happens suddenly or gradually, and if anything seems to trigger it, such as activity or injury?baseline",
+    "output": "THINKING: The doctor wants to know more about the bleeding, but honestly, I don\u2019t really know how much blood there is or what causes it. I just notice sometimes it's there, and it kind of just happens randomly,\nANSWER: Honestly, I just see a little blood sometimes, and I\u2019m not sure why or how it starts. It kind of just happens, and I don\u2019t really think I do anything to cause it.",
+    "thinking": "The doctor wants to know more about the bleeding, but honestly, I don\u2019t really know how much blood there is or what causes it. I just notice sometimes it's there, and it kind of just happens randomly,",
+    "answer": "Honestly, I just see a little blood sometimes, and I\u2019m not sure why or how it starts. It kind of just happens, and I don\u2019t really think I do anything to cause it.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Ovotesticular disorder of sex development"
+  },
+  {
+    "vignette_index": 60,
+    "input": "**PATIENT CHARACTER:** Patient with Ovotesticular disorder of sex development\n\nYou are a patient: You are 28 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Ambiguous genitalia, with some swelling and unusual tissue development.\n- Menstrual irregularities, including occasional light bleeding.\n- Delayed puberty, as you haven't developed typical secondary sexual characteristics like facial hair or a deeper voice.\nThese symptoms came into fruition gradually over the past few years, but the noticeable changes in genitalia and the irregular bleeding only became more apparent in the last six months.\nYou\u2019ve also noticed that you sometimes feel a sense of discomfort or swelling in the pelvic area, which has made you concerned about your development and overall health.Can you tell me exactly how much blood you see during those episodes\u2014like, is it just a little, or does it seem like a lot\u2014and do you notice if it happens suddenly or more gradually, especially after any activity or injury?baseline",
+    "output": "THINKING: I\u2019m nervous about how much blood I see because I don\u2019t really know if it\u2019s normal or not. It feels like there\u2019s a little, but sometimes it seems more than I expected, and I\u2019m not sure if it\u2019s happenin\nANSWER: It\u2019s hard to say exactly, but sometimes I see just a little blood, and other times it looks like more, and I don\u2019t really notice if it happens all at once or over time.",
+    "thinking": "I\u2019m nervous about how much blood I see because I don\u2019t really know if it\u2019s normal or not. It feels like there\u2019s a little, but sometimes it seems more than I expected, and I\u2019m not sure if it\u2019s happenin",
+    "answer": "It\u2019s hard to say exactly, but sometimes I see just a little blood, and other times it looks like more, and I don\u2019t really notice if it happens all at once or over time.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Ovotesticular disorder of sex development"
+  },
+  {
+    "vignette_index": 60,
+    "input": "**PATIENT CHARACTER:** Patient with Ovotesticular disorder of sex development\n\nYou are a patient: You are 28 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Ambiguous genitalia, with some swelling and unusual tissue development.\n- Menstrual irregularities, including occasional light bleeding.\n- Delayed puberty, as you haven't developed typical secondary sexual characteristics like facial hair or a deeper voice.\nThese symptoms came into fruition gradually over the past few years, but the noticeable changes in genitalia and the irregular bleeding only became more apparent in the last six months.\nYou\u2019ve also noticed that you sometimes feel a sense of discomfort or swelling in the pelvic area, which has made you concerned about your development and overall health.Can you tell me, during your bleeding episodes, how much blood do you notice\u2014like, does it seem like just a little, or more\u2014do they happen suddenly or gradually\u2014and do anything seem to trigger or make the bleeding worse?baseline",
+    "output": "THINKING: I'm not really sure how much blood I see during these episodes. Sometimes it feels like just a little bleeding, and other times it seems more than I expected. They seem to happen randomly, and I don't\nANSWER: Um, it's hard to say exactly, but it kind of varies. Sometimes it's just a bit, like a little spot, and other times more blood comes out. It just happens unexpectedly, and I haven't noticed anything that makes it worse or easier.",
+    "thinking": "I'm not really sure how much blood I see during these episodes. Sometimes it feels like just a little bleeding, and other times it seems more than I expected. They seem to happen randomly, and I don't",
+    "answer": "Um, it's hard to say exactly, but it kind of varies. Sometimes it's just a bit, like a little spot, and other times more blood comes out. It just happens unexpectedly, and I haven't noticed anything that makes it worse or easier.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Ovotesticular disorder of sex development"
+  }
+]

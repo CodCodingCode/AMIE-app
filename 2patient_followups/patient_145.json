@@ -1,0 +1,116 @@
+[
+  {
+    "vignette_index": 145,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye that started just a few hours ago\n- You notice a reduced central and inferior visual field in that eye\n- You\u2019ve been feeling a dull headache on the right side and some tenderness in your scalp, especially when you touch it\n- You also feel generally unwell, with some mild fever and occasional night sweats\n- Recently, you've experienced some jaw pain when chewing and stiffness in your neck muscles\nThese symptoms came into fruition suddenly yesterday, and you\u2019re worried because your vision loss happened so quickly and you\u2019re feeling quite unwell overall.",
+    "output": "THINKING: I should mention the sudden vision loss and the other symptoms without over-explaining. I want to show I\u2019m concerned but not panicked, and highlight the main issues.\nANSWER: I\u2019m 68, and I\u2019m a guy. Well, I guess I just woke up yesterday and my vision in my right eye was all foggy, kind of like it just went black in the center. No pain or anything, but I noticed it pretty quick. I\u2019ve been feeling kinda off\u2014like a dull headache on that side and some tenderness in my scalp when I touch it. Also, I\u2019ve got a mild fever and I\u2019ve been sweating at night. I\u2019ve also noticed some pain in my jaw when I chew especially in the last day or so. It\u2019s probably nothing, but I thought I should come in since I\u2019ve never had anything like this before.",
+    "thinking": "I should mention the sudden vision loss and the other symptoms without over-explaining. I want to show I\u2019m concerned but not panicked, and highlight the main issues.",
+    "answer": "I\u2019m 68, and I\u2019m a guy. Well, I guess I just woke up yesterday and my vision in my right eye was all foggy, kind of like it just went black in the center. No pain or anything, but I noticed it pretty quick. I\u2019ve been feeling kinda off\u2014like a dull headache on that side and some tenderness in my scalp when I touch it. Also, I\u2019ve got a mild fever and I\u2019ve been sweating at night. I\u2019ve also noticed some pain in my jaw when I chew especially in the last day or so. It\u2019s probably nothing, but I thought I should come in since I\u2019ve never had anything like this before.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 145,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye that started just a few hours ago\n- You notice a reduced central and inferior visual field in that eye\n- You\u2019ve been feeling a dull headache on the right side and some tenderness in your scalp, especially when you touch it\n- You also feel generally unwell, with some mild fever and occasional night sweats\n- Recently, you've experienced some jaw pain when chewing and stiffness in your neck muscles\nThese symptoms came into fruition suddenly yesterday, and you\u2019re worried because your vision loss happened so quickly and you\u2019re feeling quite unwell overall.Can you tell me exactly how your vision changed when it first happened, and whether it was sudden or came on gradually?stoic_minimizer",
+    "output": "THINKING: I want to give a simple answer, but I also know this is serious and I\u2019ve been worried for a bit. Still, I don\u2019t really understand all the details, and I don\u2019t want to make a big deal out of it.\nANSWER: It was just like, all of a sudden, I couldn\u2019t see straight in that eye, and it\u2019s been like that since yesterday. It kind of came on pretty quick, I guess.",
+    "thinking": "I want to give a simple answer, but I also know this is serious and I\u2019ve been worried for a bit. Still, I don\u2019t really understand all the details, and I don\u2019t want to make a big deal out of it.",
+    "answer": "It was just like, all of a sudden, I couldn\u2019t see straight in that eye, and it\u2019s been like that since yesterday. It kind of came on pretty quick, I guess.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 145,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye that started just a few hours ago\n- You notice a reduced central and inferior visual field in that eye\n- You\u2019ve been feeling a dull headache on the right side and some tenderness in your scalp, especially when you touch it\n- You also feel generally unwell, with some mild fever and occasional night sweats\n- Recently, you've experienced some jaw pain when chewing and stiffness in your neck muscles\nThese symptoms came into fruition suddenly yesterday, and you\u2019re worried because your vision loss happened so quickly and you\u2019re feeling quite unwell overall.Can you tell me if the vision loss happened suddenly and without any warning, or if it developed gradually over time, and whether you experienced any pain or discomfort during or before this change?stoic_minimizer",
+    "output": "THINKING: I don't want to make a big deal out of it, but I guess it all happened pretty fast. No pain, just suddenly couldn't see much in that eye, and I\u2019ve been feeling kinda off and sore in the head. I though\nANSWER: It sort of came on suddenly yesterday, and I didn't really have any warning, but there was no pain \u2014 just came out of nowhere. I've been feeling off and sort of unwell, but I thought it might go away.",
+    "thinking": "I don't want to make a big deal out of it, but I guess it all happened pretty fast. No pain, just suddenly couldn't see much in that eye, and I\u2019ve been feeling kinda off and sore in the head. I though",
+    "answer": "It sort of came on suddenly yesterday, and I didn't really have any warning, but there was no pain \u2014 just came out of nowhere. I've been feeling off and sort of unwell, but I thought it might go away.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 145,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye that started just a few hours ago\n- You notice a reduced central and inferior visual field in that eye\n- You\u2019ve been feeling a dull headache on the right side and some tenderness in your scalp, especially when you touch it\n- You also feel generally unwell, with some mild fever and occasional night sweats\n- Recently, you've experienced some jaw pain when chewing and stiffness in your neck muscles\nThese symptoms came into fruition suddenly yesterday, and you\u2019re worried because your vision loss happened so quickly and you\u2019re feeling quite unwell overall.Can you tell me more about how suddenly your vision changed\u2014from the very moment it started to now\u2014and if it felt like it got worse very quickly or just gradually over a day or so?stoic_minimizer",
+    "output": "THINKING: I don't want to make a big deal out of this, but my vision change was pretty sudden and it\u2019s actually really unsettling. I figured it might just be some temporary thing, but it hasn't gotten better an\nANSWER: I\u2019d say it came on pretty quickly yesterday, maybe just a few hours or so, and it\u2019s not really getting better, plus I\u2019ve been feeling kind of out of it and got some head pain and stuff.",
+    "thinking": "I don't want to make a big deal out of this, but my vision change was pretty sudden and it\u2019s actually really unsettling. I figured it might just be some temporary thing, but it hasn't gotten better an",
+    "answer": "I\u2019d say it came on pretty quickly yesterday, maybe just a few hours or so, and it\u2019s not really getting better, plus I\u2019ve been feeling kind of out of it and got some head pain and stuff.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 145,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye that started just a few hours ago\n- You notice a reduced central and inferior visual field in that eye\n- You\u2019ve been feeling a dull headache on the right side and some tenderness in your scalp, especially when you touch it\n- You also feel generally unwell, with some mild fever and occasional night sweats\n- Recently, you've experienced some jaw pain when chewing and stiffness in your neck muscles\nThese symptoms came into fruition suddenly yesterday, and you\u2019re worried because your vision loss happened so quickly and you\u2019re feeling quite unwell overall.Can you tell me if you experienced any pain, aching, or discomfort behind your eye or in your eyelid around the time your vision changed?stoic_minimizer",
+    "output": "THINKING: I\u2019m not really sure if it\u2019s related to the eye, or if it\u2019s just part of feeling unwell. Honestly, I don\u2019t want to make it seem worse than it is, but I guess I did notice a little pain behind the eye a\nANSWER: Yeah, I think I felt some dull pain behind my eye, but I\u2019m not sure if it\u2019s a big deal or not. It\u2019s probably nothing serious.",
+    "thinking": "I\u2019m not really sure if it\u2019s related to the eye, or if it\u2019s just part of feeling unwell. Honestly, I don\u2019t want to make it seem worse than it is, but I guess I did notice a little pain behind the eye a",
+    "answer": "Yeah, I think I felt some dull pain behind my eye, but I\u2019m not sure if it\u2019s a big deal or not. It\u2019s probably nothing serious.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 145,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye that started just a few hours ago\n- You notice a reduced central and inferior visual field in that eye\n- You\u2019ve been feeling a dull headache on the right side and some tenderness in your scalp, especially when you touch it\n- You also feel generally unwell, with some mild fever and occasional night sweats\n- Recently, you've experienced some jaw pain when chewing and stiffness in your neck muscles\nThese symptoms came into fruition suddenly yesterday, and you\u2019re worried because your vision loss happened so quickly and you\u2019re feeling quite unwell overall.Have you noticed any brief flashes of light, curtain-like shadows, or transient episodes of vision loss before this full loss, and can you tell me more about the intensity and nature of the discomfort or pain behind your eye\u2014specifically, is it a dull ache, sharp pain, or pressure, and when exactly does it tend to happen?stoic_minimizer",
+    "output": "THINKING: I haven't really seen any flashes or anything obvious like that. I guess my vision just kinda went out all at once. The pain isn\u2019t really sharp, more like a dull pressure, but it\u2019s been there most of \nANSWER: No, I haven't noticed any flashes or shadows or anything like that. The pain\u2019s more like a dull pressure, and it sort of comes and goes, I guess, but I mostly just worry about the sudden vision loss.",
+    "thinking": "I haven't really seen any flashes or anything obvious like that. I guess my vision just kinda went out all at once. The pain isn\u2019t really sharp, more like a dull pressure, but it\u2019s been there most of",
+    "answer": "No, I haven't noticed any flashes or shadows or anything like that. The pain\u2019s more like a dull pressure, and it sort of comes and goes, I guess, but I mostly just worry about the sudden vision loss.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 145,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye that started just a few hours ago\n- You notice a reduced central and inferior visual field in that eye\n- You\u2019ve been feeling a dull headache on the right side and some tenderness in your scalp, especially when you touch it\n- You also feel generally unwell, with some mild fever and occasional night sweats\n- Recently, you've experienced some jaw pain when chewing and stiffness in your neck muscles\nThese symptoms came into fruition suddenly yesterday, and you\u2019re worried because your vision loss happened so quickly and you\u2019re feeling quite unwell overall.Can you tell me more about the pain behind your eye\u2014specifically, whether it's a dull ache, sharp pain, or pressure\u2014and when you notice it, like if it happens before, during, or after your vision changed?stoic_minimizer",
+    "output": "THINKING: I guess the pain behind my eye feels more like a pressure or just uncomfortable, really. I don't remember it being sharp, and it kinda started when I noticed the vision loss, but I thought maybe that \nANSWER: It\u2019s not really sharp or anything, just a dull pressure, and I usually notice it when my vision started going bad, but I thought it was all related to the eye problem.",
+    "thinking": "I guess the pain behind my eye feels more like a pressure or just uncomfortable, really. I don't remember it being sharp, and it kinda started when I noticed the vision loss, but I thought maybe that",
+    "answer": "It\u2019s not really sharp or anything, just a dull pressure, and I usually notice it when my vision started going bad, but I thought it was all related to the eye problem.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 145,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye that started just a few hours ago\n- You notice a reduced central and inferior visual field in that eye\n- You\u2019ve been feeling a dull headache on the right side and some tenderness in your scalp, especially when you touch it\n- You also feel generally unwell, with some mild fever and occasional night sweats\n- Recently, you've experienced some jaw pain when chewing and stiffness in your neck muscles\nThese symptoms came into fruition suddenly yesterday, and you\u2019re worried because your vision loss happened so quickly and you\u2019re feeling quite unwell overall.Can you tell me if the dull pressure or discomfort behind your eye gets worse when you chew or touch your scalp, and how strong the pain feels when you notice it\u2014would you say it's gentle, moderate, or quite intense?stoic_minimizer",
+    "output": "THINKING: I don\u2019t want to overreact, but I know something\u2019s not right with my eye and these other symptoms. I\u2019ve been putting this off, but maybe I should check, even if it\u2019s not super painful.\nANSWER: The pressure behind my eye feels pretty mild, kinda just there, and it didn\u2019t get worse when I touched my scalp, really. The pain\u2019s not that strong\u2014more like a dull ache, I guess.",
+    "thinking": "I don\u2019t want to overreact, but I know something\u2019s not right with my eye and these other symptoms. I\u2019ve been putting this off, but maybe I should check, even if it\u2019s not super painful.",
+    "answer": "The pressure behind my eye feels pretty mild, kinda just there, and it didn\u2019t get worse when I touched my scalp, really. The pain\u2019s not that strong\u2014more like a dull ache, I guess.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 145,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye that started just a few hours ago\n- You notice a reduced central and inferior visual field in that eye\n- You\u2019ve been feeling a dull headache on the right side and some tenderness in your scalp, especially when you touch it\n- You also feel generally unwell, with some mild fever and occasional night sweats\n- Recently, you've experienced some jaw pain when chewing and stiffness in your neck muscles\nThese symptoms came into fruition suddenly yesterday, and you\u2019re worried because your vision loss happened so quickly and you\u2019re feeling quite unwell overall.Can you tell me how severe your fever, night sweats, or scalp tenderness feel if you think about them carefully\u2014and whether you experience any pain or discomfort when chewing or touching your scalp, even if you haven't mentioned it before?stoic_minimizer",
+    "output": "THINKING: I\u2019m a bit embarrassed about all this, but I know I should mention everything. The fever and night sweats feel mild, probably nothing serious, and I don\u2019t really want to make a big deal out of it, but \nANSWER: The fever and night sweats aren\u2019t that bad, really, and the scalp tenderness is just when I press on it. I don\u2019t know if it\u2019s anything to worry about, but I thought I should mention it.",
+    "thinking": "I\u2019m a bit embarrassed about all this, but I know I should mention everything. The fever and night sweats feel mild, probably nothing serious, and I don\u2019t really want to make a big deal out of it, but",
+    "answer": "The fever and night sweats aren\u2019t that bad, really, and the scalp tenderness is just when I press on it. I don\u2019t know if it\u2019s anything to worry about, but I thought I should mention it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 14,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  },
+  {
+    "vignette_index": 145,
+    "input": "**PATIENT CHARACTER:** Patient with Anterior ischemic optic neuropathy\n\nYou are a patient: You are 68 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden, painless loss of vision in your right eye that started just a few hours ago\n- You notice a reduced central and inferior visual field in that eye\n- You\u2019ve been feeling a dull headache on the right side and some tenderness in your scalp, especially when you touch it\n- You also feel generally unwell, with some mild fever and occasional night sweats\n- Recently, you've experienced some jaw pain when chewing and stiffness in your neck muscles\nThese symptoms came into fruition suddenly yesterday, and you\u2019re worried because your vision loss happened so quickly and you\u2019re feeling quite unwell overall.Have you experienced any jaw pain or aching when chewing, or tenderness when touching your scalp, especially near your temples?stoic_minimizer",
+    "output": "THINKING: I\u2019ve had this pain and tenderness for a bit now, and I guess I should get it checked, but I don\u2019t want to make a big deal out of it. Still, the vision thing is scary, so I thought I\u2019d come in, even if\nANSWER: Yeah, I\u2019ve been noticing some tenderness when I touch my scalp, especially near my temples, and I do have a little jaw pain when I chew. It\u2019s probably nothing, but I figured I\u2019d better get it looked at.",
+    "thinking": "I\u2019ve had this pain and tenderness for a bit now, and I guess I should get it checked, but I don\u2019t want to make a big deal out of it. Still, the vision thing is scary, so I thought I\u2019d come in, even if",
+    "answer": "Yeah, I\u2019ve been noticing some tenderness when I touch my scalp, especially near my temples, and I do have a little jaw pain when I chew. It\u2019s probably nothing, but I figured I\u2019d better get it looked at.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 16,
+    "gold_diagnosis": "Anterior ischemic optic neuropathy"
+  }
+]

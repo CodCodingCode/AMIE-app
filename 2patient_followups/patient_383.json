@@ -1,0 +1,116 @@
+[
+  {
+    "vignette_index": 383,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with First degree haemorrhoids\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Bright-red, painless rectal bleeding during defecation\n- Blood appears as streaks on toilet paper and sometimes drips into the toilet\n- Occasional anal itching and irritation\n- You\u2019ve noticed that the bleeding happens mostly after prolonged straining during bowel movements\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, especially after long episodes of constipation and straining on the toilet. You\u2019ve also noticed that your stools sometimes seem coated with blood but aren\u2019t mixed in, and the itching can be quite uncomfortable, particularly after bowel movements.",
+    "output": "THINKING: I should explain my symptoms clearly but also express how worried I am about what it might mean. I want to mention all the symptoms so the doctor understands how serious it feels to me.\nANSWER: I\u2019m 45, and I keep seeing blood when I go to the bathroom, but it\u2019s this bright red stuff on the toilet paper, and sometimes it just drips in the water. It\u2019s not painful, but it\u2019s so alarming, and I\u2019ve been really worried I might have something worse. I also feel itchy around there, and it\u2019s pretty uncomfortable, especially after I strain a lot during those long, difficult bowel movements.",
+    "thinking": "I should explain my symptoms clearly but also express how worried I am about what it might mean. I want to mention all the symptoms so the doctor understands how serious it feels to me.",
+    "answer": "I\u2019m 45, and I keep seeing blood when I go to the bathroom, but it\u2019s this bright red stuff on the toilet paper, and sometimes it just drips in the water. It\u2019s not painful, but it\u2019s so alarming, and I\u2019ve been really worried I might have something worse. I also feel itchy around there, and it\u2019s pretty uncomfortable, especially after I strain a lot during those long, difficult bowel movements.",
+    "behavior_type": "anxious_amplifier",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient with health anxiety who amplifies symptoms",
+      "modifiers": [
+        "catastrophic_thinking",
+        "symptom_amplification",
+        "multiple_concerns"
+      ],
+      "empathy_cues": [
+        "high_anxiety",
+        "catastrophic_language",
+        "reassurance_seeking",
+        "fear_expression"
+      ]
+    },
+    "gold_diagnosis": "First degree haemorrhoids"
+  },
+  {
+    "vignette_index": 383,
+    "input": "**PATIENT CHARACTER:** Patient with First degree haemorrhoids\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Bright-red, painless rectal bleeding during defecation\n- Blood appears as streaks on toilet paper and sometimes drips into the toilet\n- Occasional anal itching and irritation\n- You\u2019ve noticed that the bleeding happens mostly after prolonged straining during bowel movements\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, especially after long episodes of constipation and straining on the toilet. You\u2019ve also noticed that your stools sometimes seem coated with blood but aren\u2019t mixed in, and the itching can be quite uncomfortable, particularly after bowel movements.\"Can you tell me more about how much blood you've noticed\u2014has it been just a little on the toilet paper, or have you seen larger amounts, or something that worries you about the amount of bleeding?\"anxious_amplifier",
+    "output": "THINKING: I feel really worried because the bleeding, even if it\u2019s just on the toilet paper, keeps happening after I strain really hard. I keep thinking it might be something terrible like cancer or something w\nANSWER: It\u2019s a lot, really. I see bright blood sometimes just on the paper, or it drips into the toilet and it\u2019s like, a lot more than I want to see. I keep thinking, what if it\u2019s something really bad, like cancer or a bleed that won\u2019t stop? And the itching and irritation is making me uncomfortable too.",
+    "thinking": "I feel really worried because the bleeding, even if it\u2019s just on the toilet paper, keeps happening after I strain really hard. I keep thinking it might be something terrible like cancer or something w",
+    "answer": "It\u2019s a lot, really. I see bright blood sometimes just on the paper, or it drips into the toilet and it\u2019s like, a lot more than I want to see. I keep thinking, what if it\u2019s something really bad, like cancer or a bleed that won\u2019t stop? And the itching and irritation is making me uncomfortable too.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 0,
+    "gold_diagnosis": "First degree haemorrhoids"
+  },
+  {
+    "vignette_index": 383,
+    "input": "**PATIENT CHARACTER:** Patient with First degree haemorrhoids\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Bright-red, painless rectal bleeding during defecation\n- Blood appears as streaks on toilet paper and sometimes drips into the toilet\n- Occasional anal itching and irritation\n- You\u2019ve noticed that the bleeding happens mostly after prolonged straining during bowel movements\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, especially after long episodes of constipation and straining on the toilet. You\u2019ve also noticed that your stools sometimes seem coated with blood but aren\u2019t mixed in, and the itching can be quite uncomfortable, particularly after bowel movements.Can you tell me more about how much blood you've seen\u2014has it been just a little on the toilet paper, or have you noticed larger amounts, or anything that worries you about the amount of bleeding?anxious_amplifier",
+    "output": "THINKING: I feel really worried about the amount of blood I've seen. Even if it's just on the toilet paper or a little drip, it seems like a lot to me, and I keep thinking it might be something serious like can\nANSWER: It\u2019s mostly just a little on the toilet paper, but sometimes I see it drip into the water, and I don\u2019t know if that\u2019s normal or if it means I\u2019m seriously sick. It just seems like a lot to me, and I keep thinking it\u2019s something really bad.",
+    "thinking": "I feel really worried about the amount of blood I've seen. Even if it's just on the toilet paper or a little drip, it seems like a lot to me, and I keep thinking it might be something serious like can",
+    "answer": "It\u2019s mostly just a little on the toilet paper, but sometimes I see it drip into the water, and I don\u2019t know if that\u2019s normal or if it means I\u2019m seriously sick. It just seems like a lot to me, and I keep thinking it\u2019s something really bad.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 2,
+    "gold_diagnosis": "First degree haemorrhoids"
+  },
+  {
+    "vignette_index": 383,
+    "input": "**PATIENT CHARACTER:** Patient with First degree haemorrhoids\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Bright-red, painless rectal bleeding during defecation\n- Blood appears as streaks on toilet paper and sometimes drips into the toilet\n- Occasional anal itching and irritation\n- You\u2019ve noticed that the bleeding happens mostly after prolonged straining during bowel movements\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, especially after long episodes of constipation and straining on the toilet. You\u2019ve also noticed that your stools sometimes seem coated with blood but aren\u2019t mixed in, and the itching can be quite uncomfortable, particularly after bowel movements.Can you tell me if the bleeding has been coming from just one side of your rectum or both sides, and have you noticed if the amount of blood has changed\u2014becoming more or less\u2014over the past couple of weeks?anxious_amplifier",
+    "output": "THINKING: I am really worried about whether this bleeding could be something more serious, like cancer or something else terrible, especially since it's been happening for a couple of weeks now. I also want to \nANSWER: It\u2019s been coming from both sides, I think, or maybe just one, I\u2019m not so sure, and the amount\u2026 I mean, sometimes it\u2019s a little and sometimes more, like dripping or on the paper, and I keep worrying if it\u2019s getting worse or if it\u2019s something dangerous.",
+    "thinking": "I am really worried about whether this bleeding could be something more serious, like cancer or something else terrible, especially since it's been happening for a couple of weeks now. I also want to",
+    "answer": "It\u2019s been coming from both sides, I think, or maybe just one, I\u2019m not so sure, and the amount\u2026 I mean, sometimes it\u2019s a little and sometimes more, like dripping or on the paper, and I keep worrying if it\u2019s getting worse or if it\u2019s something dangerous.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 4,
+    "gold_diagnosis": "First degree haemorrhoids"
+  },
+  {
+    "vignette_index": 383,
+    "input": "**PATIENT CHARACTER:** Patient with First degree haemorrhoids\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Bright-red, painless rectal bleeding during defecation\n- Blood appears as streaks on toilet paper and sometimes drips into the toilet\n- Occasional anal itching and irritation\n- You\u2019ve noticed that the bleeding happens mostly after prolonged straining during bowel movements\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, especially after long episodes of constipation and straining on the toilet. You\u2019ve also noticed that your stools sometimes seem coated with blood but aren\u2019t mixed in, and the itching can be quite uncomfortable, particularly after bowel movements.Can you tell me if the bleeding happens immediately after you have a bowel movement, if it continues afterward, or if you notice blood at different times? And is there any mucus or other changes you\u2019ve noticed along with the bleeding?anxious_amplifier",
+    "output": "THINKING: I worry that the bleeding might be really serious, maybe something like cancer or something terrible, especially since it's been happening for a couple of weeks now. I don\u2019t really understand if it\u2019s \nANSWER: It\u2019s mostly right after I go, and then sometimes I see it on the toilet paper or dripping in the toilet, and I don\u2019t notice mucus or anything else really, but the bleeding is just so bright and I keep worrying it\u2019s something terrible like cancer or maybe I\u2019m bleeding internally or something really bad.",
+    "thinking": "I worry that the bleeding might be really serious, maybe something like cancer or something terrible, especially since it's been happening for a couple of weeks now. I don\u2019t really understand if it\u2019s",
+    "answer": "It\u2019s mostly right after I go, and then sometimes I see it on the toilet paper or dripping in the toilet, and I don\u2019t notice mucus or anything else really, but the bleeding is just so bright and I keep worrying it\u2019s something terrible like cancer or maybe I\u2019m bleeding internally or something really bad.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 6,
+    "gold_diagnosis": "First degree haemorrhoids"
+  },
+  {
+    "vignette_index": 383,
+    "input": "**PATIENT CHARACTER:** Patient with First degree haemorrhoids\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Bright-red, painless rectal bleeding during defecation\n- Blood appears as streaks on toilet paper and sometimes drips into the toilet\n- Occasional anal itching and irritation\n- You\u2019ve noticed that the bleeding happens mostly after prolonged straining during bowel movements\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, especially after long episodes of constipation and straining on the toilet. You\u2019ve also noticed that your stools sometimes seem coated with blood but aren\u2019t mixed in, and the itching can be quite uncomfortable, particularly after bowel movements.Can you tell me if the bleeding seems to be coming from just one side of your rectum or both sides, and whether the amount or pattern of bleeding has changed at all over the past few weeks?anxious_amplifier",
+    "output": "THINKING: I\u2019m feeling really anxious about the bleeding, especially since it's bright red and seems to happen mostly after I strain. I worry it might be something serious like cancer, but I guess it could be ju\nANSWER: Well, it mostly happens on one side, I think? Sometimes I see blood on the toilet paper or in the water, but I don\u2019t know if it\u2019s gotten worse or just the same. The bleeding feels like it's connected to when I strain a lot, but I keep worrying it could be something really bad.",
+    "thinking": "I\u2019m feeling really anxious about the bleeding, especially since it's bright red and seems to happen mostly after I strain. I worry it might be something serious like cancer, but I guess it could be ju",
+    "answer": "Well, it mostly happens on one side, I think? Sometimes I see blood on the toilet paper or in the water, but I don\u2019t know if it\u2019s gotten worse or just the same. The bleeding feels like it's connected to when I strain a lot, but I keep worrying it could be something really bad.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 8,
+    "gold_diagnosis": "First degree haemorrhoids"
+  },
+  {
+    "vignette_index": 383,
+    "input": "**PATIENT CHARACTER:** Patient with First degree haemorrhoids\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Bright-red, painless rectal bleeding during defecation\n- Blood appears as streaks on toilet paper and sometimes drips into the toilet\n- Occasional anal itching and irritation\n- You\u2019ve noticed that the bleeding happens mostly after prolonged straining during bowel movements\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, especially after long episodes of constipation and straining on the toilet. You\u2019ve also noticed that your stools sometimes seem coated with blood but aren\u2019t mixed in, and the itching can be quite uncomfortable, particularly after bowel movements.Can you tell me if the bleeding always happens right after you have a bowel movement, or if sometimes you notice bleeding even when you haven't just gone?anxious_amplifier",
+    "output": "THINKING: I feel really worried about the bleeding, and I keep thinking it might be something serious like cancer, but I also notice it mostly happens after I strain a lot. I don\u2019t know if it can happen when I \nANSWER: Well, I think it mostly happens right after I\u2019ve been straining for a long time, but sometimes I notice blood even if I haven\u2019t gone recently. It\u2019s like, I\u2019m not sure if it only happens then.",
+    "thinking": "I feel really worried about the bleeding, and I keep thinking it might be something serious like cancer, but I also notice it mostly happens after I strain a lot. I don\u2019t know if it can happen when I",
+    "answer": "Well, I think it mostly happens right after I\u2019ve been straining for a long time, but sometimes I notice blood even if I haven\u2019t gone recently. It\u2019s like, I\u2019m not sure if it only happens then.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 10,
+    "gold_diagnosis": "First degree haemorrhoids"
+  },
+  {
+    "vignette_index": 383,
+    "input": "**PATIENT CHARACTER:** Patient with First degree haemorrhoids\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Bright-red, painless rectal bleeding during defecation\n- Blood appears as streaks on toilet paper and sometimes drips into the toilet\n- Occasional anal itching and irritation\n- You\u2019ve noticed that the bleeding happens mostly after prolonged straining during bowel movements\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, especially after long episodes of constipation and straining on the toilet. You\u2019ve also noticed that your stools sometimes seem coated with blood but aren\u2019t mixed in, and the itching can be quite uncomfortable, particularly after bowel movements.Can you tell me if the bleeding happens only right after you have a bowel movement, or does it sometimes happen at other times? And, when you notice the bleeding, do you also see any mucus, or does it seem to cause you pain during or after your bowel movements?anxious_amplifier",
+    "output": "THINKING: I\u2019m really worried about the bleeding and the itching. I don\u2019t want it to be something worse, like cancer or something. I need to explain how it\u2019s mostly after I strain and how it\u2019s just in the toilet\nANSWER: It mostly happens right after I strain a lot, especially if I\u2019ve been constipated, and I see a little blood on the toilet paper or dripping into the water. The bleeding isn\u2019t really painful, but the itching and irritation are terrible, especially after I go.",
+    "thinking": "I\u2019m really worried about the bleeding and the itching. I don\u2019t want it to be something worse, like cancer or something. I need to explain how it\u2019s mostly after I strain and how it\u2019s just in the toilet",
+    "answer": "It mostly happens right after I strain a lot, especially if I\u2019ve been constipated, and I see a little blood on the toilet paper or dripping into the water. The bleeding isn\u2019t really painful, but the itching and irritation are terrible, especially after I go.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 12,
+    "gold_diagnosis": "First degree haemorrhoids"
+  },
+  {
+    "vignette_index": 383,
+    "input": "**PATIENT CHARACTER:** Patient with First degree haemorrhoids\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Bright-red, painless rectal bleeding during defecation\n- Blood appears as streaks on toilet paper and sometimes drips into the toilet\n- Occasional anal itching and irritation\n- You\u2019ve noticed that the bleeding happens mostly after prolonged straining during bowel movements\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, especially after long episodes of constipation and straining on the toilet. You\u2019ve also noticed that your stools sometimes seem coated with blood but aren\u2019t mixed in, and the itching can be quite uncomfortable, particularly after bowel movements.Can you tell me if you experience any pain, burning, or tearing during or after your bowel movements, and whether there is any mucus or other changes like swelling or bumps in your anal area?anxious_amplifier",
+    "output": "THINKING: I'm worried that this bleeding might be something terrible, like cancer or something worse than just hemorrhoids. The itching and bleeding are so uncomfortable and seem to be getting worse, I feel pre\nANSWER: Yeah, I do see some blood, like on the toilet paper or dripping in the toilet, and it\u2019s painless but it\u2019s definitely there after I strain a lot. The itching is really annoying too, and I just keep worrying it\u2019s something serious.",
+    "thinking": "I'm worried that this bleeding might be something terrible, like cancer or something worse than just hemorrhoids. The itching and bleeding are so uncomfortable and seem to be getting worse, I feel pre",
+    "answer": "Yeah, I do see some blood, like on the toilet paper or dripping in the toilet, and it\u2019s painless but it\u2019s definitely there after I strain a lot. The itching is really annoying too, and I just keep worrying it\u2019s something serious.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 14,
+    "gold_diagnosis": "First degree haemorrhoids"
+  },
+  {
+    "vignette_index": 383,
+    "input": "**PATIENT CHARACTER:** Patient with First degree haemorrhoids\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Bright-red, painless rectal bleeding during defecation\n- Blood appears as streaks on toilet paper and sometimes drips into the toilet\n- Occasional anal itching and irritation\n- You\u2019ve noticed that the bleeding happens mostly after prolonged straining during bowel movements\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, especially after long episodes of constipation and straining on the toilet. You\u2019ve also noticed that your stools sometimes seem coated with blood but aren\u2019t mixed in, and the itching can be quite uncomfortable, particularly after bowel movements.Can I gently examine your anal area to look for any visible swellings, skin tags, fissures, or signs of bleeding or irritation\u2014this will help us understand what might be causing your symptoms?anxious_amplifier",
+    "output": "THINKING: I'm really worried there's something seriously wrong, maybe even cancer or something terrible, especially with the bleeding and itching. The idea of anyone examining me feels embarrassing and painful \nANSWER: Okay, but please be gentle\u2014I\u2019m really nervous about what you might see and what it means, and I just want to make sure it\u2019s not something really bad.",
+    "thinking": "I'm really worried there's something seriously wrong, maybe even cancer or something terrible, especially with the bleeding and itching. The idea of anyone examining me feels embarrassing and painful",
+    "answer": "Okay, but please be gentle\u2014I\u2019m really nervous about what you might see and what it means, and I just want to make sure it\u2019s not something really bad.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 16,
+    "gold_diagnosis": "First degree haemorrhoids"
+  }
+]

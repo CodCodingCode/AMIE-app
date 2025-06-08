@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 402,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Exertional heat stroke\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Extremely high body temperature (104\u00b0F / 40\u00b0C)\n- Confusion and disorientation\n- Severe headache and irritability\n- Rapid breathing and sweating, despite feeling very hot\n- Seizures occurring suddenly\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly after a strenuous outdoor workout in the heat, about two hours ago. I was feeling fine at first, but then I began to feel dizzy and confused, and my skin was just radiating heat. I started sweating a lot but then stopped sweating altogether, and my head began pounding intensely. I couldn't think straight anymore, and then I had a seizure on the way to the hospital.",
+    "output": "THINKING: I need to explain my situation clearly but simply, focusing on what I remember and what I feel. I should mention the recent heat exposure and the sudden worsening of symptoms. I might not understand a\nANSWER: I\u2019m 45, and I\u2019m a guy. I was working outside in the heat \u2014 it was really hot \u2014 and I started feeling super hot, but I wasn\u2019t sweating anymore, and then I got really dizzy and confused. My head was pounding, and I started having this seizure thing on the way here, so I thought I should come in.",
+    "thinking": "I need to explain my situation clearly but simply, focusing on what I remember and what I feel. I should mention the recent heat exposure and the sudden worsening of symptoms. I might not understand a",
+    "answer": "I\u2019m 45, and I\u2019m a guy. I was working outside in the heat \u2014 it was really hot \u2014 and I started feeling super hot, but I wasn\u2019t sweating anymore, and then I got really dizzy and confused. My head was pounding, and I started having this seizure thing on the way here, so I thought I should come in.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Exertional heat stroke"
+  },
+  {
+    "vignette_index": 402,
+    "input": "**PATIENT CHARACTER:** Patient with Exertional heat stroke\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Extremely high body temperature (104\u00b0F / 40\u00b0C)\n- Confusion and disorientation\n- Severe headache and irritability\n- Rapid breathing and sweating, despite feeling very hot\n- Seizures occurring suddenly\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly after a strenuous outdoor workout in the heat, about two hours ago. I was feeling fine at first, but then I began to feel dizzy and confused, and my skin was just radiating heat. I started sweating a lot but then stopped sweating altogether, and my head began pounding intensely. I couldn't think straight anymore, and then I had a seizure on the way to the hospital.Can you tell me what exactly happened during the seizure\u2014how long it lasted, what you experienced, and how you felt afterward?baseline",
+    "output": "THINKING: I feel nervous talking about this because I don't really remember everything clearly. It was all very sudden and confusing, and I just want to explain what I felt without making it sound worse than it\nANSWER: It all happened really fast, I don't remember much, just that I started shaking and felt all weird, then I blacked out or something. After that, I was just really confused and felt horrible.",
+    "thinking": "I feel nervous talking about this because I don't really remember everything clearly. It was all very sudden and confusing, and I just want to explain what I felt without making it sound worse than it",
+    "answer": "It all happened really fast, I don't remember much, just that I started shaking and felt all weird, then I blacked out or something. After that, I was just really confused and felt horrible.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Exertional heat stroke"
+  },
+  {
+    "vignette_index": 402,
+    "input": "**PATIENT CHARACTER:** Patient with Exertional heat stroke\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Extremely high body temperature (104\u00b0F / 40\u00b0C)\n- Confusion and disorientation\n- Severe headache and irritability\n- Rapid breathing and sweating, despite feeling very hot\n- Seizures occurring suddenly\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly after a strenuous outdoor workout in the heat, about two hours ago. I was feeling fine at first, but then I began to feel dizzy and confused, and my skin was just radiating heat. I started sweating a lot but then stopped sweating altogether, and my head began pounding intensely. I couldn't think straight anymore, and then I had a seizure on the way to the hospital.\"I understand your memory of what happened might be blurry, but could you tell me as best you can what you experienced during the event\u2014like how long it seemed to last, what you felt or remember happening at the time, and what was happening right afterward?\"baseline",
+    "output": "THINKING: I'm trying to remember what happened, but honestly, everything was fuzzy and frightening. It all felt weird, and I just want to explain it as best I can, even though I don't really get what it all mea\nANSWER: I think I don't remember exactly, but I felt like I was really hot and dizzy, then everything went kind of blurry and then I had a seizure. It all happened pretty fast, I guess.",
+    "thinking": "I'm trying to remember what happened, but honestly, everything was fuzzy and frightening. It all felt weird, and I just want to explain it as best I can, even though I don't really get what it all mea",
+    "answer": "I think I don't remember exactly, but I felt like I was really hot and dizzy, then everything went kind of blurry and then I had a seizure. It all happened pretty fast, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Exertional heat stroke"
+  },
+  {
+    "vignette_index": 402,
+    "input": "**PATIENT CHARACTER:** Patient with Exertional heat stroke\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Extremely high body temperature (104\u00b0F / 40\u00b0C)\n- Confusion and disorientation\n- Severe headache and irritability\n- Rapid breathing and sweating, despite feeling very hot\n- Seizures occurring suddenly\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly after a strenuous outdoor workout in the heat, about two hours ago. I was feeling fine at first, but then I began to feel dizzy and confused, and my skin was just radiating heat. I started sweating a lot but then stopped sweating altogether, and my head began pounding intensely. I couldn't think straight anymore, and then I had a seizure on the way to the hospital.Can you tell me more about what you experienced during the seizure\u2014specifically, how long you felt it lasted, whether you noticed any movements like shaking or tongue biting, if you lost control of your bladder or bowels, and what you remember happening immediately afterward?baseline",
+    "output": "THINKING: I feel overwhelmed and a bit scared about remembering the details. I don\u2019t really know what exactly happened during the seizure, and I\u2019m worried about what the doctor needs to know. I just want to get\nANSWER: I don\u2019t really remember much during the seizure, just that I suddenly felt really weird and everything kind of spun. I don\u2019t know if I was shaking or biting my tongue, I just remember being confused, and then I felt very tired afterward.",
+    "thinking": "I feel overwhelmed and a bit scared about remembering the details. I don\u2019t really know what exactly happened during the seizure, and I\u2019m worried about what the doctor needs to know. I just want to get",
+    "answer": "I don\u2019t really remember much during the seizure, just that I suddenly felt really weird and everything kind of spun. I don\u2019t know if I was shaking or biting my tongue, I just remember being confused, and then I felt very tired afterward.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Exertional heat stroke"
+  },
+  {
+    "vignette_index": 402,
+    "input": "**PATIENT CHARACTER:** Patient with Exertional heat stroke\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Extremely high body temperature (104\u00b0F / 40\u00b0C)\n- Confusion and disorientation\n- Severe headache and irritability\n- Rapid breathing and sweating, despite feeling very hot\n- Seizures occurring suddenly\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly after a strenuous outdoor workout in the heat, about two hours ago. I was feeling fine at first, but then I began to feel dizzy and confused, and my skin was just radiating heat. I started sweating a lot but then stopped sweating altogether, and my head began pounding intensely. I couldn't think straight anymore, and then I had a seizure on the way to the hospital.During the seizure, did you notice any specific movements like biting your tongue, shaking in a certain way, or losing control of your bladder or bowels? Can you estimate how long the shaking or any movements lasted, and do you remember what state you were in immediately afterward?baseline",
+    "output": "THINKING: I\u2019m trying to remember what I felt during the seizure, but honestly it\u2019s all kind of a blur and scary. I\u2019m worried about how long it lasted and if I did something embarrassing like lose control, but I\nANSWER: Uh, I think I was shaking\u2026 it was like really fast and all over, I guess. I don\u2019t know how long it lasted, maybe a little while, and after that I just felt really dizzy and\u2026 kind of out of it.",
+    "thinking": "I\u2019m trying to remember what I felt during the seizure, but honestly it\u2019s all kind of a blur and scary. I\u2019m worried about how long it lasted and if I did something embarrassing like lose control, but I",
+    "answer": "Uh, I think I was shaking\u2026 it was like really fast and all over, I guess. I don\u2019t know how long it lasted, maybe a little while, and after that I just felt really dizzy and\u2026 kind of out of it.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Exertional heat stroke"
+  },
+  {
+    "vignette_index": 402,
+    "input": "**PATIENT CHARACTER:** Patient with Exertional heat stroke\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Extremely high body temperature (104\u00b0F / 40\u00b0C)\n- Confusion and disorientation\n- Severe headache and irritability\n- Rapid breathing and sweating, despite feeling very hot\n- Seizures occurring suddenly\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly after a strenuous outdoor workout in the heat, about two hours ago. I was feeling fine at first, but then I began to feel dizzy and confused, and my skin was just radiating heat. I started sweating a lot but then stopped sweating altogether, and my head began pounding intensely. I couldn't think straight anymore, and then I had a seizure on the way to the hospital.During the event, did you notice any biting of your tongue, loss of bladder or bowel control, or any specific movements that seemed more rhythmic or repetitive? Would you be comfortable telling me if any of these things happened?baseline",
+    "output": "THINKING: I\u2019m really worried about what was happening, and I don\u2019t quite understand what the doctor is asking. I want to be honest, but I\u2019m also scared and don\u2019t remember everything clearly right now.\nANSWER: Um, I don\u2019t really remember if I did any of that stuff like biting my tongue or anything. I just felt really out of it and then I guess I seizures or whatever. I don\u2019t know if I did anything else.",
+    "thinking": "I\u2019m really worried about what was happening, and I don\u2019t quite understand what the doctor is asking. I want to be honest, but I\u2019m also scared and don\u2019t remember everything clearly right now.",
+    "answer": "Um, I don\u2019t really remember if I did any of that stuff like biting my tongue or anything. I just felt really out of it and then I guess I seizures or whatever. I don\u2019t know if I did anything else.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Exertional heat stroke"
+  },
+  {
+    "vignette_index": 402,
+    "input": "**PATIENT CHARACTER:** Patient with Exertional heat stroke\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Extremely high body temperature (104\u00b0F / 40\u00b0C)\n- Confusion and disorientation\n- Severe headache and irritability\n- Rapid breathing and sweating, despite feeling very hot\n- Seizures occurring suddenly\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly after a strenuous outdoor workout in the heat, about two hours ago. I was feeling fine at first, but then I began to feel dizzy and confused, and my skin was just radiating heat. I started sweating a lot but then stopped sweating altogether, and my head began pounding intensely. I couldn't think straight anymore, and then I had a seizure on the way to the hospital.Could you tell me if, during the event, you remember biting your tongue, or if you lost control of your bladder or bowel? If you're unsure or don\u2019t remember, that\u2019s okay\u2014any bits you can recall would help me understand what happened.baseline",
+    "output": "THINKING: I'm a bit worried about what I might have done or remember. I can't really think straight, and I\u2019m not sure if I did anything like bite my tongue or if I lost control of anything, but I do remember co\nANSWER: I honestly don\u2019t remember biting my tongue or losing control of anything. I was just feeling so strange, and then everything went blurry and I started shaking.",
+    "thinking": "I'm a bit worried about what I might have done or remember. I can't really think straight, and I\u2019m not sure if I did anything like bite my tongue or if I lost control of anything, but I do remember co",
+    "answer": "I honestly don\u2019t remember biting my tongue or losing control of anything. I was just feeling so strange, and then everything went blurry and I started shaking.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Exertional heat stroke"
+  },
+  {
+    "vignette_index": 402,
+    "input": "**PATIENT CHARACTER:** Patient with Exertional heat stroke\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Extremely high body temperature (104\u00b0F / 40\u00b0C)\n- Confusion and disorientation\n- Severe headache and irritability\n- Rapid breathing and sweating, despite feeling very hot\n- Seizures occurring suddenly\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly after a strenuous outdoor workout in the heat, about two hours ago. I was feeling fine at first, but then I began to feel dizzy and confused, and my skin was just radiating heat. I started sweating a lot but then stopped sweating altogether, and my head began pounding intensely. I couldn't think straight anymore, and then I had a seizure on the way to the hospital.During the event, did you notice any specific symptoms like biting your tongue, losing control of your bladder or bowel, or losing consciousness\u2014things that you might not remember clearly but that others might have seen or that you might have felt happening?baseline",
+    "output": "THINKING: I\u2019m really overwhelmed and still trying to process what happened. I don\u2019t remember much clearly, and I\u2019m worried about what I might have done or if I hurt myself during the seizure. I just know I was \nANSWER: I don't really remember much, but I felt like I was losing control and I think I might have fallen or something during the seizure.",
+    "thinking": "I\u2019m really overwhelmed and still trying to process what happened. I don\u2019t remember much clearly, and I\u2019m worried about what I might have done or if I hurt myself during the seizure. I just know I was",
+    "answer": "I don't really remember much, but I felt like I was losing control and I think I might have fallen or something during the seizure.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Exertional heat stroke"
+  }
+]

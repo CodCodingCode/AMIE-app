@@ -1,0 +1,106 @@
+[
+  {
+    "vignette_index": 209,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Mitral atresia\n\nYou are a patient: You are 65 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Shortness of breath, especially when lying down or exerting yourself\n- Swelling in your ankles and feet that seems to get worse by the end of the day\n- Fatigue that makes it hard to keep up with your usual activities\n- A heart murmur that your doctor recently mentioned during a check-up\n- Occasional irregular heartbeats you've noticed over the past few months\nThese symptoms started gradually about three months ago, beginning with mild fatigue and some swelling in your ankles, but lately, the shortness of breath has become more noticeable, especially when you lie down or climb stairs.",
+    "output": "THINKING: The doctor is asking why I decided to come in today. I should explain that I\u2019ve been feeling worse over time but maybe not make it seem like it\u2019s a big deal. I might also mention I\u2019ve been told to com\nANSWER: Well, I\u2019m 65, and I\u2019m a man. I guess I\u2019ve just been feeling more tired than usual, and my ankles and feet have been swelling up by the end of the day. It\u2019s not always the same, but it\u2019s been happening for a few months now. I thought I\u2019d better come in since the shortness of breath is worse now, especially when I lie down or climb stairs. I don\u2019t want to make a big deal of it, but someone told me I should get checked out.",
+    "thinking": "The doctor is asking why I decided to come in today. I should explain that I\u2019ve been feeling worse over time but maybe not make it seem like it\u2019s a big deal. I might also mention I\u2019ve been told to com",
+    "answer": "Well, I\u2019m 65, and I\u2019m a man. I guess I\u2019ve just been feeling more tired than usual, and my ankles and feet have been swelling up by the end of the day. It\u2019s not always the same, but it\u2019s been happening for a few months now. I thought I\u2019d better come in since the shortness of breath is worse now, especially when I lie down or climb stairs. I don\u2019t want to make a big deal of it, but someone told me I should get checked out.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Mitral atresia"
+  },
+  {
+    "vignette_index": 209,
+    "input": "**PATIENT CHARACTER:** Patient with Mitral atresia\n\nYou are a patient: You are 65 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Shortness of breath, especially when lying down or exerting yourself\n- Swelling in your ankles and feet that seems to get worse by the end of the day\n- Fatigue that makes it hard to keep up with your usual activities\n- A heart murmur that your doctor recently mentioned during a check-up\n- Occasional irregular heartbeats you've noticed over the past few months\nThese symptoms started gradually about three months ago, beginning with mild fatigue and some swelling in your ankles, but lately, the shortness of breath has become more noticeable, especially when you lie down or climb stairs.Can you tell me more about how your shortness of breath and swelling have changed over the past few months, especially when you lie down or do any activities?stoic_minimizer",
+    "output": "THINKING: I'm not really sure how much worse it's gotten, honestly. I just know I feel more tired and the swelling seems to creep up, especially after a day of being on my feet. It\u2019s probably nothing, but I tho\nANSWER: Well, the shortness of breath and swelling kinda got worse over a few months, especially when I lie down or do anything active. It\u2019s not great, but I don\u2019t want to make a big deal out of it.",
+    "thinking": "I'm not really sure how much worse it's gotten, honestly. I just know I feel more tired and the swelling seems to creep up, especially after a day of being on my feet. It\u2019s probably nothing, but I tho",
+    "answer": "Well, the shortness of breath and swelling kinda got worse over a few months, especially when I lie down or do anything active. It\u2019s not great, but I don\u2019t want to make a big deal out of it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Mitral atresia"
+  },
+  {
+    "vignette_index": 209,
+    "input": "**PATIENT CHARACTER:** Patient with Mitral atresia\n\nYou are a patient: You are 65 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Shortness of breath, especially when lying down or exerting yourself\n- Swelling in your ankles and feet that seems to get worse by the end of the day\n- Fatigue that makes it hard to keep up with your usual activities\n- A heart murmur that your doctor recently mentioned during a check-up\n- Occasional irregular heartbeats you've noticed over the past few months\nThese symptoms started gradually about three months ago, beginning with mild fatigue and some swelling in your ankles, but lately, the shortness of breath has become more noticeable, especially when you lie down or climb stairs.Can you tell me more about how your tiredness, swelling, or shortness of breath affect your daily activities, especially when lying down at night or doing anything active?stoic_minimizer",
+    "output": "THINKING: I don't want to sound like I\u2019m overreacting, but I guess the shortness of breath and swollen feet bother me a little, especially at night. It\u2019s probably nothing, but I thought I should mention it sinc\nANSWER: Well, I think it makes it harder to sleep sometimes and I get tired more easily when I do stuff, but I don\u2019t know, I just try to handle it like I always do.",
+    "thinking": "I don't want to sound like I\u2019m overreacting, but I guess the shortness of breath and swollen feet bother me a little, especially at night. It\u2019s probably nothing, but I thought I should mention it sinc",
+    "answer": "Well, I think it makes it harder to sleep sometimes and I get tired more easily when I do stuff, but I don\u2019t know, I just try to handle it like I always do.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Mitral atresia"
+  },
+  {
+    "vignette_index": 209,
+    "input": "**PATIENT CHARACTER:** Patient with Mitral atresia\n\nYou are a patient: You are 65 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Shortness of breath, especially when lying down or exerting yourself\n- Swelling in your ankles and feet that seems to get worse by the end of the day\n- Fatigue that makes it hard to keep up with your usual activities\n- A heart murmur that your doctor recently mentioned during a check-up\n- Occasional irregular heartbeats you've noticed over the past few months\nThese symptoms started gradually about three months ago, beginning with mild fatigue and some swelling in your ankles, but lately, the shortness of breath has become more noticeable, especially when you lie down or climb stairs.Can you tell me if your symptoms\u2014like shortness of breath or swelling\u2014get worse at night or when you lie down?stoic_minimizer",
+    "output": "THINKING: I'm not really sure if it gets worse at night, but I do notice I feel more tired and the swelling seems worse at the end of the day. I guess it's not that bad most of the time, so I didn't think much \nANSWER: Yeah, I think I do feel a bit more tired and the swelling gets worse by evening, but I didn't want to make a big deal out of it. It\u2019s probably nothing, I can handle it.",
+    "thinking": "I'm not really sure if it gets worse at night, but I do notice I feel more tired and the swelling seems worse at the end of the day. I guess it's not that bad most of the time, so I didn't think much",
+    "answer": "Yeah, I think I do feel a bit more tired and the swelling gets worse by evening, but I didn't want to make a big deal out of it. It\u2019s probably nothing, I can handle it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Mitral atresia"
+  },
+  {
+    "vignette_index": 209,
+    "input": "**PATIENT CHARACTER:** Patient with Mitral atresia\n\nYou are a patient: You are 65 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Shortness of breath, especially when lying down or exerting yourself\n- Swelling in your ankles and feet that seems to get worse by the end of the day\n- Fatigue that makes it hard to keep up with your usual activities\n- A heart murmur that your doctor recently mentioned during a check-up\n- Occasional irregular heartbeats you've noticed over the past few months\nThese symptoms started gradually about three months ago, beginning with mild fatigue and some swelling in your ankles, but lately, the shortness of breath has become more noticeable, especially when you lie down or climb stairs.Can you tell me if your shortness of breath or swelling gets worse when you lie down at night, and if you wake up feeling short of breath or needing to sit up to breathe?stoic_minimizer",
+    "output": "THINKING: I don't want to overdo it or make a big deal, but I guess the breathing does feel worse sometimes when I lie down. I've just been dealing with it, thinking it'll go away or that I can handle it.\nANSWER: Yeah, it seems like it gets a bit worse at night when I lie down, but I didn't think it was that serious or anything.",
+    "thinking": "I don't want to overdo it or make a big deal, but I guess the breathing does feel worse sometimes when I lie down. I've just been dealing with it, thinking it'll go away or that I can handle it.",
+    "answer": "Yeah, it seems like it gets a bit worse at night when I lie down, but I didn't think it was that serious or anything.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Mitral atresia"
+  },
+  {
+    "vignette_index": 209,
+    "input": "**PATIENT CHARACTER:** Patient with Mitral atresia\n\nYou are a patient: You are 65 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Shortness of breath, especially when lying down or exerting yourself\n- Swelling in your ankles and feet that seems to get worse by the end of the day\n- Fatigue that makes it hard to keep up with your usual activities\n- A heart murmur that your doctor recently mentioned during a check-up\n- Occasional irregular heartbeats you've noticed over the past few months\nThese symptoms started gradually about three months ago, beginning with mild fatigue and some swelling in your ankles, but lately, the shortness of breath has become more noticeable, especially when you lie down or climb stairs.Have you noticed if you wake up at night feeling short of breath or if you find yourself needing to sit up in bed to breathe better?stoic_minimizer",
+    "output": "THINKING: I'm a little worried about the breathing stuff, but I don't want to overreact. Maybe it's just old age or something, but I guess I should mention it since it's been getting worse. I don't really like \nANSWER: Yeah, I have noticed that I sometimes wake up at night feeling a bit short of breath, especially if I lie on my back, but I thought it might pass or go away on its own.",
+    "thinking": "I'm a little worried about the breathing stuff, but I don't want to overreact. Maybe it's just old age or something, but I guess I should mention it since it's been getting worse. I don't really like",
+    "answer": "Yeah, I have noticed that I sometimes wake up at night feeling a bit short of breath, especially if I lie on my back, but I thought it might pass or go away on its own.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Mitral atresia"
+  },
+  {
+    "vignette_index": 209,
+    "input": "**PATIENT CHARACTER:** Patient with Mitral atresia\n\nYou are a patient: You are 65 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Shortness of breath, especially when lying down or exerting yourself\n- Swelling in your ankles and feet that seems to get worse by the end of the day\n- Fatigue that makes it hard to keep up with your usual activities\n- A heart murmur that your doctor recently mentioned during a check-up\n- Occasional irregular heartbeats you've noticed over the past few months\nThese symptoms started gradually about three months ago, beginning with mild fatigue and some swelling in your ankles, but lately, the shortness of breath has become more noticeable, especially when you lie down or climb stairs.Have you noticed whether your shortness of breath worsens specifically when lying down at night, and do you find that sitting up or propping yourself up makes it better?stoic_minimizer",
+    "output": "THINKING: I think about whether this issue really gets that much worse at night or just feels the same, and I feel a little embarrassed to say I haven't really paid that much attention. I don't want to make a b\nANSWER: Ah, I dunno, I guess I don't really notice it getting worse at night, but I do feel like I can breathe a little better if I sit up. It\u2019s probably nothing, though.",
+    "thinking": "I think about whether this issue really gets that much worse at night or just feels the same, and I feel a little embarrassed to say I haven't really paid that much attention. I don't want to make a b",
+    "answer": "Ah, I dunno, I guess I don't really notice it getting worse at night, but I do feel like I can breathe a little better if I sit up. It\u2019s probably nothing, though.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Mitral atresia"
+  },
+  {
+    "vignette_index": 209,
+    "input": "**PATIENT CHARACTER:** Patient with Mitral atresia\n\nYou are a patient: You are 65 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Shortness of breath, especially when lying down or exerting yourself\n- Swelling in your ankles and feet that seems to get worse by the end of the day\n- Fatigue that makes it hard to keep up with your usual activities\n- A heart murmur that your doctor recently mentioned during a check-up\n- Occasional irregular heartbeats you've noticed over the past few months\nThese symptoms started gradually about three months ago, beginning with mild fatigue and some swelling in your ankles, but lately, the shortness of breath has become more noticeable, especially when you lie down or climb stairs.\"Can you tell me if you ever wake up feeling short of breath at night, and if so, do you find that sitting upright or propping yourself up helps you breathe better?\"stoic_minimizer",
+    "output": "THINKING: The doctor is asking if I wake up feeling like I can't breathe, which I guess is kind of a big deal, but I don\u2019t really want to make a big fuss. Maybe I have, but I usually just roll over or sit up if\nANSWER: Sometimes I do wake up a bit short of breath, but I just sit up or something, and it seems to get better. I didn't think it was that bad.",
+    "thinking": "The doctor is asking if I wake up feeling like I can't breathe, which I guess is kind of a big deal, but I don\u2019t really want to make a big fuss. Maybe I have, but I usually just roll over or sit up if",
+    "answer": "Sometimes I do wake up a bit short of breath, but I just sit up or something, and it seems to get better. I didn't think it was that bad.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Mitral atresia"
+  },
+  {
+    "vignette_index": 209,
+    "input": "**PATIENT CHARACTER:** Patient with Mitral atresia\n\nYou are a patient: You are 65 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Shortness of breath, especially when lying down or exerting yourself\n- Swelling in your ankles and feet that seems to get worse by the end of the day\n- Fatigue that makes it hard to keep up with your usual activities\n- A heart murmur that your doctor recently mentioned during a check-up\n- Occasional irregular heartbeats you've noticed over the past few months\nThese symptoms started gradually about three months ago, beginning with mild fatigue and some swelling in your ankles, but lately, the shortness of breath has become more noticeable, especially when you lie down or climb stairs.\"Sometimes, when people have heart problems, they wake up during the night feeling very short of breath or needing to sit up in bed to breathe better. Can you tell me how often this happens to you\u2014like, is it a few times a week, once a week, or less\u2014and whether it\u2019s more or less than what you\u2019ve described so far?\"stoic_minimizer",
+    "output": "THINKING: I don't really want to make it seem like I'm overly worried, but I guess I do notice waking up sometimes gasping and needing to sit up a bit. I haven't kept track exactly, maybe a few times a week, bu\nANSWER: It happens a few times a week, I think, especially at night, but I didn't want to make a big deal out of it. I just figured it was probably nothing really serious.",
+    "thinking": "I don't really want to make it seem like I'm overly worried, but I guess I do notice waking up sometimes gasping and needing to sit up a bit. I haven't kept track exactly, maybe a few times a week, bu",
+    "answer": "It happens a few times a week, I think, especially at night, but I didn't want to make a big deal out of it. I just figured it was probably nothing really serious.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 14,
+    "gold_diagnosis": "Mitral atresia"
+  }
+]

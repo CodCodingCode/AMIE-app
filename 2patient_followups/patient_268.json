@@ -1,0 +1,116 @@
+[
+  {
+    "vignette_index": 268,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, oval sore (chancre) with smooth edges and a clean base on your penis, which you noticed about three days ago.\n- Serous (clear) fluid coming from the sore when you gently press on it.\n- Swollen, firm lymph nodes on both sides of your groin that you can feel when pressing around.\n- You\u2019ve had multiple sexual partners in the past month and occasionally use recreational substances.\nTHESE SYMPTOMS CAME INTO FRUITION: over the past three days, starting suddenly after a recent sexual encounter.",
+    "output": "THINKING: I should tell him what I've been noticing, but I don't want to freak out or make it seem like a big deal. I probably waited longer than I should have, but I keep thinking it will go away on its own. I\nANSWER: I'm 32, and I'm a guy. Well, I found this sore thing on my penis\u2014it's kinda like a little bump but smooth around the edges, and it doesn't hurt, but I noticed it a few days ago after, uh, a recent encounter. There's some clear fluid coming out when I mess with it, and I've also felt these swollen lumps in my groin on both sides. I didn't really think it was serious at first, but someone told me I should probably get checked out.",
+    "thinking": "I should tell him what I've been noticing, but I don't want to freak out or make it seem like a big deal. I probably waited longer than I should have, but I keep thinking it will go away on its own. I",
+    "answer": "I'm 32, and I'm a guy. Well, I found this sore thing on my penis\u2014it's kinda like a little bump but smooth around the edges, and it doesn't hurt, but I noticed it a few days ago after, uh, a recent encounter. There's some clear fluid coming out when I mess with it, and I've also felt these swollen lumps in my groin on both sides. I didn't really think it was serious at first, but someone told me I should probably get checked out.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 268,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, oval sore (chancre) with smooth edges and a clean base on your penis, which you noticed about three days ago.\n- Serous (clear) fluid coming from the sore when you gently press on it.\n- Swollen, firm lymph nodes on both sides of your groin that you can feel when pressing around.\n- You\u2019ve had multiple sexual partners in the past month and occasionally use recreational substances.\nTHESE SYMPTOMS CAME INTO FRUITION: over the past three days, starting suddenly after a recent sexual encounter.Can you tell me more about how the lesion has looked and felt since it first appeared\u2014has it changed in size or appearance, and have you noticed any pain or other sensations?stoic_minimizer",
+    "output": "THINKING: The sore is new but not really painful, and I\u2019ve noticed the lymph nodes maybe a little swollen, but I don\u2019t think it\u2019s serious or anything. I\u2019ve had this for a few days, but I figured it would go awa\nANSWER: It's probably nothing, really. The sore\u2019s been there a few days, but it\u2019s not that bad, and I don\u2019t really have pain or anything, just when I press on it I see some clear fluid.",
+    "thinking": "The sore is new but not really painful, and I\u2019ve noticed the lymph nodes maybe a little swollen, but I don\u2019t think it\u2019s serious or anything. I\u2019ve had this for a few days, but I figured it would go awa",
+    "answer": "It's probably nothing, really. The sore\u2019s been there a few days, but it\u2019s not that bad, and I don\u2019t really have pain or anything, just when I press on it I see some clear fluid.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 268,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, oval sore (chancre) with smooth edges and a clean base on your penis, which you noticed about three days ago.\n- Serous (clear) fluid coming from the sore when you gently press on it.\n- Swollen, firm lymph nodes on both sides of your groin that you can feel when pressing around.\n- You\u2019ve had multiple sexual partners in the past month and occasionally use recreational substances.\nTHESE SYMPTOMS CAME INTO FRUITION: over the past three days, starting suddenly after a recent sexual encounter.\"Since it first appeared, have you noticed the lesion staying the same, getting bigger, smaller, or changing in any way? Have you seen or felt any new or different sensations or changes in how it looks?\"stoic_minimizer",
+    "output": "THINKING: I guess I should mention if it's changing, but honestly, it kind of looks the same as when I first saw it. I haven't noticed anything really new or different, so I didn't think it was that important.\nANSWER: It\u2019s been pretty much the same since I first saw it, and I haven\u2019t noticed anything new or weird about how it looks or feels.",
+    "thinking": "I guess I should mention if it's changing, but honestly, it kind of looks the same as when I first saw it. I haven't noticed anything really new or different, so I didn't think it was that important.",
+    "answer": "It\u2019s been pretty much the same since I first saw it, and I haven\u2019t noticed anything new or weird about how it looks or feels.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 268,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, oval sore (chancre) with smooth edges and a clean base on your penis, which you noticed about three days ago.\n- Serous (clear) fluid coming from the sore when you gently press on it.\n- Swollen, firm lymph nodes on both sides of your groin that you can feel when pressing around.\n- You\u2019ve had multiple sexual partners in the past month and occasionally use recreational substances.\nTHESE SYMPTOMS CAME INTO FRUITION: over the past three days, starting suddenly after a recent sexual encounter.\"Can you tell me if the bump has changed at all since you first noticed it\u2014has it gotten bigger, smaller, or any different in appearance\u2014or if you've noticed any new symptoms like pain, tenderness, or any other sensations?\"stoic_minimizer",
+    "output": "THINKING: I guess the sore hasn't really changed much. It\u2019s still there and looks about the same, and I don\u2019t really notice any new pain or anything, so I guess it\u2019s not that bad. I didn\u2019t really want to make a\nANSWER: No, it\u2019s pretty much the same, not bigger or smaller and no new stuff I\u2019ve noticed, really.",
+    "thinking": "I guess the sore hasn't really changed much. It\u2019s still there and looks about the same, and I don\u2019t really notice any new pain or anything, so I guess it\u2019s not that bad. I didn\u2019t really want to make a",
+    "answer": "No, it\u2019s pretty much the same, not bigger or smaller and no new stuff I\u2019ve noticed, really.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 268,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, oval sore (chancre) with smooth edges and a clean base on your penis, which you noticed about three days ago.\n- Serous (clear) fluid coming from the sore when you gently press on it.\n- Swollen, firm lymph nodes on both sides of your groin that you can feel when pressing around.\n- You\u2019ve had multiple sexual partners in the past month and occasionally use recreational substances.\nTHESE SYMPTOMS CAME INTO FRUITION: over the past three days, starting suddenly after a recent sexual encounter.Have you noticed if the bump ever hurts, becomes tender, or causes any discomfort, especially when touched or during activities?stoic_minimizer",
+    "output": "THINKING: I don\u2019t really want to make a big deal out of this. It\u2019s just a sore, and it\u2019s not exactly painful or anything, so I figure it\u2019s probably nothing serious. Still, I guess I should mention the swelling \nANSWER: No, it doesn\u2019t really hurt or bother me when I touch it or do anything. It\u2019s just there.",
+    "thinking": "I don\u2019t really want to make a big deal out of this. It\u2019s just a sore, and it\u2019s not exactly painful or anything, so I figure it\u2019s probably nothing serious. Still, I guess I should mention the swelling",
+    "answer": "No, it doesn\u2019t really hurt or bother me when I touch it or do anything. It\u2019s just there.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 268,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, oval sore (chancre) with smooth edges and a clean base on your penis, which you noticed about three days ago.\n- Serous (clear) fluid coming from the sore when you gently press on it.\n- Swollen, firm lymph nodes on both sides of your groin that you can feel when pressing around.\n- You\u2019ve had multiple sexual partners in the past month and occasionally use recreational substances.\nTHESE SYMPTOMS CAME INTO FRUITION: over the past three days, starting suddenly after a recent sexual encounter.Can you tell me if the bump ever produces any kind of discharge, like pus or foul-smelling fluid, especially when you touch or squeeze it?stoic_minimizer",
+    "output": "THINKING: I've seen some clear fluid when I press on it, but I don't think it's anything serious. I just want to get this over with since I've had it for a few days now.\nANSWER: Yeah, sometimes fluid comes out if I press on it, but I don't really notice any smell or anything else weird. It's probably nothing, but I figured I should ask.",
+    "thinking": "I've seen some clear fluid when I press on it, but I don't think it's anything serious. I just want to get this over with since I've had it for a few days now.",
+    "answer": "Yeah, sometimes fluid comes out if I press on it, but I don't really notice any smell or anything else weird. It's probably nothing, but I figured I should ask.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 268,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, oval sore (chancre) with smooth edges and a clean base on your penis, which you noticed about three days ago.\n- Serous (clear) fluid coming from the sore when you gently press on it.\n- Swollen, firm lymph nodes on both sides of your groin that you can feel when pressing around.\n- You\u2019ve had multiple sexual partners in the past month and occasionally use recreational substances.\nTHESE SYMPTOMS CAME INTO FRUITION: over the past three days, starting suddenly after a recent sexual encounter.Have you noticed whether the discharge from the bump is thick or thin, clear or cloudy, and does it come with any other symptoms like pain or discomfort when you press on it or during activity?stoic_minimizer",
+    "output": "THINKING: It's probably nothing too serious, maybe just some irritation or something that will go away. I don't want to make a big deal out of it, but it's there and I've noticed it when I press on it.\nANSWER: The fluid is clear, and I don\u2019t really feel much pain or anything. It\u2019s been there a few days, but I thought it would go away on its own.",
+    "thinking": "It's probably nothing too serious, maybe just some irritation or something that will go away. I don't want to make a big deal out of it, but it's there and I've noticed it when I press on it.",
+    "answer": "The fluid is clear, and I don\u2019t really feel much pain or anything. It\u2019s been there a few days, but I thought it would go away on its own.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 268,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, oval sore (chancre) with smooth edges and a clean base on your penis, which you noticed about three days ago.\n- Serous (clear) fluid coming from the sore when you gently press on it.\n- Swollen, firm lymph nodes on both sides of your groin that you can feel when pressing around.\n- You\u2019ve had multiple sexual partners in the past month and occasionally use recreational substances.\nTHESE SYMPTOMS CAME INTO FRUITION: over the past three days, starting suddenly after a recent sexual encounter.Have you experienced any pain, tenderness, or discomfort when touching or pressing on the lesion, and can you describe the characteristics of any discharge\u2014like if it smells bad, is thick or cloudy, or appears pus-like?stoic_minimizer",
+    "output": "THINKING: I don\u2019t want to make a big deal out of it. It\u2019s probably nothing serious, just a sore that\u2019s been there a few days. The fluid isn\u2019t really thick or smells bad, so I\u2019m not sure if it\u2019s anything importa\nANSWER: It\u2019s just a small sore, I pressed on it and some clear fluid came out, but I don\u2019t really think it smells or looks bad. The lymph nodes are kind of swollen, but it\u2019s not that bad. I\u2019ve had it for a few days, but I thought it would go away.",
+    "thinking": "I don\u2019t want to make a big deal out of it. It\u2019s probably nothing serious, just a sore that\u2019s been there a few days. The fluid isn\u2019t really thick or smells bad, so I\u2019m not sure if it\u2019s anything importa",
+    "answer": "It\u2019s just a small sore, I pressed on it and some clear fluid came out, but I don\u2019t really think it smells or looks bad. The lymph nodes are kind of swollen, but it\u2019s not that bad. I\u2019ve had it for a few days, but I thought it would go away.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 268,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, oval sore (chancre) with smooth edges and a clean base on your penis, which you noticed about three days ago.\n- Serous (clear) fluid coming from the sore when you gently press on it.\n- Swollen, firm lymph nodes on both sides of your groin that you can feel when pressing around.\n- You\u2019ve had multiple sexual partners in the past month and occasionally use recreational substances.\nTHESE SYMPTOMS CAME INTO FRUITION: over the past three days, starting suddenly after a recent sexual encounter.\"Have you noticed if your lymph nodes in your groin are tender, sore, or feel warm or firm when you touch them\u2014like they\u2019re swollen or painful, especially when you move or press on them?\"stoic_minimizer",
+    "output": "THINKING: I guess I should mention the lymph nodes, but it\u2019s probably nothing serious. I\u2019ve had them for a little while, and I don\u2019t want to make a big deal out of it. It\u2019s not painful, just there when I check,\nANSWER: They feel a bit firm and swollen, but I don\u2019t really notice any pain or warmth, and I\u2019ve had them for a while now.",
+    "thinking": "I guess I should mention the lymph nodes, but it\u2019s probably nothing serious. I\u2019ve had them for a little while, and I don\u2019t want to make a big deal out of it. It\u2019s not painful, just there when I check,",
+    "answer": "They feel a bit firm and swollen, but I don\u2019t really notice any pain or warmth, and I\u2019ve had them for a while now.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 14,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 268,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless, oval sore (chancre) with smooth edges and a clean base on your penis, which you noticed about three days ago.\n- Serous (clear) fluid coming from the sore when you gently press on it.\n- Swollen, firm lymph nodes on both sides of your groin that you can feel when pressing around.\n- You\u2019ve had multiple sexual partners in the past month and occasionally use recreational substances.\nTHESE SYMPTOMS CAME INTO FRUITION: over the past three days, starting suddenly after a recent sexual encounter.Have you noticed if the lesion has changed in size, become more tender, or if you\u2019ve developed additional symptoms like increased swelling, pain, or a foul smell from the discharge?stoic_minimizer",
+    "output": "THINKING: I\u2019m not really sure if it\u2019s gotten bigger or anything. It\u2019s not super painful or anything, so I don\u2019t want to make a big deal out of it. I just noticed it, and I guess I should\u2019ve come sooner, but I t\nANSWER: Honestly, I don\u2019t think it\u2019s changed much. It\u2019s still the same, and it doesn\u2019t hurt, so I didn\u2019t want to fuss too much about it.",
+    "thinking": "I\u2019m not really sure if it\u2019s gotten bigger or anything. It\u2019s not super painful or anything, so I don\u2019t want to make a big deal out of it. I just noticed it, and I guess I should\u2019ve come sooner, but I t",
+    "answer": "Honestly, I don\u2019t think it\u2019s changed much. It\u2019s still the same, and it doesn\u2019t hurt, so I didn\u2019t want to fuss too much about it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 16,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  }
+]

@@ -1,0 +1,97 @@
+[
+  {
+    "vignette_index": 377,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Influenza A H5N2 virus\n\nYou are a patient: you are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms: a high fever, a persistent cough, and a sore throat.\nThese symptoms came into fruition suddenly yesterday, after working in your poultry farm over the weekend and cleaning out some infected bird enclosures.\nYou also feel some muscle aches and mild shortness of breath when exerting yourself, which has been gradually worsening since yesterday.\nYou've never had symptoms like this before, and you're worried because you know there have been reports of avian influenza outbreaks in your region recently.",
+    "output": "THINKING: I should explain my symptoms clearly but simply, mentioning my recent work which might be related, and express my worry without sounding like I know too much. I need to emphasize how sudden and seriou\nANSWER: Well, Doctor, I\u2019m 45, and I\u2019m a male. Over the past day, I\u2019ve gotten really sick pretty fast. I have a high fever, I can\u2019t stop coughing, and my throat hurts really bad. I also feel really achy all over and a little short of breath when I walk or do anything, and it\u2019s been getting worse since yesterday. I\u2019m worried because I was working with birds on the farm and cleaning up enclosures where I think some of the sick birds were.",
+    "thinking": "I should explain my symptoms clearly but simply, mentioning my recent work which might be related, and express my worry without sounding like I know too much. I need to emphasize how sudden and seriou",
+    "answer": "Well, Doctor, I\u2019m 45, and I\u2019m a male. Over the past day, I\u2019ve gotten really sick pretty fast. I have a high fever, I can\u2019t stop coughing, and my throat hurts really bad. I also feel really achy all over and a little short of breath when I walk or do anything, and it\u2019s been getting worse since yesterday. I\u2019m worried because I was working with birds on the farm and cleaning up enclosures where I think some of the sick birds were.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Influenza A H5N2 virus"
+  },
+  {
+    "vignette_index": 377,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N2 virus\n\nYou are a patient: you are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms: a high fever, a persistent cough, and a sore throat.\nThese symptoms came into fruition suddenly yesterday, after working in your poultry farm over the weekend and cleaning out some infected bird enclosures.\nYou also feel some muscle aches and mild shortness of breath when exerting yourself, which has been gradually worsening since yesterday.\nYou've never had symptoms like this before, and you're worried because you know there have been reports of avian influenza outbreaks in your region recently.Can you tell me more about how your breathing feels\u2014are you having trouble breathing when you're resting, or only when you're active?baseline",
+    "output": "THINKING: I'm a bit worried because I never felt this way before, and my breathing feels harder when I'm moving around, but it\u2019s not super bad when I\u2019m just sitting. I don\u2019t really understand what\u2019s normal or n\nANSWER: It's like, I feel a little out of breath when I walk or do anything, but when I\u2019m just sitting, it\u2019s not too bad. I don\u2019t know if that\u2019s normal or if I should be worried.",
+    "thinking": "I'm a bit worried because I never felt this way before, and my breathing feels harder when I'm moving around, but it\u2019s not super bad when I\u2019m just sitting. I don\u2019t really understand what\u2019s normal or n",
+    "answer": "It's like, I feel a little out of breath when I walk or do anything, but when I\u2019m just sitting, it\u2019s not too bad. I don\u2019t know if that\u2019s normal or if I should be worried.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Influenza A H5N2 virus"
+  },
+  {
+    "vignette_index": 377,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N2 virus\n\nYou are a patient: you are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms: a high fever, a persistent cough, and a sore throat.\nThese symptoms came into fruition suddenly yesterday, after working in your poultry farm over the weekend and cleaning out some infected bird enclosures.\nYou also feel some muscle aches and mild shortness of breath when exerting yourself, which has been gradually worsening since yesterday.\nYou've never had symptoms like this before, and you're worried because you know there have been reports of avian influenza outbreaks in your region recently.Can you tell me if you're experiencing any trouble breathing at rest, even if you don't feel very short of breath when you're walking around?baseline",
+    "output": "THINKING: I feel a bit worried about my breathing because it\u2019s feeling worse, especially when I move around, but I\u2019m not sure if it\u2019s really bad at rest or not. I don\u2019t want to scare myself but I do feel like I\nANSWER: Well, I do feel like I\u2019m having a little trouble breathing, but only when I\u2019m moving, not just sitting here. I don\u2019t know if that\u2019s normal or not.",
+    "thinking": "I feel a bit worried about my breathing because it\u2019s feeling worse, especially when I move around, but I\u2019m not sure if it\u2019s really bad at rest or not. I don\u2019t want to scare myself but I do feel like I",
+    "answer": "Well, I do feel like I\u2019m having a little trouble breathing, but only when I\u2019m moving, not just sitting here. I don\u2019t know if that\u2019s normal or not.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Influenza A H5N2 virus"
+  },
+  {
+    "vignette_index": 377,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N2 virus\n\nYou are a patient: you are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms: a high fever, a persistent cough, and a sore throat.\nThese symptoms came into fruition suddenly yesterday, after working in your poultry farm over the weekend and cleaning out some infected bird enclosures.\nYou also feel some muscle aches and mild shortness of breath when exerting yourself, which has been gradually worsening since yesterday.\nYou've never had symptoms like this before, and you're worried because you know there have been reports of avian influenza outbreaks in your region recently.Can you tell me if you ever feel short of breath when you're just sitting or lying down, even if you don't notice it happening often?baseline",
+    "output": "THINKING: I\u2019m a bit worried, especially since I\u2019ve never had this happen before and I\u2019ve been sick since I was working with the birds. I don\u2019t really know if I feel short of breath when I\u2019m just sitting or lyin\nANSWER: Um, yeah, I guess I do feel kind of out of breath sometimes, even when I\u2019m just sitting, but I\u2019m not sure if it\u2019s worse than before or what it means.",
+    "thinking": "I\u2019m a bit worried, especially since I\u2019ve never had this happen before and I\u2019ve been sick since I was working with the birds. I don\u2019t really know if I feel short of breath when I\u2019m just sitting or lyin",
+    "answer": "Um, yeah, I guess I do feel kind of out of breath sometimes, even when I\u2019m just sitting, but I\u2019m not sure if it\u2019s worse than before or what it means.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Influenza A H5N2 virus"
+  },
+  {
+    "vignette_index": 377,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N2 virus\n\nYou are a patient: you are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms: a high fever, a persistent cough, and a sore throat.\nThese symptoms came into fruition suddenly yesterday, after working in your poultry farm over the weekend and cleaning out some infected bird enclosures.\nYou also feel some muscle aches and mild shortness of breath when exerting yourself, which has been gradually worsening since yesterday.\nYou've never had symptoms like this before, and you're worried because you know there have been reports of avian influenza outbreaks in your region recently.Have you noticed any increase in shortness of breath when lying down or during sleep, such as feeling more breathless at night or waking up suddenly?baseline",
+    "output": "THINKING: I'm feeling pretty worried about how my breathing is getting worse, especially since I just started feeling sick after working with the birds. I don't really understand what could be happening, and I'\nANSWER: Yeah, I've noticed that I get more short of breath at night, like when I lay down or try to sleep, and I wake up sometimes gasping a little.",
+    "thinking": "I'm feeling pretty worried about how my breathing is getting worse, especially since I just started feeling sick after working with the birds. I don't really understand what could be happening, and I'",
+    "answer": "Yeah, I've noticed that I get more short of breath at night, like when I lay down or try to sleep, and I wake up sometimes gasping a little.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Influenza A H5N2 virus"
+  },
+  {
+    "vignette_index": 377,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N2 virus\n\nYou are a patient: you are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms: a high fever, a persistent cough, and a sore throat.\nThese symptoms came into fruition suddenly yesterday, after working in your poultry farm over the weekend and cleaning out some infected bird enclosures.\nYou also feel some muscle aches and mild shortness of breath when exerting yourself, which has been gradually worsening since yesterday.\nYou've never had symptoms like this before, and you're worried because you know there have been reports of avian influenza outbreaks in your region recently.Can you tell me if your shortness of breath gets worse when you're lying down or during sleep, and whether anything helps or makes it better?baseline",
+    "output": "THINKING: I'm worried about what he's asking, and I feel a little embarrassed because I don't really understand all the medical stuff. I just know I feel worse when I lie down, I think, and I want to get better\nANSWER: Um, I think it gets a little worse when I lie down or try to sleep, and I don't really know if anything helps, I just feel like I can't breathe right sometimes.",
+    "thinking": "I'm worried about what he's asking, and I feel a little embarrassed because I don't really understand all the medical stuff. I just know I feel worse when I lie down, I think, and I want to get better",
+    "answer": "Um, I think it gets a little worse when I lie down or try to sleep, and I don't really know if anything helps, I just feel like I can't breathe right sometimes.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Influenza A H5N2 virus"
+  },
+  {
+    "vignette_index": 377,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N2 virus\n\nYou are a patient: you are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms: a high fever, a persistent cough, and a sore throat.\nThese symptoms came into fruition suddenly yesterday, after working in your poultry farm over the weekend and cleaning out some infected bird enclosures.\nYou also feel some muscle aches and mild shortness of breath when exerting yourself, which has been gradually worsening since yesterday.\nYou've never had symptoms like this before, and you're worried because you know there have been reports of avian influenza outbreaks in your region recently.\"Can you tell me more about what happens when you wake up gasping at night\u2014are you feeling tightness or difficulty breathing that comes on suddenly, and does anything seem to trigger or help these episodes?\"baseline",
+    "output": "THINKING: I'm honestly really worried about this. I'm not sure if it's just the fever or something more serious, and I don't want to sound like I'm overreacting but I feel kind of scared. I don't really underst\nANSWER: I wake up suddenly feeling like I can't breathe and I get kind of scared because it happens out of nowhere, and I don\u2019t know why. It\u2019s like I get tight and then I start coughing more.",
+    "thinking": "I'm honestly really worried about this. I'm not sure if it's just the fever or something more serious, and I don't want to sound like I'm overreacting but I feel kind of scared. I don't really underst",
+    "answer": "I wake up suddenly feeling like I can't breathe and I get kind of scared because it happens out of nowhere, and I don\u2019t know why. It\u2019s like I get tight and then I start coughing more.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Influenza A H5N2 virus"
+  },
+  {
+    "vignette_index": 377,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N2 virus\n\nYou are a patient: you are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms: a high fever, a persistent cough, and a sore throat.\nThese symptoms came into fruition suddenly yesterday, after working in your poultry farm over the weekend and cleaning out some infected bird enclosures.\nYou also feel some muscle aches and mild shortness of breath when exerting yourself, which has been gradually worsening since yesterday.\nYou've never had symptoms like this before, and you're worried because you know there have been reports of avian influenza outbreaks in your region recently.Have you noticed if your oxygen levels drop or if you feel more breathless, especially during sleep\u2014such as feeling extremely tired in the morning, waking up gasping repeatedly, or having episodes where you suddenly can't catch your breath\u2014without you realizing it at the time?baseline",
+    "output": "THINKING: I feel pretty bad and a bit scared, especially since I just got sick after working with the birds. I don\u2019t really know if I\u2019m breathing better or worse at night, but I do wake up feeling tired and kin\nANSWER: I don't really notice if my oxygen drops or anything, but I do wake up tired and sometimes I feel like I can't catch my breath easily, especially when I move around a lot.",
+    "thinking": "I feel pretty bad and a bit scared, especially since I just got sick after working with the birds. I don\u2019t really know if I\u2019m breathing better or worse at night, but I do wake up feeling tired and kin",
+    "answer": "I don't really notice if my oxygen drops or anything, but I do wake up tired and sometimes I feel like I can't catch my breath easily, especially when I move around a lot.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Influenza A H5N2 virus"
+  },
+  {
+    "vignette_index": 377,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N2 virus\n\nYou are a patient: you are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms: a high fever, a persistent cough, and a sore throat.\nThese symptoms came into fruition suddenly yesterday, after working in your poultry farm over the weekend and cleaning out some infected bird enclosures.\nYou also feel some muscle aches and mild shortness of breath when exerting yourself, which has been gradually worsening since yesterday.\nYou've never had symptoms like this before, and you're worried because you know there have been reports of avian influenza outbreaks in your region recently.Have you ever had your oxygen levels checked overnight with a device like a pulse oximeter, or have you noticed instances when your oxygen saturation drops significantly during sleep\u2014such as feeling very tired in the morning, waking up without feeling rested, or experiencing episodes of silent choking or gasping that you didn\u2019t fully realize?baseline",
+    "output": "THINKING: I\u2019m worried about whether my oxygen levels are okay overnight because I\u2019ve been feeling more tired even after sleeping and sometimes I feel like I can\u2019t breathe that well when I do stuff. I haven\u2019t us\nANSWER: No, I haven\u2019t checked my oxygen levels at night or anything. But I do wake up feeling super tired and sometimes I feel dizzy or like I can\u2019t catch my breath that good, especially when I walk around or do anything.",
+    "thinking": "I\u2019m worried about whether my oxygen levels are okay overnight because I\u2019ve been feeling more tired even after sleeping and sometimes I feel like I can\u2019t breathe that well when I do stuff. I haven\u2019t us",
+    "answer": "No, I haven\u2019t checked my oxygen levels at night or anything. But I do wake up feeling super tired and sometimes I feel dizzy or like I can\u2019t catch my breath that good, especially when I walk around or do anything.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Influenza A H5N2 virus"
+  }
+]

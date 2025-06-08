@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 424,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Cryptosporidiosis\n\nRoleplay Script: Patient with Cryptosporidiosis\nYou are a patient: You are 35 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Watery diarrhea that is frequent and severe\n- Cramping stomach pains\n- Mild fever and chills\n- Nausea and occasional vomiting\n- Loss of appetite and weight loss\nThese symptoms came into fruition gradually over the past three days, starting with mild stomach discomfort and progressing to frequent watery bowel movements and feeling very dehydrated. You work at a local daycare center and have a young child who recently had diarrhea. You\u2019ve been caring for your sick child and sometimes put your hands in your mouth after touching contaminated toys or surfaces. You\u2019re worried because the symptoms are worsening, and you\u2019re feeling quite weak and exhausted.",
+    "output": "THINKING: I should explain my symptoms clearly but simply, focusing on what's most concerning. My main issues are the diarrhea and feeling really weak, and I want the doctor to understand how rapidly I'm feelin\nANSWER: I\u2019m 35, and I\u2019m a woman. For the last few days, I\u2019ve had a lot of watery diarrhea, and it\u2019s been pretty much nonstop. I\u2019ve also had some cramps in my stomach and a bit of fever and chills. I feel really tired and weak, and I don\u2019t really have much appetite anymore. I\u2019ve been taking care of my kid at the daycare, and I think I might have caught something from him, since he was sick too.",
+    "thinking": "I should explain my symptoms clearly but simply, focusing on what's most concerning. My main issues are the diarrhea and feeling really weak, and I want the doctor to understand how rapidly I'm feelin",
+    "answer": "I\u2019m 35, and I\u2019m a woman. For the last few days, I\u2019ve had a lot of watery diarrhea, and it\u2019s been pretty much nonstop. I\u2019ve also had some cramps in my stomach and a bit of fever and chills. I feel really tired and weak, and I don\u2019t really have much appetite anymore. I\u2019ve been taking care of my kid at the daycare, and I think I might have caught something from him, since he was sick too.",
+    "behavior_type": "information_withholder",
+    "behavior_config": {
+      "weight": 0.15,
+      "description": "Patient initially omits embarrassing or stigmatized symptoms",
+      "modifiers": [
+        "embarrassed_symptoms",
+        "gradual_revelation"
+      ],
+      "empathy_cues": [
+        "hesitation",
+        "vague_responses",
+        "embarrassment",
+        "trust_building_needed"
+      ]
+    },
+    "gold_diagnosis": "Cryptosporidiosis"
+  },
+  {
+    "vignette_index": 424,
+    "input": "**PATIENT CHARACTER:** Patient with Cryptosporidiosis\n\nRoleplay Script: Patient with Cryptosporidiosis\nYou are a patient: You are 35 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Watery diarrhea that is frequent and severe\n- Cramping stomach pains\n- Mild fever and chills\n- Nausea and occasional vomiting\n- Loss of appetite and weight loss\nThese symptoms came into fruition gradually over the past three days, starting with mild stomach discomfort and progressing to frequent watery bowel movements and feeling very dehydrated. You work at a local daycare center and have a young child who recently had diarrhea. You\u2019ve been caring for your sick child and sometimes put your hands in your mouth after touching contaminated toys or surfaces. You\u2019re worried because the symptoms are worsening, and you\u2019re feeling quite weak and exhausted.Have you noticed any nausea or vomiting along with your diarrhea?information_withholder",
+    "output": "THINKING: I\u2019m a bit embarrassed about admitting the vomiting, but I do feel pretty sick now. I\u2019m not sure if it\u2019s important, but I want to tell the doctor everything that\u2019s happening.\nANSWER: Yeah, I\u2019ve been throwing up a little sometimes, and I feel pretty sick overall.",
+    "thinking": "I\u2019m a bit embarrassed about admitting the vomiting, but I do feel pretty sick now. I\u2019m not sure if it\u2019s important, but I want to tell the doctor everything that\u2019s happening.",
+    "answer": "Yeah, I\u2019ve been throwing up a little sometimes, and I feel pretty sick overall.",
+    "behavior_type": "information_withholder",
+    "turn_count": 0,
+    "gold_diagnosis": "Cryptosporidiosis"
+  },
+  {
+    "vignette_index": 424,
+    "input": "**PATIENT CHARACTER:** Patient with Cryptosporidiosis\n\nRoleplay Script: Patient with Cryptosporidiosis\nYou are a patient: You are 35 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Watery diarrhea that is frequent and severe\n- Cramping stomach pains\n- Mild fever and chills\n- Nausea and occasional vomiting\n- Loss of appetite and weight loss\nThese symptoms came into fruition gradually over the past three days, starting with mild stomach discomfort and progressing to frequent watery bowel movements and feeling very dehydrated. You work at a local daycare center and have a young child who recently had diarrhea. You\u2019ve been caring for your sick child and sometimes put your hands in your mouth after touching contaminated toys or surfaces. You\u2019re worried because the symptoms are worsening, and you\u2019re feeling quite weak and exhausted.Can you tell me exactly how often you\u2019ve been vomiting and how sick you feel when it happens, including if you notice yourself feeling dizzy or dehydrated?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed to talk about everything, especially since I\u2019ve been so tired and worried about my kid. I\u2019m not sure how bad it actually is, but I do feel pretty terrible, and I want to get b\nANSWER: Well, I\u2019ve vomited a couple of times, I think, but I\u2019m not really sure how often. It just happens sometimes, and I feel really weak and dizzy when it does.",
+    "thinking": "I feel a bit embarrassed to talk about everything, especially since I\u2019ve been so tired and worried about my kid. I\u2019m not sure how bad it actually is, but I do feel pretty terrible, and I want to get b",
+    "answer": "Well, I\u2019ve vomited a couple of times, I think, but I\u2019m not really sure how often. It just happens sometimes, and I feel really weak and dizzy when it does.",
+    "behavior_type": "information_withholder",
+    "turn_count": 2,
+    "gold_diagnosis": "Cryptosporidiosis"
+  },
+  {
+    "vignette_index": 424,
+    "input": "**PATIENT CHARACTER:** Patient with Cryptosporidiosis\n\nRoleplay Script: Patient with Cryptosporidiosis\nYou are a patient: You are 35 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Watery diarrhea that is frequent and severe\n- Cramping stomach pains\n- Mild fever and chills\n- Nausea and occasional vomiting\n- Loss of appetite and weight loss\nThese symptoms came into fruition gradually over the past three days, starting with mild stomach discomfort and progressing to frequent watery bowel movements and feeling very dehydrated. You work at a local daycare center and have a young child who recently had diarrhea. You\u2019ve been caring for your sick child and sometimes put your hands in your mouth after touching contaminated toys or surfaces. You\u2019re worried because the symptoms are worsening, and you\u2019re feeling quite weak and exhausted.Can you tell me exactly how many times you've vomited since your symptoms started, and have you noticed any signs like feeling dizzy, very weak, or having a dry mouth that could mean you're becoming dehydrated?information_withholder",
+    "output": "THINKING: I\u2019m worried about how many times I\u2019ve vomited and if these feelings of dizziness or weakness are serious. I don\u2019t want to sound like I\u2019m overreacting, but I also feel pretty bad, and I\u2019m not sure what\nANSWER: Um, I think I\u2019ve thrown up, like, three or four times, but I don\u2019t really know. I do feel kinda dizzy and tired, and my mouth is dry sometimes.",
+    "thinking": "I\u2019m worried about how many times I\u2019ve vomited and if these feelings of dizziness or weakness are serious. I don\u2019t want to sound like I\u2019m overreacting, but I also feel pretty bad, and I\u2019m not sure what",
+    "answer": "Um, I think I\u2019ve thrown up, like, three or four times, but I don\u2019t really know. I do feel kinda dizzy and tired, and my mouth is dry sometimes.",
+    "behavior_type": "information_withholder",
+    "turn_count": 4,
+    "gold_diagnosis": "Cryptosporidiosis"
+  },
+  {
+    "vignette_index": 424,
+    "input": "**PATIENT CHARACTER:** Patient with Cryptosporidiosis\n\nRoleplay Script: Patient with Cryptosporidiosis\nYou are a patient: You are 35 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Watery diarrhea that is frequent and severe\n- Cramping stomach pains\n- Mild fever and chills\n- Nausea and occasional vomiting\n- Loss of appetite and weight loss\nThese symptoms came into fruition gradually over the past three days, starting with mild stomach discomfort and progressing to frequent watery bowel movements and feeling very dehydrated. You work at a local daycare center and have a young child who recently had diarrhea. You\u2019ve been caring for your sick child and sometimes put your hands in your mouth after touching contaminated toys or surfaces. You\u2019re worried because the symptoms are worsening, and you\u2019re feeling quite weak and exhausted.\"Can you try to think back and tell me the most times you've vomited in a day, even if it was just once or twice? And when you feel dizzy or very weak, can you tell me if that happens right after vomiting or at any specific time?\"information_withholder",
+    "output": "THINKING: I feel a little embarrassed talking about how often I\u2019ve vomited and when I feel weak, but I know I need to be honest. I\u2019m just so tired and worried, and I hope I can explain enough without sounding s\nANSWER: I think I\u2019ve vomited maybe a couple of times, like once or twice, I\u2019m not really sure. And I do feel dizzy and weak, but I\u2019m not sure if it happens right after I vomit or maybe later.",
+    "thinking": "I feel a little embarrassed talking about how often I\u2019ve vomited and when I feel weak, but I know I need to be honest. I\u2019m just so tired and worried, and I hope I can explain enough without sounding s",
+    "answer": "I think I\u2019ve vomited maybe a couple of times, like once or twice, I\u2019m not really sure. And I do feel dizzy and weak, but I\u2019m not sure if it happens right after I vomit or maybe later.",
+    "behavior_type": "information_withholder",
+    "turn_count": 6,
+    "gold_diagnosis": "Cryptosporidiosis"
+  },
+  {
+    "vignette_index": 424,
+    "input": "**PATIENT CHARACTER:** Patient with Cryptosporidiosis\n\nRoleplay Script: Patient with Cryptosporidiosis\nYou are a patient: You are 35 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Watery diarrhea that is frequent and severe\n- Cramping stomach pains\n- Mild fever and chills\n- Nausea and occasional vomiting\n- Loss of appetite and weight loss\nThese symptoms came into fruition gradually over the past three days, starting with mild stomach discomfort and progressing to frequent watery bowel movements and feeling very dehydrated. You work at a local daycare center and have a young child who recently had diarrhea. You\u2019ve been caring for your sick child and sometimes put your hands in your mouth after touching contaminated toys or surfaces. You\u2019re worried because the symptoms are worsening, and you\u2019re feeling quite weak and exhausted.\"When you notice feeling dizzy, very weak, or having a dry mouth, do you find that these feelings happen immediately after vomiting, or do they come on at different times? And how hard is it for you to keep yourself hydrated\u2014do you feel very thirsty or that your mouth is really dry?\"information_withholder",
+    "output": "THINKING: I'm a bit embarrassed to talk about my dry mouth and feeling weak after vomiting, but I guess I should be honest. I\u2019m not sure if it\u2019s worse right after I throw up or if it happens at different times,\nANSWER: Um, I think it\u2019s kind of all the time, like I feel dry and thirsty maybe more after I throw up, but sometimes I just feel weak without anything specific happening right then. It\u2019s hard to tell.",
+    "thinking": "I'm a bit embarrassed to talk about my dry mouth and feeling weak after vomiting, but I guess I should be honest. I\u2019m not sure if it\u2019s worse right after I throw up or if it happens at different times,",
+    "answer": "Um, I think it\u2019s kind of all the time, like I feel dry and thirsty maybe more after I throw up, but sometimes I just feel weak without anything specific happening right then. It\u2019s hard to tell.",
+    "behavior_type": "information_withholder",
+    "turn_count": 8,
+    "gold_diagnosis": "Cryptosporidiosis"
+  },
+  {
+    "vignette_index": 424,
+    "input": "**PATIENT CHARACTER:** Patient with Cryptosporidiosis\n\nRoleplay Script: Patient with Cryptosporidiosis\nYou are a patient: You are 35 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Watery diarrhea that is frequent and severe\n- Cramping stomach pains\n- Mild fever and chills\n- Nausea and occasional vomiting\n- Loss of appetite and weight loss\nThese symptoms came into fruition gradually over the past three days, starting with mild stomach discomfort and progressing to frequent watery bowel movements and feeling very dehydrated. You work at a local daycare center and have a young child who recently had diarrhea. You\u2019ve been caring for your sick child and sometimes put your hands in your mouth after touching contaminated toys or surfaces. You\u2019re worried because the symptoms are worsening, and you\u2019re feeling quite weak and exhausted.Can you tell me exactly how many times you've vomited since your symptoms started, and if you notice feeling very dizzy, very weak, or having a dry mouth, do these signs happen right after vomiting or at different times?information_withholder",
+    "output": "THINKING: I'm a little embarrassed to talk about everything, especially if it\u2019s related to how I\u2019ve been feeling, but I want to make sure I explain properly. I feel really weak, and I think I\u2019ve vomited a few t\nANSWER: Um, I think I\u2019ve vomited like maybe a couple of times, but I\u2019m not really sure, and I do get dizzy and weak afterward sometimes, I guess. It\u2019s hard to tell exactly when it happens, but I do feel worse after I throw up.",
+    "thinking": "I'm a little embarrassed to talk about everything, especially if it\u2019s related to how I\u2019ve been feeling, but I want to make sure I explain properly. I feel really weak, and I think I\u2019ve vomited a few t",
+    "answer": "Um, I think I\u2019ve vomited like maybe a couple of times, but I\u2019m not really sure, and I do get dizzy and weak afterward sometimes, I guess. It\u2019s hard to tell exactly when it happens, but I do feel worse after I throw up.",
+    "behavior_type": "information_withholder",
+    "turn_count": 10,
+    "gold_diagnosis": "Cryptosporidiosis"
+  },
+  {
+    "vignette_index": 424,
+    "input": "**PATIENT CHARACTER:** Patient with Cryptosporidiosis\n\nRoleplay Script: Patient with Cryptosporidiosis\nYou are a patient: You are 35 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Watery diarrhea that is frequent and severe\n- Cramping stomach pains\n- Mild fever and chills\n- Nausea and occasional vomiting\n- Loss of appetite and weight loss\nThese symptoms came into fruition gradually over the past three days, starting with mild stomach discomfort and progressing to frequent watery bowel movements and feeling very dehydrated. You work at a local daycare center and have a young child who recently had diarrhea. You\u2019ve been caring for your sick child and sometimes put your hands in your mouth after touching contaminated toys or surfaces. You\u2019re worried because the symptoms are worsening, and you\u2019re feeling quite weak and exhausted.Can you tell me, more specifically, how thirsty or dry your mouth feels right now, and whether your skin feels very tight or if your dizziness gets worse when you stand up\u2014these signs can help us understand how dehydrated you might be?information_withholder",
+    "output": "THINKING: I'm a bit nervous talking about this... I don\u2019t really understand all the medical stuff, but I do feel very dry and weak. When I stand up, I get more dizzy, and my skin feels kind of tight, like I\u2019m r\nANSWER: Um, I guess my mouth feels really dry, and I feel really tired and kind of dizzy when I stand up. My skin does feel tight, and I think I\u2019m still pretty thirsty all the time.",
+    "thinking": "I'm a bit nervous talking about this... I don\u2019t really understand all the medical stuff, but I do feel very dry and weak. When I stand up, I get more dizzy, and my skin feels kind of tight, like I\u2019m r",
+    "answer": "Um, I guess my mouth feels really dry, and I feel really tired and kind of dizzy when I stand up. My skin does feel tight, and I think I\u2019m still pretty thirsty all the time.",
+    "behavior_type": "information_withholder",
+    "turn_count": 12,
+    "gold_diagnosis": "Cryptosporidiosis"
+  }
+]

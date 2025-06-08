@@ -1,0 +1,107 @@
+[
+  {
+    "vignette_index": 159,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Fungal postinfectious arthropathies\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Swelling, redness, and warmth in your right ankle, making it difficult to walk.\n- Persistent pain and stiffness in the affected joint, especially in the mornings.\n- Mild fever that started about three days ago.\nThese symptoms came on gradually over the past week, beginning with some mild discomfort that worsened and became more swollen and tender over time.\nYou have a history of travel to areas endemic for fungi and have been feeling generally more fatigued lately.\nYou are worried because the swelling and pain are worsening despite taking over-the-counter pain relievers.",
+    "output": "THINKING: I should explain my main issues clearly, mention my symptoms, how long they've been going on, and how they\u2019re getting worse, so the doctor understands it\u2019s something that\u2019s bothering me a lot. I need \nANSWER: Uh, well, I\u2019m a 45-year-old guy, and I\u2019ve got this right ankle that\u2019s gotten really swollen, red, and warm, and it hurts a lot. It\u2019s been worse in the mornings and kind of stiff, and I\u2019ve also had a low fever for a few days. It just started a week ago, but it seems to be getting worse even though I\u2019ve been taking some pain pills. I\u2019m not sure what\u2019s wrong, but I feel pretty tired overall.",
+    "thinking": "I should explain my main issues clearly, mention my symptoms, how long they've been going on, and how they\u2019re getting worse, so the doctor understands it\u2019s something that\u2019s bothering me a lot. I need",
+    "answer": "Uh, well, I\u2019m a 45-year-old guy, and I\u2019ve got this right ankle that\u2019s gotten really swollen, red, and warm, and it hurts a lot. It\u2019s been worse in the mornings and kind of stiff, and I\u2019ve also had a low fever for a few days. It just started a week ago, but it seems to be getting worse even though I\u2019ve been taking some pain pills. I\u2019m not sure what\u2019s wrong, but I feel pretty tired overall.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Fungal postinfectious arthropathies"
+  },
+  {
+    "vignette_index": 159,
+    "input": "**PATIENT CHARACTER:** Patient with Fungal postinfectious arthropathies\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Swelling, redness, and warmth in your right ankle, making it difficult to walk.\n- Persistent pain and stiffness in the affected joint, especially in the mornings.\n- Mild fever that started about three days ago.\nThese symptoms came on gradually over the past week, beginning with some mild discomfort that worsened and became more swollen and tender over time.\nYou have a history of travel to areas endemic for fungi and have been feeling generally more fatigued lately.\nYou are worried because the swelling and pain are worsening despite taking over-the-counter pain relievers.Can you tell me more about how the pain, swelling, and other symptoms have changed since they first started, and what concerns you most about how it\u2019s been affecting you?baseline",
+    "output": "THINKING: I feel worried and a little overwhelmed by how things are just not getting better, and I don't really understand what's going on. I hope the doctor can tell me what it might be, but I\u2019m scared it\u2019s wo\nANSWER: Well, it's been getting worse, and the pain and swelling are more than it was at first, and I can't really walk right. The fever started a few days ago, and I just feel tired all the time.",
+    "thinking": "I feel worried and a little overwhelmed by how things are just not getting better, and I don't really understand what's going on. I hope the doctor can tell me what it might be, but I\u2019m scared it\u2019s wo",
+    "answer": "Well, it's been getting worse, and the pain and swelling are more than it was at first, and I can't really walk right. The fever started a few days ago, and I just feel tired all the time.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Fungal postinfectious arthropathies"
+  },
+  {
+    "vignette_index": 159,
+    "input": "**PATIENT CHARACTER:** Patient with Fungal postinfectious arthropathies\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Swelling, redness, and warmth in your right ankle, making it difficult to walk.\n- Persistent pain and stiffness in the affected joint, especially in the mornings.\n- Mild fever that started about three days ago.\nThese symptoms came on gradually over the past week, beginning with some mild discomfort that worsened and became more swollen and tender over time.\nYou have a history of travel to areas endemic for fungi and have been feeling generally more fatigued lately.\nYou are worried because the swelling and pain are worsening despite taking over-the-counter pain relievers.Can you tell me more about how this has been affecting your ability to do your daily activities or how you're managing at home and work?baseline",
+    "output": "THINKING: I'm worried about how much this is bothering me and how it's making things harder to do at home and work. I don't really know what I should be doing or if I can just try to wait it out, but it\u2019s getti\nANSWER: Well, I can't really walk properly, and my ankle is all swollen and sore, and I feel kind of tired and warm all over. It\u2019s been getting worse, and I don\u2019t know how much longer I can keep going like this.",
+    "thinking": "I'm worried about how much this is bothering me and how it's making things harder to do at home and work. I don't really know what I should be doing or if I can just try to wait it out, but it\u2019s getti",
+    "answer": "Well, I can't really walk properly, and my ankle is all swollen and sore, and I feel kind of tired and warm all over. It\u2019s been getting worse, and I don\u2019t know how much longer I can keep going like this.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Fungal postinfectious arthropathies"
+  },
+  {
+    "vignette_index": 159,
+    "input": "**PATIENT CHARACTER:** Patient with Fungal postinfectious arthropathies\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Swelling, redness, and warmth in your right ankle, making it difficult to walk.\n- Persistent pain and stiffness in the affected joint, especially in the mornings.\n- Mild fever that started about three days ago.\nThese symptoms came on gradually over the past week, beginning with some mild discomfort that worsened and became more swollen and tender over time.\nYou have a history of travel to areas endemic for fungi and have been feeling generally more fatigued lately.\nYou are worried because the swelling and pain are worsening despite taking over-the-counter pain relievers.Have you noticed if you've been experiencing any chills, sweating, or feeling more feverish than just a little tired, especially when the ankle started to get worse?baseline",
+    "output": "THINKING: I'm a bit worried I might be getting worse, but I'm not sure what all these things mean together. I haven't really noticed feeling more chills or sweating, but I do feel kind of warm sometimes and mor\nANSWER: Uh, I don\u2019t think I\u2019ve really been sweating or shivering, but I do feel warmer than usual and more tired. My ankle still hurts and seems worse.",
+    "thinking": "I'm a bit worried I might be getting worse, but I'm not sure what all these things mean together. I haven't really noticed feeling more chills or sweating, but I do feel kind of warm sometimes and mor",
+    "answer": "Uh, I don\u2019t think I\u2019ve really been sweating or shivering, but I do feel warmer than usual and more tired. My ankle still hurts and seems worse.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Fungal postinfectious arthropathies"
+  },
+  {
+    "vignette_index": 159,
+    "input": "**PATIENT CHARACTER:** Patient with Fungal postinfectious arthropathies\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Swelling, redness, and warmth in your right ankle, making it difficult to walk.\n- Persistent pain and stiffness in the affected joint, especially in the mornings.\n- Mild fever that started about three days ago.\nThese symptoms came on gradually over the past week, beginning with some mild discomfort that worsened and became more swollen and tender over time.\nYou have a history of travel to areas endemic for fungi and have been feeling generally more fatigued lately.\nYou are worried because the swelling and pain are worsening despite taking over-the-counter pain relievers.Have you noticed any episodes of chills, drenching sweating, or feeling like your fever has been worse than just mild fatigue since your ankle started bothering you?baseline",
+    "output": "THINKING: I don't really remember feeling chills or sweating a lot, but I do feel like my fever is worse sometimes when I get up and walk around more. I'm not sure if that counts, but I just feel more tired and\nANSWER: Um, I don't think I've had chills or anything, but sometimes I feel like my fever gets kinda worse when I walk or do stuff, and I just feel more tired and hot, I guess.",
+    "thinking": "I don't really remember feeling chills or sweating a lot, but I do feel like my fever is worse sometimes when I get up and walk around more. I'm not sure if that counts, but I just feel more tired and",
+    "answer": "Um, I don't think I've had chills or anything, but sometimes I feel like my fever gets kinda worse when I walk or do stuff, and I just feel more tired and hot, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Fungal postinfectious arthropathies"
+  },
+  {
+    "vignette_index": 159,
+    "input": "**PATIENT CHARACTER:** Patient with Fungal postinfectious arthropathies\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Swelling, redness, and warmth in your right ankle, making it difficult to walk.\n- Persistent pain and stiffness in the affected joint, especially in the mornings.\n- Mild fever that started about three days ago.\nThese symptoms came on gradually over the past week, beginning with some mild discomfort that worsened and became more swollen and tender over time.\nYou have a history of travel to areas endemic for fungi and have been feeling generally more fatigued lately.\nYou are worried because the swelling and pain are worsening despite taking over-the-counter pain relievers.When you think back to times when you felt worse or had chills, can you tell me exactly how high your temperature got, if you noticed any feeling of drenching sweats, or how severe those episodes were\u2014like, were you really cold or just kind of warm, and how long did these feelings last?baseline",
+    "output": "THINKING: I\u2019m not really sure, honestly. I just remember feeling kind of hot and then sweating a lot, like I was drenched, but then I\u2019d get cold again. It\u2019s all kind of a blur, and I\u2019m worried because it happen\nANSWER: Um, I think I got really hot and then kept sweating a lot, but then I\u2019d feel cold again, and it\u2019d last maybe like half an hour or so, I really don\u2019t remember exactly.",
+    "thinking": "I\u2019m not really sure, honestly. I just remember feeling kind of hot and then sweating a lot, like I was drenched, but then I\u2019d get cold again. It\u2019s all kind of a blur, and I\u2019m worried because it happen",
+    "answer": "Um, I think I got really hot and then kept sweating a lot, but then I\u2019d feel cold again, and it\u2019d last maybe like half an hour or so, I really don\u2019t remember exactly.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Fungal postinfectious arthropathies"
+  },
+  {
+    "vignette_index": 159,
+    "input": "**PATIENT CHARACTER:** Patient with Fungal postinfectious arthropathies\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Swelling, redness, and warmth in your right ankle, making it difficult to walk.\n- Persistent pain and stiffness in the affected joint, especially in the mornings.\n- Mild fever that started about three days ago.\nThese symptoms came on gradually over the past week, beginning with some mild discomfort that worsened and became more swollen and tender over time.\nYou have a history of travel to areas endemic for fungi and have been feeling generally more fatigued lately.\nYou are worried because the swelling and pain are worsening despite taking over-the-counter pain relievers.Can you tell me exactly how high your temperature has gotten during those episodes, whether you felt chills or sweating at the same time, and how long those feelings of being very hot or cold lasted?baseline",
+    "output": "THINKING: I\u2019m a bit confused about the fever and how high it\u2019s gotten. I just know I\u2019ve been feeling warmer than usual sometimes, and I\u2019m worried it might be related to what\u2019s going on with my ankle. I don\u2019t re\nANSWER: I think my temperature has gone up to maybe a bit over 100 degrees, and yeah, I do get chills or sweat when I feel really hot, but I\u2019m not sure how long it lasts, maybe a little while?",
+    "thinking": "I\u2019m a bit confused about the fever and how high it\u2019s gotten. I just know I\u2019ve been feeling warmer than usual sometimes, and I\u2019m worried it might be related to what\u2019s going on with my ankle. I don\u2019t re",
+    "answer": "I think my temperature has gone up to maybe a bit over 100 degrees, and yeah, I do get chills or sweat when I feel really hot, but I\u2019m not sure how long it lasts, maybe a little while?",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Fungal postinfectious arthropathies"
+  },
+  {
+    "vignette_index": 159,
+    "input": "**PATIENT CHARACTER:** Patient with Fungal postinfectious arthropathies\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Swelling, redness, and warmth in your right ankle, making it difficult to walk.\n- Persistent pain and stiffness in the affected joint, especially in the mornings.\n- Mild fever that started about three days ago.\nThese symptoms came on gradually over the past week, beginning with some mild discomfort that worsened and became more swollen and tender over time.\nYou have a history of travel to areas endemic for fungi and have been feeling generally more fatigued lately.\nYou are worried because the swelling and pain are worsening despite taking over-the-counter pain relievers.Can you tell me exactly how high your temperature has gotten during those episodes, whether you felt chills or sweating at the same time, and how long those feelings of being very hot or cold lasted?baseline",
+    "output": "THINKING: I don't really remember the exact temperature, but I did feel hot and sweaty sometimes, but other times I just felt cold and shivery. I can't tell how long it lasts \u2014 it all kind of blurs together.\nANSWER: Um, I think I got pretty hot and sweaty for a little while, then I felt cold and shivery, but I don't really remember how long it all lasted. It kind of came and went.",
+    "thinking": "I don't really remember the exact temperature, but I did feel hot and sweaty sometimes, but other times I just felt cold and shivery. I can't tell how long it lasts \u2014 it all kind of blurs together.",
+    "answer": "Um, I think I got pretty hot and sweaty for a little while, then I felt cold and shivery, but I don't really remember how long it all lasted. It kind of came and went.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Fungal postinfectious arthropathies"
+  },
+  {
+    "vignette_index": 159,
+    "input": "**PATIENT CHARACTER:** Patient with Fungal postinfectious arthropathies\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Swelling, redness, and warmth in your right ankle, making it difficult to walk.\n- Persistent pain and stiffness in the affected joint, especially in the mornings.\n- Mild fever that started about three days ago.\nThese symptoms came on gradually over the past week, beginning with some mild discomfort that worsened and became more swollen and tender over time.\nYou have a history of travel to areas endemic for fungi and have been feeling generally more fatigued lately.\nYou are worried because the swelling and pain are worsening despite taking over-the-counter pain relievers.Can you tell me exactly how high your temperature has gotten during those episodes, how long you felt feverish or hot, and whether you experienced any chills, sweating, or feeling very cold at the same time\u2014despite your earlier feelings about the severity?baseline",
+    "output": "THINKING: I'm not sure exactly how high my fever got, but I did feel pretty hot and sweaty sometimes, and then other times I felt cold, but I don't really remember any numbers or how long it lasted. I just know\nANSWER: I think it got pretty hot sometimes, but I wasn't really checking the temperature or anything. I just felt really warm and sweaty, and then other times I felt cold, but I don't know how high it was or how long it stayed like that.",
+    "thinking": "I'm not sure exactly how high my fever got, but I did feel pretty hot and sweaty sometimes, and then other times I felt cold, but I don't really remember any numbers or how long it lasted. I just know",
+    "answer": "I think it got pretty hot sometimes, but I wasn't really checking the temperature or anything. I just felt really warm and sweaty, and then other times I felt cold, but I don't know how high it was or how long it stayed like that.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Fungal postinfectious arthropathies"
+  },
+  {
+    "vignette_index": 159,
+    "input": "**PATIENT CHARACTER:** Patient with Fungal postinfectious arthropathies\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Swelling, redness, and warmth in your right ankle, making it difficult to walk.\n- Persistent pain and stiffness in the affected joint, especially in the mornings.\n- Mild fever that started about three days ago.\nThese symptoms came on gradually over the past week, beginning with some mild discomfort that worsened and became more swollen and tender over time.\nYou have a history of travel to areas endemic for fungi and have been feeling generally more fatigued lately.\nYou are worried because the swelling and pain are worsening despite taking over-the-counter pain relievers.Can you tell me if during any of these episodes you actually measured or were aware of your temperature, especially if it was pretty high\u2014say over 101\u00b0F\u2014and whether you experienced chills or sweating at the same time? If so, how often or how many times did these fever episodes happen, and did they tend to last for hours or just a short time?baseline",
+    "output": "THINKING: I\u2019m not really sure if I noticed my temperature going over 101 or if I was aware of sweating or chills, honestly. I just felt kinda hot sometimes, but I didn't check or pay much attention to how long \nANSWER: Uh, I guess I wasn\u2019t really paying attention to my temperature or anything like that. I just felt a bit hot sometimes, but I didn\u2019t really measure or notice the chills or sweating much.",
+    "thinking": "I\u2019m not really sure if I noticed my temperature going over 101 or if I was aware of sweating or chills, honestly. I just felt kinda hot sometimes, but I didn't check or pay much attention to how long",
+    "answer": "Uh, I guess I wasn\u2019t really paying attention to my temperature or anything like that. I just felt a bit hot sometimes, but I didn\u2019t really measure or notice the chills or sweating much.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Fungal postinfectious arthropathies"
+  }
+]

@@ -1,0 +1,97 @@
+[
+  {
+    "vignette_index": 112,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Enteroviral meningitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 4 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden high fever and chills\n- Severe headache and neck stiffness\n- Nausea and vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and I\u2019ve been feeling worse since then. I kept crying and holding my head, and I don\u2019t want to move my neck because it hurts so much. I also feel very cold and shivery, but I\u2019ve developed a fever that keeps going up. My mom says I\u2019m acting very tired and irritable, and I keep throwing up everything I try to eat or drink.",
+    "output": "THINKING: I need to explain what\u2019s been happening clearly but simply, since I\u2019m only 4 and may not know all the words or what\u2019s important. I should mention how suddenly everything started and how bad I feel so \nANSWER: I don\u2019t feel good. I\u2019ve had a really bad head and my neck hurts a lot. I\u2019ve been cold and shivering and I keep throwing up. I don\u2019t want to move and I\u2019m very tired.",
+    "thinking": "I need to explain what\u2019s been happening clearly but simply, since I\u2019m only 4 and may not know all the words or what\u2019s important. I should mention how suddenly everything started and how bad I feel so",
+    "answer": "I don\u2019t feel good. I\u2019ve had a really bad head and my neck hurts a lot. I\u2019ve been cold and shivering and I keep throwing up. I don\u2019t want to move and I\u2019m very tired.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Enteroviral meningitis"
+  },
+  {
+    "vignette_index": 112,
+    "input": "**PATIENT CHARACTER:** Patient with Enteroviral meningitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 4 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden high fever and chills\n- Severe headache and neck stiffness\n- Nausea and vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and I\u2019ve been feeling worse since then. I kept crying and holding my head, and I don\u2019t want to move my neck because it hurts so much. I also feel very cold and shivery, but I\u2019ve developed a fever that keeps going up. My mom says I\u2019m acting very tired and irritable, and I keep throwing up everything I try to eat or drink.Can you tell me when your headache and neck pain first started, and has it changed or gotten worse since then?baseline",
+    "output": "THINKING: I'm worried because I feel worse, and I don't really understand what's happening. I keep crying and holding my head because it hurts so much, and I'm scared it's getting worse.\nANSWER: It started yesterday afternoon, and I think it's been worse since then. The head pain and the neck thing are really bad, and I don\u2019t want to move because it hurts too much.",
+    "thinking": "I'm worried because I feel worse, and I don't really understand what's happening. I keep crying and holding my head because it hurts so much, and I'm scared it's getting worse.",
+    "answer": "It started yesterday afternoon, and I think it's been worse since then. The head pain and the neck thing are really bad, and I don\u2019t want to move because it hurts too much.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Enteroviral meningitis"
+  },
+  {
+    "vignette_index": 112,
+    "input": "**PATIENT CHARACTER:** Patient with Enteroviral meningitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 4 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden high fever and chills\n- Severe headache and neck stiffness\n- Nausea and vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and I\u2019ve been feeling worse since then. I kept crying and holding my head, and I don\u2019t want to move my neck because it hurts so much. I also feel very cold and shivery, but I\u2019ve developed a fever that keeps going up. My mom says I\u2019m acting very tired and irritable, and I keep throwing up everything I try to eat or drink.Is your headache and neck pain on just one side, or do you feel it on both sides?baseline",
+    "output": "THINKING: I\u2019m really uncomfortable and scared, and I don\u2019t understand what\u2019s going on. The pain is bad and I just want to tell the doctor what I feel, even if I\u2019m not sure about the details.\nANSWER: Uh, I feel it all over my head and neck, but it\u2019s worse on one side, I think. It\u2019s like, really hurts everywhere, but maybe more on one side?",
+    "thinking": "I\u2019m really uncomfortable and scared, and I don\u2019t understand what\u2019s going on. The pain is bad and I just want to tell the doctor what I feel, even if I\u2019m not sure about the details.",
+    "answer": "Uh, I feel it all over my head and neck, but it\u2019s worse on one side, I think. It\u2019s like, really hurts everywhere, but maybe more on one side?",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Enteroviral meningitis"
+  },
+  {
+    "vignette_index": 112,
+    "input": "**PATIENT CHARACTER:** Patient with Enteroviral meningitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 4 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden high fever and chills\n- Severe headache and neck stiffness\n- Nausea and vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and I\u2019ve been feeling worse since then. I kept crying and holding my head, and I don\u2019t want to move my neck because it hurts so much. I also feel very cold and shivery, but I\u2019ve developed a fever that keeps going up. My mom says I\u2019m acting very tired and irritable, and I keep throwing up everything I try to eat or drink.Can you tell me if your neck feels stiff or sore when you try to move it, or if it's hard to turn your head without pain?baseline",
+    "output": "THINKING: I'm really uncomfortable and scared, and I don't quite understand what's wrong. I just know that moving my neck hurts a lot and I feel really sick.\nANSWER: Yeah, my neck feels really stiff and it hurts when I try to turn it. I don't wanna move it because it hurts so much.",
+    "thinking": "I'm really uncomfortable and scared, and I don't quite understand what's wrong. I just know that moving my neck hurts a lot and I feel really sick.",
+    "answer": "Yeah, my neck feels really stiff and it hurts when I try to turn it. I don't wanna move it because it hurts so much.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Enteroviral meningitis"
+  },
+  {
+    "vignette_index": 112,
+    "input": "**PATIENT CHARACTER:** Patient with Enteroviral meningitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 4 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden high fever and chills\n- Severe headache and neck stiffness\n- Nausea and vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and I\u2019ve been feeling worse since then. I kept crying and holding my head, and I don\u2019t want to move my neck because it hurts so much. I also feel very cold and shivery, but I\u2019ve developed a fever that keeps going up. My mom says I\u2019m acting very tired and irritable, and I keep throwing up everything I try to eat or drink.Can you tell me if your neck feels really stiff or sore when you turn it or move it around, and if that makes your head hurt more or less?baseline",
+    "output": "THINKING: I'm really uncomfortable and confused about what's happening. My head hurts so much, and I don't really understand why my neck is so stiff or if it changes anything. I just know I don't want to move b\nANSWER: My neck feels stiff all the time, and it hurts when I try to turn it or move it around. I think it makes my head hurt more, but I'm not really sure.",
+    "thinking": "I'm really uncomfortable and confused about what's happening. My head hurts so much, and I don't really understand why my neck is so stiff or if it changes anything. I just know I don't want to move b",
+    "answer": "My neck feels stiff all the time, and it hurts when I try to turn it or move it around. I think it makes my head hurt more, but I'm not really sure.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Enteroviral meningitis"
+  },
+  {
+    "vignette_index": 112,
+    "input": "**PATIENT CHARACTER:** Patient with Enteroviral meningitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 4 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden high fever and chills\n- Severe headache and neck stiffness\n- Nausea and vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and I\u2019ve been feeling worse since then. I kept crying and holding my head, and I don\u2019t want to move my neck because it hurts so much. I also feel very cold and shivery, but I\u2019ve developed a fever that keeps going up. My mom says I\u2019m acting very tired and irritable, and I keep throwing up everything I try to eat or drink.Can I ask if your headache came on very suddenly, like a sudden pain that was really strong all of a sudden, or if it just came on gradually over some time?baseline",
+    "output": "THINKING: I feel scared and kind of overwhelmed by all these symptoms. I don't really understand what's happening or why I'm feeling so bad, and I just want to explain how it started feeling really sudden and p\nANSWER: It was like, really quick and really strong all of a sudden yesterday and I just hurt all over, like my head and neck.",
+    "thinking": "I feel scared and kind of overwhelmed by all these symptoms. I don't really understand what's happening or why I'm feeling so bad, and I just want to explain how it started feeling really sudden and p",
+    "answer": "It was like, really quick and really strong all of a sudden yesterday and I just hurt all over, like my head and neck.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Enteroviral meningitis"
+  },
+  {
+    "vignette_index": 112,
+    "input": "**PATIENT CHARACTER:** Patient with Enteroviral meningitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 4 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden high fever and chills\n- Severe headache and neck stiffness\n- Nausea and vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and I\u2019ve been feeling worse since then. I kept crying and holding my head, and I don\u2019t want to move my neck because it hurts so much. I also feel very cold and shivery, but I\u2019ve developed a fever that keeps going up. My mom says I\u2019m acting very tired and irritable, and I keep throwing up everything I try to eat or drink.Can you tell me if you have a fever or if you feel really hot or sweaty, besides feeling tired or chills?baseline",
+    "output": "THINKING: I'm feeling very hot and sweaty, I think, but I also feel cold and shivery. I don't really understand what's happening, but I know I don't feel right.\nANSWER: Umm, I feel really hot and I keep sweating, but I also feel cold all over. It's so confusing.",
+    "thinking": "I'm feeling very hot and sweaty, I think, but I also feel cold and shivery. I don't really understand what's happening, but I know I don't feel right.",
+    "answer": "Umm, I feel really hot and I keep sweating, but I also feel cold all over. It's so confusing.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Enteroviral meningitis"
+  },
+  {
+    "vignette_index": 112,
+    "input": "**PATIENT CHARACTER:** Patient with Enteroviral meningitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 4 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden high fever and chills\n- Severe headache and neck stiffness\n- Nausea and vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and I\u2019ve been feeling worse since then. I kept crying and holding my head, and I don\u2019t want to move my neck because it hurts so much. I also feel very cold and shivery, but I\u2019ve developed a fever that keeps going up. My mom says I\u2019m acting very tired and irritable, and I keep throwing up everything I try to eat or drink.Can you tell me if you feel really sleepy, confused, or if it's hard for you to keep your eyes open or think clearly\u2014like if you have trouble remembering things or are acting differently than usual?baseline",
+    "output": "THINKING: I feel really bad and scared, and I don't understand what's happening. I keep feeling worse, and I just want the pain to go away, but I don\u2019t really know what the doctor is asking or if I should be wo\nANSWER: I don\u2019t feel sleepy or confused, but I don\u2019t wanna move my head and my tummy hurts. I just want it to stop.",
+    "thinking": "I feel really bad and scared, and I don't understand what's happening. I keep feeling worse, and I just want the pain to go away, but I don\u2019t really know what the doctor is asking or if I should be wo",
+    "answer": "I don\u2019t feel sleepy or confused, but I don\u2019t wanna move my head and my tummy hurts. I just want it to stop.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Enteroviral meningitis"
+  },
+  {
+    "vignette_index": 112,
+    "input": "**PATIENT CHARACTER:** Patient with Enteroviral meningitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 4 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Sudden high fever and chills\n- Severe headache and neck stiffness\n- Nausea and vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and I\u2019ve been feeling worse since then. I kept crying and holding my head, and I don\u2019t want to move my neck because it hurts so much. I also feel very cold and shivery, but I\u2019ve developed a fever that keeps going up. My mom says I\u2019m acting very tired and irritable, and I keep throwing up everything I try to eat or drink.Can you tell me if you or the grown-ups notice if you're acting a little different \u2014 like being more sleepy than usual, having a hard time waking up, or if you forget things or feel confused?baseline",
+    "output": "THINKING: I'm scared and confused about what's happening to me. I don't really understand all the questions, but I know I feel really bad and I keep wanting to cry or hold my head.\nANSWER: I don\u2019t know. I just feel really yucky and I don\u2019t want to move because my head hurts really bad.",
+    "thinking": "I'm scared and confused about what's happening to me. I don't really understand all the questions, but I know I feel really bad and I keep wanting to cry or hold my head.",
+    "answer": "I don\u2019t know. I just feel really yucky and I don\u2019t want to move because my head hurts really bad.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Enteroviral meningitis"
+  }
+]

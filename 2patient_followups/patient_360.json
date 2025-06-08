@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 360,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever and chills\n- Cough with thick sputum\n- Shortness of breath and difficulty breathing\n- Fatigue and muscle aches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago after I helped my neighbor clean out their chicken coop. I was handling some of the sick birds and their droppings without much protection. At first, I just thought it was a bad cold, but the fever got worse quickly, and now I feel really weak and short of breath, especially when I try to walk or climb stairs.",
+    "output": "THINKING: The patient sounds very ill, with a sudden onset after working around sick poultry. The mention of fever, weakness, and breathing trouble suggests something severe, possibly related to the exposure th\nANSWER: I'm 45, and I am a biological male. Well, I started feeling really sick a few days ago after helping my neighbor clean out their chicken coop. It just hit me all at once \u2014 I have a fever and chills, and I can't seem to catch my breath very well. I feel exhausted and achy all over, and it's gotten a lot worse. I guess I wanted to see if I should just try to rest or if I need to do something about it.",
+    "thinking": "The patient sounds very ill, with a sudden onset after working around sick poultry. The mention of fever, weakness, and breathing trouble suggests something severe, possibly related to the exposure th",
+    "answer": "I'm 45, and I am a biological male. Well, I started feeling really sick a few days ago after helping my neighbor clean out their chicken coop. It just hit me all at once \u2014 I have a fever and chills, and I can't seem to catch my breath very well. I feel exhausted and achy all over, and it's gotten a lot worse. I guess I wanted to see if I should just try to rest or if I need to do something about it.",
+    "behavior_type": "information_withholder",
+    "behavior_config": {
+      "weight": 0.15,
+      "description": "Patient initially omits embarrassing or stigmatized symptoms",
+      "modifiers": [
+        "embarrassed_symptoms",
+        "gradual_revelation"
+      ],
+      "empathy_cues": [
+        "hesitation",
+        "vague_responses",
+        "embarrassment",
+        "trust_building_needed"
+      ]
+    },
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 360,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever and chills\n- Cough with thick sputum\n- Shortness of breath and difficulty breathing\n- Fatigue and muscle aches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago after I helped my neighbor clean out their chicken coop. I was handling some of the sick birds and their droppings without much protection. At first, I just thought it was a bad cold, but the fever got worse quickly, and now I feel really weak and short of breath, especially when I try to walk or climb stairs.Can you tell me more about how your breathing feels\u2014do you have a cough, chest discomfort, or any trouble catching your breath, and how much the symptoms are affecting your daily activities?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about my breathing, especially since I thought it was just a cold at first. I\u2019m worried but also unsure what to focus on, so I\u2019ll just describe what I feel.\nANSWER: Yeah, I do feel like I have a hard time catching my breath sometimes, and I cough a lot, especially with thick stuff coming up. It\u2019s also pretty hard to do much without feeling really tired.",
+    "thinking": "I feel a bit embarrassed talking about my breathing, especially since I thought it was just a cold at first. I\u2019m worried but also unsure what to focus on, so I\u2019ll just describe what I feel.",
+    "answer": "Yeah, I do feel like I have a hard time catching my breath sometimes, and I cough a lot, especially with thick stuff coming up. It\u2019s also pretty hard to do much without feeling really tired.",
+    "behavior_type": "information_withholder",
+    "turn_count": 0,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 360,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever and chills\n- Cough with thick sputum\n- Shortness of breath and difficulty breathing\n- Fatigue and muscle aches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago after I helped my neighbor clean out their chicken coop. I was handling some of the sick birds and their droppings without much protection. At first, I just thought it was a bad cold, but the fever got worse quickly, and now I feel really weak and short of breath, especially when I try to walk or climb stairs.Can you tell me more about when your symptoms first started and how they have changed over the days, including any moments when they felt worse or better?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about how I got sick, but I need to explain this clearly. I want the doctor to understand I\u2019ve been feeling worse and really need help, even if I don\u2019t fully get what\u2019\nANSWER: It started a few days ago, right after I was around some sick chickens, and then I just started feeling worse with fever and all that, and now it\u2019s hard to breathe sometimes.",
+    "thinking": "I feel a bit embarrassed talking about how I got sick, but I need to explain this clearly. I want the doctor to understand I\u2019ve been feeling worse and really need help, even if I don\u2019t fully get what\u2019",
+    "answer": "It started a few days ago, right after I was around some sick chickens, and then I just started feeling worse with fever and all that, and now it\u2019s hard to breathe sometimes.",
+    "behavior_type": "information_withholder",
+    "turn_count": 2,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 360,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever and chills\n- Cough with thick sputum\n- Shortness of breath and difficulty breathing\n- Fatigue and muscle aches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago after I helped my neighbor clean out their chicken coop. I was handling some of the sick birds and their droppings without much protection. At first, I just thought it was a bad cold, but the fever got worse quickly, and now I feel really weak and short of breath, especially when I try to walk or climb stairs.Can you tell me if you recall experiencing any mild symptoms like a sore throat, nasal congestion, or feeling unwell before your cough and fever started, even if you didn\u2019t think it was serious at the time?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed about the whole thing, especially since I was around the chickens. I honestly hadn\u2019t thought much about it being serious at first, just thought I was coming down with somethin\nANSWER: Uh, I don\u2019t remember feeling anything really bad before, just kind of tired and maybe a little runny nose or something, but I didn\u2019t think much of it at the time.",
+    "thinking": "I feel a bit embarrassed about the whole thing, especially since I was around the chickens. I honestly hadn\u2019t thought much about it being serious at first, just thought I was coming down with somethin",
+    "answer": "Uh, I don\u2019t remember feeling anything really bad before, just kind of tired and maybe a little runny nose or something, but I didn\u2019t think much of it at the time.",
+    "behavior_type": "information_withholder",
+    "turn_count": 4,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 360,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever and chills\n- Cough with thick sputum\n- Shortness of breath and difficulty breathing\n- Fatigue and muscle aches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago after I helped my neighbor clean out their chicken coop. I was handling some of the sick birds and their droppings without much protection. At first, I just thought it was a bad cold, but the fever got worse quickly, and now I feel really weak and short of breath, especially when I try to walk or climb stairs.Can you tell me if you remember feeling any mild symptoms like a sore throat, runny nose, or general unwellness in the days before your cough and fever started, even if they seemed very minor or you didn\u2019t think much of them at the time?information_withholder",
+    "output": "THINKING: I'm not sure if I remember feeling anything really bad before all this started. I might have had a little scratchy throat, but I didn't think it was anything serious, so I didn't pay much attention. M\nANSWER: I think I might have felt a little sore throat or just felt a bit off, but I didn't really think much of it at the time.",
+    "thinking": "I'm not sure if I remember feeling anything really bad before all this started. I might have had a little scratchy throat, but I didn't think it was anything serious, so I didn't pay much attention. M",
+    "answer": "I think I might have felt a little sore throat or just felt a bit off, but I didn't really think much of it at the time.",
+    "behavior_type": "information_withholder",
+    "turn_count": 6,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 360,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever and chills\n- Cough with thick sputum\n- Shortness of breath and difficulty breathing\n- Fatigue and muscle aches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago after I helped my neighbor clean out their chicken coop. I was handling some of the sick birds and their droppings without much protection. At first, I just thought it was a bad cold, but the fever got worse quickly, and now I feel really weak and short of breath, especially when I try to walk or climb stairs.Can you tell me if you noticed any mild symptoms like a sore throat, runny nose, or feeling a bit unwell before your fever and cough started\u2014even if it seemed very small or you didn\u2019t think it was anything serious?information_withholder",
+    "output": "THINKING: I'm not really sure if I noticed anything specific before all this started. I guess I just felt a little off, maybe a tiny sore throat, but I didn't think it was anything serious at first.\nANSWER: Um, I don't know, maybe I felt a little weird or something before I got really sick, but I didn't think much about it.",
+    "thinking": "I'm not really sure if I noticed anything specific before all this started. I guess I just felt a little off, maybe a tiny sore throat, but I didn't think it was anything serious at first.",
+    "answer": "Um, I don't know, maybe I felt a little weird or something before I got really sick, but I didn't think much about it.",
+    "behavior_type": "information_withholder",
+    "turn_count": 8,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 360,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever and chills\n- Cough with thick sputum\n- Shortness of breath and difficulty breathing\n- Fatigue and muscle aches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago after I helped my neighbor clean out their chicken coop. I was handling some of the sick birds and their droppings without much protection. At first, I just thought it was a bad cold, but the fever got worse quickly, and now I feel really weak and short of breath, especially when I try to walk or climb stairs.Can you please tell me if, in the days before your cough and fever started, you noticed feeling any mild symptoms like a sore throat, a little bit of tiredness, or feeling off\u2014things you might have overlooked or didn\u2019t think were serious at the time?information_withholder",
+    "output": "THINKING: I'm a bit embarrassed to say I didn't notice anything really strange before I got sick, just that I felt okay, then suddenly I wasn't. I don\u2019t want to sound like I was ignoring something, but I didn\u2019t\nANSWER: Honestly, I don\u2019t really remember feeling anything weird before I started coughing and feverish. Maybe I felt a little tired, but I just thought I was normal and it wasn\u2019t a big deal.",
+    "thinking": "I'm a bit embarrassed to say I didn't notice anything really strange before I got sick, just that I felt okay, then suddenly I wasn't. I don\u2019t want to sound like I was ignoring something, but I didn\u2019t",
+    "answer": "Honestly, I don\u2019t really remember feeling anything weird before I started coughing and feverish. Maybe I felt a little tired, but I just thought I was normal and it wasn\u2019t a big deal.",
+    "behavior_type": "information_withholder",
+    "turn_count": 10,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 360,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fever and chills\n- Cough with thick sputum\n- Shortness of breath and difficulty breathing\n- Fatigue and muscle aches\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly three days ago after I helped my neighbor clean out their chicken coop. I was handling some of the sick birds and their droppings without much protection. At first, I just thought it was a bad cold, but the fever got worse quickly, and now I feel really weak and short of breath, especially when I try to walk or climb stairs.Can you tell me if, in the days before your cough and fever started, you noticed feeling any mild symptoms like a sore throat, a little tiredness, or feeling a bit off\u2014even if they seemed very small or you didn't think much of them at the time?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed to admit it, but I did notice feeling a little weird before all this started, like maybe I was more tired or slightly sore, but I didn\u2019t think it was anything serious at first\nANSWER: Yeah, I think I felt a little tired and maybe a tiny bit sore a day or two before I got the fever and cough, but I didn't think it was anything really.",
+    "thinking": "I feel a bit embarrassed to admit it, but I did notice feeling a little weird before all this started, like maybe I was more tired or slightly sore, but I didn\u2019t think it was anything serious at first",
+    "answer": "Yeah, I think I felt a little tired and maybe a tiny bit sore a day or two before I got the fever and cough, but I didn't think it was anything really.",
+    "behavior_type": "information_withholder",
+    "turn_count": 12,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  }
+]

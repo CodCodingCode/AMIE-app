@@ -1,0 +1,125 @@
+[
+  {
+    "vignette_index": 53,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Descending aorta dissection and distal propagation with rupture\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden, severe, sharp pain in your upper back and chest\n- Shortness of breath and feeling dizzy\n- Low blood pressure when measured\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon while you were at rest, and the pain has been relentless ever since. You felt a quick wave of dizziness and almost fainted, prompting you to sit down immediately. You\u2019ve also noticed some weakness in your legs and a feeling of being very cold, despite it being warm outside. You have a history of high blood pressure and smoking for many years, and you\u2019ve been told you have a small aortic aneurysm in the past.",
+    "output": "THINKING: I need to be honest about how suddenly I felt awful and that it's been ongoing. I want to explain my chest and back pain, along with the dizziness and weakness, but I might be a bit scared and confuse\nANSWER: Well, doctor, I guess I should say I started feeling this terrible sharp pain in my chest and back yesterday afternoon, while I was just sitting there. It\u2019s been nonstop since then, and I got really dizzy, almost fell over. I feel weak and cold even though it\u2019s warm outside. I\u2019m really worried because of my blood pressure and that thing they told me about my aorta before.",
+    "thinking": "I need to be honest about how suddenly I felt awful and that it's been ongoing. I want to explain my chest and back pain, along with the dizziness and weakness, but I might be a bit scared and confuse",
+    "answer": "Well, doctor, I guess I should say I started feeling this terrible sharp pain in my chest and back yesterday afternoon, while I was just sitting there. It\u2019s been nonstop since then, and I got really dizzy, almost fell over. I feel weak and cold even though it\u2019s warm outside. I\u2019m really worried because of my blood pressure and that thing they told me about my aorta before.",
+    "behavior_type": "chronology_confused",
+    "behavior_config": {
+      "weight": 0.1,
+      "description": "Patient confused about symptom timing and progression",
+      "modifiers": [
+        "timeline_confusion",
+        "sequence_uncertainty"
+      ],
+      "empathy_cues": [
+        "confusion",
+        "uncertainty",
+        "memory_issues",
+        "needs_patience"
+      ]
+    },
+    "gold_diagnosis": "Descending aorta dissection and distal propagation with rupture"
+  },
+  {
+    "vignette_index": 53,
+    "input": "**PATIENT CHARACTER:** Patient with Descending aorta dissection and distal propagation with rupture\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden, severe, sharp pain in your upper back and chest\n- Shortness of breath and feeling dizzy\n- Low blood pressure when measured\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon while you were at rest, and the pain has been relentless ever since. You felt a quick wave of dizziness and almost fainted, prompting you to sit down immediately. You\u2019ve also noticed some weakness in your legs and a feeling of being very cold, despite it being warm outside. You have a history of high blood pressure and smoking for many years, and you\u2019ve been told you have a small aortic aneurysm in the past.Can you tell me exactly when the chest and back pain first started, and how it has changed since then?chronology_confused",
+    "output": "THINKING: I want to give the doctor as much info as I can, even if I\u2019m not sure about the exact order or things getting worse, but I also don\u2019t want to forget anything I\u2019m feeling.\nANSWER: I think it was yesterday afternoon when I suddenly felt this sharp pain in my chest and back, and then I started feeling dizzy and cold, but I can't really remember if the pain got better or worse after that, it just stayed the same.",
+    "thinking": "I want to give the doctor as much info as I can, even if I\u2019m not sure about the exact order or things getting worse, but I also don\u2019t want to forget anything I\u2019m feeling.",
+    "answer": "I think it was yesterday afternoon when I suddenly felt this sharp pain in my chest and back, and then I started feeling dizzy and cold, but I can't really remember if the pain got better or worse after that, it just stayed the same.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 0,
+    "gold_diagnosis": "Descending aorta dissection and distal propagation with rupture"
+  },
+  {
+    "vignette_index": 53,
+    "input": "**PATIENT CHARACTER:** Patient with Descending aorta dissection and distal propagation with rupture\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden, severe, sharp pain in your upper back and chest\n- Shortness of breath and feeling dizzy\n- Low blood pressure when measured\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon while you were at rest, and the pain has been relentless ever since. You felt a quick wave of dizziness and almost fainted, prompting you to sit down immediately. You\u2019ve also noticed some weakness in your legs and a feeling of being very cold, despite it being warm outside. You have a history of high blood pressure and smoking for many years, and you\u2019ve been told you have a small aortic aneurysm in the past.Can you tell me if the pain has stayed the same since it started, or has it gotten worse or better at any point?chronology_confused",
+    "output": "THINKING: I'm trying to remember if the pain has changed or stayed the same, but I keep getting mixed up about when it started and what actually happened first. I feel a little scared about whether it's worse n\nANSWER: I think the pain\u2019s been pretty much the same since it started, but sometimes it feels a little worse, I guess? Or maybe it\u2019s just the same all the time, I\u2019m not sure.",
+    "thinking": "I'm trying to remember if the pain has changed or stayed the same, but I keep getting mixed up about when it started and what actually happened first. I feel a little scared about whether it's worse n",
+    "answer": "I think the pain\u2019s been pretty much the same since it started, but sometimes it feels a little worse, I guess? Or maybe it\u2019s just the same all the time, I\u2019m not sure.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 2,
+    "gold_diagnosis": "Descending aorta dissection and distal propagation with rupture"
+  },
+  {
+    "vignette_index": 53,
+    "input": "**PATIENT CHARACTER:** Patient with Descending aorta dissection and distal propagation with rupture\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden, severe, sharp pain in your upper back and chest\n- Shortness of breath and feeling dizzy\n- Low blood pressure when measured\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon while you were at rest, and the pain has been relentless ever since. You felt a quick wave of dizziness and almost fainted, prompting you to sit down immediately. You\u2019ve also noticed some weakness in your legs and a feeling of being very cold, despite it being warm outside. You have a history of high blood pressure and smoking for many years, and you\u2019ve been told you have a small aortic aneurysm in the past.Can you tell me if the chest and back pain have stayed the same all along, or has it gotten worse at any point since it started yesterday?chronology_confused",
+    "output": "THINKING: I'm trying to recall when the pain changed or if it's gotten worse, but honestly everything feels kind of the same, and I\u2019m really worried. I don\u2019t remember exactly when it started or if it was worse \nANSWER: I think the pain has stayed pretty much the same since it started, like really sharp and bad, but I can't tell if it's gotten worse or not. It just keeps hurting.",
+    "thinking": "I'm trying to recall when the pain changed or if it's gotten worse, but honestly everything feels kind of the same, and I\u2019m really worried. I don\u2019t remember exactly when it started or if it was worse",
+    "answer": "I think the pain has stayed pretty much the same since it started, like really sharp and bad, but I can't tell if it's gotten worse or not. It just keeps hurting.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 4,
+    "gold_diagnosis": "Descending aorta dissection and distal propagation with rupture"
+  },
+  {
+    "vignette_index": 53,
+    "input": "**PATIENT CHARACTER:** Patient with Descending aorta dissection and distal propagation with rupture\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden, severe, sharp pain in your upper back and chest\n- Shortness of breath and feeling dizzy\n- Low blood pressure when measured\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon while you were at rest, and the pain has been relentless ever since. You felt a quick wave of dizziness and almost fainted, prompting you to sit down immediately. You\u2019ve also noticed some weakness in your legs and a feeling of being very cold, despite it being warm outside. You have a history of high blood pressure and smoking for many years, and you\u2019ve been told you have a small aortic aneurysm in the past.Have you noticed any sudden episodes where the pain suddenly became much worse or very different, or has it mostly stayed the same since it started yesterday?chronology_confused",
+    "output": "THINKING: I\u2019m really worried but also a bit confused about how things have been changing. I want to explain it clearly but I\u2019m not sure if I remember the order or everything right.\nANSWER: Um, I think the pain was always there, like since yesterday afternoon, and it\u2019s just stayed the same or maybe worse? I don\u2019t really remember if it suddenly got worse or if it\u2019s been changing.",
+    "thinking": "I\u2019m really worried but also a bit confused about how things have been changing. I want to explain it clearly but I\u2019m not sure if I remember the order or everything right.",
+    "answer": "Um, I think the pain was always there, like since yesterday afternoon, and it\u2019s just stayed the same or maybe worse? I don\u2019t really remember if it suddenly got worse or if it\u2019s been changing.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 6,
+    "gold_diagnosis": "Descending aorta dissection and distal propagation with rupture"
+  },
+  {
+    "vignette_index": 53,
+    "input": "**PATIENT CHARACTER:** Patient with Descending aorta dissection and distal propagation with rupture\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden, severe, sharp pain in your upper back and chest\n- Shortness of breath and feeling dizzy\n- Low blood pressure when measured\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon while you were at rest, and the pain has been relentless ever since. You felt a quick wave of dizziness and almost fainted, prompting you to sit down immediately. You\u2019ve also noticed some weakness in your legs and a feeling of being very cold, despite it being warm outside. You have a history of high blood pressure and smoking for many years, and you\u2019ve been told you have a small aortic aneurysm in the past.Have you noticed at any point since your pain started that it suddenly became much worse or changed in any way, even just for a little while?chronology_confused",
+    "output": "THINKING: I need to answer honestly but I\u2019m not sure if the pain changed or got worse, maybe it was the same the whole time, or maybe I just noticed it more. I feel like I might be forgetting something or confu\nANSWER: I think it was pretty much the same, like it didn\u2019t really get worse, but I kept feeling it and then I started feeling dizzy and cold all of a sudden, so I\u2019m not sure if it changed or just stayed the same.",
+    "thinking": "I need to answer honestly but I\u2019m not sure if the pain changed or got worse, maybe it was the same the whole time, or maybe I just noticed it more. I feel like I might be forgetting something or confu",
+    "answer": "I think it was pretty much the same, like it didn\u2019t really get worse, but I kept feeling it and then I started feeling dizzy and cold all of a sudden, so I\u2019m not sure if it changed or just stayed the same.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 8,
+    "gold_diagnosis": "Descending aorta dissection and distal propagation with rupture"
+  },
+  {
+    "vignette_index": 53,
+    "input": "**PATIENT CHARACTER:** Patient with Descending aorta dissection and distal propagation with rupture\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden, severe, sharp pain in your upper back and chest\n- Shortness of breath and feeling dizzy\n- Low blood pressure when measured\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon while you were at rest, and the pain has been relentless ever since. You felt a quick wave of dizziness and almost fainted, prompting you to sit down immediately. You\u2019ve also noticed some weakness in your legs and a feeling of being very cold, despite it being warm outside. You have a history of high blood pressure and smoking for many years, and you\u2019ve been told you have a small aortic aneurysm in the past.Have there been any moments since your pain started when it suddenly became worse, sharper, or different than before, even if just briefly?chronology_confused",
+    "output": "THINKING: The doctor is asking about whether anything has changed suddenly, and I keep thinking back and forth about when the pain got worse or different, but honestly, everything kind of blends together in my \nANSWER: I think maybe yesterday or the day before, I felt like the pain got sharper for a little bit, but then it kind of went back to just being really bad all the time, I\u2019m not even sure exactly when it changed.",
+    "thinking": "The doctor is asking about whether anything has changed suddenly, and I keep thinking back and forth about when the pain got worse or different, but honestly, everything kind of blends together in my",
+    "answer": "I think maybe yesterday or the day before, I felt like the pain got sharper for a little bit, but then it kind of went back to just being really bad all the time, I\u2019m not even sure exactly when it changed.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 10,
+    "gold_diagnosis": "Descending aorta dissection and distal propagation with rupture"
+  },
+  {
+    "vignette_index": 53,
+    "input": "**PATIENT CHARACTER:** Patient with Descending aorta dissection and distal propagation with rupture\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden, severe, sharp pain in your upper back and chest\n- Shortness of breath and feeling dizzy\n- Low blood pressure when measured\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon while you were at rest, and the pain has been relentless ever since. You felt a quick wave of dizziness and almost fainted, prompting you to sit down immediately. You\u2019ve also noticed some weakness in your legs and a feeling of being very cold, despite it being warm outside. You have a history of high blood pressure and smoking for many years, and you\u2019ve been told you have a small aortic aneurysm in the past.Have you noticed any sudden weakness, numbness, dizziness, or difficulty moving your arms or legs since your pain started?chronology_confused",
+    "output": "THINKING: I\u2019m not entirely sure about the order of things or when exactly the weakness started. I remember feeling dizzy and cold at the same time as the pain, but I don\u2019t know if that\u2019s the same thing or if on\nANSWER: I think maybe the dizziness happened first, or maybe it was when the pain was really bad\u2014I\u2019m not sure, honestly. My legs feel weak sometimes more than others, but it\u2019s been like that since yesterday, I think.",
+    "thinking": "I\u2019m not entirely sure about the order of things or when exactly the weakness started. I remember feeling dizzy and cold at the same time as the pain, but I don\u2019t know if that\u2019s the same thing or if on",
+    "answer": "I think maybe the dizziness happened first, or maybe it was when the pain was really bad\u2014I\u2019m not sure, honestly. My legs feel weak sometimes more than others, but it\u2019s been like that since yesterday, I think.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 12,
+    "gold_diagnosis": "Descending aorta dissection and distal propagation with rupture"
+  },
+  {
+    "vignette_index": 53,
+    "input": "**PATIENT CHARACTER:** Patient with Descending aorta dissection and distal propagation with rupture\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden, severe, sharp pain in your upper back and chest\n- Shortness of breath and feeling dizzy\n- Low blood pressure when measured\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon while you were at rest, and the pain has been relentless ever since. You felt a quick wave of dizziness and almost fainted, prompting you to sit down immediately. You\u2019ve also noticed some weakness in your legs and a feeling of being very cold, despite it being warm outside. You have a history of high blood pressure and smoking for many years, and you\u2019ve been told you have a small aortic aneurysm in the past.Have you experienced any sudden, intense episodes where your chest or back pain suddenly became much worse or changed dramatically\u2014even if just briefly\u2014since your pain first started?chronology_confused",
+    "output": "THINKING: I'm trying to remember when exactly the pain got worse, but it all kind of blends together in my head. I think maybe it got worse after a while, but I\u2019m not sure if that was yesterday or the day befor\nANSWER: I think I might have felt something worse or different maybe a little after it started, but I\u2019m not really sure if it was the same day or maybe the next day, and I didn\u2019t know if that was normal or not.",
+    "thinking": "I'm trying to remember when exactly the pain got worse, but it all kind of blends together in my head. I think maybe it got worse after a while, but I\u2019m not sure if that was yesterday or the day befor",
+    "answer": "I think I might have felt something worse or different maybe a little after it started, but I\u2019m not really sure if it was the same day or maybe the next day, and I didn\u2019t know if that was normal or not.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 14,
+    "gold_diagnosis": "Descending aorta dissection and distal propagation with rupture"
+  },
+  {
+    "vignette_index": 53,
+    "input": "**PATIENT CHARACTER:** Patient with Descending aorta dissection and distal propagation with rupture\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden, severe, sharp pain in your upper back and chest\n- Shortness of breath and feeling dizzy\n- Low blood pressure when measured\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon while you were at rest, and the pain has been relentless ever since. You felt a quick wave of dizziness and almost fainted, prompting you to sit down immediately. You\u2019ve also noticed some weakness in your legs and a feeling of being very cold, despite it being warm outside. You have a history of high blood pressure and smoking for many years, and you\u2019ve been told you have a small aortic aneurysm in the past.Have you noticed any points since your pain started when the pain suddenly became much worse, sharper, or different from how it was before\u2014like a sudden tearing or ripping sensation\u2014or did it happen all at once without warning?chronology_confused",
+    "output": "THINKING: I\u2019m trying to remember when the pain suddenly got worse, but everything feels jumbled in my head. I think it was yesterday, but I\u2019m not sure if the sharp pain or the dizziness came first. I really don\nANSWER: I think maybe it was yesterday afternoon when the pain suddenly got worse and started feeling super sharp, but I also remember feeling dizzy really fast after that. It\u2019s confusing.",
+    "thinking": "I\u2019m trying to remember when the pain suddenly got worse, but everything feels jumbled in my head. I think it was yesterday, but I\u2019m not sure if the sharp pain or the dizziness came first. I really don",
+    "answer": "I think maybe it was yesterday afternoon when the pain suddenly got worse and started feeling super sharp, but I also remember feeling dizzy really fast after that. It\u2019s confusing.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 16,
+    "gold_diagnosis": "Descending aorta dissection and distal propagation with rupture"
+  },
+  {
+    "vignette_index": 53,
+    "input": "**PATIENT CHARACTER:** Patient with Descending aorta dissection and distal propagation with rupture\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden, severe, sharp pain in your upper back and chest\n- Shortness of breath and feeling dizzy\n- Low blood pressure when measured\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon while you were at rest, and the pain has been relentless ever since. You felt a quick wave of dizziness and almost fainted, prompting you to sit down immediately. You\u2019ve also noticed some weakness in your legs and a feeling of being very cold, despite it being warm outside. You have a history of high blood pressure and smoking for many years, and you\u2019ve been told you have a small aortic aneurysm in the past.Since you're unsure about the exact timeline, can you tell me if at any point your chest or back pain suddenly felt like it was tearing, ripping, or much worse than before\u2014either really suddenly or with a quick change in how severe it felt?chronology_confused",
+    "output": "THINKING: The doctor is asking if I've ever felt the pain suddenly tearing or ripping, and I honestly don't remember exactly when or if it felt that way. I think it might have been earlier today or maybe yester\nANSWER: I think maybe it was yesterday, or maybe even last week, I can't really remember, but the pain did feel really sudden and intense at some point, I think.",
+    "thinking": "The doctor is asking if I've ever felt the pain suddenly tearing or ripping, and I honestly don't remember exactly when or if it felt that way. I think it might have been earlier today or maybe yester",
+    "answer": "I think maybe it was yesterday, or maybe even last week, I can't really remember, but the pain did feel really sudden and intense at some point, I think.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 18,
+    "gold_diagnosis": "Descending aorta dissection and distal propagation with rupture"
+  }
+]

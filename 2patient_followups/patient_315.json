@@ -1,0 +1,115 @@
+[
+  {
+    "vignette_index": 315,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Otomycosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Itching in the ear\n- Discharge from the ear\n- Hearing loss\n- Redness and swelling of the ear canal\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about three days ago after I went swimming multiple times over the weekend. I noticed my ear felt itchy and uncomfortable, and then I started to see a yellowish discharge. My hearing has become noticeably muffled, and my outer ear is a bit red and swollen. I\u2019ve been using cotton swabs but I think I irritated it further. It\u2019s been quite bothersome and I\u2019m worried it might be infected.",
+    "output": "THINKING: I need to describe my symptoms clearly but avoid sounding overly worried, even though I am a bit scared about what's happening. I'll mention the main issues but keep some details vague at first.\nANSWER: Well, I guess I've just been having a strange feeling in my ear for a few days. It started itching and then I noticed some kind of discharge\u2014it\u2019s kinda yellowish\u2014and now my ear feels blocked or muffled. It\u2019s been bothering me, especially after I went swimming.",
+    "thinking": "I need to describe my symptoms clearly but avoid sounding overly worried, even though I am a bit scared about what's happening. I'll mention the main issues but keep some details vague at first.",
+    "answer": "Well, I guess I've just been having a strange feeling in my ear for a few days. It started itching and then I noticed some kind of discharge\u2014it\u2019s kinda yellowish\u2014and now my ear feels blocked or muffled. It\u2019s been bothering me, especially after I went swimming.",
+    "behavior_type": "information_withholder",
+    "behavior_config": {
+      "weight": 0.15,
+      "description": "Patient initially omits embarrassing or stigmatized symptoms",
+      "modifiers": [
+        "embarrassed_symptoms",
+        "gradual_revelation"
+      ],
+      "empathy_cues": [
+        "hesitation",
+        "vague_responses",
+        "embarrassment",
+        "trust_building_needed"
+      ]
+    },
+    "gold_diagnosis": "Otomycosis"
+  },
+  {
+    "vignette_index": 315,
+    "input": "**PATIENT CHARACTER:** Patient with Otomycosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Itching in the ear\n- Discharge from the ear\n- Hearing loss\n- Redness and swelling of the ear canal\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about three days ago after I went swimming multiple times over the weekend. I noticed my ear felt itchy and uncomfortable, and then I started to see a yellowish discharge. My hearing has become noticeably muffled, and my outer ear is a bit red and swollen. I\u2019ve been using cotton swabs but I think I irritated it further. It\u2019s been quite bothersome and I\u2019m worried it might be infected.Can you tell me how much pain or discomfort you\u2019re feeling in your ear, and if you\u2019ve noticed any fever, chills, or feeling generally unwell since this started?information_withholder",
+    "output": "THINKING: The doctor is asking about pain or fever, but honestly, I just feel really uncomfortable and I don't know if I have a fever or not. I\u2019m a bit scared and trying not to show it, so I\u2019ll keep it simple.\nANSWER: It doesn\u2019t really hurt a lot, but my ear is really itchy and kind of sore, and I\u2019ve been feeling tired, I guess. I haven\u2019t checked for fever or chills.",
+    "thinking": "The doctor is asking about pain or fever, but honestly, I just feel really uncomfortable and I don't know if I have a fever or not. I\u2019m a bit scared and trying not to show it, so I\u2019ll keep it simple.",
+    "answer": "It doesn\u2019t really hurt a lot, but my ear is really itchy and kind of sore, and I\u2019ve been feeling tired, I guess. I haven\u2019t checked for fever or chills.",
+    "behavior_type": "information_withholder",
+    "turn_count": 0,
+    "gold_diagnosis": "Otomycosis"
+  },
+  {
+    "vignette_index": 315,
+    "input": "**PATIENT CHARACTER:** Patient with Otomycosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Itching in the ear\n- Discharge from the ear\n- Hearing loss\n- Redness and swelling of the ear canal\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about three days ago after I went swimming multiple times over the weekend. I noticed my ear felt itchy and uncomfortable, and then I started to see a yellowish discharge. My hearing has become noticeably muffled, and my outer ear is a bit red and swollen. I\u2019ve been using cotton swabs but I think I irritated it further. It\u2019s been quite bothersome and I\u2019m worried it might be infected.Can you tell me more about how you\u2019ve been feeling overall\u2014like if you\u2019ve noticed any fever, chills, or feeling more tired or unwell than usual since this started?information_withholder",
+    "output": "THINKING: The doctor is asking about general feelings, but I feel like my main issues are in my ear. I don\u2019t really think about fever or chills because I mainly notice the itching and the discharge, which feels\nANSWER: No, I haven\u2019t really had a fever or anything like that. I just feel kinda annoyed with my ear, and it\u2019s been bothering me a lot.",
+    "thinking": "The doctor is asking about general feelings, but I feel like my main issues are in my ear. I don\u2019t really think about fever or chills because I mainly notice the itching and the discharge, which feels",
+    "answer": "No, I haven\u2019t really had a fever or anything like that. I just feel kinda annoyed with my ear, and it\u2019s been bothering me a lot.",
+    "behavior_type": "information_withholder",
+    "turn_count": 2,
+    "gold_diagnosis": "Otomycosis"
+  },
+  {
+    "vignette_index": 315,
+    "input": "**PATIENT CHARACTER:** Patient with Otomycosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Itching in the ear\n- Discharge from the ear\n- Hearing loss\n- Redness and swelling of the ear canal\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about three days ago after I went swimming multiple times over the weekend. I noticed my ear felt itchy and uncomfortable, and then I started to see a yellowish discharge. My hearing has become noticeably muffled, and my outer ear is a bit red and swollen. I\u2019ve been using cotton swabs but I think I irritated it further. It\u2019s been quite bothersome and I\u2019m worried it might be infected.Can you tell me if you've noticed any fever, chills, or feeling more tired than usual since your ear symptoms started?information_withholder",
+    "output": "THINKING: I feel a bit nervous talking about feeling tired, but I guess I should mention it. I don't really know if it's related or not, but I have been feeling more worn out than usual lately.\nANSWER: Um, I haven't really noticed any fever or chills, but I have been feeling kinda more tired than usual, like I don't have much energy.",
+    "thinking": "I feel a bit nervous talking about feeling tired, but I guess I should mention it. I don't really know if it's related or not, but I have been feeling more worn out than usual lately.",
+    "answer": "Um, I haven't really noticed any fever or chills, but I have been feeling kinda more tired than usual, like I don't have much energy.",
+    "behavior_type": "information_withholder",
+    "turn_count": 4,
+    "gold_diagnosis": "Otomycosis"
+  },
+  {
+    "vignette_index": 315,
+    "input": "**PATIENT CHARACTER:** Patient with Otomycosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Itching in the ear\n- Discharge from the ear\n- Hearing loss\n- Redness and swelling of the ear canal\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about three days ago after I went swimming multiple times over the weekend. I noticed my ear felt itchy and uncomfortable, and then I started to see a yellowish discharge. My hearing has become noticeably muffled, and my outer ear is a bit red and swollen. I\u2019ve been using cotton swabs but I think I irritated it further. It\u2019s been quite bothersome and I\u2019m worried it might be infected.Have you noticed any fever, chills, or feeling more generally unwell or tired than usual since your ear symptoms started?information_withholder",
+    "output": "THINKING: I'm not really sure. I don't think I have a fever or anything, but I feel kind of tired sometimes, like I want to rest more. I guess I might just be stressed or something, but I do feel pretty unwell \nANSWER: Not really sure, I don't think I have a fever, but I have felt a bit tired and like I don't have a lot of energy.",
+    "thinking": "I'm not really sure. I don't think I have a fever or anything, but I feel kind of tired sometimes, like I want to rest more. I guess I might just be stressed or something, but I do feel pretty unwell",
+    "answer": "Not really sure, I don't think I have a fever, but I have felt a bit tired and like I don't have a lot of energy.",
+    "behavior_type": "information_withholder",
+    "turn_count": 6,
+    "gold_diagnosis": "Otomycosis"
+  },
+  {
+    "vignette_index": 315,
+    "input": "**PATIENT CHARACTER:** Patient with Otomycosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Itching in the ear\n- Discharge from the ear\n- Hearing loss\n- Redness and swelling of the ear canal\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about three days ago after I went swimming multiple times over the weekend. I noticed my ear felt itchy and uncomfortable, and then I started to see a yellowish discharge. My hearing has become noticeably muffled, and my outer ear is a bit red and swollen. I\u2019ve been using cotton swabs but I think I irritated it further. It\u2019s been quite bothersome and I\u2019m worried it might be infected.\"Have you noticed any subtle fever or chills, like feeling unusually hot or cold, even if you haven't thought it was a big deal, since your ear symptoms started?\"information_withholder",
+    "output": "THINKING: I'm not sure if I really felt cold or hot, but I do remember feeling kinda warm inside, and I was a little sweaty, so maybe that counts? I'm honestly not sure if that\u2019s normal or something to worry ab\nANSWER: Um, I think I might have felt a little warm inside sometimes, but I don't really know if that counts or if it's a fever or anything.",
+    "thinking": "I'm not sure if I really felt cold or hot, but I do remember feeling kinda warm inside, and I was a little sweaty, so maybe that counts? I'm honestly not sure if that\u2019s normal or something to worry ab",
+    "answer": "Um, I think I might have felt a little warm inside sometimes, but I don't really know if that counts or if it's a fever or anything.",
+    "behavior_type": "information_withholder",
+    "turn_count": 8,
+    "gold_diagnosis": "Otomycosis"
+  },
+  {
+    "vignette_index": 315,
+    "input": "**PATIENT CHARACTER:** Patient with Otomycosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Itching in the ear\n- Discharge from the ear\n- Hearing loss\n- Redness and swelling of the ear canal\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about three days ago after I went swimming multiple times over the weekend. I noticed my ear felt itchy and uncomfortable, and then I started to see a yellowish discharge. My hearing has become noticeably muffled, and my outer ear is a bit red and swollen. I\u2019ve been using cotton swabs but I think I irritated it further. It\u2019s been quite bothersome and I\u2019m worried it might be infected.Have you noticed feeling unusually hot, cold, or more tired than usual, or experienced chills or fever since your ear symptoms started?information_withholder",
+    "output": "THINKING: The doctor is asking about feeling hot or cold and other general symptoms, but I mostly just feel uncomfortable in my ear. I haven't really noticed chills or fever, but I do feel pretty tired and a bi\nANSWER: Um, I don\u2019t think I\u2019ve had a fever or anything, but I do feel more tired than usual, and I\u2019ve been really uncomfortable in my ear. It\u2019s been bothering me a lot lately.",
+    "thinking": "The doctor is asking about feeling hot or cold and other general symptoms, but I mostly just feel uncomfortable in my ear. I haven't really noticed chills or fever, but I do feel pretty tired and a bi",
+    "answer": "Um, I don\u2019t think I\u2019ve had a fever or anything, but I do feel more tired than usual, and I\u2019ve been really uncomfortable in my ear. It\u2019s been bothering me a lot lately.",
+    "behavior_type": "information_withholder",
+    "turn_count": 10,
+    "gold_diagnosis": "Otomycosis"
+  },
+  {
+    "vignette_index": 315,
+    "input": "**PATIENT CHARACTER:** Patient with Otomycosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Itching in the ear\n- Discharge from the ear\n- Hearing loss\n- Redness and swelling of the ear canal\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about three days ago after I went swimming multiple times over the weekend. I noticed my ear felt itchy and uncomfortable, and then I started to see a yellowish discharge. My hearing has become noticeably muffled, and my outer ear is a bit red and swollen. I\u2019ve been using cotton swabs but I think I irritated it further. It\u2019s been quite bothersome and I\u2019m worried it might be infected.\"I understand you're saying you don't really feel feverish or chilled, but sometimes people with infections can feel a bit warm or tired even if they don't notice it outright. Would you say you might have felt more tired, warm inside, or unwell at all since your ear symptoms started, even if it\u2019s just a little?\"information_withholder",
+    "output": "THINKING: The doctor is trying to see if I feel any general symptoms like feeling warm or tired, which I might not have noticed or thought about. I don\u2019t really feel sick overall, just this ear stuff, but maybe\nANSWER: Um, I don\u2019t think I\u2019ve felt really tired or anything, but I guess I did feel a little more off, like maybe kinda drained or something, but I wasn\u2019t sure if that\u2019s related. My ear just feels so bothering, though.",
+    "thinking": "The doctor is trying to see if I feel any general symptoms like feeling warm or tired, which I might not have noticed or thought about. I don\u2019t really feel sick overall, just this ear stuff, but maybe",
+    "answer": "Um, I don\u2019t think I\u2019ve felt really tired or anything, but I guess I did feel a little more off, like maybe kinda drained or something, but I wasn\u2019t sure if that\u2019s related. My ear just feels so bothering, though.",
+    "behavior_type": "information_withholder",
+    "turn_count": 12,
+    "gold_diagnosis": "Otomycosis"
+  },
+  {
+    "vignette_index": 315,
+    "input": "**PATIENT CHARACTER:** Patient with Otomycosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Itching in the ear\n- Discharge from the ear\n- Hearing loss\n- Redness and swelling of the ear canal\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about three days ago after I went swimming multiple times over the weekend. I noticed my ear felt itchy and uncomfortable, and then I started to see a yellowish discharge. My hearing has become noticeably muffled, and my outer ear is a bit red and swollen. I\u2019ve been using cotton swabs but I think I irritated it further. It\u2019s been quite bothersome and I\u2019m worried it might be infected.Have you noticed any increased warmth, redness, or swelling around your ear or neck area, or any new feeling of feverishness or chills since your ear symptoms began?information_withholder",
+    "output": "THINKING: The doctor is asking about warmth, redness, or any feverish feeling, which I haven't really thought about, but maybe I should say something. I feel a little nervous about what that could mean, but I d\nANSWER: Um, I guess I haven't really noticed if my ear feels warmer or anything, but it is red and swollen, like I said. I do feel a little tired, but I didn\u2019t think it was from that.",
+    "thinking": "The doctor is asking about warmth, redness, or any feverish feeling, which I haven't really thought about, but maybe I should say something. I feel a little nervous about what that could mean, but I d",
+    "answer": "Um, I guess I haven't really noticed if my ear feels warmer or anything, but it is red and swollen, like I said. I do feel a little tired, but I didn\u2019t think it was from that.",
+    "behavior_type": "information_withholder",
+    "turn_count": 14,
+    "gold_diagnosis": "Otomycosis"
+  },
+  {
+    "vignette_index": 315,
+    "input": "**PATIENT CHARACTER:** Patient with Otomycosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 35-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Itching in the ear\n- Discharge from the ear\n- Hearing loss\n- Redness and swelling of the ear canal\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about three days ago after I went swimming multiple times over the weekend. I noticed my ear felt itchy and uncomfortable, and then I started to see a yellowish discharge. My hearing has become noticeably muffled, and my outer ear is a bit red and swollen. I\u2019ve been using cotton swabs but I think I irritated it further. It\u2019s been quite bothersome and I\u2019m worried it might be infected.Have you noticed any fever, chills, or feeling more generally unwell or tired than usual since your ear symptoms started, even if you didn't think it was a big deal?information_withholder",
+    "output": "THINKING: The doctor asked about feeling unwell overall, but I'm not sure if I should say yes or no. I do feel a bit tired and kinda off, but I didn't think it was anything serious. Maybe I should mention it, b\nANSWER: Um, I guess I do feel kind of tired, and I haven't been feeling very\u2026 well, kind of off maybe, but I'm not sure if it\u2019s related. I didn't really think it was a big deal.",
+    "thinking": "The doctor asked about feeling unwell overall, but I'm not sure if I should say yes or no. I do feel a bit tired and kinda off, but I didn't think it was anything serious. Maybe I should mention it, b",
+    "answer": "Um, I guess I do feel kind of tired, and I haven't been feeling very\u2026 well, kind of off maybe, but I'm not sure if it\u2019s related. I didn't really think it was a big deal.",
+    "behavior_type": "information_withholder",
+    "turn_count": 16,
+    "gold_diagnosis": "Otomycosis"
+  }
+]

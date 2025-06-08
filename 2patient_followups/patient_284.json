@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 284,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Abnormal skin color around your ankles and shins, which has gradually turned from normal to a reddish-brown hue.\n- Your skin is thicker, hard, and somewhat scaly, especially around your lower legs.\n- You feel a constant, persistent itch that\u2019s been bothering you daily.\n- Your lower legs are swollen, making it uncomfortable to sit or stand for long periods.\n- Occasionally, you experience some mild pain in the affected areas.\nThese symptoms came into fruition gradually over the past few months, starting with mild itching and discoloration that slowly worsened, with swelling becoming more noticeable over time.",
+    "output": "THINKING: I should explain my symptoms clearly but simply, since I\u2019m not sure what\u2019s going on. I want to make sure she understands how uncomfortable I\u2019ve been feeling and that it\u2019s been a while now. I\u2019m a bit w\nANSWER: Well, I\u2019m a 65-year-old woman, and I\u2019ve been having this stuff happening with my legs. The skin around my ankles and shins has turned a weird color, like reddish-brown, and it\u2019s gotten thicker and kind of scaly. It\u2019s always itchy, and my legs swell up a lot, which makes it hard to sit or stand for long. Sometimes there\u2019s a little pain too, and it\u2019s been bothering me for a few months now.",
+    "thinking": "I should explain my symptoms clearly but simply, since I\u2019m not sure what\u2019s going on. I want to make sure she understands how uncomfortable I\u2019ve been feeling and that it\u2019s been a while now. I\u2019m a bit w",
+    "answer": "Well, I\u2019m a 65-year-old woman, and I\u2019ve been having this stuff happening with my legs. The skin around my ankles and shins has turned a weird color, like reddish-brown, and it\u2019s gotten thicker and kind of scaly. It\u2019s always itchy, and my legs swell up a lot, which makes it hard to sit or stand for long. Sometimes there\u2019s a little pain too, and it\u2019s been bothering me for a few months now.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  },
+  {
+    "vignette_index": 284,
+    "input": "**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Abnormal skin color around your ankles and shins, which has gradually turned from normal to a reddish-brown hue.\n- Your skin is thicker, hard, and somewhat scaly, especially around your lower legs.\n- You feel a constant, persistent itch that\u2019s been bothering you daily.\n- Your lower legs are swollen, making it uncomfortable to sit or stand for long periods.\n- Occasionally, you experience some mild pain in the affected areas.\nThese symptoms came into fruition gradually over the past few months, starting with mild itching and discoloration that slowly worsened, with swelling becoming more noticeable over time.Can you tell me more about how these skin changes and swelling are affecting your day-to-day activities, like walking, sitting, or caring for yourself?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and unsure how much these things really matter or if I can keep living like this. I want to tell the doctor how it feels, but I don't really know what to say exactly.\nANSWER: Uh, well, my legs are swollen all the time, and it\u2019s hard to sit or stand for too long, and the skin is all as\u00ed rough and weird-looking now, and it itches lots.",
+    "thinking": "I feel a bit overwhelmed and unsure how much these things really matter or if I can keep living like this. I want to tell the doctor how it feels, but I don't really know what to say exactly.",
+    "answer": "Uh, well, my legs are swollen all the time, and it\u2019s hard to sit or stand for too long, and the skin is all as\u00ed rough and weird-looking now, and it itches lots.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  },
+  {
+    "vignette_index": 284,
+    "input": "**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Abnormal skin color around your ankles and shins, which has gradually turned from normal to a reddish-brown hue.\n- Your skin is thicker, hard, and somewhat scaly, especially around your lower legs.\n- You feel a constant, persistent itch that\u2019s been bothering you daily.\n- Your lower legs are swollen, making it uncomfortable to sit or stand for long periods.\n- Occasionally, you experience some mild pain in the affected areas.\nThese symptoms came into fruition gradually over the past few months, starting with mild itching and discoloration that slowly worsened, with swelling becoming more noticeable over time.Can you tell me more about when these leg changes and swelling first started, how they\u2019ve changed over time, and what symptoms or difficulties you notice now compared to earlier?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about all these changes, and I\u2019m not really sure what\u2019s going on or why it\u2019s gotten worse, but I want to explain how it started and how I feel now.\nANSWER: It started maybe a few months ago, and at first it was just some itchiness and a little color change, but now my legs are swollen and look pretty different, and the skin feels thicker and kind of scaly.",
+    "thinking": "I feel a bit overwhelmed and worried about all these changes, and I\u2019m not really sure what\u2019s going on or why it\u2019s gotten worse, but I want to explain how it started and how I feel now.",
+    "answer": "It started maybe a few months ago, and at first it was just some itchiness and a little color change, but now my legs are swollen and look pretty different, and the skin feels thicker and kind of scaly.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  },
+  {
+    "vignette_index": 284,
+    "input": "**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Abnormal skin color around your ankles and shins, which has gradually turned from normal to a reddish-brown hue.\n- Your skin is thicker, hard, and somewhat scaly, especially around your lower legs.\n- You feel a constant, persistent itch that\u2019s been bothering you daily.\n- Your lower legs are swollen, making it uncomfortable to sit or stand for long periods.\n- Occasionally, you experience some mild pain in the affected areas.\nThese symptoms came into fruition gradually over the past few months, starting with mild itching and discoloration that slowly worsened, with swelling becoming more noticeable over time.Can you tell me how your leg swelling and skin changes have affected your daily activities, like walking, sitting comfortably, or caring for yourself\u2014are there ways they\u2019ve made things harder than you initially thought?baseline",
+    "output": "THINKING: I feel a bit embarrassed talking about how all of this has changed my daily life. It\u2019s been slowly getting worse, and I\u2019m not sure what I should be doing or if I\u2019m doing enough. I\u2019m a little worried b\nANSWER: Well, I guess it\u2019s harder to sit or stand for a long time now, and my legs feel heavy and sore. I don\u2019t really do much different, but it\u2019s just more uncomfortable than before.",
+    "thinking": "I feel a bit embarrassed talking about how all of this has changed my daily life. It\u2019s been slowly getting worse, and I\u2019m not sure what I should be doing or if I\u2019m doing enough. I\u2019m a little worried b",
+    "answer": "Well, I guess it\u2019s harder to sit or stand for a long time now, and my legs feel heavy and sore. I don\u2019t really do much different, but it\u2019s just more uncomfortable than before.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  },
+  {
+    "vignette_index": 284,
+    "input": "**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Abnormal skin color around your ankles and shins, which has gradually turned from normal to a reddish-brown hue.\n- Your skin is thicker, hard, and somewhat scaly, especially around your lower legs.\n- You feel a constant, persistent itch that\u2019s been bothering you daily.\n- Your lower legs are swollen, making it uncomfortable to sit or stand for long periods.\n- Occasionally, you experience some mild pain in the affected areas.\nThese symptoms came into fruition gradually over the past few months, starting with mild itching and discoloration that slowly worsened, with swelling becoming more noticeable over time.Can you tell me if when you press on your legs, the swelling leaves a dent or impression, and if you notice any sudden redness, warmth, or pain that might come and go?baseline",
+    "output": "THINKING: I\u2019m not really sure what the doctor wants to know, but I guess I can tell them if I press on my legs, the dents stay there. As for redness or warmth, I think I\u2019ve seen some but not sure if it\u2019s always\nANSWER: Um, I think when I press on my legs, the dents stay for a bit, so I guess yes. I haven\u2019t really noticed if they get all red or warm, it\u2019s mostly the skin changing color and feeling hard.",
+    "thinking": "I\u2019m not really sure what the doctor wants to know, but I guess I can tell them if I press on my legs, the dents stay there. As for redness or warmth, I think I\u2019ve seen some but not sure if it\u2019s always",
+    "answer": "Um, I think when I press on my legs, the dents stay for a bit, so I guess yes. I haven\u2019t really noticed if they get all red or warm, it\u2019s mostly the skin changing color and feeling hard.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  },
+  {
+    "vignette_index": 284,
+    "input": "**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Abnormal skin color around your ankles and shins, which has gradually turned from normal to a reddish-brown hue.\n- Your skin is thicker, hard, and somewhat scaly, especially around your lower legs.\n- You feel a constant, persistent itch that\u2019s been bothering you daily.\n- Your lower legs are swollen, making it uncomfortable to sit or stand for long periods.\n- Occasionally, you experience some mild pain in the affected areas.\nThese symptoms came into fruition gradually over the past few months, starting with mild itching and discoloration that slowly worsened, with swelling becoming more noticeable over time.Have you noticed any recent or occasional redness, warmth, or tenderness in your legs that might come and go, even if it doesn\u2019t seem very severe?baseline",
+    "output": "THINKING: I think about how my legs look and feel and wonder if this is normal or something serious. I\u2019m a bit embarrassed about the discoloration and the constant itch, but I still want to tell the doctor ever\nANSWER: Um, yes, I\u2019ve noticed it\u2019s been kinda red and brown around my ankles and shins, and it\u2019s been itchy all the time. It feels kind of thick and a little painful sometimes too.",
+    "thinking": "I think about how my legs look and feel and wonder if this is normal or something serious. I\u2019m a bit embarrassed about the discoloration and the constant itch, but I still want to tell the doctor ever",
+    "answer": "Um, yes, I\u2019ve noticed it\u2019s been kinda red and brown around my ankles and shins, and it\u2019s been itchy all the time. It feels kind of thick and a little painful sometimes too.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  },
+  {
+    "vignette_index": 284,
+    "input": "**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Abnormal skin color around your ankles and shins, which has gradually turned from normal to a reddish-brown hue.\n- Your skin is thicker, hard, and somewhat scaly, especially around your lower legs.\n- You feel a constant, persistent itch that\u2019s been bothering you daily.\n- Your lower legs are swollen, making it uncomfortable to sit or stand for long periods.\n- Occasionally, you experience some mild pain in the affected areas.\nThese symptoms came into fruition gradually over the past few months, starting with mild itching and discoloration that slowly worsened, with swelling becoming more noticeable over time.Have you noticed any areas on your legs that feel warmer than usual, look more red or swollen than before, or that you feel tender or sore when you touch them, especially recently?baseline",
+    "output": "THINKING: I'm a bit worried about these changes, but I don't really understand what\u2019s happening or if it\u2019s serious. I just know my legs feel uncomfortable, and I\u2019ve never had anything like this before.\nANSWER: Yeah, I guess my legs look a little different than before, they're kind of darker and anyway, they\u2019re itchy and swollen all the time. Sometimes they hurt a little too, I think.",
+    "thinking": "I'm a bit worried about these changes, but I don't really understand what\u2019s happening or if it\u2019s serious. I just know my legs feel uncomfortable, and I\u2019ve never had anything like this before.",
+    "answer": "Yeah, I guess my legs look a little different than before, they're kind of darker and anyway, they\u2019re itchy and swollen all the time. Sometimes they hurt a little too, I think.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  },
+  {
+    "vignette_index": 284,
+    "input": "**PATIENT CHARACTER:** Patient with Stasis dermatitis of the lower legs\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD WOMAN\nYou are experiencing the following symptoms:\n- Abnormal skin color around your ankles and shins, which has gradually turned from normal to a reddish-brown hue.\n- Your skin is thicker, hard, and somewhat scaly, especially around your lower legs.\n- You feel a constant, persistent itch that\u2019s been bothering you daily.\n- Your lower legs are swollen, making it uncomfortable to sit or stand for long periods.\n- Occasionally, you experience some mild pain in the affected areas.\nThese symptoms came into fruition gradually over the past few months, starting with mild itching and discoloration that slowly worsened, with swelling becoming more noticeable over time.When you have examined your legs, do you notice any areas that feel warmer, look more red or swollen than usual, or that cause you tenderness or soreness when you touch them, especially in recent days?baseline",
+    "output": "THINKING: I want to be honest, but I don't really know what to look for or what\u2019s normal. I\u2019m worried, but also embarrassed about how my legs look now. I don\u2019t think I\u2019ve noticed anything specific that\u2019s more w\nANSWER: Um, I don\u2019t think they feel warmer or anything, and I don\u2019t see anything really more red or swollen than usual. But they do feel kind of hard and itchy all the time, and they\u2019re a bit tender when I touch them, especially lately.",
+    "thinking": "I want to be honest, but I don't really know what to look for or what\u2019s normal. I\u2019m worried, but also embarrassed about how my legs look now. I don\u2019t think I\u2019ve noticed anything specific that\u2019s more w",
+    "answer": "Um, I don\u2019t think they feel warmer or anything, and I don\u2019t see anything really more red or swollen than usual. But they do feel kind of hard and itchy all the time, and they\u2019re a bit tender when I touch them, especially lately.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Stasis dermatitis of the lower legs"
+  }
+]

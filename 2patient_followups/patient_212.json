@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 212,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe pain in your back and legs\n- Fatigue and weakness\n- Jaundice (yellowing of the skin and eyes)\n- Slight fever and signs of infection\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, with the pain coming on quickly and intensifying throughout the night. Over the past few days, you\u2019ve felt unusually tired and noticed your skin turning yellow, which worries you. You\u2019ve also developed a mild fever, but no cough or respiratory symptoms. You know from your history that you have sickle cell disease, and you\u2019re concerned that this might be a crisis.",
+    "output": "THINKING: I should explain my symptoms clearly but also express my worry since I have sickle cell and these recent issues seem serious. I want to tell the doctor everything that's been happening without soundin\nANSWER: I\u2019m 28, and I\u2019m a female. Umm, I think it\u2019s my sickle cell acting up. Last night, I suddenly started having really bad pain in my back and legs, and it\u2019s just gotten worse. I\u2019ve been feeling super tired and weak, and my skin and eyes are turning kind of yellow. I also have a slight fever, but I don\u2019t have a cough or anything. I\u2019m just worried, I guess, because it all came on pretty fast and I don\u2019t feel right.",
+    "thinking": "I should explain my symptoms clearly but also express my worry since I have sickle cell and these recent issues seem serious. I want to tell the doctor everything that's been happening without soundin",
+    "answer": "I\u2019m 28, and I\u2019m a female. Umm, I think it\u2019s my sickle cell acting up. Last night, I suddenly started having really bad pain in my back and legs, and it\u2019s just gotten worse. I\u2019ve been feeling super tired and weak, and my skin and eyes are turning kind of yellow. I also have a slight fever, but I don\u2019t have a cough or anything. I\u2019m just worried, I guess, because it all came on pretty fast and I don\u2019t feel right.",
+    "behavior_type": "chronology_confused",
+    "behavior_config": {
+      "weight": 0.1,
+      "description": "Patient confused about symptom timing and progression",
+      "modifiers": [
+        "timeline_confusion",
+        "sequence_uncertainty"
+      ],
+      "empathy_cues": [
+        "confusion",
+        "uncertainty",
+        "memory_issues",
+        "needs_patience"
+      ]
+    },
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 212,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe pain in your back and legs\n- Fatigue and weakness\n- Jaundice (yellowing of the skin and eyes)\n- Slight fever and signs of infection\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, with the pain coming on quickly and intensifying throughout the night. Over the past few days, you\u2019ve felt unusually tired and noticed your skin turning yellow, which worries you. You\u2019ve also developed a mild fever, but no cough or respiratory symptoms. You know from your history that you have sickle cell disease, and you\u2019re concerned that this might be a crisis.Can you tell me exactly how severe the pain feels and if it\u2019s mostly on one side or both, and whether you\u2019ve experienced anything like this before?chronology_confused",
+    "output": "THINKING: I\u2019m feeling overwhelmed and a bit scared because the pain is really bad, and I\u2019m not sure if it\u2019s worse on one side or both. I\u2019ve had sickle cell crises before, but I can\u2019t remember exactly how bad th\nANSWER: Um, I think the pain is really bad, and it\u2019s mainly in my back and legs\u2026 I guess it\u2019s both sides? I\u2019m not sure if it\u2019s more on one side or not, and I don\u2019t remember feeling like this exactly before.",
+    "thinking": "I\u2019m feeling overwhelmed and a bit scared because the pain is really bad, and I\u2019m not sure if it\u2019s worse on one side or both. I\u2019ve had sickle cell crises before, but I can\u2019t remember exactly how bad th",
+    "answer": "Um, I think the pain is really bad, and it\u2019s mainly in my back and legs\u2026 I guess it\u2019s both sides? I\u2019m not sure if it\u2019s more on one side or not, and I don\u2019t remember feeling like this exactly before.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 0,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 212,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe pain in your back and legs\n- Fatigue and weakness\n- Jaundice (yellowing of the skin and eyes)\n- Slight fever and signs of infection\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, with the pain coming on quickly and intensifying throughout the night. Over the past few days, you\u2019ve felt unusually tired and noticed your skin turning yellow, which worries you. You\u2019ve also developed a mild fever, but no cough or respiratory symptoms. You know from your history that you have sickle cell disease, and you\u2019re concerned that this might be a crisis.Can you tell me exactly how your pain has changed over time\u2014when it started, how it\u2019s been since then, and if it's more on one side or both?chronology_confused",
+    "output": "THINKING: I want to explain my symptoms, but I\u2019m a bit confused about when everything started and how it\u2019s all related. I feel worried because it all seemed to come on suddenly, but I don't remember exactly whe\nANSWER: I think it was yesterday evening when the pain suddenly started and then got worse, but before that, I just felt really tired and kinda yellow, like maybe a couple of days ago? It's all kind of jumbling in my head.",
+    "thinking": "I want to explain my symptoms, but I\u2019m a bit confused about when everything started and how it\u2019s all related. I feel worried because it all seemed to come on suddenly, but I don't remember exactly whe",
+    "answer": "I think it was yesterday evening when the pain suddenly started and then got worse, but before that, I just felt really tired and kinda yellow, like maybe a couple of days ago? It's all kind of jumbling in my head.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 2,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 212,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe pain in your back and legs\n- Fatigue and weakness\n- Jaundice (yellowing of the skin and eyes)\n- Slight fever and signs of infection\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, with the pain coming on quickly and intensifying throughout the night. Over the past few days, you\u2019ve felt unusually tired and noticed your skin turning yellow, which worries you. You\u2019ve also developed a mild fever, but no cough or respiratory symptoms. You know from your history that you have sickle cell disease, and you\u2019re concerned that this might be a crisis.Can you walk me through what happened from the moment you first noticed these symptoms\u2014how they started, how they\u2019ve changed since then, and how severe the pain and yellowing have been for you?chronology_confused",
+    "output": "THINKING: I feel a bit overwhelmed and unsure about exactly when everything started. I think the pain came suddenly last night, and I've been feeling weak and tired for a few days, but I also saw the yellowing \nANSWER: It was, uh, I think it was yesterday evening\u2014suddenly the pain got really bad and kept getting worse, but I was feeling tired and kinda yellow for a couple of days before that, so I\u2019m not sure which is which.",
+    "thinking": "I feel a bit overwhelmed and unsure about exactly when everything started. I think the pain came suddenly last night, and I've been feeling weak and tired for a few days, but I also saw the yellowing",
+    "answer": "It was, uh, I think it was yesterday evening\u2014suddenly the pain got really bad and kept getting worse, but I was feeling tired and kinda yellow for a couple of days before that, so I\u2019m not sure which is which.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 4,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 212,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe pain in your back and legs\n- Fatigue and weakness\n- Jaundice (yellowing of the skin and eyes)\n- Slight fever and signs of infection\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, with the pain coming on quickly and intensifying throughout the night. Over the past few days, you\u2019ve felt unusually tired and noticed your skin turning yellow, which worries you. You\u2019ve also developed a mild fever, but no cough or respiratory symptoms. You know from your history that you have sickle cell disease, and you\u2019re concerned that this might be a crisis.Can you tell me exactly when you first noticed your yellow skin and eyes, and whether you were already feeling more tired or had a fever at that time, or did those symptoms come later after the pain started?chronology_confused",
+    "output": "THINKING: I\u2019m not really sure how it all lines up. I think I saw my eyes turn yellow first, but maybe I felt tired before that? Then the pain hit suddenly last night. I don\u2019t remember exactly which came first o\nANSWER: I think I saw my eyes turn yellow maybe a couple of days ago, but I was feeling tired before that, and then last night the pain started really suddenly and got worse. I can\u2019t remember exactly, it\u2019s all kind of blurry.",
+    "thinking": "I\u2019m not really sure how it all lines up. I think I saw my eyes turn yellow first, but maybe I felt tired before that? Then the pain hit suddenly last night. I don\u2019t remember exactly which came first o",
+    "answer": "I think I saw my eyes turn yellow maybe a couple of days ago, but I was feeling tired before that, and then last night the pain started really suddenly and got worse. I can\u2019t remember exactly, it\u2019s all kind of blurry.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 6,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 212,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe pain in your back and legs\n- Fatigue and weakness\n- Jaundice (yellowing of the skin and eyes)\n- Slight fever and signs of infection\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, with the pain coming on quickly and intensifying throughout the night. Over the past few days, you\u2019ve felt unusually tired and noticed your skin turning yellow, which worries you. You\u2019ve also developed a mild fever, but no cough or respiratory symptoms. You know from your history that you have sickle cell disease, and you\u2019re concerned that this might be a crisis.Can you tell me if your urine has been dark or tea-colored, or if your stool has been lighter in color since the jaundice started?chronology_confused",
+    "output": "THINKING: I\u2019m not really sure when the color change started exactly, but I think maybe last night or the night before? It\u2019s all kinda blurring together, and I\u2019m kinda worried because it\u2019s been a while since I\u2019v\nANSWER: Um, I think my skin and eyes looked more yellow maybe a few days ago, but I can't remember exactly when it started. My pee\u2019s been darker, I think, but I\u2019m not totally sure when that started either.",
+    "thinking": "I\u2019m not really sure when the color change started exactly, but I think maybe last night or the night before? It\u2019s all kinda blurring together, and I\u2019m kinda worried because it\u2019s been a while since I\u2019v",
+    "answer": "Um, I think my skin and eyes looked more yellow maybe a few days ago, but I can't remember exactly when it started. My pee\u2019s been darker, I think, but I\u2019m not totally sure when that started either.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 8,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 212,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe pain in your back and legs\n- Fatigue and weakness\n- Jaundice (yellowing of the skin and eyes)\n- Slight fever and signs of infection\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, with the pain coming on quickly and intensifying throughout the night. Over the past few days, you\u2019ve felt unusually tired and noticed your skin turning yellow, which worries you. You\u2019ve also developed a mild fever, but no cough or respiratory symptoms. You know from your history that you have sickle cell disease, and you\u2019re concerned that this might be a crisis.Can you tell me if the back and leg pain feels sharp, dull, or like a deep ache, and whether it stays in one spot or if it spreads to other parts, so I can understand better what it's like for you?chronology_confused",
+    "output": "THINKING: I'm not really sure about the exact type of pain or if it jumped around or stayed in one spot. It kind of feels like it's everywhere now, but I think it started in my back and legs last night, and I\u2019v\nANSWER: It\u2019s like a really deep ache, I guess, and at first it was just in my back and legs, but now it kind of feels like it\u2019s spreading all over, and it\u2019s gotten worse since last night.",
+    "thinking": "I'm not really sure about the exact type of pain or if it jumped around or stayed in one spot. It kind of feels like it's everywhere now, but I think it started in my back and legs last night, and I\u2019v",
+    "answer": "It\u2019s like a really deep ache, I guess, and at first it was just in my back and legs, but now it kind of feels like it\u2019s spreading all over, and it\u2019s gotten worse since last night.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 10,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  },
+  {
+    "vignette_index": 212,
+    "input": "**PATIENT CHARACTER:** Patient with Sickle cell disease with crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Severe pain in your back and legs\n- Fatigue and weakness\n- Jaundice (yellowing of the skin and eyes)\n- Slight fever and signs of infection\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, with the pain coming on quickly and intensifying throughout the night. Over the past few days, you\u2019ve felt unusually tired and noticed your skin turning yellow, which worries you. You\u2019ve also developed a mild fever, but no cough or respiratory symptoms. You know from your history that you have sickle cell disease, and you\u2019re concerned that this might be a crisis.Can you tell me if your fever and jaundice came before, at the same time, or after your pain got really bad\u2014and approximately how long ago you first noticed each of those symptoms?chronology_confused",
+    "output": "THINKING: I\u2019m trying to remember the order of everything, but it's all a bit mixed up. I feel worried and a little overwhelmed because I don't know what's happening or what's most important. I want to tell the \nANSWER: I think the pain got really bad last night, but I noticed I was tired and yellowish a few days before that, and I just kind of... I don\u2019t know, everything feels kind of mixed up in my head.",
+    "thinking": "I\u2019m trying to remember the order of everything, but it's all a bit mixed up. I feel worried and a little overwhelmed because I don't know what's happening or what's most important. I want to tell the",
+    "answer": "I think the pain got really bad last night, but I noticed I was tired and yellowish a few days before that, and I just kind of... I don\u2019t know, everything feels kind of mixed up in my head.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 12,
+    "gold_diagnosis": "Sickle cell disease with crisis"
+  }
+]

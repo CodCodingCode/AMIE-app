@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 454,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Squamous cell carcinoma of vulva\n\nYou are a patient: You are 68 and your biological gender is female.\nYou are experiencing the following symptoms:\n- An open sore on your vulva that has not healed for several months, with a raw, rough surface.\n- Noticeable bleeding that is not related to your menstrual cycle, especially after walking or sitting for a while.\n- Itching and a burning sensation in the vulvar area that has been worsening gradually over the past few weeks.\nThese symptoms came into fruition gradually over the past three months, initially just some mild itching and discomfort, but then the sore appeared and started to bleed intermittently.",
+    "output": "THINKING: I need to explain my symptoms clearly but I\u2019m worried and a bit embarrassed. I also want to mention that someone in my family is concerned because it\u2019s been bothering me for a while and it\u2019s gotten wo\nANSWER: Well, I\u2019m 68, and I\u2019m a woman. I\u2019ve had this sore down there that just wouldn\u2019t heal for a few months now. It\u2019s really rough and makes me uncomfortable, and I\u2019ve been bleeding some, even when I\u2019m not on my period. My daughter keeps telling me I should see someone about it because it\u2019s been bothering me more and more, and honestly, I\u2019m worried about what it might be, especially because it\u2019s been getting worse and I\u2019m not sure what to do.",
+    "thinking": "I need to explain my symptoms clearly but I\u2019m worried and a bit embarrassed. I also want to mention that someone in my family is concerned because it\u2019s been bothering me for a while and it\u2019s gotten wo",
+    "answer": "Well, I\u2019m 68, and I\u2019m a woman. I\u2019ve had this sore down there that just wouldn\u2019t heal for a few months now. It\u2019s really rough and makes me uncomfortable, and I\u2019ve been bleeding some, even when I\u2019m not on my period. My daughter keeps telling me I should see someone about it because it\u2019s been bothering me more and more, and honestly, I\u2019m worried about what it might be, especially because it\u2019s been getting worse and I\u2019m not sure what to do.",
+    "behavior_type": "worried_family_involved",
+    "behavior_config": {
+      "weight": 0.03,
+      "description": "Family member influences patient responses",
+      "modifiers": [
+        "family_influence",
+        "secondary_concerns"
+      ],
+      "empathy_cues": [
+        "family_pressure",
+        "caregiver_stress",
+        "divided_attention",
+        "responsibility_burden"
+      ]
+    },
+    "gold_diagnosis": "Squamous cell carcinoma of vulva"
+  },
+  {
+    "vignette_index": 454,
+    "input": "**PATIENT CHARACTER:** Patient with Squamous cell carcinoma of vulva\n\nYou are a patient: You are 68 and your biological gender is female.\nYou are experiencing the following symptoms:\n- An open sore on your vulva that has not healed for several months, with a raw, rough surface.\n- Noticeable bleeding that is not related to your menstrual cycle, especially after walking or sitting for a while.\n- Itching and a burning sensation in the vulvar area that has been worsening gradually over the past few weeks.\nThese symptoms came into fruition gradually over the past three months, initially just some mild itching and discomfort, but then the sore appeared and started to bleed intermittently.Can you tell me more about when these symptoms first started, how they've changed over time, and whether they're happening all over the area or more on one side?worried_family_involved",
+    "output": "THINKING: I feel a bit overwhelmed talking about this, and honestly, I don\u2019t quite understand it all. My family is worried because I\u2019ve been feeling worse, and I just want to explain how it\u2019s been affecting me \nANSWER: Well, it started slow, like some itching and a little discomfort, and now there's this sore that won't heal and it bleeds sometimes even when I do normal things like walk or sit. My daughter keeps telling me I should see someone about it because she's worried, and I don\u2019t want to make things worse for my family.",
+    "thinking": "I feel a bit overwhelmed talking about this, and honestly, I don\u2019t quite understand it all. My family is worried because I\u2019ve been feeling worse, and I just want to explain how it\u2019s been affecting me",
+    "answer": "Well, it started slow, like some itching and a little discomfort, and now there's this sore that won't heal and it bleeds sometimes even when I do normal things like walk or sit. My daughter keeps telling me I should see someone about it because she's worried, and I don\u2019t want to make things worse for my family.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 0,
+    "gold_diagnosis": "Squamous cell carcinoma of vulva"
+  },
+  {
+    "vignette_index": 454,
+    "input": "**PATIENT CHARACTER:** Patient with Squamous cell carcinoma of vulva\n\nYou are a patient: You are 68 and your biological gender is female.\nYou are experiencing the following symptoms:\n- An open sore on your vulva that has not healed for several months, with a raw, rough surface.\n- Noticeable bleeding that is not related to your menstrual cycle, especially after walking or sitting for a while.\n- Itching and a burning sensation in the vulvar area that has been worsening gradually over the past few weeks.\nThese symptoms came into fruition gradually over the past three months, initially just some mild itching and discomfort, but then the sore appeared and started to bleed intermittently.Could you tell me more about what the sore looks like\u2014such as its size, shape, color, and exactly where it is located\u2014and whether it\u2019s on one side or both sides?worried_family_involved",
+    "output": "THINKING: I feel worried about what this sore might be and how serious it is, especially since it's been for a while and seems to be getting worse. My husband keeps asking me if I have to see a doctor because h\nANSWER: I don't really know exactly what it looks like, but it's like a raw, rough spot down there, and it\u2019s been open for a few months now. It bleeds sometimes, especially when I sit or walk, and it\u2019s been really itchy and burning, which is making me anxious.",
+    "thinking": "I feel worried about what this sore might be and how serious it is, especially since it's been for a while and seems to be getting worse. My husband keeps asking me if I have to see a doctor because h",
+    "answer": "I don't really know exactly what it looks like, but it's like a raw, rough spot down there, and it\u2019s been open for a few months now. It bleeds sometimes, especially when I sit or walk, and it\u2019s been really itchy and burning, which is making me anxious.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 2,
+    "gold_diagnosis": "Squamous cell carcinoma of vulva"
+  },
+  {
+    "vignette_index": 454,
+    "input": "**PATIENT CHARACTER:** Patient with Squamous cell carcinoma of vulva\n\nYou are a patient: You are 68 and your biological gender is female.\nYou are experiencing the following symptoms:\n- An open sore on your vulva that has not healed for several months, with a raw, rough surface.\n- Noticeable bleeding that is not related to your menstrual cycle, especially after walking or sitting for a while.\n- Itching and a burning sensation in the vulvar area that has been worsening gradually over the past few weeks.\nThese symptoms came into fruition gradually over the past three months, initially just some mild itching and discomfort, but then the sore appeared and started to bleed intermittently.Can you tell me exactly what the sore looks like\u2014like its shape, size, any color changes, and whether it's on just one side or both?worried_family_involved",
+    "output": "THINKING: I want to describe it honestly but I\u2019m worried about how bad it looks and what it might mean. My husband keeps asking if it\u2019s getting worse or if it\u2019s spreading, so I feel pressured but also scared to\nANSWER: Well, it\u2019s like a raw patch, kind of rough and like an open sore, and it\u2019s not small \u2014 it\u2019s bigger than a dime \u2014 and it doesn\u2019t seem to change color much, just not healing. My partner\u2019s worried I should get it looked at soon.",
+    "thinking": "I want to describe it honestly but I\u2019m worried about how bad it looks and what it might mean. My husband keeps asking if it\u2019s getting worse or if it\u2019s spreading, so I feel pressured but also scared to",
+    "answer": "Well, it\u2019s like a raw patch, kind of rough and like an open sore, and it\u2019s not small \u2014 it\u2019s bigger than a dime \u2014 and it doesn\u2019t seem to change color much, just not healing. My partner\u2019s worried I should get it looked at soon.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 4,
+    "gold_diagnosis": "Squamous cell carcinoma of vulva"
+  },
+  {
+    "vignette_index": 454,
+    "input": "**PATIENT CHARACTER:** Patient with Squamous cell carcinoma of vulva\n\nYou are a patient: You are 68 and your biological gender is female.\nYou are experiencing the following symptoms:\n- An open sore on your vulva that has not healed for several months, with a raw, rough surface.\n- Noticeable bleeding that is not related to your menstrual cycle, especially after walking or sitting for a while.\n- Itching and a burning sensation in the vulvar area that has been worsening gradually over the past few weeks.\nThese symptoms came into fruition gradually over the past three months, initially just some mild itching and discomfort, but then the sore appeared and started to bleed intermittently.Can you tell me exactly how large the sore is\u2014like how many inches or centimeters\u2014and whether it\u2019s round or irregular in shape?worried_family_involved",
+    "output": "THINKING: I feel a little overwhelmed, honestly. I want to give the doctor some idea of what\u2019s going on, but I\u2019m worried about how big the sore is and if that matters. My daughter keeps telling me I should go b\nANSWER: Um, I\u2019m not really sure exactly how big it is, but it\u2019s like a little patch\u2014maybe about, I don\u2019t know, a couple of centimeters? It\u2019s kind of round but not perfectly, more uneven around the edges.",
+    "thinking": "I feel a little overwhelmed, honestly. I want to give the doctor some idea of what\u2019s going on, but I\u2019m worried about how big the sore is and if that matters. My daughter keeps telling me I should go b",
+    "answer": "Um, I\u2019m not really sure exactly how big it is, but it\u2019s like a little patch\u2014maybe about, I don\u2019t know, a couple of centimeters? It\u2019s kind of round but not perfectly, more uneven around the edges.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 6,
+    "gold_diagnosis": "Squamous cell carcinoma of vulva"
+  },
+  {
+    "vignette_index": 454,
+    "input": "**PATIENT CHARACTER:** Patient with Squamous cell carcinoma of vulva\n\nYou are a patient: You are 68 and your biological gender is female.\nYou are experiencing the following symptoms:\n- An open sore on your vulva that has not healed for several months, with a raw, rough surface.\n- Noticeable bleeding that is not related to your menstrual cycle, especially after walking or sitting for a while.\n- Itching and a burning sensation in the vulvar area that has been worsening gradually over the past few weeks.\nThese symptoms came into fruition gradually over the past three months, initially just some mild itching and discomfort, but then the sore appeared and started to bleed intermittently.Can you describe in more detail what the sore looks like\u2014like whether it feels firm or soft, if it has a raised or flat surface, and if the edges are hard or indented, so I can better understand its appearance?worried_family_involved",
+    "output": "THINKING: I feel worried and a bit embarrassed talking about this, and my husband keeps telling me I should see someone about the sore because it's not healing and keeps bleeding even when I sit down. I'm afrai\nANSWER: It's this raw, rough sore that doesn't seem to heal, and it bleeds when I walk or sit too long, and my husband keeps telling me I need to see what's going on because it's been like this for a while now.",
+    "thinking": "I feel worried and a bit embarrassed talking about this, and my husband keeps telling me I should see someone about the sore because it's not healing and keeps bleeding even when I sit down. I'm afrai",
+    "answer": "It's this raw, rough sore that doesn't seem to heal, and it bleeds when I walk or sit too long, and my husband keeps telling me I need to see what's going on because it's been like this for a while now.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 8,
+    "gold_diagnosis": "Squamous cell carcinoma of vulva"
+  },
+  {
+    "vignette_index": 454,
+    "input": "**PATIENT CHARACTER:** Patient with Squamous cell carcinoma of vulva\n\nYou are a patient: You are 68 and your biological gender is female.\nYou are experiencing the following symptoms:\n- An open sore on your vulva that has not healed for several months, with a raw, rough surface.\n- Noticeable bleeding that is not related to your menstrual cycle, especially after walking or sitting for a while.\n- Itching and a burning sensation in the vulvar area that has been worsening gradually over the past few weeks.\nThese symptoms came into fruition gradually over the past three months, initially just some mild itching and discomfort, but then the sore appeared and started to bleed intermittently.Can you tell me if the sore feels hard or firm when you touch it, and whether the edges seem jagged, raised, or flat?worried_family_involved",
+    "output": "THINKING: I'm honestly a bit scared and worried about this sore. My husband keeps telling me I should see someone about it because it's not going away and it's been getting worse. I just want to know if it's so\nANSWER: Well, I tried touching it, and it feels kind of rough and maybe a little raised around the edges, but I\u2019m not really sure. It doesn\u2019t look flat, but I don\u2019t know if it\u2019s jagged or smooth. I just know it\u2019s been there a long time and getting worse, and I don\u2019t want to worry my family more than they already are.",
+    "thinking": "I'm honestly a bit scared and worried about this sore. My husband keeps telling me I should see someone about it because it's not going away and it's been getting worse. I just want to know if it's so",
+    "answer": "Well, I tried touching it, and it feels kind of rough and maybe a little raised around the edges, but I\u2019m not really sure. It doesn\u2019t look flat, but I don\u2019t know if it\u2019s jagged or smooth. I just know it\u2019s been there a long time and getting worse, and I don\u2019t want to worry my family more than they already are.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 10,
+    "gold_diagnosis": "Squamous cell carcinoma of vulva"
+  },
+  {
+    "vignette_index": 454,
+    "input": "**PATIENT CHARACTER:** Patient with Squamous cell carcinoma of vulva\n\nYou are a patient: You are 68 and your biological gender is female.\nYou are experiencing the following symptoms:\n- An open sore on your vulva that has not healed for several months, with a raw, rough surface.\n- Noticeable bleeding that is not related to your menstrual cycle, especially after walking or sitting for a while.\n- Itching and a burning sensation in the vulvar area that has been worsening gradually over the past few weeks.\nThese symptoms came into fruition gradually over the past three months, initially just some mild itching and discomfort, but then the sore appeared and started to bleed intermittently.Can you describe in more detail whether the sore feels hard or indurated when you touch it, and if the edges are jagged, raised, or flat?worried_family_involved",
+    "output": "THINKING: I'm worried because the sore is getting worse and it's not healing, and I think my daughter told me I should see someone about it. I feel kind of overwhelmed and don't want things to get worse for my \nANSWER: Well, it feels like kind of rough and maybe a little raised around the edges, but I honestly don\u2019t know if it\u2019s supposed to be like that or not. It just feels different from when it started.",
+    "thinking": "I'm worried because the sore is getting worse and it's not healing, and I think my daughter told me I should see someone about it. I feel kind of overwhelmed and don't want things to get worse for my",
+    "answer": "Well, it feels like kind of rough and maybe a little raised around the edges, but I honestly don\u2019t know if it\u2019s supposed to be like that or not. It just feels different from when it started.",
+    "behavior_type": "worried_family_involved",
+    "turn_count": 12,
+    "gold_diagnosis": "Squamous cell carcinoma of vulva"
+  }
+]

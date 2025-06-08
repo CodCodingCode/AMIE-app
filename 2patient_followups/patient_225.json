@@ -1,0 +1,127 @@
+[
+  {
+    "vignette_index": 225,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Intestinal adhesions or bands of small intestine with obstruction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Crampy abdominal pain that comes and goes, sometimes severe\n- Loss of appetite\n- Inability to have a bowel movement or pass gas\n- Occasional vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago after I had some abdominal discomfort that gradually worsened. The pain comes in waves and seems to get worse after eating or drinking. I haven't been able to pass gas or have a bowel movement in over a day, and I feel pretty bloated. I\u2019ve also been feeling nauseous and vomited once this morning. I have a history of abdominal surgery about ten years ago, and I\u2019m worried it might be something serious like an obstruction.",
+    "output": "THINKING: I need to explain my symptoms clearly but also show I'm worried and a bit confused about what's happening. I should mention the duration, what I feel, and that it started after some discomfort, so the\nANSWER: I'm a 45-year-old man, and I've been having this bad cramping in my belly that comes and goes, but sometimes it's really painful. It all started a couple of days ago after some stomach discomfort, and it just kinda kept getting worse. I can't seem to pass gas or have a bowel movement, and my stomach feels really bloated. I also threw up once this morning. I'm worried it might be something serious.",
+    "thinking": "I need to explain my symptoms clearly but also show I'm worried and a bit confused about what's happening. I should mention the duration, what I feel, and that it started after some discomfort, so the",
+    "answer": "I'm a 45-year-old man, and I've been having this bad cramping in my belly that comes and goes, but sometimes it's really painful. It all started a couple of days ago after some stomach discomfort, and it just kinda kept getting worse. I can't seem to pass gas or have a bowel movement, and my stomach feels really bloated. I also threw up once this morning. I'm worried it might be something serious.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Intestinal adhesions or bands of small intestine with obstruction"
+  },
+  {
+    "vignette_index": 225,
+    "input": "**PATIENT CHARACTER:** Patient with Intestinal adhesions or bands of small intestine with obstruction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Crampy abdominal pain that comes and goes, sometimes severe\n- Loss of appetite\n- Inability to have a bowel movement or pass gas\n- Occasional vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago after I had some abdominal discomfort that gradually worsened. The pain comes in waves and seems to get worse after eating or drinking. I haven't been able to pass gas or have a bowel movement in over a day, and I feel pretty bloated. I\u2019ve also been feeling nauseous and vomited once this morning. I have a history of abdominal surgery about ten years ago, and I\u2019m worried it might be something serious like an obstruction.Can you tell me if you've experienced similar stomach problems before, and if you've noticed any fever, chills, or other new symptoms along with your current issues?baseline",
+    "output": "THINKING: The doctor is asking about previous issues and other symptoms like fever or chills, but I don't really remember having similar problems before. I'm a bit worried because I feel worse and I haven't had\nANSWER: No, I don\u2019t think I\u2019ve had this happen before, and I haven\u2019t noticed any fever or chills. It\u2019s just this pain and not being able to go, and I feel really sick.",
+    "thinking": "The doctor is asking about previous issues and other symptoms like fever or chills, but I don't really remember having similar problems before. I'm a bit worried because I feel worse and I haven't had",
+    "answer": "No, I don\u2019t think I\u2019ve had this happen before, and I haven\u2019t noticed any fever or chills. It\u2019s just this pain and not being able to go, and I feel really sick.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Intestinal adhesions or bands of small intestine with obstruction"
+  },
+  {
+    "vignette_index": 225,
+    "input": "**PATIENT CHARACTER:** Patient with Intestinal adhesions or bands of small intestine with obstruction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Crampy abdominal pain that comes and goes, sometimes severe\n- Loss of appetite\n- Inability to have a bowel movement or pass gas\n- Occasional vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago after I had some abdominal discomfort that gradually worsened. The pain comes in waves and seems to get worse after eating or drinking. I haven't been able to pass gas or have a bowel movement in over a day, and I feel pretty bloated. I\u2019ve also been feeling nauseous and vomited once this morning. I have a history of abdominal surgery about ten years ago, and I\u2019m worried it might be something serious like an obstruction.Can you tell me more about exactly where your pain is and what it feels like\u2014does it stay in one spot or move around, and has this happened before?baseline",
+    "output": "THINKING: I feel confused and worried about the pain coming and going, and I don\u2019t really understand what\u2019s happening inside. I just want to tell the doctor what I feel without sounding like I know anything.\nANSWER: The pain is in my belly, and it kinda feels like cramping, but it goes away and then comes back, sometimes really bad. I haven\u2019t been able to poop or pass gas for a while.",
+    "thinking": "I feel confused and worried about the pain coming and going, and I don\u2019t really understand what\u2019s happening inside. I just want to tell the doctor what I feel without sounding like I know anything.",
+    "answer": "The pain is in my belly, and it kinda feels like cramping, but it goes away and then comes back, sometimes really bad. I haven\u2019t been able to poop or pass gas for a while.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Intestinal adhesions or bands of small intestine with obstruction"
+  },
+  {
+    "vignette_index": 225,
+    "input": "**PATIENT CHARACTER:** Patient with Intestinal adhesions or bands of small intestine with obstruction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Crampy abdominal pain that comes and goes, sometimes severe\n- Loss of appetite\n- Inability to have a bowel movement or pass gas\n- Occasional vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago after I had some abdominal discomfort that gradually worsened. The pain comes in waves and seems to get worse after eating or drinking. I haven't been able to pass gas or have a bowel movement in over a day, and I feel pretty bloated. I\u2019ve also been feeling nauseous and vomited once this morning. I have a history of abdominal surgery about ten years ago, and I\u2019m worried it might be something serious like an obstruction.Can you tell me how this pain has affected your daily activities or how you feel about the severity of your symptoms, especially compared to any previous stomach issues you've had?baseline",
+    "output": "THINKING: I'm really worried about how much this is messing up my day and how bad it feels, especially since I\u2019ve never felt anything like this before. I don\u2019t really know if it\u2019s worse or better than my past s\nANSWER: It\u2019s been pretty bad, and I can\u2019t really do much because of the pain and not being able to go or anything. It feels worse than before, I think.",
+    "thinking": "I'm really worried about how much this is messing up my day and how bad it feels, especially since I\u2019ve never felt anything like this before. I don\u2019t really know if it\u2019s worse or better than my past s",
+    "answer": "It\u2019s been pretty bad, and I can\u2019t really do much because of the pain and not being able to go or anything. It feels worse than before, I think.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Intestinal adhesions or bands of small intestine with obstruction"
+  },
+  {
+    "vignette_index": 225,
+    "input": "**PATIENT CHARACTER:** Patient with Intestinal adhesions or bands of small intestine with obstruction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Crampy abdominal pain that comes and goes, sometimes severe\n- Loss of appetite\n- Inability to have a bowel movement or pass gas\n- Occasional vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago after I had some abdominal discomfort that gradually worsened. The pain comes in waves and seems to get worse after eating or drinking. I haven't been able to pass gas or have a bowel movement in over a day, and I feel pretty bloated. I\u2019ve also been feeling nauseous and vomited once this morning. I have a history of abdominal surgery about ten years ago, and I\u2019m worried it might be something serious like an obstruction.Can you tell me exactly where in your belly the pain is and whether it stays in one spot or moves around?baseline",
+    "output": "THINKING: I'm not sure exactly where the pain is, it kinda feels all over but maybe more in one spot? It comes and goes and sometimes it's really bad. I'm worried because I can't do anything like passing gas or\nANSWER: It hurts in different parts, but sometimes it feels more in my lower belly, and yeah, it just comes and goes. It's been worse since I ate, and I feel bloated.",
+    "thinking": "I'm not sure exactly where the pain is, it kinda feels all over but maybe more in one spot? It comes and goes and sometimes it's really bad. I'm worried because I can't do anything like passing gas or",
+    "answer": "It hurts in different parts, but sometimes it feels more in my lower belly, and yeah, it just comes and goes. It's been worse since I ate, and I feel bloated.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Intestinal adhesions or bands of small intestine with obstruction"
+  },
+  {
+    "vignette_index": 225,
+    "input": "**PATIENT CHARACTER:** Patient with Intestinal adhesions or bands of small intestine with obstruction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Crampy abdominal pain that comes and goes, sometimes severe\n- Loss of appetite\n- Inability to have a bowel movement or pass gas\n- Occasional vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago after I had some abdominal discomfort that gradually worsened. The pain comes in waves and seems to get worse after eating or drinking. I haven't been able to pass gas or have a bowel movement in over a day, and I feel pretty bloated. I\u2019ve also been feeling nauseous and vomited once this morning. I have a history of abdominal surgery about ten years ago, and I\u2019m worried it might be something serious like an obstruction.Can you tell me exactly where in your belly you feel the pain the most, and does it stay in one spot or does it move around?baseline",
+    "output": "THINKING: I'm not really sure exactly where the pain is the worst or if it moves. It just kind of hurts all over my belly and the pain comes and goes, sometimes it's really bad, and I'm worried because I can't \nANSWER: It's hard to say exactly where it hurts the most, but it feels like all over my belly, and the pain keeps coming and going, kind of in waves.",
+    "thinking": "I'm not really sure exactly where the pain is the worst or if it moves. It just kind of hurts all over my belly and the pain comes and goes, sometimes it's really bad, and I'm worried because I can't",
+    "answer": "It's hard to say exactly where it hurts the most, but it feels like all over my belly, and the pain keeps coming and going, kind of in waves.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Intestinal adhesions or bands of small intestine with obstruction"
+  },
+  {
+    "vignette_index": 225,
+    "input": "**PATIENT CHARACTER:** Patient with Intestinal adhesions or bands of small intestine with obstruction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Crampy abdominal pain that comes and goes, sometimes severe\n- Loss of appetite\n- Inability to have a bowel movement or pass gas\n- Occasional vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago after I had some abdominal discomfort that gradually worsened. The pain comes in waves and seems to get worse after eating or drinking. I haven't been able to pass gas or have a bowel movement in over a day, and I feel pretty bloated. I\u2019ve also been feeling nauseous and vomited once this morning. I have a history of abdominal surgery about ten years ago, and I\u2019m worried it might be something serious like an obstruction.Can you tell me if the pain you're experiencing stays in the same part of your belly, or does it move around to different areas?baseline",
+    "output": "THINKING: The doctor wants to know if the pain moves around or stays in one spot. I feel like the pain is all over in my belly, but I\u2019m not sure if it starts in one place and then goes somewhere else or if it\u2019s\nANSWER: Um, I think the pain kind of is all over, like it\u2019s not just in one spot, sometimes it kinda moves around. It\u2019s hard to say exactly.",
+    "thinking": "The doctor wants to know if the pain moves around or stays in one spot. I feel like the pain is all over in my belly, but I\u2019m not sure if it starts in one place and then goes somewhere else or if it\u2019s",
+    "answer": "Um, I think the pain kind of is all over, like it\u2019s not just in one spot, sometimes it kinda moves around. It\u2019s hard to say exactly.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Intestinal adhesions or bands of small intestine with obstruction"
+  },
+  {
+    "vignette_index": 225,
+    "input": "**PATIENT CHARACTER:** Patient with Intestinal adhesions or bands of small intestine with obstruction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Crampy abdominal pain that comes and goes, sometimes severe\n- Loss of appetite\n- Inability to have a bowel movement or pass gas\n- Occasional vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago after I had some abdominal discomfort that gradually worsened. The pain comes in waves and seems to get worse after eating or drinking. I haven't been able to pass gas or have a bowel movement in over a day, and I feel pretty bloated. I\u2019ve also been feeling nauseous and vomited once this morning. I have a history of abdominal surgery about ten years ago, and I\u2019m worried it might be something serious like an obstruction.Have you been able to pass gas or stool since your symptoms started?baseline",
+    "output": "THINKING: I'm worried because I haven't gone to the bathroom or passed gas, and that's not normal for me. I feel pretty uncomfortable and a little scared, but I don't really know what to say about it.\nANSWER: No, I haven't been able to pass gas or poop since this all started.",
+    "thinking": "I'm worried because I haven't gone to the bathroom or passed gas, and that's not normal for me. I feel pretty uncomfortable and a little scared, but I don't really know what to say about it.",
+    "answer": "No, I haven't been able to pass gas or poop since this all started.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Intestinal adhesions or bands of small intestine with obstruction"
+  },
+  {
+    "vignette_index": 225,
+    "input": "**PATIENT CHARACTER:** Patient with Intestinal adhesions or bands of small intestine with obstruction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Crampy abdominal pain that comes and goes, sometimes severe\n- Loss of appetite\n- Inability to have a bowel movement or pass gas\n- Occasional vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago after I had some abdominal discomfort that gradually worsened. The pain comes in waves and seems to get worse after eating or drinking. I haven't been able to pass gas or have a bowel movement in over a day, and I feel pretty bloated. I\u2019ve also been feeling nauseous and vomited once this morning. I have a history of abdominal surgery about ten years ago, and I\u2019m worried it might be something serious like an obstruction.Can you try to point with your finger or describe where exactly you feel the most pain right now, even if it\u2019s just a general area?baseline",
+    "output": "THINKING: The pain is really uncomfortable and I\u2019m not sure exactly where it\u2019s mostly coming from, but it hurts more after I eat or drink, and I feel bloated all over. I probably should tell the doctor, but I d\nANSWER: It\u2019s like all over my belly, but it\u2019s worse right here in the middle, I think. It hurts when I press on it even a little.",
+    "thinking": "The pain is really uncomfortable and I\u2019m not sure exactly where it\u2019s mostly coming from, but it hurts more after I eat or drink, and I feel bloated all over. I probably should tell the doctor, but I d",
+    "answer": "It\u2019s like all over my belly, but it\u2019s worse right here in the middle, I think. It hurts when I press on it even a little.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Intestinal adhesions or bands of small intestine with obstruction"
+  },
+  {
+    "vignette_index": 225,
+    "input": "**PATIENT CHARACTER:** Patient with Intestinal adhesions or bands of small intestine with obstruction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Crampy abdominal pain that comes and goes, sometimes severe\n- Loss of appetite\n- Inability to have a bowel movement or pass gas\n- Occasional vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago after I had some abdominal discomfort that gradually worsened. The pain comes in waves and seems to get worse after eating or drinking. I haven't been able to pass gas or have a bowel movement in over a day, and I feel pretty bloated. I\u2019ve also been feeling nauseous and vomited once this morning. I have a history of abdominal surgery about ten years ago, and I\u2019m worried it might be something serious like an obstruction.Have you noticed if your pain has gotten worse over time, or if you feel very stiff or tender in your belly, or if you've developed a fever or feel suddenly more unwell?baseline",
+    "output": "THINKING: He's asking if my pain or symptoms have changed or gotten worse, which worries me because I feel worse than I did before and I don\u2019t really understand if that\u2019s normal or not. I feel nervous and a bit\nANSWER: Yeah, um, I think it's worse 'cause the pain comes more often and it's really bad sometimes, and I feel all bloated and sick. I can't go to the bathroom or pass gas at all.",
+    "thinking": "He's asking if my pain or symptoms have changed or gotten worse, which worries me because I feel worse than I did before and I don\u2019t really understand if that\u2019s normal or not. I feel nervous and a bit",
+    "answer": "Yeah, um, I think it's worse 'cause the pain comes more often and it's really bad sometimes, and I feel all bloated and sick. I can't go to the bathroom or pass gas at all.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Intestinal adhesions or bands of small intestine with obstruction"
+  },
+  {
+    "vignette_index": 225,
+    "input": "**PATIENT CHARACTER:** Patient with Intestinal adhesions or bands of small intestine with obstruction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Crampy abdominal pain that comes and goes, sometimes severe\n- Loss of appetite\n- Inability to have a bowel movement or pass gas\n- Occasional vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago after I had some abdominal discomfort that gradually worsened. The pain comes in waves and seems to get worse after eating or drinking. I haven't been able to pass gas or have a bowel movement in over a day, and I feel pretty bloated. I\u2019ve also been feeling nauseous and vomited once this morning. I have a history of abdominal surgery about ten years ago, and I\u2019m worried it might be something serious like an obstruction.On a scale from 0 to 10, where 0 is no pain and 10 is the worst pain you've ever felt, how would you rate your current abdominal pain right now? And has that pain level changed compared to when it first started?baseline",
+    "output": "THINKING: I'm not sure how to rate this. The pain can be really bad sometimes, but it also comes and goes, so maybe it's worse than at the start but not all the time. I feel pretty worried and uncomfortable, ho\nANSWER: Um, I think maybe like a 7? It hurts a lot at times, especially after I eat or move around, but not all the time. The pain seems to be the same or a little worse than when it first started, I guess.",
+    "thinking": "I'm not sure how to rate this. The pain can be really bad sometimes, but it also comes and goes, so maybe it's worse than at the start but not all the time. I feel pretty worried and uncomfortable, ho",
+    "answer": "Um, I think maybe like a 7? It hurts a lot at times, especially after I eat or move around, but not all the time. The pain seems to be the same or a little worse than when it first started, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 18,
+    "gold_diagnosis": "Intestinal adhesions or bands of small intestine with obstruction"
+  },
+  {
+    "vignette_index": 225,
+    "input": "**PATIENT CHARACTER:** Patient with Intestinal adhesions or bands of small intestine with obstruction\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Crampy abdominal pain that comes and goes, sometimes severe\n- Loss of appetite\n- Inability to have a bowel movement or pass gas\n- Occasional vomiting\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly about two days ago after I had some abdominal discomfort that gradually worsened. The pain comes in waves and seems to get worse after eating or drinking. I haven't been able to pass gas or have a bowel movement in over a day, and I feel pretty bloated. I\u2019ve also been feeling nauseous and vomited once this morning. I have a history of abdominal surgery about ten years ago, and I\u2019m worried it might be something serious like an obstruction.Have you experienced any vomiting, especially of nothing but bile or food, or feelings of dizziness or faintness that might suggest dehydration or worsening of your condition?baseline",
+    "output": "THINKING: I'm worried about all these symptoms and I don't really know if I've vomited just bile or not. I'm feeling pretty dizzy sometimes, and I guess I feel a bit faint when I stand up. I just want to know i\nANSWER: I think I did vomit once, but I\u2019m not sure if it was just bile or food or something. I do feel kind of dizzy sometimes and like I could faint if I stand up too quick.",
+    "thinking": "I'm worried about all these symptoms and I don't really know if I've vomited just bile or not. I'm feeling pretty dizzy sometimes, and I guess I feel a bit faint when I stand up. I just want to know i",
+    "answer": "I think I did vomit once, but I\u2019m not sure if it was just bile or food or something. I do feel kind of dizzy sometimes and like I could faint if I stand up too quick.",
+    "behavior_type": "baseline",
+    "turn_count": 20,
+    "gold_diagnosis": "Intestinal adhesions or bands of small intestine with obstruction"
+  }
+]

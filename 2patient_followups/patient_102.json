@@ -1,0 +1,107 @@
+[
+  {
+    "vignette_index": 102,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Diabetic ketoacidosis without coma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 16 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Increased thirst and frequent urination\n- Feeling very hungry all the time\n- Dry mouth and weakness\n- Decreased urine output compared to usual\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after a day of skipping meals and feeling unusually tired. Over the last few hours, I noticed my mouth becoming very dry, and I\u2019ve been drinking water constantly but still feel thirsty. I\u2019ve also been going to the bathroom more often during the day but now notice I\u2019m urinating less than before. I\u2019ve felt a bit weak and lightheaded, but I don\u2019t have any fever or chest pain.",
+    "output": "THINKING: The patient is here because of recent, concerning symptoms that started suddenly. They mentioned feeling very thirsty, hungry, and weak, with changes in their urination pattern. I need to understand h\nANSWER: Um, I don\u2019t know, I just started feeling really weird yesterday, like I couldn\u2019t stop drinking water and I had to go to the bathroom all the time, but now I\u2019m not going as much. I feel kinda weak and dizzy sometimes, and I guess I just wanted to see if it\u2019s something serious.",
+    "thinking": "The patient is here because of recent, concerning symptoms that started suddenly. They mentioned feeling very thirsty, hungry, and weak, with changes in their urination pattern. I need to understand h",
+    "answer": "Um, I don\u2019t know, I just started feeling really weird yesterday, like I couldn\u2019t stop drinking water and I had to go to the bathroom all the time, but now I\u2019m not going as much. I feel kinda weak and dizzy sometimes, and I guess I just wanted to see if it\u2019s something serious.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Diabetic ketoacidosis without coma"
+  },
+  {
+    "vignette_index": 102,
+    "input": "**PATIENT CHARACTER:** Patient with Diabetic ketoacidosis without coma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 16 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Increased thirst and frequent urination\n- Feeling very hungry all the time\n- Dry mouth and weakness\n- Decreased urine output compared to usual\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after a day of skipping meals and feeling unusually tired. Over the last few hours, I noticed my mouth becoming very dry, and I\u2019ve been drinking water constantly but still feel thirsty. I\u2019ve also been going to the bathroom more often during the day but now notice I\u2019m urinating less than before. I\u2019ve felt a bit weak and lightheaded, but I don\u2019t have any fever or chest pain.Can you tell me more about when these symptoms first started and how they've been since then, including how much water you're drinking and if you've noticed any other changes like nausea or feeling confused?baseline",
+    "output": "THINKING: I want to tell the doctor what's been happening, but I\u2019m not sure if I\u2019m explaining it right. I feel kind of worried but also a bit embarrassed about all this.\nANSWER: I started feeling like this yesterday night, and I\u2019ve been drinking a lot of water but still feel really dry and thirsty. I think I pee less now, and I just feel kind of weak and tired all the time.",
+    "thinking": "I want to tell the doctor what's been happening, but I\u2019m not sure if I\u2019m explaining it right. I feel kind of worried but also a bit embarrassed about all this.",
+    "answer": "I started feeling like this yesterday night, and I\u2019ve been drinking a lot of water but still feel really dry and thirsty. I think I pee less now, and I just feel kind of weak and tired all the time.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Diabetic ketoacidosis without coma"
+  },
+  {
+    "vignette_index": 102,
+    "input": "**PATIENT CHARACTER:** Patient with Diabetic ketoacidosis without coma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 16 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Increased thirst and frequent urination\n- Feeling very hungry all the time\n- Dry mouth and weakness\n- Decreased urine output compared to usual\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after a day of skipping meals and feeling unusually tired. Over the last few hours, I noticed my mouth becoming very dry, and I\u2019ve been drinking water constantly but still feel thirsty. I\u2019ve also been going to the bathroom more often during the day but now notice I\u2019m urinating less than before. I\u2019ve felt a bit weak and lightheaded, but I don\u2019t have any fever or chest pain.Can you tell me more about how thirsty and weak you\u2019re feeling now compared to when your symptoms first started, and if your drinking has changed since then?baseline",
+    "output": "THINKING: I'm a little confused about how much worse I feel now because I keep drinking water but I still feel super thirsty, and I don't know if this is normal or not. I just feel tired and kind of irritated, \nANSWER: I feel more thirsty than before, and I\u2019m still drinking a lot, but I don\u2019t think it\u2019s helping. I\u2019ve been feeling weaker and tired, and I don\u2019t really notice if I\u2019m peeing less or more now.",
+    "thinking": "I'm a little confused about how much worse I feel now because I keep drinking water but I still feel super thirsty, and I don't know if this is normal or not. I just feel tired and kind of irritated,",
+    "answer": "I feel more thirsty than before, and I\u2019m still drinking a lot, but I don\u2019t think it\u2019s helping. I\u2019ve been feeling weaker and tired, and I don\u2019t really notice if I\u2019m peeing less or more now.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Diabetic ketoacidosis without coma"
+  },
+  {
+    "vignette_index": 102,
+    "input": "**PATIENT CHARACTER:** Patient with Diabetic ketoacidosis without coma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 16 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Increased thirst and frequent urination\n- Feeling very hungry all the time\n- Dry mouth and weakness\n- Decreased urine output compared to usual\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after a day of skipping meals and feeling unusually tired. Over the last few hours, I noticed my mouth becoming very dry, and I\u2019ve been drinking water constantly but still feel thirsty. I\u2019ve also been going to the bathroom more often during the day but now notice I\u2019m urinating less than before. I\u2019ve felt a bit weak and lightheaded, but I don\u2019t have any fever or chest pain.Can you tell me more about how much you've been able to eat, drink, and keep down, and whether you've experienced any abdominal pain, nausea, or any other symptoms you haven't mentioned yet?baseline",
+    "output": "THINKING: I'm a bit worried because I haven't been eating much and I feel worse now, but I'm not sure what all this means. I just want to tell the doctor everything so they can help me.\nANSWER: I haven't been able to keep much down, mostly just drinking water. My mouth feels really dry, and I feel weak and kind of dizzy.",
+    "thinking": "I'm a bit worried because I haven't been eating much and I feel worse now, but I'm not sure what all this means. I just want to tell the doctor everything so they can help me.",
+    "answer": "I haven't been able to keep much down, mostly just drinking water. My mouth feels really dry, and I feel weak and kind of dizzy.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Diabetic ketoacidosis without coma"
+  },
+  {
+    "vignette_index": 102,
+    "input": "**PATIENT CHARACTER:** Patient with Diabetic ketoacidosis without coma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 16 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Increased thirst and frequent urination\n- Feeling very hungry all the time\n- Dry mouth and weakness\n- Decreased urine output compared to usual\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after a day of skipping meals and feeling unusually tired. Over the last few hours, I noticed my mouth becoming very dry, and I\u2019ve been drinking water constantly but still feel thirsty. I\u2019ve also been going to the bathroom more often during the day but now notice I\u2019m urinating less than before. I\u2019ve felt a bit weak and lightheaded, but I don\u2019t have any fever or chest pain.Can you tell me how much urine you've been passing each day, and if you\u2019ve noticed any changes in the color or how concentrated it is compared to usual?baseline",
+    "output": "THINKING: I feel a little worried because I noticed I haven't been peeing as much lately, even though I keep wanting to drink water. I don't really get what the doctor is asking, but I know I haven't been passi\nANSWER: Um, I think I haven't been peeing much at all today, and when I do, it's kind of darker than usual? I'm not sure, I just know I keep needing water but still feel really dry.",
+    "thinking": "I feel a little worried because I noticed I haven't been peeing as much lately, even though I keep wanting to drink water. I don't really get what the doctor is asking, but I know I haven't been passi",
+    "answer": "Um, I think I haven't been peeing much at all today, and when I do, it's kind of darker than usual? I'm not sure, I just know I keep needing water but still feel really dry.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Diabetic ketoacidosis without coma"
+  },
+  {
+    "vignette_index": 102,
+    "input": "**PATIENT CHARACTER:** Patient with Diabetic ketoacidosis without coma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 16 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Increased thirst and frequent urination\n- Feeling very hungry all the time\n- Dry mouth and weakness\n- Decreased urine output compared to usual\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after a day of skipping meals and feeling unusually tired. Over the last few hours, I noticed my mouth becoming very dry, and I\u2019ve been drinking water constantly but still feel thirsty. I\u2019ve also been going to the bathroom more often during the day but now notice I\u2019m urinating less than before. I\u2019ve felt a bit weak and lightheaded, but I don\u2019t have any fever or chest pain.Can you tell me approximately how much urine you are passing each day, and what color or concentration it usually has\u2014like whether it looks very pale or darker than usual?baseline",
+    "output": "THINKING: I want to tell the doctor what's been happening, but I don't really understand what they need to know exactly. I keep feeling really thirsty and going to the bathroom a lot, but now I feel like I\u2019m no\nANSWER: Um, I don\u2019t know exactly how much I pee, but I feel like I\u2019m peeing less than earlier, and the pee looks pretty dark or not very clear. It\u2019s hard to tell exactly.",
+    "thinking": "I want to tell the doctor what's been happening, but I don't really understand what they need to know exactly. I keep feeling really thirsty and going to the bathroom a lot, but now I feel like I\u2019m no",
+    "answer": "Um, I don\u2019t know exactly how much I pee, but I feel like I\u2019m peeing less than earlier, and the pee looks pretty dark or not very clear. It\u2019s hard to tell exactly.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Diabetic ketoacidosis without coma"
+  },
+  {
+    "vignette_index": 102,
+    "input": "**PATIENT CHARACTER:** Patient with Diabetic ketoacidosis without coma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 16 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Increased thirst and frequent urination\n- Feeling very hungry all the time\n- Dry mouth and weakness\n- Decreased urine output compared to usual\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after a day of skipping meals and feeling unusually tired. Over the last few hours, I noticed my mouth becoming very dry, and I\u2019ve been drinking water constantly but still feel thirsty. I\u2019ve also been going to the bathroom more often during the day but now notice I\u2019m urinating less than before. I\u2019ve felt a bit weak and lightheaded, but I don\u2019t have any fever or chest pain.Can you tell me how much urine you typically pass each day, and whether it looks very pale or darker than usual, so I can understand how concentrated your urine is?baseline",
+    "output": "THINKING: I\u2019m not really sure how much I usually pee or what it looks like, but I do know I\u2019ve been feeling really thirsty and I\u2019ve been going more often at first, but now less. I just want to explain what\u2019s ha\nANSWER: Uh, I don\u2019t really know how much I pee, but it\u2019s been darker than it used to be, I think.",
+    "thinking": "I\u2019m not really sure how much I usually pee or what it looks like, but I do know I\u2019ve been feeling really thirsty and I\u2019ve been going more often at first, but now less. I just want to explain what\u2019s ha",
+    "answer": "Uh, I don\u2019t really know how much I pee, but it\u2019s been darker than it used to be, I think.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Diabetic ketoacidosis without coma"
+  },
+  {
+    "vignette_index": 102,
+    "input": "**PATIENT CHARACTER:** Patient with Diabetic ketoacidosis without coma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 16 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Increased thirst and frequent urination\n- Feeling very hungry all the time\n- Dry mouth and weakness\n- Decreased urine output compared to usual\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after a day of skipping meals and feeling unusually tired. Over the last few hours, I noticed my mouth becoming very dry, and I\u2019ve been drinking water constantly but still feel thirsty. I\u2019ve also been going to the bathroom more often during the day but now notice I\u2019m urinating less than before. I\u2019ve felt a bit weak and lightheaded, but I don\u2019t have any fever or chest pain.Can you tell me if your urine has looked darker or more concentrated than usual, and if you've noticed whether you've been passing very little or almost no urine at all, especially in the last day?baseline",
+    "output": "THINKING: I\u2019m a little freaked out because I\u2019ve been drinking a lot but I still feel really dry and I don\u2019t know what\u2019s going on with my urine. I guess it\u2019s not looking as clear as it used to. I feel worried bu\nANSWER: Um, yeah, I think my pee has looked kinda dark, and I haven\u2019t been going as much as I usually do, even though I keep drinking water.",
+    "thinking": "I\u2019m a little freaked out because I\u2019ve been drinking a lot but I still feel really dry and I don\u2019t know what\u2019s going on with my urine. I guess it\u2019s not looking as clear as it used to. I feel worried bu",
+    "answer": "Um, yeah, I think my pee has looked kinda dark, and I haven\u2019t been going as much as I usually do, even though I keep drinking water.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Diabetic ketoacidosis without coma"
+  },
+  {
+    "vignette_index": 102,
+    "input": "**PATIENT CHARACTER:** Patient with Diabetic ketoacidosis without coma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 16 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Increased thirst and frequent urination\n- Feeling very hungry all the time\n- Dry mouth and weakness\n- Decreased urine output compared to usual\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after a day of skipping meals and feeling unusually tired. Over the last few hours, I noticed my mouth becoming very dry, and I\u2019ve been drinking water constantly but still feel thirsty. I\u2019ve also been going to the bathroom more often during the day but now notice I\u2019m urinating less than before. I\u2019ve felt a bit weak and lightheaded, but I don\u2019t have any fever or chest pain.Can you tell me exactly how many times you\u2019ve been able to urinate today, roughly how much each time, and whether the urine looked very pale, darker, or more concentrated than usual?baseline",
+    "output": "THINKING: I\u2019m not really sure how many times I\u2019ve gone, maybe like a few times today? Not much each time, and the pee looked kind of darker than usual, I think. I\u2019m worried but I don\u2019t really get what\u2019s wrong.\nANSWER: Um, I think I\u2019ve gone like three or four times today, maybe less, and it was darker\u2026 not really sure how to say it.",
+    "thinking": "I\u2019m not really sure how many times I\u2019ve gone, maybe like a few times today? Not much each time, and the pee looked kind of darker than usual, I think. I\u2019m worried but I don\u2019t really get what\u2019s wrong.",
+    "answer": "Um, I think I\u2019ve gone like three or four times today, maybe less, and it was darker\u2026 not really sure how to say it.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Diabetic ketoacidosis without coma"
+  },
+  {
+    "vignette_index": 102,
+    "input": "**PATIENT CHARACTER:** Patient with Diabetic ketoacidosis without coma\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 16 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Increased thirst and frequent urination\n- Feeling very hungry all the time\n- Dry mouth and weakness\n- Decreased urine output compared to usual\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening after a day of skipping meals and feeling unusually tired. Over the last few hours, I noticed my mouth becoming very dry, and I\u2019ve been drinking water constantly but still feel thirsty. I\u2019ve also been going to the bathroom more often during the day but now notice I\u2019m urinating less than before. I\u2019ve felt a bit weak and lightheaded, but I don\u2019t have any fever or chest pain.Can you tell me approximately how much urine you've been passing each time you go\u2014and about how many times you've urinated today\u2014and whether it looked very pale, darker, or more concentrated than usual?baseline",
+    "output": "THINKING: The doctor is asking about my urination habits and appearance, but honestly, I don\u2019t really pay attention to how much I pee or what it looks like. I just notice I go a lot but then sometimes less or i\nANSWER: Umm, I think I pee a decent amount usually, but today I\u2019ve gone less, and it looks kind of darker than normal. I don\u2019t really know exactly how much, just when I go it feels different.",
+    "thinking": "The doctor is asking about my urination habits and appearance, but honestly, I don\u2019t really pay attention to how much I pee or what it looks like. I just notice I go a lot but then sometimes less or i",
+    "answer": "Umm, I think I pee a decent amount usually, but today I\u2019ve gone less, and it looks kind of darker than normal. I don\u2019t really know exactly how much, just when I go it feels different.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Diabetic ketoacidosis without coma"
+  }
+]

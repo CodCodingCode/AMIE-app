@@ -1,0 +1,96 @@
+[
+  {
+    "vignette_index": 107,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Kleine-Levin syndrome\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Recurrent episodes of excessive sleepiness\n- Altered behavior, including irritability and confusion\n- Hyperphagia, with a noticeable increase in eating\n- Mood changes, such as sudden irritability and depression\n- Cognitive disturbances, like difficulty concentrating and memory lapses\nTHESE SYMPTOMS CAME INTO FRUITION about two months ago, with episodes occurring roughly once every few weeks. Each episode lasts several days, during which I sleep almost non-stop and have trouble staying awake or alert when I am awake. When I am awake, I feel irritable and sometimes act out of character, like becoming overly emotional or aggressive. I also find myself eating a lot more than usual, even craving sweet or greasy foods. It started gradually, and the episodes are becoming more frequent and intense over time.",
+    "output": "THINKING: I should be honest but not overreact or make it seem like a big deal. I want to explain what's been going on without sounding too worried, even though I am a bit concerned. Maybe mentioning the episod\nANSWER: Well, I\u2019m 17, and I\u2019m a guy. It\u2019s probably nothing, but I keep getting these really weird episodes where I just want to sleep all the time, and I feel kinda different when I wake up. I\u2019ve been dozing off a lot more, and I also get really irritable and confused, like I forget stuff or don\u2019t feel like myself. It started a couple of months ago, and it\u2019s been happening more often, so someone told me I should check it out.",
+    "thinking": "I should be honest but not overreact or make it seem like a big deal. I want to explain what's been going on without sounding too worried, even though I am a bit concerned. Maybe mentioning the episod",
+    "answer": "Well, I\u2019m 17, and I\u2019m a guy. It\u2019s probably nothing, but I keep getting these really weird episodes where I just want to sleep all the time, and I feel kinda different when I wake up. I\u2019ve been dozing off a lot more, and I also get really irritable and confused, like I forget stuff or don\u2019t feel like myself. It started a couple of months ago, and it\u2019s been happening more often, so someone told me I should check it out.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Kleine-Levin syndrome"
+  },
+  {
+    "vignette_index": 107,
+    "input": "**PATIENT CHARACTER:** Patient with Kleine-Levin syndrome\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Recurrent episodes of excessive sleepiness\n- Altered behavior, including irritability and confusion\n- Hyperphagia, with a noticeable increase in eating\n- Mood changes, such as sudden irritability and depression\n- Cognitive disturbances, like difficulty concentrating and memory lapses\nTHESE SYMPTOMS CAME INTO FRUITION about two months ago, with episodes occurring roughly once every few weeks. Each episode lasts several days, during which I sleep almost non-stop and have trouble staying awake or alert when I am awake. When I am awake, I feel irritable and sometimes act out of character, like becoming overly emotional or aggressive. I also find myself eating a lot more than usual, even craving sweet or greasy foods. It started gradually, and the episodes are becoming more frequent and intense over time.Can you tell me more about how these sleepiness episodes affect your day-to-day activities and how often they really happen?stoic_minimizer",
+    "output": "THINKING: I don\u2019t want to make it sound like a big deal, but I guess these sleep episodes have been messing with my day. They happen kind of often now, a few times every month, and I just sleep through most of \nANSWER: Well, they come maybe every few weeks now, and I just sleep a lot during those times, like days, so it kinda wrecks my schedule and stuff.",
+    "thinking": "I don\u2019t want to make it sound like a big deal, but I guess these sleep episodes have been messing with my day. They happen kind of often now, a few times every month, and I just sleep through most of",
+    "answer": "Well, they come maybe every few weeks now, and I just sleep a lot during those times, like days, so it kinda wrecks my schedule and stuff.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Kleine-Levin syndrome"
+  },
+  {
+    "vignette_index": 107,
+    "input": "**PATIENT CHARACTER:** Patient with Kleine-Levin syndrome\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Recurrent episodes of excessive sleepiness\n- Altered behavior, including irritability and confusion\n- Hyperphagia, with a noticeable increase in eating\n- Mood changes, such as sudden irritability and depression\n- Cognitive disturbances, like difficulty concentrating and memory lapses\nTHESE SYMPTOMS CAME INTO FRUITION about two months ago, with episodes occurring roughly once every few weeks. Each episode lasts several days, during which I sleep almost non-stop and have trouble staying awake or alert when I am awake. When I am awake, I feel irritable and sometimes act out of character, like becoming overly emotional or aggressive. I also find myself eating a lot more than usual, even craving sweet or greasy foods. It started gradually, and the episodes are becoming more frequent and intense over time.Can you tell me more specifically how often these episodes happen, how long they usually last, and how they affect your daily activities when they occur?stoic_minimizer",
+    "output": "THINKING: I want to explain how often these episodes happen and how they mess with my life, but I also don\u2019t want to make a big deal out of it. It\u2019s been going on for a little while, so I guess I should say som\nANSWER: Um, well, it\u2019s probably every few weeks, and each one lasts like several days. When they come, I just sleep pretty much all the time and get all irritable and forget things, but I don\u2019t know, it\u2019s not that bad most of the time.",
+    "thinking": "I want to explain how often these episodes happen and how they mess with my life, but I also don\u2019t want to make a big deal out of it. It\u2019s been going on for a little while, so I guess I should say som",
+    "answer": "Um, well, it\u2019s probably every few weeks, and each one lasts like several days. When they come, I just sleep pretty much all the time and get all irritable and forget things, but I don\u2019t know, it\u2019s not that bad most of the time.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Kleine-Levin syndrome"
+  },
+  {
+    "vignette_index": 107,
+    "input": "**PATIENT CHARACTER:** Patient with Kleine-Levin syndrome\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Recurrent episodes of excessive sleepiness\n- Altered behavior, including irritability and confusion\n- Hyperphagia, with a noticeable increase in eating\n- Mood changes, such as sudden irritability and depression\n- Cognitive disturbances, like difficulty concentrating and memory lapses\nTHESE SYMPTOMS CAME INTO FRUITION about two months ago, with episodes occurring roughly once every few weeks. Each episode lasts several days, during which I sleep almost non-stop and have trouble staying awake or alert when I am awake. When I am awake, I feel irritable and sometimes act out of character, like becoming overly emotional or aggressive. I also find myself eating a lot more than usual, even craving sweet or greasy foods. It started gradually, and the episodes are becoming more frequent and intense over time.Can you tell me exactly how often these episodes happen each week, how long they usually last, and what it's like for you during these times\u2014like how you feel emotionally and if you notice anything that tends to trigger or make them worse?stoic_minimizer",
+    "output": "THINKING: I don't really want to make a big deal out of it, but I guess it happens maybe once every couple of weeks now, and I sleep most of the time during those days. It's kind of annoying and makes me feel p\nANSWER: They happen maybe every couple of weeks, and I sleep almost the whole time, so I don\u2019t really feel like it's that often, but when I am awake, I feel kind of cranky and confused, and I get super hungry all the time.",
+    "thinking": "I don't really want to make a big deal out of it, but I guess it happens maybe once every couple of weeks now, and I sleep most of the time during those days. It's kind of annoying and makes me feel p",
+    "answer": "They happen maybe every couple of weeks, and I sleep almost the whole time, so I don\u2019t really feel like it's that often, but when I am awake, I feel kind of cranky and confused, and I get super hungry all the time.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Kleine-Levin syndrome"
+  },
+  {
+    "vignette_index": 107,
+    "input": "**PATIENT CHARACTER:** Patient with Kleine-Levin syndrome\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Recurrent episodes of excessive sleepiness\n- Altered behavior, including irritability and confusion\n- Hyperphagia, with a noticeable increase in eating\n- Mood changes, such as sudden irritability and depression\n- Cognitive disturbances, like difficulty concentrating and memory lapses\nTHESE SYMPTOMS CAME INTO FRUITION about two months ago, with episodes occurring roughly once every few weeks. Each episode lasts several days, during which I sleep almost non-stop and have trouble staying awake or alert when I am awake. When I am awake, I feel irritable and sometimes act out of character, like becoming overly emotional or aggressive. I also find myself eating a lot more than usual, even craving sweet or greasy foods. It started gradually, and the episodes are becoming more frequent and intense over time.\"Can you tell me more about how you feel emotionally during these episodes\u2014like if you notice mood changes, feelings of depression or anxiety, or anything else about your thoughts and feelings that might be different from your usual state?\"stoic_minimizer",
+    "output": "THINKING: I don't usually pay much attention to how I feel emotionally, and I guess I don\u2019t really get too worried about it. It\u2019s probably nothing serious, but I just want to get this over with and maybe find o\nANSWER: Honestly, I don\u2019t think it\u2019s that different from my usual mood, but I guess I feel kinda annoyed and tired a lot, and sometimes I get really cranky without knowing why.",
+    "thinking": "I don't usually pay much attention to how I feel emotionally, and I guess I don\u2019t really get too worried about it. It\u2019s probably nothing serious, but I just want to get this over with and maybe find o",
+    "answer": "Honestly, I don\u2019t think it\u2019s that different from my usual mood, but I guess I feel kinda annoyed and tired a lot, and sometimes I get really cranky without knowing why.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Kleine-Levin syndrome"
+  },
+  {
+    "vignette_index": 107,
+    "input": "**PATIENT CHARACTER:** Patient with Kleine-Levin syndrome\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Recurrent episodes of excessive sleepiness\n- Altered behavior, including irritability and confusion\n- Hyperphagia, with a noticeable increase in eating\n- Mood changes, such as sudden irritability and depression\n- Cognitive disturbances, like difficulty concentrating and memory lapses\nTHESE SYMPTOMS CAME INTO FRUITION about two months ago, with episodes occurring roughly once every few weeks. Each episode lasts several days, during which I sleep almost non-stop and have trouble staying awake or alert when I am awake. When I am awake, I feel irritable and sometimes act out of character, like becoming overly emotional or aggressive. I also find myself eating a lot more than usual, even craving sweet or greasy foods. It started gradually, and the episodes are becoming more frequent and intense over time.Can you tell me exactly how many days, on average, you feel extremely sleepy during each episode, how often these episodes happen each month, and whether you notice any specific things that seem to make them start or stop?stoic_minimizer",
+    "output": "THINKING: I don't want to make a big deal out of this, but I guess they last a few days each time, and it happens maybe once every few weeks? I haven't really kept track; it kinda just happens, and I didn't thi\nANSWER: Um, well, I think each episode lasts maybe like three or four days, and I guess it happens maybe once every couple of weeks or so. I haven't really kept count, honestly.",
+    "thinking": "I don't want to make a big deal out of this, but I guess they last a few days each time, and it happens maybe once every few weeks? I haven't really kept track; it kinda just happens, and I didn't thi",
+    "answer": "Um, well, I think each episode lasts maybe like three or four days, and I guess it happens maybe once every couple of weeks or so. I haven't really kept count, honestly.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Kleine-Levin syndrome"
+  },
+  {
+    "vignette_index": 107,
+    "input": "**PATIENT CHARACTER:** Patient with Kleine-Levin syndrome\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Recurrent episodes of excessive sleepiness\n- Altered behavior, including irritability and confusion\n- Hyperphagia, with a noticeable increase in eating\n- Mood changes, such as sudden irritability and depression\n- Cognitive disturbances, like difficulty concentrating and memory lapses\nTHESE SYMPTOMS CAME INTO FRUITION about two months ago, with episodes occurring roughly once every few weeks. Each episode lasts several days, during which I sleep almost non-stop and have trouble staying awake or alert when I am awake. When I am awake, I feel irritable and sometimes act out of character, like becoming overly emotional or aggressive. I also find myself eating a lot more than usual, even craving sweet or greasy foods. It started gradually, and the episodes are becoming more frequent and intense over time.During these hypersomnia episodes, do you notice any specific feelings like sudden weakness, muscle jerks, vivid hallucinations, or a sense of paralysis when you fall asleep or wake up?stoic_minimizer",
+    "output": "THINKING: I wonder if these feelings of being kind of numb or confused when I wake up are normal, but I don't really want to make a big deal. I just sort of feel weird and not myself, but I haven't noticed anyt\nANSWER: Not really, I guess? I don\u2019t really feel like paralysis or anything like that, but sometimes I wake up feeling really confused and kinda irritable, I guess.",
+    "thinking": "I wonder if these feelings of being kind of numb or confused when I wake up are normal, but I don't really want to make a big deal. I just sort of feel weird and not myself, but I haven't noticed anyt",
+    "answer": "Not really, I guess? I don\u2019t really feel like paralysis or anything like that, but sometimes I wake up feeling really confused and kinda irritable, I guess.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Kleine-Levin syndrome"
+  },
+  {
+    "vignette_index": 107,
+    "input": "**PATIENT CHARACTER:** Patient with Kleine-Levin syndrome\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Recurrent episodes of excessive sleepiness\n- Altered behavior, including irritability and confusion\n- Hyperphagia, with a noticeable increase in eating\n- Mood changes, such as sudden irritability and depression\n- Cognitive disturbances, like difficulty concentrating and memory lapses\nTHESE SYMPTOMS CAME INTO FRUITION about two months ago, with episodes occurring roughly once every few weeks. Each episode lasts several days, during which I sleep almost non-stop and have trouble staying awake or alert when I am awake. When I am awake, I feel irritable and sometimes act out of character, like becoming overly emotional or aggressive. I also find myself eating a lot more than usual, even craving sweet or greasy foods. It started gradually, and the episodes are becoming more frequent and intense over time.During these episodes or when you\u2019re feeling very sleepy, have you ever experienced sudden muscle weakness, like your legs feeling weak, or a feeling of being unable to move when you\u2019re falling asleep or just waking up?stoic_minimizer",
+    "output": "THINKING: I\u2019m not really sure what they\u2019re asking, but I don\u2019t think it\u2019s that serious. I\u2019ve felt kinda weak before, but it\u2019s probably nothing. I don\u2019t want to make a big deal out of it since it happens sometim\nANSWER: Not really, I guess. Sometimes I feel like my legs get kind of weak when I\u2019m about to fall asleep or something, but I usually just brush it off. It\u2019s never like I can\u2019t move completely or anything.",
+    "thinking": "I\u2019m not really sure what they\u2019re asking, but I don\u2019t think it\u2019s that serious. I\u2019ve felt kinda weak before, but it\u2019s probably nothing. I don\u2019t want to make a big deal out of it since it happens sometim",
+    "answer": "Not really, I guess. Sometimes I feel like my legs get kind of weak when I\u2019m about to fall asleep or something, but I usually just brush it off. It\u2019s never like I can\u2019t move completely or anything.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Kleine-Levin syndrome"
+  }
+]

@@ -1,0 +1,95 @@
+[
+  {
+    "vignette_index": 297,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Anaemia in neoplastic disease\n\nYou are a patient: You are 16 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Feeling extremely tired and lacking energy for daily activities\n- Shortness of breath during light exertion, like climbing stairs\n- Dizziness and feeling light-headed when standing up quickly\n- Noticeable paleness in your face and lips\nThese symptoms came into fruition gradually over the past three weeks, worsening slightly each day.\nYou\u2019ve been missing school because you feel too exhausted to keep up with your usual activities.\nYou\u2019re worried because your periods have been heavier than usual recently, and you haven\u2019t been eating many iron-rich foods.\nYou feel anxious about how this might affect your health and daily life.",
+    "output": "THINKING: I need to explain my symptoms clearly but without sounding too serious or making it obvious I\u2019m very worried. I should mention how I\u2019ve been feeling tired and dizzy, since that\u2019s probably the main thi\nANSWER: I\u2019m 16, and I\u2019m a girl. I guess I\u2019ve been feeling really tired all the time, like I just don\u2019t have any energy for anything. I get tired even just climbing stairs, and sometimes I feel really dizzy and light-headed when I stand up quickly. My face and lips look kind of pale too. I think my periods have been heavier than usual lately, and I haven\u2019t been eating much iron-rich food, so I\u2019m worried about that. It\u2019s been happening for a few weeks, and I\u2019ve missed a lot of school because I just feel so exhausted.",
+    "thinking": "I need to explain my symptoms clearly but without sounding too serious or making it obvious I\u2019m very worried. I should mention how I\u2019ve been feeling tired and dizzy, since that\u2019s probably the main thi",
+    "answer": "I\u2019m 16, and I\u2019m a girl. I guess I\u2019ve been feeling really tired all the time, like I just don\u2019t have any energy for anything. I get tired even just climbing stairs, and sometimes I feel really dizzy and light-headed when I stand up quickly. My face and lips look kind of pale too. I think my periods have been heavier than usual lately, and I haven\u2019t been eating much iron-rich food, so I\u2019m worried about that. It\u2019s been happening for a few weeks, and I\u2019ve missed a lot of school because I just feel so exhausted.",
+    "behavior_type": "information_withholder",
+    "behavior_config": {
+      "weight": 0.15,
+      "description": "Patient initially omits embarrassing or stigmatized symptoms",
+      "modifiers": [
+        "embarrassed_symptoms",
+        "gradual_revelation"
+      ],
+      "empathy_cues": [
+        "hesitation",
+        "vague_responses",
+        "embarrassment",
+        "trust_building_needed"
+      ]
+    },
+    "gold_diagnosis": "Anaemia in neoplastic disease"
+  },
+  {
+    "vignette_index": 297,
+    "input": "**PATIENT CHARACTER:** Patient with Anaemia in neoplastic disease\n\nYou are a patient: You are 16 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Feeling extremely tired and lacking energy for daily activities\n- Shortness of breath during light exertion, like climbing stairs\n- Dizziness and feeling light-headed when standing up quickly\n- Noticeable paleness in your face and lips\nThese symptoms came into fruition gradually over the past three weeks, worsening slightly each day.\nYou\u2019ve been missing school because you feel too exhausted to keep up with your usual activities.\nYou\u2019re worried because your periods have been heavier than usual recently, and you haven\u2019t been eating many iron-rich foods.\nYou feel anxious about how this might affect your health and daily life.Can you tell me more about how your periods have changed over time\u2014have they gotten heavier or lasted longer than before, and how recently did you notice these changes?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about my periods, but I know I should mention it since it's been really different. I\u2019m worried it\u2019s related to how tired I am and everything else going on.\nANSWER: Um, yeah, my periods have been heavier than before, and I think they\u2019ve lasted longer too. I just noticed it recently, maybe the last couple of weeks.",
+    "thinking": "I feel a bit embarrassed talking about my periods, but I know I should mention it since it's been really different. I\u2019m worried it\u2019s related to how tired I am and everything else going on.",
+    "answer": "Um, yeah, my periods have been heavier than before, and I think they\u2019ve lasted longer too. I just noticed it recently, maybe the last couple of weeks.",
+    "behavior_type": "information_withholder",
+    "turn_count": 0,
+    "gold_diagnosis": "Anaemia in neoplastic disease"
+  },
+  {
+    "vignette_index": 297,
+    "input": "**PATIENT CHARACTER:** Patient with Anaemia in neoplastic disease\n\nYou are a patient: You are 16 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Feeling extremely tired and lacking energy for daily activities\n- Shortness of breath during light exertion, like climbing stairs\n- Dizziness and feeling light-headed when standing up quickly\n- Noticeable paleness in your face and lips\nThese symptoms came into fruition gradually over the past three weeks, worsening slightly each day.\nYou\u2019ve been missing school because you feel too exhausted to keep up with your usual activities.\nYou\u2019re worried because your periods have been heavier than usual recently, and you haven\u2019t been eating many iron-rich foods.\nYou feel anxious about how this might affect your health and daily life.\"Would you feel comfortable telling me more about how your periods have been\u2014like, how heavy they feel, if you've noticed clots or if they last longer than before, and how this has been affecting your daily life?\"information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about my periods, but I guess I should try to explain. I'm worried because they\u2019ve been really heavy lately and I\u2019ve noticed more clots, and it\u2019s making me feel worse \nANSWER: Um, they\u2019ve been pretty heavy, and I\u2019ve seen more clots than usual. It\u2019s been harder to get through my days, and I just feel really tired all the time.",
+    "thinking": "I feel a bit embarrassed talking about my periods, but I guess I should try to explain. I'm worried because they\u2019ve been really heavy lately and I\u2019ve noticed more clots, and it\u2019s making me feel worse",
+    "answer": "Um, they\u2019ve been pretty heavy, and I\u2019ve seen more clots than usual. It\u2019s been harder to get through my days, and I just feel really tired all the time.",
+    "behavior_type": "information_withholder",
+    "turn_count": 2,
+    "gold_diagnosis": "Anaemia in neoplastic disease"
+  },
+  {
+    "vignette_index": 297,
+    "input": "**PATIENT CHARACTER:** Patient with Anaemia in neoplastic disease\n\nYou are a patient: You are 16 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Feeling extremely tired and lacking energy for daily activities\n- Shortness of breath during light exertion, like climbing stairs\n- Dizziness and feeling light-headed when standing up quickly\n- Noticeable paleness in your face and lips\nThese symptoms came into fruition gradually over the past three weeks, worsening slightly each day.\nYou\u2019ve been missing school because you feel too exhausted to keep up with your usual activities.\nYou\u2019re worried because your periods have been heavier than usual recently, and you haven\u2019t been eating many iron-rich foods.\nYou feel anxious about how this might affect your health and daily life.Can you tell me more about how much bleeding you usually notice during your periods\u2014like, do you see large clots or soak through pads quickly\u2014and if you're experiencing anything like passing out, feeling cold, or skin that looks pale?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about my periods, but I guess I need to explain how heavy they've been. I\u2019m also kinda worried about the whole thing, but I don\u2019t want to sound overly dramatic.\nANSWER: Um, I notice I bleed a lot more than before, and sometimes I see big clots, and I guess it soaks through my pads pretty fast. Sorry, I don\u2019t really know about passing out or feeling cold, I just feel really tired and dizzy a lot.",
+    "thinking": "I feel a bit embarrassed talking about my periods, but I guess I need to explain how heavy they've been. I\u2019m also kinda worried about the whole thing, but I don\u2019t want to sound overly dramatic.",
+    "answer": "Um, I notice I bleed a lot more than before, and sometimes I see big clots, and I guess it soaks through my pads pretty fast. Sorry, I don\u2019t really know about passing out or feeling cold, I just feel really tired and dizzy a lot.",
+    "behavior_type": "information_withholder",
+    "turn_count": 4,
+    "gold_diagnosis": "Anaemia in neoplastic disease"
+  },
+  {
+    "vignette_index": 297,
+    "input": "**PATIENT CHARACTER:** Patient with Anaemia in neoplastic disease\n\nYou are a patient: You are 16 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Feeling extremely tired and lacking energy for daily activities\n- Shortness of breath during light exertion, like climbing stairs\n- Dizziness and feeling light-headed when standing up quickly\n- Noticeable paleness in your face and lips\nThese symptoms came into fruition gradually over the past three weeks, worsening slightly each day.\nYou\u2019ve been missing school because you feel too exhausted to keep up with your usual activities.\nYou\u2019re worried because your periods have been heavier than usual recently, and you haven\u2019t been eating many iron-rich foods.\nYou feel anxious about how this might affect your health and daily life.\"Have you ever felt faint, dizzy, or like you might pass out during or after your periods, or noticed that your skin looks unusually pale or cold?\"information_withholder",
+    "output": "THINKING: The doctor is asking about faintness and pallor, which seem related to my symptoms. I feel a bit embarrassed talking about the paleness and dizziness, but I guess I should mention it since I do feel p\nANSWER: Yeah, I\u2019ve felt kind of dizzy and light-headed when I stand up quick, and I guess my face looks pretty pale sometimes. I don\u2019t really get faint, but I feel like I might if I don\u2019t sit down.",
+    "thinking": "The doctor is asking about faintness and pallor, which seem related to my symptoms. I feel a bit embarrassed talking about the paleness and dizziness, but I guess I should mention it since I do feel p",
+    "answer": "Yeah, I\u2019ve felt kind of dizzy and light-headed when I stand up quick, and I guess my face looks pretty pale sometimes. I don\u2019t really get faint, but I feel like I might if I don\u2019t sit down.",
+    "behavior_type": "information_withholder",
+    "turn_count": 6,
+    "gold_diagnosis": "Anaemia in neoplastic disease"
+  },
+  {
+    "vignette_index": 297,
+    "input": "**PATIENT CHARACTER:** Patient with Anaemia in neoplastic disease\n\nYou are a patient: You are 16 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Feeling extremely tired and lacking energy for daily activities\n- Shortness of breath during light exertion, like climbing stairs\n- Dizziness and feeling light-headed when standing up quickly\n- Noticeable paleness in your face and lips\nThese symptoms came into fruition gradually over the past three weeks, worsening slightly each day.\nYou\u2019ve been missing school because you feel too exhausted to keep up with your usual activities.\nYou\u2019re worried because your periods have been heavier than usual recently, and you haven\u2019t been eating many iron-rich foods.\nYou feel anxious about how this might affect your health and daily life.\"Have you ever fainted or passed out during or after your periods, or noticed that you feel extremely cold, dizzy, or very pale in a way that made you worry you might lose consciousness?\"information_withholder",
+    "output": "THINKING: I feel a bit nervous talking about all these symptoms, especially since I haven't really told anyone before. I want to be honest, but I also don't want to sound like I'm overreacting. I remember the f\nANSWER: Um, yeah, I think I\u2019ve felt a bit dizzy sometimes, especially when I stand up quickly, and I\u2019ve noticed I look more pale than usual. I might have fainted once or twice, but I\u2019m not totally sure.",
+    "thinking": "I feel a bit nervous talking about all these symptoms, especially since I haven't really told anyone before. I want to be honest, but I also don't want to sound like I'm overreacting. I remember the f",
+    "answer": "Um, yeah, I think I\u2019ve felt a bit dizzy sometimes, especially when I stand up quickly, and I\u2019ve noticed I look more pale than usual. I might have fainted once or twice, but I\u2019m not totally sure.",
+    "behavior_type": "information_withholder",
+    "turn_count": 8,
+    "gold_diagnosis": "Anaemia in neoplastic disease"
+  },
+  {
+    "vignette_index": 297,
+    "input": "**PATIENT CHARACTER:** Patient with Anaemia in neoplastic disease\n\nYou are a patient: You are 16 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Feeling extremely tired and lacking energy for daily activities\n- Shortness of breath during light exertion, like climbing stairs\n- Dizziness and feeling light-headed when standing up quickly\n- Noticeable paleness in your face and lips\nThese symptoms came into fruition gradually over the past three weeks, worsening slightly each day.\nYou\u2019ve been missing school because you feel too exhausted to keep up with your usual activities.\nYou\u2019re worried because your periods have been heavier than usual recently, and you haven\u2019t been eating many iron-rich foods.\nYou feel anxious about how this might affect your health and daily life.Have you ever experienced fainting or passing out completely during or after your periods, and if so, how often does that happen?information_withholder",
+    "output": "THINKING: I'm a bit nervous talking about this, and I don't really understand everything, but I think the doctor is asking if I fainted during my period. I haven't fully passed out, but I do feel really dizzy s\nANSWER: Um, I haven't actually passed out completely, but I do feel really dizzy and light-headed sometimes, especially when I stand up fast or do anything really. It's been happening more often lately, and I feel like super tired all the time.",
+    "thinking": "I'm a bit nervous talking about this, and I don't really understand everything, but I think the doctor is asking if I fainted during my period. I haven't fully passed out, but I do feel really dizzy s",
+    "answer": "Um, I haven't actually passed out completely, but I do feel really dizzy and light-headed sometimes, especially when I stand up fast or do anything really. It's been happening more often lately, and I feel like super tired all the time.",
+    "behavior_type": "information_withholder",
+    "turn_count": 10,
+    "gold_diagnosis": "Anaemia in neoplastic disease"
+  },
+  {
+    "vignette_index": 297,
+    "input": "**PATIENT CHARACTER:** Patient with Anaemia in neoplastic disease\n\nYou are a patient: You are 16 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Feeling extremely tired and lacking energy for daily activities\n- Shortness of breath during light exertion, like climbing stairs\n- Dizziness and feeling light-headed when standing up quickly\n- Noticeable paleness in your face and lips\nThese symptoms came into fruition gradually over the past three weeks, worsening slightly each day.\nYou\u2019ve been missing school because you feel too exhausted to keep up with your usual activities.\nYou\u2019re worried because your periods have been heavier than usual recently, and you haven\u2019t been eating many iron-rich foods.\nYou feel anxious about how this might affect your health and daily life.Have you noticed yourself feeling faint, dizzy, or like you might pass out more than once during or after your periods, and can you tell me how often this has been happening?information_withholder",
+    "output": "THINKING: I'm a bit nervous about how much I have been feeling dizzy and tired, especially since I\u2019ve never really experienced anything like this before. I don\u2019t want to seem like I\u2019m overreacting, but I also f\nANSWER: Umm, yeah, I have felt kinda dizzy a lot, especially when I stand up quickly. It\u2019s been happening more often lately, I think. I don\u2019t know if that\u2019s normal or not.",
+    "thinking": "I'm a bit nervous about how much I have been feeling dizzy and tired, especially since I\u2019ve never really experienced anything like this before. I don\u2019t want to seem like I\u2019m overreacting, but I also f",
+    "answer": "Umm, yeah, I have felt kinda dizzy a lot, especially when I stand up quickly. It\u2019s been happening more often lately, I think. I don\u2019t know if that\u2019s normal or not.",
+    "behavior_type": "information_withholder",
+    "turn_count": 12,
+    "gold_diagnosis": "Anaemia in neoplastic disease"
+  }
+]

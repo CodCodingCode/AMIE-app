@@ -1,0 +1,96 @@
+[
+  {
+    "vignette_index": 328,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Dementia due to Alzheimer disease, onset unknown or unspecified\n\nYou are a patient: You are 78 and your biological gender is female.\nYou are experiencing the following symptoms:\n- Problems with short-term memory\n- Forgetting appointments\n- Difficulty paying bills\n- Getting lost in familiar areas\nThese symptoms came into fruition gradually over the past six months, with you noticing that you often forget recent conversations and struggle to remember whether you've paid your utility bills. Lately, you've found yourself getting lost while walking in your neighborhood, even in places you've been many times before. You sometimes forget to attend scheduled doctor appointments and feel increasingly confused about daily tasks. You\u2019ve noticed these issues seem to worsen without a clear pattern, and your family is worried about your memory lapses.",
+    "output": "THINKING: I'm feeling anxious about my memory and all these things I keep forgetting. I worry it might be something serious, like I\u2019m losing my mind or there\u2019s some terrible disease or something. I keep getting\nANSWER: Well, doctor, I\u2019m 78, and I keep forgetting things now \u2014 like, sometimes I forget if I\u2019ve paid the bills or if I had a conversation just a little while ago. I also get lost in the neighborhood even though I\u2019ve been there lots of times before. It\u2019s like my mind isn\u2019t working right, and I\u2019m starting to feel really scared about what\u2019s going on with me.",
+    "thinking": "I'm feeling anxious about my memory and all these things I keep forgetting. I worry it might be something serious, like I\u2019m losing my mind or there\u2019s some terrible disease or something. I keep getting",
+    "answer": "Well, doctor, I\u2019m 78, and I keep forgetting things now \u2014 like, sometimes I forget if I\u2019ve paid the bills or if I had a conversation just a little while ago. I also get lost in the neighborhood even though I\u2019ve been there lots of times before. It\u2019s like my mind isn\u2019t working right, and I\u2019m starting to feel really scared about what\u2019s going on with me.",
+    "behavior_type": "anxious_amplifier",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient with health anxiety who amplifies symptoms",
+      "modifiers": [
+        "catastrophic_thinking",
+        "symptom_amplification",
+        "multiple_concerns"
+      ],
+      "empathy_cues": [
+        "high_anxiety",
+        "catastrophic_language",
+        "reassurance_seeking",
+        "fear_expression"
+      ]
+    },
+    "gold_diagnosis": "Dementia due to Alzheimer disease, onset unknown or unspecified"
+  },
+  {
+    "vignette_index": 328,
+    "input": "**PATIENT CHARACTER:** Patient with Dementia due to Alzheimer disease, onset unknown or unspecified\n\nYou are a patient: You are 78 and your biological gender is female.\nYou are experiencing the following symptoms:\n- Problems with short-term memory\n- Forgetting appointments\n- Difficulty paying bills\n- Getting lost in familiar areas\nThese symptoms came into fruition gradually over the past six months, with you noticing that you often forget recent conversations and struggle to remember whether you've paid your utility bills. Lately, you've found yourself getting lost while walking in your neighborhood, even in places you've been many times before. You sometimes forget to attend scheduled doctor appointments and feel increasingly confused about daily tasks. You\u2019ve noticed these issues seem to worsen without a clear pattern, and your family is worried about your memory lapses.Can you tell me more about how these memory and navigation issues are affecting your daily routines\u2014like managing your household tasks, cooking, or taking care of yourself\u2014and whether you feel able to do these things as you used to?anxious_amplifier",
+    "output": "THINKING: I feel really anxious when I think about how much I've forgotten and how lost I sometimes get, like I might do something terrible or get even more confused. I just want to understand what's happening \nANSWER: It\u2019s become really hard to do simple things now, like paying bills or remembering appointments, and I keep getting lost even in places I used to know, and it just feels like I\u2019m losing my mind or something bad is happening.",
+    "thinking": "I feel really anxious when I think about how much I've forgotten and how lost I sometimes get, like I might do something terrible or get even more confused. I just want to understand what's happening",
+    "answer": "It\u2019s become really hard to do simple things now, like paying bills or remembering appointments, and I keep getting lost even in places I used to know, and it just feels like I\u2019m losing my mind or something bad is happening.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 0,
+    "gold_diagnosis": "Dementia due to Alzheimer disease, onset unknown or unspecified"
+  },
+  {
+    "vignette_index": 328,
+    "input": "**PATIENT CHARACTER:** Patient with Dementia due to Alzheimer disease, onset unknown or unspecified\n\nYou are a patient: You are 78 and your biological gender is female.\nYou are experiencing the following symptoms:\n- Problems with short-term memory\n- Forgetting appointments\n- Difficulty paying bills\n- Getting lost in familiar areas\nThese symptoms came into fruition gradually over the past six months, with you noticing that you often forget recent conversations and struggle to remember whether you've paid your utility bills. Lately, you've found yourself getting lost while walking in your neighborhood, even in places you've been many times before. You sometimes forget to attend scheduled doctor appointments and feel increasingly confused about daily tasks. You\u2019ve noticed these issues seem to worsen without a clear pattern, and your family is worried about your memory lapses.Can you tell me more about when these memory problems first started and how they have changed over time\u2014have they been steady, or do they come and go?anxious_amplifier",
+    "output": "THINKING: I\u2019m really worried about what\u2019s happening to me. It seems to be getting worse quickly, and I keep fearing it\u2019s something terrible like Alzheimer\u2019s or even worse. I just want to understand what\u2019s going\nANSWER: Well, it started about six months ago, I think, but it just keeps getting worse\u2014like I forget things all the time now, even where I am or if I paid my bills, and I get so lost, I can\u2019t find my way back even in places I\u2019ve been many times.",
+    "thinking": "I\u2019m really worried about what\u2019s happening to me. It seems to be getting worse quickly, and I keep fearing it\u2019s something terrible like Alzheimer\u2019s or even worse. I just want to understand what\u2019s going",
+    "answer": "Well, it started about six months ago, I think, but it just keeps getting worse\u2014like I forget things all the time now, even where I am or if I paid my bills, and I get so lost, I can\u2019t find my way back even in places I\u2019ve been many times.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 2,
+    "gold_diagnosis": "Dementia due to Alzheimer disease, onset unknown or unspecified"
+  },
+  {
+    "vignette_index": 328,
+    "input": "**PATIENT CHARACTER:** Patient with Dementia due to Alzheimer disease, onset unknown or unspecified\n\nYou are a patient: You are 78 and your biological gender is female.\nYou are experiencing the following symptoms:\n- Problems with short-term memory\n- Forgetting appointments\n- Difficulty paying bills\n- Getting lost in familiar areas\nThese symptoms came into fruition gradually over the past six months, with you noticing that you often forget recent conversations and struggle to remember whether you've paid your utility bills. Lately, you've found yourself getting lost while walking in your neighborhood, even in places you've been many times before. You sometimes forget to attend scheduled doctor appointments and feel increasingly confused about daily tasks. You\u2019ve noticed these issues seem to worsen without a clear pattern, and your family is worried about your memory lapses.Can you tell me more about how these memory and disorientation issues are affecting your ability to do things you usually manage every day, like cooking, dressing, or staying safe outside?anxious_amplifier",
+    "output": "THINKING: I feel anxious because my memory has become so much worse in just a few months, and I keep forgetting important things. I'm scared I might get lost or do something dangerous, like not paying my bills \nANSWER: It\u2019s terrible, really\u2014I forget what I just said or what I was supposed to do, and I worry I might get lost outside or miss eating or taking my medicine, and I don\u2019t know if it\u2019s getting worse or what to do.",
+    "thinking": "I feel anxious because my memory has become so much worse in just a few months, and I keep forgetting important things. I'm scared I might get lost or do something dangerous, like not paying my bills",
+    "answer": "It\u2019s terrible, really\u2014I forget what I just said or what I was supposed to do, and I worry I might get lost outside or miss eating or taking my medicine, and I don\u2019t know if it\u2019s getting worse or what to do.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 4,
+    "gold_diagnosis": "Dementia due to Alzheimer disease, onset unknown or unspecified"
+  },
+  {
+    "vignette_index": 328,
+    "input": "**PATIENT CHARACTER:** Patient with Dementia due to Alzheimer disease, onset unknown or unspecified\n\nYou are a patient: You are 78 and your biological gender is female.\nYou are experiencing the following symptoms:\n- Problems with short-term memory\n- Forgetting appointments\n- Difficulty paying bills\n- Getting lost in familiar areas\nThese symptoms came into fruition gradually over the past six months, with you noticing that you often forget recent conversations and struggle to remember whether you've paid your utility bills. Lately, you've found yourself getting lost while walking in your neighborhood, even in places you've been many times before. You sometimes forget to attend scheduled doctor appointments and feel increasingly confused about daily tasks. You\u2019ve noticed these issues seem to worsen without a clear pattern, and your family is worried about your memory lapses.Have you noticed times when your thinking or memory seem clearer or better than usual, or times when your symptoms suddenly get worse, even within a single day or week?anxious_amplifier",
+    "output": "THINKING: I feel really scared when he asks about my thinking because sometimes it feels like my brain just goes blank or I can't focus, and I'm worried it might get worse or something terrible is happening. I \nANSWER: Well, sometimes I think I can remember a little better, but mostly, my mind feels really foggy and it keeps getting worse, like I can't think straight at all, especially with stuff like my bills or where I am.",
+    "thinking": "I feel really scared when he asks about my thinking because sometimes it feels like my brain just goes blank or I can't focus, and I'm worried it might get worse or something terrible is happening. I",
+    "answer": "Well, sometimes I think I can remember a little better, but mostly, my mind feels really foggy and it keeps getting worse, like I can't think straight at all, especially with stuff like my bills or where I am.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 6,
+    "gold_diagnosis": "Dementia due to Alzheimer disease, onset unknown or unspecified"
+  },
+  {
+    "vignette_index": 328,
+    "input": "**PATIENT CHARACTER:** Patient with Dementia due to Alzheimer disease, onset unknown or unspecified\n\nYou are a patient: You are 78 and your biological gender is female.\nYou are experiencing the following symptoms:\n- Problems with short-term memory\n- Forgetting appointments\n- Difficulty paying bills\n- Getting lost in familiar areas\nThese symptoms came into fruition gradually over the past six months, with you noticing that you often forget recent conversations and struggle to remember whether you've paid your utility bills. Lately, you've found yourself getting lost while walking in your neighborhood, even in places you've been many times before. You sometimes forget to attend scheduled doctor appointments and feel increasingly confused about daily tasks. You\u2019ve noticed these issues seem to worsen without a clear pattern, and your family is worried about your memory lapses.Have you noticed times when your thinking or memory seem suddenly clearer or better, or times when your confusion or disorientation get suddenly worse\u2014like fluctuating significantly from day to day or even within the same day?anxious_amplifier",
+    "output": "THINKING: I feel anxious and a bit scared whenever I think about how sometimes my mind feels so foggy, and I worry it\u2019s getting worse suddenly, especially when I forget things I just did or get lost in my own s\nANSWER: Sometimes, my thinking feels like it\u2019s suddenly clearer for a little while, but then it just goes all fuzzy again, and I get really worried that I\u2019m losing my mind completely or that it\u2019s something terrible that I can\u2019t control.",
+    "thinking": "I feel anxious and a bit scared whenever I think about how sometimes my mind feels so foggy, and I worry it\u2019s getting worse suddenly, especially when I forget things I just did or get lost in my own s",
+    "answer": "Sometimes, my thinking feels like it\u2019s suddenly clearer for a little while, but then it just goes all fuzzy again, and I get really worried that I\u2019m losing my mind completely or that it\u2019s something terrible that I can\u2019t control.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 8,
+    "gold_diagnosis": "Dementia due to Alzheimer disease, onset unknown or unspecified"
+  },
+  {
+    "vignette_index": 328,
+    "input": "**PATIENT CHARACTER:** Patient with Dementia due to Alzheimer disease, onset unknown or unspecified\n\nYou are a patient: You are 78 and your biological gender is female.\nYou are experiencing the following symptoms:\n- Problems with short-term memory\n- Forgetting appointments\n- Difficulty paying bills\n- Getting lost in familiar areas\nThese symptoms came into fruition gradually over the past six months, with you noticing that you often forget recent conversations and struggle to remember whether you've paid your utility bills. Lately, you've found yourself getting lost while walking in your neighborhood, even in places you've been many times before. You sometimes forget to attend scheduled doctor appointments and feel increasingly confused about daily tasks. You\u2019ve noticed these issues seem to worsen without a clear pattern, and your family is worried about your memory lapses.Can you tell me if there are times during the day or week when you feel more clear or alert, and other times when things seem fuzzy or harder to understand\u2014like your thinking or memory getting better or worse suddenly?anxious_amplifier",
+    "output": "THINKING: I feel really anxious about these memory problems and I keep thinking it might be something terrible like the beginning of something really serious, maybe even worse than dementia. I\u2019m worried I won\u2019t\nANSWER: I think I feel more forgetful and confused most of the time now, but sometimes it gets worse really suddenly, like I can't remember what I was doing just a few minutes ago, and that worries me a lot.",
+    "thinking": "I feel really anxious about these memory problems and I keep thinking it might be something terrible like the beginning of something really serious, maybe even worse than dementia. I\u2019m worried I won\u2019t",
+    "answer": "I think I feel more forgetful and confused most of the time now, but sometimes it gets worse really suddenly, like I can't remember what I was doing just a few minutes ago, and that worries me a lot.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 10,
+    "gold_diagnosis": "Dementia due to Alzheimer disease, onset unknown or unspecified"
+  },
+  {
+    "vignette_index": 328,
+    "input": "**PATIENT CHARACTER:** Patient with Dementia due to Alzheimer disease, onset unknown or unspecified\n\nYou are a patient: You are 78 and your biological gender is female.\nYou are experiencing the following symptoms:\n- Problems with short-term memory\n- Forgetting appointments\n- Difficulty paying bills\n- Getting lost in familiar areas\nThese symptoms came into fruition gradually over the past six months, with you noticing that you often forget recent conversations and struggle to remember whether you've paid your utility bills. Lately, you've found yourself getting lost while walking in your neighborhood, even in places you've been many times before. You sometimes forget to attend scheduled doctor appointments and feel increasingly confused about daily tasks. You\u2019ve noticed these issues seem to worsen without a clear pattern, and your family is worried about your memory lapses.Have you noticed if there are times when your memory and thinking seem to stay the same or improve, even if only for a little while, and if so, can you tell me what might be different during those times compared to when things feel really foggy or confusing?anxious_amplifier",
+    "output": "THINKING: I feel anxious about this question because I notice my memory is really bad most of the time, but maybe sometimes when I am distracted or busy, I forget less? Still, I don't really understand why or w\nANSWER: I guess when I\u2019m doing something really busy or not thinking about my forgetfulness, maybe it\u2019s okay for a little while, but honestly, most of the time I just feel like I\u2019m losing my mind, and it gets worse, especially when I forget things like my doctor appointments or how to get home\u2014I\u2019m scared it\u2019s something terrible.",
+    "thinking": "I feel anxious about this question because I notice my memory is really bad most of the time, but maybe sometimes when I am distracted or busy, I forget less? Still, I don't really understand why or w",
+    "answer": "I guess when I\u2019m doing something really busy or not thinking about my forgetfulness, maybe it\u2019s okay for a little while, but honestly, most of the time I just feel like I\u2019m losing my mind, and it gets worse, especially when I forget things like my doctor appointments or how to get home\u2014I\u2019m scared it\u2019s something terrible.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 12,
+    "gold_diagnosis": "Dementia due to Alzheimer disease, onset unknown or unspecified"
+  }
+]

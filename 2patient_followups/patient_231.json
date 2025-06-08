@@ -1,0 +1,97 @@
+[
+  {
+    "vignette_index": 231,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Taenia solium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Nausea\n- Chronic headaches\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, with the abdominal pain starting as mild discomfort after meals and slowly worsening. The nausea began about two weeks ago, often feeling worse in the mornings, and the headaches have become more frequent and intense, sometimes accompanied by a feeling of dizziness. You live in a rural area where sanitation is limited, and you often eat pork that you suspect might not be fully cooked. You\u2019re worried because the symptoms haven't improved, and you're concerned about what might be causing them.",
+    "output": "THINKING: I need to explain my situation clearly but honestly. I should mention my age and gender first, and then describe my symptoms without making assumptions about what they mean. I want to convey that the \nANSWER: I\u2019m 45 years old and I\u2019m a man. I\u2019ve been having some stomach pain, kind of dull but it\u2019s been getting worse after I eat. I also feel really sick sometimes in the mornings, like I want to throw up, and I\u2019ve had these bad headaches that come and go, sometimes with dizziness. It\u2019s been going on for about a month now, and I\u2019m worried because it\u2019s not getting any better.",
+    "thinking": "I need to explain my situation clearly but honestly. I should mention my age and gender first, and then describe my symptoms without making assumptions about what they mean. I want to convey that the",
+    "answer": "I\u2019m 45 years old and I\u2019m a man. I\u2019ve been having some stomach pain, kind of dull but it\u2019s been getting worse after I eat. I also feel really sick sometimes in the mornings, like I want to throw up, and I\u2019ve had these bad headaches that come and go, sometimes with dizziness. It\u2019s been going on for about a month now, and I\u2019m worried because it\u2019s not getting any better.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Taenia solium"
+  },
+  {
+    "vignette_index": 231,
+    "input": "**PATIENT CHARACTER:** Patient with Taenia solium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Nausea\n- Chronic headaches\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, with the abdominal pain starting as mild discomfort after meals and slowly worsening. The nausea began about two weeks ago, often feeling worse in the mornings, and the headaches have become more frequent and intense, sometimes accompanied by a feeling of dizziness. You live in a rural area where sanitation is limited, and you often eat pork that you suspect might not be fully cooked. You\u2019re worried because the symptoms haven't improved, and you're concerned about what might be causing them.Have you noticed any recent changes in your weight, blood in your stool, fever, or other symptoms that might seem unrelated to your stomach issues?baseline",
+    "output": "THINKING: I feel a bit worried about what he's asking, but I honestly haven't noticed anything obvious like weight change or blood. I just want to explain how I feel without making it complicated.\nANSWER: No, I don't think I've seen any big changes like that. Just the stomach stuff and headaches I told you about.",
+    "thinking": "I feel a bit worried about what he's asking, but I honestly haven't noticed anything obvious like weight change or blood. I just want to explain how I feel without making it complicated.",
+    "answer": "No, I don't think I've seen any big changes like that. Just the stomach stuff and headaches I told you about.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Taenia solium"
+  },
+  {
+    "vignette_index": 231,
+    "input": "**PATIENT CHARACTER:** Patient with Taenia solium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Nausea\n- Chronic headaches\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, with the abdominal pain starting as mild discomfort after meals and slowly worsening. The nausea began about two weeks ago, often feeling worse in the mornings, and the headaches have become more frequent and intense, sometimes accompanied by a feeling of dizziness. You live in a rural area where sanitation is limited, and you often eat pork that you suspect might not be fully cooked. You\u2019re worried because the symptoms haven't improved, and you're concerned about what might be causing them.Can you tell me how these headaches and nausea have been affecting your daily activities or things that are important to you?baseline",
+    "output": "THINKING: I'm not really sure how much these headaches and nausea are messing with my life, but I do get worried they make it hard to do my work or even rest sometimes. I guess I just feel tired and a bit scare\nANSWER: Well, I guess I just feel more tired and it\u2019s hard to focus sometimes because of the headaches. It\u2019s been bothering me quite a bit lately.",
+    "thinking": "I'm not really sure how much these headaches and nausea are messing with my life, but I do get worried they make it hard to do my work or even rest sometimes. I guess I just feel tired and a bit scare",
+    "answer": "Well, I guess I just feel more tired and it\u2019s hard to focus sometimes because of the headaches. It\u2019s been bothering me quite a bit lately.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Taenia solium"
+  },
+  {
+    "vignette_index": 231,
+    "input": "**PATIENT CHARACTER:** Patient with Taenia solium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Nausea\n- Chronic headaches\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, with the abdominal pain starting as mild discomfort after meals and slowly worsening. The nausea began about two weeks ago, often feeling worse in the mornings, and the headaches have become more frequent and intense, sometimes accompanied by a feeling of dizziness. You live in a rural area where sanitation is limited, and you often eat pork that you suspect might not be fully cooked. You\u2019re worried because the symptoms haven't improved, and you're concerned about what might be causing them.Can you tell me how these stomach symptoms and headaches have been affecting your daily routines or how you feel about them?baseline",
+    "output": "THINKING: I'm worried about how much these symptoms are messing with my daily life. I feel tired and kind of scared because it\u2019s like my head and stomach are never really okay anymore.\nANSWER: It\u2019s hard to say exactly, but I feel more tired, and I don\u2019t really feel like myself. The headaches are bad, and I just don\u2019t know what\u2019s going on.",
+    "thinking": "I'm worried about how much these symptoms are messing with my daily life. I feel tired and kind of scared because it\u2019s like my head and stomach are never really okay anymore.",
+    "answer": "It\u2019s hard to say exactly, but I feel more tired, and I don\u2019t really feel like myself. The headaches are bad, and I just don\u2019t know what\u2019s going on.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Taenia solium"
+  },
+  {
+    "vignette_index": 231,
+    "input": "**PATIENT CHARACTER:** Patient with Taenia solium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Nausea\n- Chronic headaches\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, with the abdominal pain starting as mild discomfort after meals and slowly worsening. The nausea began about two weeks ago, often feeling worse in the mornings, and the headaches have become more frequent and intense, sometimes accompanied by a feeling of dizziness. You live in a rural area where sanitation is limited, and you often eat pork that you suspect might not be fully cooked. You\u2019re worried because the symptoms haven't improved, and you're concerned about what might be causing them.Can you tell me more about the headaches you've been having\u2014such as how they feel, how long they last, where the pain is located, and if anything seems to make them better or worse?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about all these symptoms coming on, especially the headaches and stomach issues. I don\u2019t really understand what\u2019s going on, but I know it\u2019s been bad lately, and I\u2019\nANSWER: Um, the headaches, they just keep getting worse, and I feel kind of dizzy sometimes, especially after eating or when I\u2019m up and about. They just stay there, and I don't know why.",
+    "thinking": "I feel a bit overwhelmed and worried about all these symptoms coming on, especially the headaches and stomach issues. I don\u2019t really understand what\u2019s going on, but I know it\u2019s been bad lately, and I\u2019",
+    "answer": "Um, the headaches, they just keep getting worse, and I feel kind of dizzy sometimes, especially after eating or when I\u2019m up and about. They just stay there, and I don't know why.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Taenia solium"
+  },
+  {
+    "vignette_index": 231,
+    "input": "**PATIENT CHARACTER:** Patient with Taenia solium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Nausea\n- Chronic headaches\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, with the abdominal pain starting as mild discomfort after meals and slowly worsening. The nausea began about two weeks ago, often feeling worse in the mornings, and the headaches have become more frequent and intense, sometimes accompanied by a feeling of dizziness. You live in a rural area where sanitation is limited, and you often eat pork that you suspect might not be fully cooked. You\u2019re worried because the symptoms haven't improved, and you're concerned about what might be causing them.Can you tell me more about how your headaches feel\u2014like where the pain is, how it starts, how long it lasts, and if anything specific makes them better or worse, such as light, sound, or activity?baseline",
+    "output": "THINKING: I'm worried about my headaches getting worse and not really sure what\u2019s causing them. I just want to explain how they feel and hope the doctor understands what I mean since I don\u2019t really know much ab\nANSWER: The headaches are like a really bad pressure inside my head, and they come and go, but lately they\u2019ve been worse. It\u2019s like my head is heavy and sometimes I feel dizzy with it.",
+    "thinking": "I'm worried about my headaches getting worse and not really sure what\u2019s causing them. I just want to explain how they feel and hope the doctor understands what I mean since I don\u2019t really know much ab",
+    "answer": "The headaches are like a really bad pressure inside my head, and they come and go, but lately they\u2019ve been worse. It\u2019s like my head is heavy and sometimes I feel dizzy with it.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Taenia solium"
+  },
+  {
+    "vignette_index": 231,
+    "input": "**PATIENT CHARACTER:** Patient with Taenia solium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Nausea\n- Chronic headaches\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, with the abdominal pain starting as mild discomfort after meals and slowly worsening. The nausea began about two weeks ago, often feeling worse in the mornings, and the headaches have become more frequent and intense, sometimes accompanied by a feeling of dizziness. You live in a rural area where sanitation is limited, and you often eat pork that you suspect might not be fully cooked. You\u2019re worried because the symptoms haven't improved, and you're concerned about what might be causing them.\"Given how your headaches have been feeling and especially if you notice any changes in your vision, like seeing flashes, blurred vision, or anything unusual with your eyes, could you tell me more about that? Have you experienced any issues with your sight or images appearing different?\"baseline",
+    "output": "THINKING: I\u2019m a bit scared about my vision, I\u2019ve noticed some little flashes and things look weird sometimes, but I don\u2019t really understand what it means. I just want to tell the doctor everything I see and fee\nANSWER: Yeah, I\u2019ve seen some flashes or weird lights sometimes, and things look a little blurry, like not clear, but I don\u2019t know if that\u2019s normal or if it\u2019s important.",
+    "thinking": "I\u2019m a bit scared about my vision, I\u2019ve noticed some little flashes and things look weird sometimes, but I don\u2019t really understand what it means. I just want to tell the doctor everything I see and fee",
+    "answer": "Yeah, I\u2019ve seen some flashes or weird lights sometimes, and things look a little blurry, like not clear, but I don\u2019t know if that\u2019s normal or if it\u2019s important.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Taenia solium"
+  },
+  {
+    "vignette_index": 231,
+    "input": "**PATIENT CHARACTER:** Patient with Taenia solium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Nausea\n- Chronic headaches\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, with the abdominal pain starting as mild discomfort after meals and slowly worsening. The nausea began about two weeks ago, often feeling worse in the mornings, and the headaches have become more frequent and intense, sometimes accompanied by a feeling of dizziness. You live in a rural area where sanitation is limited, and you often eat pork that you suspect might not be fully cooked. You\u2019re worried because the symptoms haven't improved, and you're concerned about what might be causing them.Have you noticed any sudden or worsening changes in your vision, such as your sight becoming more blurry or flashes happening more often, or any new symptoms like weakness, numbness, or difficulty moving parts of your body?baseline",
+    "output": "THINKING: The doctor is asking about my vision and other things that I haven\u2019t really noticed. I feel a bit anxious about any new symptoms and want to be honest, but I don\u2019t really understand what counts as ser\nANSWER: Um, I haven't really noticed much change in my vision, nothing flashes or anything that I\u2019ve seen. I do feel kinda weak sometimes, but I don\u2019t know if that\u2019s new or what\u2019s going on.",
+    "thinking": "The doctor is asking about my vision and other things that I haven\u2019t really noticed. I feel a bit anxious about any new symptoms and want to be honest, but I don\u2019t really understand what counts as ser",
+    "answer": "Um, I haven't really noticed much change in my vision, nothing flashes or anything that I\u2019ve seen. I do feel kinda weak sometimes, but I don\u2019t know if that\u2019s new or what\u2019s going on.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Taenia solium"
+  },
+  {
+    "vignette_index": 231,
+    "input": "**PATIENT CHARACTER:** Patient with Taenia solium\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Abdominal pain\n- Nausea\n- Chronic headaches\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, with the abdominal pain starting as mild discomfort after meals and slowly worsening. The nausea began about two weeks ago, often feeling worse in the mornings, and the headaches have become more frequent and intense, sometimes accompanied by a feeling of dizziness. You live in a rural area where sanitation is limited, and you often eat pork that you suspect might not be fully cooked. You\u2019re worried because the symptoms haven't improved, and you're concerned about what might be causing them.Have you noticed any objective signs of vision loss, such as your sight seeming gray or like you're looking through a curtain, or have a healthcare provider ever told you that you have swelling around your eyes or in your optic nerves? Additionally, do you experience any sudden weakness, numbness, or difficulty walking, and have you seen a doctor about any findings related to your eyes or neurological status?baseline",
+    "output": "THINKING: The doctor is asking about serious signs related to vision or neurological problems, which I haven't noticed. I feel a little embarrassed to admit I haven't paid much attention to my eyes or if I have\nANSWER: No, I don\u2019t think I\u2019ve noticed anything like that. My eyes don\u2019t seem different or anything, and I haven\u2019t had any weakness or trouble walking or anything like that.",
+    "thinking": "The doctor is asking about serious signs related to vision or neurological problems, which I haven't noticed. I feel a little embarrassed to admit I haven't paid much attention to my eyes or if I have",
+    "answer": "No, I don\u2019t think I\u2019ve noticed anything like that. My eyes don\u2019t seem different or anything, and I haven\u2019t had any weakness or trouble walking or anything like that.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Taenia solium"
+  }
+]

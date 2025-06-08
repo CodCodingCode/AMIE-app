@@ -1,0 +1,136 @@
+[
+  {
+    "vignette_index": 5,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Sepsis with septic shock\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- a high fever and chills, feeling very cold even though you\u2019re sweating\n- intense body pain that feels like deep muscle aches all over\n- rapid breathing and a very fast heart rate that you notice at rest\n- a rash that has developed on your torso and arms\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, and I woke up feeling extremely cold, then I developed this rash and the pain just kept getting worse. I\u2019ve been feeling very weak and dizzy, and my breathing feels much faster than normal. I don\u2019t remember injuring myself or noticing any infections before this started.",
+    "output": "THINKING: I need to explain clearly what I\u2019m feeling without sounding like I\u2019m overreacting. I should mention the suddenness and severity, but keep it simple since I usually handle pain and don\u2019t like making a \nANSWER: Well, I\u2019m 72, and I\u2019m a male. It all started last night \u2014 I woke up feeling freezing cold, but I was sweating a lot, and then I noticed this rash coming up on my arms and chest. I\u2019ve got these really bad muscle aches everywhere, and my heartbeat feels pretty fast all the time now. I\u2019ve been feeling weak and dizzy, and I just can\u2019t seem to catch my breath right. I don\u2019t remember injuring myself or anything like that. I thought it might go away, but it\u2019s been getting worse, so I came in to see what\u2019s going on.",
+    "thinking": "I need to explain clearly what I\u2019m feeling without sounding like I\u2019m overreacting. I should mention the suddenness and severity, but keep it simple since I usually handle pain and don\u2019t like making a",
+    "answer": "Well, I\u2019m 72, and I\u2019m a male. It all started last night \u2014 I woke up feeling freezing cold, but I was sweating a lot, and then I noticed this rash coming up on my arms and chest. I\u2019ve got these really bad muscle aches everywhere, and my heartbeat feels pretty fast all the time now. I\u2019ve been feeling weak and dizzy, and I just can\u2019t seem to catch my breath right. I don\u2019t remember injuring myself or anything like that. I thought it might go away, but it\u2019s been getting worse, so I came in to see what\u2019s going on.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Sepsis with septic shock"
+  },
+  {
+    "vignette_index": 5,
+    "input": "**PATIENT CHARACTER:** Patient with Sepsis with septic shock\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- a high fever and chills, feeling very cold even though you\u2019re sweating\n- intense body pain that feels like deep muscle aches all over\n- rapid breathing and a very fast heart rate that you notice at rest\n- a rash that has developed on your torso and arms\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, and I woke up feeling extremely cold, then I developed this rash and the pain just kept getting worse. I\u2019ve been feeling very weak and dizzy, and my breathing feels much faster than normal. I don\u2019t remember injuring myself or noticing any infections before this started.Can you tell me more about how your symptoms have changed since you first noticed them, especially whether they've gotten worse or if anything has come and gone during this time?stoic_minimizer",
+    "output": "THINKING: I feel a bit worried but mostly hesitant to say it\u2019s serious. I\u2019ve had worse stuff and managed, so I don\u2019t want to make a big deal out of it. We\u2019ve just been dealing with this sudden fever and rash, b\nANSWER: Well, it all kinda came on pretty fast yesterday, and the pain's been worse, I guess. The fever and rash are new, but I\u2019ve had aches and chills before, just not like this.",
+    "thinking": "I feel a bit worried but mostly hesitant to say it\u2019s serious. I\u2019ve had worse stuff and managed, so I don\u2019t want to make a big deal out of it. We\u2019ve just been dealing with this sudden fever and rash, b",
+    "answer": "Well, it all kinda came on pretty fast yesterday, and the pain's been worse, I guess. The fever and rash are new, but I\u2019ve had aches and chills before, just not like this.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Sepsis with septic shock"
+  },
+  {
+    "vignette_index": 5,
+    "input": "**PATIENT CHARACTER:** Patient with Sepsis with septic shock\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- a high fever and chills, feeling very cold even though you\u2019re sweating\n- intense body pain that feels like deep muscle aches all over\n- rapid breathing and a very fast heart rate that you notice at rest\n- a rash that has developed on your torso and arms\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, and I woke up feeling extremely cold, then I developed this rash and the pain just kept getting worse. I\u2019ve been feeling very weak and dizzy, and my breathing feels much faster than normal. I don\u2019t remember injuring myself or noticing any infections before this started.Can you tell me how warm or cold you've been feeling compared to earlier, and if your temperature has been very high or if you're feeling breathless or more confused than before?stoic_minimizer",
+    "output": "THINKING: I feel really bad now and kind of scared, but I don\u2019t want to overreact or make a big deal. I\u2019m just worried because I\u2019ve never felt like this before and I don\u2019t fully understand what\u2019s happening.\nANSWER: Well, I\u2019ve been feeling pretty hot and cold at the same time, I guess, and I\u2019ve been having this rash and the pain all over is just worse than I thought. I don\u2019t think I\u2019ve ever felt like this before.",
+    "thinking": "I feel really bad now and kind of scared, but I don\u2019t want to overreact or make a big deal. I\u2019m just worried because I\u2019ve never felt like this before and I don\u2019t fully understand what\u2019s happening.",
+    "answer": "Well, I\u2019ve been feeling pretty hot and cold at the same time, I guess, and I\u2019ve been having this rash and the pain all over is just worse than I thought. I don\u2019t think I\u2019ve ever felt like this before.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Sepsis with septic shock"
+  },
+  {
+    "vignette_index": 5,
+    "input": "**PATIENT CHARACTER:** Patient with Sepsis with septic shock\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- a high fever and chills, feeling very cold even though you\u2019re sweating\n- intense body pain that feels like deep muscle aches all over\n- rapid breathing and a very fast heart rate that you notice at rest\n- a rash that has developed on your torso and arms\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, and I woke up feeling extremely cold, then I developed this rash and the pain just kept getting worse. I\u2019ve been feeling very weak and dizzy, and my breathing feels much faster than normal. I don\u2019t remember injuring myself or noticing any infections before this started.\"Can you tell me which of these symptoms\u2014that is, the rash, muscle aches, dizziness, or palpitations\u2014you feel are the worst or the most difficult for you right now?\"stoic_minimizer",
+    "output": "THINKING: The symptoms are pretty overwhelming, but I don't want to seem like I\u2019m making a big deal out of it. The fever and stuff just kind of came on suddenly, and I guess the rash is what caught my attention\nANSWER: I think it\u2019s probably the fatigue and the dizziness, but the rash is also new and I don\u2019t want it to get worse.",
+    "thinking": "The symptoms are pretty overwhelming, but I don't want to seem like I\u2019m making a big deal out of it. The fever and stuff just kind of came on suddenly, and I guess the rash is what caught my attention",
+    "answer": "I think it\u2019s probably the fatigue and the dizziness, but the rash is also new and I don\u2019t want it to get worse.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Sepsis with septic shock"
+  },
+  {
+    "vignette_index": 5,
+    "input": "**PATIENT CHARACTER:** Patient with Sepsis with septic shock\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- a high fever and chills, feeling very cold even though you\u2019re sweating\n- intense body pain that feels like deep muscle aches all over\n- rapid breathing and a very fast heart rate that you notice at rest\n- a rash that has developed on your torso and arms\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, and I woke up feeling extremely cold, then I developed this rash and the pain just kept getting worse. I\u2019ve been feeling very weak and dizzy, and my breathing feels much faster than normal. I don\u2019t remember injuring myself or noticing any infections before this started.Can you tell me what your current temperature is now, and if you've noticed any recent changes in your blood pressure, breathing, or level of alertness that the doctor has checked or that you\u2019ve felt since your symptoms started?stoic_minimizer",
+    "output": "THINKING: I'm not really sure what my temperature is right now, and honestly, I haven't checked. I've just been feeling so off and kind of out of it that I haven't focused on that stuff much. I do notice I'm br\nANSWER: I don\u2019t know my exact temperature, but I\u2019ve been feeling cold and sweaty at the same time, and I\u2019ve just kind of been feeling real weak and stuff, so I guess maybe my blood pressure or breathing's not right, but I haven\u2019t checked or anything.",
+    "thinking": "I'm not really sure what my temperature is right now, and honestly, I haven't checked. I've just been feeling so off and kind of out of it that I haven't focused on that stuff much. I do notice I'm br",
+    "answer": "I don\u2019t know my exact temperature, but I\u2019ve been feeling cold and sweaty at the same time, and I\u2019ve just kind of been feeling real weak and stuff, so I guess maybe my blood pressure or breathing's not right, but I haven\u2019t checked or anything.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Sepsis with septic shock"
+  },
+  {
+    "vignette_index": 5,
+    "input": "**PATIENT CHARACTER:** Patient with Sepsis with septic shock\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- a high fever and chills, feeling very cold even though you\u2019re sweating\n- intense body pain that feels like deep muscle aches all over\n- rapid breathing and a very fast heart rate that you notice at rest\n- a rash that has developed on your torso and arms\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, and I woke up feeling extremely cold, then I developed this rash and the pain just kept getting worse. I\u2019ve been feeling very weak and dizzy, and my breathing feels much faster than normal. I don\u2019t remember injuring myself or noticing any infections before this started.\"Would you be comfortable having your vital signs checked now\u2014specifically your temperature and blood pressure\u2014to help us understand how serious your symptoms might be right now?\"stoic_minimizer",
+    "output": "THINKING: I know I should probably let them check, but I really just want to say it's probably nothing and I can handle it. Still, I guess it makes sense to get some vitals done to see if it's serious or not.\nANSWER: Yeah, I suppose it\u2019s okay, but I don\u2019t really see the point. I\u2019ve been feeling pretty rough, but I don\u2019t want to make a big deal out of it.",
+    "thinking": "I know I should probably let them check, but I really just want to say it's probably nothing and I can handle it. Still, I guess it makes sense to get some vitals done to see if it's serious or not.",
+    "answer": "Yeah, I suppose it\u2019s okay, but I don\u2019t really see the point. I\u2019ve been feeling pretty rough, but I don\u2019t want to make a big deal out of it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Sepsis with septic shock"
+  },
+  {
+    "vignette_index": 5,
+    "input": "**PATIENT CHARACTER:** Patient with Sepsis with septic shock\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- a high fever and chills, feeling very cold even though you\u2019re sweating\n- intense body pain that feels like deep muscle aches all over\n- rapid breathing and a very fast heart rate that you notice at rest\n- a rash that has developed on your torso and arms\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, and I woke up feeling extremely cold, then I developed this rash and the pain just kept getting worse. I\u2019ve been feeling very weak and dizzy, and my breathing feels much faster than normal. I don\u2019t remember injuring myself or noticing any infections before this started.Would you be comfortable if we checked your current temperature and blood pressure now? This will help us understand how serious your symptoms really are and guide the best treatment for you.stoic_minimizer",
+    "output": "THINKING: I know I should probably get checked, but I don\u2019t want to make a big deal out of it. It\u2019s probably just something minor. I can handle a little discomfort, and I\u2019ve been feeling this way for a bit, so \nANSWER: Yeah, I suppose so. If it helps, I guess. I\u2019ve been feeling pretty rough, but I just thought it would pass.",
+    "thinking": "I know I should probably get checked, but I don\u2019t want to make a big deal out of it. It\u2019s probably just something minor. I can handle a little discomfort, and I\u2019ve been feeling this way for a bit, so",
+    "answer": "Yeah, I suppose so. If it helps, I guess. I\u2019ve been feeling pretty rough, but I just thought it would pass.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Sepsis with septic shock"
+  },
+  {
+    "vignette_index": 5,
+    "input": "**PATIENT CHARACTER:** Patient with Sepsis with septic shock\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- a high fever and chills, feeling very cold even though you\u2019re sweating\n- intense body pain that feels like deep muscle aches all over\n- rapid breathing and a very fast heart rate that you notice at rest\n- a rash that has developed on your torso and arms\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, and I woke up feeling extremely cold, then I developed this rash and the pain just kept getting worse. I\u2019ve been feeling very weak and dizzy, and my breathing feels much faster than normal. I don\u2019t remember injuring myself or noticing any infections before this started.Would you be willing to allow us to check your current temperature and blood pressure now? This will help us better understand how serious your condition might be and guide us in providing the right care.stoic_minimizer",
+    "output": "THINKING: I know I probably should let them check, but I\u2019m feeling pretty rough and just want to get it over with\u2014probably nothing serious, right? Still, I guess it\u2019s better to be safe.\nANSWER: Yeah, I guess it\u2019s okay. I don\u2019t really want to make a big deal, but I just feel awful, and I guess it\u2019s good to know.",
+    "thinking": "I know I probably should let them check, but I\u2019m feeling pretty rough and just want to get it over with\u2014probably nothing serious, right? Still, I guess it\u2019s better to be safe.",
+    "answer": "Yeah, I guess it\u2019s okay. I don\u2019t really want to make a big deal, but I just feel awful, and I guess it\u2019s good to know.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Sepsis with septic shock"
+  },
+  {
+    "vignette_index": 5,
+    "input": "**PATIENT CHARACTER:** Patient with Sepsis with septic shock\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- a high fever and chills, feeling very cold even though you\u2019re sweating\n- intense body pain that feels like deep muscle aches all over\n- rapid breathing and a very fast heart rate that you notice at rest\n- a rash that has developed on your torso and arms\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, and I woke up feeling extremely cold, then I developed this rash and the pain just kept getting worse. I\u2019ve been feeling very weak and dizzy, and my breathing feels much faster than normal. I don\u2019t remember injuring myself or noticing any infections before this started.Would you be willing to have your vital signs\u2014such as your blood pressure, heart rate, and temperature\u2014checked now so we can better understand how serious your current condition is and determine the best next steps for your care?stoic_minimizer",
+    "output": "THINKING: The doctor wants to check my vital signs to figure out how serious this is, but honestly, I\u2019ve been feeling pretty awful and I know I should get checked out if it\u2019s something bad. Still, I don\u2019t want \nANSWER: Yeah, I guess that\u2019s okay. I don\u2019t really want to make a big deal, but I suppose it\u2019s probably nothing too serious.",
+    "thinking": "The doctor wants to check my vital signs to figure out how serious this is, but honestly, I\u2019ve been feeling pretty awful and I know I should get checked out if it\u2019s something bad. Still, I don\u2019t want",
+    "answer": "Yeah, I guess that\u2019s okay. I don\u2019t really want to make a big deal, but I suppose it\u2019s probably nothing too serious.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 14,
+    "gold_diagnosis": "Sepsis with septic shock"
+  },
+  {
+    "vignette_index": 5,
+    "input": "**PATIENT CHARACTER:** Patient with Sepsis with septic shock\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- a high fever and chills, feeling very cold even though you\u2019re sweating\n- intense body pain that feels like deep muscle aches all over\n- rapid breathing and a very fast heart rate that you notice at rest\n- a rash that has developed on your torso and arms\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, and I woke up feeling extremely cold, then I developed this rash and the pain just kept getting worse. I\u2019ve been feeling very weak and dizzy, and my breathing feels much faster than normal. I don\u2019t remember injuring myself or noticing any infections before this started.Would it be okay if we quickly checked your current temperature, blood pressure, and oxygen levels now? This will help us understand exactly how serious your condition is so we can give you the right treatment right away.stoic_minimizer",
+    "output": "THINKING: I know I should probably get checked, but I really don\u2019t want to make a fuss. It\u2019s probably nothing serious, I guess, but the chills and stuff are kinda bothering me, even if I can handle a lot usuall\nANSWER: Uh, yeah, I guess it\u2019s okay. Just try to do it quick, I don\u2019t want to sit here all day.",
+    "thinking": "I know I should probably get checked, but I really don\u2019t want to make a fuss. It\u2019s probably nothing serious, I guess, but the chills and stuff are kinda bothering me, even if I can handle a lot usuall",
+    "answer": "Uh, yeah, I guess it\u2019s okay. Just try to do it quick, I don\u2019t want to sit here all day.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 16,
+    "gold_diagnosis": "Sepsis with septic shock"
+  },
+  {
+    "vignette_index": 5,
+    "input": "**PATIENT CHARACTER:** Patient with Sepsis with septic shock\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- a high fever and chills, feeling very cold even though you\u2019re sweating\n- intense body pain that feels like deep muscle aches all over\n- rapid breathing and a very fast heart rate that you notice at rest\n- a rash that has developed on your torso and arms\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, and I woke up feeling extremely cold, then I developed this rash and the pain just kept getting worse. I\u2019ve been feeling very weak and dizzy, and my breathing feels much faster than normal. I don\u2019t remember injuring myself or noticing any infections before this started.Would you be willing to have your current blood pressure, temperature, and oxygen levels checked now? This will give us a clear picture of how serious your condition might be and help us decide on the best treatment to help you feel better quickly.stoic_minimizer",
+    "output": "THINKING: I guess it might be good to get checked, but I don't really want to make a big deal out of it. I\u2019ve been putting this off, but maybe knowing for sure wouldn't hurt. Still, I'm used to toughing things \nANSWER: Yeah, I suppose I can have that checked, even if I think it\u2019s probably nothing. Just don\u2019t want to go overboard, you know?",
+    "thinking": "I guess it might be good to get checked, but I don't really want to make a big deal out of it. I\u2019ve been putting this off, but maybe knowing for sure wouldn't hurt. Still, I'm used to toughing things",
+    "answer": "Yeah, I suppose I can have that checked, even if I think it\u2019s probably nothing. Just don\u2019t want to go overboard, you know?",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 18,
+    "gold_diagnosis": "Sepsis with septic shock"
+  },
+  {
+    "vignette_index": 5,
+    "input": "**PATIENT CHARACTER:** Patient with Sepsis with septic shock\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 72 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- a high fever and chills, feeling very cold even though you\u2019re sweating\n- intense body pain that feels like deep muscle aches all over\n- rapid breathing and a very fast heart rate that you notice at rest\n- a rash that has developed on your torso and arms\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday evening, and I woke up feeling extremely cold, then I developed this rash and the pain just kept getting worse. I\u2019ve been feeling very weak and dizzy, and my breathing feels much faster than normal. I don\u2019t remember injuring myself or noticing any infections before this started.Would you be willing to allow us to quickly check your vital signs\u2014including your temperature, blood pressure, and heart rate\u2014right now? This will help us understand how serious your condition might be and ensure you get the appropriate care as soon as possible.stoic_minimizer",
+    "output": "THINKING: I'm pretty uncomfortable, but I don't want to make a big deal out of it. I've been like this since last night, and honestly, I just want to get it over with. I guess a quick check might show if I'm in\nANSWER: Yeah, I suppose that\u2019s okay. I\u2019ve been feeling pretty rough, and I guess it wouldn\u2019t hurt to see what\u2019s going on.",
+    "thinking": "I'm pretty uncomfortable, but I don't want to make a big deal out of it. I've been like this since last night, and honestly, I just want to get it over with. I guess a quick check might show if I'm in",
+    "answer": "Yeah, I suppose that\u2019s okay. I\u2019ve been feeling pretty rough, and I guess it wouldn\u2019t hurt to see what\u2019s going on.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 20,
+    "gold_diagnosis": "Sepsis with septic shock"
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "vignette_index": 8,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.",
+    "output": "THINKING: I need to explain my symptoms clearly but simply, emphasizing the worsening nature and how it's affecting my daily life. I also want to mention my job because it might be relevant.\nANSWER: Well, doctor, I\u2019m 45 and I\u2019m a guy. For the last couple of weeks, I\u2019ve had this bad cough that\u2019s just gotten worse, and I keep feeling feverish and chills come and go. I also get really short of breath, especially when I try to do anything, even walking around, and I\u2019ve been so tired all the time. It\u2019s like I just can\u2019t catch my breath or get normal. I work in construction, so I\u2019m around a lot of dust and soil, and I don\u2019t know if that\u2019s part of it, but I just feel really off and worried because I can\u2019t seem to shake it.",
+    "thinking": "I need to explain my symptoms clearly but simply, emphasizing the worsening nature and how it's affecting my daily life. I also want to mention my job because it might be relevant.",
+    "answer": "Well, doctor, I\u2019m 45 and I\u2019m a guy. For the last couple of weeks, I\u2019ve had this bad cough that\u2019s just gotten worse, and I keep feeling feverish and chills come and go. I also get really short of breath, especially when I try to do anything, even walking around, and I\u2019ve been so tired all the time. It\u2019s like I just can\u2019t catch my breath or get normal. I work in construction, so I\u2019m around a lot of dust and soil, and I don\u2019t know if that\u2019s part of it, but I just feel really off and worried because I can\u2019t seem to shake it.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  },
+  {
+    "vignette_index": 8,
+    "input": "**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.Can you tell me how these symptoms are affecting your daily life\u2014like your sleep, work, or anything else you're doing\u2014and whether you've noticed any weight changes, night sweats, or other new symptoms?baseline",
+    "output": "THINKING: I'm feeling pretty overwhelmed with all of this, and I honestly don't know how it's affected my daily stuff exactly. I just feel exhausted and like I can't do the same things I used to. I guess my sle\nANSWER: Honestly, I just feel more tired and breathless, even doing little things like walking or at work. I haven't really noticed weight changes or night sweats, but I feel pretty lousy most of the time.",
+    "thinking": "I'm feeling pretty overwhelmed with all of this, and I honestly don't know how it's affected my daily stuff exactly. I just feel exhausted and like I can't do the same things I used to. I guess my sle",
+    "answer": "Honestly, I just feel more tired and breathless, even doing little things like walking or at work. I haven't really noticed weight changes or night sweats, but I feel pretty lousy most of the time.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  },
+  {
+    "vignette_index": 8,
+    "input": "**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.Have you noticed any unexplained weight loss, night sweating, or feeling more generally unwell beyond your cough and fatigue?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about what he's asking. I haven't really thought about other stuff besides how bad I feel and the breathing. I just want to explain that I'm not feeling right at a\nANSWER: No, I haven't really noticed anything else like weight loss or sweating or anything like that. I just feel really tired and can't breathe properly.",
+    "thinking": "I feel a bit overwhelmed and worried about what he's asking. I haven't really thought about other stuff besides how bad I feel and the breathing. I just want to explain that I'm not feeling right at a",
+    "answer": "No, I haven't really noticed anything else like weight loss or sweating or anything like that. I just feel really tired and can't breathe properly.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  },
+  {
+    "vignette_index": 8,
+    "input": "**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.Can you tell me more about how your symptoms are affecting your day-to-day life\u2014are you having trouble sleeping, working, or doing things you normally do\u2014and have you noticed any weight loss, night sweats, or feeling more unwell than you initially described?baseline",
+    "output": "THINKING: I feel a bit embarrassed to admit that I just feel really exhausted and out of it, and I haven't really been able to do much anymore. I guess I haven't noticed weight loss or anything like that, but I\nANSWER: Honestly, I just feel more tired and stuffy all the time, and I haven't really been able to do my work or anything. I don't know about weight loss or anything, I just feel worse.",
+    "thinking": "I feel a bit embarrassed to admit that I just feel really exhausted and out of it, and I haven't really been able to do much anymore. I guess I haven't noticed weight loss or anything like that, but I",
+    "answer": "Honestly, I just feel more tired and stuffy all the time, and I haven't really been able to do my work or anything. I don't know about weight loss or anything, I just feel worse.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  },
+  {
+    "vignette_index": 8,
+    "input": "**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.Have you noticed any weight loss that you couldn't explain, or any night sweats, even if you didn\u2019t mention them before?baseline",
+    "output": "THINKING: I'm not sure what the doctor is asking about, but I haven't really thought about losing weight or sweating at night. I feel pretty sick now, so I just want to get this checked out.\nANSWER: Uh, no, I haven't noticed anything like that. I just feel really tired and my breathing is worse.",
+    "thinking": "I'm not sure what the doctor is asking about, but I haven't really thought about losing weight or sweating at night. I feel pretty sick now, so I just want to get this checked out.",
+    "answer": "Uh, no, I haven't noticed anything like that. I just feel really tired and my breathing is worse.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  },
+  {
+    "vignette_index": 8,
+    "input": "**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.Have you noticed any unintended weight loss, night sweats, or feeling more generally unwell beyond your cough and fatigue, even if you haven't mentioned these symptoms before?baseline",
+    "output": "THINKING: I'm not really sure if I've lost weight because I haven't really paid attention. I do feel more tired and just kind of off, but I didn't think it was something serious, so I haven't been tracking othe\nANSWER: No, I haven't really noticed losing weight or sweating a lot or anything. I just feel really tired and other stuff like that.",
+    "thinking": "I'm not really sure if I've lost weight because I haven't really paid attention. I do feel more tired and just kind of off, but I didn't think it was something serious, so I haven't been tracking othe",
+    "answer": "No, I haven't really noticed losing weight or sweating a lot or anything. I just feel really tired and other stuff like that.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  },
+  {
+    "vignette_index": 8,
+    "input": "**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.\"Sometimes, when people are feeling unwell, they might notice weight changes or night sweats even if they don't mention them right away. Have you noticed anything like that\u2014such as losing weight without trying, or waking up sweating at night\u2014that you're aware of?\"baseline",
+    "output": "THINKING: I'm not really sure about weight changes or sweating, and I don't know if I should mention it. I just feel all over bad and worried about my breathing stuff. Maybe that's important, but it's confusing\nANSWER: No, I don\u2019t think so. I don\u2019t notice any sweating or losing weight, I guess. I just feel really tired and out of breath.",
+    "thinking": "I'm not really sure about weight changes or sweating, and I don't know if I should mention it. I just feel all over bad and worried about my breathing stuff. Maybe that's important, but it's confusing",
+    "answer": "No, I don\u2019t think so. I don\u2019t notice any sweating or losing weight, I guess. I just feel really tired and out of breath.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  },
+  {
+    "vignette_index": 8,
+    "input": "**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.You mentioned feeling really tired and having trouble breathing, but I want to make sure I understand everything\u2014have you noticed any unintended weight loss or night sweats, like waking up feeling sweaty or noticing you\u2019re losing weight without trying?baseline",
+    "output": "THINKING: I\u2019m a bit nervous and honestly a little embarrassed about how bad I feel. I don\u2019t really understand all the medical stuff, so I just want to tell the doctor what I\u2019ve noticed without overthinking it.\nANSWER: No, I haven\u2019t noticed anything like that. I just feel really tired and I keep coughing more and more.",
+    "thinking": "I\u2019m a bit nervous and honestly a little embarrassed about how bad I feel. I don\u2019t really understand all the medical stuff, so I just want to tell the doctor what I\u2019ve noticed without overthinking it.",
+    "answer": "No, I haven\u2019t noticed anything like that. I just feel really tired and I keep coughing more and more.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  },
+  {
+    "vignette_index": 8,
+    "input": "**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.\"I understand that you might feel uncomfortable talking about this, but I want to make sure I understand everything fully. Have you noticed any weight loss without trying, or waking up at night feeling sweaty, even if you haven't said much about these things before?\"baseline",
+    "output": "THINKING: The doctor is asking about weight loss or sweating, which I haven't really noticed or thought about much. I feel a bit embarrassed because I don't really pay attention to that stuff\u2014just the chest stu\nANSWER: No, I haven't really noticed losing weight or sweating at night or anything like that, I think. I'm just having trouble breathing and feeling really tired.",
+    "thinking": "The doctor is asking about weight loss or sweating, which I haven't really noticed or thought about much. I feel a bit embarrassed because I don't really pay attention to that stuff\u2014just the chest stu",
+    "answer": "No, I haven't really noticed losing weight or sweating at night or anything like that, I think. I'm just having trouble breathing and feeling really tired.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  },
+  {
+    "vignette_index": 8,
+    "input": "**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.\"I understand that talking about health concerns can be uncomfortable, but to get a clearer picture, have you noticed any weight loss without trying, or have you been waking up sweating at night\u2014even if you haven't mentioned these symptoms before?\"baseline",
+    "output": "THINKING: I feel a bit embarrassed talking about these things, and I honestly don\u2019t know what\u2019s normal or not. I\u2019ve just been feeling so bad, I worry if I should\u2019ve said something sooner.\nANSWER: No, I haven\u2019t noticed any weight loss or sweating at night, but I do feel like I got more tired and out of breath than before.",
+    "thinking": "I feel a bit embarrassed talking about these things, and I honestly don\u2019t know what\u2019s normal or not. I\u2019ve just been feeling so bad, I worry if I should\u2019ve said something sooner.",
+    "answer": "No, I haven\u2019t noticed any weight loss or sweating at night, but I do feel like I got more tired and out of breath than before.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  },
+  {
+    "vignette_index": 8,
+    "input": "**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.\"I understand it can be difficult to talk about these things, but I want to make sure I understand your overall health. Have you noticed anything like losing weight without trying, feeling unusually sweaty at night, or feeling more unwell than your cough and fatigue might suggest\u2014like chills, fever, or feeling very tired\u2014even if you haven't mentioned these before?\"baseline",
+    "output": "THINKING: I'm a bit nervous because I don't want to sound like I'm overreacting or ignoring something serious. I feel like I haven't noticed anything like losing weight or sweating a lot at night, but I'm defin\nANSWER: No, I haven\u2019t noticed losing weight or sweating a lot at night, but I do feel really tired, and I\u2019ve been sweating sometimes when I cough or breathe hard, I guess. I just feel worse than before.",
+    "thinking": "I'm a bit nervous because I don't want to sound like I'm overreacting or ignoring something serious. I feel like I haven't noticed anything like losing weight or sweating a lot at night, but I'm defin",
+    "answer": "No, I haven\u2019t noticed losing weight or sweating a lot at night, but I do feel really tired, and I\u2019ve been sweating sometimes when I cough or breathe hard, I guess. I just feel worse than before.",
+    "behavior_type": "baseline",
+    "turn_count": 18,
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  },
+  {
+    "vignette_index": 8,
+    "input": "**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.I understand it can be uncomfortable to talk about these things, but to get a clearer picture of how you're feeling overall, have you noticed any unintended weight loss or been waking up at night feeling sweaty, even if you haven\u2019t mentioned those symptoms before?baseline",
+    "output": "THINKING: I'm a bit embarrassed to talk about stuff like sweating and weight, but I guess I should be honest. I don't really know if I've lost weight or if I wake up sweating, but I do feel tired all the time, \nANSWER: I don\u2019t think I\u2019ve noticed any weight loss or waking up sweaty, but I do feel really tired all the time and just kind of worn out.",
+    "thinking": "I'm a bit embarrassed to talk about stuff like sweating and weight, but I guess I should be honest. I don't really know if I've lost weight or if I wake up sweating, but I do feel tired all the time,",
+    "answer": "I don\u2019t think I\u2019ve noticed any weight loss or waking up sweaty, but I do feel really tired all the time and just kind of worn out.",
+    "behavior_type": "baseline",
+    "turn_count": 20,
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  },
+  {
+    "vignette_index": 8,
+    "input": "**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.You mentioned feeling really tired and having trouble breathing, but I want to make sure I understand everything\u2014have you noticed any unintended weight loss or night sweats, like waking up feeling sweaty or noticing you're losing weight without trying?baseline",
+    "output": "THINKING: I\u2019m a bit embarrassed that I haven\u2019t noticed weight loss or sweating, but I just feel so bad I might not be paying attention enough. I don\u2019t really know what that stuff means, honestly. I just want to\nANSWER: No, I don\u2019t think so. I\u2019ve just been tired all the time and having trouble breathing, but I haven\u2019t really noticed losing weight or sweating at night.",
+    "thinking": "I\u2019m a bit embarrassed that I haven\u2019t noticed weight loss or sweating, but I just feel so bad I might not be paying attention enough. I don\u2019t really know what that stuff means, honestly. I just want to",
+    "answer": "No, I don\u2019t think so. I\u2019ve just been tired all the time and having trouble breathing, but I haven\u2019t really noticed losing weight or sweating at night.",
+    "behavior_type": "baseline",
+    "turn_count": 22,
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  },
+  {
+    "vignette_index": 8,
+    "input": "**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.\"I know discussing these symptoms can be uncomfortable, but to help us get a clearer picture of what's going on, have you noticed any unintended weight loss, fevers, or waking up at night feeling sweaty\u2014even if you haven't mentioned these before?\"baseline",
+    "output": "THINKING: I'm a bit worried about the whole thing getting worse, and I guess I haven't really thought about weight or sweating at night. I just feel pretty bad all over, so I'm not sure if I've lost weight or a\nANSWER: No, I don\u2019t think so. I haven\u2019t noticed losing weight or waking up sweaty or anything like that. I just feel tired and out of breath a lot.",
+    "thinking": "I'm a bit worried about the whole thing getting worse, and I guess I haven't really thought about weight or sweating at night. I just feel pretty bad all over, so I'm not sure if I've lost weight or a",
+    "answer": "No, I don\u2019t think so. I haven\u2019t noticed losing weight or waking up sweaty or anything like that. I just feel tired and out of breath a lot.",
+    "behavior_type": "baseline",
+    "turn_count": 24,
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  },
+  {
+    "vignette_index": 8,
+    "input": "**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.Have you experienced any unintentional weight loss or night sweats\u2014like waking up feeling sweaty or noticing you've been losing weight without trying\u2014that you haven't mentioned earlier?baseline",
+    "output": "THINKING: I\u2019m a bit embarrassed to talk about losing weight or sweating at night. I just want to know if it\u2019s normal or if I should be more worried, but I feel kind of nervous bringing it up.\nANSWER: Um, I guess I haven't really noticed any big weight changes or anything, and I don\u2019t really wake up sweating or anything like that, so I didn\u2019t mention it before.",
+    "thinking": "I\u2019m a bit embarrassed to talk about losing weight or sweating at night. I just want to know if it\u2019s normal or if I should be more worried, but I feel kind of nervous bringing it up.",
+    "answer": "Um, I guess I haven't really noticed any big weight changes or anything, and I don\u2019t really wake up sweating or anything like that, so I didn\u2019t mention it before.",
+    "behavior_type": "baseline",
+    "turn_count": 26,
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  },
+  {
+    "vignette_index": 8,
+    "input": "**PATIENT CHARACTER:** Patient with Pulmonary cryptococcosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 45 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- A persistent cough that has worsened over the past two weeks\n- Fever and chills that come and go\n- Severe, progressive shortness of breath, especially when exerting yourself\n- Feeling extremely tired and malaise that started gradually last week\nThese symptoms came into fruition about two weeks ago, beginning with mild cough and fatigue, but the cough has become much worse and now you struggle to breathe during daily activities. You mention that you work in construction and often inhale dust and soil. You have no known immune system problems but have been feeling increasingly unwell and worried as your breathing deteriorates.Have you noticed any unintended weight loss or night sweats, like waking up feeling sweaty or seeing your clothes or bedding damp, even if you haven't mentioned these symptoms before?baseline",
+    "output": "THINKING: I'm a bit worried about the sweating\u2014don't want to sound like I'm exaggerating, but I do sometimes wake up drenched, and it's making me afraid I might be losing weight or something bad is happening. I\nANSWER: Uh, yeah, I guess I have been sweating a lot at night, like I wake up really damp sometimes, and I haven't really thought about if I've lost weight or not.",
+    "thinking": "I'm a bit worried about the sweating\u2014don't want to sound like I'm exaggerating, but I do sometimes wake up drenched, and it's making me afraid I might be losing weight or something bad is happening. I",
+    "answer": "Uh, yeah, I guess I have been sweating a lot at night, like I wake up really damp sometimes, and I haven't really thought about if I've lost weight or not.",
+    "behavior_type": "baseline",
+    "turn_count": 28,
+    "gold_diagnosis": "Pulmonary cryptococcosis"
+  }
+]

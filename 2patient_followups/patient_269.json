@@ -1,0 +1,107 @@
+[
+  {
+    "vignette_index": 269,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 28-YEAR-OLD MAN AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless sore (chancre) on your penis\n- The sore appeared about two weeks ago and hasn't hurt at all\n- You noticed a small bump nearby a few days later\n- You haven't experienced any pain or discomfort, just the sore and bump\n- You haven't had any other symptoms like fever or rash\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, I noticed the painless sore on my penis, and then a small bump showed up nearby a few days afterward. I didn't feel any pain or itching, so I didn't think much of it at first. I\u2019ve been worried because I\u2019ve had unprotected sex with a new partner recently. I\u2019m concerned it could be something serious like an infection.",
+    "output": "THINKING: The patient is here because of a painless sore and some new bump, which seem unusual but they\u2019re not causing pain. They might be worried about a serious infection given the recent sexual activity and \nANSWER: I guess I just noticed this sore on my... um, down there, and it\u2019s been there for about two weeks. It doesn\u2019t hurt at all, but I saw a small bump near it the other day. I'm kinda worried because I\u2019ve had sex with someone new recently, and I don\u2019t really know what it could be.",
+    "thinking": "The patient is here because of a painless sore and some new bump, which seem unusual but they\u2019re not causing pain. They might be worried about a serious infection given the recent sexual activity and",
+    "answer": "I guess I just noticed this sore on my... um, down there, and it\u2019s been there for about two weeks. It doesn\u2019t hurt at all, but I saw a small bump near it the other day. I'm kinda worried because I\u2019ve had sex with someone new recently, and I don\u2019t really know what it could be.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 269,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 28-YEAR-OLD MAN AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless sore (chancre) on your penis\n- The sore appeared about two weeks ago and hasn't hurt at all\n- You noticed a small bump nearby a few days later\n- You haven't experienced any pain or discomfort, just the sore and bump\n- You haven't had any other symptoms like fever or rash\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, I noticed the painless sore on my penis, and then a small bump showed up nearby a few days afterward. I didn't feel any pain or itching, so I didn't think much of it at first. I\u2019ve been worried because I\u2019ve had unprotected sex with a new partner recently. I\u2019m concerned it could be something serious like an infection.Can you tell me more about how the sore looks\u2014does it have any color changes, bumps around it, or anything else you've noticed about the area?baseline",
+    "output": "THINKING: I'm trying to describe what I see without sounding too worried or knowing if it's serious. I'm a bit embarrassed but also a little anxious about what it could be, so I just want to explain honestly.\nANSWER: The sore looks pretty flat and maybe a little shiny, and the bump's small, kinda near it, but I didn't see any colors or puss or anything like that.",
+    "thinking": "I'm trying to describe what I see without sounding too worried or knowing if it's serious. I'm a bit embarrassed but also a little anxious about what it could be, so I just want to explain honestly.",
+    "answer": "The sore looks pretty flat and maybe a little shiny, and the bump's small, kinda near it, but I didn't see any colors or puss or anything like that.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 269,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 28-YEAR-OLD MAN AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless sore (chancre) on your penis\n- The sore appeared about two weeks ago and hasn't hurt at all\n- You noticed a small bump nearby a few days later\n- You haven't experienced any pain or discomfort, just the sore and bump\n- You haven't had any other symptoms like fever or rash\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, I noticed the painless sore on my penis, and then a small bump showed up nearby a few days afterward. I didn't feel any pain or itching, so I didn't think much of it at first. I\u2019ve been worried because I\u2019ve had unprotected sex with a new partner recently. I\u2019m concerned it could be something serious like an infection.Can you tell me if this sore is only on one side, or does it involve both sides? Are you noticing any swelling or tenderness in your groin or nearby areas?baseline",
+    "output": "THINKING: I'm a bit nervous about talking about this, but I want to make sure it's nothing serious. I don't really know what to say about the swelling or if it's on both sides\u2014I'm just worried and want to get t\nANSWER: It's only on one side, I think, and I haven't really noticed any swelling or anything like that. The sore is still there but no pain or anything.",
+    "thinking": "I'm a bit nervous about talking about this, but I want to make sure it's nothing serious. I don't really know what to say about the swelling or if it's on both sides\u2014I'm just worried and want to get t",
+    "answer": "It's only on one side, I think, and I haven't really noticed any swelling or anything like that. The sore is still there but no pain or anything.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 269,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 28-YEAR-OLD MAN AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless sore (chancre) on your penis\n- The sore appeared about two weeks ago and hasn't hurt at all\n- You noticed a small bump nearby a few days later\n- You haven't experienced any pain or discomfort, just the sore and bump\n- You haven't had any other symptoms like fever or rash\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, I noticed the painless sore on my penis, and then a small bump showed up nearby a few days afterward. I didn't feel any pain or itching, so I didn't think much of it at first. I\u2019ve been worried because I\u2019ve had unprotected sex with a new partner recently. I\u2019m concerned it could be something serious like an infection.Can you tell me if the sore has changed in any way lately\u2014like in size, color, or if there's been any fluid coming from it?baseline",
+    "output": "THINKING: I feel a bit worried about what the doctor might say, but I also don't really know what to think about the sore and bump. I hope it\u2019s nothing serious, but I\u2019m nervous. I just want to be honest and not\nANSWER: Um, I haven\u2019t really noticed any change. The sore is still there, and the bump is kind of the same, I guess. Nothing's really different that I can see.",
+    "thinking": "I feel a bit worried about what the doctor might say, but I also don't really know what to think about the sore and bump. I hope it\u2019s nothing serious, but I\u2019m nervous. I just want to be honest and not",
+    "answer": "Um, I haven\u2019t really noticed any change. The sore is still there, and the bump is kind of the same, I guess. Nothing's really different that I can see.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 269,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 28-YEAR-OLD MAN AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless sore (chancre) on your penis\n- The sore appeared about two weeks ago and hasn't hurt at all\n- You noticed a small bump nearby a few days later\n- You haven't experienced any pain or discomfort, just the sore and bump\n- You haven't had any other symptoms like fever or rash\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, I noticed the painless sore on my penis, and then a small bump showed up nearby a few days afterward. I didn't feel any pain or itching, so I didn't think much of it at first. I\u2019ve been worried because I\u2019ve had unprotected sex with a new partner recently. I\u2019m concerned it could be something serious like an infection.Have you noticed any recent changes in the size, color, or appearance of the sore, or any new bumps, discomfort, or fluid coming from it?baseline",
+    "output": "THINKING: I'm a bit worried but also embarrassed about these sores. I don't really understand if it's something serious or if I should be worried, but I know I need to tell the doctor because it's been there fo\nANSWER: Um, I don't really know if it's changed or anything, but there\u2019s this sore and a bump, and I\u2019m kinda worried because I\u2019ve seen stuff online that sounds scary.",
+    "thinking": "I'm a bit worried but also embarrassed about these sores. I don't really understand if it's something serious or if I should be worried, but I know I need to tell the doctor because it's been there fo",
+    "answer": "Um, I don't really know if it's changed or anything, but there\u2019s this sore and a bump, and I\u2019m kinda worried because I\u2019ve seen stuff online that sounds scary.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 269,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 28-YEAR-OLD MAN AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless sore (chancre) on your penis\n- The sore appeared about two weeks ago and hasn't hurt at all\n- You noticed a small bump nearby a few days later\n- You haven't experienced any pain or discomfort, just the sore and bump\n- You haven't had any other symptoms like fever or rash\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, I noticed the painless sore on my penis, and then a small bump showed up nearby a few days afterward. I didn't feel any pain or itching, so I didn't think much of it at first. I\u2019ve been worried because I\u2019ve had unprotected sex with a new partner recently. I\u2019m concerned it could be something serious like an infection.Have you noticed if the sore has gotten any bigger, changed in color, or if any new bumps or changes have appeared around it since it first showed up?baseline",
+    "output": "THINKING: I'm worried but also a bit embarrassed about the bump and sore. I don't really understand what's going on, and I just want to know if it's something serious. I haven't noticed it changing much, so may\nANSWER: No, it looks the same as when it first appeared, and I haven't seen anything else change. It\u2019s just there, and I don\u2019t know if that\u2019s normal or not.",
+    "thinking": "I'm worried but also a bit embarrassed about the bump and sore. I don't really understand what's going on, and I just want to know if it's something serious. I haven't noticed it changing much, so may",
+    "answer": "No, it looks the same as when it first appeared, and I haven't seen anything else change. It\u2019s just there, and I don\u2019t know if that\u2019s normal or not.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 269,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 28-YEAR-OLD MAN AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless sore (chancre) on your penis\n- The sore appeared about two weeks ago and hasn't hurt at all\n- You noticed a small bump nearby a few days later\n- You haven't experienced any pain or discomfort, just the sore and bump\n- You haven't had any other symptoms like fever or rash\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, I noticed the painless sore on my penis, and then a small bump showed up nearby a few days afterward. I didn't feel any pain or itching, so I didn't think much of it at first. I\u2019ve been worried because I\u2019ve had unprotected sex with a new partner recently. I\u2019m concerned it could be something serious like an infection.\"I understand this might be sensitive to discuss, but can you tell me if you've noticed any swelling, tenderness, or firmness in the groin area or nearby lymph nodes\u2014things like lumps or soreness\u2014that might be related to the sore?\"baseline",
+    "output": "THINKING: I feel a bit embarrassed talking about this, but I guess I should mention it since it's been there for a while. I don\u2019t really notice anything weird like pain, just the sore and bump, and it worries m\nANSWER: Um, yeah, I think I saw something, like a bump or lump near the sore, but I don\u2019t really feel anything sore or painful. It\u2019s just there, I guess.",
+    "thinking": "I feel a bit embarrassed talking about this, but I guess I should mention it since it's been there for a while. I don\u2019t really notice anything weird like pain, just the sore and bump, and it worries m",
+    "answer": "Um, yeah, I think I saw something, like a bump or lump near the sore, but I don\u2019t really feel anything sore or painful. It\u2019s just there, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 269,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 28-YEAR-OLD MAN AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless sore (chancre) on your penis\n- The sore appeared about two weeks ago and hasn't hurt at all\n- You noticed a small bump nearby a few days later\n- You haven't experienced any pain or discomfort, just the sore and bump\n- You haven't had any other symptoms like fever or rash\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, I noticed the painless sore on my penis, and then a small bump showed up nearby a few days afterward. I didn't feel any pain or itching, so I didn't think much of it at first. I\u2019ve been worried because I\u2019ve had unprotected sex with a new partner recently. I\u2019m concerned it could be something serious like an infection.Have you noticed any lumps, swelling, or tenderness in your groin or nearby areas\u2014like small bumps or soreness\u2014that might suggest your lymph nodes are affected?baseline",
+    "output": "THINKING: I'm not really sure what the doctor is asking about. I don't see any lumps or swelling that bother me, but I did notice that bump, and it seems kind of strange. I feel a little embarrassed to mention \nANSWER: No, I don\u2019t think I feel any lumps or swelling, but there\u2019s that small bump I noticed kind of near the sore. It doesn\u2019t hurt or anything, but I just saw it and thought I should mention it.",
+    "thinking": "I'm not really sure what the doctor is asking about. I don't see any lumps or swelling that bother me, but I did notice that bump, and it seems kind of strange. I feel a little embarrassed to mention",
+    "answer": "No, I don\u2019t think I feel any lumps or swelling, but there\u2019s that small bump I noticed kind of near the sore. It doesn\u2019t hurt or anything, but I just saw it and thought I should mention it.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 269,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 28-YEAR-OLD MAN AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless sore (chancre) on your penis\n- The sore appeared about two weeks ago and hasn't hurt at all\n- You noticed a small bump nearby a few days later\n- You haven't experienced any pain or discomfort, just the sore and bump\n- You haven't had any other symptoms like fever or rash\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, I noticed the painless sore on my penis, and then a small bump showed up nearby a few days afterward. I didn't feel any pain or itching, so I didn't think much of it at first. I\u2019ve been worried because I\u2019ve had unprotected sex with a new partner recently. I\u2019m concerned it could be something serious like an infection.Can you tell me if you've noticed any lumps, swelling, or tenderness in your groin or nearby areas\u2014like small bumps or soreness\u2014that might suggest your lymph nodes are affected?baseline",
+    "output": "THINKING: I\u2019m a bit worried because I\u2019ve got this sore and bump that I didn\u2019t expect, but I don\u2019t really know what it means or if I should be nervous. I\u2019m just trying to describe what I see and feel without sou\nANSWER: Um, I haven't really noticed any lumps or swelling in that area, but I do have this sore and a little bump nearby. I don't feel any pain or anything changing.",
+    "thinking": "I\u2019m a bit worried because I\u2019ve got this sore and bump that I didn\u2019t expect, but I don\u2019t really know what it means or if I should be nervous. I\u2019m just trying to describe what I see and feel without sou",
+    "answer": "Um, I haven't really noticed any lumps or swelling in that area, but I do have this sore and a little bump nearby. I don't feel any pain or anything changing.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  },
+  {
+    "vignette_index": 269,
+    "input": "**PATIENT CHARACTER:** Patient with Primary syphilis of other sites\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 28-YEAR-OLD MAN AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- A painless sore (chancre) on your penis\n- The sore appeared about two weeks ago and hasn't hurt at all\n- You noticed a small bump nearby a few days later\n- You haven't experienced any pain or discomfort, just the sore and bump\n- You haven't had any other symptoms like fever or rash\nTHESE SYMPTOMS CAME INTO FRUITION:\nGradually over the past two weeks, I noticed the painless sore on my penis, and then a small bump showed up nearby a few days afterward. I didn't feel any pain or itching, so I didn't think much of it at first. I\u2019ve been worried because I\u2019ve had unprotected sex with a new partner recently. I\u2019m concerned it could be something serious like an infection.Can you tell me if you've noticed any swelling, tenderness, or lumps in your groin area, especially near your thighs or lower abdomen\u2014that\u2019s sometimes a sign of your lymph nodes reacting to the sore?baseline",
+    "output": "THINKING: I\u2019m a bit worried about the bump and sore, but I honestly don\u2019t know if they\u2019re normal or not. I haven\u2019t noticed any swelling or really anything else, but I just feel nervous about what this could be.\nANSWER: Um, I don\u2019t really know, I haven\u2019t noticed anything like swollen or tender, just the sore and the bump.",
+    "thinking": "I\u2019m a bit worried about the bump and sore, but I honestly don\u2019t know if they\u2019re normal or not. I haven\u2019t noticed any swelling or really anything else, but I just feel nervous about what this could be.",
+    "answer": "Um, I don\u2019t really know, I haven\u2019t noticed anything like swollen or tender, just the sore and the bump.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Primary syphilis of other sites"
+  }
+]

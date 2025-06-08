@@ -1,0 +1,96 @@
+[
+  {
+    "vignette_index": 70,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Infections of other parts of urinary tract in pregnancy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Burning sensation when urinating\n- Frequent urge to urinate, even when little comes out\n- Mild fever and chills\n- Aching pain in your lower back on the right side\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, beginning with a burning feeling during urination, which has become more persistent. Since then, I've been going to the bathroom more often, but only small amounts each time. Yesterday, I developed a slight fever and the pain in my back worsened, especially when I move or bend. I think it might be related to a urinary tract infection because I noticed I feel unwell overall and the symptoms seem to be escalating.",
+    "output": "THINKING: The patient is probably worried but trying not to make a big deal out of it. She might be concerned but also hesitant, so I need to reassure her that it's okay to share and that her symptoms are impor\nANSWER: Well, I\u2019m 28, and I\u2019m a girl. I\u2019ve had this stuff going on for a couple of days now\u2026 I don\u2019t know, it\u2019s probably nothing, but I keep feeling like I need to go to the bathroom a lot, even when there\u2019s not much there. And then yesterday, I started feeling kinda feverish and cold, and my back hurts on the right side, especially when I move. I thought I should come in just to be sure, I guess.",
+    "thinking": "The patient is probably worried but trying not to make a big deal out of it. She might be concerned but also hesitant, so I need to reassure her that it's okay to share and that her symptoms are impor",
+    "answer": "Well, I\u2019m 28, and I\u2019m a girl. I\u2019ve had this stuff going on for a couple of days now\u2026 I don\u2019t know, it\u2019s probably nothing, but I keep feeling like I need to go to the bathroom a lot, even when there\u2019s not much there. And then yesterday, I started feeling kinda feverish and cold, and my back hurts on the right side, especially when I move. I thought I should come in just to be sure, I guess.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Infections of other parts of urinary tract in pregnancy"
+  },
+  {
+    "vignette_index": 70,
+    "input": "**PATIENT CHARACTER:** Patient with Infections of other parts of urinary tract in pregnancy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Burning sensation when urinating\n- Frequent urge to urinate, even when little comes out\n- Mild fever and chills\n- Aching pain in your lower back on the right side\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, beginning with a burning feeling during urination, which has become more persistent. Since then, I've been going to the bathroom more often, but only small amounts each time. Yesterday, I developed a slight fever and the pain in my back worsened, especially when I move or bend. I think it might be related to a urinary tract infection because I noticed I feel unwell overall and the symptoms seem to be escalating.\"Can you tell me exactly how high your temperature has been and how strong the back pain feels\u2014would you say it's mild, moderate, or severe?\"stoic_minimizer",
+    "output": "THINKING: I don't want to overreact, but these symptoms have been bothering me for a couple of days now, and the back pain is worse when I move. I guess I have a fever, but it's not very high, so I'm not sure i\nANSWER: My temperature has been around a little over 100 degrees, I think, but it's not that high. The back pain feels kinda dull but worse when I bend or move a certain way.",
+    "thinking": "I don't want to overreact, but these symptoms have been bothering me for a couple of days now, and the back pain is worse when I move. I guess I have a fever, but it's not very high, so I'm not sure i",
+    "answer": "My temperature has been around a little over 100 degrees, I think, but it's not that high. The back pain feels kinda dull but worse when I bend or move a certain way.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Infections of other parts of urinary tract in pregnancy"
+  },
+  {
+    "vignette_index": 70,
+    "input": "**PATIENT CHARACTER:** Patient with Infections of other parts of urinary tract in pregnancy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Burning sensation when urinating\n- Frequent urge to urinate, even when little comes out\n- Mild fever and chills\n- Aching pain in your lower back on the right side\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, beginning with a burning feeling during urination, which has become more persistent. Since then, I've been going to the bathroom more often, but only small amounts each time. Yesterday, I developed a slight fever and the pain in my back worsened, especially when I move or bend. I think it might be related to a urinary tract infection because I noticed I feel unwell overall and the symptoms seem to be escalating.Can you tell me exactly how high your temperature has been and rate your back pain from mild to severe\u2014how would you describe it?stoic_minimizer",
+    "output": "THINKING: I\u2019m not sure exactly how high my temperature is, but I\u2019ve had a slight fever and chills, and the back pain is there but I don\u2019t want to make a big deal out of it. It\u2019s probably nothing serious, I\u2019ve h\nANSWER: My temperature's probably not that high, maybe a little, and the back pain is just a dull ache, not too bad, I guess.",
+    "thinking": "I\u2019m not sure exactly how high my temperature is, but I\u2019ve had a slight fever and chills, and the back pain is there but I don\u2019t want to make a big deal out of it. It\u2019s probably nothing serious, I\u2019ve h",
+    "answer": "My temperature's probably not that high, maybe a little, and the back pain is just a dull ache, not too bad, I guess.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Infections of other parts of urinary tract in pregnancy"
+  },
+  {
+    "vignette_index": 70,
+    "input": "**PATIENT CHARACTER:** Patient with Infections of other parts of urinary tract in pregnancy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Burning sensation when urinating\n- Frequent urge to urinate, even when little comes out\n- Mild fever and chills\n- Aching pain in your lower back on the right side\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, beginning with a burning feeling during urination, which has become more persistent. Since then, I've been going to the bathroom more often, but only small amounts each time. Yesterday, I developed a slight fever and the pain in my back worsened, especially when I move or bend. I think it might be related to a urinary tract infection because I noticed I feel unwell overall and the symptoms seem to be escalating.Could you tell me more about how high your fever actually feels to you\u2014would you say it\u2019s just a little over 100 degrees, or does it feel worse than that? And about your back or side pain\u2014would you say it\u2019s a mild discomfort, or does it feel pretty strong or intense when it gets worse?stoic_minimizer",
+    "output": "THINKING: I'm trying to figure out how serious this really is. It\u2019s probably nothing but I guess I should mention it since it\u2019s been a couple of days and I feel worse. I don\u2019t want to make a big deal if it\u2019s no\nANSWER: Honestly, it\u2019s probably not that bad, just a little fever and some pain I can handle. The back pain\u2019s been there a bit, but I thought it would go away, and I\u2019ve just been putting off coming in.",
+    "thinking": "I'm trying to figure out how serious this really is. It\u2019s probably nothing but I guess I should mention it since it\u2019s been a couple of days and I feel worse. I don\u2019t want to make a big deal if it\u2019s no",
+    "answer": "Honestly, it\u2019s probably not that bad, just a little fever and some pain I can handle. The back pain\u2019s been there a bit, but I thought it would go away, and I\u2019ve just been putting off coming in.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Infections of other parts of urinary tract in pregnancy"
+  },
+  {
+    "vignette_index": 70,
+    "input": "**PATIENT CHARACTER:** Patient with Infections of other parts of urinary tract in pregnancy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Burning sensation when urinating\n- Frequent urge to urinate, even when little comes out\n- Mild fever and chills\n- Aching pain in your lower back on the right side\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, beginning with a burning feeling during urination, which has become more persistent. Since then, I've been going to the bathroom more often, but only small amounts each time. Yesterday, I developed a slight fever and the pain in my back worsened, especially when I move or bend. I think it might be related to a urinary tract infection because I noticed I feel unwell overall and the symptoms seem to be escalating.Can you tell me exactly how high your temperature has actually been when measured\u2014and would you say it\u2019s just a little over 100\u00b0F, or has it ever gone higher, say closer to 102\u00b0F or above? Also, how would you rate your pain now\u2014would you say it\u2019s a mild ache, or does it feel pretty intense, possibly worse than what you described before?stoic_minimizer",
+    "output": "THINKING: I\u2019m not really sure about the exact number, I guess it\u2019s probably around 101 or 102, but I\u2019ve had a fever for a couple of days now. The pain\u2019s not super intense, just kind of a constant ache, mainly i\nANSWER: I think it\u2019s been around 101 or 102, but I\u2019m not really sure. The pain\u2019s not terrible, just sort of a dull ache in my back, mainly on the right side.",
+    "thinking": "I\u2019m not really sure about the exact number, I guess it\u2019s probably around 101 or 102, but I\u2019ve had a fever for a couple of days now. The pain\u2019s not super intense, just kind of a constant ache, mainly i",
+    "answer": "I think it\u2019s been around 101 or 102, but I\u2019m not really sure. The pain\u2019s not terrible, just sort of a dull ache in my back, mainly on the right side.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Infections of other parts of urinary tract in pregnancy"
+  },
+  {
+    "vignette_index": 70,
+    "input": "**PATIENT CHARACTER:** Patient with Infections of other parts of urinary tract in pregnancy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Burning sensation when urinating\n- Frequent urge to urinate, even when little comes out\n- Mild fever and chills\n- Aching pain in your lower back on the right side\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, beginning with a burning feeling during urination, which has become more persistent. Since then, I've been going to the bathroom more often, but only small amounts each time. Yesterday, I developed a slight fever and the pain in my back worsened, especially when I move or bend. I think it might be related to a urinary tract infection because I noticed I feel unwell overall and the symptoms seem to be escalating.\"Would you be willing to take your temperature now with a thermometer and tell me the exact number? Also, could you describe how intense your pain feels right now\u2014would you say it's a mild ache, moderate, or really severe\u2014and does anything make it worse or better?\"stoic_minimizer",
+    "output": "THINKING: I guess I should do what he says, even if I don\u2019t really know exactly what my temp is right now. The pain isn\u2019t too horrible, just kind of a dull ache, but it\u2019s been like this for a couple of days, so\nANSWER: Okay, I\u2019ll check my temperature now. The pain\u2019s not that bad, just kind of a dull ache, but it\u2019s been there for a while now.",
+    "thinking": "I guess I should do what he says, even if I don\u2019t really know exactly what my temp is right now. The pain isn\u2019t too horrible, just kind of a dull ache, but it\u2019s been like this for a couple of days, so",
+    "answer": "Okay, I\u2019ll check my temperature now. The pain\u2019s not that bad, just kind of a dull ache, but it\u2019s been there for a while now.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Infections of other parts of urinary tract in pregnancy"
+  },
+  {
+    "vignette_index": 70,
+    "input": "**PATIENT CHARACTER:** Patient with Infections of other parts of urinary tract in pregnancy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Burning sensation when urinating\n- Frequent urge to urinate, even when little comes out\n- Mild fever and chills\n- Aching pain in your lower back on the right side\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, beginning with a burning feeling during urination, which has become more persistent. Since then, I've been going to the bathroom more often, but only small amounts each time. Yesterday, I developed a slight fever and the pain in my back worsened, especially when I move or bend. I think it might be related to a urinary tract infection because I noticed I feel unwell overall and the symptoms seem to be escalating.Would you be willing to take your temperature now with a thermometer and tell me the exact number?stoic_minimizer",
+    "output": "THINKING: It's probably just a little fever, not sure if I need to worry too much, but I guess I could tell him. I don\u2019t really think it\u2019s that high or anything, so I might as well just do what he asks.\nANSWER: Yeah, okay. I can do that. It\u2019s probably not that high, but I\u2019ll tell you the number.",
+    "thinking": "It's probably just a little fever, not sure if I need to worry too much, but I guess I could tell him. I don\u2019t really think it\u2019s that high or anything, so I might as well just do what he asks.",
+    "answer": "Yeah, okay. I can do that. It\u2019s probably not that high, but I\u2019ll tell you the number.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Infections of other parts of urinary tract in pregnancy"
+  },
+  {
+    "vignette_index": 70,
+    "input": "**PATIENT CHARACTER:** Patient with Infections of other parts of urinary tract in pregnancy\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 28 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Burning sensation when urinating\n- Frequent urge to urinate, even when little comes out\n- Mild fever and chills\n- Aching pain in your lower back on the right side\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly two days ago, beginning with a burning feeling during urination, which has become more persistent. Since then, I've been going to the bathroom more often, but only small amounts each time. Yesterday, I developed a slight fever and the pain in my back worsened, especially when I move or bend. I think it might be related to a urinary tract infection because I noticed I feel unwell overall and the symptoms seem to be escalating.Have you experienced any chills, nausea, or feeling extremely tired or weak along with your fever and back pain?stoic_minimizer",
+    "output": "THINKING: I don't want to make a big deal out of it, but I do feel a bit tired and shaky, and I think it's been going on for a couple of days. I guess I should mention it, even if I don't really understand what\nANSWER: Yeah, I\u2019ve had some chills and I\u2019ve felt pretty tired, but I didn\u2019t think it was that serious. I just thought it would go away or something.",
+    "thinking": "I don't want to make a big deal out of it, but I do feel a bit tired and shaky, and I think it's been going on for a couple of days. I guess I should mention it, even if I don't really understand what",
+    "answer": "Yeah, I\u2019ve had some chills and I\u2019ve felt pretty tired, but I didn\u2019t think it was that serious. I just thought it would go away or something.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Infections of other parts of urinary tract in pregnancy"
+  }
+]

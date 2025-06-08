@@ -1,0 +1,125 @@
+[
+  {
+    "vignette_index": 125,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Iron overload diseases\n\nYou are a PATIENT: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Chronic fatigue, Arthralgia, Abdominal pain, and Irregular heart rhythm.\nThese symptoms came into fruition gradually over the past few months, with the fatigue becoming worse after exertion and the joint pain starting in your wrists and knees. You also noticed a dull ache in your upper right abdomen and occasional palpitations that feel irregular. You have a family history of hereditary hemochromatosis, and being of European descent, you\u2019re aware it\u2019s more common in people like you. You\u2019re worried because these symptoms are interfering with your daily life and you\u2019re concerned about what might be causing them.",
+    "output": "THINKING: I need to explain my symptoms clearly but I might not remember exactly when everything started or how it all relates. I want to mention my family history because it seems relevant but I\u2019m also kind of\nANSWER: Well, I\u2019m a 45-year-old man, and I\u2019ve been feeling really tired all the time, especially after I do anything active. It\u2019s been like this for a few months, I think. My joints\u2014especially my wrists and knees\u2014have been hurting more than usual, and I get this dull pain in my upper right belly. Sometimes I notice my heart beating irregularly, like it skips or races, and I don\u2019t know if that\u2019s connected. I\u2019m worried 'cause I heard about things that run in my family, like hemochromatosis, and I just don\u2019t feel right anymore.",
+    "thinking": "I need to explain my symptoms clearly but I might not remember exactly when everything started or how it all relates. I want to mention my family history because it seems relevant but I\u2019m also kind of",
+    "answer": "Well, I\u2019m a 45-year-old man, and I\u2019ve been feeling really tired all the time, especially after I do anything active. It\u2019s been like this for a few months, I think. My joints\u2014especially my wrists and knees\u2014have been hurting more than usual, and I get this dull pain in my upper right belly. Sometimes I notice my heart beating irregularly, like it skips or races, and I don\u2019t know if that\u2019s connected. I\u2019m worried 'cause I heard about things that run in my family, like hemochromatosis, and I just don\u2019t feel right anymore.",
+    "behavior_type": "chronology_confused",
+    "behavior_config": {
+      "weight": 0.1,
+      "description": "Patient confused about symptom timing and progression",
+      "modifiers": [
+        "timeline_confusion",
+        "sequence_uncertainty"
+      ],
+      "empathy_cues": [
+        "confusion",
+        "uncertainty",
+        "memory_issues",
+        "needs_patience"
+      ]
+    },
+    "gold_diagnosis": "Iron overload diseases"
+  },
+  {
+    "vignette_index": 125,
+    "input": "**PATIENT CHARACTER:** Patient with Iron overload diseases\n\nYou are a PATIENT: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Chronic fatigue, Arthralgia, Abdominal pain, and Irregular heart rhythm.\nThese symptoms came into fruition gradually over the past few months, with the fatigue becoming worse after exertion and the joint pain starting in your wrists and knees. You also noticed a dull ache in your upper right abdomen and occasional palpitations that feel irregular. You have a family history of hereditary hemochromatosis, and being of European descent, you\u2019re aware it\u2019s more common in people like you. You\u2019re worried because these symptoms are interfering with your daily life and you\u2019re concerned about what might be causing them.Can you tell me more about when these symptoms first started and how they have changed or evolved since then?chronology_confused",
+    "output": "THINKING: I'm not entirely sure when everything started exactly, I think it was maybe a few months ago, but it seems like it's gotten worse? I get tired easily and the joint pain is new to me, but I can't remem\nANSWER: I think it was last month or maybe two, but it feels like everything\u2019s been happening all at once or kinda mixing up in my head, like I can't remember what came first.",
+    "thinking": "I'm not entirely sure when everything started exactly, I think it was maybe a few months ago, but it seems like it's gotten worse? I get tired easily and the joint pain is new to me, but I can't remem",
+    "answer": "I think it was last month or maybe two, but it feels like everything\u2019s been happening all at once or kinda mixing up in my head, like I can't remember what came first.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 0,
+    "gold_diagnosis": "Iron overload diseases"
+  },
+  {
+    "vignette_index": 125,
+    "input": "**PATIENT CHARACTER:** Patient with Iron overload diseases\n\nYou are a PATIENT: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Chronic fatigue, Arthralgia, Abdominal pain, and Irregular heart rhythm.\nThese symptoms came into fruition gradually over the past few months, with the fatigue becoming worse after exertion and the joint pain starting in your wrists and knees. You also noticed a dull ache in your upper right abdomen and occasional palpitations that feel irregular. You have a family history of hereditary hemochromatosis, and being of European descent, you\u2019re aware it\u2019s more common in people like you. You\u2019re worried because these symptoms are interfering with your daily life and you\u2019re concerned about what might be causing them.Can you tell me more about when you first started noticing these symptoms and how they have changed or been different over time?chronology_confused",
+    "output": "THINKING: I'm trying to remember when I first felt all these different things, but honestly, it\u2019s all kind of blurred together. I think it was maybe a few months ago, but then some days are worse than others, a\nANSWER: I think I started feeling tired a while ago, maybe a few months, and then the joint pain in my wrists and knees showed up after that, but sometimes the stomach ache and the funny heart beats happen, like, randomly, so I don\u2019t know what\u2019s actually been going on first.",
+    "thinking": "I'm trying to remember when I first felt all these different things, but honestly, it\u2019s all kind of blurred together. I think it was maybe a few months ago, but then some days are worse than others, a",
+    "answer": "I think I started feeling tired a while ago, maybe a few months, and then the joint pain in my wrists and knees showed up after that, but sometimes the stomach ache and the funny heart beats happen, like, randomly, so I don\u2019t know what\u2019s actually been going on first.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 2,
+    "gold_diagnosis": "Iron overload diseases"
+  },
+  {
+    "vignette_index": 125,
+    "input": "**PATIENT CHARACTER:** Patient with Iron overload diseases\n\nYou are a PATIENT: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Chronic fatigue, Arthralgia, Abdominal pain, and Irregular heart rhythm.\nThese symptoms came into fruition gradually over the past few months, with the fatigue becoming worse after exertion and the joint pain starting in your wrists and knees. You also noticed a dull ache in your upper right abdomen and occasional palpitations that feel irregular. You have a family history of hereditary hemochromatosis, and being of European descent, you\u2019re aware it\u2019s more common in people like you. You\u2019re worried because these symptoms are interfering with your daily life and you\u2019re concerned about what might be causing them.Can you tell me about which symptom\u2014like your fatigue, joint pain, abdominal discomfort, or irregular heartbeat\u2014started first, and how each has changed or stayed the same since then?chronology_confused",
+    "output": "THINKING: I'm trying to figure out what came first and how all these symptoms are connected, but honestly, it's all a bit jumbled in my mind. I just know I\u2019ve been feeling worse over time, and I\u2019m worried about\nANSWER: I think the fatigue started first, like a few months ago, but then I started noticing the joint pain in my wrists and knees, and the stomach ache too\u2014I\u2019m not really sure what came exactly when. Now I feel like my heart is skipping or irregular sometimes.",
+    "thinking": "I'm trying to figure out what came first and how all these symptoms are connected, but honestly, it's all a bit jumbled in my mind. I just know I\u2019ve been feeling worse over time, and I\u2019m worried about",
+    "answer": "I think the fatigue started first, like a few months ago, but then I started noticing the joint pain in my wrists and knees, and the stomach ache too\u2014I\u2019m not really sure what came exactly when. Now I feel like my heart is skipping or irregular sometimes.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 4,
+    "gold_diagnosis": "Iron overload diseases"
+  },
+  {
+    "vignette_index": 125,
+    "input": "**PATIENT CHARACTER:** Patient with Iron overload diseases\n\nYou are a PATIENT: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Chronic fatigue, Arthralgia, Abdominal pain, and Irregular heart rhythm.\nThese symptoms came into fruition gradually over the past few months, with the fatigue becoming worse after exertion and the joint pain starting in your wrists and knees. You also noticed a dull ache in your upper right abdomen and occasional palpitations that feel irregular. You have a family history of hereditary hemochromatosis, and being of European descent, you\u2019re aware it\u2019s more common in people like you. You\u2019re worried because these symptoms are interfering with your daily life and you\u2019re concerned about what might be causing them.Can you tell me, as best as you remember, which symptoms\u2014like the joint pains, abdominal discomfort, fatigue, or irregular heartbeat\u2014started first and approximately when that was, even if you're not completely sure about the exact timing?chronology_confused",
+    "output": "THINKING: I'm trying to remember when everything started and what's happened first, but it's all blurry in my head. I think the fatigue got worse first after some days of feeling tired, then the joint pains and\nANSWER: Uh, I think the fatigue started maybe a few months ago, and then I started noticing the joint pain in my wrists and knees, but I can't really remember exactly when or if the stomach ache came before or after all that, honestly.",
+    "thinking": "I'm trying to remember when everything started and what's happened first, but it's all blurry in my head. I think the fatigue got worse first after some days of feeling tired, then the joint pains and",
+    "answer": "Uh, I think the fatigue started maybe a few months ago, and then I started noticing the joint pain in my wrists and knees, but I can't really remember exactly when or if the stomach ache came before or after all that, honestly.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 6,
+    "gold_diagnosis": "Iron overload diseases"
+  },
+  {
+    "vignette_index": 125,
+    "input": "**PATIENT CHARACTER:** Patient with Iron overload diseases\n\nYou are a PATIENT: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Chronic fatigue, Arthralgia, Abdominal pain, and Irregular heart rhythm.\nThese symptoms came into fruition gradually over the past few months, with the fatigue becoming worse after exertion and the joint pain starting in your wrists and knees. You also noticed a dull ache in your upper right abdomen and occasional palpitations that feel irregular. You have a family history of hereditary hemochromatosis, and being of European descent, you\u2019re aware it\u2019s more common in people like you. You\u2019re worried because these symptoms are interfering with your daily life and you\u2019re concerned about what might be causing them.Can you tell me, as best as you remember, which of these symptoms\u2014like the fatigue, joint pains, abdominal discomfort, or irregular heartbeat\u2014started first and approximately when that was, even if you're not completely sure about the exact timing?chronology_confused",
+    "output": "THINKING: I\u2019m not really sure which symptom showed up first or when, honestly. It kind of all started a few months ago, but maybe the fatigue was the worst thing at first, then the joint pains, and now the tumm\nANSWER: I think it was maybe the tiredness that came first, but it\u2019s gotten worse just recently, and I started noticing the pain in my wrists and knees around the same time, I guess. It's all kind of mixed up in my head.",
+    "thinking": "I\u2019m not really sure which symptom showed up first or when, honestly. It kind of all started a few months ago, but maybe the fatigue was the worst thing at first, then the joint pains, and now the tumm",
+    "answer": "I think it was maybe the tiredness that came first, but it\u2019s gotten worse just recently, and I started noticing the pain in my wrists and knees around the same time, I guess. It's all kind of mixed up in my head.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 8,
+    "gold_diagnosis": "Iron overload diseases"
+  },
+  {
+    "vignette_index": 125,
+    "input": "**PATIENT CHARACTER:** Patient with Iron overload diseases\n\nYou are a PATIENT: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Chronic fatigue, Arthralgia, Abdominal pain, and Irregular heart rhythm.\nThese symptoms came into fruition gradually over the past few months, with the fatigue becoming worse after exertion and the joint pain starting in your wrists and knees. You also noticed a dull ache in your upper right abdomen and occasional palpitations that feel irregular. You have a family history of hereditary hemochromatosis, and being of European descent, you\u2019re aware it\u2019s more common in people like you. You\u2019re worried because these symptoms are interfering with your daily life and you\u2019re concerned about what might be causing them.Can you tell me roughly which symptom\u2014like the fatigue, joint pain, abdominal discomfort, or irregular heartbeat\u2014started first, and when you noticed each one, even if you're not completely sure about the exact time?chronology_confused",
+    "output": "THINKING: I\u2019m trying to remember which symptom started first, but honestly, I\u2019m not really sure. It feels like everything kind of crept up on me over a few months, and now I just feel worse all the time.\nANSWER: I think it was the fatigue, but maybe the joint pain came first? Or it\u2019s all kind of meshing together now, I don\u2019t really know.",
+    "thinking": "I\u2019m trying to remember which symptom started first, but honestly, I\u2019m not really sure. It feels like everything kind of crept up on me over a few months, and now I just feel worse all the time.",
+    "answer": "I think it was the fatigue, but maybe the joint pain came first? Or it\u2019s all kind of meshing together now, I don\u2019t really know.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 10,
+    "gold_diagnosis": "Iron overload diseases"
+  },
+  {
+    "vignette_index": 125,
+    "input": "**PATIENT CHARACTER:** Patient with Iron overload diseases\n\nYou are a PATIENT: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Chronic fatigue, Arthralgia, Abdominal pain, and Irregular heart rhythm.\nThese symptoms came into fruition gradually over the past few months, with the fatigue becoming worse after exertion and the joint pain starting in your wrists and knees. You also noticed a dull ache in your upper right abdomen and occasional palpitations that feel irregular. You have a family history of hereditary hemochromatosis, and being of European descent, you\u2019re aware it\u2019s more common in people like you. You\u2019re worried because these symptoms are interfering with your daily life and you\u2019re concerned about what might be causing them.Given your difficulty recalling exact timing, could you tell me which of these symptoms\u2014fatigue, joint pain, abdominal discomfort, or irregular heartbeat\u2014you noticed first, even if it was a while ago, and how it has changed since then?chronology_confused",
+    "output": "THINKING: I'm not really sure which symptom appeared first or when exactly things started. I just remember feeling more tired and then the joint pains and other stuff kind of showing up over time, but I can't q\nANSWER: I think it was the tiredness that came first, but then I started noticing the joint pain and the stomach ache later, and now I feel the irregular heartbeat sometimes, but I don\u2019t really remember exactly when each thing began.",
+    "thinking": "I'm not really sure which symptom appeared first or when exactly things started. I just remember feeling more tired and then the joint pains and other stuff kind of showing up over time, but I can't q",
+    "answer": "I think it was the tiredness that came first, but then I started noticing the joint pain and the stomach ache later, and now I feel the irregular heartbeat sometimes, but I don\u2019t really remember exactly when each thing began.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 12,
+    "gold_diagnosis": "Iron overload diseases"
+  },
+  {
+    "vignette_index": 125,
+    "input": "**PATIENT CHARACTER:** Patient with Iron overload diseases\n\nYou are a PATIENT: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Chronic fatigue, Arthralgia, Abdominal pain, and Irregular heart rhythm.\nThese symptoms came into fruition gradually over the past few months, with the fatigue becoming worse after exertion and the joint pain starting in your wrists and knees. You also noticed a dull ache in your upper right abdomen and occasional palpitations that feel irregular. You have a family history of hereditary hemochromatosis, and being of European descent, you\u2019re aware it\u2019s more common in people like you. You\u2019re worried because these symptoms are interfering with your daily life and you\u2019re concerned about what might be causing them.Given your difficulties recalling exact timing, can you tell me if you noticed the joint pain, abdominal discomfort, or irregular heartbeat around the same time as your fatigue or whether one of these symptoms started first and then more symptoms appeared later?chronology_confused",
+    "output": "THINKING: I'm not really sure how it all started or how the symptoms are connected. I think maybe the fatigue was first, or maybe the joint pain? It\u2019s all kind of blurry in my mind and I just feel worse over ti\nANSWER: I guess the fatigue was there first, but then I started feeling really tired after just small things, and the joint pain and the stomach ache kind of showed up around the same time, but I can't remember which one came first exactly.",
+    "thinking": "I'm not really sure how it all started or how the symptoms are connected. I think maybe the fatigue was first, or maybe the joint pain? It\u2019s all kind of blurry in my mind and I just feel worse over ti",
+    "answer": "I guess the fatigue was there first, but then I started feeling really tired after just small things, and the joint pain and the stomach ache kind of showed up around the same time, but I can't remember which one came first exactly.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 14,
+    "gold_diagnosis": "Iron overload diseases"
+  },
+  {
+    "vignette_index": 125,
+    "input": "**PATIENT CHARACTER:** Patient with Iron overload diseases\n\nYou are a PATIENT: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Chronic fatigue, Arthralgia, Abdominal pain, and Irregular heart rhythm.\nThese symptoms came into fruition gradually over the past few months, with the fatigue becoming worse after exertion and the joint pain starting in your wrists and knees. You also noticed a dull ache in your upper right abdomen and occasional palpitations that feel irregular. You have a family history of hereditary hemochromatosis, and being of European descent, you\u2019re aware it\u2019s more common in people like you. You\u2019re worried because these symptoms are interfering with your daily life and you\u2019re concerned about what might be causing them.Can you tell me, even roughly, which symptom\u2014like the fatigue, joint pain, or abdominal discomfort\u2014you noticed first, and how the timeline has looked since then?chronology_confused",
+    "output": "THINKING: I'm not really sure which symptom started first, maybe the fatigue? But it kinda got worse after I did stuff, and then the joint pain showed up. I think the belly ache was after that, or maybe at the \nANSWER: Uh, I think it was the fatigue that kind of came first, but it was slow, and then I started feeling the joint pain in my wrists and knees, and I think the belly pain came later or maybe around the same time? I\u2019m not really sure how it all fits together.",
+    "thinking": "I'm not really sure which symptom started first, maybe the fatigue? But it kinda got worse after I did stuff, and then the joint pain showed up. I think the belly ache was after that, or maybe at the",
+    "answer": "Uh, I think it was the fatigue that kind of came first, but it was slow, and then I started feeling the joint pain in my wrists and knees, and I think the belly pain came later or maybe around the same time? I\u2019m not really sure how it all fits together.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 16,
+    "gold_diagnosis": "Iron overload diseases"
+  },
+  {
+    "vignette_index": 125,
+    "input": "**PATIENT CHARACTER:** Patient with Iron overload diseases\n\nYou are a PATIENT: You are a 45-year-old male.\nYou are experiencing the following symptoms:\n- Chronic fatigue, Arthralgia, Abdominal pain, and Irregular heart rhythm.\nThese symptoms came into fruition gradually over the past few months, with the fatigue becoming worse after exertion and the joint pain starting in your wrists and knees. You also noticed a dull ache in your upper right abdomen and occasional palpitations that feel irregular. You have a family history of hereditary hemochromatosis, and being of European descent, you\u2019re aware it\u2019s more common in people like you. You\u2019re worried because these symptoms are interfering with your daily life and you\u2019re concerned about what might be causing them.Can you tell me, even roughly, which symptom\u2014like the fatigue or joint pain\u2014you noticed first, and whether the other symptoms came along shortly after or a little later?chronology_confused",
+    "output": "THINKING: I'm trying to remember which symptoms I noticed first, but it's all kind of mixed up. I think maybe the fatigue was first, but the joint pain and the other stuff came pretty soon after, or maybe befor\nANSWER: I think I started feeling really tired first, like after I did anything, and then my joints started hurting in my wrists and knees, but I also felt this dull pain in my stomach and sometimes my heart beats weird, and I just don't know what came first or how they all connect.",
+    "thinking": "I'm trying to remember which symptoms I noticed first, but it's all kind of mixed up. I think maybe the fatigue was first, but the joint pain and the other stuff came pretty soon after, or maybe befor",
+    "answer": "I think I started feeling really tired first, like after I did anything, and then my joints started hurting in my wrists and knees, but I also felt this dull pain in my stomach and sometimes my heart beats weird, and I just don't know what came first or how they all connect.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 18,
+    "gold_diagnosis": "Iron overload diseases"
+  }
+]

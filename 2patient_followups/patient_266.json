@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 266,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Vitamin A deficiency with conjunctival xerosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 7 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Night blindness, making it difficult to see in dim lighting\n- Conjunctival xerosis, causing your eyes to feel dry and appear dull and dry\n- Bitot's spots, which you notice as foamy, whitish patches on the white of your eyes\n- Mild redness and irritation in your eyes that has been worsening over the past two weeks\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, starting with difficulty seeing at night and mild eye dryness. You live in a rural area with limited access to fresh fruits and vegetables, and your family\u2019s diet mainly consists of staple grains. Your mother says you seem more irritable and tired lately, and your eyes sometimes feel gritty or sore, especially in the evenings.",
+    "output": "THINKING: I need to gently explain my symptoms without sounding too worried, and mention that I\u2019ve been having trouble seeing in the dark and my eyes feel weird. I should also mention that my mom says I seem mo\nANSWER: I can't see good at night, and my eyes feel dry and kind of sore. My mom says I look more tired and cranky, and lately my eyes have these white patches and feel really gritty.",
+    "thinking": "I need to gently explain my symptoms without sounding too worried, and mention that I\u2019ve been having trouble seeing in the dark and my eyes feel weird. I should also mention that my mom says I seem mo",
+    "answer": "I can't see good at night, and my eyes feel dry and kind of sore. My mom says I look more tired and cranky, and lately my eyes have these white patches and feel really gritty.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Vitamin A deficiency with conjunctival xerosis"
+  },
+  {
+    "vignette_index": 266,
+    "input": "**PATIENT CHARACTER:** Patient with Vitamin A deficiency with conjunctival xerosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 7 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Night blindness, making it difficult to see in dim lighting\n- Conjunctival xerosis, causing your eyes to feel dry and appear dull and dry\n- Bitot's spots, which you notice as foamy, whitish patches on the white of your eyes\n- Mild redness and irritation in your eyes that has been worsening over the past two weeks\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, starting with difficulty seeing at night and mild eye dryness. You live in a rural area with limited access to fresh fruits and vegetables, and your family\u2019s diet mainly consists of staple grains. Your mother says you seem more irritable and tired lately, and your eyes sometimes feel gritty or sore, especially in the evenings.Can you tell me when you first started noticing that your eyes had difficulty seeing in the low light, and if it has gotten worse or stayed the same since then?baseline",
+    "output": "THINKING: I don\u2019t really remember exactly when it started, but I know it\u2019s been getting worse. I can\u2019t see in the dark like I used to, and my eyes hurt and feel dry all the time now.\nANSWER: I guess it\u2019s been about a month, maybe more, but it\u2019s worse now and I can\u2019t see good at night anymore. My eyes feel dry and kinda sore.",
+    "thinking": "I don\u2019t really remember exactly when it started, but I know it\u2019s been getting worse. I can\u2019t see in the dark like I used to, and my eyes hurt and feel dry all the time now.",
+    "answer": "I guess it\u2019s been about a month, maybe more, but it\u2019s worse now and I can\u2019t see good at night anymore. My eyes feel dry and kinda sore.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Vitamin A deficiency with conjunctival xerosis"
+  },
+  {
+    "vignette_index": 266,
+    "input": "**PATIENT CHARACTER:** Patient with Vitamin A deficiency with conjunctival xerosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 7 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Night blindness, making it difficult to see in dim lighting\n- Conjunctival xerosis, causing your eyes to feel dry and appear dull and dry\n- Bitot's spots, which you notice as foamy, whitish patches on the white of your eyes\n- Mild redness and irritation in your eyes that has been worsening over the past two weeks\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, starting with difficulty seeing at night and mild eye dryness. You live in a rural area with limited access to fresh fruits and vegetables, and your family\u2019s diet mainly consists of staple grains. Your mother says you seem more irritable and tired lately, and your eyes sometimes feel gritty or sore, especially in the evenings.Can you tell me if you see it the same way in both eyes, or is one eye having more trouble seeing at night or during the day?baseline",
+    "output": "THINKING: I'm a little confused about what the doctor is asking. I think I see okay during the day, but at night it's really hard to see. Maybe one eye is worse than the other? Or they\u2019re the same? I don't real\nANSWER: Um, I think I see the same in both eyes, but it's really dark at night and I can't see good then. During the day, I guess it's not as bad.",
+    "thinking": "I'm a little confused about what the doctor is asking. I think I see okay during the day, but at night it's really hard to see. Maybe one eye is worse than the other? Or they\u2019re the same? I don't real",
+    "answer": "Um, I think I see the same in both eyes, but it's really dark at night and I can't see good then. During the day, I guess it's not as bad.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Vitamin A deficiency with conjunctival xerosis"
+  },
+  {
+    "vignette_index": 266,
+    "input": "**PATIENT CHARACTER:** Patient with Vitamin A deficiency with conjunctival xerosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 7 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Night blindness, making it difficult to see in dim lighting\n- Conjunctival xerosis, causing your eyes to feel dry and appear dull and dry\n- Bitot's spots, which you notice as foamy, whitish patches on the white of your eyes\n- Mild redness and irritation in your eyes that has been worsening over the past two weeks\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, starting with difficulty seeing at night and mild eye dryness. You live in a rural area with limited access to fresh fruits and vegetables, and your family\u2019s diet mainly consists of staple grains. Your mother says you seem more irritable and tired lately, and your eyes sometimes feel gritty or sore, especially in the evenings.Can you tell me if you see okay during the daytime, or do your eyes feel dry or sore even then, or is it mostly worse at night?baseline",
+    "output": "THINKING: I feel a bit worried but also a little embarrassed talking about my eyes because they feel weird all the time, especially at night. I don\u2019t really know what\u2019s normal and what\u2019s not; I just want to see\nANSWER: Um, I guess I see okay during the day, but at night it's really hard. My eyes feel dry and sore, and it\u2019s worse when it\u2019s dark.",
+    "thinking": "I feel a bit worried but also a little embarrassed talking about my eyes because they feel weird all the time, especially at night. I don\u2019t really know what\u2019s normal and what\u2019s not; I just want to see",
+    "answer": "Um, I guess I see okay during the day, but at night it's really hard. My eyes feel dry and sore, and it\u2019s worse when it\u2019s dark.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Vitamin A deficiency with conjunctival xerosis"
+  },
+  {
+    "vignette_index": 266,
+    "input": "**PATIENT CHARACTER:** Patient with Vitamin A deficiency with conjunctival xerosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 7 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Night blindness, making it difficult to see in dim lighting\n- Conjunctival xerosis, causing your eyes to feel dry and appear dull and dry\n- Bitot's spots, which you notice as foamy, whitish patches on the white of your eyes\n- Mild redness and irritation in your eyes that has been worsening over the past two weeks\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, starting with difficulty seeing at night and mild eye dryness. You live in a rural area with limited access to fresh fruits and vegetables, and your family\u2019s diet mainly consists of staple grains. Your mother says you seem more irritable and tired lately, and your eyes sometimes feel gritty or sore, especially in the evenings.\"Can you tell me if your eyes feel just as dry and sore when you're outside during the day, or do you notice that the dryness and soreness are worse at night or when you're in certain environments?\"baseline",
+    "output": "THINKING: I'm not really sure if my eyes feel worse at night or during the day. Sometimes they just feel dry and sore, no matter what time it is, but I do notice it more when I\u2019m outside or at night. I don\u2019t kn\nANSWER: My eyes feel dry and sore all the time, but I think they get worse at night and maybe when I\u2019m outside, I don\u2019t really know.",
+    "thinking": "I'm not really sure if my eyes feel worse at night or during the day. Sometimes they just feel dry and sore, no matter what time it is, but I do notice it more when I\u2019m outside or at night. I don\u2019t kn",
+    "answer": "My eyes feel dry and sore all the time, but I think they get worse at night and maybe when I\u2019m outside, I don\u2019t really know.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Vitamin A deficiency with conjunctival xerosis"
+  },
+  {
+    "vignette_index": 266,
+    "input": "**PATIENT CHARACTER:** Patient with Vitamin A deficiency with conjunctival xerosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 7 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Night blindness, making it difficult to see in dim lighting\n- Conjunctival xerosis, causing your eyes to feel dry and appear dull and dry\n- Bitot's spots, which you notice as foamy, whitish patches on the white of your eyes\n- Mild redness and irritation in your eyes that has been worsening over the past two weeks\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, starting with difficulty seeing at night and mild eye dryness. You live in a rural area with limited access to fresh fruits and vegetables, and your family\u2019s diet mainly consists of staple grains. Your mother says you seem more irritable and tired lately, and your eyes sometimes feel gritty or sore, especially in the evenings.Can you tell me more about what your eyes feel like when they are sore or dry\u2014do you notice if they feel watery, sticky, or maybe itchy, and does anything seem to make these feelings better or worse, like being outside or in certain places?baseline",
+    "output": "THINKING: I want to explain my eyes but I\u2019m not sure how exactly. I feel like they\u2019re really dry and kinda tired, and I don\u2019t know if they itch or feel sticky. Sometimes they get worse when I stay in the house.\nANSWER: My eyes feel dry and kinda sore, and they look dull. I think they feel worse when I stay inside or in the dark.",
+    "thinking": "I want to explain my eyes but I\u2019m not sure how exactly. I feel like they\u2019re really dry and kinda tired, and I don\u2019t know if they itch or feel sticky. Sometimes they get worse when I stay in the house.",
+    "answer": "My eyes feel dry and kinda sore, and they look dull. I think they feel worse when I stay inside or in the dark.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Vitamin A deficiency with conjunctival xerosis"
+  },
+  {
+    "vignette_index": 266,
+    "input": "**PATIENT CHARACTER:** Patient with Vitamin A deficiency with conjunctival xerosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 7 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Night blindness, making it difficult to see in dim lighting\n- Conjunctival xerosis, causing your eyes to feel dry and appear dull and dry\n- Bitot's spots, which you notice as foamy, whitish patches on the white of your eyes\n- Mild redness and irritation in your eyes that has been worsening over the past two weeks\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, starting with difficulty seeing at night and mild eye dryness. You live in a rural area with limited access to fresh fruits and vegetables, and your family\u2019s diet mainly consists of staple grains. Your mother says you seem more irritable and tired lately, and your eyes sometimes feel gritty or sore, especially in the evenings.Can you tell me if your eyes feel dry, sore, or itchy during the daytime, or do you notice that these feelings only happen at night or in certain situations?baseline",
+    "output": "THINKING: I feel a bit confused about what the doctor is asking. I think maybe my eyes feel more dry at night because it's hard to see and my eyes are tired and sore then. I don\u2019t really know if it's just at ni\nANSWER: Um, I think my eyes feel dry and sore more at night, especially when it's dark and I can't see good. It\u2019s worse then, I think.",
+    "thinking": "I feel a bit confused about what the doctor is asking. I think maybe my eyes feel more dry at night because it's hard to see and my eyes are tired and sore then. I don\u2019t really know if it's just at ni",
+    "answer": "Um, I think my eyes feel dry and sore more at night, especially when it's dark and I can't see good. It\u2019s worse then, I think.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Vitamin A deficiency with conjunctival xerosis"
+  },
+  {
+    "vignette_index": 266,
+    "input": "**PATIENT CHARACTER:** Patient with Vitamin A deficiency with conjunctival xerosis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 7 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Night blindness, making it difficult to see in dim lighting\n- Conjunctival xerosis, causing your eyes to feel dry and appear dull and dry\n- Bitot's spots, which you notice as foamy, whitish patches on the white of your eyes\n- Mild redness and irritation in your eyes that has been worsening over the past two weeks\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past month, starting with difficulty seeing at night and mild eye dryness. You live in a rural area with limited access to fresh fruits and vegetables, and your family\u2019s diet mainly consists of staple grains. Your mother says you seem more irritable and tired lately, and your eyes sometimes feel gritty or sore, especially in the evenings.Can you tell me if you notice your eyes feeling dry, sore, or uncomfortable during the day, or do you mainly only feel it when it's night or in certain places?baseline",
+    "output": "THINKING: I feel a little worried about what he's asking. I remember my eyes feeling dry and sometimes sore, especially at night, but I\u2019m not sure if it\u2019s just at night or all the time. I don\u2019t really understan\nANSWER: Um, I think my eyes feel dry and sore mostly when it\u2019s dark or at night, but sometimes it\u2019s like that during the day too, I guess. I don\u2019t really know.",
+    "thinking": "I feel a little worried about what he's asking. I remember my eyes feeling dry and sometimes sore, especially at night, but I\u2019m not sure if it\u2019s just at night or all the time. I don\u2019t really understan",
+    "answer": "Um, I think my eyes feel dry and sore mostly when it\u2019s dark or at night, but sometimes it\u2019s like that during the day too, I guess. I don\u2019t really know.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Vitamin A deficiency with conjunctival xerosis"
+  }
+]

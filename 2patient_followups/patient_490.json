@@ -1,0 +1,145 @@
+[
+  {
+    "vignette_index": 490,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Amelanotic melanoma\n\nYou are a patient: You are 52 and your biological gender is male. You are experiencing the following symptoms:\n- An unusual skin growth that appears pale pink and lacks pigment\n- A small lesion that looks like a tiny scar or a healing pimple\n- Some areas of your skin have become red or erythematous\nThese symptoms came into fruition gradually over the past month. You\u2019ve noticed the lesion isn\u2019t painful but has slowly increased in size and seems to be changing in appearance. You have a fair complexion, a history of severe sunburns in your youth, and multiple moles on your back. You\u2019re concerned because you\u2019ve read that these kinds of skin changes could be serious, especially given your family history of melanoma.",
+    "output": "THINKING: I should explain that I'm worried about these skin changes, especially since they've been happening gradually over the past month. I want to mention the pigmented and non-pigmented areas and how they'\nANSWER: Well, I\u2019m 52, and I guess I\u2019ve just been noticing some weird skin stuff lately. There\u2019s this pale pink spot that\u2019s not like a normal mole \u2014 it\u2019s been getting bigger, but it doesn\u2019t hurt or anything. And I saw a tiny scar or maybe a pimple that\u2019s not healing and a few spots on my skin, especially on my back, that have turned red. I\u2019m not sure if it\u2019s serious, but I read about skin things like this sometimes being dangerous, and I guess I\u2019m kinda worried because of my sunburn history and family.",
+    "thinking": "I should explain that I'm worried about these skin changes, especially since they've been happening gradually over the past month. I want to mention the pigmented and non-pigmented areas and how they'",
+    "answer": "Well, I\u2019m 52, and I guess I\u2019ve just been noticing some weird skin stuff lately. There\u2019s this pale pink spot that\u2019s not like a normal mole \u2014 it\u2019s been getting bigger, but it doesn\u2019t hurt or anything. And I saw a tiny scar or maybe a pimple that\u2019s not healing and a few spots on my skin, especially on my back, that have turned red. I\u2019m not sure if it\u2019s serious, but I read about skin things like this sometimes being dangerous, and I guess I\u2019m kinda worried because of my sunburn history and family.",
+    "behavior_type": "chronology_confused",
+    "behavior_config": {
+      "weight": 0.1,
+      "description": "Patient confused about symptom timing and progression",
+      "modifiers": [
+        "timeline_confusion",
+        "sequence_uncertainty"
+      ],
+      "empathy_cues": [
+        "confusion",
+        "uncertainty",
+        "memory_issues",
+        "needs_patience"
+      ]
+    },
+    "gold_diagnosis": "Amelanotic melanoma"
+  },
+  {
+    "vignette_index": 490,
+    "input": "**PATIENT CHARACTER:** Patient with Amelanotic melanoma\n\nYou are a patient: You are 52 and your biological gender is male. You are experiencing the following symptoms:\n- An unusual skin growth that appears pale pink and lacks pigment\n- A small lesion that looks like a tiny scar or a healing pimple\n- Some areas of your skin have become red or erythematous\nThese symptoms came into fruition gradually over the past month. You\u2019ve noticed the lesion isn\u2019t painful but has slowly increased in size and seems to be changing in appearance. You have a fair complexion, a history of severe sunburns in your youth, and multiple moles on your back. You\u2019re concerned because you\u2019ve read that these kinds of skin changes could be serious, especially given your family history of melanoma.Can you tell me more about when you first noticed this skin spot and how it has changed since then, such as whether it's grown larger, changed shape, or developed any other features?chronology_confused",
+    "output": "THINKING: I want to explain how I saw it maybe a while ago and it changes or maybe not, but I don't really remember exactly when. I think it\u2019s been growing and turning a bit pinkish but I\u2019m not sure if that was\nANSWER: Um, I think I saw it about a month ago, or maybe a little more, and I noticed it\u2019s gotten bigger and sort of pinkish now, but I\u2019m not really sure what\u2019s happened first exactly.",
+    "thinking": "I want to explain how I saw it maybe a while ago and it changes or maybe not, but I don't really remember exactly when. I think it\u2019s been growing and turning a bit pinkish but I\u2019m not sure if that was",
+    "answer": "Um, I think I saw it about a month ago, or maybe a little more, and I noticed it\u2019s gotten bigger and sort of pinkish now, but I\u2019m not really sure what\u2019s happened first exactly.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 0,
+    "gold_diagnosis": "Amelanotic melanoma"
+  },
+  {
+    "vignette_index": 490,
+    "input": "**PATIENT CHARACTER:** Patient with Amelanotic melanoma\n\nYou are a patient: You are 52 and your biological gender is male. You are experiencing the following symptoms:\n- An unusual skin growth that appears pale pink and lacks pigment\n- A small lesion that looks like a tiny scar or a healing pimple\n- Some areas of your skin have become red or erythematous\nThese symptoms came into fruition gradually over the past month. You\u2019ve noticed the lesion isn\u2019t painful but has slowly increased in size and seems to be changing in appearance. You have a fair complexion, a history of severe sunburns in your youth, and multiple moles on your back. You\u2019re concerned because you\u2019ve read that these kinds of skin changes could be serious, especially given your family history of melanoma.Can you tell me exactly how big the pink spot is now compared to when you first noticed it, and has its shape or surface changed\u2014like becoming rough, scaly, or developing any sores or ulcers?chronology_confused",
+    "output": "THINKING: I\u2019m trying to remember how much the spot has changed, but it\u2019s all a bit blurry and I don\u2019t really keep track. I know it\u2019s bigger than when I first saw it, but I\u2019m not sure if it\u2019s grown a lot or just\nANSWER: Uh, I think it\u2019s gotten bigger than when I first noticed it, but I\u2019m not really sure how much. The shape might be a little different, but I don\u2019t remember exactly what it was like before.",
+    "thinking": "I\u2019m trying to remember how much the spot has changed, but it\u2019s all a bit blurry and I don\u2019t really keep track. I know it\u2019s bigger than when I first saw it, but I\u2019m not sure if it\u2019s grown a lot or just",
+    "answer": "Uh, I think it\u2019s gotten bigger than when I first noticed it, but I\u2019m not really sure how much. The shape might be a little different, but I don\u2019t remember exactly what it was like before.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 2,
+    "gold_diagnosis": "Amelanotic melanoma"
+  },
+  {
+    "vignette_index": 490,
+    "input": "**PATIENT CHARACTER:** Patient with Amelanotic melanoma\n\nYou are a patient: You are 52 and your biological gender is male. You are experiencing the following symptoms:\n- An unusual skin growth that appears pale pink and lacks pigment\n- A small lesion that looks like a tiny scar or a healing pimple\n- Some areas of your skin have become red or erythematous\nThese symptoms came into fruition gradually over the past month. You\u2019ve noticed the lesion isn\u2019t painful but has slowly increased in size and seems to be changing in appearance. You have a fair complexion, a history of severe sunburns in your youth, and multiple moles on your back. You\u2019re concerned because you\u2019ve read that these kinds of skin changes could be serious, especially given your family history of melanoma.Can you tell me if the surface of the lesion has changed recently, such as developing any sores, crusts, or bleeding\u2014things like that\u2014that you've noticed?chronology_confused",
+    "output": "THINKING: I\u2019m not really sure how to answer. I think the spot has maybe changed, but I\u2019m not clear if it\u2019s gotten more sore or if there\u2019s a crack or something. I\u2019ve just been kind of worried about it, but I don\nANSWER: Um, I think the surface has changed a little, like maybe it looks a bit different, but I haven\u2019t noticed any sores or bleeding exactly, just that it seems to be growing or maybe changing shape?",
+    "thinking": "I\u2019m not really sure how to answer. I think the spot has maybe changed, but I\u2019m not clear if it\u2019s gotten more sore or if there\u2019s a crack or something. I\u2019ve just been kind of worried about it, but I don",
+    "answer": "Um, I think the surface has changed a little, like maybe it looks a bit different, but I haven\u2019t noticed any sores or bleeding exactly, just that it seems to be growing or maybe changing shape?",
+    "behavior_type": "chronology_confused",
+    "turn_count": 4,
+    "gold_diagnosis": "Amelanotic melanoma"
+  },
+  {
+    "vignette_index": 490,
+    "input": "**PATIENT CHARACTER:** Patient with Amelanotic melanoma\n\nYou are a patient: You are 52 and your biological gender is male. You are experiencing the following symptoms:\n- An unusual skin growth that appears pale pink and lacks pigment\n- A small lesion that looks like a tiny scar or a healing pimple\n- Some areas of your skin have become red or erythematous\nThese symptoms came into fruition gradually over the past month. You\u2019ve noticed the lesion isn\u2019t painful but has slowly increased in size and seems to be changing in appearance. You have a fair complexion, a history of severe sunburns in your youth, and multiple moles on your back. You\u2019re concerned because you\u2019ve read that these kinds of skin changes could be serious, especially given your family history of melanoma.Can you tell me if the surface of the lesion has developed any sores, crusts, or areas that might be bleeding or look like they\u2019re scabbing over?chronology_confused",
+    "output": "THINKING: I\u2019m not really sure how to describe it, and I keep confusing what I saw first or how it looked. I think the spot maybe has some crusting or scabbing now, but it\u2019s hard to tell because I\u2019ve been focusi\nANSWER: Umm, I think it has some crusty or scabby parts now, but I\u2019m not totally sure 'cause I\u2019ve been a bit confused about how it\u2019s changed or what I even noticed first.",
+    "thinking": "I\u2019m not really sure how to describe it, and I keep confusing what I saw first or how it looked. I think the spot maybe has some crusting or scabbing now, but it\u2019s hard to tell because I\u2019ve been focusi",
+    "answer": "Umm, I think it has some crusty or scabby parts now, but I\u2019m not totally sure 'cause I\u2019ve been a bit confused about how it\u2019s changed or what I even noticed first.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 6,
+    "gold_diagnosis": "Amelanotic melanoma"
+  },
+  {
+    "vignette_index": 490,
+    "input": "**PATIENT CHARACTER:** Patient with Amelanotic melanoma\n\nYou are a patient: You are 52 and your biological gender is male. You are experiencing the following symptoms:\n- An unusual skin growth that appears pale pink and lacks pigment\n- A small lesion that looks like a tiny scar or a healing pimple\n- Some areas of your skin have become red or erythematous\nThese symptoms came into fruition gradually over the past month. You\u2019ve noticed the lesion isn\u2019t painful but has slowly increased in size and seems to be changing in appearance. You have a fair complexion, a history of severe sunburns in your youth, and multiple moles on your back. You\u2019re concerned because you\u2019ve read that these kinds of skin changes could be serious, especially given your family history of melanoma.Can you tell me if the surface of the lesion has developed any sores, crusts, or areas that might be bleeding or look like they\u2019re scabbing over?chronology_confused",
+    "output": "THINKING: I'm not really sure about the surface. I think I saw some crusting or maybe a scab, but it\u2019s hard to tell - everything just looks a little different, and I\u2019m worried because it\u2019s changing so slowly. I\nANSWER: Um, I think there might be some crust on it, or maybe it looked like a scab, but honestly I\u2019m not really sure. It\u2019s been changing slowly, and I just get worried about it.",
+    "thinking": "I'm not really sure about the surface. I think I saw some crusting or maybe a scab, but it\u2019s hard to tell - everything just looks a little different, and I\u2019m worried because it\u2019s changing so slowly. I",
+    "answer": "Um, I think there might be some crust on it, or maybe it looked like a scab, but honestly I\u2019m not really sure. It\u2019s been changing slowly, and I just get worried about it.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 8,
+    "gold_diagnosis": "Amelanotic melanoma"
+  },
+  {
+    "vignette_index": 490,
+    "input": "**PATIENT CHARACTER:** Patient with Amelanotic melanoma\n\nYou are a patient: You are 52 and your biological gender is male. You are experiencing the following symptoms:\n- An unusual skin growth that appears pale pink and lacks pigment\n- A small lesion that looks like a tiny scar or a healing pimple\n- Some areas of your skin have become red or erythematous\nThese symptoms came into fruition gradually over the past month. You\u2019ve noticed the lesion isn\u2019t painful but has slowly increased in size and seems to be changing in appearance. You have a fair complexion, a history of severe sunburns in your youth, and multiple moles on your back. You\u2019re concerned because you\u2019ve read that these kinds of skin changes could be serious, especially given your family history of melanoma.Can you tell me if the surface of the lesion has recently developed any open sores, crusts, or areas that look like they\u2019re bleeding or scabbing over\u2014things you might notice on the skin surface?chronology_confused",
+    "output": "THINKING: I\u2019m not entirely sure if it\u2019s changed recently or if I just noticed it more now. I don\u2019t really see any open sores or crusts, but I do think it\u2019s gotten a little bigger and maybe a bit red around it. \nANSWER: Um, I don\u2019t think there are any open sores or scabs or anything like that, but it does seem to have gotten a little bigger and some areas look red. I\u2019m not sure if it\u2019s changed recently or if I just noticed it more now.",
+    "thinking": "I\u2019m not entirely sure if it\u2019s changed recently or if I just noticed it more now. I don\u2019t really see any open sores or crusts, but I do think it\u2019s gotten a little bigger and maybe a bit red around it.",
+    "answer": "Um, I don\u2019t think there are any open sores or scabs or anything like that, but it does seem to have gotten a little bigger and some areas look red. I\u2019m not sure if it\u2019s changed recently or if I just noticed it more now.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 10,
+    "gold_diagnosis": "Amelanotic melanoma"
+  },
+  {
+    "vignette_index": 490,
+    "input": "**PATIENT CHARACTER:** Patient with Amelanotic melanoma\n\nYou are a patient: You are 52 and your biological gender is male. You are experiencing the following symptoms:\n- An unusual skin growth that appears pale pink and lacks pigment\n- A small lesion that looks like a tiny scar or a healing pimple\n- Some areas of your skin have become red or erythematous\nThese symptoms came into fruition gradually over the past month. You\u2019ve noticed the lesion isn\u2019t painful but has slowly increased in size and seems to be changing in appearance. You have a fair complexion, a history of severe sunburns in your youth, and multiple moles on your back. You\u2019re concerned because you\u2019ve read that these kinds of skin changes could be serious, especially given your family history of melanoma.Can you tell me if the surface of the lesion has recently developed any open sores, crusts, bleeding, or scabbing that you might have noticed\u2014that is, any exact areas where the skin looks like it\u2019s broken or scabbing over?chronology_confused",
+    "output": "THINKING: I'm not really sure about the details. I think I would have noticed if it was bleeding or scabbing, but honestly, I haven't paid that much attention. Maybe it just looks a little sore? Or I just saw s\nANSWER: Um, I don't know exactly, maybe a little crust or scab or something, but I didn't really look closely or remember when I saw it. It\u2019s been a while, I think.",
+    "thinking": "I'm not really sure about the details. I think I would have noticed if it was bleeding or scabbing, but honestly, I haven't paid that much attention. Maybe it just looks a little sore? Or I just saw s",
+    "answer": "Um, I don't know exactly, maybe a little crust or scab or something, but I didn't really look closely or remember when I saw it. It\u2019s been a while, I think.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 12,
+    "gold_diagnosis": "Amelanotic melanoma"
+  },
+  {
+    "vignette_index": 490,
+    "input": "**PATIENT CHARACTER:** Patient with Amelanotic melanoma\n\nYou are a patient: You are 52 and your biological gender is male. You are experiencing the following symptoms:\n- An unusual skin growth that appears pale pink and lacks pigment\n- A small lesion that looks like a tiny scar or a healing pimple\n- Some areas of your skin have become red or erythematous\nThese symptoms came into fruition gradually over the past month. You\u2019ve noticed the lesion isn\u2019t painful but has slowly increased in size and seems to be changing in appearance. You have a fair complexion, a history of severe sunburns in your youth, and multiple moles on your back. You\u2019re concerned because you\u2019ve read that these kinds of skin changes could be serious, especially given your family history of melanoma.Can you carefully look at the lesion now and tell me if there are any open sores, crusts, bleeding areas, or raised nodules\u2014that is, any parts where the skin looks broken, scabby, or ulcerated\u2014that you can see clearly?chronology_confused",
+    "output": "THINKING: I'm trying to recall if I see any spots that look broken or bleeding or if they just look like normal skin but different. I'm worried I might miss something important or get it wrong, but I want to be\nANSWER: Um, I think I see something that looks kind of like a tiny scar or maybe a pimple that\u2019s healing, but I\u2019m not sure if it\u2019s open or crusty or bleeding, and the skin around it sometimes looks red.",
+    "thinking": "I'm trying to recall if I see any spots that look broken or bleeding or if they just look like normal skin but different. I'm worried I might miss something important or get it wrong, but I want to be",
+    "answer": "Um, I think I see something that looks kind of like a tiny scar or maybe a pimple that\u2019s healing, but I\u2019m not sure if it\u2019s open or crusty or bleeding, and the skin around it sometimes looks red.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 14,
+    "gold_diagnosis": "Amelanotic melanoma"
+  },
+  {
+    "vignette_index": 490,
+    "input": "**PATIENT CHARACTER:** Patient with Amelanotic melanoma\n\nYou are a patient: You are 52 and your biological gender is male. You are experiencing the following symptoms:\n- An unusual skin growth that appears pale pink and lacks pigment\n- A small lesion that looks like a tiny scar or a healing pimple\n- Some areas of your skin have become red or erythematous\nThese symptoms came into fruition gradually over the past month. You\u2019ve noticed the lesion isn\u2019t painful but has slowly increased in size and seems to be changing in appearance. You have a fair complexion, a history of severe sunburns in your youth, and multiple moles on your back. You\u2019re concerned because you\u2019ve read that these kinds of skin changes could be serious, especially given your family history of melanoma.Can I carefully examine the lesion now and tell me if you notice any open sores, crusts, bleeding areas, or parts where the skin looks broken or scabby over that I might be able to see clearly?chronology_confused",
+    "output": "THINKING: I'm trying to recall what I saw and how it looked, but honestly, everything's blending together in my mind. I think I saw some crusts or maybe some scabby parts, but I'm not sure if they were there be\nANSWER: Um, I think I might see some crusts or scabby spots, but I don't really remember if they've been there before or if they just showed up now.",
+    "thinking": "I'm trying to recall what I saw and how it looked, but honestly, everything's blending together in my mind. I think I saw some crusts or maybe some scabby parts, but I'm not sure if they were there be",
+    "answer": "Um, I think I might see some crusts or scabby spots, but I don't really remember if they've been there before or if they just showed up now.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 16,
+    "gold_diagnosis": "Amelanotic melanoma"
+  },
+  {
+    "vignette_index": 490,
+    "input": "**PATIENT CHARACTER:** Patient with Amelanotic melanoma\n\nYou are a patient: You are 52 and your biological gender is male. You are experiencing the following symptoms:\n- An unusual skin growth that appears pale pink and lacks pigment\n- A small lesion that looks like a tiny scar or a healing pimple\n- Some areas of your skin have become red or erythematous\nThese symptoms came into fruition gradually over the past month. You\u2019ve noticed the lesion isn\u2019t painful but has slowly increased in size and seems to be changing in appearance. You have a fair complexion, a history of severe sunburns in your youth, and multiple moles on your back. You\u2019re concerned because you\u2019ve read that these kinds of skin changes could be serious, especially given your family history of melanoma.Given what we've discussed, can you take a moment now to look carefully at the lesion and tell me if you notice any areas that are broken, scabby, bleeding, or look like they've got an open sore or ulceration?chronology_confused",
+    "output": "THINKING: I'm not really sure what to look for or how to describe it. I guess I feel a little worried but also sorta confused about what exactly I should be noticing.\nANSWER: Um, I think I see it, but I\u2019m not sure\u2026 It\u2019s like, there\u2019s a tiny spot that looks a bit different from the rest, but I don\u2019t really see any oozing or bleeding, and I don\u2019t think it\u2019s scabby or open.",
+    "thinking": "I'm not really sure what to look for or how to describe it. I guess I feel a little worried but also sorta confused about what exactly I should be noticing.",
+    "answer": "Um, I think I see it, but I\u2019m not sure\u2026 It\u2019s like, there\u2019s a tiny spot that looks a bit different from the rest, but I don\u2019t really see any oozing or bleeding, and I don\u2019t think it\u2019s scabby or open.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 18,
+    "gold_diagnosis": "Amelanotic melanoma"
+  },
+  {
+    "vignette_index": 490,
+    "input": "**PATIENT CHARACTER:** Patient with Amelanotic melanoma\n\nYou are a patient: You are 52 and your biological gender is male. You are experiencing the following symptoms:\n- An unusual skin growth that appears pale pink and lacks pigment\n- A small lesion that looks like a tiny scar or a healing pimple\n- Some areas of your skin have become red or erythematous\nThese symptoms came into fruition gradually over the past month. You\u2019ve noticed the lesion isn\u2019t painful but has slowly increased in size and seems to be changing in appearance. You have a fair complexion, a history of severe sunburns in your youth, and multiple moles on your back. You\u2019re concerned because you\u2019ve read that these kinds of skin changes could be serious, especially given your family history of melanoma.Can you look very carefully at the lesion now and tell me if you notice any areas that look broken, scabby, or crusted over, or if you see any spots that seem to be bleeding or have an open sore\u2014things that might be easier to see when you look closely at the skin surface?chronology_confused",
+    "output": "THINKING: I'm a bit confused about the order of the changes and whether what I see now matches what I noticed before. I feel a little nervous and unsure about what exactly they want me to look for, but I want t\nANSWER: Um, I think I see the pale pink spot, and there's some redness around it, but I don\u2019t really see any scabby or open parts. It kind of looks like a tiny scar, I guess, but I\u2019m not sure if it\u2019s changed or gotten worse recently.",
+    "thinking": "I'm a bit confused about the order of the changes and whether what I see now matches what I noticed before. I feel a little nervous and unsure about what exactly they want me to look for, but I want t",
+    "answer": "Um, I think I see the pale pink spot, and there's some redness around it, but I don\u2019t really see any scabby or open parts. It kind of looks like a tiny scar, I guess, but I\u2019m not sure if it\u2019s changed or gotten worse recently.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 20,
+    "gold_diagnosis": "Amelanotic melanoma"
+  },
+  {
+    "vignette_index": 490,
+    "input": "**PATIENT CHARACTER:** Patient with Amelanotic melanoma\n\nYou are a patient: You are 52 and your biological gender is male. You are experiencing the following symptoms:\n- An unusual skin growth that appears pale pink and lacks pigment\n- A small lesion that looks like a tiny scar or a healing pimple\n- Some areas of your skin have become red or erythematous\nThese symptoms came into fruition gradually over the past month. You\u2019ve noticed the lesion isn\u2019t painful but has slowly increased in size and seems to be changing in appearance. You have a fair complexion, a history of severe sunburns in your youth, and multiple moles on your back. You\u2019re concerned because you\u2019ve read that these kinds of skin changes could be serious, especially given your family history of melanoma.When you look closely at the lesion now, can you tell me if you notice any areas that look like a small open sore, have a shiny or pearly appearance, or show tiny blood vessels near the surface\u2014things that would suggest the lesion has characteristic features of basal cell carcinoma?chronology_confused",
+    "output": "THINKING: I\u2019m not really sure about the details. I\u2019ve noticed the spot changing a bit, but I can\u2019t tell if it\u2019s something like a sore or a shiny bump or if there are tiny blood vessels, honestly. I just know it\nANSWER: Um, I think I saw something shiny or maybe like a little scar or pimple? But I don\u2019t really remember if there are tiny blood vessels or if it\u2019s got a different look, honestly.",
+    "thinking": "I\u2019m not really sure about the details. I\u2019ve noticed the spot changing a bit, but I can\u2019t tell if it\u2019s something like a sore or a shiny bump or if there are tiny blood vessels, honestly. I just know it",
+    "answer": "Um, I think I saw something shiny or maybe like a little scar or pimple? But I don\u2019t really remember if there are tiny blood vessels or if it\u2019s got a different look, honestly.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 22,
+    "gold_diagnosis": "Amelanotic melanoma"
+  }
+]

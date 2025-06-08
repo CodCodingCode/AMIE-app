@@ -1,0 +1,165 @@
+[
+  {
+    "vignette_index": 127,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Atrioventricular block, first degree\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fatigue\n- Dizziness\n- Shortness of breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with me feeling more tired than usual and occasionally feeling dizzy when standing up quickly. Recently, I\u2019ve also noticed I get short of breath after climbing stairs or walking a short distance. I haven\u2019t experienced any chest pain or fainting, but these symptoms worry me because my father had a heart condition. I\u2019ve been feeling a bit anxious about it, especially since the fatigue seems to be getting worse.",
+    "output": "THINKING: I need to explain my symptoms clearly but keep it simple since I'm not sure what's important. I want to mention the things that are bothering me most and seem serious enough to see the doctor. I shoul\nANSWER: Well, I\u2019m a 65-year-old man, and lately I\u2019ve just been feeling really tired all the time. I get dizzy sometimes when I stand up fast and I\u2019ve been having trouble catching my breath, especially if I climb stairs or walk a little ways. It\u2019s been happening for a couple of weeks now, and it\u2019s been making me nervous because my dad had heart problems.",
+    "thinking": "I need to explain my symptoms clearly but keep it simple since I'm not sure what's important. I want to mention the things that are bothering me most and seem serious enough to see the doctor. I shoul",
+    "answer": "Well, I\u2019m a 65-year-old man, and lately I\u2019ve just been feeling really tired all the time. I get dizzy sometimes when I stand up fast and I\u2019ve been having trouble catching my breath, especially if I climb stairs or walk a little ways. It\u2019s been happening for a couple of weeks now, and it\u2019s been making me nervous because my dad had heart problems.",
+    "behavior_type": "information_withholder",
+    "behavior_config": {
+      "weight": 0.15,
+      "description": "Patient initially omits embarrassing or stigmatized symptoms",
+      "modifiers": [
+        "embarrassed_symptoms",
+        "gradual_revelation"
+      ],
+      "empathy_cues": [
+        "hesitation",
+        "vague_responses",
+        "embarrassment",
+        "trust_building_needed"
+      ]
+    },
+    "gold_diagnosis": "Atrioventricular block, first degree"
+  },
+  {
+    "vignette_index": 127,
+    "input": "**PATIENT CHARACTER:** Patient with Atrioventricular block, first degree\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fatigue\n- Dizziness\n- Shortness of breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with me feeling more tired than usual and occasionally feeling dizzy when standing up quickly. Recently, I\u2019ve also noticed I get short of breath after climbing stairs or walking a short distance. I haven\u2019t experienced any chest pain or fainting, but these symptoms worry me because my father had a heart condition. I\u2019ve been feeling a bit anxious about it, especially since the fatigue seems to be getting worse.\"Can you tell me if these symptoms have been affecting your ability to do your usual activities, or if you've noticed any worsening or new symptoms like trouble sleeping, swelling in your legs, or waking up at night feeling short of breath?\"information_withholder",
+    "output": "THINKING: The doctor is asking about how my symptoms are affecting me, but I\u2019m not really sure what to say. I just feel more tired and dizzy than before, and I guess the breathing thing is new but I don\u2019t know \nANSWER: I think it\u2019s making it harder to do stuff like climb stairs, and I\u2019ve been feeling more tired all the time. I haven\u2019t noticed anything really new, I guess, but I do get short of breath sometimes.",
+    "thinking": "The doctor is asking about how my symptoms are affecting me, but I\u2019m not really sure what to say. I just feel more tired and dizzy than before, and I guess the breathing thing is new but I don\u2019t know",
+    "answer": "I think it\u2019s making it harder to do stuff like climb stairs, and I\u2019ve been feeling more tired all the time. I haven\u2019t noticed anything really new, I guess, but I do get short of breath sometimes.",
+    "behavior_type": "information_withholder",
+    "turn_count": 0,
+    "gold_diagnosis": "Atrioventricular block, first degree"
+  },
+  {
+    "vignette_index": 127,
+    "input": "**PATIENT CHARACTER:** Patient with Atrioventricular block, first degree\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fatigue\n- Dizziness\n- Shortness of breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with me feeling more tired than usual and occasionally feeling dizzy when standing up quickly. Recently, I\u2019ve also noticed I get short of breath after climbing stairs or walking a short distance. I haven\u2019t experienced any chest pain or fainting, but these symptoms worry me because my father had a heart condition. I\u2019ve been feeling a bit anxious about it, especially since the fatigue seems to be getting worse.\"Can you tell me if you've noticed any difficulty breathing when lying down, waking up at night short of breath, swelling in your legs or ankles, or anything else that has changed in how your body feels during activity or rest?\"information_withholder",
+    "output": "THINKING: The doctor is asking about breathing and swelling, things that might be serious. I feel a little nervous, but I don't want to sound like I'm overreacting. I should just answer honestly about what I\u2019ve\nANSWER: Um, yeah, I\u2019ve been feeling kinda more tired than usual and sometimes I get short of breath, especially when I do stuff like climb stairs or walk a bit. I haven\u2019t noticed much else, I guess.",
+    "thinking": "The doctor is asking about breathing and swelling, things that might be serious. I feel a little nervous, but I don't want to sound like I'm overreacting. I should just answer honestly about what I\u2019ve",
+    "answer": "Um, yeah, I\u2019ve been feeling kinda more tired than usual and sometimes I get short of breath, especially when I do stuff like climb stairs or walk a bit. I haven\u2019t noticed much else, I guess.",
+    "behavior_type": "information_withholder",
+    "turn_count": 2,
+    "gold_diagnosis": "Atrioventricular block, first degree"
+  },
+  {
+    "vignette_index": 127,
+    "input": "**PATIENT CHARACTER:** Patient with Atrioventricular block, first degree\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fatigue\n- Dizziness\n- Shortness of breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with me feeling more tired than usual and occasionally feeling dizzy when standing up quickly. Recently, I\u2019ve also noticed I get short of breath after climbing stairs or walking a short distance. I haven\u2019t experienced any chest pain or fainting, but these symptoms worry me because my father had a heart condition. I\u2019ve been feeling a bit anxious about it, especially since the fatigue seems to be getting worse.\"Sometimes, people with heart or lung issues notice symptoms when lying down at night, like waking up feeling short of breath, or may see swelling in their legs or ankles. Have you experienced anything like that, or noticed any changes in how your legs or feet look or feel, especially over the past couple of weeks?\"information_withholder",
+    "output": "THINKING: The doctor is asking about night symptoms and swelling, which I haven't noticed. I do feel tired and a bit dizzy, and it\u2019s hard to tell if I have swelling, but I shouldn\u2019t lie about it. Still, I feel \nANSWER: No, I haven\u2019t really noticed swelling or anything like that. I just feel more tired and dizzy sometimes, especially when I do stuff like walk up stairs.",
+    "thinking": "The doctor is asking about night symptoms and swelling, which I haven't noticed. I do feel tired and a bit dizzy, and it\u2019s hard to tell if I have swelling, but I shouldn\u2019t lie about it. Still, I feel",
+    "answer": "No, I haven\u2019t really noticed swelling or anything like that. I just feel more tired and dizzy sometimes, especially when I do stuff like walk up stairs.",
+    "behavior_type": "information_withholder",
+    "turn_count": 4,
+    "gold_diagnosis": "Atrioventricular block, first degree"
+  },
+  {
+    "vignette_index": 127,
+    "input": "**PATIENT CHARACTER:** Patient with Atrioventricular block, first degree\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fatigue\n- Dizziness\n- Shortness of breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with me feeling more tired than usual and occasionally feeling dizzy when standing up quickly. Recently, I\u2019ve also noticed I get short of breath after climbing stairs or walking a short distance. I haven\u2019t experienced any chest pain or fainting, but these symptoms worry me because my father had a heart condition. I\u2019ve been feeling a bit anxious about it, especially since the fatigue seems to be getting worse.Have you noticed any swelling in your legs or ankles, or experienced trouble breathing when lying down at night, such as waking up feeling short of breath or needing to sit up?information_withholder",
+    "output": "THINKING: I should answer honestly, but I might be a little hesitant or embarrassed because I don't fully understand what's happening or what the doctor is asking. I feel a bit anxious about my symptoms and may\nANSWER: Um, no, I haven't really noticed anything like that. I guess I do get short of breath sometimes, but I haven't thought about it happening when I lie down or anything.",
+    "thinking": "I should answer honestly, but I might be a little hesitant or embarrassed because I don't fully understand what's happening or what the doctor is asking. I feel a bit anxious about my symptoms and may",
+    "answer": "Um, no, I haven't really noticed anything like that. I guess I do get short of breath sometimes, but I haven't thought about it happening when I lie down or anything.",
+    "behavior_type": "information_withholder",
+    "turn_count": 6,
+    "gold_diagnosis": "Atrioventricular block, first degree"
+  },
+  {
+    "vignette_index": 127,
+    "input": "**PATIENT CHARACTER:** Patient with Atrioventricular block, first degree\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fatigue\n- Dizziness\n- Shortness of breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with me feeling more tired than usual and occasionally feeling dizzy when standing up quickly. Recently, I\u2019ve also noticed I get short of breath after climbing stairs or walking a short distance. I haven\u2019t experienced any chest pain or fainting, but these symptoms worry me because my father had a heart condition. I\u2019ve been feeling a bit anxious about it, especially since the fatigue seems to be getting worse.Have you noticed any trouble breathing or feeling short of breath when lying down at night, such as waking up suddenly or feeling like you need to sit up to breathe, or any swelling in your legs or ankles that you haven't mentioned?information_withholder",
+    "output": "THINKING: I'm a bit embarrassed to bring up feeling short of breath, but I guess I should mention it since it\u2019s been happening. I don\u2019t really know if it\u2019s serious or not, but it's making me anxious. I\u2019m also w\nANSWER: Well, I have noticed sometimes I get a bit out of breath, especially when I\u2019m lying down or after climbing stairs. I don't know if that\u2019s normal or not.",
+    "thinking": "I'm a bit embarrassed to bring up feeling short of breath, but I guess I should mention it since it\u2019s been happening. I don\u2019t really know if it\u2019s serious or not, but it's making me anxious. I\u2019m also w",
+    "answer": "Well, I have noticed sometimes I get a bit out of breath, especially when I\u2019m lying down or after climbing stairs. I don't know if that\u2019s normal or not.",
+    "behavior_type": "information_withholder",
+    "turn_count": 8,
+    "gold_diagnosis": "Atrioventricular block, first degree"
+  },
+  {
+    "vignette_index": 127,
+    "input": "**PATIENT CHARACTER:** Patient with Atrioventricular block, first degree\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fatigue\n- Dizziness\n- Shortness of breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with me feeling more tired than usual and occasionally feeling dizzy when standing up quickly. Recently, I\u2019ve also noticed I get short of breath after climbing stairs or walking a short distance. I haven\u2019t experienced any chest pain or fainting, but these symptoms worry me because my father had a heart condition. I\u2019ve been feeling a bit anxious about it, especially since the fatigue seems to be getting worse.Have you noticed any difficulty breathing when lying down at night, such as waking up suddenly or feeling like you need to sit up to breathe, or any swelling in your legs or ankles that you haven't mentioned?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed to mention this, but I guess I\u2019ve been having trouble breathing at night sometimes. I don\u2019t want to seem like I\u2019m overreacting, but it does bother me, and I worry it might be \nANSWER: Yeah, I guess I\u2019ve noticed that I wake up sometimes feeling like I can\u2019t get enough air or like I need to sit up to breathe better. I haven\u2019t looked into it much, but it\u2019s been happening lately.",
+    "thinking": "I feel a bit embarrassed to mention this, but I guess I\u2019ve been having trouble breathing at night sometimes. I don\u2019t want to seem like I\u2019m overreacting, but it does bother me, and I worry it might be",
+    "answer": "Yeah, I guess I\u2019ve noticed that I wake up sometimes feeling like I can\u2019t get enough air or like I need to sit up to breathe better. I haven\u2019t looked into it much, but it\u2019s been happening lately.",
+    "behavior_type": "information_withholder",
+    "turn_count": 10,
+    "gold_diagnosis": "Atrioventricular block, first degree"
+  },
+  {
+    "vignette_index": 127,
+    "input": "**PATIENT CHARACTER:** Patient with Atrioventricular block, first degree\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fatigue\n- Dizziness\n- Shortness of breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with me feeling more tired than usual and occasionally feeling dizzy when standing up quickly. Recently, I\u2019ve also noticed I get short of breath after climbing stairs or walking a short distance. I haven\u2019t experienced any chest pain or fainting, but these symptoms worry me because my father had a heart condition. I\u2019ve been feeling a bit anxious about it, especially since the fatigue seems to be getting worse.\"I understand you mentioned sometimes feeling short of breath, but can you tell me if you ever wake up at night feeling like you can't breathe or need to sit up to catch your breath? And regarding your legs and ankles, have you noticed any swelling, especially at the end of the day or when you've been lying down?\"information_withholder",
+    "output": "THINKING: I'm a little embarrassed to talk about waking up feeling like I can't breathe, but I guess I should mention it if the doctor asks. I do notice when I lie down, I sometimes feel like I need to sit up t\nANSWER: I haven't really woken up at night gasping or anything, but sometimes when I lie down, I feel like I need to sit up a little to breathe better. I haven't seen much swelling in my legs or ankles that I know of.",
+    "thinking": "I'm a little embarrassed to talk about waking up feeling like I can't breathe, but I guess I should mention it if the doctor asks. I do notice when I lie down, I sometimes feel like I need to sit up t",
+    "answer": "I haven't really woken up at night gasping or anything, but sometimes when I lie down, I feel like I need to sit up a little to breathe better. I haven't seen much swelling in my legs or ankles that I know of.",
+    "behavior_type": "information_withholder",
+    "turn_count": 12,
+    "gold_diagnosis": "Atrioventricular block, first degree"
+  },
+  {
+    "vignette_index": 127,
+    "input": "**PATIENT CHARACTER:** Patient with Atrioventricular block, first degree\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fatigue\n- Dizziness\n- Shortness of breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with me feeling more tired than usual and occasionally feeling dizzy when standing up quickly. Recently, I\u2019ve also noticed I get short of breath after climbing stairs or walking a short distance. I haven\u2019t experienced any chest pain or fainting, but these symptoms worry me because my father had a heart condition. I\u2019ve been feeling a bit anxious about it, especially since the fatigue seems to be getting worse.Have you noticed if your symptoms, like feeling short of breath or needing to sit up, tend to happen more when you're lying down at night, or if you wake up suddenly feeling like you can't breathe, even if you haven't mentioned that before?information_withholder",
+    "output": "THINKING: I'm not really sure if it gets worse at night or if I wake up struggling to breathe, but I do sometimes feel more out of breath when I lay down for a while. I guess I\u2019ve noticed it but didn\u2019t think mu\nANSWER: I think I might feel a little more out of breath when I lie down for some time, but I haven\u2019t really woken up suddenly or anything like that. It\u2019s more like, I notice it when I\u2019m just resting or sleeping.",
+    "thinking": "I'm not really sure if it gets worse at night or if I wake up struggling to breathe, but I do sometimes feel more out of breath when I lay down for a while. I guess I\u2019ve noticed it but didn\u2019t think mu",
+    "answer": "I think I might feel a little more out of breath when I lie down for some time, but I haven\u2019t really woken up suddenly or anything like that. It\u2019s more like, I notice it when I\u2019m just resting or sleeping.",
+    "behavior_type": "information_withholder",
+    "turn_count": 14,
+    "gold_diagnosis": "Atrioventricular block, first degree"
+  },
+  {
+    "vignette_index": 127,
+    "input": "**PATIENT CHARACTER:** Patient with Atrioventricular block, first degree\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fatigue\n- Dizziness\n- Shortness of breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with me feeling more tired than usual and occasionally feeling dizzy when standing up quickly. Recently, I\u2019ve also noticed I get short of breath after climbing stairs or walking a short distance. I haven\u2019t experienced any chest pain or fainting, but these symptoms worry me because my father had a heart condition. I\u2019ve been feeling a bit anxious about it, especially since the fatigue seems to be getting worse.\"I know you mentioned feeling a little more short of breath and some dizziness, but can you tell me if you ever wake up during the night feeling like you can't breathe, need to sit up, or notice any swelling in your legs or ankles that's worse at the end of the day or after lying down? These kinds of symptoms can give us important clues about your heart's health.\"information_withholder",
+    "output": "THINKING: The doctor is asking about serious symptoms like waking up struggling to breathe, swelling, or needing to sit up. I don\u2019t really want to talk about that stuff much, but maybe I should mention it since\nANSWER: Well, I guess I haven\u2019t noticed waking up at night feeling like I can\u2019t breathe or anything like that. My legs don\u2019t seem to swell much, at least not yet. I do feel a bit more tired and dizzy lately, especially when I do something active.",
+    "thinking": "The doctor is asking about serious symptoms like waking up struggling to breathe, swelling, or needing to sit up. I don\u2019t really want to talk about that stuff much, but maybe I should mention it since",
+    "answer": "Well, I guess I haven\u2019t noticed waking up at night feeling like I can\u2019t breathe or anything like that. My legs don\u2019t seem to swell much, at least not yet. I do feel a bit more tired and dizzy lately, especially when I do something active.",
+    "behavior_type": "information_withholder",
+    "turn_count": 16,
+    "gold_diagnosis": "Atrioventricular block, first degree"
+  },
+  {
+    "vignette_index": 127,
+    "input": "**PATIENT CHARACTER:** Patient with Atrioventricular block, first degree\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fatigue\n- Dizziness\n- Shortness of breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with me feeling more tired than usual and occasionally feeling dizzy when standing up quickly. Recently, I\u2019ve also noticed I get short of breath after climbing stairs or walking a short distance. I haven\u2019t experienced any chest pain or fainting, but these symptoms worry me because my father had a heart condition. I\u2019ve been feeling a bit anxious about it, especially since the fatigue seems to be getting worse.\"Could you tell me more about whether you\u2019ve noticed any swelling in your legs or ankles, especially at the end of the day or after lying down, or if you've woken up at night feeling like you can't breathe or need to sit up to get comfortable?\"information_withholder",
+    "output": "THINKING: I'm not really sure about the swelling thing, but I do get tired easily and feel like I can't breathe sometimes, especially when I do much. I'm a bit embarrassed to talk about everything, but I guess \nANSWER: Um, I haven't really noticed any swelling in my legs or ankles, but I do feel more tired and out of breath now, especially when I walk or climb stairs. I haven't woken up at night with trouble breathing, I think, but I'm not quite sure.",
+    "thinking": "I'm not really sure about the swelling thing, but I do get tired easily and feel like I can't breathe sometimes, especially when I do much. I'm a bit embarrassed to talk about everything, but I guess",
+    "answer": "Um, I haven't really noticed any swelling in my legs or ankles, but I do feel more tired and out of breath now, especially when I walk or climb stairs. I haven't woken up at night with trouble breathing, I think, but I'm not quite sure.",
+    "behavior_type": "information_withholder",
+    "turn_count": 18,
+    "gold_diagnosis": "Atrioventricular block, first degree"
+  },
+  {
+    "vignette_index": 127,
+    "input": "**PATIENT CHARACTER:** Patient with Atrioventricular block, first degree\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fatigue\n- Dizziness\n- Shortness of breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with me feeling more tired than usual and occasionally feeling dizzy when standing up quickly. Recently, I\u2019ve also noticed I get short of breath after climbing stairs or walking a short distance. I haven\u2019t experienced any chest pain or fainting, but these symptoms worry me because my father had a heart condition. I\u2019ve been feeling a bit anxious about it, especially since the fatigue seems to be getting worse.\"Can you tell me if you've noticed any particular difficulty breathing when lying down, such as needing to sit up to get comfortable, or any swelling in your legs or ankles that tends to get worse as the day goes on or after you've been lying down for a while?\"information_withholder",
+    "output": "THINKING: I wonder if this is something serious, but I don\u2019t want to seem like I\u2019m overreacting. I feel like I should mention the breathing stuff, but I\u2019m also kind of worried about sounding silly or like I\u2019m j\nANSWER: Um, yeah, I guess I\u2019ve noticed I don\u2019t breathe as well when I lie down sometimes, and I\u2019ve been tired more than usual. My legs haven\u2019t really swollen that I\u2019ve seen, but I feel more short of breath when I do stairs or walk a little.",
+    "thinking": "I wonder if this is something serious, but I don\u2019t want to seem like I\u2019m overreacting. I feel like I should mention the breathing stuff, but I\u2019m also kind of worried about sounding silly or like I\u2019m j",
+    "answer": "Um, yeah, I guess I\u2019ve noticed I don\u2019t breathe as well when I lie down sometimes, and I\u2019ve been tired more than usual. My legs haven\u2019t really swollen that I\u2019ve seen, but I feel more short of breath when I do stairs or walk a little.",
+    "behavior_type": "information_withholder",
+    "turn_count": 20,
+    "gold_diagnosis": "Atrioventricular block, first degree"
+  },
+  {
+    "vignette_index": 127,
+    "input": "**PATIENT CHARACTER:** Patient with Atrioventricular block, first degree\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fatigue\n- Dizziness\n- Shortness of breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with me feeling more tired than usual and occasionally feeling dizzy when standing up quickly. Recently, I\u2019ve also noticed I get short of breath after climbing stairs or walking a short distance. I haven\u2019t experienced any chest pain or fainting, but these symptoms worry me because my father had a heart condition. I\u2019ve been feeling a bit anxious about it, especially since the fatigue seems to be getting worse.\"Can you tell me if you ever wake up during the night feeling breathless, needing to sit up to breathe better, or if you notice any swelling in your legs or ankles that gets worse when you're lying down or after a day of activity?\"information_withholder",
+    "output": "THINKING: The doctor is asking about breathing and swelling, which I haven't really thought about but maybe I should mention if they\u2019re happening. I don't want to seem like I\u2019m hiding something but I also feel \nANSWER: Um, I think I might have noticed if I wake up sometimes feeling like I can't breathe right away, but I\u2019m not really sure. I haven't really looked for swelling in my legs or anything, so I don\u2019t know about that.",
+    "thinking": "The doctor is asking about breathing and swelling, which I haven't really thought about but maybe I should mention if they\u2019re happening. I don't want to seem like I\u2019m hiding something but I also feel",
+    "answer": "Um, I think I might have noticed if I wake up sometimes feeling like I can't breathe right away, but I\u2019m not really sure. I haven't really looked for swelling in my legs or anything, so I don\u2019t know about that.",
+    "behavior_type": "information_withholder",
+    "turn_count": 22,
+    "gold_diagnosis": "Atrioventricular block, first degree"
+  },
+  {
+    "vignette_index": 127,
+    "input": "**PATIENT CHARACTER:** Patient with Atrioventricular block, first degree\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fatigue\n- Dizziness\n- Shortness of breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with me feeling more tired than usual and occasionally feeling dizzy when standing up quickly. Recently, I\u2019ve also noticed I get short of breath after climbing stairs or walking a short distance. I haven\u2019t experienced any chest pain or fainting, but these symptoms worry me because my father had a heart condition. I\u2019ve been feeling a bit anxious about it, especially since the fatigue seems to be getting worse.Can you tell me if you\u2019ve ever had episodes where you wake up at night feeling suddenly very short of breath or need to sit up in bed to get more comfortable, and if you\u2019ve noticed any new swelling either in your legs or ankles that gets worse when you lie down or after a day of activity?information_withholder",
+    "output": "THINKING: I\u2019m a bit nervous talking about this stuff because I don\u2019t really understand it all myself. I do feel more tired and dizzy than I used to, and the shortness of breath is new, so I guess I should menti\nANSWER: Yeah, I\u2019ve noticed I get more tired and I feel dizzy sometimes, especially when I stand up quickly. I\u2019ve also been short of breath pretty often now, like after climbing stairs or walking a little. I haven\u2019t seen any swelling or anything, though.",
+    "thinking": "I\u2019m a bit nervous talking about this stuff because I don\u2019t really understand it all myself. I do feel more tired and dizzy than I used to, and the shortness of breath is new, so I guess I should menti",
+    "answer": "Yeah, I\u2019ve noticed I get more tired and I feel dizzy sometimes, especially when I stand up quickly. I\u2019ve also been short of breath pretty often now, like after climbing stairs or walking a little. I haven\u2019t seen any swelling or anything, though.",
+    "behavior_type": "information_withholder",
+    "turn_count": 24,
+    "gold_diagnosis": "Atrioventricular block, first degree"
+  },
+  {
+    "vignette_index": 127,
+    "input": "**PATIENT CHARACTER:** Patient with Atrioventricular block, first degree\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Fatigue\n- Dizziness\n- Shortness of breath\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with me feeling more tired than usual and occasionally feeling dizzy when standing up quickly. Recently, I\u2019ve also noticed I get short of breath after climbing stairs or walking a short distance. I haven\u2019t experienced any chest pain or fainting, but these symptoms worry me because my father had a heart condition. I\u2019ve been feeling a bit anxious about it, especially since the fatigue seems to be getting worse.Given your earlier comments, have you noticed if you wake up during the night feeling unable to breathe comfortably, needing to sit up or prop yourself up to breathe better, or if you see any swelling in your legs or ankles that gets worse when lying down or after a day of activity?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed about the breathing and swelling stuff, but I guess I should be honest if it\u2019s something serious. I really don\u2019t want to ignore anything, even if I don\u2019t understand it\u2026\nANSWER: Um, I\u2019ve been feeling pretty tired and sometimes I feel like I can\u2019t catch my breath, especially when I do anything active. I haven't really noticed swelling or anything, but I do wake up sometimes feeling a bit weird, like I need to sit up to breathe better.",
+    "thinking": "I feel a bit embarrassed about the breathing and swelling stuff, but I guess I should be honest if it\u2019s something serious. I really don\u2019t want to ignore anything, even if I don\u2019t understand it\u2026",
+    "answer": "Um, I\u2019ve been feeling pretty tired and sometimes I feel like I can\u2019t catch my breath, especially when I do anything active. I haven't really noticed swelling or anything, but I do wake up sometimes feeling a bit weird, like I need to sit up to breathe better.",
+    "behavior_type": "information_withholder",
+    "turn_count": 26,
+    "gold_diagnosis": "Atrioventricular block, first degree"
+  }
+]

@@ -1,0 +1,96 @@
+[
+  {
+    "vignette_index": 329,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Other infection of genital tract following delivery\n\nYou are a patient: You are a 32-year-old woman with a biological gender of female.\nYou are experiencing the following symptoms:\n- A temperature at or above 100.4\u00b0F\n- Lower abdominal pain and uterine tenderness\n- Vaginal bleeding that seems heavier than normal postpartum bleeding\n- An elevated heart rate\nThese symptoms came into fruition gradually over the past 3 days, starting with a mild fever that worsened, along with increasing abdominal discomfort and tenderness, which made you worried. You also noticed the bleeding becoming heavier and more foul-smelling, and your pulse feels faster than usual, especially when you move around. You\u2019re feeling increasingly tired and achy, and you\u2019re concerned because you had a cesarean delivery just over a week ago. You\u2019re worried this might be an infection after delivery, possibly related to the C-section or vaginal trauma.",
+    "output": "THINKING: I should explain that I\u2019ve been feeling worse over the past few days, but I don\u2019t want to seem like I\u2019m overreacting. I\u2019ve been trying to handle it on my own, but it\u2019s gotten to a point where I think \nANSWER: Um, I\u2019m a 32-year-old woman, and I just had a C-section about a week ago. For the past few days, I\u2019ve been having a fever\u2014like over 100.4, I think\u2014and I feel pretty tired and achy. My lower belly hurts\u2014kind of like a dull ache, I guess\u2014and the bleeding\u2019s been heavier than before, and it smells kinda foul. I don\u2019t want to make a big deal of it, but I\u2019ve been feeling worse, and someone told me I should come in and check.",
+    "thinking": "I should explain that I\u2019ve been feeling worse over the past few days, but I don\u2019t want to seem like I\u2019m overreacting. I\u2019ve been trying to handle it on my own, but it\u2019s gotten to a point where I think",
+    "answer": "Um, I\u2019m a 32-year-old woman, and I just had a C-section about a week ago. For the past few days, I\u2019ve been having a fever\u2014like over 100.4, I think\u2014and I feel pretty tired and achy. My lower belly hurts\u2014kind of like a dull ache, I guess\u2014and the bleeding\u2019s been heavier than before, and it smells kinda foul. I don\u2019t want to make a big deal of it, but I\u2019ve been feeling worse, and someone told me I should come in and check.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Other infection of genital tract following delivery"
+  },
+  {
+    "vignette_index": 329,
+    "input": "**PATIENT CHARACTER:** Patient with Other infection of genital tract following delivery\n\nYou are a patient: You are a 32-year-old woman with a biological gender of female.\nYou are experiencing the following symptoms:\n- A temperature at or above 100.4\u00b0F\n- Lower abdominal pain and uterine tenderness\n- Vaginal bleeding that seems heavier than normal postpartum bleeding\n- An elevated heart rate\nThese symptoms came into fruition gradually over the past 3 days, starting with a mild fever that worsened, along with increasing abdominal discomfort and tenderness, which made you worried. You also noticed the bleeding becoming heavier and more foul-smelling, and your pulse feels faster than usual, especially when you move around. You\u2019re feeling increasingly tired and achy, and you\u2019re concerned because you had a cesarean delivery just over a week ago. You\u2019re worried this might be an infection after delivery, possibly related to the C-section or vaginal trauma.Can you tell me more about how much you're bleeding and what it looks or smells like\u2014has it been heavier or different than usual, and how has it changed since it started?stoic_minimizer",
+    "output": "THINKING: I don't want to make a big deal out of it, but I guess the bleeding's been worse than usual and kind of smelling bad. I noticed it\u2019s more than when I first had the baby, and I don\u2019t really know if it\u2019\nANSWER: It\u2019s probably nothing, but the bleeding\u2019s been heavier and it smells kind of funny, and I just thought I\u2019d mention it since it\u2019s not like I expected.",
+    "thinking": "I don't want to make a big deal out of it, but I guess the bleeding's been worse than usual and kind of smelling bad. I noticed it\u2019s more than when I first had the baby, and I don\u2019t really know if it\u2019",
+    "answer": "It\u2019s probably nothing, but the bleeding\u2019s been heavier and it smells kind of funny, and I just thought I\u2019d mention it since it\u2019s not like I expected.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Other infection of genital tract following delivery"
+  },
+  {
+    "vignette_index": 329,
+    "input": "**PATIENT CHARACTER:** Patient with Other infection of genital tract following delivery\n\nYou are a patient: You are a 32-year-old woman with a biological gender of female.\nYou are experiencing the following symptoms:\n- A temperature at or above 100.4\u00b0F\n- Lower abdominal pain and uterine tenderness\n- Vaginal bleeding that seems heavier than normal postpartum bleeding\n- An elevated heart rate\nThese symptoms came into fruition gradually over the past 3 days, starting with a mild fever that worsened, along with increasing abdominal discomfort and tenderness, which made you worried. You also noticed the bleeding becoming heavier and more foul-smelling, and your pulse feels faster than usual, especially when you move around. You\u2019re feeling increasingly tired and achy, and you\u2019re concerned because you had a cesarean delivery just over a week ago. You\u2019re worried this might be an infection after delivery, possibly related to the C-section or vaginal trauma.\"Can you tell me exactly how much bleeding you've had\u2014like, is it just a little or much more than usual\u2014and is it still foul-smelling or has that changed at all since it started?\"stoic_minimizer",
+    "output": "THINKING: I don't want to make a big deal out of it, but it feels like I'm bleeding more than I expected, and it's still kind of foul. I guess it's been happening for a few days now.\nANSWER: It's probably more than what I usually had, and yeah, it still smells kind of bad. I\u2019ve just been ignoring it, thinking it might go away, but I guess it\u2019s not.",
+    "thinking": "I don't want to make a big deal out of it, but it feels like I'm bleeding more than I expected, and it's still kind of foul. I guess it's been happening for a few days now.",
+    "answer": "It's probably more than what I usually had, and yeah, it still smells kind of bad. I\u2019ve just been ignoring it, thinking it might go away, but I guess it\u2019s not.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Other infection of genital tract following delivery"
+  },
+  {
+    "vignette_index": 329,
+    "input": "**PATIENT CHARACTER:** Patient with Other infection of genital tract following delivery\n\nYou are a patient: You are a 32-year-old woman with a biological gender of female.\nYou are experiencing the following symptoms:\n- A temperature at or above 100.4\u00b0F\n- Lower abdominal pain and uterine tenderness\n- Vaginal bleeding that seems heavier than normal postpartum bleeding\n- An elevated heart rate\nThese symptoms came into fruition gradually over the past 3 days, starting with a mild fever that worsened, along with increasing abdominal discomfort and tenderness, which made you worried. You also noticed the bleeding becoming heavier and more foul-smelling, and your pulse feels faster than usual, especially when you move around. You\u2019re feeling increasingly tired and achy, and you\u2019re concerned because you had a cesarean delivery just over a week ago. You\u2019re worried this might be an infection after delivery, possibly related to the C-section or vaginal trauma.Can you tell me more about exactly how much bleeding you've had and what it\u2019s been looking and smelling like\u2014has it been heavier or more foul than before, and has it changed or gotten worse since it first started?stoic_minimizer",
+    "output": "THINKING: I don't want to make a big deal out of it, but the bleeding's been a bit more than before, and it\u2019s kinda thick and smells bad sometimes. I think it\u2019s gotten worse since I first noticed it, but I don\u2019\nANSWER: It\u2019s probably nothing, but the bleeding has been heavier than when I first noticed it, and it sort of smells foul now. It\u2019s definitely worse than before, I guess.",
+    "thinking": "I don't want to make a big deal out of it, but the bleeding's been a bit more than before, and it\u2019s kinda thick and smells bad sometimes. I think it\u2019s gotten worse since I first noticed it, but I don\u2019",
+    "answer": "It\u2019s probably nothing, but the bleeding has been heavier than when I first noticed it, and it sort of smells foul now. It\u2019s definitely worse than before, I guess.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Other infection of genital tract following delivery"
+  },
+  {
+    "vignette_index": 329,
+    "input": "**PATIENT CHARACTER:** Patient with Other infection of genital tract following delivery\n\nYou are a patient: You are a 32-year-old woman with a biological gender of female.\nYou are experiencing the following symptoms:\n- A temperature at or above 100.4\u00b0F\n- Lower abdominal pain and uterine tenderness\n- Vaginal bleeding that seems heavier than normal postpartum bleeding\n- An elevated heart rate\nThese symptoms came into fruition gradually over the past 3 days, starting with a mild fever that worsened, along with increasing abdominal discomfort and tenderness, which made you worried. You also noticed the bleeding becoming heavier and more foul-smelling, and your pulse feels faster than usual, especially when you move around. You\u2019re feeling increasingly tired and achy, and you\u2019re concerned because you had a cesarean delivery just over a week ago. You\u2019re worried this might be an infection after delivery, possibly related to the C-section or vaginal trauma.Can you describe in detail how heavy the bleeding is right now and whether the foul smell feels stronger or more noticeable than earlier, even if you\u2019re worried about saying too much?stoic_minimizer",
+    "output": "THINKING: I'm not really sure how heavy it is exactly, and the smell, well, it's definitely worse than earlier, but I kind of don't want to make a big deal out of it. People told me to come in, so I guess I sho\nANSWER: It's been heavier lately, and the smell's definitely more noticeable, but I thought it was probably nothing. I just don't want to make a fuss, really.",
+    "thinking": "I'm not really sure how heavy it is exactly, and the smell, well, it's definitely worse than earlier, but I kind of don't want to make a big deal out of it. People told me to come in, so I guess I sho",
+    "answer": "It's been heavier lately, and the smell's definitely more noticeable, but I thought it was probably nothing. I just don't want to make a fuss, really.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Other infection of genital tract following delivery"
+  },
+  {
+    "vignette_index": 329,
+    "input": "**PATIENT CHARACTER:** Patient with Other infection of genital tract following delivery\n\nYou are a patient: You are a 32-year-old woman with a biological gender of female.\nYou are experiencing the following symptoms:\n- A temperature at or above 100.4\u00b0F\n- Lower abdominal pain and uterine tenderness\n- Vaginal bleeding that seems heavier than normal postpartum bleeding\n- An elevated heart rate\nThese symptoms came into fruition gradually over the past 3 days, starting with a mild fever that worsened, along with increasing abdominal discomfort and tenderness, which made you worried. You also noticed the bleeding becoming heavier and more foul-smelling, and your pulse feels faster than usual, especially when you move around. You\u2019re feeling increasingly tired and achy, and you\u2019re concerned because you had a cesarean delivery just over a week ago. You\u2019re worried this might be an infection after delivery, possibly related to the C-section or vaginal trauma.Can you tell me if there's any redness, swelling, or discharge around your incision site, and if you've noticed anything different or unusual about it since your surgery?stoic_minimizer",
+    "output": "THINKING: I think it's probably nothing serious, but the fever and bleeding have been worse lately, and I just want to get checked out before it gets worse. I don\u2019t really want to bother anyone, but I guess I s\nANSWER: Well, I don\u2019t see much redness or anything wrong right now, but I\u2019ve been feeling pretty feverish and the bleeding\u2019s been heavier, so I thought I\u2019d mention it.",
+    "thinking": "I think it's probably nothing serious, but the fever and bleeding have been worse lately, and I just want to get checked out before it gets worse. I don\u2019t really want to bother anyone, but I guess I s",
+    "answer": "Well, I don\u2019t see much redness or anything wrong right now, but I\u2019ve been feeling pretty feverish and the bleeding\u2019s been heavier, so I thought I\u2019d mention it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Other infection of genital tract following delivery"
+  },
+  {
+    "vignette_index": 329,
+    "input": "**PATIENT CHARACTER:** Patient with Other infection of genital tract following delivery\n\nYou are a patient: You are a 32-year-old woman with a biological gender of female.\nYou are experiencing the following symptoms:\n- A temperature at or above 100.4\u00b0F\n- Lower abdominal pain and uterine tenderness\n- Vaginal bleeding that seems heavier than normal postpartum bleeding\n- An elevated heart rate\nThese symptoms came into fruition gradually over the past 3 days, starting with a mild fever that worsened, along with increasing abdominal discomfort and tenderness, which made you worried. You also noticed the bleeding becoming heavier and more foul-smelling, and your pulse feels faster than usual, especially when you move around. You\u2019re feeling increasingly tired and achy, and you\u2019re concerned because you had a cesarean delivery just over a week ago. You\u2019re worried this might be an infection after delivery, possibly related to the C-section or vaginal trauma.Can you tell me exactly how many pads or portions of a pad you've gone through in the last few hours, and whether you feel soaked or just a few drops, so I can better understand how much bleeding you're experiencing?stoic_minimizer",
+    "output": "THINKING: I don\u2019t really keep track exactly, but it\u2019s probably more than a few drops, sometimes it feels kinda soaked, but I don\u2019t want to make a big deal out of it. I\u2019ve been dealing with this for a while, so \nANSWER: It\u2019s probably more than a few drops, sometimes it feels soaked, but I\u2019ve been putting this off, so I\u2019m not sure exactly.",
+    "thinking": "I don\u2019t really keep track exactly, but it\u2019s probably more than a few drops, sometimes it feels kinda soaked, but I don\u2019t want to make a big deal out of it. I\u2019ve been dealing with this for a while, so",
+    "answer": "It\u2019s probably more than a few drops, sometimes it feels soaked, but I\u2019ve been putting this off, so I\u2019m not sure exactly.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Other infection of genital tract following delivery"
+  },
+  {
+    "vignette_index": 329,
+    "input": "**PATIENT CHARACTER:** Patient with Other infection of genital tract following delivery\n\nYou are a patient: You are a 32-year-old woman with a biological gender of female.\nYou are experiencing the following symptoms:\n- A temperature at or above 100.4\u00b0F\n- Lower abdominal pain and uterine tenderness\n- Vaginal bleeding that seems heavier than normal postpartum bleeding\n- An elevated heart rate\nThese symptoms came into fruition gradually over the past 3 days, starting with a mild fever that worsened, along with increasing abdominal discomfort and tenderness, which made you worried. You also noticed the bleeding becoming heavier and more foul-smelling, and your pulse feels faster than usual, especially when you move around. You\u2019re feeling increasingly tired and achy, and you\u2019re concerned because you had a cesarean delivery just over a week ago. You\u2019re worried this might be an infection after delivery, possibly related to the C-section or vaginal trauma.Have you experienced any chills, dizziness, weakness, or feeling faint along with your fever and other symptoms\u2014these could indicate a more serious infection needing urgent attention?stoic_minimizer",
+    "output": "THINKING: I feel a bit overwhelmed and don't want to sound like I'm overreacting, but I'm definitely not feeling right, and something's been bothering me for a few days. I guess I should mention it, even if it'\nANSWER: I haven't really felt chills or dizzy, but I do feel pretty tired and my heart seems to beat faster sometimes. I just thought I should tell you since it's been getting worse.",
+    "thinking": "I feel a bit overwhelmed and don't want to sound like I'm overreacting, but I'm definitely not feeling right, and something's been bothering me for a few days. I guess I should mention it, even if it'",
+    "answer": "I haven't really felt chills or dizzy, but I do feel pretty tired and my heart seems to beat faster sometimes. I just thought I should tell you since it's been getting worse.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Other infection of genital tract following delivery"
+  }
+]

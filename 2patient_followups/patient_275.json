@@ -1,0 +1,96 @@
+[
+  {
+    "vignette_index": 275,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nYou are a patient: You are 78 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden severe headache, unlike any you've felt before\n- Increasing confusion and difficulty speaking clearly\n- Problems with balance and walking, feeling unsteady on your feet\n- Drowsiness that is worsening throughout the day\nThese symptoms came into fruition suddenly yesterday after lunch, and they've progressively worsened since then. You\u2019ve been on blood-thinning medication for atrial fibrillation for several years, and you often drink alcohol socially. You don't recall any recent head injury, but you have a history of bleeding issues. You\u2019re worried because you feel increasingly disoriented and unable to focus.",
+    "output": "THINKING: I need to explain my symptoms clearly but I\u2019m worried I might sound like I\u2019m overreacting or that I\u2019m just old. I should mention all of what\u2019s happening and my fears about it being something really se\nANSWER: Well, doctor, I\u2019m a 78-year-old man, and I\u2019ve got this terrible, sharp headache\u2014like nothing I\u2019ve ever felt before\u2014and it just keeps getting worse. I can\u2019t seem to speak right lately, and I keep losing my balance, I guess. I feel so drowsy and pretty out of it, like my mind is foggy, and I\u2019ve been feeling worse as the hours go by since yesterday. I haven\u2019t had any recent falls, but I\u2019m really worried it might be something dangerous, especially because I take blood thinners and I drink social drinks. I just don\u2019t know what\u2019s happening, but it feels really bad and scary.",
+    "thinking": "I need to explain my symptoms clearly but I\u2019m worried I might sound like I\u2019m overreacting or that I\u2019m just old. I should mention all of what\u2019s happening and my fears about it being something really se",
+    "answer": "Well, doctor, I\u2019m a 78-year-old man, and I\u2019ve got this terrible, sharp headache\u2014like nothing I\u2019ve ever felt before\u2014and it just keeps getting worse. I can\u2019t seem to speak right lately, and I keep losing my balance, I guess. I feel so drowsy and pretty out of it, like my mind is foggy, and I\u2019ve been feeling worse as the hours go by since yesterday. I haven\u2019t had any recent falls, but I\u2019m really worried it might be something dangerous, especially because I take blood thinners and I drink social drinks. I just don\u2019t know what\u2019s happening, but it feels really bad and scary.",
+    "behavior_type": "anxious_amplifier",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient with health anxiety who amplifies symptoms",
+      "modifiers": [
+        "catastrophic_thinking",
+        "symptom_amplification",
+        "multiple_concerns"
+      ],
+      "empathy_cues": [
+        "high_anxiety",
+        "catastrophic_language",
+        "reassurance_seeking",
+        "fear_expression"
+      ]
+    },
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  },
+  {
+    "vignette_index": 275,
+    "input": "**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nYou are a patient: You are 78 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden severe headache, unlike any you've felt before\n- Increasing confusion and difficulty speaking clearly\n- Problems with balance and walking, feeling unsteady on your feet\n- Drowsiness that is worsening throughout the day\nThese symptoms came into fruition suddenly yesterday after lunch, and they've progressively worsened since then. You\u2019ve been on blood-thinning medication for atrial fibrillation for several years, and you often drink alcohol socially. You don't recall any recent head injury, but you have a history of bleeding issues. You\u2019re worried because you feel increasingly disoriented and unable to focus.Can you tell me exactly when you first noticed the headache and how it has changed since then, step by step?anxious_amplifier",
+    "output": "THINKING: I feel overwhelmed and terrified, like this is something really serious. I don\u2019t understand what\u2019s happening or why I feel so awful, and I keep thinking it\u2019s some kind of terrible bleed or stroke, esp\nANSWER: Oh, doctor, it all just kind of suddenly started yesterday after lunch, and now I feel way worse, all dizzy and my speech is all jumbled up, and I can't even walk straight. I'm really scared it\u2019s something bad, like a brain bleed or a stroke or something serious.",
+    "thinking": "I feel overwhelmed and terrified, like this is something really serious. I don\u2019t understand what\u2019s happening or why I feel so awful, and I keep thinking it\u2019s some kind of terrible bleed or stroke, esp",
+    "answer": "Oh, doctor, it all just kind of suddenly started yesterday after lunch, and now I feel way worse, all dizzy and my speech is all jumbled up, and I can't even walk straight. I'm really scared it\u2019s something bad, like a brain bleed or a stroke or something serious.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 0,
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  },
+  {
+    "vignette_index": 275,
+    "input": "**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nYou are a patient: You are 78 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden severe headache, unlike any you've felt before\n- Increasing confusion and difficulty speaking clearly\n- Problems with balance and walking, feeling unsteady on your feet\n- Drowsiness that is worsening throughout the day\nThese symptoms came into fruition suddenly yesterday after lunch, and they've progressively worsened since then. You\u2019ve been on blood-thinning medication for atrial fibrillation for several years, and you often drink alcohol socially. You don't recall any recent head injury, but you have a history of bleeding issues. You\u2019re worried because you feel increasingly disoriented and unable to focus.Can you tell me if you've noticed any weakness, numbness, or changes in your vision on either side of your body since your headache started?anxious_amplifier",
+    "output": "THINKING: I feel worried and a bit panicked\u2014these symptoms are getting worse and I keep thinking it's something really bad, like a brain bleed or stroke. I don't really understand all the medical stuff, but I k\nANSWER: I\u2026 I feel like everything is just spinning and I can't think straight, and my head is so heavy, like it's going to explode. I don't know what\u2019s happening but it\u2019s really frightening.",
+    "thinking": "I feel worried and a bit panicked\u2014these symptoms are getting worse and I keep thinking it's something really bad, like a brain bleed or stroke. I don't really understand all the medical stuff, but I k",
+    "answer": "I\u2026 I feel like everything is just spinning and I can't think straight, and my head is so heavy, like it's going to explode. I don't know what\u2019s happening but it\u2019s really frightening.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 2,
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  },
+  {
+    "vignette_index": 275,
+    "input": "**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nYou are a patient: You are 78 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden severe headache, unlike any you've felt before\n- Increasing confusion and difficulty speaking clearly\n- Problems with balance and walking, feeling unsteady on your feet\n- Drowsiness that is worsening throughout the day\nThese symptoms came into fruition suddenly yesterday after lunch, and they've progressively worsened since then. You\u2019ve been on blood-thinning medication for atrial fibrillation for several years, and you often drink alcohol socially. You don't recall any recent head injury, but you have a history of bleeding issues. You\u2019re worried because you feel increasingly disoriented and unable to focus.Can you tell me if you have noticed any weakness, numbness, or changes in your vision on either side of your body since your headache started?anxious_amplifier",
+    "output": "THINKING: I'm really scared that this might be something serious like a brain bleed or stroke, especially since it\u2019s all happening so fast and I feel worse every hour. I don\u2019t understand what\u2019s happening, and I\nANSWER: Honestly, I don\u2019t know, I think I see things differently now and my balance is terrible, like I might fall any second. It\u2019s all so confusing, and I feel like I\u2019m losing control or something really bad is happening.",
+    "thinking": "I'm really scared that this might be something serious like a brain bleed or stroke, especially since it\u2019s all happening so fast and I feel worse every hour. I don\u2019t understand what\u2019s happening, and I",
+    "answer": "Honestly, I don\u2019t know, I think I see things differently now and my balance is terrible, like I might fall any second. It\u2019s all so confusing, and I feel like I\u2019m losing control or something really bad is happening.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 4,
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  },
+  {
+    "vignette_index": 275,
+    "input": "**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nYou are a patient: You are 78 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden severe headache, unlike any you've felt before\n- Increasing confusion and difficulty speaking clearly\n- Problems with balance and walking, feeling unsteady on your feet\n- Drowsiness that is worsening throughout the day\nThese symptoms came into fruition suddenly yesterday after lunch, and they've progressively worsened since then. You\u2019ve been on blood-thinning medication for atrial fibrillation for several years, and you often drink alcohol socially. You don't recall any recent head injury, but you have a history of bleeding issues. You\u2019re worried because you feel increasingly disoriented and unable to focus.Have you noticed any specific weakness, numbness, or changes in your vision that stay the same or get worse over time since your symptoms began?anxious_amplifier",
+    "output": "THINKING: I feel incredibly scared about what's happening. The worst-case thoughts are swirling in my head, like maybe I have a brain bleed or something terrible like that. I want to explain everything clearly \nANSWER: Doctor, I\u2019ve been having these terrible headaches, and my words don\u2019t come out right anymore. I\u2019m really worried I might be having some kind of brain bleed or stroke or something\u4e25\u91cd\u7684 because I feel so dizzy and I can\u2019t even stand properly, and I\u2019ve been feeling more sleepy as the day goes on.",
+    "thinking": "I feel incredibly scared about what's happening. The worst-case thoughts are swirling in my head, like maybe I have a brain bleed or something terrible like that. I want to explain everything clearly",
+    "answer": "Doctor, I\u2019ve been having these terrible headaches, and my words don\u2019t come out right anymore. I\u2019m really worried I might be having some kind of brain bleed or stroke or something\u4e25\u91cd\u7684 because I feel so dizzy and I can\u2019t even stand properly, and I\u2019ve been feeling more sleepy as the day goes on.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 6,
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  },
+  {
+    "vignette_index": 275,
+    "input": "**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nYou are a patient: You are 78 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden severe headache, unlike any you've felt before\n- Increasing confusion and difficulty speaking clearly\n- Problems with balance and walking, feeling unsteady on your feet\n- Drowsiness that is worsening throughout the day\nThese symptoms came into fruition suddenly yesterday after lunch, and they've progressively worsened since then. You\u2019ve been on blood-thinning medication for atrial fibrillation for several years, and you often drink alcohol socially. You don't recall any recent head injury, but you have a history of bleeding issues. You\u2019re worried because you feel increasingly disoriented and unable to focus.Can you tell me if you have noticed any weakness, numbness, or changes in your vision on either side of your body since your symptoms started?anxious_amplifier",
+    "output": "THINKING: I'm really scared. My head feels like it's pounding so hard and nothing makes sense anymore. I'm worried it could be something really bad like a brain bleed or stroke, and I don\u2019t know what to do beca\nANSWER: I haven't noticed any numbness or vision changes that I can tell, but my head is just throbbing terrible and I keep getting more confused and unsteady, like the room is spinning or something, and I\u2019m really scared it\u2019s something serious.",
+    "thinking": "I'm really scared. My head feels like it's pounding so hard and nothing makes sense anymore. I'm worried it could be something really bad like a brain bleed or stroke, and I don\u2019t know what to do beca",
+    "answer": "I haven't noticed any numbness or vision changes that I can tell, but my head is just throbbing terrible and I keep getting more confused and unsteady, like the room is spinning or something, and I\u2019m really scared it\u2019s something serious.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 8,
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  },
+  {
+    "vignette_index": 275,
+    "input": "**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nYou are a patient: You are 78 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden severe headache, unlike any you've felt before\n- Increasing confusion and difficulty speaking clearly\n- Problems with balance and walking, feeling unsteady on your feet\n- Drowsiness that is worsening throughout the day\nThese symptoms came into fruition suddenly yesterday after lunch, and they've progressively worsened since then. You\u2019ve been on blood-thinning medication for atrial fibrillation for several years, and you often drink alcohol socially. You don't recall any recent head injury, but you have a history of bleeding issues. You\u2019re worried because you feel increasingly disoriented and unable to focus.Can you tell me if you've noticed any weakness, numbness, or changes in your vision on either side of your body since your headache started, and if you've experienced any neck stiffness or stiffness in your neck or head?anxious_amplifier",
+    "output": "THINKING: I\u2019m really scared and confused. These symptoms are terrible and worse than anything I\u2019ve felt before. I keep thinking it might be something really serious like a bleed or a stroke, especially with the\nANSWER: I\u2019ve noticed I can\u2019t really move right or left properly, and my vision is kind of blurry sometimes. My neck feels stiff, like really tight, and I keep feeling more drowsy and out of it. I\u2019m worried it\u2019s something bad like bleeding in my head or maybe a stroke.",
+    "thinking": "I\u2019m really scared and confused. These symptoms are terrible and worse than anything I\u2019ve felt before. I keep thinking it might be something really serious like a bleed or a stroke, especially with the",
+    "answer": "I\u2019ve noticed I can\u2019t really move right or left properly, and my vision is kind of blurry sometimes. My neck feels stiff, like really tight, and I keep feeling more drowsy and out of it. I\u2019m worried it\u2019s something bad like bleeding in my head or maybe a stroke.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 10,
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  },
+  {
+    "vignette_index": 275,
+    "input": "**PATIENT CHARACTER:** Patient with Subdural nontraumatic haemorrhage of fetus or newborn\n\nYou are a patient: You are 78 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Sudden severe headache, unlike any you've felt before\n- Increasing confusion and difficulty speaking clearly\n- Problems with balance and walking, feeling unsteady on your feet\n- Drowsiness that is worsening throughout the day\nThese symptoms came into fruition suddenly yesterday after lunch, and they've progressively worsened since then. You\u2019ve been on blood-thinning medication for atrial fibrillation for several years, and you often drink alcohol socially. You don't recall any recent head injury, but you have a history of bleeding issues. You\u2019re worried because you feel increasingly disoriented and unable to focus.\"Would you be able to tell me if you notice any weakness, numbness, or problem with movement or sensation in your arms or legs now, or if you see any changes in your vision or feel any stiffness or difficulty moving your neck?\"anxious_amplifier",
+    "output": "THINKING: I am really scared about these symptoms getting worse, especially the headache and feeling drowsy. I worry it might be something serious like a bleed or stroke because I don\u2019t remember hitting my head\nANSWER: Yes, I do notice that my arms and legs feel kind of weak and sometimes my hands go numb a bit, and my vision is weird like things are fuzzy or I see double now and then. It\u2019s all happening so fast, I\u2019m worried it\u2019s something terrible.",
+    "thinking": "I am really scared about these symptoms getting worse, especially the headache and feeling drowsy. I worry it might be something serious like a bleed or stroke because I don\u2019t remember hitting my head",
+    "answer": "Yes, I do notice that my arms and legs feel kind of weak and sometimes my hands go numb a bit, and my vision is weird like things are fuzzy or I see double now and then. It\u2019s all happening so fast, I\u2019m worried it\u2019s something terrible.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 12,
+    "gold_diagnosis": "Subdural nontraumatic haemorrhage of fetus or newborn"
+  }
+]

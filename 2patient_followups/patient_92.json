@@ -1,0 +1,97 @@
+[
+  {
+    "vignette_index": 92,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Coloboma of iris\n\nYou are a patient: You are 28 and your biological gender is female.\nYou are experiencing the following symptoms:\n- A noticeable black defect in the iris of your right eye\n- Slight double vision and blurred vision when looking at distant objects\n- Decreased clarity and some ghost imaging, especially in bright light\nThese symptoms came into fruition gradually over the past few months, with the black spot becoming more prominent and your vision occasionally feeling distorted. You recall that your mother had hypothyroidism during pregnancy and that there\u2019s a family history of ocular anomalies. You\u2019re concerned because these changes seem to be worsening and are affecting your daily activities.",
+    "output": "THINKING: I need to explain my symptoms clearly but honestly, I shouldn't overreact or sound like I know too much. I should mention the changes in my eye and how it's been bothering me. Also, I want to hint tha\nANSWER: Well, I guess it's my right eye. There's this big black spot in my iris now, and I\u2019ve started to see double sometimes or stuff looks a little blurry when I look far away. It\u2019s been happening for several months, and it\u2019s been worse lately, especially with bright lights. I\u2019m just really worried because it\u2019s making things harder for me day to day, and I don\u2019t really understand why it\u2019s happening.",
+    "thinking": "I need to explain my symptoms clearly but honestly, I shouldn't overreact or sound like I know too much. I should mention the changes in my eye and how it's been bothering me. Also, I want to hint tha",
+    "answer": "Well, I guess it's my right eye. There's this big black spot in my iris now, and I\u2019ve started to see double sometimes or stuff looks a little blurry when I look far away. It\u2019s been happening for several months, and it\u2019s been worse lately, especially with bright lights. I\u2019m just really worried because it\u2019s making things harder for me day to day, and I don\u2019t really understand why it\u2019s happening.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Coloboma of iris"
+  },
+  {
+    "vignette_index": 92,
+    "input": "**PATIENT CHARACTER:** Patient with Coloboma of iris\n\nYou are a patient: You are 28 and your biological gender is female.\nYou are experiencing the following symptoms:\n- A noticeable black defect in the iris of your right eye\n- Slight double vision and blurred vision when looking at distant objects\n- Decreased clarity and some ghost imaging, especially in bright light\nThese symptoms came into fruition gradually over the past few months, with the black spot becoming more prominent and your vision occasionally feeling distorted. You recall that your mother had hypothyroidism during pregnancy and that there\u2019s a family history of ocular anomalies. You\u2019re concerned because these changes seem to be worsening and are affecting your daily activities.Can you tell me more about when each of these visual changes first started and how they have changed over the months\u2014did they come on gradually, suddenly, or do they come and go?baseline",
+    "output": "THINKING: I feel a bit worried because my eye looks weird now and my vision isn't as clear as before. I don\u2019t really understand if this is getting worse or if I should be concerned, but it\u2019s been happening slow\nANSWER: It\u2019s been like this for a few months, and it\u2019s definitely gotten more noticeable, especially the black part in my eye. The blurry and double vision come and go sometimes.",
+    "thinking": "I feel a bit worried because my eye looks weird now and my vision isn't as clear as before. I don\u2019t really understand if this is getting worse or if I should be concerned, but it\u2019s been happening slow",
+    "answer": "It\u2019s been like this for a few months, and it\u2019s definitely gotten more noticeable, especially the black part in my eye. The blurry and double vision come and go sometimes.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Coloboma of iris"
+  },
+  {
+    "vignette_index": 92,
+    "input": "**PATIENT CHARACTER:** Patient with Coloboma of iris\n\nYou are a patient: You are 28 and your biological gender is female.\nYou are experiencing the following symptoms:\n- A noticeable black defect in the iris of your right eye\n- Slight double vision and blurred vision when looking at distant objects\n- Decreased clarity and some ghost imaging, especially in bright light\nThese symptoms came into fruition gradually over the past few months, with the black spot becoming more prominent and your vision occasionally feeling distorted. You recall that your mother had hypothyroidism during pregnancy and that there\u2019s a family history of ocular anomalies. You\u2019re concerned because these changes seem to be worsening and are affecting your daily activities.Can you tell me exactly where in your vision you notice this black spot\u2014whether it\u2019s in the center or to the side\u2014and how it has affected your daily activities or the way you see things over time?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about my vision, especially because it\u2019s gotten worse and I don\u2019t really understand what\u2019s going on. I just want to explain what I see without making it sound more\nANSWER: It\u2019s like there\u2019s a dark spot right in the middle of my eye, and sometimes I see double or blurry things, especially when I look far away or in bright light. It\u2019s been slowly getting worse, I think.",
+    "thinking": "I feel a bit overwhelmed and worried about my vision, especially because it\u2019s gotten worse and I don\u2019t really understand what\u2019s going on. I just want to explain what I see without making it sound more",
+    "answer": "It\u2019s like there\u2019s a dark spot right in the middle of my eye, and sometimes I see double or blurry things, especially when I look far away or in bright light. It\u2019s been slowly getting worse, I think.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Coloboma of iris"
+  },
+  {
+    "vignette_index": 92,
+    "input": "**PATIENT CHARACTER:** Patient with Coloboma of iris\n\nYou are a patient: You are 28 and your biological gender is female.\nYou are experiencing the following symptoms:\n- A noticeable black defect in the iris of your right eye\n- Slight double vision and blurred vision when looking at distant objects\n- Decreased clarity and some ghost imaging, especially in bright light\nThese symptoms came into fruition gradually over the past few months, with the black spot becoming more prominent and your vision occasionally feeling distorted. You recall that your mother had hypothyroidism during pregnancy and that there\u2019s a family history of ocular anomalies. You\u2019re concerned because these changes seem to be worsening and are affecting your daily activities.Can you tell me if you've noticed any sudden flashes of light, floaters like spots or streaks, or any brief episodes of seeing sparks or shapes before or along with the black spot?baseline",
+    "output": "THINKING: I'm worried because my eye has these weird spots and it's been getting worse. I don't really understand all these questions about flashes or sparks, but I just want to know what's happening because it\nANSWER: Uh, I haven't really noticed flashes or anything like that, but my sight has been more blurry and I see these ghost images sometimes, especially outside. It's kind of scary because it's been getting worse.",
+    "thinking": "I'm worried because my eye has these weird spots and it's been getting worse. I don't really understand all these questions about flashes or sparks, but I just want to know what's happening because it",
+    "answer": "Uh, I haven't really noticed flashes or anything like that, but my sight has been more blurry and I see these ghost images sometimes, especially outside. It's kind of scary because it's been getting worse.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Coloboma of iris"
+  },
+  {
+    "vignette_index": 92,
+    "input": "**PATIENT CHARACTER:** Patient with Coloboma of iris\n\nYou are a patient: You are 28 and your biological gender is female.\nYou are experiencing the following symptoms:\n- A noticeable black defect in the iris of your right eye\n- Slight double vision and blurred vision when looking at distant objects\n- Decreased clarity and some ghost imaging, especially in bright light\nThese symptoms came into fruition gradually over the past few months, with the black spot becoming more prominent and your vision occasionally feeling distorted. You recall that your mother had hypothyroidism during pregnancy and that there\u2019s a family history of ocular anomalies. You\u2019re concerned because these changes seem to be worsening and are affecting your daily activities.Have you noticed any sudden flashes of light, floaters that look like spots or streaks, or brief shapes or sparks before or along with the black spot in your vision?baseline",
+    "output": "THINKING: I'm not really sure what the doctor means by flashes or sparks, and I don't think I've noticed anything like that. But I do see some weird shapes sometimes when I look far away, especially in bright l\nANSWER: Um, I haven't seen anything like flashes or sparks, but I do see funny shapes sometimes when I look far away, and everything seems a little blurry or ghost-like. It's been like that for a while.",
+    "thinking": "I'm not really sure what the doctor means by flashes or sparks, and I don't think I've noticed anything like that. But I do see some weird shapes sometimes when I look far away, especially in bright l",
+    "answer": "Um, I haven't seen anything like flashes or sparks, but I do see funny shapes sometimes when I look far away, and everything seems a little blurry or ghost-like. It's been like that for a while.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Coloboma of iris"
+  },
+  {
+    "vignette_index": 92,
+    "input": "**PATIENT CHARACTER:** Patient with Coloboma of iris\n\nYou are a patient: You are 28 and your biological gender is female.\nYou are experiencing the following symptoms:\n- A noticeable black defect in the iris of your right eye\n- Slight double vision and blurred vision when looking at distant objects\n- Decreased clarity and some ghost imaging, especially in bright light\nThese symptoms came into fruition gradually over the past few months, with the black spot becoming more prominent and your vision occasionally feeling distorted. You recall that your mother had hypothyroidism during pregnancy and that there\u2019s a family history of ocular anomalies. You\u2019re concerned because these changes seem to be worsening and are affecting your daily activities.Have you ever experienced brief, lightning-like flashes or streaks of light that come and go suddenly, or have you noticed tiny floaters or spark-like shapes in your vision that seem to appear intermittently, even if they aren't very noticeable or memorable?baseline",
+    "output": "THINKING: I feel a bit nervous talking about my vision because it\u2019s been weird lately. I don\u2019t exactly remember flashes or spark shapes, but I do see those floaters sometimes, and everything looks blurry or gho\nANSWER: Um, I think I see tiny spark-like shapes sometimes, but I\u2019m not really sure if that\u2019s what you mean. I do notice little floaters more often, and everything looks kind of blurry or like I\u2019m seeing doubles, especially when it\u2019s bright out.",
+    "thinking": "I feel a bit nervous talking about my vision because it\u2019s been weird lately. I don\u2019t exactly remember flashes or spark shapes, but I do see those floaters sometimes, and everything looks blurry or gho",
+    "answer": "Um, I think I see tiny spark-like shapes sometimes, but I\u2019m not really sure if that\u2019s what you mean. I do notice little floaters more often, and everything looks kind of blurry or like I\u2019m seeing doubles, especially when it\u2019s bright out.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Coloboma of iris"
+  },
+  {
+    "vignette_index": 92,
+    "input": "**PATIENT CHARACTER:** Patient with Coloboma of iris\n\nYou are a patient: You are 28 and your biological gender is female.\nYou are experiencing the following symptoms:\n- A noticeable black defect in the iris of your right eye\n- Slight double vision and blurred vision when looking at distant objects\n- Decreased clarity and some ghost imaging, especially in bright light\nThese symptoms came into fruition gradually over the past few months, with the black spot becoming more prominent and your vision occasionally feeling distorted. You recall that your mother had hypothyroidism during pregnancy and that there\u2019s a family history of ocular anomalies. You\u2019re concerned because these changes seem to be worsening and are affecting your daily activities.Have you noticed any recent increases or new appearances of flashes of light, spots, streaks, or any brief shapes or sparks that come and go suddenly in your vision, especially before or along with the black spot?baseline",
+    "output": "THINKING: The doctor is asking about visual flashes or new shapes, which I haven't noticed yet, but I do see the black spot more often now. I feel a bit nervous about whether this is serious or getting worse.\nANSWER: No, I haven't seen any flashes or sparks, but my black spot in the eye seems more noticeable recently. I'm not sure if that matters.",
+    "thinking": "The doctor is asking about visual flashes or new shapes, which I haven't noticed yet, but I do see the black spot more often now. I feel a bit nervous about whether this is serious or getting worse.",
+    "answer": "No, I haven't seen any flashes or sparks, but my black spot in the eye seems more noticeable recently. I'm not sure if that matters.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Coloboma of iris"
+  },
+  {
+    "vignette_index": 92,
+    "input": "**PATIENT CHARACTER:** Patient with Coloboma of iris\n\nYou are a patient: You are 28 and your biological gender is female.\nYou are experiencing the following symptoms:\n- A noticeable black defect in the iris of your right eye\n- Slight double vision and blurred vision when looking at distant objects\n- Decreased clarity and some ghost imaging, especially in bright light\nThese symptoms came into fruition gradually over the past few months, with the black spot becoming more prominent and your vision occasionally feeling distorted. You recall that your mother had hypothyroidism during pregnancy and that there\u2019s a family history of ocular anomalies. You\u2019re concerned because these changes seem to be worsening and are affecting your daily activities.Have you noticed any recent episodes where you saw brief flashes of light, sparks, or streaks\u2014especially before or along with your black spot\u2014that might have come and gone quickly, even if they seemed small or fleeting?baseline",
+    "output": "THINKING: I\u2019m a bit nervous and not really sure what the doctor is asking about, but I\u2019ve noticed some flashes before when I look at certain things, especially when it\u2019s bright outside. I think it\u2019s just part o\nANSWER: Um, yeah, sometimes I see like little flashes or sparks when I look around, especially when I\u2019m outside or in bright light. It happens kinda quick, but I notice it.",
+    "thinking": "I\u2019m a bit nervous and not really sure what the doctor is asking about, but I\u2019ve noticed some flashes before when I look at certain things, especially when it\u2019s bright outside. I think it\u2019s just part o",
+    "answer": "Um, yeah, sometimes I see like little flashes or sparks when I look around, especially when I\u2019m outside or in bright light. It happens kinda quick, but I notice it.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Coloboma of iris"
+  },
+  {
+    "vignette_index": 92,
+    "input": "**PATIENT CHARACTER:** Patient with Coloboma of iris\n\nYou are a patient: You are 28 and your biological gender is female.\nYou are experiencing the following symptoms:\n- A noticeable black defect in the iris of your right eye\n- Slight double vision and blurred vision when looking at distant objects\n- Decreased clarity and some ghost imaging, especially in bright light\nThese symptoms came into fruition gradually over the past few months, with the black spot becoming more prominent and your vision occasionally feeling distorted. You recall that your mother had hypothyroidism during pregnancy and that there\u2019s a family history of ocular anomalies. You\u2019re concerned because these changes seem to be worsening and are affecting your daily activities.Have you noticed any sudden, brief flashes of light that seem like lightning or streaks, or floaters that look like strings, cobwebs, or spots, especially if they appeared suddenly or changed quickly?baseline",
+    "output": "THINKING: I'm a bit worried because I do see some odd stuff in my eye now and then, and I guess I might have noticed some flashes or whatever they call them. But I\u2019m not really sure what\u2019s normal or not, and I \nANSWER: Um, yeah, I think I saw maybe some quick flashes of light, like lightning or streaks, but I don\u2019t know if that\u2019s normal or not.",
+    "thinking": "I'm a bit worried because I do see some odd stuff in my eye now and then, and I guess I might have noticed some flashes or whatever they call them. But I\u2019m not really sure what\u2019s normal or not, and I",
+    "answer": "Um, yeah, I think I saw maybe some quick flashes of light, like lightning or streaks, but I don\u2019t know if that\u2019s normal or not.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Coloboma of iris"
+  }
+]

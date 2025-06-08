@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 37,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Nephrotic syndrome\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Noticeable swelling in your face and around your eyes, especially in the mornings\n- Mild swelling in your ankles and feet by the end of the day\n- Fatigue and feeling generally more tired than usual\n- You also recently noticed your urine looks foamy or frothy when you urinate\nThese symptoms came into fruition gradually over the past three weeks, starting with the facial swelling in the mornings and worsening as the weeks went on. You\u2019ve also been feeling more tired and have observed the change in your urine. You have a family history of kidney disease, and you\u2019re concerned because some of your relatives have had similar symptoms.",
+    "output": "THINKING: The doctor is asking why I came today, so I should explain my symptoms without sounding too technical or confident. I need to mention the key things I've noticed, like the swelling and fatigue, and ad\nANSWER: Well, I\u2019m 45 and I\u2019m a male. Lately, I\u2019ve been noticing that my face, especially around my eyes, looks swollen in the mornings, and it\u2019s gotten worse over the past few weeks. My ankles and feet get puffy by the end of the day too. I feel more tired than usual, and I\u2019ve seen that my urine is kind of foamy or frothy lately. I\u2019m not sure what\u2019s going on, but I\u2019m worried because my family has had kidney problems before.",
+    "thinking": "The doctor is asking why I came today, so I should explain my symptoms without sounding too technical or confident. I need to mention the key things I've noticed, like the swelling and fatigue, and ad",
+    "answer": "Well, I\u2019m 45 and I\u2019m a male. Lately, I\u2019ve been noticing that my face, especially around my eyes, looks swollen in the mornings, and it\u2019s gotten worse over the past few weeks. My ankles and feet get puffy by the end of the day too. I feel more tired than usual, and I\u2019ve seen that my urine is kind of foamy or frothy lately. I\u2019m not sure what\u2019s going on, but I\u2019m worried because my family has had kidney problems before.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Nephrotic syndrome"
+  },
+  {
+    "vignette_index": 37,
+    "input": "**PATIENT CHARACTER:** Patient with Nephrotic syndrome\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Noticeable swelling in your face and around your eyes, especially in the mornings\n- Mild swelling in your ankles and feet by the end of the day\n- Fatigue and feeling generally more tired than usual\n- You also recently noticed your urine looks foamy or frothy when you urinate\nThese symptoms came into fruition gradually over the past three weeks, starting with the facial swelling in the mornings and worsening as the weeks went on. You\u2019ve also been feeling more tired and have observed the change in your urine. You have a family history of kidney disease, and you\u2019re concerned because some of your relatives have had similar symptoms.\"Can you tell me more about how you've been feeling overall\u2014like whether you've noticed any changes in your energy levels, appetite, or sleep, and how these symptoms have affected your daily routine over the past few weeks?\"baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about all these changes, especially since it\u2019s been happening for a few weeks and I don\u2019t really understand what\u2019s going on. I just want to make sure I\u2019m explainin\nANSWER: Yeah, I\u2019ve just been more tired than usual, and my face and eyes look really swollen, especially in the mornings. My ankles get puffy too, and my pee looks foamy sometimes, so I\u2019m worried.",
+    "thinking": "I feel a bit overwhelmed and worried about all these changes, especially since it\u2019s been happening for a few weeks and I don\u2019t really understand what\u2019s going on. I just want to make sure I\u2019m explainin",
+    "answer": "Yeah, I\u2019ve just been more tired than usual, and my face and eyes look really swollen, especially in the mornings. My ankles get puffy too, and my pee looks foamy sometimes, so I\u2019m worried.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Nephrotic syndrome"
+  },
+  {
+    "vignette_index": 37,
+    "input": "**PATIENT CHARACTER:** Patient with Nephrotic syndrome\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Noticeable swelling in your face and around your eyes, especially in the mornings\n- Mild swelling in your ankles and feet by the end of the day\n- Fatigue and feeling generally more tired than usual\n- You also recently noticed your urine looks foamy or frothy when you urinate\nThese symptoms came into fruition gradually over the past three weeks, starting with the facial swelling in the mornings and worsening as the weeks went on. You\u2019ve also been feeling more tired and have observed the change in your urine. You have a family history of kidney disease, and you\u2019re concerned because some of your relatives have had similar symptoms.Can you tell me more about how these symptoms\u2014like your swelling and fatigue\u2014have been affecting your daily activities and how you\u2019re managing them on a day-to-day basis?baseline",
+    "output": "THINKING: I'm not really sure how much my daily life is affected, but I do notice I get tired easily and my face looks really puffy in the mornings. I guess it\u2019s been bothering me, but I don't know what I shoul\nANSWER: Well, I feel more tired and the swelling makes it hard sometimes to do things, especially in the mornings, and my pee looks foamy now, which I don\u2019t really understand.",
+    "thinking": "I'm not really sure how much my daily life is affected, but I do notice I get tired easily and my face looks really puffy in the mornings. I guess it\u2019s been bothering me, but I don't know what I shoul",
+    "answer": "Well, I feel more tired and the swelling makes it hard sometimes to do things, especially in the mornings, and my pee looks foamy now, which I don\u2019t really understand.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Nephrotic syndrome"
+  },
+  {
+    "vignette_index": 37,
+    "input": "**PATIENT CHARACTER:** Patient with Nephrotic syndrome\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Noticeable swelling in your face and around your eyes, especially in the mornings\n- Mild swelling in your ankles and feet by the end of the day\n- Fatigue and feeling generally more tired than usual\n- You also recently noticed your urine looks foamy or frothy when you urinate\nThese symptoms came into fruition gradually over the past three weeks, starting with the facial swelling in the mornings and worsening as the weeks went on. You\u2019ve also been feeling more tired and have observed the change in your urine. You have a family history of kidney disease, and you\u2019re concerned because some of your relatives have had similar symptoms.Can you tell me how these symptoms\u2014like swelling, fatigue, or foamy urine\u2014have been affecting your day-to-day life, like your energy, work, or how often you need to rest?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about these things happening gradually over time. I don\u2019t really understand what it all means or how serious it is, but I definitely notice that I\u2019m more tired and\nANSWER: Well, I guess it\u2019s kind of making me feel more tired and stuff, and I see my face looks puffy in the mornings, and my ankles are swollen in the evenings. It\u2019s been bothering me, but I don\u2019t really know if it\u2019s normal or not.",
+    "thinking": "I feel a bit overwhelmed and worried about these things happening gradually over time. I don\u2019t really understand what it all means or how serious it is, but I definitely notice that I\u2019m more tired and",
+    "answer": "Well, I guess it\u2019s kind of making me feel more tired and stuff, and I see my face looks puffy in the mornings, and my ankles are swollen in the evenings. It\u2019s been bothering me, but I don\u2019t really know if it\u2019s normal or not.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Nephrotic syndrome"
+  },
+  {
+    "vignette_index": 37,
+    "input": "**PATIENT CHARACTER:** Patient with Nephrotic syndrome\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Noticeable swelling in your face and around your eyes, especially in the mornings\n- Mild swelling in your ankles and feet by the end of the day\n- Fatigue and feeling generally more tired than usual\n- You also recently noticed your urine looks foamy or frothy when you urinate\nThese symptoms came into fruition gradually over the past three weeks, starting with the facial swelling in the mornings and worsening as the weeks went on. You\u2019ve also been feeling more tired and have observed the change in your urine. You have a family history of kidney disease, and you\u2019re concerned because some of your relatives have had similar symptoms.Have you noticed any recent shortness of breath, chest discomfort, or other symptoms like cough or fever, especially when your swelling has been worse or you've been feeling more tired?baseline",
+    "output": "THINKING: I feel worried because I'm feeling more tired and notice these changes, but I don't really understand if it's serious or what I should do. I just want to describe what\u2019s happening without sounding lik\nANSWER: Yeah, I\u2019ve been feeling more tired and I\u2019ve noticed my face and eyes are kinda swollen, especially in the mornings. No sure about breathing or chest pain, though.",
+    "thinking": "I feel worried because I'm feeling more tired and notice these changes, but I don't really understand if it's serious or what I should do. I just want to describe what\u2019s happening without sounding lik",
+    "answer": "Yeah, I\u2019ve been feeling more tired and I\u2019ve noticed my face and eyes are kinda swollen, especially in the mornings. No sure about breathing or chest pain, though.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Nephrotic syndrome"
+  },
+  {
+    "vignette_index": 37,
+    "input": "**PATIENT CHARACTER:** Patient with Nephrotic syndrome\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Noticeable swelling in your face and around your eyes, especially in the mornings\n- Mild swelling in your ankles and feet by the end of the day\n- Fatigue and feeling generally more tired than usual\n- You also recently noticed your urine looks foamy or frothy when you urinate\nThese symptoms came into fruition gradually over the past three weeks, starting with the facial swelling in the mornings and worsening as the weeks went on. You\u2019ve also been feeling more tired and have observed the change in your urine. You have a family history of kidney disease, and you\u2019re concerned because some of your relatives have had similar symptoms.Have you noticed any other symptoms, such as joint pain, rashes, skin changes, or sensitivity to sunlight, that might suggest a systemic illness like lupus?baseline",
+    "output": "THINKING: The doctor is asking about other symptoms that might point to something else going on, like lupus, but I don't really know what those are or if I have them. I feel a bit embarrassed to say I don\u2019t kno\nANSWER: Well, I don\u2019t really know about rashes or anything, but I\u2019ve been getting more tired and my face looks puffy in the mornings, and my urine seems foamy sometimes. I\u2019m not sure if that\u2019s what you mean.",
+    "thinking": "The doctor is asking about other symptoms that might point to something else going on, like lupus, but I don't really know what those are or if I have them. I feel a bit embarrassed to say I don\u2019t kno",
+    "answer": "Well, I don\u2019t really know about rashes or anything, but I\u2019ve been getting more tired and my face looks puffy in the mornings, and my urine seems foamy sometimes. I\u2019m not sure if that\u2019s what you mean.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Nephrotic syndrome"
+  },
+  {
+    "vignette_index": 37,
+    "input": "**PATIENT CHARACTER:** Patient with Nephrotic syndrome\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Noticeable swelling in your face and around your eyes, especially in the mornings\n- Mild swelling in your ankles and feet by the end of the day\n- Fatigue and feeling generally more tired than usual\n- You also recently noticed your urine looks foamy or frothy when you urinate\nThese symptoms came into fruition gradually over the past three weeks, starting with the facial swelling in the mornings and worsening as the weeks went on. You\u2019ve also been feeling more tired and have observed the change in your urine. You have a family history of kidney disease, and you\u2019re concerned because some of your relatives have had similar symptoms.Have you ever noticed any rashes on your skin, especially after being in the sun, or any other skin changes, such as sores or unusual marks, that you might not have mentioned before?baseline",
+    "output": "THINKING: I feel a bit embarrassed about the skin stuff, but I want to be honest. I haven't really noticed any rashes or marks, but I do get tired and my legs are swollen, so I think it\u2019s something with my kidn\nANSWER: No, I haven't really seen any rashes or weird marks or anything like that, just the swelling and my pee looking foamy.",
+    "thinking": "I feel a bit embarrassed about the skin stuff, but I want to be honest. I haven't really noticed any rashes or marks, but I do get tired and my legs are swollen, so I think it\u2019s something with my kidn",
+    "answer": "No, I haven't really seen any rashes or weird marks or anything like that, just the swelling and my pee looking foamy.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Nephrotic syndrome"
+  },
+  {
+    "vignette_index": 37,
+    "input": "**PATIENT CHARACTER:** Patient with Nephrotic syndrome\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- Noticeable swelling in your face and around your eyes, especially in the mornings\n- Mild swelling in your ankles and feet by the end of the day\n- Fatigue and feeling generally more tired than usual\n- You also recently noticed your urine looks foamy or frothy when you urinate\nThese symptoms came into fruition gradually over the past three weeks, starting with the facial swelling in the mornings and worsening as the weeks went on. You\u2019ve also been feeling more tired and have observed the change in your urine. You have a family history of kidney disease, and you\u2019re concerned because some of your relatives have had similar symptoms.Have you ever noticed any rashes, sores, or unusual marks on your skin\u2014especially after being in the sun\u2014or other feelings like sensitivity to sunlight or joint pain that you might not have mentioned before?baseline",
+    "output": "THINKING: I\u2019m a bit worried about all these changes, especially since my face looks puffier in the mornings, and I don\u2019t really understand what\u2019s going on. I feel tired too, and I\u2019ve never seen my urine like th\nANSWER: No, I haven't noticed any rashes or marks or anything like that. I don\u2019t really feel sensitive to sunlight or anything. It\u2019s mostly just the swelling and the tiredness, and my urine looks weird.",
+    "thinking": "I\u2019m a bit worried about all these changes, especially since my face looks puffier in the mornings, and I don\u2019t really understand what\u2019s going on. I feel tired too, and I\u2019ve never seen my urine like th",
+    "answer": "No, I haven't noticed any rashes or marks or anything like that. I don\u2019t really feel sensitive to sunlight or anything. It\u2019s mostly just the swelling and the tiredness, and my urine looks weird.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Nephrotic syndrome"
+  }
+]

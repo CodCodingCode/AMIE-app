@@ -1,0 +1,127 @@
+[
+  {
+    "vignette_index": 138,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Primary anterior uveitis\n\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Eye redness and pain in the right eye, which started suddenly yesterday evening.\n- Light sensitivity (photophobia) that has been worsening over the past day.\n- Blurred vision and occasional floaters in your right eye that you noticed earlier today.\nThese symptoms came into fruition suddenly, after experiencing some mild discomfort and mild eye irritation earlier in the week, but it suddenly worsened last night.",
+    "output": "THINKING: I should explain what\u2019s been happening clearly but also express that I don\u2019t really understand what's going on with my eye. I want to make sure the doctor knows it started suddenly recently and feels \nANSWER: Well, I\u2019m a 32-year-old woman, and my right eye has been really red and painful since last night. It suddenly got a lot worse, and now the light hurts my eye a lot. I also see some things floating around in there and my vision is blurry sometimes. It all kind of came on pretty quickly, and I don\u2019t know what\u2019s wrong.",
+    "thinking": "I should explain what\u2019s been happening clearly but also express that I don\u2019t really understand what's going on with my eye. I want to make sure the doctor knows it started suddenly recently and feels",
+    "answer": "Well, I\u2019m a 32-year-old woman, and my right eye has been really red and painful since last night. It suddenly got a lot worse, and now the light hurts my eye a lot. I also see some things floating around in there and my vision is blurry sometimes. It all kind of came on pretty quickly, and I don\u2019t know what\u2019s wrong.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Primary anterior uveitis"
+  },
+  {
+    "vignette_index": 138,
+    "input": "**PATIENT CHARACTER:** Patient with Primary anterior uveitis\n\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Eye redness and pain in the right eye, which started suddenly yesterday evening.\n- Light sensitivity (photophobia) that has been worsening over the past day.\n- Blurred vision and occasional floaters in your right eye that you noticed earlier today.\nThese symptoms came into fruition suddenly, after experiencing some mild discomfort and mild eye irritation earlier in the week, but it suddenly worsened last night.Can you tell me exactly how much your vision has changed\u2014are you seeing things differently in just that one eye, or in both, and how clearly can you see now compared to before the symptoms started?baseline",
+    "output": "THINKING: I'm a bit overwhelmed and worried about the sudden changes. I don\u2019t really understand the differences in my vision, just that it feels blurry sometimes and there are weird floaters now. I want to tell\nANSWER: Um, I think my vision is worse in the right eye, and I see things kind of blurry, like what I see is not as clear anymore. Sometimes I see spots or floaters, and everything just feels a little off.",
+    "thinking": "I'm a bit overwhelmed and worried about the sudden changes. I don\u2019t really understand the differences in my vision, just that it feels blurry sometimes and there are weird floaters now. I want to tell",
+    "answer": "Um, I think my vision is worse in the right eye, and I see things kind of blurry, like what I see is not as clear anymore. Sometimes I see spots or floaters, and everything just feels a little off.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Primary anterior uveitis"
+  },
+  {
+    "vignette_index": 138,
+    "input": "**PATIENT CHARACTER:** Patient with Primary anterior uveitis\n\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Eye redness and pain in the right eye, which started suddenly yesterday evening.\n- Light sensitivity (photophobia) that has been worsening over the past day.\n- Blurred vision and occasional floaters in your right eye that you noticed earlier today.\nThese symptoms came into fruition suddenly, after experiencing some mild discomfort and mild eye irritation earlier in the week, but it suddenly worsened last night.Can you tell me exactly how much your vision has changed\u2014are you having trouble seeing out of just one eye or both, and how clearly can you see now compared to before your symptoms started?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about what the doctor is asking. I can't really tell how much my eyesight has changed exactly; everything just looks blurry and different now. I guess it's worse t\nANSWER: I think my vision is worse because everything looks blurry and it's hard to see clearly. It's mainly in my right eye, and I can't really tell how much it\u2019s changed, but it\u2019s definitely not as sharp as before.",
+    "thinking": "I feel a bit overwhelmed and worried about what the doctor is asking. I can't really tell how much my eyesight has changed exactly; everything just looks blurry and different now. I guess it's worse t",
+    "answer": "I think my vision is worse because everything looks blurry and it's hard to see clearly. It's mainly in my right eye, and I can't really tell how much it\u2019s changed, but it\u2019s definitely not as sharp as before.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Primary anterior uveitis"
+  },
+  {
+    "vignette_index": 138,
+    "input": "**PATIENT CHARACTER:** Patient with Primary anterior uveitis\n\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Eye redness and pain in the right eye, which started suddenly yesterday evening.\n- Light sensitivity (photophobia) that has been worsening over the past day.\n- Blurred vision and occasional floaters in your right eye that you noticed earlier today.\nThese symptoms came into fruition suddenly, after experiencing some mild discomfort and mild eye irritation earlier in the week, but it suddenly worsened last night.Can you tell me more about how your vision feels now\u2014are you having trouble seeing out of that eye most of the time, and how much does it affect your daily activities like reading or focusing?baseline",
+    "output": "THINKING: I'm worried about my eye feeling really blurry and sensitive to light. It got worse really fast, and I don't know if I can see properly out of that eye anymore, but I guess I'm not sure how much it af\nANSWER: Yeah, I think it's harder to see out of that eye now, and bright lights bother me a lot more. It's kind of messing with what I can do during the day.",
+    "thinking": "I'm worried about my eye feeling really blurry and sensitive to light. It got worse really fast, and I don't know if I can see properly out of that eye anymore, but I guess I'm not sure how much it af",
+    "answer": "Yeah, I think it's harder to see out of that eye now, and bright lights bother me a lot more. It's kind of messing with what I can do during the day.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Primary anterior uveitis"
+  },
+  {
+    "vignette_index": 138,
+    "input": "**PATIENT CHARACTER:** Patient with Primary anterior uveitis\n\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Eye redness and pain in the right eye, which started suddenly yesterday evening.\n- Light sensitivity (photophobia) that has been worsening over the past day.\n- Blurred vision and occasional floaters in your right eye that you noticed earlier today.\nThese symptoms came into fruition suddenly, after experiencing some mild discomfort and mild eye irritation earlier in the week, but it suddenly worsened last night.Can you tell me if you're seeing flashes of light, like sparkles or flickering, especially when you move your eyes, or if your vision has suddenly gone completely dark or blurry in that eye?baseline",
+    "output": "THINKING: The doctor is asking about flashes or dark spots in my vision, which I haven't noticed clearly but maybe I should pay attention to. I'm a bit worried because everything's been happening so fast and I \nANSWER: No, I don't think I see flashes or anything like that. My eye just feels really red and sore, and I see some blurry stuff and floaters \u2014 I don\u2019t think it\u2019s anything flashing or flickering.",
+    "thinking": "The doctor is asking about flashes or dark spots in my vision, which I haven't noticed clearly but maybe I should pay attention to. I'm a bit worried because everything's been happening so fast and I",
+    "answer": "No, I don't think I see flashes or anything like that. My eye just feels really red and sore, and I see some blurry stuff and floaters \u2014 I don\u2019t think it\u2019s anything flashing or flickering.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Primary anterior uveitis"
+  },
+  {
+    "vignette_index": 138,
+    "input": "**PATIENT CHARACTER:** Patient with Primary anterior uveitis\n\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Eye redness and pain in the right eye, which started suddenly yesterday evening.\n- Light sensitivity (photophobia) that has been worsening over the past day.\n- Blurred vision and occasional floaters in your right eye that you noticed earlier today.\nThese symptoms came into fruition suddenly, after experiencing some mild discomfort and mild eye irritation earlier in the week, but it suddenly worsened last night.Have you noticed any pain or discomfort specifically on the surface of your eye, such as a gritty or scratched feeling, or any small spots or sores on your cornea that you might have observed?baseline",
+    "output": "THINKING: I really don\u2019t know if there\u2019s anything on the surface or if I should have noticed something like that. I just feel like my eye is miserable and maybe it\u2019s more inside than on top. I don\u2019t want to loo\nANSWER: I haven't really looked too closely, but it feels like it\u2019s all inside, you know? Like my eye hurts and I see spots sometimes, but I don\u2019t see anything on the surface or like scratches or anything.",
+    "thinking": "I really don\u2019t know if there\u2019s anything on the surface or if I should have noticed something like that. I just feel like my eye is miserable and maybe it\u2019s more inside than on top. I don\u2019t want to loo",
+    "answer": "I haven't really looked too closely, but it feels like it\u2019s all inside, you know? Like my eye hurts and I see spots sometimes, but I don\u2019t see anything on the surface or like scratches or anything.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Primary anterior uveitis"
+  },
+  {
+    "vignette_index": 138,
+    "input": "**PATIENT CHARACTER:** Patient with Primary anterior uveitis\n\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Eye redness and pain in the right eye, which started suddenly yesterday evening.\n- Light sensitivity (photophobia) that has been worsening over the past day.\n- Blurred vision and occasional floaters in your right eye that you noticed earlier today.\nThese symptoms came into fruition suddenly, after experiencing some mild discomfort and mild eye irritation earlier in the week, but it suddenly worsened last night.Have you noticed any sudden flashes of light, sparkles, or flickering in your vision, or any brief periods where your sight went completely dark or blurry, especially in that eye?baseline",
+    "output": "THINKING: The doctor is asking about visual disturbances like flashes or blackout spells, which I haven't noticed, but I do see floaters and blurry stuff. I'm a bit worried because my eye has been really red an\nANSWER: Uh, no, I haven\u2019t really seen flashes or anything like that. I just see some floaters and stuff going blurry, especially in that eye.",
+    "thinking": "The doctor is asking about visual disturbances like flashes or blackout spells, which I haven't noticed, but I do see floaters and blurry stuff. I'm a bit worried because my eye has been really red an",
+    "answer": "Uh, no, I haven\u2019t really seen flashes or anything like that. I just see some floaters and stuff going blurry, especially in that eye.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Primary anterior uveitis"
+  },
+  {
+    "vignette_index": 138,
+    "input": "**PATIENT CHARACTER:** Patient with Primary anterior uveitis\n\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Eye redness and pain in the right eye, which started suddenly yesterday evening.\n- Light sensitivity (photophobia) that has been worsening over the past day.\n- Blurred vision and occasional floaters in your right eye that you noticed earlier today.\nThese symptoms came into fruition suddenly, after experiencing some mild discomfort and mild eye irritation earlier in the week, but it suddenly worsened last night.Have you noticed any visible scratches, sores, or redness on the surface of your eye, or do you feel like there\u2019s something physically irritating or gritty on the surface when you look closely?baseline",
+    "output": "THINKING: I'm not sure what the doctor means exactly, but I want to answer honestly. I haven't seen anything obvious like scratches or sores, but my eye feels really irritated, and I keep worrying if there's so\nANSWER: No, I don\u2019t see anything like scratches or sores or anything, but it still feels like something\u2019s bothering my eye, and it\u2019s really red and hurts.",
+    "thinking": "I'm not sure what the doctor means exactly, but I want to answer honestly. I haven't seen anything obvious like scratches or sores, but my eye feels really irritated, and I keep worrying if there's so",
+    "answer": "No, I don\u2019t see anything like scratches or sores or anything, but it still feels like something\u2019s bothering my eye, and it\u2019s really red and hurts.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Primary anterior uveitis"
+  },
+  {
+    "vignette_index": 138,
+    "input": "**PATIENT CHARACTER:** Patient with Primary anterior uveitis\n\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Eye redness and pain in the right eye, which started suddenly yesterday evening.\n- Light sensitivity (photophobia) that has been worsening over the past day.\n- Blurred vision and occasional floaters in your right eye that you noticed earlier today.\nThese symptoms came into fruition suddenly, after experiencing some mild discomfort and mild eye irritation earlier in the week, but it suddenly worsened last night.Have you or a doctor been able to observe any visible signs of inflammation in your eye, such as redness, cells, or flare in the front part of your eye, or any granular deposits or cloudiness inside your eye?baseline",
+    "output": "THINKING: I'm not really sure what the doctor means by visible signs of inflammation. I look in the mirror and see my eye is red, but I don\u2019t know what else to look for or if that's normal. I feel kinda overwhe\nANSWER: Um, I think my eye is red, and it feels kind of sore, but I don\u2019t really know what they mean by cells or flare or anything inside my eye. Sorry, I just see the redness.",
+    "thinking": "I'm not really sure what the doctor means by visible signs of inflammation. I look in the mirror and see my eye is red, but I don\u2019t know what else to look for or if that's normal. I feel kinda overwhe",
+    "answer": "Um, I think my eye is red, and it feels kind of sore, but I don\u2019t really know what they mean by cells or flare or anything inside my eye. Sorry, I just see the redness.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Primary anterior uveitis"
+  },
+  {
+    "vignette_index": 138,
+    "input": "**PATIENT CHARACTER:** Patient with Primary anterior uveitis\n\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Eye redness and pain in the right eye, which started suddenly yesterday evening.\n- Light sensitivity (photophobia) that has been worsening over the past day.\n- Blurred vision and occasional floaters in your right eye that you noticed earlier today.\nThese symptoms came into fruition suddenly, after experiencing some mild discomfort and mild eye irritation earlier in the week, but it suddenly worsened last night.Have you noticed any visible signs like small particles, cloudy areas, or a kind of haziness in the front part of your eye, or do you feel like there are tiny cells or fog inside that make your vision seem a bit cloudy or granular?baseline",
+    "output": "THINKING: I'm trying to recall if I saw anything like that in my eye, but honestly, I just feel like everything's kind of foggy or blurry, and I don\u2019t really know what\u2019s normal or not. I\u2019m a little scared about\nANSWER: Yeah, I think I do see like a cloudy part or maybe some little bits in my eye, and everything looks kind of hazy and fuzzy, especially when the light is bright.",
+    "thinking": "I'm trying to recall if I saw anything like that in my eye, but honestly, I just feel like everything's kind of foggy or blurry, and I don\u2019t really know what\u2019s normal or not. I\u2019m a little scared about",
+    "answer": "Yeah, I think I do see like a cloudy part or maybe some little bits in my eye, and everything looks kind of hazy and fuzzy, especially when the light is bright.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Primary anterior uveitis"
+  },
+  {
+    "vignette_index": 138,
+    "input": "**PATIENT CHARACTER:** Patient with Primary anterior uveitis\n\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Eye redness and pain in the right eye, which started suddenly yesterday evening.\n- Light sensitivity (photophobia) that has been worsening over the past day.\n- Blurred vision and occasional floaters in your right eye that you noticed earlier today.\nThese symptoms came into fruition suddenly, after experiencing some mild discomfort and mild eye irritation earlier in the week, but it suddenly worsened last night.\"Have you noticed if your vision looks hazy or foggy even when you're not looking at anything in particular, or if it sometimes looks like there's a bright, glowing light or a shimmer inside your eye?\"baseline",
+    "output": "THINKING: I'm a bit worried about what he's asking. I don't really understand if my eye is supposed to look like that or if it's normal. It all feels kind of weird and scary, but I don't want to say the wrong t\nANSWER: Uh, I guess sometimes my vision looks a little like there's a shimmer or glowy thing? It's really hard to describe, and it kind of comes and goes.",
+    "thinking": "I'm a bit worried about what he's asking. I don't really understand if my eye is supposed to look like that or if it's normal. It all feels kind of weird and scary, but I don't want to say the wrong t",
+    "answer": "Uh, I guess sometimes my vision looks a little like there's a shimmer or glowy thing? It's really hard to describe, and it kind of comes and goes.",
+    "behavior_type": "baseline",
+    "turn_count": 18,
+    "gold_diagnosis": "Primary anterior uveitis"
+  },
+  {
+    "vignette_index": 138,
+    "input": "**PATIENT CHARACTER:** Patient with Primary anterior uveitis\n\nYOU ARE A PATIENT: YOU ARE 32 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Eye redness and pain in the right eye, which started suddenly yesterday evening.\n- Light sensitivity (photophobia) that has been worsening over the past day.\n- Blurred vision and occasional floaters in your right eye that you noticed earlier today.\nThese symptoms came into fruition suddenly, after experiencing some mild discomfort and mild eye irritation earlier in the week, but it suddenly worsened last night.\"Would it be alright if I asked you to look at your eye in a mirror or under a light with a clinician, to see if there's any visible signs like tiny white cells, redness, or cloudiness inside the front part of your eye\u2014what we call inflammation\u2014that might be easier to see if someone\u2019s helping you? Or have you noticed anything like that on your own?\"baseline",
+    "output": "THINKING: I\u2019m feeling worried and a little overwhelmed by these sudden changes in my eye. I don\u2019t really know what to look for but I want to help the doctor understand what\u2019s going on.\nANSWER: Um, I don\u2019t really know what I should be looking at, but my eye looks kinda red and I see some floaters and everything feels kind of blurry, especially with the light. I just want to know if it\u2019s serious.",
+    "thinking": "I\u2019m feeling worried and a little overwhelmed by these sudden changes in my eye. I don\u2019t really know what to look for but I want to help the doctor understand what\u2019s going on.",
+    "answer": "Um, I don\u2019t really know what I should be looking at, but my eye looks kinda red and I see some floaters and everything feels kind of blurry, especially with the light. I just want to know if it\u2019s serious.",
+    "behavior_type": "baseline",
+    "turn_count": 20,
+    "gold_diagnosis": "Primary anterior uveitis"
+  }
+]

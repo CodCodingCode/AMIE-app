@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 154,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Hyperkalaemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Mild stomach pain and nausea, feeling somewhat unsettled\n- Occasional episodes of diarrhea throughout the day\n- A vague feeling of weakness and fatigue that has been gradually worsening\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started about two days ago, initially just some mild stomach discomfort, but then I noticed I was feeling more tired than usual and had some diarrhea. I also started feeling a bit dizzy, especially when standing up quickly. I have a history of kidney issues and take medication for my high blood pressure, which I think might be related.",
+    "output": "THINKING: I need to explain my symptoms clearly but honestly, without sounding like I know too much. I should mention my age and gender first, then describe what I\u2019ve been feeling in a way that's easy to unders\nANSWER: I\u2019m 65, and I\u2019m a man. I guess I just started feeling kind of off the past couple of days\u2014like my stomach\u2019s been bothering me some, and I get nausea and diarrhea now and then. I\u2019ve been feeling kind of weak and a little dizzy, especially when I stand up too fast. It\u2019s all come on slowly but now it\u2019s worse, and I don\u2019t really know what\u2019s going on.",
+    "thinking": "I need to explain my symptoms clearly but honestly, without sounding like I know too much. I should mention my age and gender first, then describe what I\u2019ve been feeling in a way that's easy to unders",
+    "answer": "I\u2019m 65, and I\u2019m a man. I guess I just started feeling kind of off the past couple of days\u2014like my stomach\u2019s been bothering me some, and I get nausea and diarrhea now and then. I\u2019ve been feeling kind of weak and a little dizzy, especially when I stand up too fast. It\u2019s all come on slowly but now it\u2019s worse, and I don\u2019t really know what\u2019s going on.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Hyperkalaemia"
+  },
+  {
+    "vignette_index": 154,
+    "input": "**PATIENT CHARACTER:** Patient with Hyperkalaemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Mild stomach pain and nausea, feeling somewhat unsettled\n- Occasional episodes of diarrhea throughout the day\n- A vague feeling of weakness and fatigue that has been gradually worsening\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started about two days ago, initially just some mild stomach discomfort, but then I noticed I was feeling more tired than usual and had some diarrhea. I also started feeling a bit dizzy, especially when standing up quickly. I have a history of kidney issues and take medication for my high blood pressure, which I think might be related.Can you tell me more about how often you feel dizzy or weak, and how it affects your daily activities\u2014are you able to do things normally, or do these symptoms cause you to stop or rest more than usual?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and unsure about how often I feel dizzy or weak, but I know it's been happening more and more. I just want to explain my sensations honestly, even if I don't have the right wo\nANSWER: I guess I feel kinda weak most of the time now, and I get dizzy sometimes, especially when I stand up. It\u2019s making it hard to do stuff like I used to.",
+    "thinking": "I feel a bit overwhelmed and unsure about how often I feel dizzy or weak, but I know it's been happening more and more. I just want to explain my sensations honestly, even if I don't have the right wo",
+    "answer": "I guess I feel kinda weak most of the time now, and I get dizzy sometimes, especially when I stand up. It\u2019s making it hard to do stuff like I used to.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Hyperkalaemia"
+  },
+  {
+    "vignette_index": 154,
+    "input": "**PATIENT CHARACTER:** Patient with Hyperkalaemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Mild stomach pain and nausea, feeling somewhat unsettled\n- Occasional episodes of diarrhea throughout the day\n- A vague feeling of weakness and fatigue that has been gradually worsening\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started about two days ago, initially just some mild stomach discomfort, but then I noticed I was feeling more tired than usual and had some diarrhea. I also started feeling a bit dizzy, especially when standing up quickly. I have a history of kidney issues and take medication for my high blood pressure, which I think might be related.Can you tell me more about when the dizziness and weakness happen, like whether they come and go at certain times or during specific activities, and how they affect what you're able to do each day?baseline",
+    "output": "THINKING: I'm not sure exactly when the dizziness and weakness happen the most, but I do feel it more when I get up quickly or sometimes just suddenly. I guess it\u2019s been worse lately, and I feel a bit worried a\nANSWER: They kind of happen unpredictably, but I notice they\u2019re worse when I stand up fast or move around too much, and it\u2019s making me tired all the time now.",
+    "thinking": "I'm not sure exactly when the dizziness and weakness happen the most, but I do feel it more when I get up quickly or sometimes just suddenly. I guess it\u2019s been worse lately, and I feel a bit worried a",
+    "answer": "They kind of happen unpredictably, but I notice they\u2019re worse when I stand up fast or move around too much, and it\u2019s making me tired all the time now.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Hyperkalaemia"
+  },
+  {
+    "vignette_index": 154,
+    "input": "**PATIENT CHARACTER:** Patient with Hyperkalaemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Mild stomach pain and nausea, feeling somewhat unsettled\n- Occasional episodes of diarrhea throughout the day\n- A vague feeling of weakness and fatigue that has been gradually worsening\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started about two days ago, initially just some mild stomach discomfort, but then I noticed I was feeling more tired than usual and had some diarrhea. I also started feeling a bit dizzy, especially when standing up quickly. I have a history of kidney issues and take medication for my high blood pressure, which I think might be related.Can you tell me more about how often your dizziness and weakness happen, what they feel like when they occur, and how they affect your ability to go about your daily activities?baseline",
+    "output": "THINKING: I feel a bit overwhelmed because I don't really understand what's going on with all these symptoms and I just want to know if it's serious or not. I\u2019m worried but also embarrassed to ask too many ques\nANSWER: Well, I feel kinda weak and tired most of the time now, and when I get up too fast, I get kind of dizzy, and the stomach stuff is just weird, like upset and sometimes I feel like I might throw up.",
+    "thinking": "I feel a bit overwhelmed because I don't really understand what's going on with all these symptoms and I just want to know if it's serious or not. I\u2019m worried but also embarrassed to ask too many ques",
+    "answer": "Well, I feel kinda weak and tired most of the time now, and when I get up too fast, I get kind of dizzy, and the stomach stuff is just weird, like upset and sometimes I feel like I might throw up.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Hyperkalaemia"
+  },
+  {
+    "vignette_index": 154,
+    "input": "**PATIENT CHARACTER:** Patient with Hyperkalaemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Mild stomach pain and nausea, feeling somewhat unsettled\n- Occasional episodes of diarrhea throughout the day\n- A vague feeling of weakness and fatigue that has been gradually worsening\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started about two days ago, initially just some mild stomach discomfort, but then I noticed I was feeling more tired than usual and had some diarrhea. I also started feeling a bit dizzy, especially when standing up quickly. I have a history of kidney issues and take medication for my high blood pressure, which I think might be related.\"When you feel dizzy, can you tell me if it feels like the room is spinning or you\u2019re about to faint, and how long that feeling lasts\u2014does it happen immediately when you stand up, or during certain head movements or activities?\"baseline",
+    "output": "THINKING: I feel a bit embarrassed about not knowing exactly what\u2019s happening. The dizziness seems to happen sometimes when I stand up fast, but I\u2019m not sure if it\u2019s spinning or just like I\u2019m gonna fall over. I\nANSWER: Well, it\u2019s kind of like the room spins a little sometimes, mostly when I get up quickly, but it doesn\u2019t last long. I\u2019m not really sure, honestly.",
+    "thinking": "I feel a bit embarrassed about not knowing exactly what\u2019s happening. The dizziness seems to happen sometimes when I stand up fast, but I\u2019m not sure if it\u2019s spinning or just like I\u2019m gonna fall over. I",
+    "answer": "Well, it\u2019s kind of like the room spins a little sometimes, mostly when I get up quickly, but it doesn\u2019t last long. I\u2019m not really sure, honestly.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Hyperkalaemia"
+  },
+  {
+    "vignette_index": 154,
+    "input": "**PATIENT CHARACTER:** Patient with Hyperkalaemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Mild stomach pain and nausea, feeling somewhat unsettled\n- Occasional episodes of diarrhea throughout the day\n- A vague feeling of weakness and fatigue that has been gradually worsening\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started about two days ago, initially just some mild stomach discomfort, but then I noticed I was feeling more tired than usual and had some diarrhea. I also started feeling a bit dizzy, especially when standing up quickly. I have a history of kidney issues and take medication for my high blood pressure, which I think might be related.When you experience dizziness, does it only happen when you move your head in certain ways, like turning or tilting, or does it also happen even when you're just standing up or walking around?baseline",
+    "output": "THINKING: I feel a bit embarrassed trying to explain how the dizziness feels, and I\u2019m a little worried about what's causing all these symptoms, especially since I have kidney problems. I\u2019m not sure if the dizzi\nANSWER: It\u2019s kind of like, I feel dizzy whenever I stand up too fast or move my head around quickly, but sometimes I even feel a bit off just sitting or walking.",
+    "thinking": "I feel a bit embarrassed trying to explain how the dizziness feels, and I\u2019m a little worried about what's causing all these symptoms, especially since I have kidney problems. I\u2019m not sure if the dizzi",
+    "answer": "It\u2019s kind of like, I feel dizzy whenever I stand up too fast or move my head around quickly, but sometimes I even feel a bit off just sitting or walking.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Hyperkalaemia"
+  },
+  {
+    "vignette_index": 154,
+    "input": "**PATIENT CHARACTER:** Patient with Hyperkalaemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Mild stomach pain and nausea, feeling somewhat unsettled\n- Occasional episodes of diarrhea throughout the day\n- A vague feeling of weakness and fatigue that has been gradually worsening\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started about two days ago, initially just some mild stomach discomfort, but then I noticed I was feeling more tired than usual and had some diarrhea. I also started feeling a bit dizzy, especially when standing up quickly. I have a history of kidney issues and take medication for my high blood pressure, which I think might be related.When you feel dizzy, can you tell me if the room feels like it's spinning or if you're about to faint or pass out, and how long the dizziness usually lasts\u2014does it happen immediately when you stand up or turn your head, or does it come on at other times?baseline",
+    "output": "THINKING: I\u2019m trying to explain what I feel, but I\u2019m not sure if it\u2019s spinning or passing out. I just know I feel weird and weak when I stand up, and I don\u2019t want to make it sound bad but it\u2019s a little scary.\nANSWER: It\u2019s mostly like the room kind of wobbles a bit, and I feel like I might faint sometimes, but it doesn\u2019t last long. It happens when I get up quickly or turn my head too fast.",
+    "thinking": "I\u2019m trying to explain what I feel, but I\u2019m not sure if it\u2019s spinning or passing out. I just know I feel weird and weak when I stand up, and I don\u2019t want to make it sound bad but it\u2019s a little scary.",
+    "answer": "It\u2019s mostly like the room kind of wobbles a bit, and I feel like I might faint sometimes, but it doesn\u2019t last long. It happens when I get up quickly or turn my head too fast.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Hyperkalaemia"
+  },
+  {
+    "vignette_index": 154,
+    "input": "**PATIENT CHARACTER:** Patient with Hyperkalaemia\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 65-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- Mild stomach pain and nausea, feeling somewhat unsettled\n- Occasional episodes of diarrhea throughout the day\n- A vague feeling of weakness and fatigue that has been gradually worsening\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started about two days ago, initially just some mild stomach discomfort, but then I noticed I was feeling more tired than usual and had some diarrhea. I also started feeling a bit dizzy, especially when standing up quickly. I have a history of kidney issues and take medication for my high blood pressure, which I think might be related.Have you noticed if your blood pressure drops significantly when you stand up quickly or after sitting for a while\u2014like feeling your pulse race, your skin feeling cold, or seeing dimming or blurring of your vision\u2014those kinds of changes?baseline",
+    "output": "THINKING: The dizziness when I stand up feels like I might pass out or something bad. I\u2019m worried because I already feel so weak and not right. I don\u2019t really understand what\u2019s happening, but I want it to stop.\nANSWER: Uh, yeah, sometimes when I get up fast, I feel my heart racing and everything kinda gets dark for a second. It\u2019s kinda scary.",
+    "thinking": "The dizziness when I stand up feels like I might pass out or something bad. I\u2019m worried because I already feel so weak and not right. I don\u2019t really understand what\u2019s happening, but I want it to stop.",
+    "answer": "Uh, yeah, sometimes when I get up fast, I feel my heart racing and everything kinda gets dark for a second. It\u2019s kinda scary.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Hyperkalaemia"
+  }
+]

@@ -1,0 +1,116 @@
+[
+  {
+    "vignette_index": 149,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1\n\nYou are a patient: You are a 35-year-old male.\nYou are experiencing the following symptoms:\n- Fatigue\n- Easy bruising and bleeding\n- Pale skin\n- Fever\n- Frequent infections\nThese symptoms came into fruition gradually over the past two weeks. You started feeling more tired than usual, and then noticed that small bruises appeared easily on your arms and legs, even without bumping into anything. You also developed a low-grade fever that wouldn't go away and felt unusually weak and run down. Over the last few days, you've been getting sick more often, with colds and infections that seem harder to shake.",
+    "output": "THINKING: The patient is clearly worried because these symptoms have been getting worse and are quite bumpy, but they\u2019re trying not to overreact or make it seem like a big deal. They might be feeling embarrasse\nANSWER: Well, I\u2019m 35, and I\u2019m a guy. I\u2019ve been pretty tired lately, more than just normal tired, I guess. Started noticing I\u2019d get these little bruises on my arms and legs, and I don\u2019t even really remember bumping into things. I also saw I was looking a bit pale, and I\u2019ve had a low-grade fever that just won\u2019t go away. I\u2019ve been getting sick more often too, like colds that don\u2019t seem to get better. I thought it might pass, but it\u2019s been a couple of weeks now, so I thought I should come in and see if it\u2019s something I should worry about.",
+    "thinking": "The patient is clearly worried because these symptoms have been getting worse and are quite bumpy, but they\u2019re trying not to overreact or make it seem like a big deal. They might be feeling embarrasse",
+    "answer": "Well, I\u2019m 35, and I\u2019m a guy. I\u2019ve been pretty tired lately, more than just normal tired, I guess. Started noticing I\u2019d get these little bruises on my arms and legs, and I don\u2019t even really remember bumping into things. I also saw I was looking a bit pale, and I\u2019ve had a low-grade fever that just won\u2019t go away. I\u2019ve been getting sick more often too, like colds that don\u2019t seem to get better. I thought it might pass, but it\u2019s been a couple of weeks now, so I thought I should come in and see if it\u2019s something I should worry about.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1"
+  },
+  {
+    "vignette_index": 149,
+    "input": "**PATIENT CHARACTER:** Patient with B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1\n\nYou are a patient: You are a 35-year-old male.\nYou are experiencing the following symptoms:\n- Fatigue\n- Easy bruising and bleeding\n- Pale skin\n- Fever\n- Frequent infections\nThese symptoms came into fruition gradually over the past two weeks. You started feeling more tired than usual, and then noticed that small bruises appeared easily on your arms and legs, even without bumping into anything. You also developed a low-grade fever that wouldn't go away and felt unusually weak and run down. Over the last few days, you've been getting sick more often, with colds and infections that seem harder to shake.Can you tell me more about how these symptoms have changed over the past few weeks\u2014whether they've been getting worse, staying the same, or if you've noticed anything else happening, like increased bruising, bleeding, or feeling more tired?stoic_minimizer",
+    "output": "THINKING: I guess I should tell the doctor everything, but I don't want to seem like I'm overreacting or making a big deal. It\u2019s been happening gradually, not much changed, so maybe it\u2019s nothing serious? Still,\nANSWER: Well, the tiredness has just kinda stayed the same, and the bruises, I don\u2019t know, they come more often now, like on their own. The fever\u2019s been there a bit, but I thought it was just a cold or something. It\u2019s probably nothing, I\u2019ve just been pushing through.",
+    "thinking": "I guess I should tell the doctor everything, but I don't want to seem like I'm overreacting or making a big deal. It\u2019s been happening gradually, not much changed, so maybe it\u2019s nothing serious? Still,",
+    "answer": "Well, the tiredness has just kinda stayed the same, and the bruises, I don\u2019t know, they come more often now, like on their own. The fever\u2019s been there a bit, but I thought it was just a cold or something. It\u2019s probably nothing, I\u2019ve just been pushing through.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1"
+  },
+  {
+    "vignette_index": 149,
+    "input": "**PATIENT CHARACTER:** Patient with B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1\n\nYou are a patient: You are a 35-year-old male.\nYou are experiencing the following symptoms:\n- Fatigue\n- Easy bruising and bleeding\n- Pale skin\n- Fever\n- Frequent infections\nThese symptoms came into fruition gradually over the past two weeks. You started feeling more tired than usual, and then noticed that small bruises appeared easily on your arms and legs, even without bumping into anything. You also developed a low-grade fever that wouldn't go away and felt unusually weak and run down. Over the last few days, you've been getting sick more often, with colds and infections that seem harder to shake.\"Can you tell me more about how your symptoms\u2014like fatigue, bruising, or any bleeding\u2014have changed or affected your day-to-day activities over the past few weeks?\"stoic_minimizer",
+    "output": "THINKING: I don\u2019t really think it\u2019s anything serious, but I guess I felt like I should mention that I\u2019ve been extra tired and noticing these bruises and stuff more than usual. I\u2019m a little worried, but I don\u2019t \nANSWER: Well, I\u2019ve just been really tired, and I started noticing some bruises I don\u2019t remember getting, kind of easy, and I\u2019ve been feeling kind of weak and sick more often. It\u2019s probably nothing, but I thought I\u2019d mention it.",
+    "thinking": "I don\u2019t really think it\u2019s anything serious, but I guess I felt like I should mention that I\u2019ve been extra tired and noticing these bruises and stuff more than usual. I\u2019m a little worried, but I don\u2019t",
+    "answer": "Well, I\u2019ve just been really tired, and I started noticing some bruises I don\u2019t remember getting, kind of easy, and I\u2019ve been feeling kind of weak and sick more often. It\u2019s probably nothing, but I thought I\u2019d mention it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1"
+  },
+  {
+    "vignette_index": 149,
+    "input": "**PATIENT CHARACTER:** Patient with B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1\n\nYou are a patient: You are a 35-year-old male.\nYou are experiencing the following symptoms:\n- Fatigue\n- Easy bruising and bleeding\n- Pale skin\n- Fever\n- Frequent infections\nThese symptoms came into fruition gradually over the past two weeks. You started feeling more tired than usual, and then noticed that small bruises appeared easily on your arms and legs, even without bumping into anything. You also developed a low-grade fever that wouldn't go away and felt unusually weak and run down. Over the last few days, you've been getting sick more often, with colds and infections that seem harder to shake.\"I understand you've been pushing through these feelings, but can you tell me if your tiredness or bruising has been changing at all\u2014like, are they worse now than when they first started, or have they stayed about the same?\"stoic_minimizer",
+    "output": "THINKING: I guess I should mention if things are worse, but honestly I don't feel like it's gotten much worse, just more of the same. I don't want to sound like I'm overreacting or making a big deal out of it.\nANSWER: Well, I haven't really noticed much change, to be honest. It's pretty much the same as when I first started feeling it.",
+    "thinking": "I guess I should mention if things are worse, but honestly I don't feel like it's gotten much worse, just more of the same. I don't want to sound like I'm overreacting or making a big deal out of it.",
+    "answer": "Well, I haven't really noticed much change, to be honest. It's pretty much the same as when I first started feeling it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1"
+  },
+  {
+    "vignette_index": 149,
+    "input": "**PATIENT CHARACTER:** Patient with B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1\n\nYou are a patient: You are a 35-year-old male.\nYou are experiencing the following symptoms:\n- Fatigue\n- Easy bruising and bleeding\n- Pale skin\n- Fever\n- Frequent infections\nThese symptoms came into fruition gradually over the past two weeks. You started feeling more tired than usual, and then noticed that small bruises appeared easily on your arms and legs, even without bumping into anything. You also developed a low-grade fever that wouldn't go away and felt unusually weak and run down. Over the last few days, you've been getting sick more often, with colds and infections that seem harder to shake.Can you tell me if you've noticed your bruises appearing without any injury, how they look\u2014like their size or color\u2014and if you've experienced any bleeding from your gums, nose, or anywhere else that might seem unusual?stoic_minimizer",
+    "output": "THINKING: I\u2019ve noticed the bruises but I don\u2019t think they\u2019re that bad, probably just from bumping into stuff I don\u2019t remember. The bleeding is not super obvious, just seems like minor stuff, and I don\u2019t want to\nANSWER: Yeah, I guess I\u2019ve had some bruises that aren\u2019t really from any injury. They\u2019re not huge, just small ones, and I haven\u2019t been bleeding from anywhere I can tell, really.",
+    "thinking": "I\u2019ve noticed the bruises but I don\u2019t think they\u2019re that bad, probably just from bumping into stuff I don\u2019t remember. The bleeding is not super obvious, just seems like minor stuff, and I don\u2019t want to",
+    "answer": "Yeah, I guess I\u2019ve had some bruises that aren\u2019t really from any injury. They\u2019re not huge, just small ones, and I haven\u2019t been bleeding from anywhere I can tell, really.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1"
+  },
+  {
+    "vignette_index": 149,
+    "input": "**PATIENT CHARACTER:** Patient with B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1\n\nYou are a patient: You are a 35-year-old male.\nYou are experiencing the following symptoms:\n- Fatigue\n- Easy bruising and bleeding\n- Pale skin\n- Fever\n- Frequent infections\nThese symptoms came into fruition gradually over the past two weeks. You started feeling more tired than usual, and then noticed that small bruises appeared easily on your arms and legs, even without bumping into anything. You also developed a low-grade fever that wouldn't go away and felt unusually weak and run down. Over the last few days, you've been getting sick more often, with colds and infections that seem harder to shake.Can you tell me if the bruises have been getting larger or more numerous, and whether they appear spontaneously without any injury, or only after minor bumps?stoic_minimizer",
+    "output": "THINKING: I don't want to make a big deal out of it, but I guess the bruises are there more and they seem to come out of nowhere. I don't really bump into stuff, so I dunno if it's worse or not.\nANSWER: The bruises are there more often now, but I haven't really noticed them happening without any reason or bumping into things. It's probably nothing.",
+    "thinking": "I don't want to make a big deal out of it, but I guess the bruises are there more and they seem to come out of nowhere. I don't really bump into stuff, so I dunno if it's worse or not.",
+    "answer": "The bruises are there more often now, but I haven't really noticed them happening without any reason or bumping into things. It's probably nothing.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1"
+  },
+  {
+    "vignette_index": 149,
+    "input": "**PATIENT CHARACTER:** Patient with B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1\n\nYou are a patient: You are a 35-year-old male.\nYou are experiencing the following symptoms:\n- Fatigue\n- Easy bruising and bleeding\n- Pale skin\n- Fever\n- Frequent infections\nThese symptoms came into fruition gradually over the past two weeks. You started feeling more tired than usual, and then noticed that small bruises appeared easily on your arms and legs, even without bumping into anything. You also developed a low-grade fever that wouldn't go away and felt unusually weak and run down. Over the last few days, you've been getting sick more often, with colds and infections that seem harder to shake.\"Can you tell me if your bruises or any bleeding have come up out of nowhere, without you hitting or bumping into anything, or do they only happen after minor knocks?\"stoic_minimizer",
+    "output": "THINKING: I think about how I don't really want to be here, it's probably nothing serious but I guess I should mention the bruises anyway since they've been happening for a little while. I don't want to overrea\nANSWER: They only come up after I notice a bruise, honestly. I haven't hit or bumped into anything, but I guess they've been showing up more often lately.",
+    "thinking": "I think about how I don't really want to be here, it's probably nothing serious but I guess I should mention the bruises anyway since they've been happening for a little while. I don't want to overrea",
+    "answer": "They only come up after I notice a bruise, honestly. I haven't hit or bumped into anything, but I guess they've been showing up more often lately.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1"
+  },
+  {
+    "vignette_index": 149,
+    "input": "**PATIENT CHARACTER:** Patient with B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1\n\nYou are a patient: You are a 35-year-old male.\nYou are experiencing the following symptoms:\n- Fatigue\n- Easy bruising and bleeding\n- Pale skin\n- Fever\n- Frequent infections\nThese symptoms came into fruition gradually over the past two weeks. You started feeling more tired than usual, and then noticed that small bruises appeared easily on your arms and legs, even without bumping into anything. You also developed a low-grade fever that wouldn't go away and felt unusually weak and run down. Over the last few days, you've been getting sick more often, with colds and infections that seem harder to shake.Can you tell me if you've noticed any bruises or bleeding that seem to come out of nowhere, without any bumps or injuries, and if so, how often that happens and how bad it looks?stoic_minimizer",
+    "output": "THINKING: I should tell the doctor I'm noticing some bruises, but I don't want to sound like I'm making a big deal since it\u2019s probably nothing serious. I feel a bit embarrassed about it happening so easily, but\nANSWER: Yeah, I\u2019ve noticed some bruises here and there on my arms and legs, but I don\u2019t think they\u2019re that bad or anything. It just happens more often lately, I guess.",
+    "thinking": "I should tell the doctor I'm noticing some bruises, but I don't want to sound like I'm making a big deal since it\u2019s probably nothing serious. I feel a bit embarrassed about it happening so easily, but",
+    "answer": "Yeah, I\u2019ve noticed some bruises here and there on my arms and legs, but I don\u2019t think they\u2019re that bad or anything. It just happens more often lately, I guess.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1"
+  },
+  {
+    "vignette_index": 149,
+    "input": "**PATIENT CHARACTER:** Patient with B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1\n\nYou are a patient: You are a 35-year-old male.\nYou are experiencing the following symptoms:\n- Fatigue\n- Easy bruising and bleeding\n- Pale skin\n- Fever\n- Frequent infections\nThese symptoms came into fruition gradually over the past two weeks. You started feeling more tired than usual, and then noticed that small bruises appeared easily on your arms and legs, even without bumping into anything. You also developed a low-grade fever that wouldn't go away and felt unusually weak and run down. Over the last few days, you've been getting sick more often, with colds and infections that seem harder to shake.Have you noticed any bleeding from your gums, your nose, or other places that may seem unusual or spontaneous, especially when brushing your teeth or small cuts that won\u2019t stop bleeding easily?stoic_minimizer",
+    "output": "THINKING: I haven't noticed anything really alarming like bleeding, but I suppose I should mention it since I have been bleeding a bit more maybe? I don't want to make a big deal out of it, but maybe it's worth\nANSWER: No, I haven't seen much bleeding, just the usual little cuts, but I guess I noticed I get bruises easier than before.",
+    "thinking": "I haven't noticed anything really alarming like bleeding, but I suppose I should mention it since I have been bleeding a bit more maybe? I don't want to make a big deal out of it, but maybe it's worth",
+    "answer": "No, I haven't seen much bleeding, just the usual little cuts, but I guess I noticed I get bruises easier than before.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 14,
+    "gold_diagnosis": "B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1"
+  },
+  {
+    "vignette_index": 149,
+    "input": "**PATIENT CHARACTER:** Patient with B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1\n\nYou are a patient: You are a 35-year-old male.\nYou are experiencing the following symptoms:\n- Fatigue\n- Easy bruising and bleeding\n- Pale skin\n- Fever\n- Frequent infections\nThese symptoms came into fruition gradually over the past two weeks. You started feeling more tired than usual, and then noticed that small bruises appeared easily on your arms and legs, even without bumping into anything. You also developed a low-grade fever that wouldn't go away and felt unusually weak and run down. Over the last few days, you've been getting sick more often, with colds and infections that seem harder to shake.Have you experienced any spontaneous bleeding from your gums, nose, or other areas without any injury, especially during brushing your teeth or when you haven't bumped yourself?stoic_minimizer",
+    "output": "THINKING: The doctor is asking about bleeding without injuries, which I guess might be related to the bruising I've noticed. I don't really want to make a big deal out of it, but maybe it's something I should m\nANSWER: Yeah, sometimes I see like, blood on my gums or nose, especially when I brush my teeth, but I thought it was just from brushing too hard or something. It\u2019s probably nothing, I\u2019ve just been tired and feeling run down anyway.",
+    "thinking": "The doctor is asking about bleeding without injuries, which I guess might be related to the bruising I've noticed. I don't really want to make a big deal out of it, but maybe it's something I should m",
+    "answer": "Yeah, sometimes I see like, blood on my gums or nose, especially when I brush my teeth, but I thought it was just from brushing too hard or something. It\u2019s probably nothing, I\u2019ve just been tired and feeling run down anyway.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 16,
+    "gold_diagnosis": "B lymphoblastic leukaemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1"
+  }
+]

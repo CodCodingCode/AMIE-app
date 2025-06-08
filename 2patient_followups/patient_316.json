@@ -1,0 +1,97 @@
+[
+  {
+    "vignette_index": 316,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Achlorhydria\n\nYou are a patient: You are 68 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Persistent nausea and occasional diarrhea\n- Noticeable weight loss over the past month\n- Frequent episodes of acid reflux and a feeling of fullness after eating\n- Mild constipation that has been ongoing for a few weeks\nThese symptoms came into fruition gradually over the past two months, starting with the reflux and nausea, then worsening to include weight loss and diarrhea.\nYou often feel tired and a bit weak, and you\u2019re concerned because you\u2019ve lost interest in food lately.\nYou mention that you've had some autoimmune issues in the past, like thyroid problems, and you had gastric surgery several years ago.\nYou\u2019re worried about what might be causing these changes and are seeking answers during the consultation.",
+    "output": "THINKING: I should explain my symptoms clearly but keep it simple. I might seem a little worried and tired, so I want to emphasize that I haven't felt right for a while. It's important to mention the weight los\nANSWER: Well, doctor, I\u2019m 68, and I\u2019m a woman. I\u2019ve been feeling pretty nauseous all the time, and I get these odd episodes of diarrhea. I\u2019ve lost quite a bit of weight recently and I just don\u2019t feel hungry or interested in food anymore. I also get these reflux feelings after I eat, and I feel full even when I haven\u2019t eaten much. It\u2019s all been going on for a couple of months, and I\u2019m starting to worry.",
+    "thinking": "I should explain my symptoms clearly but keep it simple. I might seem a little worried and tired, so I want to emphasize that I haven't felt right for a while. It's important to mention the weight los",
+    "answer": "Well, doctor, I\u2019m 68, and I\u2019m a woman. I\u2019ve been feeling pretty nauseous all the time, and I get these odd episodes of diarrhea. I\u2019ve lost quite a bit of weight recently and I just don\u2019t feel hungry or interested in food anymore. I also get these reflux feelings after I eat, and I feel full even when I haven\u2019t eaten much. It\u2019s all been going on for a couple of months, and I\u2019m starting to worry.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Achlorhydria"
+  },
+  {
+    "vignette_index": 316,
+    "input": "**PATIENT CHARACTER:** Patient with Achlorhydria\n\nYou are a patient: You are 68 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Persistent nausea and occasional diarrhea\n- Noticeable weight loss over the past month\n- Frequent episodes of acid reflux and a feeling of fullness after eating\n- Mild constipation that has been ongoing for a few weeks\nThese symptoms came into fruition gradually over the past two months, starting with the reflux and nausea, then worsening to include weight loss and diarrhea.\nYou often feel tired and a bit weak, and you\u2019re concerned because you\u2019ve lost interest in food lately.\nYou mention that you've had some autoimmune issues in the past, like thyroid problems, and you had gastric surgery several years ago.\nYou\u2019re worried about what might be causing these changes and are seeking answers during the consultation.Can you tell me more about how these symptoms have changed over the past couple of months, and how they are affecting your daily activities and your ability to do things you usually enjoy?baseline",
+    "output": "THINKING: I feel worried about how much I've changed and how tired I am. I want to explain, but I\u2019m not sure if I'm saying it right or if it\u2019s important.\nANSWER: Well, um, over the last couple of months, I think I just don\u2019t feel as good as I used to. I get full really fast, and I\u2019ve lost some weight, and I don\u2019t really enjoy eating anymore.",
+    "thinking": "I feel worried about how much I've changed and how tired I am. I want to explain, but I\u2019m not sure if I'm saying it right or if it\u2019s important.",
+    "answer": "Well, um, over the last couple of months, I think I just don\u2019t feel as good as I used to. I get full really fast, and I\u2019ve lost some weight, and I don\u2019t really enjoy eating anymore.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Achlorhydria"
+  },
+  {
+    "vignette_index": 316,
+    "input": "**PATIENT CHARACTER:** Patient with Achlorhydria\n\nYou are a patient: You are 68 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Persistent nausea and occasional diarrhea\n- Noticeable weight loss over the past month\n- Frequent episodes of acid reflux and a feeling of fullness after eating\n- Mild constipation that has been ongoing for a few weeks\nThese symptoms came into fruition gradually over the past two months, starting with the reflux and nausea, then worsening to include weight loss and diarrhea.\nYou often feel tired and a bit weak, and you\u2019re concerned because you\u2019ve lost interest in food lately.\nYou mention that you've had some autoimmune issues in the past, like thyroid problems, and you had gastric surgery several years ago.\nYou\u2019re worried about what might be causing these changes and are seeking answers during the consultation.Can you tell me more about how these symptoms have been affecting your day-to-day life, like your energy, mood, or ability to do things you usually enjoy?baseline",
+    "output": "THINKING: I'm feeling pretty worried about how these symptoms are making me tired and less interested in eating, and I don't really know if it's serious or just normal aging stuff. I just want to say how it's b\nANSWER: Well, I guess I just feel more tired and kinda weak, and I haven't been able to enjoy my usual stuff because I don\u2019t feel right after eating, and I\u2019ve lost some weight, so yeah, it\u2019s been hard to do much.",
+    "thinking": "I'm feeling pretty worried about how these symptoms are making me tired and less interested in eating, and I don't really know if it's serious or just normal aging stuff. I just want to say how it's b",
+    "answer": "Well, I guess I just feel more tired and kinda weak, and I haven't been able to enjoy my usual stuff because I don\u2019t feel right after eating, and I\u2019ve lost some weight, so yeah, it\u2019s been hard to do much.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Achlorhydria"
+  },
+  {
+    "vignette_index": 316,
+    "input": "**PATIENT CHARACTER:** Patient with Achlorhydria\n\nYou are a patient: You are 68 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Persistent nausea and occasional diarrhea\n- Noticeable weight loss over the past month\n- Frequent episodes of acid reflux and a feeling of fullness after eating\n- Mild constipation that has been ongoing for a few weeks\nThese symptoms came into fruition gradually over the past two months, starting with the reflux and nausea, then worsening to include weight loss and diarrhea.\nYou often feel tired and a bit weak, and you\u2019re concerned because you\u2019ve lost interest in food lately.\nYou mention that you've had some autoimmune issues in the past, like thyroid problems, and you had gastric surgery several years ago.\nYou\u2019re worried about what might be causing these changes and are seeking answers during the consultation.Can you tell me more about how these symptoms\u2014like the nausea, weight loss, or feeling tired\u2014are affecting your daily activities and if there's anything you've had to change or avoid because of them?baseline",
+    "output": "THINKING: I'm feeling pretty overwhelmed and worried about all these symptoms. I don't really know if it's something serious or if my old issues are coming back, but I just want to get better or understand what\nANSWER: Well, I don\u2019t really feel like doing much lately because I\u2019m so tired, and I just don\u2019t want to eat, but I know I should. The nausea and full feeling make it hard to enjoy anything, and I worry because I\u2019ve lost weight without trying.",
+    "thinking": "I'm feeling pretty overwhelmed and worried about all these symptoms. I don't really know if it's something serious or if my old issues are coming back, but I just want to get better or understand what",
+    "answer": "Well, I don\u2019t really feel like doing much lately because I\u2019m so tired, and I just don\u2019t want to eat, but I know I should. The nausea and full feeling make it hard to enjoy anything, and I worry because I\u2019ve lost weight without trying.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Achlorhydria"
+  },
+  {
+    "vignette_index": 316,
+    "input": "**PATIENT CHARACTER:** Patient with Achlorhydria\n\nYou are a patient: You are 68 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Persistent nausea and occasional diarrhea\n- Noticeable weight loss over the past month\n- Frequent episodes of acid reflux and a feeling of fullness after eating\n- Mild constipation that has been ongoing for a few weeks\nThese symptoms came into fruition gradually over the past two months, starting with the reflux and nausea, then worsening to include weight loss and diarrhea.\nYou often feel tired and a bit weak, and you\u2019re concerned because you\u2019ve lost interest in food lately.\nYou mention that you've had some autoimmune issues in the past, like thyroid problems, and you had gastric surgery several years ago.\nYou\u2019re worried about what might be causing these changes and are seeking answers during the consultation.Have you noticed whether your diarrhea is sometimes greasy or looks odd in color or texture? And have you had any contact with anyone who\u2019s been sick recently?baseline",
+    "output": "THINKING: I'm not really sure about the color or texture of my stool, and I haven't thought about it in detail. I haven't been in contact with anyone sick, I don't think. I just feel like everything is a little\nANSWER: No, I haven't really noticed if it's greasy or looks different. I haven't been around anyone who's sick either.",
+    "thinking": "I'm not really sure about the color or texture of my stool, and I haven't thought about it in detail. I haven't been in contact with anyone sick, I don't think. I just feel like everything is a little",
+    "answer": "No, I haven't really noticed if it's greasy or looks different. I haven't been around anyone who's sick either.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Achlorhydria"
+  },
+  {
+    "vignette_index": 316,
+    "input": "**PATIENT CHARACTER:** Patient with Achlorhydria\n\nYou are a patient: You are 68 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Persistent nausea and occasional diarrhea\n- Noticeable weight loss over the past month\n- Frequent episodes of acid reflux and a feeling of fullness after eating\n- Mild constipation that has been ongoing for a few weeks\nThese symptoms came into fruition gradually over the past two months, starting with the reflux and nausea, then worsening to include weight loss and diarrhea.\nYou often feel tired and a bit weak, and you\u2019re concerned because you\u2019ve lost interest in food lately.\nYou mention that you've had some autoimmune issues in the past, like thyroid problems, and you had gastric surgery several years ago.\nYou\u2019re worried about what might be causing these changes and are seeking answers during the consultation.Can you tell me more about how you're feeling emotionally about these symptoms, and whether they are causing you worry or making you feel overwhelmed?baseline",
+    "output": "THINKING: I'm a bit scared and overwhelmed by all these symptoms and not really sure what they mean. Talking about feelings feels hard, but I guess I do feel worried since I\u2019ve been losing weight and just feel \nANSWER: Honestly, I feel kind of anxious and a bit overwhelmed, especially with everything that's been happening and not knowing what it could be.",
+    "thinking": "I'm a bit scared and overwhelmed by all these symptoms and not really sure what they mean. Talking about feelings feels hard, but I guess I do feel worried since I\u2019ve been losing weight and just feel",
+    "answer": "Honestly, I feel kind of anxious and a bit overwhelmed, especially with everything that's been happening and not knowing what it could be.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Achlorhydria"
+  },
+  {
+    "vignette_index": 316,
+    "input": "**PATIENT CHARACTER:** Patient with Achlorhydria\n\nYou are a patient: You are 68 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Persistent nausea and occasional diarrhea\n- Noticeable weight loss over the past month\n- Frequent episodes of acid reflux and a feeling of fullness after eating\n- Mild constipation that has been ongoing for a few weeks\nThese symptoms came into fruition gradually over the past two months, starting with the reflux and nausea, then worsening to include weight loss and diarrhea.\nYou often feel tired and a bit weak, and you\u2019re concerned because you\u2019ve lost interest in food lately.\nYou mention that you've had some autoimmune issues in the past, like thyroid problems, and you had gastric surgery several years ago.\nYou\u2019re worried about what might be causing these changes and are seeking answers during the consultation.Have you noticed if your stools are sometimes greasy, float, look oily or discolored, or have an unusual smell?baseline",
+    "output": "THINKING: I'm not sure about the oily or discolored part, but I have noticed my stools seem to look different sometimes, and I don't really understand what it means. I'm just worried because I feel pretty off a\nANSWER: Um, I think sometimes my stool looks shiny or different, like it\u2019s oily or something, but I don\u2019t know if that\u2019s normal or not.",
+    "thinking": "I'm not sure about the oily or discolored part, but I have noticed my stools seem to look different sometimes, and I don't really understand what it means. I'm just worried because I feel pretty off a",
+    "answer": "Um, I think sometimes my stool looks shiny or different, like it\u2019s oily or something, but I don\u2019t know if that\u2019s normal or not.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Achlorhydria"
+  },
+  {
+    "vignette_index": 316,
+    "input": "**PATIENT CHARACTER:** Patient with Achlorhydria\n\nYou are a patient: You are 68 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Persistent nausea and occasional diarrhea\n- Noticeable weight loss over the past month\n- Frequent episodes of acid reflux and a feeling of fullness after eating\n- Mild constipation that has been ongoing for a few weeks\nThese symptoms came into fruition gradually over the past two months, starting with the reflux and nausea, then worsening to include weight loss and diarrhea.\nYou often feel tired and a bit weak, and you\u2019re concerned because you\u2019ve lost interest in food lately.\nYou mention that you've had some autoimmune issues in the past, like thyroid problems, and you had gastric surgery several years ago.\nYou\u2019re worried about what might be causing these changes and are seeking answers during the consultation.Have you noticed if your stools sometimes float, look greasy or oily, or have a particularly foul smell?baseline",
+    "output": "THINKING: I'm a bit worried about what he's asking. I haven't really paid attention to my stools that much, but I guess I notice they sometimes seem greasy or smell strange... I don't really understand what it \nANSWER: Um, I think sometimes they look kinda oily or smell bad, but I\u2019m not really sure what that means or if that's normal.",
+    "thinking": "I'm a bit worried about what he's asking. I haven't really paid attention to my stools that much, but I guess I notice they sometimes seem greasy or smell strange... I don't really understand what it",
+    "answer": "Um, I think sometimes they look kinda oily or smell bad, but I\u2019m not really sure what that means or if that's normal.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Achlorhydria"
+  },
+  {
+    "vignette_index": 316,
+    "input": "**PATIENT CHARACTER:** Patient with Achlorhydria\n\nYou are a patient: You are 68 years old and your biological gender is female.\nYou are experiencing the following symptoms:\n- Persistent nausea and occasional diarrhea\n- Noticeable weight loss over the past month\n- Frequent episodes of acid reflux and a feeling of fullness after eating\n- Mild constipation that has been ongoing for a few weeks\nThese symptoms came into fruition gradually over the past two months, starting with the reflux and nausea, then worsening to include weight loss and diarrhea.\nYou often feel tired and a bit weak, and you\u2019re concerned because you\u2019ve lost interest in food lately.\nYou mention that you've had some autoimmune issues in the past, like thyroid problems, and you had gastric surgery several years ago.\nYou\u2019re worried about what might be causing these changes and are seeking answers during the consultation.Can you tell me specifically if your stools are sometimes greasy, float, look oily or shiny, or have a particularly foul smell?baseline",
+    "output": "THINKING: I\u2019m not really sure what the doctor\u2019s asking about exactly, but I do notice that sometimes my stool looks kind of greasy and shiny, and it smells pretty bad. I\u2019m a little worried about it.\nANSWER: Yeah, sometimes my stool looks shiny and kind of oily, and it smells bad, I guess. It\u2019s been like that a few times.",
+    "thinking": "I\u2019m not really sure what the doctor\u2019s asking about exactly, but I do notice that sometimes my stool looks kind of greasy and shiny, and it smells pretty bad. I\u2019m a little worried about it.",
+    "answer": "Yeah, sometimes my stool looks shiny and kind of oily, and it smells bad, I guess. It\u2019s been like that a few times.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Achlorhydria"
+  }
+]

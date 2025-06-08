@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 365,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Acute poliomyelitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fever, chills, and body aches\n- Headache and neck stiffness\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION suddenly yesterday after returning from a trip to a rural area in a country where polio is still endemic. You noticed a high fever developing in the evening, along with a severe headache and a stiff neck that made it uncomfortable to move. In the last few hours, you've felt increasingly fatigued and weak, almost like you can't keep your eyes open. You haven't been vaccinated against polio, and you live in a region with limited access to clean water and sanitation. You're worried because the symptoms came on very quickly and you're feeling quite anxious about what it might be.",
+    "output": "THINKING: I should explain my symptoms and mention the sudden onset, as well as my trip and the risk factors, but I want to sound honest and not overshare or scare unnecessarily.\nANSWER: I'm 35, and I\u2019m a guy. I\u2019ve got a really bad fever and chills, and my whole body hurts, like I\u2019ve been hit by a truck. Yesterday, after I got back from a trip to the countryside where stuff isn\u2019t very clean, I started feeling super weak, and today I have a terrible headache with a stiff neck. I just can\u2019t shake this feeling like I\u2019m getting worse, and I\u2019m really worried because I haven\u2019t felt like this before.",
+    "thinking": "I should explain my symptoms and mention the sudden onset, as well as my trip and the risk factors, but I want to sound honest and not overshare or scare unnecessarily.",
+    "answer": "I'm 35, and I\u2019m a guy. I\u2019ve got a really bad fever and chills, and my whole body hurts, like I\u2019ve been hit by a truck. Yesterday, after I got back from a trip to the countryside where stuff isn\u2019t very clean, I started feeling super weak, and today I have a terrible headache with a stiff neck. I just can\u2019t shake this feeling like I\u2019m getting worse, and I\u2019m really worried because I haven\u2019t felt like this before.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Acute poliomyelitis"
+  },
+  {
+    "vignette_index": 365,
+    "input": "**PATIENT CHARACTER:** Patient with Acute poliomyelitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fever, chills, and body aches\n- Headache and neck stiffness\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION suddenly yesterday after returning from a trip to a rural area in a country where polio is still endemic. You noticed a high fever developing in the evening, along with a severe headache and a stiff neck that made it uncomfortable to move. In the last few hours, you've felt increasingly fatigued and weak, almost like you can't keep your eyes open. You haven't been vaccinated against polio, and you live in a region with limited access to clean water and sanitation. You're worried because the symptoms came on very quickly and you're feeling quite anxious about what it might be.Have you noticed any changes in your alertness, ability to think clearly, weakness, or numbness in any part of your body since your symptoms started?baseline",
+    "output": "THINKING: I'm a bit overwhelmed and worried, and I don't really know what to say about my alertness or my body. I just feel pretty out of it and tired, and I guess I haven't really noticed anything specific lik\nANSWER: I guess I haven't noticed any numb spots or anything like that, but I do feel really weak and like I can't think straight sometimes.",
+    "thinking": "I'm a bit overwhelmed and worried, and I don't really know what to say about my alertness or my body. I just feel pretty out of it and tired, and I guess I haven't really noticed anything specific lik",
+    "answer": "I guess I haven't noticed any numb spots or anything like that, but I do feel really weak and like I can't think straight sometimes.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Acute poliomyelitis"
+  },
+  {
+    "vignette_index": 365,
+    "input": "**PATIENT CHARACTER:** Patient with Acute poliomyelitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fever, chills, and body aches\n- Headache and neck stiffness\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION suddenly yesterday after returning from a trip to a rural area in a country where polio is still endemic. You noticed a high fever developing in the evening, along with a severe headache and a stiff neck that made it uncomfortable to move. In the last few hours, you've felt increasingly fatigued and weak, almost like you can't keep your eyes open. You haven't been vaccinated against polio, and you live in a region with limited access to clean water and sanitation. You're worried because the symptoms came on very quickly and you're feeling quite anxious about what it might be.Can you tell me if you\u2019ve noticed any particular parts of your body feeling numb, weak, or different from usual, even if just slightly, and when you first started feeling that way?baseline",
+    "output": "THINKING: I feel really bad and worried, and I don\u2019t understand what\u2019s happening to me. I\u2019ve never felt anything like this before, and all these sudden symptoms are making me nervous. I just want to be clear ab\nANSWER: Honestly, I don\u2019t really notice anything else different, but I\u2019ve been feeling really weak and tired. My head hurts a lot and my neck feels stiff, like I can\u2019t move it right.",
+    "thinking": "I feel really bad and worried, and I don\u2019t understand what\u2019s happening to me. I\u2019ve never felt anything like this before, and all these sudden symptoms are making me nervous. I just want to be clear ab",
+    "answer": "Honestly, I don\u2019t really notice anything else different, but I\u2019ve been feeling really weak and tired. My head hurts a lot and my neck feels stiff, like I can\u2019t move it right.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Acute poliomyelitis"
+  },
+  {
+    "vignette_index": 365,
+    "input": "**PATIENT CHARACTER:** Patient with Acute poliomyelitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fever, chills, and body aches\n- Headache and neck stiffness\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION suddenly yesterday after returning from a trip to a rural area in a country where polio is still endemic. You noticed a high fever developing in the evening, along with a severe headache and a stiff neck that made it uncomfortable to move. In the last few hours, you've felt increasingly fatigued and weak, almost like you can't keep your eyes open. You haven't been vaccinated against polio, and you live in a region with limited access to clean water and sanitation. You're worried because the symptoms came on very quickly and you're feeling quite anxious about what it might be.Can you tell me if you've noticed any new numbness, weakness, or difficulty moving or controlling any part of your body since your symptoms began?baseline",
+    "output": "THINKING: I feel really worried about these new symptoms. I don\u2019t know if it\u2019s getting worse or if I should be worried about my body not working right, especially with the weakness that\u2019s been getting worse. I\u2019\nANSWER: No, I haven\u2019t noticed anything like that. I just feel like I\u2019m really tired and everything hurts all over.",
+    "thinking": "I feel really worried about these new symptoms. I don\u2019t know if it\u2019s getting worse or if I should be worried about my body not working right, especially with the weakness that\u2019s been getting worse. I\u2019",
+    "answer": "No, I haven\u2019t noticed anything like that. I just feel like I\u2019m really tired and everything hurts all over.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Acute poliomyelitis"
+  },
+  {
+    "vignette_index": 365,
+    "input": "**PATIENT CHARACTER:** Patient with Acute poliomyelitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fever, chills, and body aches\n- Headache and neck stiffness\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION suddenly yesterday after returning from a trip to a rural area in a country where polio is still endemic. You noticed a high fever developing in the evening, along with a severe headache and a stiff neck that made it uncomfortable to move. In the last few hours, you've felt increasingly fatigued and weak, almost like you can't keep your eyes open. You haven't been vaccinated against polio, and you live in a region with limited access to clean water and sanitation. You're worried because the symptoms came on very quickly and you're feeling quite anxious about what it might be.Have you noticed any slight weakness, numbness, or tingling in your arms or legs, even if you weren't sure at first or thought it was nothing?baseline",
+    "output": "THINKING: I feel worried about what he's asking and I don't really understand, but I do notice some tingling or weakness in my legs maybe? I guess I should tell him, but I\u2019m scared it\u2019s some serious stuff.\nANSWER: I think I might've felt a little numbness or tingling in my legs or stuff, but I\u2019m not really sure if it\u2019s that or just tired.",
+    "thinking": "I feel worried about what he's asking and I don't really understand, but I do notice some tingling or weakness in my legs maybe? I guess I should tell him, but I\u2019m scared it\u2019s some serious stuff.",
+    "answer": "I think I might've felt a little numbness or tingling in my legs or stuff, but I\u2019m not really sure if it\u2019s that or just tired.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Acute poliomyelitis"
+  },
+  {
+    "vignette_index": 365,
+    "input": "**PATIENT CHARACTER:** Patient with Acute poliomyelitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fever, chills, and body aches\n- Headache and neck stiffness\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION suddenly yesterday after returning from a trip to a rural area in a country where polio is still endemic. You noticed a high fever developing in the evening, along with a severe headache and a stiff neck that made it uncomfortable to move. In the last few hours, you've felt increasingly fatigued and weak, almost like you can't keep your eyes open. You haven't been vaccinated against polio, and you live in a region with limited access to clean water and sanitation. You're worried because the symptoms came on very quickly and you're feeling quite anxious about what it might be.\"Would it be okay if I carefully check whether your legs and arms are strong and see how your reflexes are? Sometimes changes in strength or reflexes can tell us more about what's happening inside your nervous system. Have you noticed if your legs or arms feel any different when you move or try to feel things?\"baseline",
+    "output": "THINKING: I feel a bit nervous about what the doctor might find. My muscles feel weak, and I worry if I have some serious thing going on, especially since I\u2019ve been so tired and unsteady. I want to be honest bu\nANSWER: Um, okay. I guess you can check, but I\u2019m not sure what you\u2019ll find. My arms and legs feel really weak, and sometimes they don\u2019t move right, I guess.",
+    "thinking": "I feel a bit nervous about what the doctor might find. My muscles feel weak, and I worry if I have some serious thing going on, especially since I\u2019ve been so tired and unsteady. I want to be honest bu",
+    "answer": "Um, okay. I guess you can check, but I\u2019m not sure what you\u2019ll find. My arms and legs feel really weak, and sometimes they don\u2019t move right, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Acute poliomyelitis"
+  },
+  {
+    "vignette_index": 365,
+    "input": "**PATIENT CHARACTER:** Patient with Acute poliomyelitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fever, chills, and body aches\n- Headache and neck stiffness\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION suddenly yesterday after returning from a trip to a rural area in a country where polio is still endemic. You noticed a high fever developing in the evening, along with a severe headache and a stiff neck that made it uncomfortable to move. In the last few hours, you've felt increasingly fatigued and weak, almost like you can't keep your eyes open. You haven't been vaccinated against polio, and you live in a region with limited access to clean water and sanitation. You're worried because the symptoms came on very quickly and you're feeling quite anxious about what it might be.Can I check whether you notice any weakness or numbness in your legs or arms when you try to move or feel things, and can you tell me if the strength or sensation feels different than usual?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about what\u2019s happening. I don\u2019t really understand what the doctor is asking about my legs and arms, but I do feel very weak all over. I just want to explain how st\nANSWER: Um, I think my legs and arms feel kind of numb and weak, like I can\u2019t really move them good. It\u2019s kinda different from before, I guess.",
+    "thinking": "I feel a bit overwhelmed and worried about what\u2019s happening. I don\u2019t really understand what the doctor is asking about my legs and arms, but I do feel very weak all over. I just want to explain how st",
+    "answer": "Um, I think my legs and arms feel kind of numb and weak, like I can\u2019t really move them good. It\u2019s kinda different from before, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Acute poliomyelitis"
+  },
+  {
+    "vignette_index": 365,
+    "input": "**PATIENT CHARACTER:** Patient with Acute poliomyelitis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 35 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- Fever, chills, and body aches\n- Headache and neck stiffness\n- Fatigue and weakness\nTHESE SYMPTOMS CAME INTO FRUITION suddenly yesterday after returning from a trip to a rural area in a country where polio is still endemic. You noticed a high fever developing in the evening, along with a severe headache and a stiff neck that made it uncomfortable to move. In the last few hours, you've felt increasingly fatigued and weak, almost like you can't keep your eyes open. You haven't been vaccinated against polio, and you live in a region with limited access to clean water and sanitation. You're worried because the symptoms came on very quickly and you're feeling quite anxious about what it might be.Would you be comfortable if I checked your arm and leg strength and reflexes now, to see if they feel different or weaker than usual when you try to move or feel things?baseline",
+    "output": "THINKING: I feel nervous about what the doctor might find, especially since I feel so weak and have all these symptoms. I don\u2019t really know what they\u2019re going to do, but I guess I should let them check everythi\nANSWER: Uh, yeah, I guess so\u2026 if you think it\u2019s okay. I don\u2019t really know if I can move my arms and legs that well anyway.",
+    "thinking": "I feel nervous about what the doctor might find, especially since I feel so weak and have all these symptoms. I don\u2019t really know what they\u2019re going to do, but I guess I should let them check everythi",
+    "answer": "Uh, yeah, I guess so\u2026 if you think it\u2019s okay. I don\u2019t really know if I can move my arms and legs that well anyway.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Acute poliomyelitis"
+  }
+]

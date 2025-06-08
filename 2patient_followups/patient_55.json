@@ -1,0 +1,105 @@
+[
+  {
+    "vignette_index": 55,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Herpes simplex keratitis\n\nYou are a patient: you are a 45-year-old woman.\nYou are experiencing the following symptoms:\n- Sudden one-sided eye pain\n- Sensitivity to light\n- Blurred vision\n- Watery discharge from the eye\n- Gentle inflammation of the eyelids and conjunctiva\nThese symptoms came into fruition suddenly yesterday morning. You noticed a sharp pain in your right eye when you woke up, along with increased tearing and some redness around the eyelids. Over the day, your eye became more sensitive to bright lights, and your vision started to blur slightly. You have a history of recurrent eye infections, and you\u2019re concerned because this is not the first time you've experienced something similar. You\u2019re worried because your eye feels irritated and uncomfortable, especially when exposed to sunlight.",
+    "output": "THINKING: I need to explain my symptoms clearly but I\u2019m also a bit worried because this happened so suddenly and it feels pretty bad. I also want to mention my history with eye problems since it might be relate\nANSWER: I\u2019m 45, and I\u2019m a woman. Well, yesterday morning I woke up with this sharp pain in my right eye, and it was really uncomfortable. I started tearing a lot and there was some redness around my eyelids. Then throughout the day, my eye got more sensitive to bright lights, and my vision started to get a little blurry. It also feels irritated, like there\u2019s some discharge, and my eyelids look a little swollen. I\u2019ve had eye infections before, but this feels different and I\u2019m kinda scared.",
+    "thinking": "I need to explain my symptoms clearly but I\u2019m also a bit worried because this happened so suddenly and it feels pretty bad. I also want to mention my history with eye problems since it might be relate",
+    "answer": "I\u2019m 45, and I\u2019m a woman. Well, yesterday morning I woke up with this sharp pain in my right eye, and it was really uncomfortable. I started tearing a lot and there was some redness around my eyelids. Then throughout the day, my eye got more sensitive to bright lights, and my vision started to get a little blurry. It also feels irritated, like there\u2019s some discharge, and my eyelids look a little swollen. I\u2019ve had eye infections before, but this feels different and I\u2019m kinda scared.",
+    "behavior_type": "chronology_confused",
+    "behavior_config": {
+      "weight": 0.1,
+      "description": "Patient confused about symptom timing and progression",
+      "modifiers": [
+        "timeline_confusion",
+        "sequence_uncertainty"
+      ],
+      "empathy_cues": [
+        "confusion",
+        "uncertainty",
+        "memory_issues",
+        "needs_patience"
+      ]
+    },
+    "gold_diagnosis": "Herpes simplex keratitis"
+  },
+  {
+    "vignette_index": 55,
+    "input": "**PATIENT CHARACTER:** Patient with Herpes simplex keratitis\n\nYou are a patient: you are a 45-year-old woman.\nYou are experiencing the following symptoms:\n- Sudden one-sided eye pain\n- Sensitivity to light\n- Blurred vision\n- Watery discharge from the eye\n- Gentle inflammation of the eyelids and conjunctiva\nThese symptoms came into fruition suddenly yesterday morning. You noticed a sharp pain in your right eye when you woke up, along with increased tearing and some redness around the eyelids. Over the day, your eye became more sensitive to bright lights, and your vision started to blur slightly. You have a history of recurrent eye infections, and you\u2019re concerned because this is not the first time you've experienced something similar. You\u2019re worried because your eye feels irritated and uncomfortable, especially when exposed to sunlight.On a scale of 0 to 10, how would you rate your eye pain right now, and how much is it affecting your ability to see clearly or do your daily tasks?chronology_confused",
+    "output": "THINKING: I'm not really sure how bad the pain is because everything's so uncomfortable and I keep worrying about my vision. It feels worse than yesterday, but I don't remember exactly when it started or how ba\nANSWER: I think it's maybe a 7 or 8, and I guess it's making it hard to see things clearly, especially in bright light, and I keep feeling like my eye is really irritated or watery all the time.",
+    "thinking": "I'm not really sure how bad the pain is because everything's so uncomfortable and I keep worrying about my vision. It feels worse than yesterday, but I don't remember exactly when it started or how ba",
+    "answer": "I think it's maybe a 7 or 8, and I guess it's making it hard to see things clearly, especially in bright light, and I keep feeling like my eye is really irritated or watery all the time.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 0,
+    "gold_diagnosis": "Herpes simplex keratitis"
+  },
+  {
+    "vignette_index": 55,
+    "input": "**PATIENT CHARACTER:** Patient with Herpes simplex keratitis\n\nYou are a patient: you are a 45-year-old woman.\nYou are experiencing the following symptoms:\n- Sudden one-sided eye pain\n- Sensitivity to light\n- Blurred vision\n- Watery discharge from the eye\n- Gentle inflammation of the eyelids and conjunctiva\nThese symptoms came into fruition suddenly yesterday morning. You noticed a sharp pain in your right eye when you woke up, along with increased tearing and some redness around the eyelids. Over the day, your eye became more sensitive to bright lights, and your vision started to blur slightly. You have a history of recurrent eye infections, and you\u2019re concerned because this is not the first time you've experienced something similar. You\u2019re worried because your eye feels irritated and uncomfortable, especially when exposed to sunlight.Can you tell me if your eye pain and vision have been getting worse, staying the same, or improving since you first noticed them?chronology_confused",
+    "output": "THINKING: I'm trying to recall when everything started and how it's changed, but it's all a bit jumbled. I definitely felt the pain yesterday morning, and it\u2019s gotten a little worse or maybe the same? I\u2019m not r\nANSWER: Um, I think it was yesterday morning when I first felt the pain, and now it seems like it's maybe worse or about the same, but I really can't tell exactly. It\u2019s all just kind of blurry and uncomfortable.",
+    "thinking": "I'm trying to recall when everything started and how it's changed, but it's all a bit jumbled. I definitely felt the pain yesterday morning, and it\u2019s gotten a little worse or maybe the same? I\u2019m not r",
+    "answer": "Um, I think it was yesterday morning when I first felt the pain, and now it seems like it's maybe worse or about the same, but I really can't tell exactly. It\u2019s all just kind of blurry and uncomfortable.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 2,
+    "gold_diagnosis": "Herpes simplex keratitis"
+  },
+  {
+    "vignette_index": 55,
+    "input": "**PATIENT CHARACTER:** Patient with Herpes simplex keratitis\n\nYou are a patient: you are a 45-year-old woman.\nYou are experiencing the following symptoms:\n- Sudden one-sided eye pain\n- Sensitivity to light\n- Blurred vision\n- Watery discharge from the eye\n- Gentle inflammation of the eyelids and conjunctiva\nThese symptoms came into fruition suddenly yesterday morning. You noticed a sharp pain in your right eye when you woke up, along with increased tearing and some redness around the eyelids. Over the day, your eye became more sensitive to bright lights, and your vision started to blur slightly. You have a history of recurrent eye infections, and you\u2019re concerned because this is not the first time you've experienced something similar. You\u2019re worried because your eye feels irritated and uncomfortable, especially when exposed to sunlight.Can you tell me exactly when your eye symptoms first started, how they've changed since then, and whether you're experiencing symptoms in just your right eye or both eyes?chronology_confused",
+    "output": "THINKING: I think I should tell him everything, but I\u2019m not really sure when this all started exactly. It\u2019s been kind of sudden, but I can\u2019t remember if it was yesterday morning or maybe the day before, and I\u2019m\nANSWER: Um, I think it all started yesterday morning when I woke up and my eye hurt really bad, and then it just kept getting more irritated through the day, and I guess both my eyes are involved now? But I\u2019m not sure, I kind of lost track of how it all happened.",
+    "thinking": "I think I should tell him everything, but I\u2019m not really sure when this all started exactly. It\u2019s been kind of sudden, but I can\u2019t remember if it was yesterday morning or maybe the day before, and I\u2019m",
+    "answer": "Um, I think it all started yesterday morning when I woke up and my eye hurt really bad, and then it just kept getting more irritated through the day, and I guess both my eyes are involved now? But I\u2019m not sure, I kind of lost track of how it all happened.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 4,
+    "gold_diagnosis": "Herpes simplex keratitis"
+  },
+  {
+    "vignette_index": 55,
+    "input": "**PATIENT CHARACTER:** Patient with Herpes simplex keratitis\n\nYou are a patient: you are a 45-year-old woman.\nYou are experiencing the following symptoms:\n- Sudden one-sided eye pain\n- Sensitivity to light\n- Blurred vision\n- Watery discharge from the eye\n- Gentle inflammation of the eyelids and conjunctiva\nThese symptoms came into fruition suddenly yesterday morning. You noticed a sharp pain in your right eye when you woke up, along with increased tearing and some redness around the eyelids. Over the day, your eye became more sensitive to bright lights, and your vision started to blur slightly. You have a history of recurrent eye infections, and you\u2019re concerned because this is not the first time you've experienced something similar. You\u2019re worried because your eye feels irritated and uncomfortable, especially when exposed to sunlight.Can you tell me if you\u2019ve noticed any sore spot, like an ulcer or an open sore, on the surface of your eye\u2014sometimes you might see a tiny spot or spot that\u2019s a bit different from the rest of the eye?chronology_confused",
+    "output": "THINKING: I'm not really sure about what kind of sore spot the doctor is asking about, or if I even noticed one. I keep thinking back and forth about when this all started and what exactly I saw or felt. I don'\nANSWER: Well, I don\u2019t think I saw any big sore or open spot, but my eye feels kind of irritated and maybe a little like a tiny bump? Or maybe I just feel like there\u2019s something there? I\u2019m not really sure.",
+    "thinking": "I'm not really sure about what kind of sore spot the doctor is asking about, or if I even noticed one. I keep thinking back and forth about when this all started and what exactly I saw or felt. I don'",
+    "answer": "Well, I don\u2019t think I saw any big sore or open spot, but my eye feels kind of irritated and maybe a little like a tiny bump? Or maybe I just feel like there\u2019s something there? I\u2019m not really sure.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 6,
+    "gold_diagnosis": "Herpes simplex keratitis"
+  },
+  {
+    "vignette_index": 55,
+    "input": "**PATIENT CHARACTER:** Patient with Herpes simplex keratitis\n\nYou are a patient: you are a 45-year-old woman.\nYou are experiencing the following symptoms:\n- Sudden one-sided eye pain\n- Sensitivity to light\n- Blurred vision\n- Watery discharge from the eye\n- Gentle inflammation of the eyelids and conjunctiva\nThese symptoms came into fruition suddenly yesterday morning. You noticed a sharp pain in your right eye when you woke up, along with increased tearing and some redness around the eyelids. Over the day, your eye became more sensitive to bright lights, and your vision started to blur slightly. You have a history of recurrent eye infections, and you\u2019re concerned because this is not the first time you've experienced something similar. You\u2019re worried because your eye feels irritated and uncomfortable, especially when exposed to sunlight.Have you noticed any small spots, bumps, or open sores on the surface of your eye\u2014things that might look different from the rest of your eye or feel painful when you touch them?chronology_confused",
+    "output": "THINKING: I'm trying to remember if I saw any spots or bumps, but everything looks kind of the same to me and I don't want to seem silly. I just know my eye feels weird and painful, and I think I might have see\nANSWER: Um, I think I might have seen something like a little bump or maybe a spot on my eye, but it was kind of hard to tell because everything else looked red and inflamed, so I wasn't really sure if it was something different or just part of the redness.",
+    "thinking": "I'm trying to remember if I saw any spots or bumps, but everything looks kind of the same to me and I don't want to seem silly. I just know my eye feels weird and painful, and I think I might have see",
+    "answer": "Um, I think I might have seen something like a little bump or maybe a spot on my eye, but it was kind of hard to tell because everything else looked red and inflamed, so I wasn't really sure if it was something different or just part of the redness.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 8,
+    "gold_diagnosis": "Herpes simplex keratitis"
+  },
+  {
+    "vignette_index": 55,
+    "input": "**PATIENT CHARACTER:** Patient with Herpes simplex keratitis\n\nYou are a patient: you are a 45-year-old woman.\nYou are experiencing the following symptoms:\n- Sudden one-sided eye pain\n- Sensitivity to light\n- Blurred vision\n- Watery discharge from the eye\n- Gentle inflammation of the eyelids and conjunctiva\nThese symptoms came into fruition suddenly yesterday morning. You noticed a sharp pain in your right eye when you woke up, along with increased tearing and some redness around the eyelids. Over the day, your eye became more sensitive to bright lights, and your vision started to blur slightly. You have a history of recurrent eye infections, and you\u2019re concerned because this is not the first time you've experienced something similar. You\u2019re worried because your eye feels irritated and uncomfortable, especially when exposed to sunlight.Have you noticed any specific spots, sores, or areas on the surface of your eye that look different, feel painful, or that you've seen like a tiny bump or opening\u2014can you describe whether any part of your eye looks or feels unusual compared to the rest?chronology_confused",
+    "output": "THINKING: I'm not really sure if I saw any spots or bumps on my eye or if it's supposed to look different. I just notice it's super red and irritated, and I think I saw some watering today, but I don't know if \nANSWER: Um, I don't see any spots or bumps or anything like that, but my eye is really red and watery, especially when the light is bright, and I guess it feels a little sore?",
+    "thinking": "I'm not really sure if I saw any spots or bumps on my eye or if it's supposed to look different. I just notice it's super red and irritated, and I think I saw some watering today, but I don't know if",
+    "answer": "Um, I don't see any spots or bumps or anything like that, but my eye is really red and watery, especially when the light is bright, and I guess it feels a little sore?",
+    "behavior_type": "chronology_confused",
+    "turn_count": 10,
+    "gold_diagnosis": "Herpes simplex keratitis"
+  },
+  {
+    "vignette_index": 55,
+    "input": "**PATIENT CHARACTER:** Patient with Herpes simplex keratitis\n\nYou are a patient: you are a 45-year-old woman.\nYou are experiencing the following symptoms:\n- Sudden one-sided eye pain\n- Sensitivity to light\n- Blurred vision\n- Watery discharge from the eye\n- Gentle inflammation of the eyelids and conjunctiva\nThese symptoms came into fruition suddenly yesterday morning. You noticed a sharp pain in your right eye when you woke up, along with increased tearing and some redness around the eyelids. Over the day, your eye became more sensitive to bright lights, and your vision started to blur slightly. You have a history of recurrent eye infections, and you\u2019re concerned because this is not the first time you've experienced something similar. You\u2019re worried because your eye feels irritated and uncomfortable, especially when exposed to sunlight.Have you or the doctor seen any small spots, ulcers, or openings on the surface of your eye\u2014something that looks different, like a tiny sore or crater\u2014that might be a visible lesion on your cornea?chronology_confused",
+    "output": "THINKING: I\u2019m not really sure, but I think maybe I saw something in my eye, like a little spot or sore, but I might be remembering it wrong because it all happened so fast and I was in a lot of pain. I don\u2019t kn\nANSWER: Um, I think I saw like a tiny spot or maybe a scratch in my eye, but I\u2019m not really sure if that\u2019s what it was or if it\u2019s part of all this.",
+    "thinking": "I\u2019m not really sure, but I think maybe I saw something in my eye, like a little spot or sore, but I might be remembering it wrong because it all happened so fast and I was in a lot of pain. I don\u2019t kn",
+    "answer": "Um, I think I saw like a tiny spot or maybe a scratch in my eye, but I\u2019m not really sure if that\u2019s what it was or if it\u2019s part of all this.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 12,
+    "gold_diagnosis": "Herpes simplex keratitis"
+  },
+  {
+    "vignette_index": 55,
+    "input": "**PATIENT CHARACTER:** Patient with Herpes simplex keratitis\n\nYou are a patient: you are a 45-year-old woman.\nYou are experiencing the following symptoms:\n- Sudden one-sided eye pain\n- Sensitivity to light\n- Blurred vision\n- Watery discharge from the eye\n- Gentle inflammation of the eyelids and conjunctiva\nThese symptoms came into fruition suddenly yesterday morning. You noticed a sharp pain in your right eye when you woke up, along with increased tearing and some redness around the eyelids. Over the day, your eye became more sensitive to bright lights, and your vision started to blur slightly. You have a history of recurrent eye infections, and you\u2019re concerned because this is not the first time you've experienced something similar. You\u2019re worried because your eye feels irritated and uncomfortable, especially when exposed to sunlight.Have you or the doctor seen a visible sore, ulcer, or crater on the surface of your cornea\u2014something that looks or feels like a small open spot or lesion\u2014because seeing or feeling such a finding would be very important in confirming an infection like keratitis?chronology_confused",
+    "output": "THINKING: I'm not sure if I saw anything like an open spot or sore on my eye, but it feels really irritated and sore, especially when I look at bright lights. I don\u2019t remember seeing anything specific, but I th\nANSWER: I don\u2019t think I saw any open spot or crater, but my eye hurt a lot and felt kind of raw, especially when I woke up, and it\u2019s got some redness and watering.",
+    "thinking": "I'm not sure if I saw anything like an open spot or sore on my eye, but it feels really irritated and sore, especially when I look at bright lights. I don\u2019t remember seeing anything specific, but I th",
+    "answer": "I don\u2019t think I saw any open spot or crater, but my eye hurt a lot and felt kind of raw, especially when I woke up, and it\u2019s got some redness and watering.",
+    "behavior_type": "chronology_confused",
+    "turn_count": 14,
+    "gold_diagnosis": "Herpes simplex keratitis"
+  }
+]

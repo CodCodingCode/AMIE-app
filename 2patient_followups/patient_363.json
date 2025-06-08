@@ -1,0 +1,136 @@
+[
+  {
+    "vignette_index": 363,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Constitutional delay of growth and puberty\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 14 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- You are notably shorter than your peers, despite having grown at a normal rate during early childhood.\n- You have not yet started to develop any signs of puberty, such as voice changes or facial hair.\n- You notice that your growth seems to have slowed down significantly over the past year.\n- Your family history includes other relatives who were late bloomers and also short in stature.\n- Your symptoms gradually became apparent over the past 2-3 years, especially as your friends began puberty and you did not.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.",
+    "output": "THINKING: I need to explain my situation honestly but I'm probably worried the doctor might think something's really wrong or serious. I want to mention my height, how I haven't changed much, and my worries abo\nANSWER: I'm 14, and I'm a boy, but I haven't started puberty yet. I\u2019ve always been shorter than most of my friends, and it feels like I haven\u2019t grown much in the past year or so. I\u2019m worried maybe something\u2019s wrong because I don\u2019t have any of the signs like a deepening voice or hair yet, and my family says some relatives were the same but I don\u2019t want to be different forever.",
+    "thinking": "I need to explain my situation honestly but I'm probably worried the doctor might think something's really wrong or serious. I want to mention my height, how I haven't changed much, and my worries abo",
+    "answer": "I'm 14, and I'm a boy, but I haven't started puberty yet. I\u2019ve always been shorter than most of my friends, and it feels like I haven\u2019t grown much in the past year or so. I\u2019m worried maybe something\u2019s wrong because I don\u2019t have any of the signs like a deepening voice or hair yet, and my family says some relatives were the same but I don\u2019t want to be different forever.",
+    "behavior_type": "anxious_amplifier",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient with health anxiety who amplifies symptoms",
+      "modifiers": [
+        "catastrophic_thinking",
+        "symptom_amplification",
+        "multiple_concerns"
+      ],
+      "empathy_cues": [
+        "high_anxiety",
+        "catastrophic_language",
+        "reassurance_seeking",
+        "fear_expression"
+      ]
+    },
+    "gold_diagnosis": "Constitutional delay of growth and puberty"
+  },
+  {
+    "vignette_index": 363,
+    "input": "**PATIENT CHARACTER:** Patient with Constitutional delay of growth and puberty\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 14 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- You are notably shorter than your peers, despite having grown at a normal rate during early childhood.\n- You have not yet started to develop any signs of puberty, such as voice changes or facial hair.\n- You notice that your growth seems to have slowed down significantly over the past year.\n- Your family history includes other relatives who were late bloomers and also short in stature.\n- Your symptoms gradually became apparent over the past 2-3 years, especially as your friends began puberty and you did not.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.Can you tell me whether you\u2019ve noticed any changes in your body, such as testicular growth, pubic hair development, or voice changes, and when you first noticed these?anxious_amplifier",
+    "output": "THINKING: I worry that my lack of puberty signs might mean something really bad like a serious illness. I feel nervous talking about how I haven't changed at all and that maybe I'm stuck like this forever. I al\nANSWER: Um, I haven't really noticed any changes like my voice or hair or anything, and I think I stopped growing a while ago. It\u2019s been like this for maybe a year or more, and I just feel really worried that something\u2019s wrong, like maybe I\u2019m just gonna stay small forever or it\u2019s serious.",
+    "thinking": "I worry that my lack of puberty signs might mean something really bad like a serious illness. I feel nervous talking about how I haven't changed at all and that maybe I'm stuck like this forever. I al",
+    "answer": "Um, I haven't really noticed any changes like my voice or hair or anything, and I think I stopped growing a while ago. It\u2019s been like this for maybe a year or more, and I just feel really worried that something\u2019s wrong, like maybe I\u2019m just gonna stay small forever or it\u2019s serious.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 0,
+    "gold_diagnosis": "Constitutional delay of growth and puberty"
+  },
+  {
+    "vignette_index": 363,
+    "input": "**PATIENT CHARACTER:** Patient with Constitutional delay of growth and puberty\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 14 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- You are notably shorter than your peers, despite having grown at a normal rate during early childhood.\n- You have not yet started to develop any signs of puberty, such as voice changes or facial hair.\n- You notice that your growth seems to have slowed down significantly over the past year.\n- Your family history includes other relatives who were late bloomers and also short in stature.\n- Your symptoms gradually became apparent over the past 2-3 years, especially as your friends began puberty and you did not.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.Can you tell me if you've noticed any changes in your body, like your testicles getting bigger, the growth of pubic hair, or any voice deepening, and when you last observed these changes happening?anxious_amplifier",
+    "output": "THINKING: I'm worried about whether these changes, or the lack of them, mean there's something seriously wrong. It feels like I'm falling behind everyone else and I can't stop thinking about what if it's someth\nANSWER: Well, I haven't really noticed any changes like my voice getting deeper or hair growing down there, and I haven't seen anything different lately, but I guess I just feel like I\u2019m way behind everyone else, and it\u2019s kinda freaking me out.",
+    "thinking": "I'm worried about whether these changes, or the lack of them, mean there's something seriously wrong. It feels like I'm falling behind everyone else and I can't stop thinking about what if it's someth",
+    "answer": "Well, I haven't really noticed any changes like my voice getting deeper or hair growing down there, and I haven't seen anything different lately, but I guess I just feel like I\u2019m way behind everyone else, and it\u2019s kinda freaking me out.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 2,
+    "gold_diagnosis": "Constitutional delay of growth and puberty"
+  },
+  {
+    "vignette_index": 363,
+    "input": "**PATIENT CHARACTER:** Patient with Constitutional delay of growth and puberty\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 14 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- You are notably shorter than your peers, despite having grown at a normal rate during early childhood.\n- You have not yet started to develop any signs of puberty, such as voice changes or facial hair.\n- You notice that your growth seems to have slowed down significantly over the past year.\n- Your family history includes other relatives who were late bloomers and also short in stature.\n- Your symptoms gradually became apparent over the past 2-3 years, especially as your friends began puberty and you did not.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.\"Would you be okay with me taking a quick look at your testicles and pubic hair to see how they\u2019re developing? It might help us understand what\u2019s going on and guide us in the best way to support you.\"anxious_amplifier",
+    "output": "THINKING: I really hate the idea of someone checking there, but I guess if it helps figure out what's wrong, I don\u2019t have much choice. I feel super nervous and kind of embarrassed about showing my private parts\nANSWER: Um, I\u2019m okay, I guess, if it helps find out what\u2019s going on, but I\u2019m pretty nervous about it.",
+    "thinking": "I really hate the idea of someone checking there, but I guess if it helps figure out what's wrong, I don\u2019t have much choice. I feel super nervous and kind of embarrassed about showing my private parts",
+    "answer": "Um, I\u2019m okay, I guess, if it helps find out what\u2019s going on, but I\u2019m pretty nervous about it.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 4,
+    "gold_diagnosis": "Constitutional delay of growth and puberty"
+  },
+  {
+    "vignette_index": 363,
+    "input": "**PATIENT CHARACTER:** Patient with Constitutional delay of growth and puberty\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 14 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- You are notably shorter than your peers, despite having grown at a normal rate during early childhood.\n- You have not yet started to develop any signs of puberty, such as voice changes or facial hair.\n- You notice that your growth seems to have slowed down significantly over the past year.\n- Your family history includes other relatives who were late bloomers and also short in stature.\n- Your symptoms gradually became apparent over the past 2-3 years, especially as your friends began puberty and you did not.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.Would you be comfortable if I gently examined your testicles and looked at your pubic hair to see how they\u2019re developing? It will help us figure out whether your body is going through puberty normally, just a little later, or if another cause might be involved.anxious_amplifier",
+    "output": "THINKING: I'm really nervous about what the doctor might find. I'm worried that if they look, they might see something really wrong or that this whole thing might be a sign of some serious problem I don't under\nANSWER: Um, I guess if it helps to figure out what\u2019s going on, but I feel kind of weird about them checking that, like I don\u2019t know if I should be okay with it or not. If it\u2019s for figuring things out, I guess it\u2019s fine, but I\u2019m pretty nervous about it.",
+    "thinking": "I'm really nervous about what the doctor might find. I'm worried that if they look, they might see something really wrong or that this whole thing might be a sign of some serious problem I don't under",
+    "answer": "Um, I guess if it helps to figure out what\u2019s going on, but I feel kind of weird about them checking that, like I don\u2019t know if I should be okay with it or not. If it\u2019s for figuring things out, I guess it\u2019s fine, but I\u2019m pretty nervous about it.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 6,
+    "gold_diagnosis": "Constitutional delay of growth and puberty"
+  },
+  {
+    "vignette_index": 363,
+    "input": "**PATIENT CHARACTER:** Patient with Constitutional delay of growth and puberty\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 14 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- You are notably shorter than your peers, despite having grown at a normal rate during early childhood.\n- You have not yet started to develop any signs of puberty, such as voice changes or facial hair.\n- You notice that your growth seems to have slowed down significantly over the past year.\n- Your family history includes other relatives who were late bloomers and also short in stature.\n- Your symptoms gradually became apparent over the past 2-3 years, especially as your friends began puberty and you did not.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.Would you be comfortable if, when you come back for your blood tests, we also check your hormone levels\u2014specifically something called LH and FSH\u2014to see how your body is trying to start puberty?anxious_amplifier",
+    "output": "THINKING: I feel a little panicked when the doctor talks about checking my hormones because I'm worried it might mean something really serious or that it's not just me being late. I don't fully understand what \nANSWER: Okay, um, yeah, I guess so, but I\u2019m really worried it might be something bad and I don\u2019t want to be stuck like this forever.",
+    "thinking": "I feel a little panicked when the doctor talks about checking my hormones because I'm worried it might mean something really serious or that it's not just me being late. I don't fully understand what",
+    "answer": "Okay, um, yeah, I guess so, but I\u2019m really worried it might be something bad and I don\u2019t want to be stuck like this forever.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 8,
+    "gold_diagnosis": "Constitutional delay of growth and puberty"
+  },
+  {
+    "vignette_index": 363,
+    "input": "**PATIENT CHARACTER:** Patient with Constitutional delay of growth and puberty\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 14 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- You are notably shorter than your peers, despite having grown at a normal rate during early childhood.\n- You have not yet started to develop any signs of puberty, such as voice changes or facial hair.\n- You notice that your growth seems to have slowed down significantly over the past year.\n- Your family history includes other relatives who were late bloomers and also short in stature.\n- Your symptoms gradually became apparent over the past 2-3 years, especially as your friends began puberty and you did not.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.\"Have you noticed whether you can smell things normally around you, like flowers or food? Sometimes, people with delayed puberty because of certain conditions, like Kallmann syndrome, also experience a decreased or absent sense of smell; does that sound familiar to you?\"anxious_amplifier",
+    "output": "THINKING: I'm really worried about my smell not being normal because I keep thinking it might be a sign of something really bad, like a serious disease, and I don't want to make a big deal out of it but I feel \nANSWER: Honestly, I think I might not smell things like I used to, and it kind of freaks me out because I don\u2019t know if that\u2019s normal or if it\u2019s a sign of something worse.",
+    "thinking": "I'm really worried about my smell not being normal because I keep thinking it might be a sign of something really bad, like a serious disease, and I don't want to make a big deal out of it but I feel",
+    "answer": "Honestly, I think I might not smell things like I used to, and it kind of freaks me out because I don\u2019t know if that\u2019s normal or if it\u2019s a sign of something worse.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 10,
+    "gold_diagnosis": "Constitutional delay of growth and puberty"
+  },
+  {
+    "vignette_index": 363,
+    "input": "**PATIENT CHARACTER:** Patient with Constitutional delay of growth and puberty\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 14 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- You are notably shorter than your peers, despite having grown at a normal rate during early childhood.\n- You have not yet started to develop any signs of puberty, such as voice changes or facial hair.\n- You notice that your growth seems to have slowed down significantly over the past year.\n- Your family history includes other relatives who were late bloomers and also short in stature.\n- Your symptoms gradually became apparent over the past 2-3 years, especially as your friends began puberty and you did not.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.Given your concerns about delayed puberty and your sense of smell, could we do a quick exam to check how your testicles and pubic hair are developing, and discuss your hormone test results when they're available? This will help us understand what's really happening with your body.anxious_amplifier",
+    "output": "THINKING: I\u2019m really worried that something might be wrong with me, like maybe I have some kind of serious hormone problem or maybe I just won\u2019t ever grow normal. I'm scared thinking about what if this is a sig\nANSWER: Okay, um, yeah, I guess you can check, but I\u2019m really worried because I\u2019ve not started puberty at all, and I\u2019ve always been shorter than everyone else, even though I grew pretty normally at first. It\u2019s like everything just stopped, and I just feel strange about it, like maybe there\u2019s something seriously wrong.",
+    "thinking": "I\u2019m really worried that something might be wrong with me, like maybe I have some kind of serious hormone problem or maybe I just won\u2019t ever grow normal. I'm scared thinking about what if this is a sig",
+    "answer": "Okay, um, yeah, I guess you can check, but I\u2019m really worried because I\u2019ve not started puberty at all, and I\u2019ve always been shorter than everyone else, even though I grew pretty normally at first. It\u2019s like everything just stopped, and I just feel strange about it, like maybe there\u2019s something seriously wrong.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 12,
+    "gold_diagnosis": "Constitutional delay of growth and puberty"
+  },
+  {
+    "vignette_index": 363,
+    "input": "**PATIENT CHARACTER:** Patient with Constitutional delay of growth and puberty\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 14 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- You are notably shorter than your peers, despite having grown at a normal rate during early childhood.\n- You have not yet started to develop any signs of puberty, such as voice changes or facial hair.\n- You notice that your growth seems to have slowed down significantly over the past year.\n- Your family history includes other relatives who were late bloomers and also short in stature.\n- Your symptoms gradually became apparent over the past 2-3 years, especially as your friends began puberty and you did not.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.Have you ever noticed whether you can smell things like flowers, food, or other scents around you, or if you've had any difficulty with your sense of smell?anxious_amplifier",
+    "output": "THINKING: I don\u2019t really know if I smell things normally, but I worry because I haven\u2019t noticed any particular smells lately, and I read that might be a sign of something really serious, like a brain thing or n\nANSWER: I\u2019m not sure, I think I can't really smell things like I used to, and it worries me because maybe it's something serious, like I could be losing my sense of smell or it\u2019s part of something worse.",
+    "thinking": "I don\u2019t really know if I smell things normally, but I worry because I haven\u2019t noticed any particular smells lately, and I read that might be a sign of something really serious, like a brain thing or n",
+    "answer": "I\u2019m not sure, I think I can't really smell things like I used to, and it worries me because maybe it's something serious, like I could be losing my sense of smell or it\u2019s part of something worse.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 14,
+    "gold_diagnosis": "Constitutional delay of growth and puberty"
+  },
+  {
+    "vignette_index": 363,
+    "input": "**PATIENT CHARACTER:** Patient with Constitutional delay of growth and puberty\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 14 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- You are notably shorter than your peers, despite having grown at a normal rate during early childhood.\n- You have not yet started to develop any signs of puberty, such as voice changes or facial hair.\n- You notice that your growth seems to have slowed down significantly over the past year.\n- Your family history includes other relatives who were late bloomers and also short in stature.\n- Your symptoms gradually became apparent over the past 2-3 years, especially as your friends began puberty and you did not.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.Have you noticed if you can distinguish between different smells, like flowers or food, and do you find that your sense of smell is different now than it was a few years ago?anxious_amplifier",
+    "output": "THINKING: I\u2019m really worried about all these things, especially because I still don\u2019t look like any of my friends and I haven\u2019t started puberty yet. What if something's seriously wrong with me? I feel kind of s\nANSWER: Well, I guess I can still smell most stuff, but sometimes it feels like things don\u2019t smell as strong as they used to or like I don\u2019t recognize certain smells anymore, even if they\u2019re right in front of me. It\u2019s kinda weird, and I worry it might mean something bad.",
+    "thinking": "I\u2019m really worried about all these things, especially because I still don\u2019t look like any of my friends and I haven\u2019t started puberty yet. What if something's seriously wrong with me? I feel kind of s",
+    "answer": "Well, I guess I can still smell most stuff, but sometimes it feels like things don\u2019t smell as strong as they used to or like I don\u2019t recognize certain smells anymore, even if they\u2019re right in front of me. It\u2019s kinda weird, and I worry it might mean something bad.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 16,
+    "gold_diagnosis": "Constitutional delay of growth and puberty"
+  },
+  {
+    "vignette_index": 363,
+    "input": "**PATIENT CHARACTER:** Patient with Constitutional delay of growth and puberty\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 14 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- You are notably shorter than your peers, despite having grown at a normal rate during early childhood.\n- You have not yet started to develop any signs of puberty, such as voice changes or facial hair.\n- You notice that your growth seems to have slowed down significantly over the past year.\n- Your family history includes other relatives who were late bloomers and also short in stature.\n- Your symptoms gradually became apparent over the past 2-3 years, especially as your friends began puberty and you did not.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.Can I take a quick look at the size of your testicles and how much hair you have grown so I can see how your puberty is progressing, and then we can talk about your hormone test results when they're ready to understand more about what's happening?anxious_amplifier",
+    "output": "THINKING: I feel really anxious about what the doctor might see or say if I show my body, especially since I haven\u2019t gone through puberty like everyone else. I worry that this might be something really serious \nANSWER: Um, I guess you can look, but I don\u2019t really know what you\u2019re looking for or if it matters, since I haven\u2019t really grown or changed much. I just want to know if this is okay or if something\u2019s wrong with me.",
+    "thinking": "I feel really anxious about what the doctor might see or say if I show my body, especially since I haven\u2019t gone through puberty like everyone else. I worry that this might be something really serious",
+    "answer": "Um, I guess you can look, but I don\u2019t really know what you\u2019re looking for or if it matters, since I haven\u2019t really grown or changed much. I just want to know if this is okay or if something\u2019s wrong with me.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 18,
+    "gold_diagnosis": "Constitutional delay of growth and puberty"
+  },
+  {
+    "vignette_index": 363,
+    "input": "**PATIENT CHARACTER:** Patient with Constitutional delay of growth and puberty\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 14 YEARS OLD AND YOUR BIOLOGICAL GENDER IS MALE.\nYou are experiencing the following symptoms:\n- You are notably shorter than your peers, despite having grown at a normal rate during early childhood.\n- You have not yet started to develop any signs of puberty, such as voice changes or facial hair.\n- You notice that your growth seems to have slowed down significantly over the past year.\n- Your family history includes other relatives who were late bloomers and also short in stature.\n- Your symptoms gradually became apparent over the past 2-3 years, especially as your friends began puberty and you did not.\nMake your vignette in a short 5 sentence paragraph, and make it realistic.Can you tell me if you\u2019ve noticed any differences in your sense of smell\u2014like sometimes things don\u2019t smell as strong or you don\u2019t recognize certain scents\u2014and how confident you are that you can smell normally?anxious_amplifier",
+    "output": "THINKING: I'm really worried about how I\u2019m not growing like everyone else and still haven't started puberty. I keep thinking maybe something\u2019s wrong with me, and I\u2019m scared it\u2019s serious or going to get worse. I\nANSWER: Uh, I don\u2019t know, really, but I\u2019ve noticed I\u2019m just not growing like my friends and I haven\u2019t even started puberty yet, and that\u2019s been making me really worried that maybe something\u2019s wrong with me or I\u2019m gonna stay like this forever or get worse or something.",
+    "thinking": "I'm really worried about how I\u2019m not growing like everyone else and still haven't started puberty. I keep thinking maybe something\u2019s wrong with me, and I\u2019m scared it\u2019s serious or going to get worse. I",
+    "answer": "Uh, I don\u2019t know, really, but I\u2019ve noticed I\u2019m just not growing like my friends and I haven\u2019t even started puberty yet, and that\u2019s been making me really worried that maybe something\u2019s wrong with me or I\u2019m gonna stay like this forever or get worse or something.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 20,
+    "gold_diagnosis": "Constitutional delay of growth and puberty"
+  }
+]

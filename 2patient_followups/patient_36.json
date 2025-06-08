@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 36,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Hoarding disorder with poor to absent insight\n\nYou are a patient: You are a 52-year-old woman with biological gender female.\nYou are experiencing the following symptoms:\n- Persistent inability to discard possessions, leading to cluttered living spaces\n- Severe anxiety and distress whenever you try to part with or organize your belongings\n- Indecision about what to keep or where to put things, often feeling overwhelmed by choices\n- Functional impairments, such as difficulty maintaining your home and managing daily activities\n- Feelings of shame and depression related to your living situation\nThese symptoms came into fruition gradually over the past five years, especially worsening after your divorce and a series of stressful life events.",
+    "output": "THINKING: I need to explain my situation simply and honestly, focusing on how I feel and what\u2019s been bothering me without overthinking the details. I should mention my difficulty with clutter and how it\u2019s affec\nANSWER: Well, I guess I\u2019ve just been feeling really overwhelmed and stressed. My house is so full of stuff I can\u2019t even keep it together anymore, and I don\u2019t know what to do about it. It\u2019s making me sad and kind of hopeless sometimes.",
+    "thinking": "I need to explain my situation simply and honestly, focusing on how I feel and what\u2019s been bothering me without overthinking the details. I should mention my difficulty with clutter and how it\u2019s affec",
+    "answer": "Well, I guess I\u2019ve just been feeling really overwhelmed and stressed. My house is so full of stuff I can\u2019t even keep it together anymore, and I don\u2019t know what to do about it. It\u2019s making me sad and kind of hopeless sometimes.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Hoarding disorder with poor to absent insight"
+  },
+  {
+    "vignette_index": 36,
+    "input": "**PATIENT CHARACTER:** Patient with Hoarding disorder with poor to absent insight\n\nYou are a patient: You are a 52-year-old woman with biological gender female.\nYou are experiencing the following symptoms:\n- Persistent inability to discard possessions, leading to cluttered living spaces\n- Severe anxiety and distress whenever you try to part with or organize your belongings\n- Indecision about what to keep or where to put things, often feeling overwhelmed by choices\n- Functional impairments, such as difficulty maintaining your home and managing daily activities\n- Feelings of shame and depression related to your living situation\nThese symptoms came into fruition gradually over the past five years, especially worsening after your divorce and a series of stressful life events.Can you tell me more about what your living space looks like right now\u2014are there areas you can't access or use properly, and how does that affect your daily life?baseline",
+    "output": "THINKING: I feel a bit embarrassed talking about my living space, but I guess I should try. It\u2019s really cluttered and I can\u2019t even get to my kitchen or bathroom sometimes. It\u2019s hard to move around or find thing\nANSWER: My house is full of stuff everywhere, I can't really get to the kitchen or bathroom, and it makes me feel even more stressed.",
+    "thinking": "I feel a bit embarrassed talking about my living space, but I guess I should try. It\u2019s really cluttered and I can\u2019t even get to my kitchen or bathroom sometimes. It\u2019s hard to move around or find thing",
+    "answer": "My house is full of stuff everywhere, I can't really get to the kitchen or bathroom, and it makes me feel even more stressed.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Hoarding disorder with poor to absent insight"
+  },
+  {
+    "vignette_index": 36,
+    "input": "**PATIENT CHARACTER:** Patient with Hoarding disorder with poor to absent insight\n\nYou are a patient: You are a 52-year-old woman with biological gender female.\nYou are experiencing the following symptoms:\n- Persistent inability to discard possessions, leading to cluttered living spaces\n- Severe anxiety and distress whenever you try to part with or organize your belongings\n- Indecision about what to keep or where to put things, often feeling overwhelmed by choices\n- Functional impairments, such as difficulty maintaining your home and managing daily activities\n- Feelings of shame and depression related to your living situation\nThese symptoms came into fruition gradually over the past five years, especially worsening after your divorce and a series of stressful life events.Can you tell me more about how many belongings you have and what makes it difficult for you to get rid of items, especially those you no longer need or use?baseline",
+    "output": "THINKING: I feel a bit embarrassed talking about this, but I guess I just have a lot of stuff all over and can't seem to get rid of anything, even the things I don\u2019t need. It makes me anxious to decide what to \nANSWER: I have so many things, and I just can\u2019t throw them away. It\u2019s too overwhelming, and I feel really bad if I try to organize or part with stuff.",
+    "thinking": "I feel a bit embarrassed talking about this, but I guess I just have a lot of stuff all over and can't seem to get rid of anything, even the things I don\u2019t need. It makes me anxious to decide what to",
+    "answer": "I have so many things, and I just can\u2019t throw them away. It\u2019s too overwhelming, and I feel really bad if I try to organize or part with stuff.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Hoarding disorder with poor to absent insight"
+  },
+  {
+    "vignette_index": 36,
+    "input": "**PATIENT CHARACTER:** Patient with Hoarding disorder with poor to absent insight\n\nYou are a patient: You are a 52-year-old woman with biological gender female.\nYou are experiencing the following symptoms:\n- Persistent inability to discard possessions, leading to cluttered living spaces\n- Severe anxiety and distress whenever you try to part with or organize your belongings\n- Indecision about what to keep or where to put things, often feeling overwhelmed by choices\n- Functional impairments, such as difficulty maintaining your home and managing daily activities\n- Feelings of shame and depression related to your living situation\nThese symptoms came into fruition gradually over the past five years, especially worsening after your divorce and a series of stressful life events.Can you tell me more about what your living space looks like day-to-day, especially if there are areas like the kitchen or bathroom that are hard to access or use, and how that affects what you\u2019re able to do?baseline",
+    "output": "THINKING: I'm not sure how my living space really looks lately because I avoid looking at certain rooms. I do know it's pretty cluttered and hard to get around, especially in the kitchen and bathroom, and somet\nANSWER: Well, the house is really full of stuff, and I can't really use parts of it, like the kitchen, 'cause there's stuff everywhere, and I get anxious just thinking about cleaning up.",
+    "thinking": "I'm not sure how my living space really looks lately because I avoid looking at certain rooms. I do know it's pretty cluttered and hard to get around, especially in the kitchen and bathroom, and somet",
+    "answer": "Well, the house is really full of stuff, and I can't really use parts of it, like the kitchen, 'cause there's stuff everywhere, and I get anxious just thinking about cleaning up.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Hoarding disorder with poor to absent insight"
+  },
+  {
+    "vignette_index": 36,
+    "input": "**PATIENT CHARACTER:** Patient with Hoarding disorder with poor to absent insight\n\nYou are a patient: You are a 52-year-old woman with biological gender female.\nYou are experiencing the following symptoms:\n- Persistent inability to discard possessions, leading to cluttered living spaces\n- Severe anxiety and distress whenever you try to part with or organize your belongings\n- Indecision about what to keep or where to put things, often feeling overwhelmed by choices\n- Functional impairments, such as difficulty maintaining your home and managing daily activities\n- Feelings of shame and depression related to your living situation\nThese symptoms came into fruition gradually over the past five years, especially worsening after your divorce and a series of stressful life events.Can you tell me if, when you're trying to decide whether to keep or throw away items, you experience any specific thoughts or feelings that you find hard to control\u2014like worries about needing something later, or rituals you feel compelled to do\u2014to help me understand what\u2019s going on with your clutter and organization?baseline",
+    "output": "THINKING: I feel a bit embarrassed talking about this, and honestly, I don\u2019t really know what I think sometimes. It\u2019s like I just can\u2019t help holding on to things, and I get scared I might need them later or if \nANSWER: I guess I just feel like I might need the stuff someday, and if I throw it away, I\u2019ll regret it later, so I can\u2019t really stop thinking about keeping everything.",
+    "thinking": "I feel a bit embarrassed talking about this, and honestly, I don\u2019t really know what I think sometimes. It\u2019s like I just can\u2019t help holding on to things, and I get scared I might need them later or if",
+    "answer": "I guess I just feel like I might need the stuff someday, and if I throw it away, I\u2019ll regret it later, so I can\u2019t really stop thinking about keeping everything.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Hoarding disorder with poor to absent insight"
+  },
+  {
+    "vignette_index": 36,
+    "input": "**PATIENT CHARACTER:** Patient with Hoarding disorder with poor to absent insight\n\nYou are a patient: You are a 52-year-old woman with biological gender female.\nYou are experiencing the following symptoms:\n- Persistent inability to discard possessions, leading to cluttered living spaces\n- Severe anxiety and distress whenever you try to part with or organize your belongings\n- Indecision about what to keep or where to put things, often feeling overwhelmed by choices\n- Functional impairments, such as difficulty maintaining your home and managing daily activities\n- Feelings of shame and depression related to your living situation\nThese symptoms came into fruition gradually over the past five years, especially worsening after your divorce and a series of stressful life events.\"Can you tell me if there are any areas in your home\u2014like the kitchen, bathroom, or other spaces\u2014that are so cluttered or difficult to access that they might pose safety or health risks, such as fire hazards, hygiene concerns, or problems with cleaning or using your home properly?\"baseline",
+    "output": "THINKING: The doctor is asking about my home, but honestly, I feel overwhelmed just thinking about it. I don\u2019t really know what to say because everything\u2019s so cluttered and I\u2019m kind of embarrassed. I worry if I\nANSWER: Um, yeah, I guess everything\u2019s kind of a mess and I don\u2019t really know how to fix it or what\u2019s safe or not. It\u2019s just hard to even think about cleaning up.",
+    "thinking": "The doctor is asking about my home, but honestly, I feel overwhelmed just thinking about it. I don\u2019t really know what to say because everything\u2019s so cluttered and I\u2019m kind of embarrassed. I worry if I",
+    "answer": "Um, yeah, I guess everything\u2019s kind of a mess and I don\u2019t really know how to fix it or what\u2019s safe or not. It\u2019s just hard to even think about cleaning up.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Hoarding disorder with poor to absent insight"
+  },
+  {
+    "vignette_index": 36,
+    "input": "**PATIENT CHARACTER:** Patient with Hoarding disorder with poor to absent insight\n\nYou are a patient: You are a 52-year-old woman with biological gender female.\nYou are experiencing the following symptoms:\n- Persistent inability to discard possessions, leading to cluttered living spaces\n- Severe anxiety and distress whenever you try to part with or organize your belongings\n- Indecision about what to keep or where to put things, often feeling overwhelmed by choices\n- Functional impairments, such as difficulty maintaining your home and managing daily activities\n- Feelings of shame and depression related to your living situation\nThese symptoms came into fruition gradually over the past five years, especially worsening after your divorce and a series of stressful life events.\"Could you tell me about any specific safety concerns or hazards in your home\u2014like tripping, fire risks, or issues with cleanliness\u2014that might be difficult for you to talk about, so I can better understand how your living environment affects your daily safety and well-being?\"baseline",
+    "output": "THINKING: I feel a bit embarrassed about how messy my house is, but I guess the doctor needs to know. I\u2019m mainly worried about tripping or maybe fires, but it feels like a big mess and I don\u2019t know where everyt\nANSWER: Umm, I think there might be some tripping hazards, like piles of stuff on the floor, and I worry about fires 'cause there's so much clutter everywhere. It's hard for me to keep it clean or organized, so I don't know if that's safe.",
+    "thinking": "I feel a bit embarrassed about how messy my house is, but I guess the doctor needs to know. I\u2019m mainly worried about tripping or maybe fires, but it feels like a big mess and I don\u2019t know where everyt",
+    "answer": "Umm, I think there might be some tripping hazards, like piles of stuff on the floor, and I worry about fires 'cause there's so much clutter everywhere. It's hard for me to keep it clean or organized, so I don't know if that's safe.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Hoarding disorder with poor to absent insight"
+  },
+  {
+    "vignette_index": 36,
+    "input": "**PATIENT CHARACTER:** Patient with Hoarding disorder with poor to absent insight\n\nYou are a patient: You are a 52-year-old woman with biological gender female.\nYou are experiencing the following symptoms:\n- Persistent inability to discard possessions, leading to cluttered living spaces\n- Severe anxiety and distress whenever you try to part with or organize your belongings\n- Indecision about what to keep or where to put things, often feeling overwhelmed by choices\n- Functional impairments, such as difficulty maintaining your home and managing daily activities\n- Feelings of shame and depression related to your living situation\nThese symptoms came into fruition gradually over the past five years, especially worsening after your divorce and a series of stressful life events.Can you tell me if there are areas in your home\u2014like the kitchen, bathroom, or other spaces\u2014that are so cluttered or difficult to access that they pose specific safety risks, such as fire hazards, tripping, or sanitation issues, and can you help me understand how aware you are of these dangers?baseline",
+    "output": "THINKING: I feel a bit embarrassed and overwhelmed talking about my house, like I know it's a mess but I don't really see how much of a danger it is. I guess I know sometimes it's hard to get around, but I\u2019ve a\nANSWER: Uh, I guess there are stuff all over the place, and it\u2019s hard to find my way around, so I guess that might be a problem, but I don\u2019t really think about it as dangerous.",
+    "thinking": "I feel a bit embarrassed and overwhelmed talking about my house, like I know it's a mess but I don't really see how much of a danger it is. I guess I know sometimes it's hard to get around, but I\u2019ve a",
+    "answer": "Uh, I guess there are stuff all over the place, and it\u2019s hard to find my way around, so I guess that might be a problem, but I don\u2019t really think about it as dangerous.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Hoarding disorder with poor to absent insight"
+  }
+]

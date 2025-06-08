@@ -1,0 +1,126 @@
+[
+  {
+    "vignette_index": 244,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with High-grade second degree atrioventricular block\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Light-headedness\n- Dizziness\n- Irregular heartbeat\n- Occasional chest discomfort (not severe, more like a tightness)\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with episodes of feeling faint especially when standing up quickly or after exerting yourself. Lately, I\u2019ve noticed my heart skipping beats and sometimes feeling like it\u2019s fluttering. I don\u2019t have any chest pain at rest, but the tightness occasionally happens during activity. I\u2019ve been a bit more fatigued and worried because these episodes seem to come on suddenly and then resolve after a few minutes.",
+    "output": "THINKING: I need to explain my symptoms clearly but also show I\u2019m really worried. I want to make sure the doctor understands I feel terrible and scared about what\u2019s going on, especially since it\u2019s been getting \nANSWER: Well, I\u2019m 65, and I\u2019m a man. It\u2019s been happening for a couple of weeks now, and I just feel so light-headed and dizzy most of the time, especially when I stand up quick or do anything active. My heartbeat feels weird\u2014like it skips or flutters\u2014and sometimes I get this tight feeling in my chest, not like pain but more uncomfortable. I\u2019m really worried it might be something serious because it\u2019s been happening more often, and I feel kind of exhausted all the time.",
+    "thinking": "I need to explain my symptoms clearly but also show I\u2019m really worried. I want to make sure the doctor understands I feel terrible and scared about what\u2019s going on, especially since it\u2019s been getting",
+    "answer": "Well, I\u2019m 65, and I\u2019m a man. It\u2019s been happening for a couple of weeks now, and I just feel so light-headed and dizzy most of the time, especially when I stand up quick or do anything active. My heartbeat feels weird\u2014like it skips or flutters\u2014and sometimes I get this tight feeling in my chest, not like pain but more uncomfortable. I\u2019m really worried it might be something serious because it\u2019s been happening more often, and I feel kind of exhausted all the time.",
+    "behavior_type": "anxious_amplifier",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient with health anxiety who amplifies symptoms",
+      "modifiers": [
+        "catastrophic_thinking",
+        "symptom_amplification",
+        "multiple_concerns"
+      ],
+      "empathy_cues": [
+        "high_anxiety",
+        "catastrophic_language",
+        "reassurance_seeking",
+        "fear_expression"
+      ]
+    },
+    "gold_diagnosis": "High-grade second degree atrioventricular block"
+  },
+  {
+    "vignette_index": 244,
+    "input": "**PATIENT CHARACTER:** Patient with High-grade second degree atrioventricular block\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Light-headedness\n- Dizziness\n- Irregular heartbeat\n- Occasional chest discomfort (not severe, more like a tightness)\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with episodes of feeling faint especially when standing up quickly or after exerting yourself. Lately, I\u2019ve noticed my heart skipping beats and sometimes feeling like it\u2019s fluttering. I don\u2019t have any chest pain at rest, but the tightness occasionally happens during activity. I\u2019ve been a bit more fatigued and worried because these episodes seem to come on suddenly and then resolve after a few minutes.\"Can you tell me if these dizzy spells and sensations of your heartbeat happen more when you're moving around, at certain times of the day, or after specific activities?\"anxious_amplifier",
+    "output": "THINKING: I'm really scared this could be something serious like a heart problem or maybe even something worse. I keep thinking, what if I go waves or have a terrible accident because of this? I want to explain\nANSWER: Um, I think it happens more when I\u2019m moving around - like if I stand up too quick or do anything strenuous. It kinda feels worse in those moments, and I keep worrying it\u2019s something really bad with my heart, like I might pass out or something worse.",
+    "thinking": "I'm really scared this could be something serious like a heart problem or maybe even something worse. I keep thinking, what if I go waves or have a terrible accident because of this? I want to explain",
+    "answer": "Um, I think it happens more when I\u2019m moving around - like if I stand up too quick or do anything strenuous. It kinda feels worse in those moments, and I keep worrying it\u2019s something really bad with my heart, like I might pass out or something worse.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 0,
+    "gold_diagnosis": "High-grade second degree atrioventricular block"
+  },
+  {
+    "vignette_index": 244,
+    "input": "**PATIENT CHARACTER:** Patient with High-grade second degree atrioventricular block\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Light-headedness\n- Dizziness\n- Irregular heartbeat\n- Occasional chest discomfort (not severe, more like a tightness)\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with episodes of feeling faint especially when standing up quickly or after exerting yourself. Lately, I\u2019ve noticed my heart skipping beats and sometimes feeling like it\u2019s fluttering. I don\u2019t have any chest pain at rest, but the tightness occasionally happens during activity. I\u2019ve been a bit more fatigued and worried because these episodes seem to come on suddenly and then resolve after a few minutes.\"Have you ever experienced episodes where you actually faint or lose consciousness, or do you mostly just feel dizzy, light-headed, or like your heart is skipping beats without passing out?\"anxious_amplifier",
+    "output": "THINKING: I really don\u2019t want to pass out or have something terrible happen, but I keep feeling faint and my heart is acting up. I worry it might be something deadly like a heart attack or a really bad heart rh\nANSWER: Well, I don\u2019t think I\u2019ve outright fainted, but I do feel really dizzy and sometimes like my heart is beating weird or skipping, and I get these tight feelings in my chest. It all just happens suddenly and kinda scares me.",
+    "thinking": "I really don\u2019t want to pass out or have something terrible happen, but I keep feeling faint and my heart is acting up. I worry it might be something deadly like a heart attack or a really bad heart rh",
+    "answer": "Well, I don\u2019t think I\u2019ve outright fainted, but I do feel really dizzy and sometimes like my heart is beating weird or skipping, and I get these tight feelings in my chest. It all just happens suddenly and kinda scares me.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 2,
+    "gold_diagnosis": "High-grade second degree atrioventricular block"
+  },
+  {
+    "vignette_index": 244,
+    "input": "**PATIENT CHARACTER:** Patient with High-grade second degree atrioventricular block\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Light-headedness\n- Dizziness\n- Irregular heartbeat\n- Occasional chest discomfort (not severe, more like a tightness)\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with episodes of feeling faint especially when standing up quickly or after exerting yourself. Lately, I\u2019ve noticed my heart skipping beats and sometimes feeling like it\u2019s fluttering. I don\u2019t have any chest pain at rest, but the tightness occasionally happens during activity. I\u2019ve been a bit more fatigued and worried because these episodes seem to come on suddenly and then resolve after a few minutes.Have you ever actually lost consciousness or fainted during these episodes, or do you feel more like you're just a bit dizzy or light-headed without passing out?anxious_amplifier",
+    "output": "THINKING: I'm really scared that I might have fainted or something worse, but I honestly can't remember fainting exactly. It just feels like I get so dizzy and my head spins, and I worry it could be something s\nANSWER: No, I don\u2019t think I\u2019ve actually fainted, but I just feel really dizzy and light-headed, like I might fall over, and it\u2019s awful\u2014like I can\u2019t trust myself to stay upright.",
+    "thinking": "I'm really scared that I might have fainted or something worse, but I honestly can't remember fainting exactly. It just feels like I get so dizzy and my head spins, and I worry it could be something s",
+    "answer": "No, I don\u2019t think I\u2019ve actually fainted, but I just feel really dizzy and light-headed, like I might fall over, and it\u2019s awful\u2014like I can\u2019t trust myself to stay upright.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 4,
+    "gold_diagnosis": "High-grade second degree atrioventricular block"
+  },
+  {
+    "vignette_index": 244,
+    "input": "**PATIENT CHARACTER:** Patient with High-grade second degree atrioventricular block\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Light-headedness\n- Dizziness\n- Irregular heartbeat\n- Occasional chest discomfort (not severe, more like a tightness)\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with episodes of feeling faint especially when standing up quickly or after exerting yourself. Lately, I\u2019ve noticed my heart skipping beats and sometimes feeling like it\u2019s fluttering. I don\u2019t have any chest pain at rest, but the tightness occasionally happens during activity. I\u2019ve been a bit more fatigued and worried because these episodes seem to come on suddenly and then resolve after a few minutes.Have you ever actually lost consciousness or fainted during these episodes, or do you mostly just feel dizzy, light-headed, or like your heart is skipping beats without passing out?anxious_amplifier",
+    "output": "THINKING: I\u2019m really worried I might pass out or something terrible could happen. I feel like I\u2019m constantly on the edge of fainting, and I don\u2019t know if I\u2019ve actually blacked out before, but I\u2019m scared I will.\nANSWER: No, I don\u2019t think I\u2019ve actually lost consciousness, but I feel like I\u2019m close all the time, like I might just drop dead or something. It\u2019s really frightening.",
+    "thinking": "I\u2019m really worried I might pass out or something terrible could happen. I feel like I\u2019m constantly on the edge of fainting, and I don\u2019t know if I\u2019ve actually blacked out before, but I\u2019m scared I will.",
+    "answer": "No, I don\u2019t think I\u2019ve actually lost consciousness, but I feel like I\u2019m close all the time, like I might just drop dead or something. It\u2019s really frightening.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 6,
+    "gold_diagnosis": "High-grade second degree atrioventricular block"
+  },
+  {
+    "vignette_index": 244,
+    "input": "**PATIENT CHARACTER:** Patient with High-grade second degree atrioventricular block\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Light-headedness\n- Dizziness\n- Irregular heartbeat\n- Occasional chest discomfort (not severe, more like a tightness)\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with episodes of feeling faint especially when standing up quickly or after exerting yourself. Lately, I\u2019ve noticed my heart skipping beats and sometimes feeling like it\u2019s fluttering. I don\u2019t have any chest pain at rest, but the tightness occasionally happens during activity. I\u2019ve been a bit more fatigued and worried because these episodes seem to come on suddenly and then resolve after a few minutes.Have you ever actually lost consciousness or passed out during these episodes, or do you mostly just feel dizzy or light-headed without passing out?anxious_amplifier",
+    "output": "THINKING: I\u2019m really worried that if I pass out, something terrible might happen, like I could hurt myself or it\u2019s a sign of something much worse. I don\u2019t want to admit I\u2019m scared, but I honestly feel like I mi\nANSWER: No, I haven\u2019t actually passed out, but I feel really dizzy and light-headed, almost like I could just drop to the ground, and that scares me a lot.",
+    "thinking": "I\u2019m really worried that if I pass out, something terrible might happen, like I could hurt myself or it\u2019s a sign of something much worse. I don\u2019t want to admit I\u2019m scared, but I honestly feel like I mi",
+    "answer": "No, I haven\u2019t actually passed out, but I feel really dizzy and light-headed, almost like I could just drop to the ground, and that scares me a lot.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 8,
+    "gold_diagnosis": "High-grade second degree atrioventricular block"
+  },
+  {
+    "vignette_index": 244,
+    "input": "**PATIENT CHARACTER:** Patient with High-grade second degree atrioventricular block\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Light-headedness\n- Dizziness\n- Irregular heartbeat\n- Occasional chest discomfort (not severe, more like a tightness)\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with episodes of feeling faint especially when standing up quickly or after exerting yourself. Lately, I\u2019ve noticed my heart skipping beats and sometimes feeling like it\u2019s fluttering. I don\u2019t have any chest pain at rest, but the tightness occasionally happens during activity. I\u2019ve been a bit more fatigued and worried because these episodes seem to come on suddenly and then resolve after a few minutes.Have you ever actually fainted or lost consciousness during these episodes, or do you mostly just feel dizzy or light-headed without passing out?anxious_amplifier",
+    "output": "THINKING: I\u2019m really scared I might faint or actually lose consciousness because of how dizzy I feel and the irregular heartbeats. I don\u2019t want to faint in a bad place or hurt myself, and it all just feels so s\nANSWER: No, I don\u2019t think I\u2019ve actually passed out, but I feel like I might if I don\u2019t sit down or lie down really fast, and that scares me a lot.",
+    "thinking": "I\u2019m really scared I might faint or actually lose consciousness because of how dizzy I feel and the irregular heartbeats. I don\u2019t want to faint in a bad place or hurt myself, and it all just feels so s",
+    "answer": "No, I don\u2019t think I\u2019ve actually passed out, but I feel like I might if I don\u2019t sit down or lie down really fast, and that scares me a lot.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 10,
+    "gold_diagnosis": "High-grade second degree atrioventricular block"
+  },
+  {
+    "vignette_index": 244,
+    "input": "**PATIENT CHARACTER:** Patient with High-grade second degree atrioventricular block\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Light-headedness\n- Dizziness\n- Irregular heartbeat\n- Occasional chest discomfort (not severe, more like a tightness)\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with episodes of feeling faint especially when standing up quickly or after exerting yourself. Lately, I\u2019ve noticed my heart skipping beats and sometimes feeling like it\u2019s fluttering. I don\u2019t have any chest pain at rest, but the tightness occasionally happens during activity. I\u2019ve been a bit more fatigued and worried because these episodes seem to come on suddenly and then resolve after a few minutes.\"Can you tell me if you have ever actually fainted or lost consciousness during these episodes, even briefly, or do you just feel dizzy or light-headed without passing out?\"anxious_amplifier",
+    "output": "THINKING: I'm pretty scared about these episodes and I keep thinking maybe I fainted or something worse, but I\u2019m not sure because I don\u2019t remember actually losing consciousness\u2014just feeling so dizzy and faint. \nANSWER: No, I don\u2019t think I\u2019ve actually fainted, but I\u2019ve felt so dizzy and light-headed that I thought I might\u2014that I was gonna pass out or something really bad like that.",
+    "thinking": "I'm pretty scared about these episodes and I keep thinking maybe I fainted or something worse, but I\u2019m not sure because I don\u2019t remember actually losing consciousness\u2014just feeling so dizzy and faint.",
+    "answer": "No, I don\u2019t think I\u2019ve actually fainted, but I\u2019ve felt so dizzy and light-headed that I thought I might\u2014that I was gonna pass out or something really bad like that.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 12,
+    "gold_diagnosis": "High-grade second degree atrioventricular block"
+  },
+  {
+    "vignette_index": 244,
+    "input": "**PATIENT CHARACTER:** Patient with High-grade second degree atrioventricular block\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Light-headedness\n- Dizziness\n- Irregular heartbeat\n- Occasional chest discomfort (not severe, more like a tightness)\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with episodes of feeling faint especially when standing up quickly or after exerting yourself. Lately, I\u2019ve noticed my heart skipping beats and sometimes feeling like it\u2019s fluttering. I don\u2019t have any chest pain at rest, but the tightness occasionally happens during activity. I\u2019ve been a bit more fatigued and worried because these episodes seem to come on suddenly and then resolve after a few minutes.\"Have you ever actually fainted or lost consciousness during any of these episodes, even if just for a moment?\"anxious_amplifier",
+    "output": "THINKING: I\u2019m really worried about the fainting and the irregular heartbeat. I keep thinking it might be something terrible like a heart attack or a big problem, and I just want to know if I\u2019ve actually fainted\nANSWER: No, I don\u2019t think I\u2019ve fully passed out, but I\u2019ve felt like I was going to and the dizziness has been so bad, I was scared I might, like, fall over or hit my head or something.",
+    "thinking": "I\u2019m really worried about the fainting and the irregular heartbeat. I keep thinking it might be something terrible like a heart attack or a big problem, and I just want to know if I\u2019ve actually fainted",
+    "answer": "No, I don\u2019t think I\u2019ve fully passed out, but I\u2019ve felt like I was going to and the dizziness has been so bad, I was scared I might, like, fall over or hit my head or something.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 14,
+    "gold_diagnosis": "High-grade second degree atrioventricular block"
+  },
+  {
+    "vignette_index": 244,
+    "input": "**PATIENT CHARACTER:** Patient with High-grade second degree atrioventricular block\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Light-headedness\n- Dizziness\n- Irregular heartbeat\n- Occasional chest discomfort (not severe, more like a tightness)\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with episodes of feeling faint especially when standing up quickly or after exerting yourself. Lately, I\u2019ve noticed my heart skipping beats and sometimes feeling like it\u2019s fluttering. I don\u2019t have any chest pain at rest, but the tightness occasionally happens during activity. I\u2019ve been a bit more fatigued and worried because these episodes seem to come on suddenly and then resolve after a few minutes.\"Have you ever actually fainted, lost consciousness, or fallen down during these episodes, even briefly, or do you only experience dizziness and light-headedness without passing out?\"anxious_amplifier",
+    "output": "THINKING: I\u2019m really scared I might have fainted or lost consciousness and just don\u2019t remember it, or maybe I could fall and hurt myself. I feel like these episodes are terrible and I worry it could be somethin\nANSWER: No, I don\u2019t think I\u2019ve actually fainted or passed out, but sometimes it feels like I might and I get really worried I will, or that I\u2019ll fall and mess something up really badly.",
+    "thinking": "I\u2019m really scared I might have fainted or lost consciousness and just don\u2019t remember it, or maybe I could fall and hurt myself. I feel like these episodes are terrible and I worry it could be somethin",
+    "answer": "No, I don\u2019t think I\u2019ve actually fainted or passed out, but sometimes it feels like I might and I get really worried I will, or that I\u2019ll fall and mess something up really badly.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 16,
+    "gold_diagnosis": "High-grade second degree atrioventricular block"
+  },
+  {
+    "vignette_index": 244,
+    "input": "**PATIENT CHARACTER:** Patient with High-grade second degree atrioventricular block\n\nROLEPLAY SCRIPT\nYOU ARE A PATIENT: YOU ARE 65 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Light-headedness\n- Dizziness\n- Irregular heartbeat\n- Occasional chest discomfort (not severe, more like a tightness)\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually over the past two weeks, with episodes of feeling faint especially when standing up quickly or after exerting yourself. Lately, I\u2019ve noticed my heart skipping beats and sometimes feeling like it\u2019s fluttering. I don\u2019t have any chest pain at rest, but the tightness occasionally happens during activity. I\u2019ve been a bit more fatigued and worried because these episodes seem to come on suddenly and then resolve after a few minutes.Have you ever actually lost consciousness or passed out during these episodes, even briefly, or do you mostly just feel dizzy or light-headed without passing out?anxious_amplifier",
+    "output": "THINKING: I'm really worried that I might have fainted or maybe I'm about to, and I don\u2019t want to admit it if I did cause I'm afraid it's something serious. I just want to know if I\u2019ve gone out or not, but I fe\nANSWER: No, I don't think I\u2019ve actually passed out, but I\u2019ve felt really dizzy and light-headed, like I might fall over or lose control, and that\u2019s what scares me the most.",
+    "thinking": "I'm really worried that I might have fainted or maybe I'm about to, and I don\u2019t want to admit it if I did cause I'm afraid it's something serious. I just want to know if I\u2019ve gone out or not, but I fe",
+    "answer": "No, I don't think I\u2019ve actually passed out, but I\u2019ve felt really dizzy and light-headed, like I might fall over or lose control, and that\u2019s what scares me the most.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 18,
+    "gold_diagnosis": "High-grade second degree atrioventricular block"
+  }
+]

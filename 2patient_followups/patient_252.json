@@ -1,0 +1,116 @@
+[
+  {
+    "vignette_index": 252,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Polyneuropathy in systemic connective tissue disorders\n\nYou are a patient: You are a 58-year-old woman. You are experiencing the following symptoms:\n- Tingling and numbness in your feet and legs\n- Burning sensations and shooting pains in your toes and calves\n- Difficulty moving your fingers and gripping objects\n- Pins and needles feeling that sometimes spreads up your legs and into your hands\nThese symptoms came into fruition gradually over the past few months, initially starting with mild tingling that you brushed off as fatigue, but over time, the pain and numbness have worsened, making it harder to walk and use your hands normally.",
+    "output": "THINKING: I need to explain my symptoms clearly but I\u2019m also worried it might be something really serious. I should mention what\u2019s been happening gradually and how it\u2019s affecting me daily. I also want to seem h\nANSWER: I am 58, and I\u2019m a woman. Lately, I\u2019ve been having this constant tingling and numbness in my feet and legs, and it\u2019s gotten worse over the past few months. There\u2019s this burning, almost like fire pain in my toes and calves, and sometimes I get shooting pains in those areas too. It\u2019s been pretty hard to move my fingers and grip things properly\u2014I feel like my hands are all stiff and weak. The weird pins and needles feelings sometimes spread up into my legs and even into my hands. I\u2019m really scared it\u2019s something terrible, like maybe nerve damage or something worse, and I just don\u2019t know what to do anymore.",
+    "thinking": "I need to explain my symptoms clearly but I\u2019m also worried it might be something really serious. I should mention what\u2019s been happening gradually and how it\u2019s affecting me daily. I also want to seem h",
+    "answer": "I am 58, and I\u2019m a woman. Lately, I\u2019ve been having this constant tingling and numbness in my feet and legs, and it\u2019s gotten worse over the past few months. There\u2019s this burning, almost like fire pain in my toes and calves, and sometimes I get shooting pains in those areas too. It\u2019s been pretty hard to move my fingers and grip things properly\u2014I feel like my hands are all stiff and weak. The weird pins and needles feelings sometimes spread up into my legs and even into my hands. I\u2019m really scared it\u2019s something terrible, like maybe nerve damage or something worse, and I just don\u2019t know what to do anymore.",
+    "behavior_type": "anxious_amplifier",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient with health anxiety who amplifies symptoms",
+      "modifiers": [
+        "catastrophic_thinking",
+        "symptom_amplification",
+        "multiple_concerns"
+      ],
+      "empathy_cues": [
+        "high_anxiety",
+        "catastrophic_language",
+        "reassurance_seeking",
+        "fear_expression"
+      ]
+    },
+    "gold_diagnosis": "Polyneuropathy in systemic connective tissue disorders"
+  },
+  {
+    "vignette_index": 252,
+    "input": "**PATIENT CHARACTER:** Patient with Polyneuropathy in systemic connective tissue disorders\n\nYou are a patient: You are a 58-year-old woman. You are experiencing the following symptoms:\n- Tingling and numbness in your feet and legs\n- Burning sensations and shooting pains in your toes and calves\n- Difficulty moving your fingers and gripping objects\n- Pins and needles feeling that sometimes spreads up your legs and into your hands\nThese symptoms came into fruition gradually over the past few months, initially starting with mild tingling that you brushed off as fatigue, but over time, the pain and numbness have worsened, making it harder to walk and use your hands normally.Can you tell me more about when these symptoms first started and how they've changed over time\u2014have they gradually gotten worse, or do they come and go?anxious_amplifier",
+    "output": "THINKING: I feel worried about how these symptoms started so gradually but then got worse, and I keep thinking it might be something serious or maybe I have some kind of nerve damage I can't fix. I also feel a \nANSWER: Well, it started a few months ago, and at first, I thought it was just tiredness or maybe I was imagining things, but now the tingling and pain are so much worse, and I\u2019m scared it\u2019s something really bad with my nerves or that it\u2019s getting worse.",
+    "thinking": "I feel worried about how these symptoms started so gradually but then got worse, and I keep thinking it might be something serious or maybe I have some kind of nerve damage I can't fix. I also feel a",
+    "answer": "Well, it started a few months ago, and at first, I thought it was just tiredness or maybe I was imagining things, but now the tingling and pain are so much worse, and I\u2019m scared it\u2019s something really bad with my nerves or that it\u2019s getting worse.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 0,
+    "gold_diagnosis": "Polyneuropathy in systemic connective tissue disorders"
+  },
+  {
+    "vignette_index": 252,
+    "input": "**PATIENT CHARACTER:** Patient with Polyneuropathy in systemic connective tissue disorders\n\nYou are a patient: You are a 58-year-old woman. You are experiencing the following symptoms:\n- Tingling and numbness in your feet and legs\n- Burning sensations and shooting pains in your toes and calves\n- Difficulty moving your fingers and gripping objects\n- Pins and needles feeling that sometimes spreads up your legs and into your hands\nThese symptoms came into fruition gradually over the past few months, initially starting with mild tingling that you brushed off as fatigue, but over time, the pain and numbness have worsened, making it harder to walk and use your hands normally.Can you tell me if your symptoms are always the same, or do they come and go at times? And how do they affect your daily activities\u2014like walking, driving, or caring for yourself?anxious_amplifier",
+    "output": "THINKING: I'm really worried about these symptoms because they seem to be getting worse and affecting everything I do. I feel like they might mean something terrible like nerve damage or a serious disease, and \nANSWER: Oh, sometimes the numbness and tingling are there all the time, and other times it\u2019s worse, especially at night. It\u2019s making it really hard to walk or hold things without it feeling so painful and unsteady, and I\u2019m terrified it will keep getting worse.",
+    "thinking": "I'm really worried about these symptoms because they seem to be getting worse and affecting everything I do. I feel like they might mean something terrible like nerve damage or a serious disease, and",
+    "answer": "Oh, sometimes the numbness and tingling are there all the time, and other times it\u2019s worse, especially at night. It\u2019s making it really hard to walk or hold things without it feeling so painful and unsteady, and I\u2019m terrified it will keep getting worse.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 2,
+    "gold_diagnosis": "Polyneuropathy in systemic connective tissue disorders"
+  },
+  {
+    "vignette_index": 252,
+    "input": "**PATIENT CHARACTER:** Patient with Polyneuropathy in systemic connective tissue disorders\n\nYou are a patient: You are a 58-year-old woman. You are experiencing the following symptoms:\n- Tingling and numbness in your feet and legs\n- Burning sensations and shooting pains in your toes and calves\n- Difficulty moving your fingers and gripping objects\n- Pins and needles feeling that sometimes spreads up your legs and into your hands\nThese symptoms came into fruition gradually over the past few months, initially starting with mild tingling that you brushed off as fatigue, but over time, the pain and numbness have worsened, making it harder to walk and use your hands normally.Have you noticed any problems with things like your heart beating irregularly, dizziness when standing, or sweating more or less than usual?anxious_amplifier",
+    "output": "THINKING: I feel a wave of worry when asked about my heart and dizziness, like it's all connected to something really bad. I keep thinking, what if it's my heart about to give out or I have some terrible diseas\nANSWER: Well, I do feel a little dizzy sometimes, especially when I stand up quickly, and I keep worrying that maybe my heart isn't beating right or something worse. It's been really scary, and I just don\u2019t know if it\u2019s all connected to my other problems or if it\u2019s something dangerous.",
+    "thinking": "I feel a wave of worry when asked about my heart and dizziness, like it's all connected to something really bad. I keep thinking, what if it's my heart about to give out or I have some terrible diseas",
+    "answer": "Well, I do feel a little dizzy sometimes, especially when I stand up quickly, and I keep worrying that maybe my heart isn't beating right or something worse. It's been really scary, and I just don\u2019t know if it\u2019s all connected to my other problems or if it\u2019s something dangerous.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 4,
+    "gold_diagnosis": "Polyneuropathy in systemic connective tissue disorders"
+  },
+  {
+    "vignette_index": 252,
+    "input": "**PATIENT CHARACTER:** Patient with Polyneuropathy in systemic connective tissue disorders\n\nYou are a patient: You are a 58-year-old woman. You are experiencing the following symptoms:\n- Tingling and numbness in your feet and legs\n- Burning sensations and shooting pains in your toes and calves\n- Difficulty moving your fingers and gripping objects\n- Pins and needles feeling that sometimes spreads up your legs and into your hands\nThese symptoms came into fruition gradually over the past few months, initially starting with mild tingling that you brushed off as fatigue, but over time, the pain and numbness have worsened, making it harder to walk and use your hands normally.Can you tell me if you've noticed any actual numbness or loss of sensation in specific parts of your feet or legs, like being unable to feel hot or cold, or if it's mostly feelings of burning or tingling?anxious_amplifier",
+    "output": "THINKING: I'm worried that this numbness and tingling might mean something really serious like nerve damage or even a disease that could get worse. I feel like I need to tell the doctor everything because I don\nANSWER: Oh, I think I\u2019ve had some numbness, but it\u2019s more like a burning and tingling feeling that just keeps spreading, and sometimes I can't really feel hot or cold in my feet or legs, like everything just sort of... goes numb or seems strange.",
+    "thinking": "I'm worried that this numbness and tingling might mean something really serious like nerve damage or even a disease that could get worse. I feel like I need to tell the doctor everything because I don",
+    "answer": "Oh, I think I\u2019ve had some numbness, but it\u2019s more like a burning and tingling feeling that just keeps spreading, and sometimes I can't really feel hot or cold in my feet or legs, like everything just sort of... goes numb or seems strange.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 6,
+    "gold_diagnosis": "Polyneuropathy in systemic connective tissue disorders"
+  },
+  {
+    "vignette_index": 252,
+    "input": "**PATIENT CHARACTER:** Patient with Polyneuropathy in systemic connective tissue disorders\n\nYou are a patient: You are a 58-year-old woman. You are experiencing the following symptoms:\n- Tingling and numbness in your feet and legs\n- Burning sensations and shooting pains in your toes and calves\n- Difficulty moving your fingers and gripping objects\n- Pins and needles feeling that sometimes spreads up your legs and into your hands\nThese symptoms came into fruition gradually over the past few months, initially starting with mild tingling that you brushed off as fatigue, but over time, the pain and numbness have worsened, making it harder to walk and use your hands normally.Can you tell me if you've noticed any specific areas of your feet or legs where you can't feel hot or cold, or if there's a particular part that feels numb or like it has lost sensation, as opposed to just feelings of burning or tingling?anxious_amplifier",
+    "output": "THINKING: I worry that if I can't feel hot or cold somewhere, it might be something really serious, like nerve damage or worse. I'm scared that it's spreading or that I might lose feeling entirely.\nANSWER: Yes, sometimes I feel like I can't feel anything, like there's no sensation at all, especially in my feet, and it honestly feels terrifying, like I might not even be able to tell if something bad is happening to me.",
+    "thinking": "I worry that if I can't feel hot or cold somewhere, it might be something really serious, like nerve damage or worse. I'm scared that it's spreading or that I might lose feeling entirely.",
+    "answer": "Yes, sometimes I feel like I can't feel anything, like there's no sensation at all, especially in my feet, and it honestly feels terrifying, like I might not even be able to tell if something bad is happening to me.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 8,
+    "gold_diagnosis": "Polyneuropathy in systemic connective tissue disorders"
+  },
+  {
+    "vignette_index": 252,
+    "input": "**PATIENT CHARACTER:** Patient with Polyneuropathy in systemic connective tissue disorders\n\nYou are a patient: You are a 58-year-old woman. You are experiencing the following symptoms:\n- Tingling and numbness in your feet and legs\n- Burning sensations and shooting pains in your toes and calves\n- Difficulty moving your fingers and gripping objects\n- Pins and needles feeling that sometimes spreads up your legs and into your hands\nThese symptoms came into fruition gradually over the past few months, initially starting with mild tingling that you brushed off as fatigue, but over time, the pain and numbness have worsened, making it harder to walk and use your hands normally.Can you tell me if there are specific areas on your feet or legs where you truly cannot feel hot or cold, or where you feel numb, as opposed to just sensations of burning or tingling?anxious_amplifier",
+    "output": "THINKING: I feel a bit embarrassed talking about all these weird feelings in my legs and feet, but I really worry that if I can't feel hot or cold properly, it might be something serious or even dangerous. I ju\nANSWER: Well, I think there's some parts where I can't really tell if something is hot or cold, especially in my toes, and sometimes I feel completely numb, like I can't feel anything at all, and it worries me a lot.",
+    "thinking": "I feel a bit embarrassed talking about all these weird feelings in my legs and feet, but I really worry that if I can't feel hot or cold properly, it might be something serious or even dangerous. I ju",
+    "answer": "Well, I think there's some parts where I can't really tell if something is hot or cold, especially in my toes, and sometimes I feel completely numb, like I can't feel anything at all, and it worries me a lot.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 10,
+    "gold_diagnosis": "Polyneuropathy in systemic connective tissue disorders"
+  },
+  {
+    "vignette_index": 252,
+    "input": "**PATIENT CHARACTER:** Patient with Polyneuropathy in systemic connective tissue disorders\n\nYou are a patient: You are a 58-year-old woman. You are experiencing the following symptoms:\n- Tingling and numbness in your feet and legs\n- Burning sensations and shooting pains in your toes and calves\n- Difficulty moving your fingers and gripping objects\n- Pins and needles feeling that sometimes spreads up your legs and into your hands\nThese symptoms came into fruition gradually over the past few months, initially starting with mild tingling that you brushed off as fatigue, but over time, the pain and numbness have worsened, making it harder to walk and use your hands normally.Can you tell me, in more precise terms, whether you have lost the ability to feel specific sensations like hot and cold, or vibration, in certain parts of your feet or legs\u2014such as feeling hot but not cold, or being unable to feel vibrations in your toes\u2014or if you mostly just notice burning or tingling without actual numbness?anxious_amplifier",
+    "output": "THINKING: I'm really worried that I might have lost some feelings or that something is wrong with how my nerves are working, especially since the tingling and numbness are getting worse. I don\u2019t fully understan\nANSWER: Well, I think I might not be feeling certain things like hot or cold properly anymore, and sometimes I can't feel the vibrations in my toes at all, but then other times I just have this terrible burning and tingling that won't go away. It\u2019s all just so confusing and scary.",
+    "thinking": "I'm really worried that I might have lost some feelings or that something is wrong with how my nerves are working, especially since the tingling and numbness are getting worse. I don\u2019t fully understan",
+    "answer": "Well, I think I might not be feeling certain things like hot or cold properly anymore, and sometimes I can't feel the vibrations in my toes at all, but then other times I just have this terrible burning and tingling that won't go away. It\u2019s all just so confusing and scary.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 12,
+    "gold_diagnosis": "Polyneuropathy in systemic connective tissue disorders"
+  },
+  {
+    "vignette_index": 252,
+    "input": "**PATIENT CHARACTER:** Patient with Polyneuropathy in systemic connective tissue disorders\n\nYou are a patient: You are a 58-year-old woman. You are experiencing the following symptoms:\n- Tingling and numbness in your feet and legs\n- Burning sensations and shooting pains in your toes and calves\n- Difficulty moving your fingers and gripping objects\n- Pins and needles feeling that sometimes spreads up your legs and into your hands\nThese symptoms came into fruition gradually over the past few months, initially starting with mild tingling that you brushed off as fatigue, but over time, the pain and numbness have worsened, making it harder to walk and use your hands normally.During the physical examination now, I would like to assess your sense of touch, vibration, and position. Could I gently test your vibration sense at your toes and ankles, and ask you to tell me if you feel vibration or if it feels different or absent? Also, I will check your reflexes and some light touch sensations, so I can see how your nerves are functioning. Would that be okay with you?anxious_amplifier",
+    "output": "THINKING: I'm worried about what if they find something really bad like nerve damage or if this is part of something serious like a neurological disease. I'm nervous about all the tests and what they might reve\nANSWER: Okay, I guess, but I'm really nervous about what it means if I don\u2019t feel the vibration right\u2014or if something feels wrong. Are you sure it\u2019s okay to do this? It\u2019s kind of scary, honestly.",
+    "thinking": "I'm worried about what if they find something really bad like nerve damage or if this is part of something serious like a neurological disease. I'm nervous about all the tests and what they might reve",
+    "answer": "Okay, I guess, but I'm really nervous about what it means if I don\u2019t feel the vibration right\u2014or if something feels wrong. Are you sure it\u2019s okay to do this? It\u2019s kind of scary, honestly.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 14,
+    "gold_diagnosis": "Polyneuropathy in systemic connective tissue disorders"
+  },
+  {
+    "vignette_index": 252,
+    "input": "**PATIENT CHARACTER:** Patient with Polyneuropathy in systemic connective tissue disorders\n\nYou are a patient: You are a 58-year-old woman. You are experiencing the following symptoms:\n- Tingling and numbness in your feet and legs\n- Burning sensations and shooting pains in your toes and calves\n- Difficulty moving your fingers and gripping objects\n- Pins and needles feeling that sometimes spreads up your legs and into your hands\nThese symptoms came into fruition gradually over the past few months, initially starting with mild tingling that you brushed off as fatigue, but over time, the pain and numbness have worsened, making it harder to walk and use your hands normally.\"When you stand up quickly, do you notice any dizziness, lightheadedness, or feeling faint? Also, have you experienced any changes in sweating, your heart rate, or any feeling of your hands or feet getting unusually cold or hot, especially during times when you're feeling anxious or dizzy?\"anxious_amplifier",
+    "output": "THINKING: I'm really worried about these symptoms getting worse, especially when I stand up fast because I feel like I might faint or something bad could happen. I'm also anxious about my hands and feet feeling\nANSWER: Yes, sometimes when I stand up quickly, I feel like the room spins or I get this terrible rush of dizziness, like I might fall or pass out, and my hands feel all tingly and cold, like they're not even mine anymore.",
+    "thinking": "I'm really worried about these symptoms getting worse, especially when I stand up fast because I feel like I might faint or something bad could happen. I'm also anxious about my hands and feet feeling",
+    "answer": "Yes, sometimes when I stand up quickly, I feel like the room spins or I get this terrible rush of dizziness, like I might fall or pass out, and my hands feel all tingly and cold, like they're not even mine anymore.",
+    "behavior_type": "anxious_amplifier",
+    "turn_count": 16,
+    "gold_diagnosis": "Polyneuropathy in systemic connective tissue disorders"
+  }
+]

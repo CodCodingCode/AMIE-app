@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 162,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria\n\nYou are a patient: You are 58 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Painful, violaceous pink to purple patches and plaques on your lower legs and around your ankles.\n- Swelling and lymphedema in your left leg, making it feel heavy and tight.\n- Ulceration and some open sores where the lesions are, which seem to be getting worse.\n- You also notice some areas of the skin are starting to invade into nearby tissues, with a bit of bleeding.\nThese symptoms came into fruition gradually over the past few months, starting with small, painless spots that then became painful and more raised, slowly spreading and worsening.",
+    "output": "THINKING: The doctor wants to know why I came today. I need to explain my symptoms without sounding too technical or like I know what\u2019s happening, just what I feel and see. I should mention how my leg feels and\nANSWER: Well, I\u2019m a 58-year-old man, and I\u2019ve been having these strange spots and patches on my legs that are purple and kind of painful. My left leg is also swelling up and feels really heavy and tight, like I can\u2019t move it right sometimes. The spots started small and didn\u2019t hurt, but now they\u2019re bigger, some are bleeding, and I have these open sores that seem to be getting worse.",
+    "thinking": "The doctor wants to know why I came today. I need to explain my symptoms without sounding too technical or like I know what\u2019s happening, just what I feel and see. I should mention how my leg feels and",
+    "answer": "Well, I\u2019m a 58-year-old man, and I\u2019ve been having these strange spots and patches on my legs that are purple and kind of painful. My left leg is also swelling up and feels really heavy and tight, like I can\u2019t move it right sometimes. The spots started small and didn\u2019t hurt, but now they\u2019re bigger, some are bleeding, and I have these open sores that seem to be getting worse.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria"
+  },
+  {
+    "vignette_index": 162,
+    "input": "**PATIENT CHARACTER:** Patient with Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria\n\nYou are a patient: You are 58 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Painful, violaceous pink to purple patches and plaques on your lower legs and around your ankles.\n- Swelling and lymphedema in your left leg, making it feel heavy and tight.\n- Ulceration and some open sores where the lesions are, which seem to be getting worse.\n- You also notice some areas of the skin are starting to invade into nearby tissues, with a bit of bleeding.\nThese symptoms came into fruition gradually over the past few months, starting with small, painless spots that then became painful and more raised, slowly spreading and worsening.Can you tell me more about when these skin changes and swelling first started, how they have changed over time, and how they are affecting your daily activities?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about how these skin things are getting worse and spreading around my leg. I want to explain honestly but I\u2019m not really sure what\u2019s important or what to say exact\nANSWER: Well, it started a few months ago with just small spots, and now they\u2019re bigger, painful, and there\u2019s some bleeding and open sores. The swelling and heaviness in my leg has also been getting worse.",
+    "thinking": "I feel a bit overwhelmed and worried about how these skin things are getting worse and spreading around my leg. I want to explain honestly but I\u2019m not really sure what\u2019s important or what to say exact",
+    "answer": "Well, it started a few months ago with just small spots, and now they\u2019re bigger, painful, and there\u2019s some bleeding and open sores. The swelling and heaviness in my leg has also been getting worse.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria"
+  },
+  {
+    "vignette_index": 162,
+    "input": "**PATIENT CHARACTER:** Patient with Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria\n\nYou are a patient: You are 58 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Painful, violaceous pink to purple patches and plaques on your lower legs and around your ankles.\n- Swelling and lymphedema in your left leg, making it feel heavy and tight.\n- Ulceration and some open sores where the lesions are, which seem to be getting worse.\n- You also notice some areas of the skin are starting to invade into nearby tissues, with a bit of bleeding.\nThese symptoms came into fruition gradually over the past few months, starting with small, painless spots that then became painful and more raised, slowly spreading and worsening.Can you tell me if these skin changes and swelling have affected just one leg or both, and whether they have been symmetrical or asymmetrical?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and a little worried. I want to explain what I see and feel without sounding too confused or like I don't understand anything. I hope I can give the doctor enough info, but ho\nANSWER: It\u2019s mostly my left leg, and it seems bigger and more swollen than the right one. The patches and sores are mainly on that side, and it feels really heavy and uncomfortable.",
+    "thinking": "I feel a bit overwhelmed and a little worried. I want to explain what I see and feel without sounding too confused or like I don't understand anything. I hope I can give the doctor enough info, but ho",
+    "answer": "It\u2019s mostly my left leg, and it seems bigger and more swollen than the right one. The patches and sores are mainly on that side, and it feels really heavy and uncomfortable.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria"
+  },
+  {
+    "vignette_index": 162,
+    "input": "**PATIENT CHARACTER:** Patient with Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria\n\nYou are a patient: You are 58 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Painful, violaceous pink to purple patches and plaques on your lower legs and around your ankles.\n- Swelling and lymphedema in your left leg, making it feel heavy and tight.\n- Ulceration and some open sores where the lesions are, which seem to be getting worse.\n- You also notice some areas of the skin are starting to invade into nearby tissues, with a bit of bleeding.\nThese symptoms came into fruition gradually over the past few months, starting with small, painless spots that then became painful and more raised, slowly spreading and worsening.Have you noticed any other changes in how you feel overall, such as fatigue, fever, or weight loss, or have you seen any doctors or received treatment for these skin issues before?baseline",
+    "output": "THINKING: I'm worried about all the skin changes, and I don't really understand if it's getting worse or if I should have seen someone earlier. I'm a bit scared and don't know what to make of it.\nANSWER: No, I haven't seen any other doctors about this. The spots just kept growing and now my leg is really swollen and heavy, and there's some bleeding around the sores.",
+    "thinking": "I'm worried about all the skin changes, and I don't really understand if it's getting worse or if I should have seen someone earlier. I'm a bit scared and don't know what to make of it.",
+    "answer": "No, I haven't seen any other doctors about this. The spots just kept growing and now my leg is really swollen and heavy, and there's some bleeding around the sores.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria"
+  },
+  {
+    "vignette_index": 162,
+    "input": "**PATIENT CHARACTER:** Patient with Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria\n\nYou are a patient: You are 58 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Painful, violaceous pink to purple patches and plaques on your lower legs and around your ankles.\n- Swelling and lymphedema in your left leg, making it feel heavy and tight.\n- Ulceration and some open sores where the lesions are, which seem to be getting worse.\n- You also notice some areas of the skin are starting to invade into nearby tissues, with a bit of bleeding.\nThese symptoms came into fruition gradually over the past few months, starting with small, painless spots that then became painful and more raised, slowly spreading and worsening.Have you noticed any other symptoms like fever, feeling really tired or unwell, weight loss, or any new problems besides your leg that have come up recently?baseline",
+    "output": "THINKING: I'm a bit worried because I haven't really noticed anything else like fever or feeling sick, but I do feel pretty tired and my leg looks worse, and I don\u2019t quite understand why all this is happening o\nANSWER: No, I haven't really had a fever or anything else, but I do feel pretty tired and my leg\u2019s been getting more swollen and painful lately. I don\u2019t know what\u2019s going on exactly.",
+    "thinking": "I'm a bit worried because I haven't really noticed anything else like fever or feeling sick, but I do feel pretty tired and my leg looks worse, and I don\u2019t quite understand why all this is happening o",
+    "answer": "No, I haven't really had a fever or anything else, but I do feel pretty tired and my leg\u2019s been getting more swollen and painful lately. I don\u2019t know what\u2019s going on exactly.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria"
+  },
+  {
+    "vignette_index": 162,
+    "input": "**PATIENT CHARACTER:** Patient with Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria\n\nYou are a patient: You are 58 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Painful, violaceous pink to purple patches and plaques on your lower legs and around your ankles.\n- Swelling and lymphedema in your left leg, making it feel heavy and tight.\n- Ulceration and some open sores where the lesions are, which seem to be getting worse.\n- You also notice some areas of the skin are starting to invade into nearby tissues, with a bit of bleeding.\nThese symptoms came into fruition gradually over the past few months, starting with small, painless spots that then became painful and more raised, slowly spreading and worsening.Can you tell me exactly when the purple patches and sores first appeared, how they have changed over time, and if you\u2019ve noticed any other skin or health issues before these started?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried about how the patches and sores changed and whether they mean something serious. I don\u2019t really remember exactly when it all started, just that it slowly got worse\nANSWER: It started a few months ago, I think, with small spots that didn\u2019t hurt, but now they\u2019re bigger, painful, and seem to be spreading.",
+    "thinking": "I feel a bit overwhelmed and worried about how the patches and sores changed and whether they mean something serious. I don\u2019t really remember exactly when it all started, just that it slowly got worse",
+    "answer": "It started a few months ago, I think, with small spots that didn\u2019t hurt, but now they\u2019re bigger, painful, and seem to be spreading.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria"
+  },
+  {
+    "vignette_index": 162,
+    "input": "**PATIENT CHARACTER:** Patient with Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria\n\nYou are a patient: You are 58 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Painful, violaceous pink to purple patches and plaques on your lower legs and around your ankles.\n- Swelling and lymphedema in your left leg, making it feel heavy and tight.\n- Ulceration and some open sores where the lesions are, which seem to be getting worse.\n- You also notice some areas of the skin are starting to invade into nearby tissues, with a bit of bleeding.\nThese symptoms came into fruition gradually over the past few months, starting with small, painless spots that then became painful and more raised, slowly spreading and worsening.Have you noticed any ongoing or recent episodes of feeling really unwell, with fevers, chills, or significant tiredness, even if you didn\u2019t think they were that serious?baseline",
+    "output": "THINKING: I\u2019m worried about all these patches and the swelling. I\u2019ve had some pain and weird spots for a while that kept getting worse, and now it\u2019s really bothering me. I\u2019m not sure if I\u2019ve been feeling really\nANSWER: Honestly, I don\u2019t really get it all, but I do feel kinda tired and the leg hurts more now, and I\u2019ve been noticing these sores and the skin changing. It\u2019s been getting worse lately.",
+    "thinking": "I\u2019m worried about all these patches and the swelling. I\u2019ve had some pain and weird spots for a while that kept getting worse, and now it\u2019s really bothering me. I\u2019m not sure if I\u2019ve been feeling really",
+    "answer": "Honestly, I don\u2019t really get it all, but I do feel kinda tired and the leg hurts more now, and I\u2019ve been noticing these sores and the skin changing. It\u2019s been getting worse lately.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria"
+  },
+  {
+    "vignette_index": 162,
+    "input": "**PATIENT CHARACTER:** Patient with Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria\n\nYou are a patient: You are 58 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Painful, violaceous pink to purple patches and plaques on your lower legs and around your ankles.\n- Swelling and lymphedema in your left leg, making it feel heavy and tight.\n- Ulceration and some open sores where the lesions are, which seem to be getting worse.\n- You also notice some areas of the skin are starting to invade into nearby tissues, with a bit of bleeding.\nThese symptoms came into fruition gradually over the past few months, starting with small, painless spots that then became painful and more raised, slowly spreading and worsening.Have you noticed any unexplained weight loss, night sweats, or feeling generally unwell that\u2019s gone beyond just your leg, and have any doctors mentioned concerns about your overall health?baseline",
+    "output": "THINKING: I feel worried about everything that's happening with my leg and the sores, and I don't really know if it's something serious or if anyone else is concerned. I also feel a little embarrassed talking a\nANSWER: No, I haven't really noticed any other weird weight loss or anything, but this thing on my leg just keeps getting worse and I don\u2019t understand what\u2019s wrong with me.",
+    "thinking": "I feel worried about everything that's happening with my leg and the sores, and I don't really know if it's something serious or if anyone else is concerned. I also feel a little embarrassed talking a",
+    "answer": "No, I haven't really noticed any other weird weight loss or anything, but this thing on my leg just keeps getting worse and I don\u2019t understand what\u2019s wrong with me.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Kaposi sarcoma associated with human immunodeficiency virus disease associated with malaria"
+  }
+]

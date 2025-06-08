@@ -1,0 +1,97 @@
+[
+  {
+    "vignette_index": 65,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite\n- Nausea and occasional vomiting\n- Fever and weakness\nThese symptoms came into fruition gradually over the past week. I started feeling less interested in eating, and then I began feeling nauseous, especially after meals. Last night, I vomited a couple of times, and today I notice I have a low-grade fever and feel unusually weak and tired. I do have a history of heavy alcohol use and have been taking some over-the-counter vitamins and a new medication prescribed by my doctor for high blood pressure.",
+    "output": "THINKING: I should explain my symptoms clearly but keep it simple and honest. I want to mention the progression and how I'm feeling overall, without sounding overly anxious or like I know what's wrong.\nANSWER: I'm 52, and I'm a guy. Lately, I just haven't felt right\u2014I've lost my appetite, and I feel kind of sick, especially after I eat. I was throwing up last night a couple of times, and today I feel really weak and a little feverish. It's been happening for about a week now, and I just don't know what's going on.",
+    "thinking": "I should explain my symptoms clearly but keep it simple and honest. I want to mention the progression and how I'm feeling overall, without sounding overly anxious or like I know what's wrong.",
+    "answer": "I'm 52, and I'm a guy. Lately, I just haven't felt right\u2014I've lost my appetite, and I feel kind of sick, especially after I eat. I was throwing up last night a couple of times, and today I feel really weak and a little feverish. It's been happening for about a week now, and I just don't know what's going on.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  },
+  {
+    "vignette_index": 65,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite\n- Nausea and occasional vomiting\n- Fever and weakness\nThese symptoms came into fruition gradually over the past week. I started feeling less interested in eating, and then I began feeling nauseous, especially after meals. Last night, I vomited a couple of times, and today I notice I have a low-grade fever and feel unusually weak and tired. I do have a history of heavy alcohol use and have been taking some over-the-counter vitamins and a new medication prescribed by my doctor for high blood pressure.Can you tell me more about when your symptoms started and how they've been changing since then?baseline",
+    "output": "THINKING: I feel a bit worried but also embarrassed about these symptoms, especially since they've been getting worse and I don't really understand what's happening to me. I want to be honest but I might not gi\nANSWER: It started kind of gradually last week, I guess. I just felt less interested in eating and then I started feeling sick after eating, and I even threw up a couple of times last night. Now I feel weak and kind of feverish.",
+    "thinking": "I feel a bit worried but also embarrassed about these symptoms, especially since they've been getting worse and I don't really understand what's happening to me. I want to be honest but I might not gi",
+    "answer": "It started kind of gradually last week, I guess. I just felt less interested in eating and then I started feeling sick after eating, and I even threw up a couple of times last night. Now I feel weak and kind of feverish.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  },
+  {
+    "vignette_index": 65,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite\n- Nausea and occasional vomiting\n- Fever and weakness\nThese symptoms came into fruition gradually over the past week. I started feeling less interested in eating, and then I began feeling nauseous, especially after meals. Last night, I vomited a couple of times, and today I notice I have a low-grade fever and feel unusually weak and tired. I do have a history of heavy alcohol use and have been taking some over-the-counter vitamins and a new medication prescribed by my doctor for high blood pressure.Can you tell me if your symptoms have been getting worse, better, or staying about the same since they first started, and if you've noticed anything like pain, dizziness, or feeling really weak?baseline",
+    "output": "THINKING: I'm worried about how I'm feeling, especially because it\u2019s been getting worse and I don't really understand what\u2019s going on. I feel tired and weak, and the vomiting is making me more anxious.\nANSWER: I think my symptoms have been getting worse, especially the nausea and feeling really tired. I\u2019ve been vomiting sometimes and I just feel like I can't really shake it off.",
+    "thinking": "I'm worried about how I'm feeling, especially because it\u2019s been getting worse and I don't really understand what\u2019s going on. I feel tired and weak, and the vomiting is making me more anxious.",
+    "answer": "I think my symptoms have been getting worse, especially the nausea and feeling really tired. I\u2019ve been vomiting sometimes and I just feel like I can't really shake it off.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  },
+  {
+    "vignette_index": 65,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite\n- Nausea and occasional vomiting\n- Fever and weakness\nThese symptoms came into fruition gradually over the past week. I started feeling less interested in eating, and then I began feeling nauseous, especially after meals. Last night, I vomited a couple of times, and today I notice I have a low-grade fever and feel unusually weak and tired. I do have a history of heavy alcohol use and have been taking some over-the-counter vitamins and a new medication prescribed by my doctor for high blood pressure.Can you tell me if you've noticed feeling dizzy, very dry in your mouth, or like you might faint when standing or moving around?baseline",
+    "output": "THINKING: I'm feeling pretty terrible overall, and I don't really understand what\u2019s happening. I\u2019ve never had all these symptoms before, and I\u2019m worried but also embarrassed about how do I even start explaining\nANSWER: Yeah, I\u2019ve been feeling more tired and stuff, and I don\u2019t really wanna eat much. My stomach feels funny, and I kinda feel like I might get sick again if I try to eat.",
+    "thinking": "I'm feeling pretty terrible overall, and I don't really understand what\u2019s happening. I\u2019ve never had all these symptoms before, and I\u2019m worried but also embarrassed about how do I even start explaining",
+    "answer": "Yeah, I\u2019ve been feeling more tired and stuff, and I don\u2019t really wanna eat much. My stomach feels funny, and I kinda feel like I might get sick again if I try to eat.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  },
+  {
+    "vignette_index": 65,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite\n- Nausea and occasional vomiting\n- Fever and weakness\nThese symptoms came into fruition gradually over the past week. I started feeling less interested in eating, and then I began feeling nauseous, especially after meals. Last night, I vomited a couple of times, and today I notice I have a low-grade fever and feel unusually weak and tired. I do have a history of heavy alcohol use and have been taking some over-the-counter vitamins and a new medication prescribed by my doctor for high blood pressure.Can you tell me exactly how many times you've been vomiting each day, and if you've been able to keep fluids down, or if you've been feeling dizzy or very dry in your mouth when you stand up?baseline",
+    "output": "THINKING: I'm a bit worried because I\u2019ve been vomiting a couple of times and feel really weak. I don\u2019t know how many times exactly but it\u2019s been more than once today. I can\u2019t say if I can keep fluids down becau\nANSWER: I think I\u2019ve vomited maybe a couple of times today, and I feel really dry and a little dizzy when I stand up, so I\u2019m not sure if I\u2019m keeping anything down or not.",
+    "thinking": "I'm a bit worried because I\u2019ve been vomiting a couple of times and feel really weak. I don\u2019t know how many times exactly but it\u2019s been more than once today. I can\u2019t say if I can keep fluids down becau",
+    "answer": "I think I\u2019ve vomited maybe a couple of times today, and I feel really dry and a little dizzy when I stand up, so I\u2019m not sure if I\u2019m keeping anything down or not.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  },
+  {
+    "vignette_index": 65,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite\n- Nausea and occasional vomiting\n- Fever and weakness\nThese symptoms came into fruition gradually over the past week. I started feeling less interested in eating, and then I began feeling nauseous, especially after meals. Last night, I vomited a couple of times, and today I notice I have a low-grade fever and feel unusually weak and tired. I do have a history of heavy alcohol use and have been taking some over-the-counter vitamins and a new medication prescribed by my doctor for high blood pressure.Can you tell me exactly how many times you've been vomiting each day, and whether you've been able to keep any fluids down since it started?baseline",
+    "output": "THINKING: I'm not really sure how many times I\u2019ve been vomiting, maybe a few times, but it\u2019s hard to keep count. I haven't been able to keep much fluids down, just a little here and there. I'm worried, but I do\nANSWER: I think I vomited maybe a couple of times, and I feel like I can\u2019t keep any fluids down, really. It\u2019s just hard to tell, honestly.",
+    "thinking": "I'm not really sure how many times I\u2019ve been vomiting, maybe a few times, but it\u2019s hard to keep count. I haven't been able to keep much fluids down, just a little here and there. I'm worried, but I do",
+    "answer": "I think I vomited maybe a couple of times, and I feel like I can\u2019t keep any fluids down, really. It\u2019s just hard to tell, honestly.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  },
+  {
+    "vignette_index": 65,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite\n- Nausea and occasional vomiting\n- Fever and weakness\nThese symptoms came into fruition gradually over the past week. I started feeling less interested in eating, and then I began feeling nauseous, especially after meals. Last night, I vomited a couple of times, and today I notice I have a low-grade fever and feel unusually weak and tired. I do have a history of heavy alcohol use and have been taking some over-the-counter vitamins and a new medication prescribed by my doctor for high blood pressure.Can you tell me exactly how many times you've vomited each day and whether you've been able to keep any fluids down since it started, even if it's just a little?baseline",
+    "output": "THINKING: I\u2019m honestly not sure about the exact number of times I vomited each day. I just know it\u2019s been quite a few, and I haven\u2019t really been able to keep anything down, not even a sip of water without feeli\nANSWER: I think I threw up a couple of times last night, and today I haven't been able to keep anything down, not even water.",
+    "thinking": "I\u2019m honestly not sure about the exact number of times I vomited each day. I just know it\u2019s been quite a few, and I haven\u2019t really been able to keep anything down, not even a sip of water without feeli",
+    "answer": "I think I threw up a couple of times last night, and today I haven't been able to keep anything down, not even water.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  },
+  {
+    "vignette_index": 65,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite\n- Nausea and occasional vomiting\n- Fever and weakness\nThese symptoms came into fruition gradually over the past week. I started feeling less interested in eating, and then I began feeling nauseous, especially after meals. Last night, I vomited a couple of times, and today I notice I have a low-grade fever and feel unusually weak and tired. I do have a history of heavy alcohol use and have been taking some over-the-counter vitamins and a new medication prescribed by my doctor for high blood pressure.Can you tell me exactly how many times you've vomited each day since this all started, and whether you've been able to keep any fluids down at all, even just a little?baseline",
+    "output": "THINKING: I\u2019m honestly not sure how many times I\u2019ve been vomiting each day. It's been pretty bad lately, and I haven't really been able to keep much down, maybe just a sip here and there, but mostly I just feel\nANSWER: I think I vomited a couple of times yesterday, and today I haven't kept much, maybe a little water, but not much.",
+    "thinking": "I\u2019m honestly not sure how many times I\u2019ve been vomiting each day. It's been pretty bad lately, and I haven't really been able to keep much down, maybe just a sip here and there, but mostly I just feel",
+    "answer": "I think I vomited a couple of times yesterday, and today I haven't kept much, maybe a little water, but not much.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  },
+  {
+    "vignette_index": 65,
+    "input": "**PATIENT CHARACTER:** Patient with Other specified drug-induced or toxic liver disease\n\nYou are a patient: You are 52 and your biological gender is male.\nYou are experiencing the following symptoms:\n- Loss of appetite\n- Nausea and occasional vomiting\n- Fever and weakness\nThese symptoms came into fruition gradually over the past week. I started feeling less interested in eating, and then I began feeling nauseous, especially after meals. Last night, I vomited a couple of times, and today I notice I have a low-grade fever and feel unusually weak and tired. I do have a history of heavy alcohol use and have been taking some over-the-counter vitamins and a new medication prescribed by my doctor for high blood pressure.Can you tell me if you've noticed any increased weakness, dizziness, or confusion when standing or walking around, and if these symptoms have been getting worse over the past day or so?baseline",
+    "output": "THINKING: I'm worried about feeling so weak and tired, and I do feel a bit dizzy sometimes, especially when I stand up. I'm not sure if it's getting worse, but it's been pretty rough lately.\nANSWER: Yeah, I do feel a bit dizzy when I stand, and I guess it\u2019s been a little worse today, but I don\u2019t know if that\u2019s normal or not.",
+    "thinking": "I'm worried about feeling so weak and tired, and I do feel a bit dizzy sometimes, especially when I stand up. I'm not sure if it's getting worse, but it's been pretty rough lately.",
+    "answer": "Yeah, I do feel a bit dizzy when I stand, and I guess it\u2019s been a little worse today, but I don\u2019t know if that\u2019s normal or not.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Other specified drug-induced or toxic liver disease"
+  }
+]

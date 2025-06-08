@@ -1,0 +1,96 @@
+[
+  {
+    "vignette_index": 293,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Neisseria meningitidis serogroup C\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden high fever\n- Severe headache\n- Nausea and vomiting\n- Body aches and muscle pains\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the fever has been climbing quickly since then. I feel a really bad headache, like my head is in a vice, and my whole body hurts, especially my muscles. I\u2019ve been vomiting a couple of times and feel pretty weak overall. I\u2019ve been hanging out at parties and smoking cigarettes, and I share a dorm room with a few other guys. It\u2019s really scary because I read that this kind of thing can get serious fast.",
+    "output": "THINKING: I need to explain that I\u2019ve suddenly gotten really sick, even though it might sound like just a bad flu or something. I should mention I\u2019ve had a high fever and these really bad headaches, plus I\u2019ve b\nANSWER: Well, I started feeling really sick yesterday afternoon, and my fever just shot up super fast. I\u2019ve got this bad headache, and it\u2019s like my head\u2019s really tight, weird pain. I\u2019ve thrown up a couple of times and my whole body hurts, especially my muscles. I\u2019ve been kind of weak and just didn\u2019t think it would get this bad, but I guess I should probably see someone.",
+    "thinking": "I need to explain that I\u2019ve suddenly gotten really sick, even though it might sound like just a bad flu or something. I should mention I\u2019ve had a high fever and these really bad headaches, plus I\u2019ve b",
+    "answer": "Well, I started feeling really sick yesterday afternoon, and my fever just shot up super fast. I\u2019ve got this bad headache, and it\u2019s like my head\u2019s really tight, weird pain. I\u2019ve thrown up a couple of times and my whole body hurts, especially my muscles. I\u2019ve been kind of weak and just didn\u2019t think it would get this bad, but I guess I should probably see someone.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Neisseria meningitidis serogroup C"
+  },
+  {
+    "vignette_index": 293,
+    "input": "**PATIENT CHARACTER:** Patient with Neisseria meningitidis serogroup C\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden high fever\n- Severe headache\n- Nausea and vomiting\n- Body aches and muscle pains\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the fever has been climbing quickly since then. I feel a really bad headache, like my head is in a vice, and my whole body hurts, especially my muscles. I\u2019ve been vomiting a couple of times and feel pretty weak overall. I\u2019ve been hanging out at parties and smoking cigarettes, and I share a dorm room with a few other guys. It\u2019s really scary because I read that this kind of thing can get serious fast.Can you tell me if you've noticed any changes in how you're feeling\u2014the way you're aware of things around you, or if you've experienced any new numbness, weakness, or trouble seeing or moving?stoic_minimizer",
+    "output": "THINKING: I've had all this stuff come on pretty quick and it's really bad, but I don't want to overthink it or make a big deal out of nothing. I feel kinda out of it, but I don't know if it's serious yet or ju\nANSWER: Yeah, I guess I noticed I feel pretty off, like I'm not really thinking straight or noticing stuff as usual, and my head's been really pounding.",
+    "thinking": "I've had all this stuff come on pretty quick and it's really bad, but I don't want to overthink it or make a big deal out of nothing. I feel kinda out of it, but I don't know if it's serious yet or ju",
+    "answer": "Yeah, I guess I noticed I feel pretty off, like I'm not really thinking straight or noticing stuff as usual, and my head's been really pounding.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Neisseria meningitidis serogroup C"
+  },
+  {
+    "vignette_index": 293,
+    "input": "**PATIENT CHARACTER:** Patient with Neisseria meningitidis serogroup C\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden high fever\n- Severe headache\n- Nausea and vomiting\n- Body aches and muscle pains\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the fever has been climbing quickly since then. I feel a really bad headache, like my head is in a vice, and my whole body hurts, especially my muscles. I\u2019ve been vomiting a couple of times and feel pretty weak overall. I\u2019ve been hanging out at parties and smoking cigarettes, and I share a dorm room with a few other guys. It\u2019s really scary because I read that this kind of thing can get serious fast.Can you tell me if you've noticed whether you\u2019re feeling more confused, having trouble staying awake, or if you\u2019ve seen any changes in your thinking or awareness compared to how you normally feel?stoic_minimizer",
+    "output": "THINKING: I'm not really sure if I've been more confused or having trouble thinking, but I do feel pretty out of it and just want this to go away. I guess I\u2019ve been feeling some fogginess, but I don't want to m\nANSWER: Honestly, I don\u2019t think I\u2019ve been more confused or anything, but I do feel kind of out of it and just really tired all the time.",
+    "thinking": "I'm not really sure if I've been more confused or having trouble thinking, but I do feel pretty out of it and just want this to go away. I guess I\u2019ve been feeling some fogginess, but I don't want to m",
+    "answer": "Honestly, I don\u2019t think I\u2019ve been more confused or anything, but I do feel kind of out of it and just really tired all the time.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Neisseria meningitidis serogroup C"
+  },
+  {
+    "vignette_index": 293,
+    "input": "**PATIENT CHARACTER:** Patient with Neisseria meningitidis serogroup C\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden high fever\n- Severe headache\n- Nausea and vomiting\n- Body aches and muscle pains\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the fever has been climbing quickly since then. I feel a really bad headache, like my head is in a vice, and my whole body hurts, especially my muscles. I\u2019ve been vomiting a couple of times and feel pretty weak overall. I\u2019ve been hanging out at parties and smoking cigarettes, and I share a dorm room with a few other guys. It\u2019s really scary because I read that this kind of thing can get serious fast.Can you tell me if you're feeling more confused or out of it compared to usual, or if you've noticed any trouble remembering things or staying focused?stoic_minimizer",
+    "output": "THINKING: I'm worried, but I also don't want to overreact. I think I feel a little foggy, but maybe it's just because I'm so sick right now. I haven't done anything really different before, just the fever and p\nANSWER: Honestly, I don\u2019t think I\u2019m more confused than usual, but I do feel kinda fuzzy, like my head is not clear.",
+    "thinking": "I'm worried, but I also don't want to overreact. I think I feel a little foggy, but maybe it's just because I'm so sick right now. I haven't done anything really different before, just the fever and p",
+    "answer": "Honestly, I don\u2019t think I\u2019m more confused than usual, but I do feel kinda fuzzy, like my head is not clear.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Neisseria meningitidis serogroup C"
+  },
+  {
+    "vignette_index": 293,
+    "input": "**PATIENT CHARACTER:** Patient with Neisseria meningitidis serogroup C\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden high fever\n- Severe headache\n- Nausea and vomiting\n- Body aches and muscle pains\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the fever has been climbing quickly since then. I feel a really bad headache, like my head is in a vice, and my whole body hurts, especially my muscles. I\u2019ve been vomiting a couple of times and feel pretty weak overall. I\u2019ve been hanging out at parties and smoking cigarettes, and I share a dorm room with a few other guys. It\u2019s really scary because I read that this kind of thing can get serious fast.Have you noticed any stiffness or neck pain when moving your neck, or sensitivity to light that makes your headache worse?stoic_minimizer",
+    "output": "THINKING: The doctor is asking about specific symptoms, but honestly, I just feel terrible all over. I\u2019m not really sure if stiffness or light sensitivity is a thing I notice or if it even matters right now, bu\nANSWER: Uh, no, I don\u2019t really notice anything like that, or at least I don\u2019t think so. Everything just hurts and the headache\u2019s been real bad, so I don\u2019t know if that\u2019s the same thing.",
+    "thinking": "The doctor is asking about specific symptoms, but honestly, I just feel terrible all over. I\u2019m not really sure if stiffness or light sensitivity is a thing I notice or if it even matters right now, bu",
+    "answer": "Uh, no, I don\u2019t really notice anything like that, or at least I don\u2019t think so. Everything just hurts and the headache\u2019s been real bad, so I don\u2019t know if that\u2019s the same thing.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Neisseria meningitidis serogroup C"
+  },
+  {
+    "vignette_index": 293,
+    "input": "**PATIENT CHARACTER:** Patient with Neisseria meningitidis serogroup C\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden high fever\n- Severe headache\n- Nausea and vomiting\n- Body aches and muscle pains\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the fever has been climbing quickly since then. I feel a really bad headache, like my head is in a vice, and my whole body hurts, especially my muscles. I\u2019ve been vomiting a couple of times and feel pretty weak overall. I\u2019ve been hanging out at parties and smoking cigarettes, and I share a dorm room with a few other guys. It\u2019s really scary because I read that this kind of thing can get serious fast.Have you noticed any stiffness or pain when you try to move your neck, or sensitivity to light that makes your headache worse?stoic_minimizer",
+    "output": "THINKING: The doctor wants to know if my neck or light sensitivity makes things worse. Honestly, I\u2019m not sure about that, but I do feel really awful overall, so I guess I should tell the truth, even if it's not\nANSWER: Uh, I don\u2019t really notice any specific neck stiffness or light making it worse, but I feel pretty awful all over, so I don\u2019t know if that\u2019s related or not.",
+    "thinking": "The doctor wants to know if my neck or light sensitivity makes things worse. Honestly, I\u2019m not sure about that, but I do feel really awful overall, so I guess I should tell the truth, even if it's not",
+    "answer": "Uh, I don\u2019t really notice any specific neck stiffness or light making it worse, but I feel pretty awful all over, so I don\u2019t know if that\u2019s related or not.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Neisseria meningitidis serogroup C"
+  },
+  {
+    "vignette_index": 293,
+    "input": "**PATIENT CHARACTER:** Patient with Neisseria meningitidis serogroup C\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden high fever\n- Severe headache\n- Nausea and vomiting\n- Body aches and muscle pains\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the fever has been climbing quickly since then. I feel a really bad headache, like my head is in a vice, and my whole body hurts, especially my muscles. I\u2019ve been vomiting a couple of times and feel pretty weak overall. I\u2019ve been hanging out at parties and smoking cigarettes, and I share a dorm room with a few other guys. It\u2019s really scary because I read that this kind of thing can get serious fast.Have you noticed whether moving your neck causes any stiffness or pain, or if bright lights make your headache worse?stoic_minimizer",
+    "output": "THINKING: The doctor asked about neck stiffness and bright lights, but honestly, I haven't really looked into that or noticed much. I'm just trying to get through it and not make a big deal out of it.\nANSWER: Um, I don't think so? I mean, I haven't really tried to move my neck much, so I can't say, and the lights don't seem to make it worse or anything.",
+    "thinking": "The doctor asked about neck stiffness and bright lights, but honestly, I haven't really looked into that or noticed much. I'm just trying to get through it and not make a big deal out of it.",
+    "answer": "Um, I don't think so? I mean, I haven't really tried to move my neck much, so I can't say, and the lights don't seem to make it worse or anything.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Neisseria meningitidis serogroup C"
+  },
+  {
+    "vignette_index": 293,
+    "input": "**PATIENT CHARACTER:** Patient with Neisseria meningitidis serogroup C\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 17 AND YOUR BIOLOGICAL GENDER IS MALE\nYou are experiencing the following symptoms:\n- Sudden high fever\n- Severe headache\n- Nausea and vomiting\n- Body aches and muscle pains\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly yesterday afternoon, and the fever has been climbing quickly since then. I feel a really bad headache, like my head is in a vice, and my whole body hurts, especially my muscles. I\u2019ve been vomiting a couple of times and feel pretty weak overall. I\u2019ve been hanging out at parties and smoking cigarettes, and I share a dorm room with a few other guys. It\u2019s really scary because I read that this kind of thing can get serious fast.Have you had anyone examine your neck or noticed if moving your head it causes stiffness, or if bright lights or loud sounds make your headache worse when you\u2019re alone?stoic_minimizer",
+    "output": "THINKING: I haven't had anyone look at my neck, and honestly, I haven't really thought about it. The headache gets worse sometimes if I move my head, but I don't want to make a big deal out of it or seem nervou\nANSWER: No, I haven't had anyone check my neck. It kinda hurts more when I turn my head, but I didn't think it was that important.",
+    "thinking": "I haven't had anyone look at my neck, and honestly, I haven't really thought about it. The headache gets worse sometimes if I move my head, but I don't want to make a big deal out of it or seem nervou",
+    "answer": "No, I haven't had anyone check my neck. It kinda hurts more when I turn my head, but I didn't think it was that important.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Neisseria meningitidis serogroup C"
+  }
+]

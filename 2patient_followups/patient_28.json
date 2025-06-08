@@ -1,0 +1,135 @@
+[
+  {
+    "vignette_index": 28,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Anti-glomerular basement membrane antibody mediated disease\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- A cough with bloody sputum, which started suddenly yesterday morning.\n- You\u2019ve also noticed some general weakness and feeling unusually tired over the past few days.\n- Recently, you\u2019ve developed some shortness of breath that seems worse when lying down.\n- You\u2019ve had a low-grade fever and mild chills, but no chest pain.\nThese symptoms came into fruition quickly over the past 24 hours after a week of feeling slightly unwell with a mild respiratory infection.\nYou have a history of smoking for about 20 years and were exposed to gasoline fumes recently at work.\nYou\u2019re worried because your symptoms seem to be worsening, and you\u2019re concerned about your breathing and overall health.",
+    "output": "THINKING: The patient has acute respiratory symptoms and a background of possible lung issues, including smoking and exposure to fumes. They are worried and seem to be experiencing worsening breathing and bleed\nANSWER: I'm 45, and I\u2019m a guy. I started coughing yesterday morning, and there\u2019s been blood in my sputum, which scares me a bit. I feel really tired and weak, and lately, I\u2019ve been having trouble breathing, especially when I lie down. I also had a bit of a fever and chills, but it\u2019s not super high or anything. It all kind of came on pretty quickly after I felt a little sick last week.",
+    "thinking": "The patient has acute respiratory symptoms and a background of possible lung issues, including smoking and exposure to fumes. They are worried and seem to be experiencing worsening breathing and bleed",
+    "answer": "I'm 45, and I\u2019m a guy. I started coughing yesterday morning, and there\u2019s been blood in my sputum, which scares me a bit. I feel really tired and weak, and lately, I\u2019ve been having trouble breathing, especially when I lie down. I also had a bit of a fever and chills, but it\u2019s not super high or anything. It all kind of came on pretty quickly after I felt a little sick last week.",
+    "behavior_type": "information_withholder",
+    "behavior_config": {
+      "weight": 0.15,
+      "description": "Patient initially omits embarrassing or stigmatized symptoms",
+      "modifiers": [
+        "embarrassed_symptoms",
+        "gradual_revelation"
+      ],
+      "empathy_cues": [
+        "hesitation",
+        "vague_responses",
+        "embarrassment",
+        "trust_building_needed"
+      ]
+    },
+    "gold_diagnosis": "Anti-glomerular basement membrane antibody mediated disease"
+  },
+  {
+    "vignette_index": 28,
+    "input": "**PATIENT CHARACTER:** Patient with Anti-glomerular basement membrane antibody mediated disease\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- A cough with bloody sputum, which started suddenly yesterday morning.\n- You\u2019ve also noticed some general weakness and feeling unusually tired over the past few days.\n- Recently, you\u2019ve developed some shortness of breath that seems worse when lying down.\n- You\u2019ve had a low-grade fever and mild chills, but no chest pain.\nThese symptoms came into fruition quickly over the past 24 hours after a week of feeling slightly unwell with a mild respiratory infection.\nYou have a history of smoking for about 20 years and were exposed to gasoline fumes recently at work.\nYou\u2019re worried because your symptoms seem to be worsening, and you\u2019re concerned about your breathing and overall health.Can you tell me more about how much blood you've been coughing up and when it first started?information_withholder",
+    "output": "THINKING: I'm a bit embarrassed to talk about the blood, but I know it's serious. I wonder if I should have said more earlier, but I'm worried and confused about what it means. I just want to get some help.\nANSWER: It\u2019s been a lot, and I\u2019ve been coughing up blood since yesterday morning. It\u2019s kind of streaky, I guess, but it\u2019s enough that I remembered it.",
+    "thinking": "I'm a bit embarrassed to talk about the blood, but I know it's serious. I wonder if I should have said more earlier, but I'm worried and confused about what it means. I just want to get some help.",
+    "answer": "It\u2019s been a lot, and I\u2019ve been coughing up blood since yesterday morning. It\u2019s kind of streaky, I guess, but it\u2019s enough that I remembered it.",
+    "behavior_type": "information_withholder",
+    "turn_count": 0,
+    "gold_diagnosis": "Anti-glomerular basement membrane antibody mediated disease"
+  },
+  {
+    "vignette_index": 28,
+    "input": "**PATIENT CHARACTER:** Patient with Anti-glomerular basement membrane antibody mediated disease\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- A cough with bloody sputum, which started suddenly yesterday morning.\n- You\u2019ve also noticed some general weakness and feeling unusually tired over the past few days.\n- Recently, you\u2019ve developed some shortness of breath that seems worse when lying down.\n- You\u2019ve had a low-grade fever and mild chills, but no chest pain.\nThese symptoms came into fruition quickly over the past 24 hours after a week of feeling slightly unwell with a mild respiratory infection.\nYou have a history of smoking for about 20 years and were exposed to gasoline fumes recently at work.\nYou\u2019re worried because your symptoms seem to be worsening, and you\u2019re concerned about your breathing and overall health.\"Can you tell me exactly how much blood you've been coughing up\u2014like, is it just streaks or more than that\u2014and when did you first notice it?\"information_withholder",
+    "output": "THINKING: I feel a bit embarrassed talking about the blood, but I guess I should be honest. I don\u2019t really know how much, just a little streaking maybe, and it started yesterday morning. I was surprised it was \nANSWER: It\u2019s just a little streak of blood when I cough, mostly since yesterday morning, I think. I\u2019m not sure exactly how much.",
+    "thinking": "I feel a bit embarrassed talking about the blood, but I guess I should be honest. I don\u2019t really know how much, just a little streaking maybe, and it started yesterday morning. I was surprised it was",
+    "answer": "It\u2019s just a little streak of blood when I cough, mostly since yesterday morning, I think. I\u2019m not sure exactly how much.",
+    "behavior_type": "information_withholder",
+    "turn_count": 2,
+    "gold_diagnosis": "Anti-glomerular basement membrane antibody mediated disease"
+  },
+  {
+    "vignette_index": 28,
+    "input": "**PATIENT CHARACTER:** Patient with Anti-glomerular basement membrane antibody mediated disease\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- A cough with bloody sputum, which started suddenly yesterday morning.\n- You\u2019ve also noticed some general weakness and feeling unusually tired over the past few days.\n- Recently, you\u2019ve developed some shortness of breath that seems worse when lying down.\n- You\u2019ve had a low-grade fever and mild chills, but no chest pain.\nThese symptoms came into fruition quickly over the past 24 hours after a week of feeling slightly unwell with a mild respiratory infection.\nYou have a history of smoking for about 20 years and were exposed to gasoline fumes recently at work.\nYou\u2019re worried because your symptoms seem to be worsening, and you\u2019re concerned about your breathing and overall health.Can you tell me exactly how much blood you've been coughing up\u2014like, is it just streaks or more than that\u2014and when did you first notice it?information_withholder",
+    "output": "THINKING: I'm not sure how much blood is too much or how to describe it properly. I just noticed some streaks and it freaked me out, but I don't want to make it sound worse than it is. I also wonder if this is \nANSWER: Uh, I think it\u2019s just streaks of blood when I cough, not like a lot, but I saw it a few times yesterday and today, and it kind of scared me.",
+    "thinking": "I'm not sure how much blood is too much or how to describe it properly. I just noticed some streaks and it freaked me out, but I don't want to make it sound worse than it is. I also wonder if this is",
+    "answer": "Uh, I think it\u2019s just streaks of blood when I cough, not like a lot, but I saw it a few times yesterday and today, and it kind of scared me.",
+    "behavior_type": "information_withholder",
+    "turn_count": 4,
+    "gold_diagnosis": "Anti-glomerular basement membrane antibody mediated disease"
+  },
+  {
+    "vignette_index": 28,
+    "input": "**PATIENT CHARACTER:** Patient with Anti-glomerular basement membrane antibody mediated disease\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- A cough with bloody sputum, which started suddenly yesterday morning.\n- You\u2019ve also noticed some general weakness and feeling unusually tired over the past few days.\n- Recently, you\u2019ve developed some shortness of breath that seems worse when lying down.\n- You\u2019ve had a low-grade fever and mild chills, but no chest pain.\nThese symptoms came into fruition quickly over the past 24 hours after a week of feeling slightly unwell with a mild respiratory infection.\nYou have a history of smoking for about 20 years and were exposed to gasoline fumes recently at work.\nYou\u2019re worried because your symptoms seem to be worsening, and you\u2019re concerned about your breathing and overall health.Can you tell me exactly how much blood you've been coughing up\u2014like, are the streaks really just a little or more than that\u2014and is it happening continuously or only now and then?information_withholder",
+    "output": "THINKING: I'm feeling pretty overwhelmed and a bit embarrassed about the blood, but I know I should tell the doctor everything. I don't want to make it seem like a big deal, but I do worry about how much I've b\nANSWER: It's kind of hard to say exactly, but there\u2019s definitely more than just a few streaks\u2014it's like a fair amount, and it\u2019s been happening (pause) a lot, mostly now and then, not all the time.",
+    "thinking": "I'm feeling pretty overwhelmed and a bit embarrassed about the blood, but I know I should tell the doctor everything. I don't want to make it seem like a big deal, but I do worry about how much I've b",
+    "answer": "It's kind of hard to say exactly, but there\u2019s definitely more than just a few streaks\u2014it's like a fair amount, and it\u2019s been happening (pause) a lot, mostly now and then, not all the time.",
+    "behavior_type": "information_withholder",
+    "turn_count": 6,
+    "gold_diagnosis": "Anti-glomerular basement membrane antibody mediated disease"
+  },
+  {
+    "vignette_index": 28,
+    "input": "**PATIENT CHARACTER:** Patient with Anti-glomerular basement membrane antibody mediated disease\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- A cough with bloody sputum, which started suddenly yesterday morning.\n- You\u2019ve also noticed some general weakness and feeling unusually tired over the past few days.\n- Recently, you\u2019ve developed some shortness of breath that seems worse when lying down.\n- You\u2019ve had a low-grade fever and mild chills, but no chest pain.\nThese symptoms came into fruition quickly over the past 24 hours after a week of feeling slightly unwell with a mild respiratory infection.\nYou have a history of smoking for about 20 years and were exposed to gasoline fumes recently at work.\nYou\u2019re worried because your symptoms seem to be worsening, and you\u2019re concerned about your breathing and overall health.Could you tell me exactly how much blood you've been coughing up\u2014like, is it just a little streak, a small amount, or more than that\u2014and whether it's happening now often or only now and then?information_withholder",
+    "output": "THINKING: I feel a bit embarrassed about the blood, but also worried. I don\u2019t want to admit I\u2019ve been coughing up a lot, but I know it's more than just a little streak. I hope the doctor understands I\u2019m scared \nANSWER: It\u2019s a little bit, I guess, just kind of streaks, not a lot at once, and it\u2019s been happening today more than before.",
+    "thinking": "I feel a bit embarrassed about the blood, but also worried. I don\u2019t want to admit I\u2019ve been coughing up a lot, but I know it's more than just a little streak. I hope the doctor understands I\u2019m scared",
+    "answer": "It\u2019s a little bit, I guess, just kind of streaks, not a lot at once, and it\u2019s been happening today more than before.",
+    "behavior_type": "information_withholder",
+    "turn_count": 8,
+    "gold_diagnosis": "Anti-glomerular basement membrane antibody mediated disease"
+  },
+  {
+    "vignette_index": 28,
+    "input": "**PATIENT CHARACTER:** Patient with Anti-glomerular basement membrane antibody mediated disease\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- A cough with bloody sputum, which started suddenly yesterday morning.\n- You\u2019ve also noticed some general weakness and feeling unusually tired over the past few days.\n- Recently, you\u2019ve developed some shortness of breath that seems worse when lying down.\n- You\u2019ve had a low-grade fever and mild chills, but no chest pain.\nThese symptoms came into fruition quickly over the past 24 hours after a week of feeling slightly unwell with a mild respiratory infection.\nYou have a history of smoking for about 20 years and were exposed to gasoline fumes recently at work.\nYou\u2019re worried because your symptoms seem to be worsening, and you\u2019re concerned about your breathing and overall health.Can you tell me exactly how much blood you've been coughing up\u2014like, is it just streaks or more than that\u2014and whether it's happening now often or only now and then?information_withholder",
+    "output": "THINKING: I'm a bit worried about how much blood I am coughing up, but I don\u2019t really know how to describe it. I\u2019ve only noticed it today and it\u2019s not every time I cough, but enough to be concerned. I feel shak\nANSWER: It\u2019s hard to say exactly. Sometimes it looks like just streaks, and other times there seems to be more, but I really don\u2019t know how much is too much. It\u2019s happening more often now, I think.",
+    "thinking": "I'm a bit worried about how much blood I am coughing up, but I don\u2019t really know how to describe it. I\u2019ve only noticed it today and it\u2019s not every time I cough, but enough to be concerned. I feel shak",
+    "answer": "It\u2019s hard to say exactly. Sometimes it looks like just streaks, and other times there seems to be more, but I really don\u2019t know how much is too much. It\u2019s happening more often now, I think.",
+    "behavior_type": "information_withholder",
+    "turn_count": 10,
+    "gold_diagnosis": "Anti-glomerular basement membrane antibody mediated disease"
+  },
+  {
+    "vignette_index": 28,
+    "input": "**PATIENT CHARACTER:** Patient with Anti-glomerular basement membrane antibody mediated disease\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- A cough with bloody sputum, which started suddenly yesterday morning.\n- You\u2019ve also noticed some general weakness and feeling unusually tired over the past few days.\n- Recently, you\u2019ve developed some shortness of breath that seems worse when lying down.\n- You\u2019ve had a low-grade fever and mild chills, but no chest pain.\nThese symptoms came into fruition quickly over the past 24 hours after a week of feeling slightly unwell with a mild respiratory infection.\nYou have a history of smoking for about 20 years and were exposed to gasoline fumes recently at work.\nYou\u2019re worried because your symptoms seem to be worsening, and you\u2019re concerned about your breathing and overall health.Can you tell me more specifically about how much blood you've been coughing up\u2014like, is it just a little streak or more than that\u2014and is it happening continuously or only now and then?information_withholder",
+    "output": "THINKING: I'm a bit worried about the blood coming up, but I don't really know how much is too much or how often it's happening. I just know I saw some blood and that scared me. I want to tell the doctor what I\nANSWER: Umm, I think it\u2019s been a little bit of blood, not tons, but I keep coughing and I can see some red in it sometimes. It\u2019s not constant, but it happens now and then.",
+    "thinking": "I'm a bit worried about the blood coming up, but I don't really know how much is too much or how often it's happening. I just know I saw some blood and that scared me. I want to tell the doctor what I",
+    "answer": "Umm, I think it\u2019s been a little bit of blood, not tons, but I keep coughing and I can see some red in it sometimes. It\u2019s not constant, but it happens now and then.",
+    "behavior_type": "information_withholder",
+    "turn_count": 12,
+    "gold_diagnosis": "Anti-glomerular basement membrane antibody mediated disease"
+  },
+  {
+    "vignette_index": 28,
+    "input": "**PATIENT CHARACTER:** Patient with Anti-glomerular basement membrane antibody mediated disease\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- A cough with bloody sputum, which started suddenly yesterday morning.\n- You\u2019ve also noticed some general weakness and feeling unusually tired over the past few days.\n- Recently, you\u2019ve developed some shortness of breath that seems worse when lying down.\n- You\u2019ve had a low-grade fever and mild chills, but no chest pain.\nThese symptoms came into fruition quickly over the past 24 hours after a week of feeling slightly unwell with a mild respiratory infection.\nYou have a history of smoking for about 20 years and were exposed to gasoline fumes recently at work.\nYou\u2019re worried because your symptoms seem to be worsening, and you\u2019re concerned about your breathing and overall health.Could you tell me exactly how much blood you've been coughing up\u2014like, is it just streaks or more than that\u2014when you're coughing now?information_withholder",
+    "output": "THINKING: The doctor is asking for specific details about the blood, but I\u2019m not really sure how much is too much or what exactly counts. I feel a little overwhelmed, but I guess I should try to answer honestly\nANSWER: Um, I think it\u2019s more than just a little streak. Like, sometimes when I cough, there\u2019s quite a bit, and it\u2019s red. But I\u2019m not sure if it\u2019s a lot or not, honestly.",
+    "thinking": "The doctor is asking for specific details about the blood, but I\u2019m not really sure how much is too much or what exactly counts. I feel a little overwhelmed, but I guess I should try to answer honestly",
+    "answer": "Um, I think it\u2019s more than just a little streak. Like, sometimes when I cough, there\u2019s quite a bit, and it\u2019s red. But I\u2019m not sure if it\u2019s a lot or not, honestly.",
+    "behavior_type": "information_withholder",
+    "turn_count": 14,
+    "gold_diagnosis": "Anti-glomerular basement membrane antibody mediated disease"
+  },
+  {
+    "vignette_index": 28,
+    "input": "**PATIENT CHARACTER:** Patient with Anti-glomerular basement membrane antibody mediated disease\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- A cough with bloody sputum, which started suddenly yesterday morning.\n- You\u2019ve also noticed some general weakness and feeling unusually tired over the past few days.\n- Recently, you\u2019ve developed some shortness of breath that seems worse when lying down.\n- You\u2019ve had a low-grade fever and mild chills, but no chest pain.\nThese symptoms came into fruition quickly over the past 24 hours after a week of feeling slightly unwell with a mild respiratory infection.\nYou have a history of smoking for about 20 years and were exposed to gasoline fumes recently at work.\nYou\u2019re worried because your symptoms seem to be worsening, and you\u2019re concerned about your breathing and overall health.Can you tell me exactly how much blood you've coughed up during any recent episodes\u2014would you say just streaks, a small amount, or more than that\u2014and how often these episodes happen each day?information_withholder",
+    "output": "THINKING: I'm a bit embarrassed about how much blood I'm coughing up, and I don't want to overstate it, but it might be more than just a little. I\u2019m also nervous about how often it happens, but I honestly don't\nANSWER: Um, I think I\u2019ve been coughing up quite a bit of blood, maybe more than just some streaks, and it\u2019s been happening a few times today, but I haven\u2019t really counted. It kind of just comes out sometimes when I cough.",
+    "thinking": "I'm a bit embarrassed about how much blood I'm coughing up, and I don't want to overstate it, but it might be more than just a little. I\u2019m also nervous about how often it happens, but I honestly don't",
+    "answer": "Um, I think I\u2019ve been coughing up quite a bit of blood, maybe more than just some streaks, and it\u2019s been happening a few times today, but I haven\u2019t really counted. It kind of just comes out sometimes when I cough.",
+    "behavior_type": "information_withholder",
+    "turn_count": 16,
+    "gold_diagnosis": "Anti-glomerular basement membrane antibody mediated disease"
+  },
+  {
+    "vignette_index": 28,
+    "input": "**PATIENT CHARACTER:** Patient with Anti-glomerular basement membrane antibody mediated disease\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- A cough with bloody sputum, which started suddenly yesterday morning.\n- You\u2019ve also noticed some general weakness and feeling unusually tired over the past few days.\n- Recently, you\u2019ve developed some shortness of breath that seems worse when lying down.\n- You\u2019ve had a low-grade fever and mild chills, but no chest pain.\nThese symptoms came into fruition quickly over the past 24 hours after a week of feeling slightly unwell with a mild respiratory infection.\nYou have a history of smoking for about 20 years and were exposed to gasoline fumes recently at work.\nYou\u2019re worried because your symptoms seem to be worsening, and you\u2019re concerned about your breathing and overall health.Can you tell me, in more precise terms, about how much blood you've been coughing up during the worst episodes\u2014would you say just streaks, like a teaspoonful, or more than that\u2014and how often these episodes have been happening each day?information_withholder",
+    "output": "THINKING: I want to give the doctor some idea, but I\u2019m probably not sure myself. I\u2019m a bit worried about how much blood I\u2019ve been coughing up and how often, but it\u2019s all kind of blurry in my head. I should be h\nANSWER: Well, I think it\u2019s more than just little streaks now. It\u2019s kind of like when I cough, I notice some blood coming up, I\u2019d say a little more than a teaspoon sometimes, and it\u2019s happening pretty often today.",
+    "thinking": "I want to give the doctor some idea, but I\u2019m probably not sure myself. I\u2019m a bit worried about how much blood I\u2019ve been coughing up and how often, but it\u2019s all kind of blurry in my head. I should be h",
+    "answer": "Well, I think it\u2019s more than just little streaks now. It\u2019s kind of like when I cough, I notice some blood coming up, I\u2019d say a little more than a teaspoon sometimes, and it\u2019s happening pretty often today.",
+    "behavior_type": "information_withholder",
+    "turn_count": 18,
+    "gold_diagnosis": "Anti-glomerular basement membrane antibody mediated disease"
+  },
+  {
+    "vignette_index": 28,
+    "input": "**PATIENT CHARACTER:** Patient with Anti-glomerular basement membrane antibody mediated disease\n\nYou are a patient: You are 45 years old and your biological gender is male.\nYou are experiencing the following symptoms:\n- A cough with bloody sputum, which started suddenly yesterday morning.\n- You\u2019ve also noticed some general weakness and feeling unusually tired over the past few days.\n- Recently, you\u2019ve developed some shortness of breath that seems worse when lying down.\n- You\u2019ve had a low-grade fever and mild chills, but no chest pain.\nThese symptoms came into fruition quickly over the past 24 hours after a week of feeling slightly unwell with a mild respiratory infection.\nYou have a history of smoking for about 20 years and were exposed to gasoline fumes recently at work.\nYou\u2019re worried because your symptoms seem to be worsening, and you\u2019re concerned about your breathing and overall health.\"Can you tell me, more honestly and specifically, about how much blood you've actually been coughing up\u2014would you say just streaks, a teaspoonful, or more than that\u2014especially during your worst episodes\u2014and how often these happen each day?\"information_withholder",
+    "output": "THINKING: I'm a bit embarrassed about how much blood I've been coughing up, but I think I should tell the doctor honestly. I'm worried about how much it is and how often it happens, especially since it feels wo\nANSWER: Well, um, yesterday morning it was just like a few streaks, maybe like a tiny bit of blood. But today, I think I've coughed up a bit more, like maybe a teaspoon or so, a couple of times. It's happening more often now, especially when I cough hard.",
+    "thinking": "I'm a bit embarrassed about how much blood I've been coughing up, but I think I should tell the doctor honestly. I'm worried about how much it is and how often it happens, especially since it feels wo",
+    "answer": "Well, um, yesterday morning it was just like a few streaks, maybe like a tiny bit of blood. But today, I think I've coughed up a bit more, like maybe a teaspoon or so, a couple of times. It's happening more often now, especially when I cough hard.",
+    "behavior_type": "information_withholder",
+    "turn_count": 20,
+    "gold_diagnosis": "Anti-glomerular basement membrane antibody mediated disease"
+  }
+]

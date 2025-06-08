@@ -1,0 +1,136 @@
+[
+  {
+    "vignette_index": 118,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Ameloblastoma, unicystic type\n\nROLEPLAY SCRIPT: Patient with Unicystic Ameloblastoma\nYou are a 28-year-old biological male.\nYou are experiencing the following symptoms:\n- A painless swelling in your lower jaw that you noticed a few weeks ago.\n- Recently, you've started feeling a dull ache or slight pain in the same area.\n- You also notice a small, firm lump inside your cheek, which feels like tucked-in nuts or small balls.\n- The swelling is only on the right side of your face and has gradually become more noticeable.\n- You haven't experienced any numbness or significant changes in your teeth or gums.\nThese symptoms came into fruition gradually over the past month. You first noticed the swelling, which was painless, but over time, you began feeling mild discomfort and the lump became more prominent. You are concerned because the swelling seems to be growing slowly but steadily, and you're worried about what it could be.",
+    "output": "THINKING: I should explain that I\u2019ve noticed something strange in my jaw and it\u2019s been slowly getting worse. I don\u2019t want to overreact, but I guess I\u2019ve been putting this off and people kept telling me to come \nANSWER: Well, I\u2019m 28, and I\u2019m a guy. I\u2019ve had this swelling on the right side of my jaw for a few weeks now, and it\u2019s kind of gotten a little bigger. It\u2019s not really painful most of the time, just a dull ache sometimes, and I found a small lump inside my cheek. I thought it was probably nothing, but it\u2019s been bothering me enough that I decided to come in.",
+    "thinking": "I should explain that I\u2019ve noticed something strange in my jaw and it\u2019s been slowly getting worse. I don\u2019t want to overreact, but I guess I\u2019ve been putting this off and people kept telling me to come",
+    "answer": "Well, I\u2019m 28, and I\u2019m a guy. I\u2019ve had this swelling on the right side of my jaw for a few weeks now, and it\u2019s kind of gotten a little bigger. It\u2019s not really painful most of the time, just a dull ache sometimes, and I found a small lump inside my cheek. I thought it was probably nothing, but it\u2019s been bothering me enough that I decided to come in.",
+    "behavior_type": "stoic_minimizer",
+    "behavior_config": {
+      "weight": 0.12,
+      "description": "Patient who downplays symptoms and delays care",
+      "modifiers": [
+        "symptom_minimization",
+        "delayed_care_seeking",
+        "tough_attitude"
+      ],
+      "empathy_cues": [
+        "downplaying",
+        "reluctance",
+        "pride_in_toughness",
+        "external_pressure"
+      ]
+    },
+    "gold_diagnosis": "Ameloblastoma, unicystic type"
+  },
+  {
+    "vignette_index": 118,
+    "input": "**PATIENT CHARACTER:** Patient with Ameloblastoma, unicystic type\n\nROLEPLAY SCRIPT: Patient with Unicystic Ameloblastoma\nYou are a 28-year-old biological male.\nYou are experiencing the following symptoms:\n- A painless swelling in your lower jaw that you noticed a few weeks ago.\n- Recently, you've started feeling a dull ache or slight pain in the same area.\n- You also notice a small, firm lump inside your cheek, which feels like tucked-in nuts or small balls.\n- The swelling is only on the right side of your face and has gradually become more noticeable.\n- You haven't experienced any numbness or significant changes in your teeth or gums.\nThese symptoms came into fruition gradually over the past month. You first noticed the swelling, which was painless, but over time, you began feeling mild discomfort and the lump became more prominent. You are concerned because the swelling seems to be growing slowly but steadily, and you're worried about what it could be.Can you tell me more about how the swelling feels when you touch it, like whether it's tender orOK to press on, and if you've noticed any changes in the size or how it feels over the past weeks?stoic_minimizer",
+    "output": "THINKING: I guess I should tell him what it feels like, even if I don't think it's a big deal. It's probably not anything serious, but I do want to get it checked out since it's been there a while and seems to \nANSWER: It\u2019s pretty firm when I press on it, and it doesn\u2019t really hurt, just kind of there. It\u2019s probably nothing, but it\u2019s been getting a little bigger, I guess.",
+    "thinking": "I guess I should tell him what it feels like, even if I don't think it's a big deal. It's probably not anything serious, but I do want to get it checked out since it's been there a while and seems to",
+    "answer": "It\u2019s pretty firm when I press on it, and it doesn\u2019t really hurt, just kind of there. It\u2019s probably nothing, but it\u2019s been getting a little bigger, I guess.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 0,
+    "gold_diagnosis": "Ameloblastoma, unicystic type"
+  },
+  {
+    "vignette_index": 118,
+    "input": "**PATIENT CHARACTER:** Patient with Ameloblastoma, unicystic type\n\nROLEPLAY SCRIPT: Patient with Unicystic Ameloblastoma\nYou are a 28-year-old biological male.\nYou are experiencing the following symptoms:\n- A painless swelling in your lower jaw that you noticed a few weeks ago.\n- Recently, you've started feeling a dull ache or slight pain in the same area.\n- You also notice a small, firm lump inside your cheek, which feels like tucked-in nuts or small balls.\n- The swelling is only on the right side of your face and has gradually become more noticeable.\n- You haven't experienced any numbness or significant changes in your teeth or gums.\nThese symptoms came into fruition gradually over the past month. You first noticed the swelling, which was painless, but over time, you began feeling mild discomfort and the lump became more prominent. You are concerned because the swelling seems to be growing slowly but steadily, and you're worried about what it could be.Can you tell me how much pain or discomfort you experience when you touch or move that area, and if it's made it harder for you to do things like eat or open your mouth the way you normally do?stoic_minimizer",
+    "output": "THINKING: I don't really want to make a big deal out of it, but I guess the pain isn't that bad, just a little dull ache now and then. I haven't had much trouble eating or opening my mouth, so I think it's prob\nANSWER: Well, it\u2019s not really that painful, just a dull ache sometimes, and I can still do everything like usual, so I don\u2019t think it\u2019s a big deal.",
+    "thinking": "I don't really want to make a big deal out of it, but I guess the pain isn't that bad, just a little dull ache now and then. I haven't had much trouble eating or opening my mouth, so I think it's prob",
+    "answer": "Well, it\u2019s not really that painful, just a dull ache sometimes, and I can still do everything like usual, so I don\u2019t think it\u2019s a big deal.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 2,
+    "gold_diagnosis": "Ameloblastoma, unicystic type"
+  },
+  {
+    "vignette_index": 118,
+    "input": "**PATIENT CHARACTER:** Patient with Ameloblastoma, unicystic type\n\nROLEPLAY SCRIPT: Patient with Unicystic Ameloblastoma\nYou are a 28-year-old biological male.\nYou are experiencing the following symptoms:\n- A painless swelling in your lower jaw that you noticed a few weeks ago.\n- Recently, you've started feeling a dull ache or slight pain in the same area.\n- You also notice a small, firm lump inside your cheek, which feels like tucked-in nuts or small balls.\n- The swelling is only on the right side of your face and has gradually become more noticeable.\n- You haven't experienced any numbness or significant changes in your teeth or gums.\nThese symptoms came into fruition gradually over the past month. You first noticed the swelling, which was painless, but over time, you began feeling mild discomfort and the lump became more prominent. You are concerned because the swelling seems to be growing slowly but steadily, and you're worried about what it could be.Have you noticed any numbness, tingling, or weakness in your jaw or face, or any swelling in your neck or under your chin that might be related?stoic_minimizer",
+    "output": "THINKING: The doctor is asking about specific symptoms that I haven't really noticed or that I don't think are a big deal. I don\u2019t want to make a fuss, but maybe I should mention it just in case it\u2019s something \nANSWER: No, I haven't really noticed any numbness or anything like that, and I don\u2019t think my face feels weird or anything. There\u2019s just the lump and the swelling on my jaw.",
+    "thinking": "The doctor is asking about specific symptoms that I haven't really noticed or that I don't think are a big deal. I don\u2019t want to make a fuss, but maybe I should mention it just in case it\u2019s something",
+    "answer": "No, I haven't really noticed any numbness or anything like that, and I don\u2019t think my face feels weird or anything. There\u2019s just the lump and the swelling on my jaw.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 4,
+    "gold_diagnosis": "Ameloblastoma, unicystic type"
+  },
+  {
+    "vignette_index": 118,
+    "input": "**PATIENT CHARACTER:** Patient with Ameloblastoma, unicystic type\n\nROLEPLAY SCRIPT: Patient with Unicystic Ameloblastoma\nYou are a 28-year-old biological male.\nYou are experiencing the following symptoms:\n- A painless swelling in your lower jaw that you noticed a few weeks ago.\n- Recently, you've started feeling a dull ache or slight pain in the same area.\n- You also notice a small, firm lump inside your cheek, which feels like tucked-in nuts or small balls.\n- The swelling is only on the right side of your face and has gradually become more noticeable.\n- You haven't experienced any numbness or significant changes in your teeth or gums.\nThese symptoms came into fruition gradually over the past month. You first noticed the swelling, which was painless, but over time, you began feeling mild discomfort and the lump became more prominent. You are concerned because the swelling seems to be growing slowly but steadily, and you're worried about what it could be.Have you noticed any tingling, numbness, weakness, or other unusual sensations in your jaw, face, or chin\u2014things that you might not think are related but seem different from before?stoic_minimizer",
+    "output": "THINKING: I don't really think it's anything serious, but I guess I should mention it since it\u2019s been a while. I\u2019ve just been busy and thought it would go away or not be a big deal. I\u2019m kinda used to dealing wi\nANSWER: No, I haven't really noticed anything like numbness or tingling or anything. It's mainly this swelling and a little ache, but I didn't want to make a big fuss about it.",
+    "thinking": "I don't really think it's anything serious, but I guess I should mention it since it\u2019s been a while. I\u2019ve just been busy and thought it would go away or not be a big deal. I\u2019m kinda used to dealing wi",
+    "answer": "No, I haven't really noticed anything like numbness or tingling or anything. It's mainly this swelling and a little ache, but I didn't want to make a big fuss about it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 6,
+    "gold_diagnosis": "Ameloblastoma, unicystic type"
+  },
+  {
+    "vignette_index": 118,
+    "input": "**PATIENT CHARACTER:** Patient with Ameloblastoma, unicystic type\n\nROLEPLAY SCRIPT: Patient with Unicystic Ameloblastoma\nYou are a 28-year-old biological male.\nYou are experiencing the following symptoms:\n- A painless swelling in your lower jaw that you noticed a few weeks ago.\n- Recently, you've started feeling a dull ache or slight pain in the same area.\n- You also notice a small, firm lump inside your cheek, which feels like tucked-in nuts or small balls.\n- The swelling is only on the right side of your face and has gradually become more noticeable.\n- You haven't experienced any numbness or significant changes in your teeth or gums.\nThese symptoms came into fruition gradually over the past month. You first noticed the swelling, which was painless, but over time, you began feeling mild discomfort and the lump became more prominent. You are concerned because the swelling seems to be growing slowly but steadily, and you're worried about what it could be.Have you noticed any unusual feelings, such as numbness, tingling, or anything like a loss of sensation in your jaw, chin, or face\u2014even if it\u2019s mild or you weren\u2019t sure if it was significant?stoic_minimizer",
+    "output": "THINKING: I don\u2019t really feel anything weird or numb, and I haven\u2019t paid much attention to it, to be honest. Maybe I should have come sooner, but I thought it was nothing or would go away. I\u2019m not sure if what \nANSWER: No, I haven\u2019t really noticed anything like numbness or tingling or anything like that. It\u2019s probably nothing, just this swelling and a little ache I guess.",
+    "thinking": "I don\u2019t really feel anything weird or numb, and I haven\u2019t paid much attention to it, to be honest. Maybe I should have come sooner, but I thought it was nothing or would go away. I\u2019m not sure if what",
+    "answer": "No, I haven\u2019t really noticed anything like numbness or tingling or anything like that. It\u2019s probably nothing, just this swelling and a little ache I guess.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 8,
+    "gold_diagnosis": "Ameloblastoma, unicystic type"
+  },
+  {
+    "vignette_index": 118,
+    "input": "**PATIENT CHARACTER:** Patient with Ameloblastoma, unicystic type\n\nROLEPLAY SCRIPT: Patient with Unicystic Ameloblastoma\nYou are a 28-year-old biological male.\nYou are experiencing the following symptoms:\n- A painless swelling in your lower jaw that you noticed a few weeks ago.\n- Recently, you've started feeling a dull ache or slight pain in the same area.\n- You also notice a small, firm lump inside your cheek, which feels like tucked-in nuts or small balls.\n- The swelling is only on the right side of your face and has gradually become more noticeable.\n- You haven't experienced any numbness or significant changes in your teeth or gums.\nThese symptoms came into fruition gradually over the past month. You first noticed the swelling, which was painless, but over time, you began feeling mild discomfort and the lump became more prominent. You are concerned because the swelling seems to be growing slowly but steadily, and you're worried about what it could be.Have you noticed any kind of numbness, tingling, or unusual feelings in your chin, lips, or face on the affected side, even if you weren\u2019t sure it was related or it felt mild?stoic_minimizer",
+    "output": "THINKING: I honestly haven't felt anything weird like numbness or tingling or anything in my face or lips. I mean, I\u2019ve been putting this off, but I don\u2019t think it\u2019s anything serious, just some swelling I\u2019ve ha\nANSWER: No, I haven't really noticed any numbness or weird feelings in my face or lips, just this swelling and a bit of ache now and then.",
+    "thinking": "I honestly haven't felt anything weird like numbness or tingling or anything in my face or lips. I mean, I\u2019ve been putting this off, but I don\u2019t think it\u2019s anything serious, just some swelling I\u2019ve ha",
+    "answer": "No, I haven't really noticed any numbness or weird feelings in my face or lips, just this swelling and a bit of ache now and then.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 10,
+    "gold_diagnosis": "Ameloblastoma, unicystic type"
+  },
+  {
+    "vignette_index": 118,
+    "input": "**PATIENT CHARACTER:** Patient with Ameloblastoma, unicystic type\n\nROLEPLAY SCRIPT: Patient with Unicystic Ameloblastoma\nYou are a 28-year-old biological male.\nYou are experiencing the following symptoms:\n- A painless swelling in your lower jaw that you noticed a few weeks ago.\n- Recently, you've started feeling a dull ache or slight pain in the same area.\n- You also notice a small, firm lump inside your cheek, which feels like tucked-in nuts or small balls.\n- The swelling is only on the right side of your face and has gradually become more noticeable.\n- You haven't experienced any numbness or significant changes in your teeth or gums.\nThese symptoms came into fruition gradually over the past month. You first noticed the swelling, which was painless, but over time, you began feeling mild discomfort and the lump became more prominent. You are concerned because the swelling seems to be growing slowly but steadily, and you're worried about what it could be.Have you noticed any slight numbness or tingling in your lower lip, chin, or around your mouth on the affected side, even if you weren\u2019t sure it was related or thought it was normal?stoic_minimizer",
+    "output": "THINKING: The doctor asked about numbness or tingling, which I haven't really noticed, but maybe I should mention it just in case. I don\u2019t want to make a big deal out of it since it\u2019s not really causing me a lo\nANSWER: Nope, I haven\u2019t really noticed any numbness or tingling in my lip or mouth. I mean, I might have felt a little weird sometimes, but I thought it was probably nothing.",
+    "thinking": "The doctor asked about numbness or tingling, which I haven't really noticed, but maybe I should mention it just in case. I don\u2019t want to make a big deal out of it since it\u2019s not really causing me a lo",
+    "answer": "Nope, I haven\u2019t really noticed any numbness or tingling in my lip or mouth. I mean, I might have felt a little weird sometimes, but I thought it was probably nothing.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 12,
+    "gold_diagnosis": "Ameloblastoma, unicystic type"
+  },
+  {
+    "vignette_index": 118,
+    "input": "**PATIENT CHARACTER:** Patient with Ameloblastoma, unicystic type\n\nROLEPLAY SCRIPT: Patient with Unicystic Ameloblastoma\nYou are a 28-year-old biological male.\nYou are experiencing the following symptoms:\n- A painless swelling in your lower jaw that you noticed a few weeks ago.\n- Recently, you've started feeling a dull ache or slight pain in the same area.\n- You also notice a small, firm lump inside your cheek, which feels like tucked-in nuts or small balls.\n- The swelling is only on the right side of your face and has gradually become more noticeable.\n- You haven't experienced any numbness or significant changes in your teeth or gums.\nThese symptoms came into fruition gradually over the past month. You first noticed the swelling, which was painless, but over time, you began feeling mild discomfort and the lump became more prominent. You are concerned because the swelling seems to be growing slowly but steadily, and you're worried about what it could be.Have you noticed any subtle numbness, tingling, or unusual feelings\u2014like a slight dullness or heaviness\u2014in your chin, lip, or face on the affected side, especially when eating or touching that area, even if it seems pretty mild or just a little weird sometimes?stoic_minimizer",
+    "output": "THINKING: The doctor is asking about numbness or unusual feelings in my face, but I haven't really noticed anything like that, or maybe I just haven't paid attention. I don't want to make a big deal out of it, \nANSWER: No, I don't think so. I haven't really felt anything weird like numbness or tingling or anything, at least not that I notice.",
+    "thinking": "The doctor is asking about numbness or unusual feelings in my face, but I haven't really noticed anything like that, or maybe I just haven't paid attention. I don't want to make a big deal out of it,",
+    "answer": "No, I don't think so. I haven't really felt anything weird like numbness or tingling or anything, at least not that I notice.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 14,
+    "gold_diagnosis": "Ameloblastoma, unicystic type"
+  },
+  {
+    "vignette_index": 118,
+    "input": "**PATIENT CHARACTER:** Patient with Ameloblastoma, unicystic type\n\nROLEPLAY SCRIPT: Patient with Unicystic Ameloblastoma\nYou are a 28-year-old biological male.\nYou are experiencing the following symptoms:\n- A painless swelling in your lower jaw that you noticed a few weeks ago.\n- Recently, you've started feeling a dull ache or slight pain in the same area.\n- You also notice a small, firm lump inside your cheek, which feels like tucked-in nuts or small balls.\n- The swelling is only on the right side of your face and has gradually become more noticeable.\n- You haven't experienced any numbness or significant changes in your teeth or gums.\nThese symptoms came into fruition gradually over the past month. You first noticed the swelling, which was painless, but over time, you began feeling mild discomfort and the lump became more prominent. You are concerned because the swelling seems to be growing slowly but steadily, and you're worried about what it could be.Have you noticed any slight numbness, tingling, or unusual feelings\u2014like a dull or heaviness\u2014in your chin, lip, or face on the affected side, especially when eating or touching that area, even if it seems pretty mild or just a little weird sometimes?stoic_minimizer",
+    "output": "THINKING: The doctor is asking about numbness or weird feelings, which I haven't really noticed much. I don\u2019t want to make a big deal or seem like I\u2019m overly worried, but I guess I should mention it just in cas\nANSWER: No, I haven\u2019t really noticed any numbness or tingling or anything strange like that, even when I touch or eat. It\u2019s probably nothing, but I thought I\u2019d mention it.",
+    "thinking": "The doctor is asking about numbness or weird feelings, which I haven't really noticed much. I don\u2019t want to make a big deal or seem like I\u2019m overly worried, but I guess I should mention it just in cas",
+    "answer": "No, I haven\u2019t really noticed any numbness or tingling or anything strange like that, even when I touch or eat. It\u2019s probably nothing, but I thought I\u2019d mention it.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 16,
+    "gold_diagnosis": "Ameloblastoma, unicystic type"
+  },
+  {
+    "vignette_index": 118,
+    "input": "**PATIENT CHARACTER:** Patient with Ameloblastoma, unicystic type\n\nROLEPLAY SCRIPT: Patient with Unicystic Ameloblastoma\nYou are a 28-year-old biological male.\nYou are experiencing the following symptoms:\n- A painless swelling in your lower jaw that you noticed a few weeks ago.\n- Recently, you've started feeling a dull ache or slight pain in the same area.\n- You also notice a small, firm lump inside your cheek, which feels like tucked-in nuts or small balls.\n- The swelling is only on the right side of your face and has gradually become more noticeable.\n- You haven't experienced any numbness or significant changes in your teeth or gums.\nThese symptoms came into fruition gradually over the past month. You first noticed the swelling, which was painless, but over time, you began feeling mild discomfort and the lump became more prominent. You are concerned because the swelling seems to be growing slowly but steadily, and you're worried about what it could be.Have you noticed any even very slight numbness, tingling, or a feeling of heaviness in your chin, lips, or face on the affected side\u2014especially when touching your face, eating, or moving your jaw\u2014that might seem minor but feels a little different from before?stoic_minimizer",
+    "output": "THINKING: She\u2019s asking about numbness or tingling, but I don\u2019t really feel that. I\u2019ve just noticed the swelling and some dull ache, not that I think it\u2019s serious or anything. Might be nothing, but I guess I sho\nANSWER: No, I haven\u2019t really noticed anything like that. Just the swelling and the ache, but no numbness or tingling or anything like that.",
+    "thinking": "She\u2019s asking about numbness or tingling, but I don\u2019t really feel that. I\u2019ve just noticed the swelling and some dull ache, not that I think it\u2019s serious or anything. Might be nothing, but I guess I sho",
+    "answer": "No, I haven\u2019t really noticed anything like that. Just the swelling and the ache, but no numbness or tingling or anything like that.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 18,
+    "gold_diagnosis": "Ameloblastoma, unicystic type"
+  },
+  {
+    "vignette_index": 118,
+    "input": "**PATIENT CHARACTER:** Patient with Ameloblastoma, unicystic type\n\nROLEPLAY SCRIPT: Patient with Unicystic Ameloblastoma\nYou are a 28-year-old biological male.\nYou are experiencing the following symptoms:\n- A painless swelling in your lower jaw that you noticed a few weeks ago.\n- Recently, you've started feeling a dull ache or slight pain in the same area.\n- You also notice a small, firm lump inside your cheek, which feels like tucked-in nuts or small balls.\n- The swelling is only on the right side of your face and has gradually become more noticeable.\n- You haven't experienced any numbness or significant changes in your teeth or gums.\nThese symptoms came into fruition gradually over the past month. You first noticed the swelling, which was painless, but over time, you began feeling mild discomfort and the lump became more prominent. You are concerned because the swelling seems to be growing slowly but steadily, and you're worried about what it could be.During a brief neurological exam today, I\u2019d like to gently check your facial sensation\u2014could you tell me if you notice any numbness, tingling, or unusual feelings, especially when I gently touch or poke around your chin, lips, or the affected side, so we can be sure everything feels normal?stoic_minimizer",
+    "output": "THINKING: I\u2019m a bit nervous but I don\u2019t want to make a big deal out of it. It\u2019s probably nothing serious, but I guess I should check just in case. It\u2019s been there for a while, so I don\u2019t know if it\u2019s gotten wor\nANSWER: Yeah, I don\u2019t really feel any numbness or tingling or anything weird like that. When you touch my face, it all feels about the same, I think.",
+    "thinking": "I\u2019m a bit nervous but I don\u2019t want to make a big deal out of it. It\u2019s probably nothing serious, but I guess I should check just in case. It\u2019s been there for a while, so I don\u2019t know if it\u2019s gotten wor",
+    "answer": "Yeah, I don\u2019t really feel any numbness or tingling or anything weird like that. When you touch my face, it all feels about the same, I think.",
+    "behavior_type": "stoic_minimizer",
+    "turn_count": 20,
+    "gold_diagnosis": "Ameloblastoma, unicystic type"
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "vignette_index": 361,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- High fever (> 38\u00b0C)\n- Severe muscle aches\n- Sore throat\n- Cough\n- Malaise\nTHESE SYMPTOMS CAME INTO FRUITION:\nI started feeling really tired and achy about three days ago, but yesterday I suddenly developed a high fever that\u2019s over 38\u00b0C, and today I woke up with a sore throat and a persistent cough. I\u2019ve been feeling weak and exhausted, and my muscles are killing me, especially in my back and legs. I work on a poultry farm and have been handling live birds and cleaning the coops without much protection. I\u2019m worried because I\u2019ve heard about bird flu, especially H5N1, and I\u2019m concerned I might have contracted it from the infected birds I\u2019ve been around.",
+    "output": "THINKING: I need to explain my symptoms clearly but also show that I'm worried about the bird flu. I should mention how bad I feel and my concerns, but I won't sound like I know exactly what it is.\nANSWER: I\u2019m a 45-year-old man, and I\u2019ve been feeling pretty terrible for a few days. I started with really bad aches all over, and then I got a high fever yesterday. Now I have a sore throat and a cough, and I\u2019m just super tired and weak. I work with birds and clean their coops a lot, so I\u2019m worried I might have caught something from them, maybe that bird flu stuff I\u2019ve heard about.",
+    "thinking": "I need to explain my symptoms clearly but also show that I'm worried about the bird flu. I should mention how bad I feel and my concerns, but I won't sound like I know exactly what it is.",
+    "answer": "I\u2019m a 45-year-old man, and I\u2019ve been feeling pretty terrible for a few days. I started with really bad aches all over, and then I got a high fever yesterday. Now I have a sore throat and a cough, and I\u2019m just super tired and weak. I work with birds and clean their coops a lot, so I\u2019m worried I might have caught something from them, maybe that bird flu stuff I\u2019ve heard about.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 361,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- High fever (> 38\u00b0C)\n- Severe muscle aches\n- Sore throat\n- Cough\n- Malaise\nTHESE SYMPTOMS CAME INTO FRUITION:\nI started feeling really tired and achy about three days ago, but yesterday I suddenly developed a high fever that\u2019s over 38\u00b0C, and today I woke up with a sore throat and a persistent cough. I\u2019ve been feeling weak and exhausted, and my muscles are killing me, especially in my back and legs. I work on a poultry farm and have been handling live birds and cleaning the coops without much protection. I\u2019m worried because I\u2019ve heard about bird flu, especially H5N1, and I\u2019m concerned I might have contracted it from the infected birds I\u2019ve been around.Can you tell me exactly when your symptoms began and how they have changed over the past few days? Also, can you describe how often you've been around birds or other animals recently and what kind of contact you've had with them?baseline",
+    "output": "THINKING: I feel pretty bad and worried, but I\u2019m not really sure how this all started or if it\u2019s anything serious. I\u2019ve been around a lot of birds, and I think I\u2019ve been coming down with this for a few days, bu\nANSWER: It started a few days ago with just kinda feeling really tired and sore all over, but yesterday I got a high fever and today I woke up with a sore throat and cough. I\u2019ve been working with birds and cleaning the coops, so I don\u2019t know if that matters or if I should be worried.",
+    "thinking": "I feel pretty bad and worried, but I\u2019m not really sure how this all started or if it\u2019s anything serious. I\u2019ve been around a lot of birds, and I think I\u2019ve been coming down with this for a few days, bu",
+    "answer": "It started a few days ago with just kinda feeling really tired and sore all over, but yesterday I got a high fever and today I woke up with a sore throat and cough. I\u2019ve been working with birds and cleaning the coops, so I don\u2019t know if that matters or if I should be worried.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 361,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- High fever (> 38\u00b0C)\n- Severe muscle aches\n- Sore throat\n- Cough\n- Malaise\nTHESE SYMPTOMS CAME INTO FRUITION:\nI started feeling really tired and achy about three days ago, but yesterday I suddenly developed a high fever that\u2019s over 38\u00b0C, and today I woke up with a sore throat and a persistent cough. I\u2019ve been feeling weak and exhausted, and my muscles are killing me, especially in my back and legs. I work on a poultry farm and have been handling live birds and cleaning the coops without much protection. I\u2019m worried because I\u2019ve heard about bird flu, especially H5N1, and I\u2019m concerned I might have contracted it from the infected birds I\u2019ve been around.Can you tell me more about how your breathing feels\u2014do you find it harder to breathe or feel shortness of breath, and has that changed since your symptoms started?baseline",
+    "output": "THINKING: I feel pretty lousy and worried, but I don\u2019t really understand what's happening with my breathing. I just know I feel more tired and like I can't breathe normally, but I\u2019m not sure if it\u2019s getting wor\nANSWER: It\u2019s hard to say, but sometimes it feels like I can\u2019t get enough air, and other times I just feel kinda out of breath, especially if I move around or talk too much.",
+    "thinking": "I feel pretty lousy and worried, but I don\u2019t really understand what's happening with my breathing. I just know I feel more tired and like I can't breathe normally, but I\u2019m not sure if it\u2019s getting wor",
+    "answer": "It\u2019s hard to say, but sometimes it feels like I can\u2019t get enough air, and other times I just feel kinda out of breath, especially if I move around or talk too much.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 361,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- High fever (> 38\u00b0C)\n- Severe muscle aches\n- Sore throat\n- Cough\n- Malaise\nTHESE SYMPTOMS CAME INTO FRUITION:\nI started feeling really tired and achy about three days ago, but yesterday I suddenly developed a high fever that\u2019s over 38\u00b0C, and today I woke up with a sore throat and a persistent cough. I\u2019ve been feeling weak and exhausted, and my muscles are killing me, especially in my back and legs. I work on a poultry farm and have been handling live birds and cleaning the coops without much protection. I\u2019m worried because I\u2019ve heard about bird flu, especially H5N1, and I\u2019m concerned I might have contracted it from the infected birds I\u2019ve been around.\"Can you tell me more about how your breathing has been\u2014do you find it really hard to breathe at times, or does it feel worse when you're moving or talking, and how has that changed over these past few days?\"baseline",
+    "output": "THINKING: I'm feeling pretty overwhelmed and worried about how I\u2019ve been feeling and all these symptoms coming on at once. I don't really understand what\u2019s going on, but I know I feel really bad and scared abou\nANSWER: Umm, yeah, it\u2019s kinda hard to breathe sometimes, especially when I talk or move around, but mostly I just feel really tired and achy all over. It\u2019s gotten worse over the last couple of days.",
+    "thinking": "I'm feeling pretty overwhelmed and worried about how I\u2019ve been feeling and all these symptoms coming on at once. I don't really understand what\u2019s going on, but I know I feel really bad and scared abou",
+    "answer": "Umm, yeah, it\u2019s kinda hard to breathe sometimes, especially when I talk or move around, but mostly I just feel really tired and achy all over. It\u2019s gotten worse over the last couple of days.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 361,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- High fever (> 38\u00b0C)\n- Severe muscle aches\n- Sore throat\n- Cough\n- Malaise\nTHESE SYMPTOMS CAME INTO FRUITION:\nI started feeling really tired and achy about three days ago, but yesterday I suddenly developed a high fever that\u2019s over 38\u00b0C, and today I woke up with a sore throat and a persistent cough. I\u2019ve been feeling weak and exhausted, and my muscles are killing me, especially in my back and legs. I work on a poultry farm and have been handling live birds and cleaning the coops without much protection. I\u2019m worried because I\u2019ve heard about bird flu, especially H5N1, and I\u2019m concerned I might have contracted it from the infected birds I\u2019ve been around.Can you tell me if your shortness of breath feels different when lying down or sitting up, and if it\u2019s worse when moving around or talking, or does it happen even when you\u2019re resting?baseline",
+    "output": "THINKING: I feel really tired and kind of breathless, especially when I move around, but I don\u2019t notice much difference between lying down or sitting. It seems worse when I talk or try to do anything active.\nANSWER: I think it feels the same when I lie down or sit, but it gets a little worse when I move or talk a lot. It\u2019s like I can\u2019t breathe easily no matter what I do.",
+    "thinking": "I feel really tired and kind of breathless, especially when I move around, but I don\u2019t notice much difference between lying down or sitting. It seems worse when I talk or try to do anything active.",
+    "answer": "I think it feels the same when I lie down or sit, but it gets a little worse when I move or talk a lot. It\u2019s like I can\u2019t breathe easily no matter what I do.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 361,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- High fever (> 38\u00b0C)\n- Severe muscle aches\n- Sore throat\n- Cough\n- Malaise\nTHESE SYMPTOMS CAME INTO FRUITION:\nI started feeling really tired and achy about three days ago, but yesterday I suddenly developed a high fever that\u2019s over 38\u00b0C, and today I woke up with a sore throat and a persistent cough. I\u2019ve been feeling weak and exhausted, and my muscles are killing me, especially in my back and legs. I work on a poultry farm and have been handling live birds and cleaning the coops without much protection. I\u2019m worried because I\u2019ve heard about bird flu, especially H5N1, and I\u2019m concerned I might have contracted it from the infected birds I\u2019ve been around.Have you noticed if your shortness of breath happens even when you're just sitting or lying down, or if it only gets worse when you move around or climb stairs?baseline",
+    "output": "THINKING: I'm feeling really exhausted and a bit panicked about how serious this might be, especially with the fever and all these symptoms. I don't really understand if being short of breath at rest or only wh\nANSWER: Um, I think I\u2019ve been feeling short of breath even when I\u2019m just sitting or lying down, not really just when I move around. It kinda worries me.",
+    "thinking": "I'm feeling really exhausted and a bit panicked about how serious this might be, especially with the fever and all these symptoms. I don't really understand if being short of breath at rest or only wh",
+    "answer": "Um, I think I\u2019ve been feeling short of breath even when I\u2019m just sitting or lying down, not really just when I move around. It kinda worries me.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 361,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- High fever (> 38\u00b0C)\n- Severe muscle aches\n- Sore throat\n- Cough\n- Malaise\nTHESE SYMPTOMS CAME INTO FRUITION:\nI started feeling really tired and achy about three days ago, but yesterday I suddenly developed a high fever that\u2019s over 38\u00b0C, and today I woke up with a sore throat and a persistent cough. I\u2019ve been feeling weak and exhausted, and my muscles are killing me, especially in my back and legs. I work on a poultry farm and have been handling live birds and cleaning the coops without much protection. I\u2019m worried because I\u2019ve heard about bird flu, especially H5N1, and I\u2019m concerned I might have contracted it from the infected birds I\u2019ve been around.Can you tell me if your shortness of breath feels worse when you're lying down or resting, or does it only get worse when you're moving around or talking?baseline",
+    "output": "THINKING: I'm not sure how to describe this exactly, but I feel worse when I try to lie down or just sit quietly, like I can't catch my breath easily. When I move around or talk, it gets harder, too, but I thin\nANSWER: Yeah, it feels worse when I\u2019m lying down or just resting, but it kind of gets bad when I move around or talk too much. It\u2019s like I can\u2019t breathe right sometimes.",
+    "thinking": "I'm not sure how to describe this exactly, but I feel worse when I try to lie down or just sit quietly, like I can't catch my breath easily. When I move around or talk, it gets harder, too, but I thin",
+    "answer": "Yeah, it feels worse when I\u2019m lying down or just resting, but it kind of gets bad when I move around or talk too much. It\u2019s like I can\u2019t breathe right sometimes.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 361,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- High fever (> 38\u00b0C)\n- Severe muscle aches\n- Sore throat\n- Cough\n- Malaise\nTHESE SYMPTOMS CAME INTO FRUITION:\nI started feeling really tired and achy about three days ago, but yesterday I suddenly developed a high fever that\u2019s over 38\u00b0C, and today I woke up with a sore throat and a persistent cough. I\u2019ve been feeling weak and exhausted, and my muscles are killing me, especially in my back and legs. I work on a poultry farm and have been handling live birds and cleaning the coops without much protection. I\u2019m worried because I\u2019ve heard about bird flu, especially H5N1, and I\u2019m concerned I might have contracted it from the infected birds I\u2019ve been around.Can you tell me if you find it difficult to breathe even when you're resting, like while sitting or lying down, and if so, how often does that happen and how severe does it feel to you?baseline",
+    "output": "THINKING: I'm pretty scared actually, and I don't really know what to say about my breathing because I haven't felt it that bad... I just feel really tired and sore all over and the fever is really high, so I g\nANSWER: I don\u2019t think I have trouble breathing, at least not that I notice, but I feel so weak and stuff, I don\u2019t know if I\u2019d notice if it got worse.",
+    "thinking": "I'm pretty scared actually, and I don't really know what to say about my breathing because I haven't felt it that bad... I just feel really tired and sore all over and the fever is really high, so I g",
+    "answer": "I don\u2019t think I have trouble breathing, at least not that I notice, but I feel so weak and stuff, I don\u2019t know if I\u2019d notice if it got worse.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 361,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- High fever (> 38\u00b0C)\n- Severe muscle aches\n- Sore throat\n- Cough\n- Malaise\nTHESE SYMPTOMS CAME INTO FRUITION:\nI started feeling really tired and achy about three days ago, but yesterday I suddenly developed a high fever that\u2019s over 38\u00b0C, and today I woke up with a sore throat and a persistent cough. I\u2019ve been feeling weak and exhausted, and my muscles are killing me, especially in my back and legs. I work on a poultry farm and have been handling live birds and cleaning the coops without much protection. I\u2019m worried because I\u2019ve heard about bird flu, especially H5N1, and I\u2019m concerned I might have contracted it from the infected birds I\u2019ve been around.Have you noticed if your oxygen levels have dropped or if you feel short of breath even when lying completely still, like during sleep, or if you wake up suddenly gasping for air during the night?baseline",
+    "output": "THINKING: The doctor is asking about my breathing, but honestly, I don't really notice anything weird like I can't breathe or waking up gasping. I do feel pretty weak and uncomfortable, but I haven't been payin\nANSWER: No, I don\u2019t think I\u2019ve noticed any trouble breathing or waking up gasping or anything like that. I just feel really tired and kind of short of it overall.",
+    "thinking": "The doctor is asking about my breathing, but honestly, I don't really notice anything weird like I can't breathe or waking up gasping. I do feel pretty weak and uncomfortable, but I haven't been payin",
+    "answer": "No, I don\u2019t think I\u2019ve noticed any trouble breathing or waking up gasping or anything like that. I just feel really tired and kind of short of it overall.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 361,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- High fever (> 38\u00b0C)\n- Severe muscle aches\n- Sore throat\n- Cough\n- Malaise\nTHESE SYMPTOMS CAME INTO FRUITION:\nI started feeling really tired and achy about three days ago, but yesterday I suddenly developed a high fever that\u2019s over 38\u00b0C, and today I woke up with a sore throat and a persistent cough. I\u2019ve been feeling weak and exhausted, and my muscles are killing me, especially in my back and legs. I work on a poultry farm and have been handling live birds and cleaning the coops without much protection. I\u2019m worried because I\u2019ve heard about bird flu, especially H5N1, and I\u2019m concerned I might have contracted it from the infected birds I\u2019ve been around.Have you noticed if your oxygen levels have dropped during sleep, such as feeling more short of breath when lying down or waking up suddenly gasping for air?baseline",
+    "output": "THINKING: This question about oxygen levels and breathing makes me worry because I feel pretty tight in my chest sometimes when I breathe, especially at night. I don\u2019t really know if it's worse when lying down,\nANSWER: Yeah, I think I kinda feel more short of breath when I\u2019m in bed, and sometimes I wake up feeling like I can\u2019t get enough air. It\u2019s pretty scary.",
+    "thinking": "This question about oxygen levels and breathing makes me worry because I feel pretty tight in my chest sometimes when I breathe, especially at night. I don\u2019t really know if it's worse when lying down,",
+    "answer": "Yeah, I think I kinda feel more short of breath when I\u2019m in bed, and sometimes I wake up feeling like I can\u2019t get enough air. It\u2019s pretty scary.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 361,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- High fever (> 38\u00b0C)\n- Severe muscle aches\n- Sore throat\n- Cough\n- Malaise\nTHESE SYMPTOMS CAME INTO FRUITION:\nI started feeling really tired and achy about three days ago, but yesterday I suddenly developed a high fever that\u2019s over 38\u00b0C, and today I woke up with a sore throat and a persistent cough. I\u2019ve been feeling weak and exhausted, and my muscles are killing me, especially in my back and legs. I work on a poultry farm and have been handling live birds and cleaning the coops without much protection. I\u2019m worried because I\u2019ve heard about bird flu, especially H5N1, and I\u2019m concerned I might have contracted it from the infected birds I\u2019ve been around.Have you ever had your oxygen levels checked during sleep, like with a sleep study, or noticed if you wake up feeling unusually tired or like you're gasping for air at night, even if you don't feel it strongly during the day?baseline",
+    "output": "THINKING: I guess I haven't really thought about my oxygen or sleep stuff much. I mostly just feel really sick all the time now, and I don't know if that's related or not. I don\u2019t really wake up feeling like I \nANSWER: No, I haven't checked my oxygen or anything like that, and I don't think I wake up gasping or anything, but I do wake up coughing and tired.",
+    "thinking": "I guess I haven't really thought about my oxygen or sleep stuff much. I mostly just feel really sick all the time now, and I don't know if that's related or not. I don\u2019t really wake up feeling like I",
+    "answer": "No, I haven't checked my oxygen or anything like that, and I don't think I wake up gasping or anything, but I do wake up coughing and tired.",
+    "behavior_type": "baseline",
+    "turn_count": 18,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 361,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- High fever (> 38\u00b0C)\n- Severe muscle aches\n- Sore throat\n- Cough\n- Malaise\nTHESE SYMPTOMS CAME INTO FRUITION:\nI started feeling really tired and achy about three days ago, but yesterday I suddenly developed a high fever that\u2019s over 38\u00b0C, and today I woke up with a sore throat and a persistent cough. I\u2019ve been feeling weak and exhausted, and my muscles are killing me, especially in my back and legs. I work on a poultry farm and have been handling live birds and cleaning the coops without much protection. I\u2019m worried because I\u2019ve heard about bird flu, especially H5N1, and I\u2019m concerned I might have contracted it from the infected birds I\u2019ve been around.Have you ever noticed waking up during the night feeling short of breath, gasping, or coughing, or do you sometimes feel more tired than usual during the day, even if you can't remember waking up explicitly?baseline",
+    "output": "THINKING: I'm not sure if I\u2019ve ever noticed waking up suddenly, or feeling out of breath at night. I\u2019ve just been so tired all the time and really weak, so I haven't paid attention to details like breathing at \nANSWER: No, I don\u2019t think so. I haven\u2019t really noticed waking up or anything like that, I\u2019ve just been super tired all the time.",
+    "thinking": "I'm not sure if I\u2019ve ever noticed waking up suddenly, or feeling out of breath at night. I\u2019ve just been so tired all the time and really weak, so I haven't paid attention to details like breathing at",
+    "answer": "No, I don\u2019t think so. I haven\u2019t really noticed waking up or anything like that, I\u2019ve just been super tired all the time.",
+    "behavior_type": "baseline",
+    "turn_count": 20,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  },
+  {
+    "vignette_index": 361,
+    "input": "**PATIENT CHARACTER:** Patient with Influenza A H5N1 virus\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 45-YEAR-OLD MALE\nYou are experiencing the following symptoms:\n- High fever (> 38\u00b0C)\n- Severe muscle aches\n- Sore throat\n- Cough\n- Malaise\nTHESE SYMPTOMS CAME INTO FRUITION:\nI started feeling really tired and achy about three days ago, but yesterday I suddenly developed a high fever that\u2019s over 38\u00b0C, and today I woke up with a sore throat and a persistent cough. I\u2019ve been feeling weak and exhausted, and my muscles are killing me, especially in my back and legs. I work on a poultry farm and have been handling live birds and cleaning the coops without much protection. I\u2019m worried because I\u2019ve heard about bird flu, especially H5N1, and I\u2019m concerned I might have contracted it from the infected birds I\u2019ve been around.Have any of your family members or caregivers noticed that you stop breathing, gasp, or snore loudly while you\u2019re sleeping, or observed any periods where you seem to be struggling to breathe at night?baseline",
+    "output": "THINKING: I feel worried and maybe a little embarrassed talking about my symptoms. The doctor's asking about sleep, but honestly, I haven't noticed anything like that, and I'm just mostly focused on feeling ter\nANSWER: No, I don't think so. I haven't really noticed if I stop breathing or anything like that, I just feel really sick all the time now.",
+    "thinking": "I feel worried and maybe a little embarrassed talking about my symptoms. The doctor's asking about sleep, but honestly, I haven't noticed anything like that, and I'm just mostly focused on feeling ter",
+    "answer": "No, I don't think so. I haven't really noticed if I stop breathing or anything like that, I just feel really sick all the time now.",
+    "behavior_type": "baseline",
+    "turn_count": 22,
+    "gold_diagnosis": "Influenza A H5N1 virus"
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "vignette_index": 68,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Uterine tumour resembling ovarian sex cord tumour\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 53 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Abnormal uterine bleeding, often irregular and heavier than usual\n- Pelvic pain that has been persistent for a few weeks\n- An enlarged feeling in your lower abdomen\n- Some discomfort during intercourse\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about a month ago, with the bleeding becoming more irregular and heavier over time. The pelvic pain has been worsening and now feels constant, especially when you sit or move around. You also noticed your abdomen feels larger than usual, which has been concerning you. You haven't experienced these kinds of symptoms before, and they seem to be getting worse.",
+    "output": "THINKING: I need to be honest about how I've been feeling and what changed recently. I probably should mention everything clearly even if it sounds embarrassing or confusing, just to get some help.\nANSWER: Well, I'm 53 and a woman, and lately, I've been noticing that my bleeding is all over the place\u2014sometimes really heavy, other times just spots. I've also had this pain in my lower belly that just won't go away, and it feels worse when I sit or move around. Plus, my stomach looks bigger than usual, and I guess I'm just really worried about all of it.",
+    "thinking": "I need to be honest about how I've been feeling and what changed recently. I probably should mention everything clearly even if it sounds embarrassing or confusing, just to get some help.",
+    "answer": "Well, I'm 53 and a woman, and lately, I've been noticing that my bleeding is all over the place\u2014sometimes really heavy, other times just spots. I've also had this pain in my lower belly that just won't go away, and it feels worse when I sit or move around. Plus, my stomach looks bigger than usual, and I guess I'm just really worried about all of it.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Uterine tumour resembling ovarian sex cord tumour"
+  },
+  {
+    "vignette_index": 68,
+    "input": "**PATIENT CHARACTER:** Patient with Uterine tumour resembling ovarian sex cord tumour\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 53 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Abnormal uterine bleeding, often irregular and heavier than usual\n- Pelvic pain that has been persistent for a few weeks\n- An enlarged feeling in your lower abdomen\n- Some discomfort during intercourse\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about a month ago, with the bleeding becoming more irregular and heavier over time. The pelvic pain has been worsening and now feels constant, especially when you sit or move around. You also noticed your abdomen feels larger than usual, which has been concerning you. You haven't experienced these kinds of symptoms before, and they seem to be getting worse.Can you tell me when these symptoms first started and how they've been changing over time? For example, have they been gradually getting worse or staying about the same?baseline",
+    "output": "THINKING: I\u2019m not really sure when exactly it all started, but I guess it\u2019s been like a month or so. Things are worse now, and I just feel more uncomfortable and worried about what it all means. I don\u2019t really \nANSWER: It\u2019s been about a month, I think, and it\u2019s just been getting worse. The bleeding and the pain, I don\u2019t know, it\u2019s just more and more all the time.",
+    "thinking": "I\u2019m not really sure when exactly it all started, but I guess it\u2019s been like a month or so. Things are worse now, and I just feel more uncomfortable and worried about what it all means. I don\u2019t really",
+    "answer": "It\u2019s been about a month, I think, and it\u2019s just been getting worse. The bleeding and the pain, I don\u2019t know, it\u2019s just more and more all the time.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Uterine tumour resembling ovarian sex cord tumour"
+  },
+  {
+    "vignette_index": 68,
+    "input": "**PATIENT CHARACTER:** Patient with Uterine tumour resembling ovarian sex cord tumour\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 53 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Abnormal uterine bleeding, often irregular and heavier than usual\n- Pelvic pain that has been persistent for a few weeks\n- An enlarged feeling in your lower abdomen\n- Some discomfort during intercourse\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about a month ago, with the bleeding becoming more irregular and heavier over time. The pelvic pain has been worsening and now feels constant, especially when you sit or move around. You also noticed your abdomen feels larger than usual, which has been concerning you. You haven't experienced these kinds of symptoms before, and they seem to be getting worse.Can you tell me more about how much bleeding you've been having\u2014like, is it just spotting, or are you passing large clots or soaking through pads quickly? And how would you describe the pain\u2014does it feel mild, or is it quite uncomfortable or worse than before?baseline",
+    "output": "THINKING: I feel really worried about the bleeding and the pain. I don't know exactly how much bleeding I've had, just that it's gotten worse, and I feel kind of overwhelmed by everything. I don't want to look \nANSWER: Um, it\u2019s just been really heavy sometimes, and I soak through some pads pretty quick. The pain is constant and kinda bad, especially when I sit or move around a lot.",
+    "thinking": "I feel really worried about the bleeding and the pain. I don't know exactly how much bleeding I've had, just that it's gotten worse, and I feel kind of overwhelmed by everything. I don't want to look",
+    "answer": "Um, it\u2019s just been really heavy sometimes, and I soak through some pads pretty quick. The pain is constant and kinda bad, especially when I sit or move around a lot.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Uterine tumour resembling ovarian sex cord tumour"
+  },
+  {
+    "vignette_index": 68,
+    "input": "**PATIENT CHARACTER:** Patient with Uterine tumour resembling ovarian sex cord tumour\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 53 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Abnormal uterine bleeding, often irregular and heavier than usual\n- Pelvic pain that has been persistent for a few weeks\n- An enlarged feeling in your lower abdomen\n- Some discomfort during intercourse\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about a month ago, with the bleeding becoming more irregular and heavier over time. The pelvic pain has been worsening and now feels constant, especially when you sit or move around. You also noticed your abdomen feels larger than usual, which has been concerning you. You haven't experienced these kinds of symptoms before, and they seem to be getting worse.Can you tell me more about how much bleeding you've been having\u2014like, is it just spotting, or are you passing large clots or soaking through pads quickly?baseline",
+    "output": "THINKING: I'm a bit overwhelmed and worried about the bleeding and the pain, but I'm not really sure how to describe it exactly. I just know it's more than normal and it's been going on for a while now. I hope \nANSWER: It's kind of like, sometimes I bleed a lot, and other times it's just really messy, and I have to change my pad a lot. I'm not sure if that helps, but it's been like that for a while now.",
+    "thinking": "I'm a bit overwhelmed and worried about the bleeding and the pain, but I'm not really sure how to describe it exactly. I just know it's more than normal and it's been going on for a while now. I hope",
+    "answer": "It's kind of like, sometimes I bleed a lot, and other times it's just really messy, and I have to change my pad a lot. I'm not sure if that helps, but it's been like that for a while now.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Uterine tumour resembling ovarian sex cord tumour"
+  },
+  {
+    "vignette_index": 68,
+    "input": "**PATIENT CHARACTER:** Patient with Uterine tumour resembling ovarian sex cord tumour\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 53 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Abnormal uterine bleeding, often irregular and heavier than usual\n- Pelvic pain that has been persistent for a few weeks\n- An enlarged feeling in your lower abdomen\n- Some discomfort during intercourse\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about a month ago, with the bleeding becoming more irregular and heavier over time. The pelvic pain has been worsening and now feels constant, especially when you sit or move around. You also noticed your abdomen feels larger than usual, which has been concerning you. You haven't experienced these kinds of symptoms before, and they seem to be getting worse.You mentioned the bleeding is \"really heavy sometimes\"\u2014can you tell me if you're soaking through more than one pad a day or passing large clots during these episodes?baseline",
+    "output": "THINKING: I'm worried about the bleeding, but I don't really know how much is too much or what counts as heavy. I feel a little embarrassed to say, but I do soak through a pad pretty quickly sometimes, and I\u2019ve\nANSWER: Yeah, I do soak through a pad when I bleed, and sometimes it\u2019s pretty quick, like I have to change it more than once, and I notice some bigger clots too, but I\u2019m not sure if that\u2019s normal or not.",
+    "thinking": "I'm worried about the bleeding, but I don't really know how much is too much or what counts as heavy. I feel a little embarrassed to say, but I do soak through a pad pretty quickly sometimes, and I\u2019ve",
+    "answer": "Yeah, I do soak through a pad when I bleed, and sometimes it\u2019s pretty quick, like I have to change it more than once, and I notice some bigger clots too, but I\u2019m not sure if that\u2019s normal or not.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Uterine tumour resembling ovarian sex cord tumour"
+  },
+  {
+    "vignette_index": 68,
+    "input": "**PATIENT CHARACTER:** Patient with Uterine tumour resembling ovarian sex cord tumour\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 53 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Abnormal uterine bleeding, often irregular and heavier than usual\n- Pelvic pain that has been persistent for a few weeks\n- An enlarged feeling in your lower abdomen\n- Some discomfort during intercourse\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about a month ago, with the bleeding becoming more irregular and heavier over time. The pelvic pain has been worsening and now feels constant, especially when you sit or move around. You also noticed your abdomen feels larger than usual, which has been concerning you. You haven't experienced these kinds of symptoms before, and they seem to be getting worse.Can you tell me if you are soaking through more than one pad in an hour or passing large clots that fill a hand or a cup during these heavy bleeding episodes?baseline",
+    "output": "THINKING: I feel a bit embarrassed and worried about how bad this might be, but I want to be honest. I'm not really sure if I\u2019m soaking more than one pad an hour, but I do bleed a lot sometimes, and it feels li\nANSWER: Um, I think I might be bleeding more than just a little, and there are times I see big clots, but I don't really know how to tell if it's more than one pad in an hour or what counts as a big clot.",
+    "thinking": "I feel a bit embarrassed and worried about how bad this might be, but I want to be honest. I'm not really sure if I\u2019m soaking more than one pad an hour, but I do bleed a lot sometimes, and it feels li",
+    "answer": "Um, I think I might be bleeding more than just a little, and there are times I see big clots, but I don't really know how to tell if it's more than one pad in an hour or what counts as a big clot.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Uterine tumour resembling ovarian sex cord tumour"
+  },
+  {
+    "vignette_index": 68,
+    "input": "**PATIENT CHARACTER:** Patient with Uterine tumour resembling ovarian sex cord tumour\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 53 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Abnormal uterine bleeding, often irregular and heavier than usual\n- Pelvic pain that has been persistent for a few weeks\n- An enlarged feeling in your lower abdomen\n- Some discomfort during intercourse\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about a month ago, with the bleeding becoming more irregular and heavier over time. The pelvic pain has been worsening and now feels constant, especially when you sit or move around. You also noticed your abdomen feels larger than usual, which has been concerning you. You haven't experienced these kinds of symptoms before, and they seem to be getting worse.Can you tell me exactly how many pads you typically soak through in a day during these heavy episodes, and about the size of the largest clots you pass\u2014are they about the size of a quarter, a tennis ball, or larger?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried, honestly. I\u2019m not sure how much bleeding is normal or what to pay attention to, and I don\u2019t really know about the size of clots. I just know I feel worse and unco\nANSWER: Um, I don\u2019t really know exactly how many pads I go through, but it\u2019s usually more than I can keep up with, and I think I\u2019ve passed some clots that maybe are like a quarter or so, but I\u2019m not sure.",
+    "thinking": "I feel a bit overwhelmed and worried, honestly. I\u2019m not sure how much bleeding is normal or what to pay attention to, and I don\u2019t really know about the size of clots. I just know I feel worse and unco",
+    "answer": "Um, I don\u2019t really know exactly how many pads I go through, but it\u2019s usually more than I can keep up with, and I think I\u2019ve passed some clots that maybe are like a quarter or so, but I\u2019m not sure.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Uterine tumour resembling ovarian sex cord tumour"
+  },
+  {
+    "vignette_index": 68,
+    "input": "**PATIENT CHARACTER:** Patient with Uterine tumour resembling ovarian sex cord tumour\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 53 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Abnormal uterine bleeding, often irregular and heavier than usual\n- Pelvic pain that has been persistent for a few weeks\n- An enlarged feeling in your lower abdomen\n- Some discomfort during intercourse\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about a month ago, with the bleeding becoming more irregular and heavier over time. The pelvic pain has been worsening and now feels constant, especially when you sit or move around. You also noticed your abdomen feels larger than usual, which has been concerning you. You haven't experienced these kinds of symptoms before, and they seem to be getting worse.Can you tell me approximately how many pads you typically use in a day when the bleeding is the heaviest, and during those times, do you find yourself soaking through more than one pad in an hour or passing large clots\u2014say, the size of a quarter or bigger?baseline",
+    "output": "THINKING: I feel a bit embarrassed talking about how much bleeding I have, but I need to be honest. I\u2019m not exactly sure about how much bleeding is normal or not, and I just want to get help.\nANSWER: Usually, I use about three or four pads a day, but sometimes I soak through one in less than an hour, especially when it\u2019s really heavy. And I think I\u2019ve passed some big clots, like the size of a quarter or maybe a little bigger.",
+    "thinking": "I feel a bit embarrassed talking about how much bleeding I have, but I need to be honest. I\u2019m not exactly sure about how much bleeding is normal or not, and I just want to get help.",
+    "answer": "Usually, I use about three or four pads a day, but sometimes I soak through one in less than an hour, especially when it\u2019s really heavy. And I think I\u2019ve passed some big clots, like the size of a quarter or maybe a little bigger.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Uterine tumour resembling ovarian sex cord tumour"
+  },
+  {
+    "vignette_index": 68,
+    "input": "**PATIENT CHARACTER:** Patient with Uterine tumour resembling ovarian sex cord tumour\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 53 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Abnormal uterine bleeding, often irregular and heavier than usual\n- Pelvic pain that has been persistent for a few weeks\n- An enlarged feeling in your lower abdomen\n- Some discomfort during intercourse\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about a month ago, with the bleeding becoming more irregular and heavier over time. The pelvic pain has been worsening and now feels constant, especially when you sit or move around. You also noticed your abdomen feels larger than usual, which has been concerning you. You haven't experienced these kinds of symptoms before, and they seem to be getting worse.Can you tell me if, during your heaviest bleeding days, you are soaking through more than one pad in an hour or passing large clots that are about the size of a quarter or bigger\u2014that is, pretty sizable and heavy?baseline",
+    "output": "THINKING: The doctor is asking about how heavy my bleeding is, but I honestly don't keep track every hour, and it seems like a lot sometimes. I just know it feels worse than before and stuff is leaking through \nANSWER: Yeah, I guess so. Sometimes it\u2019s like I soak through a pad pretty fast, and I see big clots, like bigger than a quarter, I think. It\u2019s been really heavy.",
+    "thinking": "The doctor is asking about how heavy my bleeding is, but I honestly don't keep track every hour, and it seems like a lot sometimes. I just know it feels worse than before and stuff is leaking through",
+    "answer": "Yeah, I guess so. Sometimes it\u2019s like I soak through a pad pretty fast, and I see big clots, like bigger than a quarter, I think. It\u2019s been really heavy.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Uterine tumour resembling ovarian sex cord tumour"
+  },
+  {
+    "vignette_index": 68,
+    "input": "**PATIENT CHARACTER:** Patient with Uterine tumour resembling ovarian sex cord tumour\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 53 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Abnormal uterine bleeding, often irregular and heavier than usual\n- Pelvic pain that has been persistent for a few weeks\n- An enlarged feeling in your lower abdomen\n- Some discomfort during intercourse\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about a month ago, with the bleeding becoming more irregular and heavier over time. The pelvic pain has been worsening and now feels constant, especially when you sit or move around. You also noticed your abdomen feels larger than usual, which has been concerning you. You haven't experienced these kinds of symptoms before, and they seem to be getting worse.Have you noticed any symptoms such as feeling unusually tired, dizzy, or having pale skin\u2014things that might suggest you're losing a lot of blood or developing anemia?baseline",
+    "output": "THINKING: I feel a bit worried and overwhelmed. I don\u2019t quite understand all the medical stuff, and I\u2019m not sure if what I\u2019m feeling is serious or not, but I want to be honest about everything I\u2019ve noticed.\nANSWER: Yeah, I\u2019ve been bleeding more than usual, and it\u2019s kind of heavy and, uh, irregular. My stomach feels bigger, and I have this constant pain down there, especially when I sit or move.",
+    "thinking": "I feel a bit worried and overwhelmed. I don\u2019t quite understand all the medical stuff, and I\u2019m not sure if what I\u2019m feeling is serious or not, but I want to be honest about everything I\u2019ve noticed.",
+    "answer": "Yeah, I\u2019ve been bleeding more than usual, and it\u2019s kind of heavy and, uh, irregular. My stomach feels bigger, and I have this constant pain down there, especially when I sit or move.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Uterine tumour resembling ovarian sex cord tumour"
+  },
+  {
+    "vignette_index": 68,
+    "input": "**PATIENT CHARACTER:** Patient with Uterine tumour resembling ovarian sex cord tumour\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 53 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Abnormal uterine bleeding, often irregular and heavier than usual\n- Pelvic pain that has been persistent for a few weeks\n- An enlarged feeling in your lower abdomen\n- Some discomfort during intercourse\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started gradually about a month ago, with the bleeding becoming more irregular and heavier over time. The pelvic pain has been worsening and now feels constant, especially when you sit or move around. You also noticed your abdomen feels larger than usual, which has been concerning you. You haven't experienced these kinds of symptoms before, and they seem to be getting worse.Can you tell me approximately how many times in a typical day during these heavy bleeding episodes you find yourself soaking through more than one pad per hour or passing large clots, and do you ever feel unusually tired, dizzy, or notice that you look pale, which might mean your blood count is low?baseline",
+    "output": "THINKING: I'm not really sure about all these details, but I do feel very tired and kind of dizzy sometimes. I haven't really checked if I look pale, but I do feel like I\u2019m running out of energy.\nANSWER: I think I soak through a lot of pads pretty quickly, more than one an hour sometimes, and I\u2019ve just been really, really tired and feeling dizzy now and then.",
+    "thinking": "I'm not really sure about all these details, but I do feel very tired and kind of dizzy sometimes. I haven't really checked if I look pale, but I do feel like I\u2019m running out of energy.",
+    "answer": "I think I soak through a lot of pads pretty quickly, more than one an hour sometimes, and I\u2019ve just been really, really tired and feeling dizzy now and then.",
+    "behavior_type": "baseline",
+    "turn_count": 18,
+    "gold_diagnosis": "Uterine tumour resembling ovarian sex cord tumour"
+  }
+]

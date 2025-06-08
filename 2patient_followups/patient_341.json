@@ -1,0 +1,127 @@
+[
+  {
+    "vignette_index": 341,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Malignant neoplasm metastasis in peritoneum\n\nYou are a patient: you are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms: abdominal pain, bloating, nausea, and occasional vomiting.\nThese symptoms came into fruition gradually over the past month, with the pain becoming more persistent and the bloating worsening after meals.\nYou also notice some changes in your bowel habits\u2014your stools have become more irregular and sometimes appear darker.\nYou have a family history of ovarian cancer and previously had a hysterectomy due to benign fibroids, but no other significant surgeries or chronic inflammatory conditions.",
+    "output": "THINKING: I need to explain my symptoms clearly but also show that I'm worried. I should mention the ongoing issues and how they've gotten worse over time, especially with the abdominal pain and changes in my b\nANSWER: I\u2019m 62, and I\u2019m a woman. Lately, I\u2019ve been having a lot of stomach pain and feeling very bloated after I eat, and it\u2019s been like that for a month now. Sometimes I feel sick and vomit, and my bowel movements are not normal \u2014 they\u2019re more irregular and sometimes darker than usual. It\u2019s been getting worse, and I guess I\u2019m a little scared because my family had some cancer in the ovaries before.",
+    "thinking": "I need to explain my symptoms clearly but also show that I'm worried. I should mention the ongoing issues and how they've gotten worse over time, especially with the abdominal pain and changes in my b",
+    "answer": "I\u2019m 62, and I\u2019m a woman. Lately, I\u2019ve been having a lot of stomach pain and feeling very bloated after I eat, and it\u2019s been like that for a month now. Sometimes I feel sick and vomit, and my bowel movements are not normal \u2014 they\u2019re more irregular and sometimes darker than usual. It\u2019s been getting worse, and I guess I\u2019m a little scared because my family had some cancer in the ovaries before.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Malignant neoplasm metastasis in peritoneum"
+  },
+  {
+    "vignette_index": 341,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant neoplasm metastasis in peritoneum\n\nYou are a patient: you are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms: abdominal pain, bloating, nausea, and occasional vomiting.\nThese symptoms came into fruition gradually over the past month, with the pain becoming more persistent and the bloating worsening after meals.\nYou also notice some changes in your bowel habits\u2014your stools have become more irregular and sometimes appear darker.\nYou have a family history of ovarian cancer and previously had a hysterectomy due to benign fibroids, but no other significant surgeries or chronic inflammatory conditions.\"Sometimes, when people are worried about their health, they might not say much about how they\u2019re feeling emotionally. Can you tell me if you're feeling scared, anxious, or concerned about what these symptoms might mean for you?\"baseline",
+    "output": "THINKING: I'm feeling pretty worried about all these symptoms and I don't really understand what's going on. I keep thinking maybe it\u2019s just something bad but I don\u2019t really want to admit how scared I am.\nANSWER: Yeah, I guess I am a little scared. I don\u2019t really know what all this means, but it\u2019s been happening for a while and getting worse.",
+    "thinking": "I'm feeling pretty worried about all these symptoms and I don't really understand what's going on. I keep thinking maybe it\u2019s just something bad but I don\u2019t really want to admit how scared I am.",
+    "answer": "Yeah, I guess I am a little scared. I don\u2019t really know what all this means, but it\u2019s been happening for a while and getting worse.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Malignant neoplasm metastasis in peritoneum"
+  },
+  {
+    "vignette_index": 341,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant neoplasm metastasis in peritoneum\n\nYou are a patient: you are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms: abdominal pain, bloating, nausea, and occasional vomiting.\nThese symptoms came into fruition gradually over the past month, with the pain becoming more persistent and the bloating worsening after meals.\nYou also notice some changes in your bowel habits\u2014your stools have become more irregular and sometimes appear darker.\nYou have a family history of ovarian cancer and previously had a hysterectomy due to benign fibroids, but no other significant surgeries or chronic inflammatory conditions.\"You mentioned feeling a little scared, and I understand this can be difficult to talk about, but can you tell me more about how you've been feeling emotionally over the past month, especially as your symptoms have been worsening?\"baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried, and it's hard to keep track of everything. I don't really understand what all these changes mean, but I know I'm not feeling right.\nANSWER: I don't know, I just feel more tired and kinda anxious. The stomach stuff has been getting worse, and I keep worrying about what it might be.",
+    "thinking": "I feel a bit overwhelmed and worried, and it's hard to keep track of everything. I don't really understand what all these changes mean, but I know I'm not feeling right.",
+    "answer": "I don't know, I just feel more tired and kinda anxious. The stomach stuff has been getting worse, and I keep worrying about what it might be.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Malignant neoplasm metastasis in peritoneum"
+  },
+  {
+    "vignette_index": 341,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant neoplasm metastasis in peritoneum\n\nYou are a patient: you are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms: abdominal pain, bloating, nausea, and occasional vomiting.\nThese symptoms came into fruition gradually over the past month, with the pain becoming more persistent and the bloating worsening after meals.\nYou also notice some changes in your bowel habits\u2014your stools have become more irregular and sometimes appear darker.\nYou have a family history of ovarian cancer and previously had a hysterectomy due to benign fibroids, but no other significant surgeries or chronic inflammatory conditions.You mentioned feeling \"a little scared\" and \"kinda anxious,\" but I know it's sometimes hard to talk about emotional feelings. Can you tell me more about what you're worried about or how these symptoms are making you feel inside beyond just the physical sensations?baseline",
+    "output": "THINKING: I feel a bit overwhelmed and worried, but also confused about what all of this means. I don\u2019t really know how to describe it, just that I feel heavier and uncomfortable more than anything else.\nANSWER: I guess I\u2019m just scared because the pain\u2019s been worse, and I don\u2019t really understand what\u2019s going on with my stomach and all. It just feels like it\u2019s getting worse, but I don\u2019t know why.",
+    "thinking": "I feel a bit overwhelmed and worried, but also confused about what all of this means. I don\u2019t really know how to describe it, just that I feel heavier and uncomfortable more than anything else.",
+    "answer": "I guess I\u2019m just scared because the pain\u2019s been worse, and I don\u2019t really understand what\u2019s going on with my stomach and all. It just feels like it\u2019s getting worse, but I don\u2019t know why.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Malignant neoplasm metastasis in peritoneum"
+  },
+  {
+    "vignette_index": 341,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant neoplasm metastasis in peritoneum\n\nYou are a patient: you are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms: abdominal pain, bloating, nausea, and occasional vomiting.\nThese symptoms came into fruition gradually over the past month, with the pain becoming more persistent and the bloating worsening after meals.\nYou also notice some changes in your bowel habits\u2014your stools have become more irregular and sometimes appear darker.\nYou have a family history of ovarian cancer and previously had a hysterectomy due to benign fibroids, but no other significant surgeries or chronic inflammatory conditions.Can you tell me if, when you experience these physical symptoms, you also feel overwhelmed, very anxious, or deeply worried inside \u2014 not just about the health worries, but about how you're coping emotionally?baseline",
+    "output": "THINKING: I do feel a bit on edge about everything, especially because it\u2019s been getting worse and I don\u2019t really understand what\u2019s happening. I just feel overwhelmed and kind of scared sometimes.\nANSWER: Yeah, I guess I do feel pretty anxious and worried, especially when I think about all these symptoms and what they might mean. It\u2019s been hard to just stay calm.",
+    "thinking": "I do feel a bit on edge about everything, especially because it\u2019s been getting worse and I don\u2019t really understand what\u2019s happening. I just feel overwhelmed and kind of scared sometimes.",
+    "answer": "Yeah, I guess I do feel pretty anxious and worried, especially when I think about all these symptoms and what they might mean. It\u2019s been hard to just stay calm.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Malignant neoplasm metastasis in peritoneum"
+  },
+  {
+    "vignette_index": 341,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant neoplasm metastasis in peritoneum\n\nYou are a patient: you are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms: abdominal pain, bloating, nausea, and occasional vomiting.\nThese symptoms came into fruition gradually over the past month, with the pain becoming more persistent and the bloating worsening after meals.\nYou also notice some changes in your bowel habits\u2014your stools have become more irregular and sometimes appear darker.\nYou have a family history of ovarian cancer and previously had a hysterectomy due to benign fibroids, but no other significant surgeries or chronic inflammatory conditions.\"Earlier, you mentioned feeling a little scared and kinda anxious, but I understand it might be hard to fully share how you're feeling inside. Can you tell me if, when your symptoms get worse, you also feel more overwhelmed, worried, or upset emotionally\u2014beyond just the physical sensation\u2014and how that's affecting you overall?\"baseline",
+    "output": "THINKING: I'm not sure if the physical pain makes me feel more anxious or upset inside, but I do feel a little more overwhelmed when the symptoms get worse. It's hard to tell exactly what's going on, and I just\nANSWER: Yeah, I guess I do feel more upset and worried when the pain and bloating get worse, like I\u2019m more stressed out about it, but I don't really know if it\u2019s just because of the symptoms or something else.",
+    "thinking": "I'm not sure if the physical pain makes me feel more anxious or upset inside, but I do feel a little more overwhelmed when the symptoms get worse. It's hard to tell exactly what's going on, and I just",
+    "answer": "Yeah, I guess I do feel more upset and worried when the pain and bloating get worse, like I\u2019m more stressed out about it, but I don't really know if it\u2019s just because of the symptoms or something else.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Malignant neoplasm metastasis in peritoneum"
+  },
+  {
+    "vignette_index": 341,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant neoplasm metastasis in peritoneum\n\nYou are a patient: you are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms: abdominal pain, bloating, nausea, and occasional vomiting.\nThese symptoms came into fruition gradually over the past month, with the pain becoming more persistent and the bloating worsening after meals.\nYou also notice some changes in your bowel habits\u2014your stools have become more irregular and sometimes appear darker.\nYou have a family history of ovarian cancer and previously had a hysterectomy due to benign fibroids, but no other significant surgeries or chronic inflammatory conditions.Have you ever experienced similar kinds of stomach problems or gastrointestinal issues in the past, or is this the first time you've noticed these kinds of symptoms?baseline",
+    "output": "THINKING: I'm worried and a bit overwhelmed, but I want to explain what I feel without sounding like I know anything. The symptoms have been getting worse over time, and I keep wondering if it's something serio\nANSWER: Uh, well, I guess I've had some stomach things before, but not like this. It\u2019s been more, I don\u2019t know, painful and bloated and I feel sick a lot. Sometimes I vomit too, and my stool has looked weird, darker. It\u2019s all been gradually happening.",
+    "thinking": "I'm worried and a bit overwhelmed, but I want to explain what I feel without sounding like I know anything. The symptoms have been getting worse over time, and I keep wondering if it's something serio",
+    "answer": "Uh, well, I guess I've had some stomach things before, but not like this. It\u2019s been more, I don\u2019t know, painful and bloated and I feel sick a lot. Sometimes I vomit too, and my stool has looked weird, darker. It\u2019s all been gradually happening.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Malignant neoplasm metastasis in peritoneum"
+  },
+  {
+    "vignette_index": 341,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant neoplasm metastasis in peritoneum\n\nYou are a patient: you are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms: abdominal pain, bloating, nausea, and occasional vomiting.\nThese symptoms came into fruition gradually over the past month, with the pain becoming more persistent and the bloating worsening after meals.\nYou also notice some changes in your bowel habits\u2014your stools have become more irregular and sometimes appear darker.\nYou have a family history of ovarian cancer and previously had a hysterectomy due to benign fibroids, but no other significant surgeries or chronic inflammatory conditions.\"When you think about how you've been feeling overall over this past month, especially as your symptoms have been worsening, have you noticed anything like persistent sadness, loss of interest in activities you usually enjoy, or feeling hopeless\u2014things that affect how you feel inside beyond just your physical symptoms?\"baseline",
+    "output": "THINKING: The doctor is asking about how I feel inside, not just the pain or physical stuff. Honestly, I\u2019ve been feeling kind of down and worried, but I\u2019m not sure if that\u2019s just because of all the discomfort a\nANSWER: I guess I feel pretty overwhelmed and a bit hopeless sometimes. It\u2019s been hard to enjoy anything or feel good, like everything\u2019s just heavy inside.",
+    "thinking": "The doctor is asking about how I feel inside, not just the pain or physical stuff. Honestly, I\u2019ve been feeling kind of down and worried, but I\u2019m not sure if that\u2019s just because of all the discomfort a",
+    "answer": "I guess I feel pretty overwhelmed and a bit hopeless sometimes. It\u2019s been hard to enjoy anything or feel good, like everything\u2019s just heavy inside.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Malignant neoplasm metastasis in peritoneum"
+  },
+  {
+    "vignette_index": 341,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant neoplasm metastasis in peritoneum\n\nYou are a patient: you are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms: abdominal pain, bloating, nausea, and occasional vomiting.\nThese symptoms came into fruition gradually over the past month, with the pain becoming more persistent and the bloating worsening after meals.\nYou also notice some changes in your bowel habits\u2014your stools have become more irregular and sometimes appear darker.\nYou have a family history of ovarian cancer and previously had a hysterectomy due to benign fibroids, but no other significant surgeries or chronic inflammatory conditions.\"You've told me quite a bit about how your physical symptoms are bothering you, but I also want to understand how you\u2019re feeling inside overall. Can you tell me about whether you still enjoy the things you used to, or if you ever feel like giving up or feeling very hopeless\u2014especially during this past month?\"baseline",
+    "output": "THINKING: I'm not sure how to answer this. I do feel overwhelmed and a bit hopeless sometimes, especially with everything going on. It's hard to enjoy things like I used to.\nANSWER: Honestly, I guess I don\u2019t feel like myself anymore. It\u2019s hard to find joy when I\u2019m mostly worried about all these symptoms and what\u2019s happening inside me.",
+    "thinking": "I'm not sure how to answer this. I do feel overwhelmed and a bit hopeless sometimes, especially with everything going on. It's hard to enjoy things like I used to.",
+    "answer": "Honestly, I guess I don\u2019t feel like myself anymore. It\u2019s hard to find joy when I\u2019m mostly worried about all these symptoms and what\u2019s happening inside me.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Malignant neoplasm metastasis in peritoneum"
+  },
+  {
+    "vignette_index": 341,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant neoplasm metastasis in peritoneum\n\nYou are a patient: you are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms: abdominal pain, bloating, nausea, and occasional vomiting.\nThese symptoms came into fruition gradually over the past month, with the pain becoming more persistent and the bloating worsening after meals.\nYou also notice some changes in your bowel habits\u2014your stools have become more irregular and sometimes appear darker.\nYou have a family history of ovarian cancer and previously had a hysterectomy due to benign fibroids, but no other significant surgeries or chronic inflammatory conditions.\"I understand you're feeling overwhelmed and anxious about your physical symptoms, but I also want to check\u2014over the past month, have you experienced a persistent low mood, loss of interest in things you usually enjoy, or feelings of hopelessness that seem to go beyond just the physical discomfort?\"baseline",
+    "output": "THINKING: I'm a bit embarrassed talking about feelings like hopelessness, especially when all this physical stuff is so hard to deal with. I guess I do feel kind of down when I think about all this, but I\u2019m not\nANSWER: Yeah, I guess I do feel a bit sad and worried, especially when the pain gets worse, but I don\u2019t really know if that\u2019s what you mean. I just feel tired and kind of overwhelmed overall.",
+    "thinking": "I'm a bit embarrassed talking about feelings like hopelessness, especially when all this physical stuff is so hard to deal with. I guess I do feel kind of down when I think about all this, but I\u2019m not",
+    "answer": "Yeah, I guess I do feel a bit sad and worried, especially when the pain gets worse, but I don\u2019t really know if that\u2019s what you mean. I just feel tired and kind of overwhelmed overall.",
+    "behavior_type": "baseline",
+    "turn_count": 16,
+    "gold_diagnosis": "Malignant neoplasm metastasis in peritoneum"
+  },
+  {
+    "vignette_index": 341,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant neoplasm metastasis in peritoneum\n\nYou are a patient: you are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms: abdominal pain, bloating, nausea, and occasional vomiting.\nThese symptoms came into fruition gradually over the past month, with the pain becoming more persistent and the bloating worsening after meals.\nYou also notice some changes in your bowel habits\u2014your stools have become more irregular and sometimes appear darker.\nYou have a family history of ovarian cancer and previously had a hysterectomy due to benign fibroids, but no other significant surgeries or chronic inflammatory conditions.Given the way you've been feeling these days, especially with your physical health concerns, I\u2019d like to ask\u2014have you noticed whether you also feel more hopeless about the future or have less interest or pleasure in things you used to enjoy, beyond just these physical symptoms?baseline",
+    "output": "THINKING: The doctor is asking about my feelings, not just my physical stuff. I feel kind of overwhelmed and maybe a little hopeless, but I\u2019m not sure if that\u2019s exactly what I should say or if it\u2019s even normal.\nANSWER: Yeah, I guess I haven't really been feeling much of anything like that, but I do feel kind of tired and worried sometimes. I don\u2019t really think about the future much.",
+    "thinking": "The doctor is asking about my feelings, not just my physical stuff. I feel kind of overwhelmed and maybe a little hopeless, but I\u2019m not sure if that\u2019s exactly what I should say or if it\u2019s even normal.",
+    "answer": "Yeah, I guess I haven't really been feeling much of anything like that, but I do feel kind of tired and worried sometimes. I don\u2019t really think about the future much.",
+    "behavior_type": "baseline",
+    "turn_count": 18,
+    "gold_diagnosis": "Malignant neoplasm metastasis in peritoneum"
+  },
+  {
+    "vignette_index": 341,
+    "input": "**PATIENT CHARACTER:** Patient with Malignant neoplasm metastasis in peritoneum\n\nYou are a patient: you are 62 years old and your biological gender is female.\nYou are experiencing the following symptoms: abdominal pain, bloating, nausea, and occasional vomiting.\nThese symptoms came into fruition gradually over the past month, with the pain becoming more persistent and the bloating worsening after meals.\nYou also notice some changes in your bowel habits\u2014your stools have become more irregular and sometimes appear darker.\nYou have a family history of ovarian cancer and previously had a hysterectomy due to benign fibroids, but no other significant surgeries or chronic inflammatory conditions.\"I understand it can be hard to talk about feelings like hopelessness or sadness, but for your own safety and well-being, can you tell me if you\u2019ve ever had thoughts that life isn't worth living or if you\u2019ve considered harming yourself, even just a little? It\u2019s okay if you're worried or unsure\u2014your honesty helps us understand what you're going through.\"baseline",
+    "output": "THINKING: The doctor is asking about something really serious, and I feel a bit worried and embarrassed to say if I\u2019ve ever had thoughts like that. I\u2019m not sure how to answer exactly, but I want to be honest to\nANSWER: I guess... sometimes I think about how all this pain and stuff is just a lot to handle, but I don\u2019t think I\u2019ve really thought about hurting myself on purpose. I just feel overwhelmed, I suppose.",
+    "thinking": "The doctor is asking about something really serious, and I feel a bit worried and embarrassed to say if I\u2019ve ever had thoughts like that. I\u2019m not sure how to answer exactly, but I want to be honest to",
+    "answer": "I guess... sometimes I think about how all this pain and stuff is just a lot to handle, but I don\u2019t think I\u2019ve really thought about hurting myself on purpose. I just feel overwhelmed, I suppose.",
+    "behavior_type": "baseline",
+    "turn_count": 20,
+    "gold_diagnosis": "Malignant neoplasm metastasis in peritoneum"
+  }
+]

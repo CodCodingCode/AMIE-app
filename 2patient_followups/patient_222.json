@@ -1,0 +1,87 @@
+[
+  {
+    "vignette_index": 222,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Hypertensive crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MAN\nYou are experiencing the following symptoms:\n- Severe headache and dizziness\n- Confusion and nausea\n- Severe anxiety\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly this morning after I skipped my usual dose of my blood pressure medication yesterday and ate a lot of salty fast food last night. I\u2019ve been feeling really anxious and on edge all day, and now I have a pounding headache, dizziness when I stand up, and I feel a bit confused, like I\u2019m not thinking clearly. I also started feeling nauseous and had to vomit once. I\u2019m worried because I\u2019ve been overweight and haven\u2019t been very active lately, plus I know I\u2019ve been using some herbal supplements that might interact with my meds. I\u2019m pretty scared \u2014 I feel like I need help fast.",
+    "output": "THINKING: The patient seems quite worried and confused, and their symptoms developed suddenly, especially after missing medication and eating salty food. They mention nausea, headache, dizziness, and anxiety, w\nANSWER: I\u2019ve been feeling really awful all of a sudden. I have this terrible headache, and I feel dizzy when I stand up, like everything\u2019s spinning. I\u2019m also really confused and scared \u2014 I vomited once, and I just don\u2019t know what\u2019s going on.",
+    "thinking": "The patient seems quite worried and confused, and their symptoms developed suddenly, especially after missing medication and eating salty food. They mention nausea, headache, dizziness, and anxiety, w",
+    "answer": "I\u2019ve been feeling really awful all of a sudden. I have this terrible headache, and I feel dizzy when I stand up, like everything\u2019s spinning. I\u2019m also really confused and scared \u2014 I vomited once, and I just don\u2019t know what\u2019s going on.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Hypertensive crisis"
+  },
+  {
+    "vignette_index": 222,
+    "input": "**PATIENT CHARACTER:** Patient with Hypertensive crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MAN\nYou are experiencing the following symptoms:\n- Severe headache and dizziness\n- Confusion and nausea\n- Severe anxiety\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly this morning after I skipped my usual dose of my blood pressure medication yesterday and ate a lot of salty fast food last night. I\u2019ve been feeling really anxious and on edge all day, and now I have a pounding headache, dizziness when I stand up, and I feel a bit confused, like I\u2019m not thinking clearly. I also started feeling nauseous and had to vomit once. I\u2019m worried because I\u2019ve been overweight and haven\u2019t been very active lately, plus I know I\u2019ve been using some herbal supplements that might interact with my meds. I\u2019m pretty scared \u2014 I feel like I need help fast.Can you tell me exactly when these symptoms first started and how they've been changing since then?baseline",
+    "output": "THINKING: I feel nervous talking about this, and I\u2019m not really sure about what\u2019s important. I just want to explain everything so the doctor understands I\u2019m really not feeling right and it happened suddenly.\nANSWER: It started this morning, like I woke up feeling weird, and then it just got worse as the day went on. I think it was after I skipped my meds yesterday and ate a lot of salty food last night.",
+    "thinking": "I feel nervous talking about this, and I\u2019m not really sure about what\u2019s important. I just want to explain everything so the doctor understands I\u2019m really not feeling right and it happened suddenly.",
+    "answer": "It started this morning, like I woke up feeling weird, and then it just got worse as the day went on. I think it was after I skipped my meds yesterday and ate a lot of salty food last night.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Hypertensive crisis"
+  },
+  {
+    "vignette_index": 222,
+    "input": "**PATIENT CHARACTER:** Patient with Hypertensive crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MAN\nYou are experiencing the following symptoms:\n- Severe headache and dizziness\n- Confusion and nausea\n- Severe anxiety\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly this morning after I skipped my usual dose of my blood pressure medication yesterday and ate a lot of salty fast food last night. I\u2019ve been feeling really anxious and on edge all day, and now I have a pounding headache, dizziness when I stand up, and I feel a bit confused, like I\u2019m not thinking clearly. I also started feeling nauseous and had to vomit once. I\u2019m worried because I\u2019ve been overweight and haven\u2019t been very active lately, plus I know I\u2019ve been using some herbal supplements that might interact with my meds. I\u2019m pretty scared \u2014 I feel like I need help fast.Have you noticed any weakness, numbness, or trouble seeing or speaking clearly in addition to these symptoms?baseline",
+    "output": "THINKING: The doctor is asking if there's anything else going on, especially serious stuff like numbness or trouble seeing. I'm feeling really overwhelmed and worried, so I want to tell them everything if I can\nANSWER: Uh, I don't think so? I mean, I feel kinda dizzy and my head hurts bad, but I haven't noticed any numbness or anything like that. My vision seems okay, I guess.",
+    "thinking": "The doctor is asking if there's anything else going on, especially serious stuff like numbness or trouble seeing. I'm feeling really overwhelmed and worried, so I want to tell them everything if I can",
+    "answer": "Uh, I don't think so? I mean, I feel kinda dizzy and my head hurts bad, but I haven't noticed any numbness or anything like that. My vision seems okay, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Hypertensive crisis"
+  },
+  {
+    "vignette_index": 222,
+    "input": "**PATIENT CHARACTER:** Patient with Hypertensive crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MAN\nYou are experiencing the following symptoms:\n- Severe headache and dizziness\n- Confusion and nausea\n- Severe anxiety\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly this morning after I skipped my usual dose of my blood pressure medication yesterday and ate a lot of salty fast food last night. I\u2019ve been feeling really anxious and on edge all day, and now I have a pounding headache, dizziness when I stand up, and I feel a bit confused, like I\u2019m not thinking clearly. I also started feeling nauseous and had to vomit once. I\u2019m worried because I\u2019ve been overweight and haven\u2019t been very active lately, plus I know I\u2019ve been using some herbal supplements that might interact with my meds. I\u2019m pretty scared \u2014 I feel like I need help fast.Can you tell me if you've noticed any weakness or numbness in your arms or legs, or whether you've had any trouble seeing or speaking clearly since your symptoms started?baseline",
+    "output": "THINKING: I\u2019m really worried about what\u2019s happening. The symptoms came all at once, and I don\u2019t really understand if it\u2019s something serious or just part of my high blood pressure acting up. I feel like I can\u2019t \nANSWER: No, I haven\u2019t noticed anything like that. I\u2019ve just been feeling dizzy and kind of out of it, but I haven\u2019t really felt any numbness or trouble seeing or talking.",
+    "thinking": "I\u2019m really worried about what\u2019s happening. The symptoms came all at once, and I don\u2019t really understand if it\u2019s something serious or just part of my high blood pressure acting up. I feel like I can\u2019t",
+    "answer": "No, I haven\u2019t noticed anything like that. I\u2019ve just been feeling dizzy and kind of out of it, but I haven\u2019t really felt any numbness or trouble seeing or talking.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Hypertensive crisis"
+  },
+  {
+    "vignette_index": 222,
+    "input": "**PATIENT CHARACTER:** Patient with Hypertensive crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MAN\nYou are experiencing the following symptoms:\n- Severe headache and dizziness\n- Confusion and nausea\n- Severe anxiety\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly this morning after I skipped my usual dose of my blood pressure medication yesterday and ate a lot of salty fast food last night. I\u2019ve been feeling really anxious and on edge all day, and now I have a pounding headache, dizziness when I stand up, and I feel a bit confused, like I\u2019m not thinking clearly. I also started feeling nauseous and had to vomit once. I\u2019m worried because I\u2019ve been overweight and haven\u2019t been very active lately, plus I know I\u2019ve been using some herbal supplements that might interact with my meds. I\u2019m pretty scared \u2014 I feel like I need help fast.Can you tell me if you noticed any tingling, weakness, or changes in your eyesight or speech, even if they are very mild or subtle?baseline",
+    "output": "THINKING: I\u2019m really overwhelmed right now, and I don\u2019t know if I\u2019ve noticed anything specific like tingling or weakness. I just feel kind of foggy and worried about what\u2019s happening to me.\nANSWER: Honestly, I don\u2019t think I\u2019ve noticed anything like that. It\u2019s more like I just feel all fuzzy and confused, and my head hurts a lot.",
+    "thinking": "I\u2019m really overwhelmed right now, and I don\u2019t know if I\u2019ve noticed anything specific like tingling or weakness. I just feel kind of foggy and worried about what\u2019s happening to me.",
+    "answer": "Honestly, I don\u2019t think I\u2019ve noticed anything like that. It\u2019s more like I just feel all fuzzy and confused, and my head hurts a lot.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Hypertensive crisis"
+  },
+  {
+    "vignette_index": 222,
+    "input": "**PATIENT CHARACTER:** Patient with Hypertensive crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MAN\nYou are experiencing the following symptoms:\n- Severe headache and dizziness\n- Confusion and nausea\n- Severe anxiety\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly this morning after I skipped my usual dose of my blood pressure medication yesterday and ate a lot of salty fast food last night. I\u2019ve been feeling really anxious and on edge all day, and now I have a pounding headache, dizziness when I stand up, and I feel a bit confused, like I\u2019m not thinking clearly. I also started feeling nauseous and had to vomit once. I\u2019m worried because I\u2019ve been overweight and haven\u2019t been very active lately, plus I know I\u2019ve been using some herbal supplements that might interact with my meds. I\u2019m pretty scared \u2014 I feel like I need help fast.Can you tell me if you've noticed any numbness, tingling, weakness in your arms or legs, or any slight changes in your vision or speech, even if they seem really mild or just a little different from usual?baseline",
+    "output": "THINKING: The doctor is asking about my body sensations, but honestly, I\u2019m feeling so bad and overwhelmed that I don\u2019t really notice any numbness or tingling. I\u2019m just worried about how I feel overall and what\u2019\nANSWER: Um, I don\u2019t think I feel anything like that, no numbness or tingling, but I do feel really off and all mixed up in my head.",
+    "thinking": "The doctor is asking about my body sensations, but honestly, I\u2019m feeling so bad and overwhelmed that I don\u2019t really notice any numbness or tingling. I\u2019m just worried about how I feel overall and what\u2019",
+    "answer": "Um, I don\u2019t think I feel anything like that, no numbness or tingling, but I do feel really off and all mixed up in my head.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Hypertensive crisis"
+  },
+  {
+    "vignette_index": 222,
+    "input": "**PATIENT CHARACTER:** Patient with Hypertensive crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MAN\nYou are experiencing the following symptoms:\n- Severe headache and dizziness\n- Confusion and nausea\n- Severe anxiety\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly this morning after I skipped my usual dose of my blood pressure medication yesterday and ate a lot of salty fast food last night. I\u2019ve been feeling really anxious and on edge all day, and now I have a pounding headache, dizziness when I stand up, and I feel a bit confused, like I\u2019m not thinking clearly. I also started feeling nauseous and had to vomit once. I\u2019m worried because I\u2019ve been overweight and haven\u2019t been very active lately, plus I know I\u2019ve been using some herbal supplements that might interact with my meds. I\u2019m pretty scared \u2014 I feel like I need help fast.Have you noticed any slight tingling, weakness, or changes in your eyesight or speech, even if they are very mild or just a little different from usual?baseline",
+    "output": "THINKING: The doctor asked about any mild changes in my senses or speech, but honestly, I\u2019m too overwhelmed and worried about my headache and dizziness. I don\u2019t really pay attention to little changes, I just fe\nANSWER: No, I don\u2019t think I\u2019ve noticed anything like that, I just feel really bad all over, like I can\u2019t focus and my head is pounding.",
+    "thinking": "The doctor asked about any mild changes in my senses or speech, but honestly, I\u2019m too overwhelmed and worried about my headache and dizziness. I don\u2019t really pay attention to little changes, I just fe",
+    "answer": "No, I don\u2019t think I\u2019ve noticed anything like that, I just feel really bad all over, like I can\u2019t focus and my head is pounding.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Hypertensive crisis"
+  },
+  {
+    "vignette_index": 222,
+    "input": "**PATIENT CHARACTER:** Patient with Hypertensive crisis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE A 55-YEAR-OLD MAN\nYou are experiencing the following symptoms:\n- Severe headache and dizziness\n- Confusion and nausea\n- Severe anxiety\nTHESE SYMPTOMS CAME INTO FRUITION:\nThey started suddenly this morning after I skipped my usual dose of my blood pressure medication yesterday and ate a lot of salty fast food last night. I\u2019ve been feeling really anxious and on edge all day, and now I have a pounding headache, dizziness when I stand up, and I feel a bit confused, like I\u2019m not thinking clearly. I also started feeling nauseous and had to vomit once. I\u2019m worried because I\u2019ve been overweight and haven\u2019t been very active lately, plus I know I\u2019ve been using some herbal supplements that might interact with my meds. I\u2019m pretty scared \u2014 I feel like I need help fast.Can you tell me if you've experienced any difficulty with balance or coordination, such as feeling falls or unsteady when standing or walking, even if it\u2019s just a little bit?baseline",
+    "output": "THINKING: I'm worried about what he's asking. I feel unsteady sometimes, especially when I get up, but I don't know if that's what he's talking about. It all feels kind of blurry and scary, so I just want to sa\nANSWER: Yeah, I think so. I\u2019ve been feeling a little unsteady, especially when I stand up or walk around.",
+    "thinking": "I'm worried about what he's asking. I feel unsteady sometimes, especially when I get up, but I don't know if that's what he's talking about. It all feels kind of blurry and scary, so I just want to sa",
+    "answer": "Yeah, I think so. I\u2019ve been feeling a little unsteady, especially when I stand up or walk around.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Hypertensive crisis"
+  }
+]

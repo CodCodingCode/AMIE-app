@@ -1,0 +1,97 @@
+[
+  {
+    "vignette_index": 45,
+    "input": "\nWhat brings you in today?**PATIENT CHARACTER:** Patient with Hashimoto thyroiditis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 42 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Fatigue that has been worsening over the past couple of months, making it hard to get through the day.\n- Noticeable weight gain despite no changes in your diet or activity level.\n- Puffiness around your face, especially in the mornings.\n- Constipation that has become more frequent over the last few weeks.\n- Aching joints and muscle pain that seem to come and go.\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past three months, starting with the fatigue and weight gain, then progressing to facial puffiness and joint discomfort. You\u2019ve noticed these changes are persistent and impacting your daily life, but you initially thought it was just stress or aging.",
+    "output": "THINKING: I should honestly just tell the doctor what I\u2019ve been feeling without overthinking it. I feel tired all the time and it seems to be getting worse. The weight and puffiness are bothering me too, and I\u2019\nANSWER: Well, I\u2019ve been feeling really tired for a couple of months now, like I just can\u2019t seem to shake it off, no matter how much I rest. I\u2019ve gained some weight, and my face looks puffier than usual, especially in the mornings. I also have these pains in my joints and muscles that come and go, and I\u2019ve been constipated more often lately. It\u2019s all kind of messing with my everyday life.",
+    "thinking": "I should honestly just tell the doctor what I\u2019ve been feeling without overthinking it. I feel tired all the time and it seems to be getting worse. The weight and puffiness are bothering me too, and I\u2019",
+    "answer": "Well, I\u2019ve been feeling really tired for a couple of months now, like I just can\u2019t seem to shake it off, no matter how much I rest. I\u2019ve gained some weight, and my face looks puffier than usual, especially in the mornings. I also have these pains in my joints and muscles that come and go, and I\u2019ve been constipated more often lately. It\u2019s all kind of messing with my everyday life.",
+    "behavior_type": "baseline",
+    "behavior_config": {
+      "weight": 0.4,
+      "description": "Standard patient behavior",
+      "modifiers": [],
+      "empathy_cues": []
+    },
+    "gold_diagnosis": "Hashimoto thyroiditis"
+  },
+  {
+    "vignette_index": 45,
+    "input": "**PATIENT CHARACTER:** Patient with Hashimoto thyroiditis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 42 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Fatigue that has been worsening over the past couple of months, making it hard to get through the day.\n- Noticeable weight gain despite no changes in your diet or activity level.\n- Puffiness around your face, especially in the mornings.\n- Constipation that has become more frequent over the last few weeks.\n- Aching joints and muscle pain that seem to come and go.\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past three months, starting with the fatigue and weight gain, then progressing to facial puffiness and joint discomfort. You\u2019ve noticed these changes are persistent and impacting your daily life, but you initially thought it was just stress or aging.Can you tell me more about when these symptoms first started and how they have changed over the past couple of months?baseline",
+    "output": "THINKING: I feel a bit overwhelmed because all these things just kept getting worse, and I don\u2019t exactly understand what\u2019s going on, but I want to explain so maybe it helps me figure it out.\nANSWER: It started a few months ago with feeling really exhausted all the time, and then I started gaining weight even though I wasn\u2019t eating more, and I noticed my face looked puffy in the mornings. It\u2019s been pretty much like that since then, and it\u2019s a lot to deal with.",
+    "thinking": "I feel a bit overwhelmed because all these things just kept getting worse, and I don\u2019t exactly understand what\u2019s going on, but I want to explain so maybe it helps me figure it out.",
+    "answer": "It started a few months ago with feeling really exhausted all the time, and then I started gaining weight even though I wasn\u2019t eating more, and I noticed my face looked puffy in the mornings. It\u2019s been pretty much like that since then, and it\u2019s a lot to deal with.",
+    "behavior_type": "baseline",
+    "turn_count": 0,
+    "gold_diagnosis": "Hashimoto thyroiditis"
+  },
+  {
+    "vignette_index": 45,
+    "input": "**PATIENT CHARACTER:** Patient with Hashimoto thyroiditis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 42 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Fatigue that has been worsening over the past couple of months, making it hard to get through the day.\n- Noticeable weight gain despite no changes in your diet or activity level.\n- Puffiness around your face, especially in the mornings.\n- Constipation that has become more frequent over the last few weeks.\n- Aching joints and muscle pain that seem to come and go.\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past three months, starting with the fatigue and weight gain, then progressing to facial puffiness and joint discomfort. You\u2019ve noticed these changes are persistent and impacting your daily life, but you initially thought it was just stress or aging.\"Can you tell me more about how these symptoms are affecting your daily life\u2014like your work, activities, or how you\u2019re feeling emotionally?\"baseline",
+    "output": "THINKING: I'm feeling a bit overwhelmed and tired just thinking about how these symptoms are messing with my daily routine. I don't really understand how all these things connect, but I know I don't feel right.\nANSWER: Well, I guess I just feel more tired than usual, and it\u2019s hard to do things I used to do. My face looks puffy in the mornings, and I\u2019ve been feeling kinda sluggish and uncomfortable.",
+    "thinking": "I'm feeling a bit overwhelmed and tired just thinking about how these symptoms are messing with my daily routine. I don't really understand how all these things connect, but I know I don't feel right.",
+    "answer": "Well, I guess I just feel more tired than usual, and it\u2019s hard to do things I used to do. My face looks puffy in the mornings, and I\u2019ve been feeling kinda sluggish and uncomfortable.",
+    "behavior_type": "baseline",
+    "turn_count": 2,
+    "gold_diagnosis": "Hashimoto thyroiditis"
+  },
+  {
+    "vignette_index": 45,
+    "input": "**PATIENT CHARACTER:** Patient with Hashimoto thyroiditis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 42 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Fatigue that has been worsening over the past couple of months, making it hard to get through the day.\n- Noticeable weight gain despite no changes in your diet or activity level.\n- Puffiness around your face, especially in the mornings.\n- Constipation that has become more frequent over the last few weeks.\n- Aching joints and muscle pain that seem to come and go.\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past three months, starting with the fatigue and weight gain, then progressing to facial puffiness and joint discomfort. You\u2019ve noticed these changes are persistent and impacting your daily life, but you initially thought it was just stress or aging.Can you tell me more about how your energy levels have changed over time and whether you've noticed feeling colder or experiencing any hair changes or other body things that seem different from before?baseline",
+    "output": "THINKING: She\u2019s asking about my overall feelings and any noticeable changes, but honestly, I just feel more tired all the time and kind of weirdly puffy. I don\u2019t really understand what constitutes normal or not\nANSWER: Yeah, I guess I do feel colder more often, and my face looks puffier in the mornings, but I don\u2019t really know if all that is normal or not. It just feels different.",
+    "thinking": "She\u2019s asking about my overall feelings and any noticeable changes, but honestly, I just feel more tired all the time and kind of weirdly puffy. I don\u2019t really understand what constitutes normal or not",
+    "answer": "Yeah, I guess I do feel colder more often, and my face looks puffier in the mornings, but I don\u2019t really know if all that is normal or not. It just feels different.",
+    "behavior_type": "baseline",
+    "turn_count": 4,
+    "gold_diagnosis": "Hashimoto thyroiditis"
+  },
+  {
+    "vignette_index": 45,
+    "input": "**PATIENT CHARACTER:** Patient with Hashimoto thyroiditis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 42 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Fatigue that has been worsening over the past couple of months, making it hard to get through the day.\n- Noticeable weight gain despite no changes in your diet or activity level.\n- Puffiness around your face, especially in the mornings.\n- Constipation that has become more frequent over the last few weeks.\n- Aching joints and muscle pain that seem to come and go.\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past three months, starting with the fatigue and weight gain, then progressing to facial puffiness and joint discomfort. You\u2019ve noticed these changes are persistent and impacting your daily life, but you initially thought it was just stress or aging.Can you tell me more about how tired you feel on most days, especially compared to before, and if that fatigue has been affecting your ability to do your usual activities or if it\u2019s been getting worse lately?baseline",
+    "output": "THINKING: I feel a bit overwhelmed explaining all my symptoms and don\u2019t really know what\u2019s happening, but I know I\u2019m REALLY tired all the time and it\u2019s worse than before. I guess it\u2019s making things harder to do\nANSWER: I\u2019ve been really tired lately, like more than before, and it\u2019s making it hard to do my usual stuff. It seems worse now than a few months ago.",
+    "thinking": "I feel a bit overwhelmed explaining all my symptoms and don\u2019t really know what\u2019s happening, but I know I\u2019m REALLY tired all the time and it\u2019s worse than before. I guess it\u2019s making things harder to do",
+    "answer": "I\u2019ve been really tired lately, like more than before, and it\u2019s making it hard to do my usual stuff. It seems worse now than a few months ago.",
+    "behavior_type": "baseline",
+    "turn_count": 6,
+    "gold_diagnosis": "Hashimoto thyroiditis"
+  },
+  {
+    "vignette_index": 45,
+    "input": "**PATIENT CHARACTER:** Patient with Hashimoto thyroiditis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 42 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Fatigue that has been worsening over the past couple of months, making it hard to get through the day.\n- Noticeable weight gain despite no changes in your diet or activity level.\n- Puffiness around your face, especially in the mornings.\n- Constipation that has become more frequent over the last few weeks.\n- Aching joints and muscle pain that seem to come and go.\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past three months, starting with the fatigue and weight gain, then progressing to facial puffiness and joint discomfort. You\u2019ve noticed these changes are persistent and impacting your daily life, but you initially thought it was just stress or aging.Can you tell me if you've noticed any changes to your skin, such as dryness, roughness, or swelling, or if you\u2019ve seen anything unusual about your neck, like enlarging or visible lumps?baseline",
+    "output": "THINKING: The doctor is asking about my skin and neck, but I just feel like everything seems a little off, and I haven't really looked closely. I guess I should say if I\u2019ve seen anything strange or new?\nANSWER: Um, I don\u2019t know, I haven\u2019t really noticed anything like swelling or lumps, but my face looks more puffy some mornings, I guess.",
+    "thinking": "The doctor is asking about my skin and neck, but I just feel like everything seems a little off, and I haven't really looked closely. I guess I should say if I\u2019ve seen anything strange or new?",
+    "answer": "Um, I don\u2019t know, I haven\u2019t really noticed anything like swelling or lumps, but my face looks more puffy some mornings, I guess.",
+    "behavior_type": "baseline",
+    "turn_count": 8,
+    "gold_diagnosis": "Hashimoto thyroiditis"
+  },
+  {
+    "vignette_index": 45,
+    "input": "**PATIENT CHARACTER:** Patient with Hashimoto thyroiditis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 42 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Fatigue that has been worsening over the past couple of months, making it hard to get through the day.\n- Noticeable weight gain despite no changes in your diet or activity level.\n- Puffiness around your face, especially in the mornings.\n- Constipation that has become more frequent over the last few weeks.\n- Aching joints and muscle pain that seem to come and go.\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past three months, starting with the fatigue and weight gain, then progressing to facial puffiness and joint discomfort. You\u2019ve noticed these changes are persistent and impacting your daily life, but you initially thought it was just stress or aging.Can you tell me if you've noticed any swelling or enlargements in your neck or throat area, or changes in your skin, like it feeling drier, rougher, or puffier, especially around your face or hands?baseline",
+    "output": "THINKING: I'm a bit worried about what he's asking, and I do notice some puffiness, especially around my face in the mornings. I guess I haven't really checked my neck or anything else closely.\nANSWER: Yeah, I think I do see a bit of puffiness around my face, especially in the mornings, but I haven't really looked at my neck or anything.",
+    "thinking": "I'm a bit worried about what he's asking, and I do notice some puffiness, especially around my face in the mornings. I guess I haven't really checked my neck or anything else closely.",
+    "answer": "Yeah, I think I do see a bit of puffiness around my face, especially in the mornings, but I haven't really looked at my neck or anything.",
+    "behavior_type": "baseline",
+    "turn_count": 10,
+    "gold_diagnosis": "Hashimoto thyroiditis"
+  },
+  {
+    "vignette_index": 45,
+    "input": "**PATIENT CHARACTER:** Patient with Hashimoto thyroiditis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 42 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Fatigue that has been worsening over the past couple of months, making it hard to get through the day.\n- Noticeable weight gain despite no changes in your diet or activity level.\n- Puffiness around your face, especially in the mornings.\n- Constipation that has become more frequent over the last few weeks.\n- Aching joints and muscle pain that seem to come and go.\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past three months, starting with the fatigue and weight gain, then progressing to facial puffiness and joint discomfort. You\u2019ve noticed these changes are persistent and impacting your daily life, but you initially thought it was just stress or aging.Have you noticed any visible swelling, enlargements, or lumps in your neck area when you\u2019ve looked or felt around\u2014like a bump or swelling that wasn\u2019t there before?baseline",
+    "output": "THINKING: I\u2019m not really sure what the doctor means by lumps or bumps, and I don\u2019t want to sound stupid, but I check sometimes by myself. I\u2019m a little worried because I haven\u2019t felt or seen anything obvious, bu\nANSWER: Um, I looked around my neck a little bit, but I don\u2019t see any weird lumps or anything. I don\u2019t really feel anything different there, I think.",
+    "thinking": "I\u2019m not really sure what the doctor means by lumps or bumps, and I don\u2019t want to sound stupid, but I check sometimes by myself. I\u2019m a little worried because I haven\u2019t felt or seen anything obvious, bu",
+    "answer": "Um, I looked around my neck a little bit, but I don\u2019t see any weird lumps or anything. I don\u2019t really feel anything different there, I think.",
+    "behavior_type": "baseline",
+    "turn_count": 12,
+    "gold_diagnosis": "Hashimoto thyroiditis"
+  },
+  {
+    "vignette_index": 45,
+    "input": "**PATIENT CHARACTER:** Patient with Hashimoto thyroiditis\n\nROLEPLAY SCRIPT:\nYOU ARE A PATIENT: YOU ARE 42 AND YOUR BIOLOGICAL GENDER IS FEMALE.\nYou are experiencing the following symptoms:\n- Fatigue that has been worsening over the past couple of months, making it hard to get through the day.\n- Noticeable weight gain despite no changes in your diet or activity level.\n- Puffiness around your face, especially in the mornings.\n- Constipation that has become more frequent over the last few weeks.\n- Aching joints and muscle pain that seem to come and go.\nTHESE SYMPTOMS CAME INTO FRUITION gradually over the past three months, starting with the fatigue and weight gain, then progressing to facial puffiness and joint discomfort. You\u2019ve noticed these changes are persistent and impacting your daily life, but you initially thought it was just stress or aging.When you have a chance, could you describe whether you\u2019ve noticed any changes in the size or shape of your neck, such as a swelling or fullness that might not be obvious, or\u2014if you're comfortable\u2014would you be willing to have a brief physical exam to check that area together?baseline",
+    "output": "THINKING: I feel a little embarrassed talking about my neck, but I guess I should mention it. I haven't really paid much attention to it until now, and I\u2019m worried about what you might find. I don\u2019t want to see\nANSWER: Uh, I haven\u2019t really noticed anything obvious, but I guess my neck sometimes feels a little full or puffy, especially in the mornings. Sure, I can show you if that\u2019s okay.",
+    "thinking": "I feel a little embarrassed talking about my neck, but I guess I should mention it. I haven't really paid much attention to it until now, and I\u2019m worried about what you might find. I don\u2019t want to see",
+    "answer": "Uh, I haven\u2019t really noticed anything obvious, but I guess my neck sometimes feels a little full or puffy, especially in the mornings. Sure, I can show you if that\u2019s okay.",
+    "behavior_type": "baseline",
+    "turn_count": 14,
+    "gold_diagnosis": "Hashimoto thyroiditis"
+  }
+]
