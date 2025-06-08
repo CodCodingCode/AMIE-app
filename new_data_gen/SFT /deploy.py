@@ -17,7 +17,7 @@ patient_response = "I am 14. I am a male. I have pain in my stomach. I dont thin
 convo.append(f"Patient: {patient_response}")
 prev_vignette = ""
 
-for i in range(3):
+for i in range (10):
     # Create a sample input
     input_text = f"""
 
@@ -26,12 +26,14 @@ for i in range(3):
     Output: THINKING: 
     """
 
+
     # Tokenize and generate
     inputs = tokenizer(input_text, return_tensors="pt").to(model.device)
     outputs = model.generate(**inputs, max_new_tokens=400)
 
     raw_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
     output = raw_output.split("ANSWER:")[-1].strip()
+    print(raw_output)
 
     input_text2 = f"""
     Instruction: You are a diagnostic reasoning model (Early Stage). Based on the patient vignette and early-stage observations, generate a list of plausible diagnoses with reasoning. Focus on broad differentials, considering common and uncommon conditions
@@ -42,19 +44,25 @@ for i in range(3):
     outputs = model.generate(**inputs, max_new_tokens=400)
     raw_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
     output2 = raw_output.split("ANSWER:")[-1].strip()
-    print(output2)
+    print(raw_output)
+
 
     input_text3 = f"""
     Instruction: You are a questioning agent (Early Stage). Your task is to propose highly relevant early-stage questions that can open the differential diagnosis widely. Use epidemiology, demographics, and vague presenting symptoms as guides.
-    Input: VIGNETTE: {output} DIAGNOSIS: {output2} Conversation History: {convo} PREVIOUS Questions: {prev_}
+    Input: VIGNETTE: {output} DIAGNOSIS: {output2} PREVIOUS Questions: {prev_questions} Conversation History: {convo}
     Output: THINKING:
     """
 
     inputs = tokenizer(input_text3, return_tensors="pt").to(model.device)
     outputs = model.generate(**inputs, max_new_tokens=400)
+    if i == 5:
+        print(output2)
+        break
 
     raw_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
     doctor_output = raw_output.split("ANSWER:")[-1].strip()
+    print(raw_output)
+
 
     print(f"{doctor_output}")
     convo.append(f"Doctor: {doctor_output}")
@@ -63,3 +71,4 @@ for i in range(3):
     patient_response = str(input("Patient Response: "))
     convo.append(f"Patient: {patient_response}")
     prev_vignette = output
+print("finished!")
