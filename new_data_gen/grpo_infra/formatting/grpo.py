@@ -13,8 +13,8 @@ if not HF_TOKEN:
     raise RuntimeError("Missing HUGGINGFACE_HUB_TOKEN")
 
 # ─── 1. Download model + checkpoint via snapshot_download ────────
-REPO_ID = "CodCodingCode/llama-3.1-8b-clinical-v1.1"
-SUBFOLDER = "checkpoint-2250"
+REPO_ID = "CodCodingCode/llama-3.1-8b-clinical-v1.2"
+SUBFOLDER = "checkpoint-4500"
 print(f"[debug] Downloading {REPO_ID}…")
 cache_dir = snapshot_download(repo_id=REPO_ID, token=HF_TOKEN)
 print("[debug] snapshot_download complete, cache_dir:", cache_dir)
@@ -39,7 +39,7 @@ print("[debug] hf_model loaded. device_map:", hf_model.hf_device_map)
 
 # ─── 3. Load & filter your dataset ────────────────────────────────
 print("[debug] Loading clinical-conversations dataset…")
-ds = load_dataset("CodCodingCode/clinical-conversations", split="train")
+ds = load_dataset("CodCodingCode/clinical-conversations-V1.2", split="train")
 print("[debug] Original dataset size:", len(ds))
 ds = ds.filter(
     lambda ex: ex["instruction"]
