@@ -6,6 +6,7 @@ import Navigation from './components/navigation'
 import Gif from './components/gif'
 import Main from './components/main'
 import Demo from './components/demo'
+import People from './components/people'
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <Main />
       <Gif />
+      <People />
       <Demo />
       <Footer />
     </div>

@@ -1,7 +1,10 @@
 import { cn, fadeInUp, staggerContainer, defaultTransition } from '../lib/utils';
 import { motion } from 'framer-motion';
+import { useBlueboxAnimation } from '@/app/lib/hooks';
 
 export default function Demo() {
+  const { handleGetStartedClick } = useBlueboxAnimation();
+
   return (
     <motion.section 
       className={cn("min-h-screen bg-neutral-900 flex flex-col items-center justify-center px-4")}
@@ -48,6 +51,7 @@ export default function Demo() {
         transition={defaultTransition}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
+        onClick={handleGetStartedClick}
       >
         Get a consultation
       </motion.button>

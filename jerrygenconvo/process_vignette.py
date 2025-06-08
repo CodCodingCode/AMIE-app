@@ -154,7 +154,7 @@ def process_vignette(idx, vignette_text, gold_label, client, model):
 
         # Get diagnosis
         print("Turn count:", turn_count)
-        diagnosis_result, stage = diagnostics_expert.get_diagnosis_response(
+        diagnosis_result, stage, disease_data = diagnostics_expert.get_diagnosis_response(
             turn_count, gold_label, vignette_summary, previous_questions
         )
         diagnosis_raw = diagnosis_result["raw"]
@@ -212,7 +212,7 @@ def process_vignette(idx, vignette_text, gold_label, client, model):
             # Generate follow-up question
             followup_result = clinical_questioner.generate_question(
                 turn_count, previous_questions, vignette_summary,
-                diagnosis, behavioral_analysis, gold_label
+                diagnosis, behavioral_analysis, gold_label, disease_data
             )
             raw_followup = followup_result["raw"]
             followup_question = followup_result["clean"]

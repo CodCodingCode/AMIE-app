@@ -177,6 +177,7 @@ class PatientInterpreter:
     """Agent specialized in reading patient communication patterns and extracting unbiased clinical information using Chain of Thought reasoning"""
 
     def __init__(self, client, model):
+        print("🔵 [PatientInterpreter] Initializing PatientInterpreter agent...")
         self.role_instruction = """You are a specialized clinical psychologist and communication expert trained to interpret patient communication patterns.
         
         Your expertise includes:
@@ -189,11 +190,15 @@ class PatientInterpreter:
         You help extract the true clinical picture from biased or incomplete patient presentations."""
 
         self.responder = RoleResponder(self.role_instruction, client, model)
+        print("✅ [PatientInterpreter] Initialized successfully")
 
-    def interpret_patient_communication(
-        self, conversation_history, detected_behavior, current_vignette
-    ):
+    def interpret_patient_communication(self, conversation_history, detected_behavior, current_vignette):
         """Analyze patient communication to extract unbiased clinical information using Chain of Thought reasoning"""
+        print("\n🔵 [PatientInterpreter] Starting patient communication interpretation...")
+        print(f"📊 [PatientInterpreter] Input data:")
+        print(f"   - Conversation history length: {len(conversation_history)}")
+        print(f"   - Detected behavior: {detected_behavior[:100] if detected_behavior else 'None'}...")
+        print(f"   - Current vignette length: {len(current_vignette) if current_vignette else 0} chars")
 
         interpretation_prompt = PATIENT_INTERPRETER_PROMPT.format(
             detected_behavior=detected_behavior,
@@ -201,13 +206,31 @@ class PatientInterpreter:
             current_vignette=current_vignette
         )
 
-        return self.responder.ask(interpretation_prompt)
+        print(f"📝 [PatientInterpreter] Generated prompt length: {len(interpretation_prompt)} chars")
+        
+        result = self.responder.ask(interpretation_prompt)
+        
+        print(f"✅ [PatientInterpreter] Interpretation complete")
+        
+        # FIX: Safe string handling
+        if result is None:
+            result_str = "Empty"
+        elif isinstance(result, str):
+            result_str = result
+        else:
+            result_str = str(result)
+        
+        preview = result_str[:150] + "..." if len(result_str) > 150 else result_str
+        print(f"📤 [PatientInterpreter] Result preview: {preview}")
+        
+        return result
 
 
 class BehaviorAnalyzer:
     """Agent that detects patient behavioral patterns and communication cues"""
     
     def __init__(self, client, model):
+        print("🟣 [BehaviorAnalyzer] Initializing BehaviorAnalyzer agent...")
         self.role_instruction = """You are a behavioral psychologist specializing in patient communication patterns.
         You're expert at identifying subtle signs of information withholding, symptom minimization, 
         anxiety amplification, and other communication biases that affect clinical assessment.
@@ -215,23 +238,47 @@ class BehaviorAnalyzer:
         You use Chain of Thought reasoning to systematically analyze patient behavior patterns."""
         
         self.responder = RoleResponder(self.role_instruction, client, model)
+        print("✅ [BehaviorAnalyzer] Initialized successfully")
     
     def detect_patient_behavior_cues(self, conversation_history, patient_responses):
         """Enhanced version that provides more detailed behavioral analysis using Chain of Thought reasoning"""
+        print("\n🟣 [BehaviorAnalyzer] Starting behavior analysis...")
+        print(f"📊 [BehaviorAnalyzer] Input data:")
+        print(f"   - Conversation history length: {len(conversation_history)}")
+        print(f"   - Patient responses count: {len(patient_responses)}")
+        
         recent_responses = patient_responses[-3:]
+        print(f"   - Analyzing last {len(recent_responses)} responses")
 
         analysis_prompt = BEHAVIORAL_ANALYSIS_PROMPT.format(
             recent_responses=json.dumps(recent_responses, indent=2),
             conversation_context=json.dumps(conversation_history[-6:], indent=2)
         )
 
-        return self.responder.ask(analysis_prompt)
-
+        print(f"📝 [BehaviorAnalyzer] Generated prompt length: {len(analysis_prompt)} chars")
+        
+        result = self.responder.ask(analysis_prompt)
+        
+        print(f"✅ [BehaviorAnalyzer] Analysis complete")
+        
+        # FIX: Safe string handling
+        if result is None:
+            result_str = "Empty"
+        elif isinstance(result, str):
+            result_str = result
+        else:
+            result_str = str(result)
+        
+        preview = result_str[:150] + "..." if len(result_str) > 150 else result_str
+        print(f"📤 [BehaviorAnalyzer] Result preview: {preview}")
+        
+        return result
 
 class ClinicalSummarizer:
     """Agent that creates unbiased clinical vignettes from patient conversations"""
     
     def __init__(self, client, model):
+        print("🟡 [ClinicalSummarizer] Initializing ClinicalSummarizer agent...")
         self.role_instruction = """You are an expert clinical summarizer trained to extract objective clinical information 
         while accounting for patient communication biases and psychological factors.
         
@@ -242,9 +289,15 @@ class ClinicalSummarizer:
         - Providing balanced, unbiased clinical vignettes"""
         
         self.responder = RoleResponder(self.role_instruction, client, model)
+        print("✅ [ClinicalSummarizer] Initialized successfully")
     
     def generate_unbiased_vignette(self, conversation_history, previous_vignette, patient_interpretation):
         """Generate a vignette that accounts for patient communication biases"""
+        print("\n🟡 [ClinicalSummarizer] Starting vignette generation...")
+        print(f"📊 [ClinicalSummarizer] Input data:")
+        print(f"   - Conversation history length: {len(conversation_history)}")
+        print(f"   - Previous vignette length: {len(previous_vignette) if previous_vignette else 0} chars")
+        print(f"   - Patient interpretation length: {len(patient_interpretation) if patient_interpretation else 0} chars")
         
         summary_prompt = UNBIASED_VIGNETTE_PROMPT.format(
             conversation_history=json.dumps(conversation_history, indent=2),
@@ -252,7 +305,24 @@ class ClinicalSummarizer:
             patient_interpretation=patient_interpretation
         )
 
-        return self.responder.ask(summary_prompt)
+        print(f"📝 [ClinicalSummarizer] Generated prompt length: {len(summary_prompt)} chars")
+        
+        result = self.responder.ask(summary_prompt)
+        
+        print(f"✅ [ClinicalSummarizer] Vignette generation complete")
+        
+        # FIX: Safe string handling
+        if result is None:
+            result_str = "Empty"
+        elif isinstance(result, str):
+            result_str = result
+        else:
+            result_str = str(result)
+        
+        preview = result_str[:150] + "..." if len(result_str) > 150 else result_str
+        print(f"📤 [ClinicalSummarizer] Result preview: {preview}")
+        
+        return result
 
 
 class DiagnosticsExpert:
@@ -261,28 +331,45 @@ class DiagnosticsExpert:
     def __init__(self, client, model, disease_db_path: str = "results.json", 
                  embedding_model: str = "text-embedding-3-small", 
                  cache_path: str = "disease_embeddings.json"):
+        print("🔴 [DiagnosticsExpert] Initializing DiagnosticsExpert agent...")
+        print(f"🔴 [DiagnosticsExpert] Config:")
+        print(f"   - Disease DB path: {disease_db_path}")
+        print(f"   - Embedding model: {embedding_model}")
+        print(f"   - Cache path: {cache_path}")
+        
         self.role_instruction = "You are a board-certified diagnostician."
         self.responder = RoleResponder(self.role_instruction, client, model)
         self.client = client
         self.embedding_model = embedding_model
         self.cache_path = cache_path
         
+        print(f"🔴 [DiagnosticsExpert] Loading disease database...")
         with open(disease_db_path, 'r') as f:
             disease_data = json.load(f)
         
         self.disease_db = self._convert_to_dict(disease_data)
+        print(f"🔴 [DiagnosticsExpert] Loaded {len(self.disease_db)} diseases")
+        
+        print(f"🔴 [DiagnosticsExpert] Loading/generating embeddings...")
         self.disease_embeddings = self._load_or_generate_embeddings()
+        print(f"🔴 [DiagnosticsExpert] Embeddings ready for {len(self.disease_embeddings)} diseases")
+        print("✅ [DiagnosticsExpert] Initialized successfully")
     
     def _convert_to_dict(self, disease_list: List[Dict]) -> Dict[str, Dict]:
         """Convert disease list to dictionary keyed by disease name"""
-        return {disease['disease_name']: disease for disease in disease_list}
+        print(f"🔴 [DiagnosticsExpert] Converting {len(disease_list)} diseases to dictionary...")
+        result = {disease['disease_name']: disease for disease in disease_list}
+        print(f"✅ [DiagnosticsExpert] Conversion complete")
+        return result
 
     def _embed(self, text: str) -> List[float]:
         """Generate embeddings for text using OpenAI API"""
+        print(f"🔴 [DiagnosticsExpert] Generating embedding for text ({len(text)} chars)...")
         response = self.client.embeddings.create(
             input=text,
             model=self.embedding_model
         )
+        print(f"✅ [DiagnosticsExpert] Embedding generated")
         return response.data[0].embedding
 
     def _construct_embedding_text(self, info: Dict) -> str:
@@ -305,7 +392,8 @@ class DiagnosticsExpert:
             if field in info and isinstance(info[field], str):
                 parts.append(info[field])
         
-        return " ".join(parts)
+        result = " ".join(parts)
+        return result
 
     def _generate_cache_key(self, disease_name: str, embed_text: str) -> str:
         """Generate a stable cache key"""
@@ -316,28 +404,39 @@ class DiagnosticsExpert:
     def _load_or_generate_embeddings(self) -> Dict[str, List[float]]:
         """Load cached embeddings or generate new ones"""
         if os.path.exists(self.cache_path):
+            print(f"🔴 [DiagnosticsExpert] Loading cached embeddings from {self.cache_path}...")
             with open(self.cache_path, "r") as f:
                 cached = json.load(f)
+            print(f"🔴 [DiagnosticsExpert] Loaded {len(cached)} cached embeddings")
         else:
+            print(f"🔴 [DiagnosticsExpert] No cache found, starting fresh...")
             cached = {}
 
         updated = False
         disease_embeddings = {}
+        new_embeddings_count = 0
         
         for disease_name, info in self.disease_db.items():
             embed_text = self._construct_embedding_text(info)
             cache_key = self._generate_cache_key(disease_name, embed_text)
 
             if cache_key not in cached:
+                print(f"🔴 [DiagnosticsExpert] Generating new embedding for: {disease_name}")
                 embedding = self._embed(embed_text)
                 cached[cache_key] = embedding
                 updated = True
+                new_embeddings_count += 1
 
             disease_embeddings[disease_name] = cached[cache_key]
 
         if updated:
+            print(f"🔴 [DiagnosticsExpert] Generated {new_embeddings_count} new embeddings")
+            print(f"🔴 [DiagnosticsExpert] Saving updated cache to {self.cache_path}...")
             with open(self.cache_path, "w") as f:
                 json.dump(cached, f, indent=2)
+            print(f"✅ [DiagnosticsExpert] Cache updated")
+        else:
+            print(f"🔴 [DiagnosticsExpert] All embeddings were cached, no new generation needed")
 
         return disease_embeddings
 
@@ -382,6 +481,8 @@ Explain why this disease is similar to the patient's presentation:"""
 
     def _parse_patient_summary(self, patient_text: str) -> Dict[str, List[str]]:
         """Parse patient summary text and extract structured information"""
+        print(f"🔴 [DiagnosticsExpert] Parsing patient summary ({len(patient_text)} chars)...")
+        
         system_prompt = """You are a medical text parser. Extract and categorize information from patient summaries into these specific categories:
 
 1. symptoms: Physical signs, complaints, and manifestations (e.g., "redness", "swelling", "discharge", "pain")
@@ -424,6 +525,10 @@ Example format:
             if not isinstance(parsed_data[key], list):
                 parsed_data[key] = []
         
+        print(f"✅ [DiagnosticsExpert] Parsed data:")
+        for key, value in parsed_data.items():
+            print(f"   - {key}: {len(value)} items")
+        
         return parsed_data
 
     def _get_relevant_diseases_from_text(self, patient_text: str, top_k: int = 10, include_explanations: bool = True) -> List[Dict[str, Any]]:
@@ -439,7 +544,6 @@ Example format:
             include_explanations=include_explanations,
             original_patient_text=patient_text
         )
-        
         return diseases_result
 
     def _get_relevant_diseases(
@@ -454,6 +558,8 @@ Example format:
         original_patient_text: Optional[str] = None
     ) -> List[Dict[str, Any]]:
         """Get diseases relevant to given symptoms and factors with explanations"""
+        print(f"🔴 [DiagnosticsExpert] Computing disease similarities...")
+        
         input_parts = []
         
         for parts_list in [symptoms, causes, risk_factors, family_history_impact, hereditary_factors]:
@@ -461,6 +567,8 @@ Example format:
                 input_parts.extend(parts_list)
         
         input_text = " ".join(input_parts)
+        print(f"🔴 [DiagnosticsExpert] Combined input text: '{input_text}'")
+        
         input_embedding = np.array(self._embed(input_text)).reshape(1, -1)
 
         similarities = []
@@ -470,6 +578,10 @@ Example format:
             similarities.append((disease_name, score, self.disease_db[disease_name]))
 
         top_matches = sorted(similarities, key=lambda x: x[1], reverse=True)[:top_k]
+        
+        print(f"🔴 [DiagnosticsExpert] Top {top_k} similar diseases:")
+        for i, (disease_name, score, _) in enumerate(top_matches, 1):
+            print(f"   {i}. {disease_name}: {score:.4f}")
         
         results = []
         patient_context = original_patient_text or input_text
@@ -497,10 +609,13 @@ Example format:
             
             results.append(result)
         
+        print(f"✅ [DiagnosticsExpert] Similarity computation complete")
         return results
     
     def _format_disease_context_comprehensive(self, disease_data_list):
         """Format complete disease data into comprehensive string for prompt context"""
+        print(f"🔴 [DiagnosticsExpert] Formatting {len(disease_data_list)} diseases (comprehensive format)...")
+        
         output_sections = []
         
         for i, disease in enumerate(disease_data_list, 1):
@@ -540,10 +655,14 @@ Example format:
             
             output_sections.append(disease_section)
         
-        return "\n".join(output_sections)
+        result = "\n".join(output_sections)
+        print(f"✅ [DiagnosticsExpert] Comprehensive formatting complete ({len(result)} chars)")
+        return result
     
     def _format_disease_context_concise(self, disease_data_list):
         """Format disease data into concise string for prompt context"""
+        print(f"🔴 [DiagnosticsExpert] Formatting {len(disease_data_list)} diseases (concise format)...")
+        
         output_lines = []
         for i, disease in enumerate(disease_data_list, 1):
             disease_info = disease['disease_info']
@@ -579,10 +698,14 @@ Example format:
             
             output_lines.append(disease_summary)
         
-        return "\n\n".join(output_lines)
+        result = "\n\n".join(output_lines)
+        print(f"✅ [DiagnosticsExpert] Concise formatting complete ({len(result)} chars)")
+        return result
     
     def _format_disease_context_structured(self, disease_data_list):
         """Format disease data into structured JSON-like string for prompt context"""
+        print(f"🔴 [DiagnosticsExpert] Formatting {len(disease_data_list)} diseases (structured format)...")
+        
         formatted_diseases = []
         
         for disease in disease_data_list:
@@ -604,10 +727,14 @@ Example format:
             }
             formatted_diseases.append(structured_disease)
         
-        return json.dumps(formatted_diseases, indent=2)
+        result = json.dumps(formatted_diseases, indent=2)
+        print(f"✅ [DiagnosticsExpert] Structured formatting complete ({len(result)} chars)")
+        return result
     
     def get_diagnosis_response(self, turn_count, gold_label, vignette_summary, previous_questions, formatting_style="comprehensive"):
         """Get diagnosis with proper stage-based prompting and flexible formatting"""
+        
+        # Determine stage based on turn count
         if turn_count < 4:
             base_prompt = EARLY_DIAGNOSIS_PROMPT
             stage = "early"
@@ -618,8 +745,10 @@ Example format:
             base_prompt = LATE_DIAGNOSIS_PROMPT
             stage = "late"
 
+        # Get relevant diseases
         disease_data = self._get_relevant_diseases_from_text(vignette_summary, top_k=10)
         
+        # Format disease context
         if formatting_style == "comprehensive":
             disease_context = self._format_disease_context_comprehensive(disease_data)
         elif formatting_style == "concise":
@@ -629,6 +758,13 @@ Example format:
         else:
             disease_context = self._format_disease_context_comprehensive(disease_data)
 
+        # SHOW THE ACTUAL DISEASE CONTEXT BEING USED
+        print(f"\n🔴 [DiagnosticsExpert] DISEASE CONTEXT FOR DIAGNOSIS:")
+        print("=" * 80)
+        print(disease_context[:1000] + "..." if len(disease_context) > 1000 else disease_context)
+        print("=" * 80)
+        
+        # Generate diagnosis response
         response = self.responder.ask(
             base_prompt.format(
                 prev_questions=json.dumps(previous_questions),
@@ -645,48 +781,57 @@ class ClinicalQuestioner:
     """Agent that asks diagnostic questions based on interview phase"""
     
     def __init__(self, client, model):
+        print("🟢 [ClinicalQuestioner] Initializing ClinicalQuestioner agent...")
         self.client = client
         self.model = model
+        print("✅ [ClinicalQuestioner] Initialized successfully")
     
     def _format_disease_context_for_questioning(self, disease_data_list):
         """Format disease data into a string context for questioning guidance"""
+        
+        if not disease_data_list:
+            return "No disease context provided."
+        
         context_lines = []
         context_lines.append("DISEASE CONTEXT FOR QUESTIONING:")
         context_lines.append("These are diseases that show similarity to the patient's presentation. Use the information from these diseases to guide your questioning and explore relevant symptom patterns, risk factors, and clinical features.")
         context_lines.append("")
         
         for i, disease in enumerate(disease_data_list, 1):
-            disease_info = disease['disease_info']
+            disease_info = disease.get('disease_info', {})
             
             disease_parts = []
-            disease_parts.append(f"Disease Name: {disease['disease_name']}")
+            disease_parts.append(f"Disease Name: {disease.get('disease_name', 'Unknown')}")
             
-            if disease_info['symptoms']:
+            if disease_info.get('symptoms'):
                 disease_parts.append(f"Symptoms: {', '.join(disease_info['symptoms'])}")
             
-            if disease_info['causes']:
+            if disease_info.get('causes'):
                 disease_parts.append(f"Causes: {', '.join(disease_info['causes'])}")
             
-            if disease_info['risk_factors']:
+            if disease_info.get('risk_factors'):
                 disease_parts.append(f"Risk Factors: {', '.join(disease_info['risk_factors'])}")
             
-            if disease_info['hereditary_factors']:
+            if disease_info.get('hereditary_factors'):
                 disease_parts.append(f"Hereditary Factors: {', '.join(disease_info['hereditary_factors'])}")
             
-            if disease_info['family_history_impact']:
+            if disease_info.get('family_history_impact'):
                 fh_impact = disease_info['family_history_impact']
                 if isinstance(fh_impact, dict):
                     fh_parts = []
                     for key, value in fh_impact.items():
                         fh_parts.append(f"{key}: {value}")
-                    disease_parts.append(f"Family History Impact: {'; '.join(fh_parts)}")
+                    if fh_parts:
+                        disease_parts.append(f"Family History Impact: {'; '.join(fh_parts)}")
                 else:
-                    disease_parts.append(f"Family History Impact: {fh_impact}")
+                    if fh_impact:
+                        disease_parts.append(f"Family History Impact: {fh_impact}")
             
-            if disease_info['genetic_risk_assessment']:
+            if disease_info.get('genetic_risk_assessment'):
                 disease_parts.append(f"Genetic Risk Assessment: {disease_info['genetic_risk_assessment']}")
             
-            disease_parts.append(f"Similarity Score: {disease['similarity_score']}")
+            similarity_score = disease.get('similarity_score', 'Unknown')
+            disease_parts.append(f"Similarity Score: {similarity_score}")
             
             disease_string = ", ".join(disease_parts)
             context_lines.append(f"{i}. {disease_string}")
@@ -695,9 +840,10 @@ class ClinicalQuestioner:
         return "\n".join(context_lines)
     
     def generate_question(self, turn_count, previous_questions, vignette_summary, 
-                         diagnosis, behavioral_analysis, gold_label, disease_data=None):
+                     diagnosis, behavioral_analysis, gold_label, disease_data=None):
         """Generate appropriate diagnostic question based on interview phase with disease context"""
         
+        # Determine phase and questioning role
         if turn_count < 4:
             base_questioning_role = EARLY_QUESTIONING_ROLE
             phase = "EARLY EXPLORATION"
@@ -708,19 +854,29 @@ class ClinicalQuestioner:
             base_questioning_role = LATE_QUESTIONING_ROLE
             phase = "DIAGNOSTIC CONFIRMATION"
         
+        # Format disease context
         if disease_data:
             disease_context = self._format_disease_context_for_questioning(disease_data)
         else:
             disease_context = "No disease context provided."
         
+        # SHOW THE ACTUAL DISEASE CONTEXT BEING USED FOR QUESTIONING
+        print(f"\n🟢 [ClinicalQuestioner] DISEASE CONTEXT FOR QUESTIONING:")
+        print("=" * 80)
+        print(disease_context[:1000] + "..." if len(disease_context) > 1000 else disease_context)
+        print("=" * 80)
+        
+        # Create enhanced questioning role
         enhanced_questioning_role = f"""{base_questioning_role}
 
-{disease_context}
+    {disease_context}
 
-Use the disease context above to inform your questioning strategy. Look for symptoms, risk factors, and clinical features mentioned in similar diseases to guide your inquiry."""
+    Use the disease context above to inform your questioning strategy. Look for symptoms, risk factors, and clinical features mentioned in similar diseases to guide your inquiry."""
         
+        # Create questioner with enhanced role
         questioner = RoleResponder(enhanced_questioning_role, self.client, self.model)
         
+        # Generate prompt
         prompt = QUESTIONING_PROMPT.format(
             previous_questions=json.dumps(previous_questions),
             phase=phase,
@@ -730,4 +886,7 @@ Use the disease context above to inform your questioning strategy. Look for symp
             turn_count=turn_count
         )
         
-        return questioner.ask(prompt)
+        # Generate question
+        result = questioner.ask(prompt)
+        
+        return result

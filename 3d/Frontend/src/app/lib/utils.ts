@@ -14,6 +14,12 @@ export const fadeInUp: Variants = {
   exit: { opacity: 0, y: -20 }
 };
 
+export const fadeinRight: Variants = {
+  initial: { opacity: 0, x: 20 },
+  animate: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: 20 }
+};
+
 export const fadeInLeft: Variants = {
   initial: { opacity: 0, x: -20 },
   animate: { opacity: 1, x: 0 },
