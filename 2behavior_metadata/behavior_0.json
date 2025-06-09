@@ -1,15 +1,16 @@
 {
-  "behavior_type": "worried_family_involved",
-  "behavior_description": "Family member influences patient responses",
+  "behavior_type": "stoic_minimizer",
+  "behavior_description": "Patient who downplays symptoms and delays care",
   "modifiers": [
-    "family_influence",
-    "secondary_concerns"
+    "symptom_minimization",
+    "delayed_care_seeking",
+    "tough_attitude"
   ],
   "empathy_cues": [
-    "family_pressure",
-    "caregiver_stress",
-    "divided_attention",
-    "responsibility_burden"
+    "downplaying",
+    "reluctance",
+    "pride_in_toughness",
+    "external_pressure"
   ],
-  "gold_diagnosis": "Hypochondriasis with poor to absent insight"
+  "gold_diagnosis": "Abdominal Aortic Aneurysm (AAA)"
 }

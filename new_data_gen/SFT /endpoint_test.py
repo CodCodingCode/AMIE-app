@@ -4,8 +4,8 @@ import json
 # ============================================================================
 # REPLACE THESE WITH YOUR ACTUAL VALUES
 # ============================================================================
-ENDPOINT_URL = "cloud url"  # Your endpoint URL from the screenshot
-HF_TOKEN = "hf_your_token_here"  # Your HuggingFace token
+ENDPOINT_URL = "api"  # Your endpoint URL from the screenshot
+HF_TOKEN = "api"  # Your HuggingFace token
 
 
 class HuggingFaceInference:
@@ -82,7 +82,7 @@ def run_conversation():
     convo = []
     prev_questions = []
     convo.append("Doctor: What brings you in today?")
-    patient_response = "I am 14. I am a male. I have pain in my stomach. I dont think its a stomach ache. I have had it for 2 days. It is a sharp pain. It is worse when I eat. I have not had any fever or vomiting. I am not sure if I have had diarrhea. I have been feeling tired."
+    patient_response = "I am 17. I am a female. I have had this really bad headache since yesterday that won't go away. It's on the left side of my head and feels like throbbing. Light hurts my eyes and loud noises make it worse. I threw up once this morning. My mom gets migraines too."
     convo.append(f"Patient: {patient_response}")
     prev_vignette = ""
 

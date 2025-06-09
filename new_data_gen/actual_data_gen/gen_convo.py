@@ -8,9 +8,7 @@ from itertools import islice
 import random
 
 # Initialize OpenAI client
-client = OpenAI(
-    api_key="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"
-)
+client = OpenAI(api_key="api")
 model = "gpt-4.1-nano"
 
 treatment_plans = []
@@ -1219,22 +1217,30 @@ class RoleResponder:
                 {"role": "user", "content": user_input},
             ]
 
-            response = client.chat.completions.create(model=model, messages=messages)
+            response = client.chat.completions.create(
+                model=model,
+                messages=messages,
+                max_tokens=2000,  # Add higher token limit for safety
+            )
             raw_response = response.choices[0].message.content.strip()
 
             # Simplified debugging - no excessive printing
-            print(f"\n🤖 Response attempt {attempt + 1} - Length: {len(raw_response)} chars")
+            print(
+                f"\n🤖 Response attempt {attempt + 1} - Length: {len(raw_response)} chars"
+            )
 
             # Try to extract answer directly first
             answer_only = self.extract_answer_simple(raw_response)
-            
+
             # Check if we got a valid answer
             if self.is_valid_answer(answer_only):
                 # Create proper format
                 thinking_part = self.extract_thinking_simple(raw_response)
                 clean_format = f"THINKING: {thinking_part}\nANSWER: {answer_only}"
-                
-                print(f"✅ SUCCESS - Answer: {len(answer_only)} chars")
+
+                print(
+                    f"✅ SUCCESS - Answer: {len(answer_only)} chars, Thinking: {len(thinking_part)} chars"
+                )
                 return {
                     "raw": clean_format,
                     "clean": answer_only,
@@ -1246,7 +1252,7 @@ class RoleResponder:
         print(f"🆘 All attempts failed - creating manual response")
         manual_answer = self.create_emergency_response(raw_response, user_input)
         manual_format = f"THINKING: Manual response created\nANSWER: {manual_answer}"
-        
+
         return {
             "raw": manual_format,
             "clean": manual_answer,
@@ -1254,67 +1260,73 @@ class RoleResponder:
 
     def extract_answer_simple(self, text):
         """Simple answer extraction without complex parsing"""
-        
+
         # Strategy 1: Look for ANSWER: marker
         if "ANSWER:" in text:
             answer_part = text.split("ANSWER:", 1)[1].strip()
-            
+
             # Clean basic markers
-            lines = answer_part.split('\n')
+            lines = answer_part.split("\n")
             clean_lines = []
             for line in lines:
                 line = line.strip()
-                if (line and 
-                    not line.startswith(('THINKING:', 'ANSWER:')) and
-                    len(line) > 3):
+                if (
+                    line
+                    and not line.startswith(("THINKING:", "ANSWER:"))
+                    and len(line) > 3
+                ):
                     clean_lines.append(line)
-            
-            result = '\n'.join(clean_lines).strip()
+
+            result = "\n".join(clean_lines).strip()
             if len(result) > 10:
                 return result
-        
+
         # Strategy 2: Look for substantial content
-        lines = text.split('\n')
+        lines = text.split("\n")
         content_lines = []
-        skip_markers = ['THINKING:', 'ANSWER:', 'STEP ', '===', '---', 'CRITICAL:']
-        
+        skip_markers = ["THINKING:", "ANSWER:", "STEP ", "===", "---", "CRITICAL:"]
+
         for line in lines:
             line = line.strip()
-            if (len(line) > 15 and 
-                not any(line.startswith(marker) for marker in skip_markers) and
-                not line.upper() == line):  # Skip all-caps
+            if (
+                len(line) > 15
+                and not any(line.startswith(marker) for marker in skip_markers)
+                and not line.upper() == line
+            ):  # Skip all-caps
                 content_lines.append(line)
-        
+
         if content_lines:
-            return ' '.join(content_lines[:3])  # First 3 substantial lines
-        
+            return " ".join(content_lines[:3])  # First 3 substantial lines
+
         # Strategy 3: Return middle part of text
         if len(text) > 100:
             start = len(text) // 4
             end = 3 * len(text) // 4
             middle = text[start:end].strip()
             # Clean the middle part
-            clean_middle = middle.replace('THINKING:', '').replace('ANSWER:', '').strip()
+            clean_middle = (
+                middle.replace("THINKING:", "").replace("ANSWER:", "").strip()
+            )
             if len(clean_middle) > 20:
-                return clean_middle[:300]
-        
+                return clean_middle  # REMOVED [:300] truncation
+
         # Last resort
-        return text.strip()[:200]
+        return text.strip()  # REMOVED [:200] truncation
 
     def extract_thinking_simple(self, text):
-        """Simple thinking extraction"""
-        
+        """Simple thinking extraction - FIXED to not truncate"""
+
         if "THINKING:" in text:
             thinking_part = text.split("THINKING:", 1)[1]
             if "ANSWER:" in thinking_part:
                 thinking_part = thinking_part.split("ANSWER:", 1)[0]
-            return thinking_part.strip()[:200]
-        
+            return thinking_part.strip()  # REMOVED [:200] truncation!
+
         return "Processing response"
 
     def is_valid_answer(self, text):
         """Check if the answer is valid"""
-        
+
         # Check for error messages
         error_messages = [
             "Unable to extract answer content properly",
@@ -1322,38 +1334,38 @@ class RoleResponder:
             "Unable to get properly formatted response",
             "Format enforcement failed",
         ]
-        
+
         text_lower = text.lower()
         for error in error_messages:
             if error.lower() in text_lower:
                 return False
-        
+
         # Check minimum length
         if len(text.strip()) < 15:
             return False
-        
+
         # Check if it's mostly punctuation or gibberish
-        clean_text = ''.join(c for c in text if c.isalnum() or c.isspace())
-        if len(clean_text) < len(text) * 0.7:  # Less than 70% alphanumeric
+        clean_text = "".join(c for c in text if c.isalnum() or c.isspace())
+        if len(clean_text) < len(clean_text) * 0.7:  # Less than 70% alphanumeric
             return False
-        
+
         return True
 
     def create_emergency_response(self, raw_response, original_prompt):
         """Create emergency response when everything fails"""
-        
+
         # Try to extract any meaningful content
         words = raw_response.split()
         meaningful_words = [w for w in words if len(w) > 3 and w.isalpha()]
-        
+
         if len(meaningful_words) > 5:
             # Use some of the meaningful words
-            content = ' '.join(meaningful_words[:20])
+            content = " ".join(meaningful_words[:20])
             return f"Response based on available information: {content}"
-        
+
         # Context-based fallback
         prompt_lower = original_prompt.lower()
-        
+
         if "summariz" in prompt_lower or "vignette" in prompt_lower:
             return "Patient presents for clinical evaluation. Assessment in progress."
         elif "diagnos" in prompt_lower:
@@ -1365,9 +1377,15 @@ class RoleResponder:
         else:
             return "Clinical information being processed."
 
+    def clean_thinking_answer_format(self, text):
+        """Legacy method - simplified version without truncation"""
+        thinking = self.extract_thinking_simple(text)
+        answer = self.extract_answer_simple(text)
+        return f"THINKING: {thinking}\nANSWER: {answer}"
+
     # Remove all the complex methods that were causing issues
     # Keep only these simple, reliable methods
-    
+
     def extract_answer_only(self, text):
         """Legacy method - calls the simple version"""
         return self.extract_answer_simple(text)
@@ -1434,56 +1452,53 @@ if __name__ == "__main__":
 
     # Load the JSON file with improved structure handling
     with open(
-        "patient_roleplay_scripts.json",  # Change to your file name
+        "new_data_gen/actual_data_gen/disease_vignettes_from_familydoctor.json",
         "r",
     ) as f:
         data = json.load(f)
 
     flattened_vignettes = []
 
-    # 🎯 SPECIFY WHICH TYPES TO INCLUDE
-    DESIRED_TYPES = ["typical", "severe"]  # Change these as needed
-    # Options: "typical", "early", "severe", "mixed"
+    # 🎯 SPECIFY HOW MANY VIGNETTES PER DISEASE
+    MAX_VIGNETTES_PER_DISEASE = 2  # Change this as needed
 
-    # Handle roleplay scripts structure: {"metadata": {...}, "roleplay_scripts": {"Disease": [scripts...]}}
-    if "roleplay_scripts" in data:
-        roleplay_dict = data["roleplay_scripts"]
-        for disease, scripts in roleplay_dict.items():
-            # Only process if we have a list of scripts
-            if not isinstance(scripts, list):
+    # Handle direct disease-to-list structure: {"Disease Name": [vignettes...]}
+    if isinstance(data, dict):
+        for disease_name, vignettes in data.items():
+            # Only process if we have a list of vignettes
+            if not isinstance(vignettes, list):
+                print(f"⚠️ Skipping {disease_name}: not a list of vignettes")
                 continue
 
-            # 📋 SELECT SPECIFIC TYPES
-            selected_scripts = []
-            for script in scripts:
-                if isinstance(script, dict) and "variation_type" in script:
-                    if script["variation_type"] in DESIRED_TYPES:
-                        selected_scripts.append(script)
+            # Remove numbering from vignettes using regex
+            import re
+
+            cleaned_vignettes = []
+            for vignette in vignettes:
+                if isinstance(vignette, str):
+                    # Remove "1. " or "2. " etc. from beginning of string
+                    cleaned_vignette = re.sub(r"^(\d+\.\s+)", "", vignette.strip())
+                    cleaned_vignettes.append(cleaned_vignette)
                 else:
-                    # If no variation_type, include it (fallback)
-                    selected_scripts.append(script)
+                    cleaned_vignettes.append(str(vignette))
 
-            # Limit to 2 even from selected types
-            limited_scripts = selected_scripts[:2]
+            # Limit number of vignettes per disease
+            limited_vignettes = cleaned_vignettes[:MAX_VIGNETTES_PER_DISEASE]
 
-            for script in limited_scripts:
-                # Extract the roleplay_script content as the vignette text
-                if isinstance(script, dict) and "roleplay_script" in script:
-                    flattened_vignettes.append((disease, script["roleplay_script"]))
-                else:
-                    # Fallback if script is just a string
-                    flattened_vignettes.append((disease, str(script)))
+            # Add to flattened list
+            for vignette in limited_vignettes:
+                flattened_vignettes.append((disease_name, vignette))
 
-            print(
-                f"   {disease}: Selected {len(limited_scripts)} vignettes ({[s.get('variation_type', 'unknown') for s in limited_scripts]})"
-            )
+            print(f"   {disease_name}: Selected {len(limited_vignettes)} vignettes")
     else:
-        raise ValueError(
-            f"Expected 'roleplay_scripts' key in JSON structure. Found keys: {list(data.keys()) if isinstance(data, dict) else type(data)}"
-        )
+        raise ValueError(f"Expected dictionary structure. Found: {type(data)}")
 
+    print(f"\n📊 Total vignettes to process: {len(flattened_vignettes)}")
+    print(
+        f"📊 Diseases included: {len(set(disease for disease, _ in flattened_vignettes))}"
+    )
     # Launch multiprocessing pool with 1 worker
-    with multiprocessing.Pool(processes=12) as pool:
+    with multiprocessing.Pool(processes=1) as pool:
         results = pool.map(
             run_vignette_task,
             [
