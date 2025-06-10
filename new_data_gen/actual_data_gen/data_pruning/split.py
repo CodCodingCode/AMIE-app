@@ -34,7 +34,7 @@ for entry in data:
 # Save files
 for letter, entries in groups.items():
     if entries:
-        output_file = f"{letter}D.json"
+        output_file = f"{letter}.json"
         with open(output_file, "w") as f:
             json.dump(entries, f, indent=2)
         print(f"Saved {len(entries)} entries to {output_file}")

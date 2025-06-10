@@ -10,9 +10,7 @@ from itertools import islice
 import random
 
 # Initialize OpenAI client
-client = OpenAI(
-    api_key="api"
-)
+client = OpenAI(api_key="api")
 model = "gpt-4.1-nano"
 
 treatment_plans = []
@@ -126,6 +124,7 @@ Your task is to:
 - Consider both common conditions and important "can't miss" diagnoses
 
 Previously asked questions: {prev_questions}
+Conversation: {conversation}
 
 Vignette:
 {vignette}
@@ -143,18 +142,47 @@ Use systematic diagnostic reasoning:
 - Diagnostic approach: <what clinical reasoning guides my differential>
 - Probability assessment: <which diagnoses are most vs least likely and why>
 - Make sure to ONLY use the information provided in the vignette and previous questions
+- Prioritize life threatening conditions first, then work down to less emergent diagnoses.
+
+Example THINKING:
+THINKING:
+I need to analyze this clinical presentation systematically to generate a differential diagnosis list.
+
+Starting with the key clinical features:
+- 72-year-old male (elderly, higher risk demographics)
+- Sudden onset abdominal and back pain 
+- Pain quality: sharp and constant
+- Associated dizziness and lightheadedness
+- No nausea, vomiting, chest pain, or shortness of breath mentioned
+
+The combination of sudden onset abdominal/back pain in an elderly male immediately raises red flags for vascular emergencies. The word "sudden" is crucial - this suggests an acute catastrophic event rather than gradual onset.
+
+The dizziness and lightheadedness are particularly concerning when paired with sudden abdominal pain. This could indicate hemodynamic compromise, suggesting internal bleeding or shock.
+
+Let me think through the most likely diagnoses:
+
+1. Abdominal Aortic Aneurysm (AAA) Rupture - This fits perfectly. Elderly male, sudden severe abdominal/back pain, and signs of hemodynamic compromise (dizziness/lightheadedness suggesting hypotension). AAA rupture classically presents with abdominal pain radiating to the back.
+
+2. Aortic Dissection - Could present with sudden severe pain, though typically more chest/back pain. The hemodynamic instability fits.
+
+3. Perforated Peptic Ulcer - Sudden onset severe abdominal pain, but usually presents with more peritoneal signs and less back pain.
+
+4. Pancreatitis - Can cause severe abdominal pain radiating to back, but usually more gradual onset and associated with nausea/vomiting (which are absent here).
+
+5. Renal Colic/Nephrolithiasis - Can cause severe flank/back pain, but usually more colicky and less likely to cause hemodynamic compromise.
+
+Given the demographics (elderly male), the sudden onset, the specific pain pattern (abdominal AND back), and the hemodynamic symptoms (dizziness/lightheadedness), AAA rupture should be at the top of my differential.
+
+The absence of chest pain makes MI less likely, though it should still be considered in this demographic. The absence of nausea/vomiting makes GI causes somewhat less likely but doesn't rule them out.
+
+I need to prioritize life-threatening conditions first, then work down to less emergent diagnoses.
+
 
 ANSWER:
 1. Diagnosis: <Diagnosis Name>
-Justification: <Brief clinical reasoning: key symptoms/findings that support this diagnosis, prevalence considerations>
-
 2. Diagnosis: <Diagnosis Name>
-Justification: <Brief clinical reasoning: key symptoms/findings that support this diagnosis, prevalence considerations>
-
 ...
-
 10. Diagnosis: <Diagnosis Name>
-Justification: <Brief clinical reasoning: key symptoms/findings that support this diagnosis, prevalence considerations>
 
 STOP HERE. Do not add notes, recommendations, or additional text."""
 
@@ -168,6 +196,7 @@ Your task is to:
 - Focus on conditions that best explain the constellation of symptoms
 
 Previously asked questions: {prev_questions}
+Conversation: {conversation}
 
 Vignette:
 {vignette}
@@ -185,13 +214,13 @@ Apply focused diagnostic reasoning:
 - Risk stratification: <which diagnoses pose immediate vs long-term risk>
 - Clinical coherence: <which diagnoses best explain the complete clinical picture>
 - Make sure to ONLY use the information provided in the vignette and previous questions
+- Prioritize life threatening conditions first, then work down to less emergent diagnoses.
+
 
 ANSWER:
 1. Diagnosis: <Diagnosis Name>
-Justification: <Detailed reasoning: specific symptoms/findings supporting this diagnosis, why it's most likely, how it explains the clinical pattern>
 
 2. Diagnosis: <Diagnosis Name>
-Justification: <Detailed reasoning: specific symptoms/findings supporting this diagnosis, why it's ranked here, distinguishing features>
 
 ...
 
@@ -210,6 +239,7 @@ Your task is to:
 - Consider diagnostic criteria and clinical coherence
 
 Previously asked questions: {prev_questions}
+Conversation: {conversation}
 
 Vignette:
 {vignette}
@@ -251,7 +281,7 @@ STOP HERE. Do not add notes, recommendations, or additional text."""
 
 # === Diagnosis Logic ===
 def get_diagnosis_response(
-    turn_count, gold, vignette_summary, previous_questions, diagnoser
+    turn_count, gold, vignette_summary, previous_questions, diagnoser, conversation
 ):
     """Get diagnosis with proper stage-based prompting"""
     if turn_count < 6:  # First 2 turns
@@ -267,6 +297,7 @@ def get_diagnosis_response(
         base_prompt.format(
             prev_questions=json.dumps(previous_questions),
             vignette=vignette_summary,
+            conversation=json.dumps(conversation),
             turn_count=turn_count,
         )
     )
@@ -526,6 +557,37 @@ The model should categorize the reported symptoms by system: [symptom category] 
 STEP 5 - COMPLETENESS ASSESSMENT:
 The model should identify what information is missing by noting: [specific gaps in history] that were not addressed in the conversation, without suggesting what those gaps might contain.
 
+EXAMPLE THINKING:
+Let me analyze this conversation to extract the key clinical information systematically.
+
+From the doctor's opening question "What brings you in today?", this appears to be the initial chief complaint. The patient's response gives me several important pieces of information that I need to organize properly.
+
+First, I have demographic information: "I'm a 72-year-old man" - this gives me age and gender, which are crucial for differential diagnosis considerations later.
+
+Next, I need to parse the symptom description carefully. The patient says "I suddenly got this really sharp, constant pain in my stomach and back." Let me break this down:
+- Onset: "suddenly" - this indicates acute onset, which is clinically significant
+- Quality: "sharp, constant" - describes the character of the pain
+- Location: "stomach and back" - this could mean abdominal pain with back radiation
+- Duration: The word "got" suggests this started recently, though I don't have exact timing yet
+
+The patient also mentions "I feel dizzy and lightheaded." This is a separate symptom cluster that could be related to the pain or represent a systemic issue.
+
+Since there's no previous vignette, this is my first summary, so I need to establish the basic framework. I should organize this into standard clinical categories:
+
+Demographics: 72-year-old male
+Chief Complaint: Should focus on the primary concern - the pain
+History of Present Illness: Need to capture onset, quality, location, associated symptoms
+Associated Symptoms: Dizziness and lightheadedness are important and separate from the pain
+
+I notice the patient used lay terminology - "stomach" rather than "abdomen" - but I should translate this appropriately while maintaining the essence of their description. "Back pain" is clear.
+
+The combination of sudden abdominal/back pain in an elderly male with associated dizziness could suggest several serious conditions, but as a summarizer, I shouldn't diagnose - just accurately capture what was said.
+
+I should also note what information is still missing: exact timing, pain severity, radiation pattern, aggravating/alleviating factors, past medical history, medications, etc. This will help guide future questioning.
+
+The patient's language suggests they're concerned ("really sharp") and the presentation seems acute, so I should reflect the urgency in my summary tone while remaining objective.
+
+
 ANSWER: 
 IN PARAGRAPH FORM THAT INCLUDES THE FOLLOWING INFORMATION:
 Chief Complaint: [Exactly what the patient said brought them in]
@@ -567,7 +629,12 @@ Missing Information: [What wasn't discussed, without speculation about content]"
             letter = "L"
 
         diagnosis_result = get_diagnosis_response(
-            turn_count, gold_label, vignette_summary, previous_questions, diagnoser
+            turn_count,
+            gold_label,
+            vignette_summary,
+            previous_questions,
+            diagnoser,
+            json.dumps(conversation),
         )
         diagnosis_raw = diagnosis_result["raw"]
         diagnosis = diagnosis_result["clean"]
@@ -591,18 +658,6 @@ Missing Information: [What wasn't discussed, without speculation about content]"
                 diagnosis_complete = True
                 print(f"✅ Reached END for vignette {idx}. Moving to next.\n")
 
-                # Simple treatment generation
-                treatment_input = {
-                    "final_diagnosis": diagnosis,
-                    "vignette_summary": vignette_summary,
-                    "patient_context": {
-                        "gold_diagnosis": gold_label,
-                        "conversation_summary": (
-                            conversation[-6:] if len(conversation) > 6 else conversation
-                        ),
-                    },
-                }
-
                 prompt = f"""You are generating training data for a treatment planning reasoning model.
 
 Create a THINKING section showing how a treatment reasoning model should develop comprehensive treatment plans with specific clinical reasoning.
@@ -610,6 +665,8 @@ Create a THINKING section showing how a treatment reasoning model should develop
 FINAL DIAGNOSIS: {diagnosis}
 
 CLINICAL VIGNETTE SUMMARY: {vignette_summary}
+
+CONVERSATION: {json.dumps(conversation)}
 
 YOU MUST RESPOND IN THE FOLLOWING FORMAT:
 
