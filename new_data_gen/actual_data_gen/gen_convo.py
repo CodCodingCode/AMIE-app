@@ -11,7 +11,7 @@ import random
 
 # Initialize OpenAI client
 client = OpenAI(
-    api_key=""
+    api_key="api"
 )
 model = "gpt-4.1-nano"
 
@@ -274,6 +274,67 @@ def get_diagnosis_response(
     return response
 
 
+def clean_patient_input(vignette_text, doctor_question):
+    """Clean and format the patient input properly"""
+
+    # Extract just the vignette text without the doctor question mixed in
+    if "What brings you in today?" in vignette_text:
+        # Split and take only the vignette part
+        parts = vignette_text.split("What brings you in today?")
+        if len(parts) > 1:
+            clean_vignette = parts[1].strip()
+        else:
+            clean_vignette = vignette_text.strip()
+    else:
+        clean_vignette = vignette_text.strip()
+
+    return clean_vignette
+
+
+# Updated prompt generation:
+def generate_patient_prompt(vignette_text, doctor_question):
+
+    # Clean the vignette text
+    clean_vignette = clean_patient_input(vignette_text, doctor_question)
+
+    prompt = f"""
+You are generating training data for a patient reasoning model that simulates how THIS SPECIFIC patient would think and respond.
+
+Create a THINKING section showing how a patient reasoning model should process this particular patient's situation and decide how to communicate with the doctor.
+
+PATIENT CLINICAL BACKGROUND:
+{clean_vignette}
+
+DOCTOR'S QUESTION: 
+{doctor_question}
+
+YOU MUST mention age and biological gender in the first sentence of the ANSWER.
+
+YOU MUST RESPOND IN THE FOLLOWING FORMAT:
+
+THINKING: 
+The patient reasoning model should consider how THIS SPECIFIC patient would process their situation:
+
+PATIENT-SPECIFIC CONTEXT:
+This [age] [gender] patient with [relevant medical history] would approach this situation influenced by [age-related concerns], [medical history impact], and [demographic factors]. Given their [specific background], they would be particularly worried about [specific fears].
+
+SYMPTOM PROCESSING & LANGUAGE CHOICE:
+The patient would experience [specific symptoms] and struggle to articulate [particular sensations]. They would choose words like "[patient's likely language]" because [reasoning for word choice]. The [specific symptom characteristic] would be most alarming because [patient's perspective].
+
+EMOTIONAL & PSYCHOLOGICAL STATE:
+Given the [symptom severity/type] and their [age/background], the patient would feel [specific emotions]. They would be thinking "[internal monologue]" and worried specifically about [age-appropriate concerns like mortality, family, independence].
+
+COMMUNICATION STRATEGY:
+This patient would decide to share [specific information] while withholding [specific concerns] because [reasoning]. They would use [communication style] language because [generational/personal factors]. They would emphasize [what they think is most important] to convey [their main concern].
+
+MEDICAL UNDERSTANDING & MISCONCEPTIONS:
+The patient would (not) understand [specific medical aspects] and might think [potential misconceptions]. They would be uncertain about [medical significance] but clear about [personal experience]. They might connect this to [previous health experiences or family history].
+
+ANSWER: [Natural patient response that reflects the specific reasoning above, using age-appropriate language and concerns. RESPOND WITH 1-2 SENTENCES ONLY, FOCUSING ON WHAT THE PATIENT WOULD SAY IN RESPONSE TO THE DOCTOR'S QUESTION. DO NOT ADD ANYTHING ELSE. DO NOT USE MEDICAL TERMINOLOGY OR JARGON. DO NOT EXPLAIN YOUR REASONING HERE. JUST RESPOND AS THE PATIENT WOULD.]"""
+
+    return prompt
+
+
 # === SIMPLE QUESTIONING PROMPT ===
 def create_simple_questioning_prompt(
     turn_count, vignette_summary, diagnosis, previous_questions
@@ -349,14 +410,16 @@ Vignette: {vignette_summary}
 Leading Diagnoses: {diagnosis}
 Previous Questions: {previous_questions}
 
-INSTRUCTION: Look at what diagnostic information is missing from the vignette above, then ask the ONE question that would be most helpful for your differential diagnosis at this stage.
+INSTRUCTION: Look at what diagnostic information is missing from the vignette above, then ask the ONE question that would be most helpful for your differential diagnosis at this stage. PLEASE DO NOT ASK PREVIOUSLY ASKED QUESTIONS. 
 
 YOU MUST RESPOND IN THE FOLLOWING FORMAT:
 
 THINKING: 
 DIAGNOSTIC REASONING:
 - What key diagnostic information is missing from the current vignette?
+- What key diagnostic information is in the current vignette?
 - Which of my leading diagnoses would this question help distinguish?
+- What is the most important piece of information I need to gather at this stage?
 
 ANSWER: <Your targeted diagnostic question>"""
 
@@ -406,34 +469,14 @@ You are NOT trying to impress the doctor with a clear answer — just describe w
     )
 
     # Simple patient prompt
-    prompt = f"""
-You are generating training data for a reasoning model that will simulate patient responses. 
-
-Your task is to create a THINKING section that shows what a patient reasoning model should consider, and an ANSWER section with the actual patient response.
-
-THINKING should include:
-- How the patient feels about their symptoms
-- What the patient understands (or doesn't understand) about their condition
-- The patient's emotional state and concerns
-- How the patient decides what to share and what language to use
-- The patient's reasoning about symptom severity and timing
-
-Patient background: {vignette_text}
-Doctor's question: {initial_prompt}
-
-YOU MUST mention age and biological gender in the first sentence of the ANSWER.
-
-YOU MUST RESPOND IN THE FOLLOWING FORMAT:
-
-THINKING: I need to think about how this patient would process their symptoms and decide what to tell the doctor. The patient would be considering [their symptoms], feeling [emotional state], and trying to explain [specific concerns] in their own non-medical language. They would be uncertain about [medical aspects] but clear about [personal experience]. The patient should sound [characteristics] and focus on [main concerns].
-
-ANSWER: [The actual patient response in natural, non-medical language]"""
+    # With this clean version:
+    clean_prompt = generate_patient_prompt(vignette_text, initial_prompt)
+    patient_result = patient.ask(clean_prompt)
 
     turn_count = 0
     diagnosis_complete = False
     prev_vignette_summary = ""
 
-    patient_result = patient.ask(prompt)
     raw_patient = patient_result["raw"]
     patient_response_text = patient_result["clean"]
 
@@ -455,14 +498,7 @@ ANSWER: [The actual patient response in natural, non-medical language]"""
         summarizer2_input = f"CONVERSATION HISTORY:\n{json.dumps(conversation, indent=2)}\n\nPREVIOUS VIGNETTE:\n{prev_vignette_summary}"
         summarizer_input = f"""You are generating training data for a clinical summarizer reasoning model.
 
-Create a THINKING section that shows how a summarizer reasoning model should analyze a conversation and extract clinical information.
-
-THINKING should include:
-- How to identify key clinical information from patient language
-- How to distinguish between relevant and irrelevant details
-- How to organize symptoms chronologically and by system
-- How to translate patient language into clinical terminology
-- How to assess completeness of information
+Create a THINKING section that shows how a summarizer reasoning model should extract and organize ONLY the facts stated in THIS SPECIFIC conversation without adding interpretations or diagnoses.
 
 CONVERSATION HISTORY:
 {conversation}
@@ -472,9 +508,32 @@ PREVIOUS VIGNETTE:
 
 YOU MUST RESPOND IN THE FOLLOWING FORMAT:
 
-THINKING: The summarizer model should analyze this conversation by first identifying [key symptoms mentioned], then organizing them by [systematic approach]. It should translate [patient language] into [clinical terms] while noting [timeline/progression]. The model should recognize [important details] and identify [missing information]. The summary should be [structured approach] focusing on [clinical priorities].
+THINKING: 
+The summarizer model should approach this specific conversation by:
 
-ANSWER: [Clean, structured clinical vignette in paragraph form]"""
+STEP 1 - FACT EXTRACTION:
+The model should identify exactly what the patient stated: "[exact patient words]" and extract only the explicitly mentioned facts: [list only stated facts]. It should NOT infer, assume, or add any information not directly stated by the patient.
+
+STEP 2 - TERMINOLOGY TRANSLATION:
+The model should translate the patient's lay language into clinical terminology while staying faithful to what was said: "[patient's words]" becomes "[clinical equivalent]" without adding severity, implications, or interpretations.
+
+STEP 3 - CHRONOLOGICAL ORGANIZATION:
+The model should organize the timeline based only on what the patient reported: [onset timing], [progression], [current status] - using only the patient's stated information about timing and sequence.
+
+STEP 4 - SYSTEMATIC ORGANIZATION:
+The model should categorize the reported symptoms by system: [symptom category] - [exactly what patient said], without inferring additional symptoms or clinical significance.
+
+STEP 5 - COMPLETENESS ASSESSMENT:
+The model should identify what information is missing by noting: [specific gaps in history] that were not addressed in the conversation, without suggesting what those gaps might contain.
+
+ANSWER: 
+IN PARAGRAPH FORM THAT INCLUDES THE FOLLOWING INFORMATION:
+Chief Complaint: [Exactly what the patient said brought them in]
+Demographics: [Only age, gender, and facts explicitly stated]  
+History of Present Illness: [Chronological facts as reported by patient, translated to clinical terms]
+Associated Symptoms: [Only symptoms explicitly mentioned by patient]
+Pertinent Negatives: [Only denials explicitly stated by patient]
+Missing Information: [What wasn't discussed, without speculation about content]"""
 
         vignette_result = summarizer.ask(summarizer_input)
         vignette_summary_raw = vignette_result["raw"]
@@ -551,10 +610,6 @@ Create a THINKING section showing how a treatment reasoning model should develop
 FINAL DIAGNOSIS: {diagnosis}
 
 CLINICAL VIGNETTE SUMMARY: {vignette_summary}
-
-PATIENT CONTEXT:
-- Gold Standard Diagnosis: {gold_label}
-- Recent Conversation: {conversation[-6:] if len(conversation) > 6 else conversation}
 
 YOU MUST RESPOND IN THE FOLLOWING FORMAT:
 
@@ -974,7 +1029,7 @@ if __name__ == "__main__":
     )
 
     # Launch multiprocessing pool workers
-    with multiprocessing.Pool(processes=1) as pool:
+    with multiprocessing.Pool(processes=12) as pool:
         results = pool.map(
             run_vignette_task,
             [
