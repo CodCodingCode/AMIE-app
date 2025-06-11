@@ -91,81 +91,85 @@ print(
 )
 
 
-# ─── 6. Define your anti-hallucination reward fn ────────────────────
-def anti_hallucination_reward(prompts, completions, **kwargs):
+# ─── 6. Define your ChatGPT-based anti-hallucination reward fn ────────────────────
+from openai import OpenAI
+import time
+import multiprocessing
+import shutil
+from itertools import islice
+import random
+
+# Initialize OpenAI client
+client = OpenAI(api_key="api")
+model = "gpt-4.1-nano"
+
+
+def chatgpt_hallucination_reward(prompts, completions, **kwargs):
     rewards = []
     for idx, (prompt, completion) in enumerate(zip(prompts, completions)):
-        score = 0.0
 
         # Extract patient input from prompt if it's a clinical summarizer task
         if "clinical summarizer" in prompt.lower():
-            # Look for patient input after "Input:"
             input_match = re.search(
                 r"Input:\s*(.*?)\s*(?:Previous Vignette|Output:|$)", prompt, re.DOTALL
             )
             if input_match:
-                patient_input = input_match.group(1).strip().lower()
-                completion_lower = completion.lower()
+                patient_input = input_match.group(1).strip()
 
-                # Check for hallucinated symptoms not mentioned by patient
-                hallucinated_symptoms = []
+                # Create ChatGPT prompt to evaluate hallucination
+                evaluation_prompt = f"""
+You are an expert clinical fact-checker. Your job is to compare a patient's original statement with a clinical summary and identify any hallucinations or inaccuracies.
 
-                # Common hallucinations we want to penalize
-                if "dizzy" in completion_lower and "dizzy" not in patient_input:
-                    hallucinated_symptoms.append("dizziness")
-                if "tired" in completion_lower and "tired" not in patient_input:
-                    hallucinated_symptoms.append("fatigue")
-                if (
-                    "throwing up repeatedly" in completion_lower
-                    and "repeatedly" not in patient_input
-                ):
-                    hallucinated_symptoms.append("repeated vomiting")
-                if "gender is not specified" in completion_lower and (
-                    "male" in patient_input or "female" in patient_input
-                ):
-                    hallucinated_symptoms.append("incorrect gender statement")
+PATIENT'S ORIGINAL STATEMENT:
+{patient_input}
 
-                # Heavy penalty for each hallucinated symptom
-                score -= 2.0 * len(hallucinated_symptoms)
+CLINICAL SUMMARY TO EVALUATE:
+{completion}
 
-                # Reward for accurate fact extraction
-                accurate_facts = 0
-                if "headache" in patient_input and "headache" in completion_lower:
-                    accurate_facts += 1
-                if "17" in patient_input and "17" in completion_lower:
-                    accurate_facts += 1
-                if "female" in patient_input and "female" in completion_lower:
-                    accurate_facts += 1
-                if "left side" in patient_input and "left" in completion_lower:
-                    accurate_facts += 1
-                if "throbbing" in patient_input and "throbbing" in completion_lower:
-                    accurate_facts += 1
-                if "light hurts" in patient_input and (
-                    "photophobia" in completion_lower or "light" in completion_lower
-                ):
-                    accurate_facts += 1
-                if "loud noises" in patient_input and (
-                    "phonophobia" in completion_lower or "noise" in completion_lower
-                ):
-                    accurate_facts += 1
-                if "threw up once" in patient_input and "vomit" in completion_lower:
-                    accurate_facts += 1
-                if "mom gets migraines" in patient_input and (
-                    "family history" in completion_lower
-                    or "migraine" in completion_lower
-                ):
-                    accurate_facts += 1
+Please analyze if the clinical summary adds any information that was NOT mentioned by the patient. Look for:
+1. Symptoms the patient never mentioned
+2. Demographic information that contradicts what the patient said
+3. Severity descriptions not provided by the patient
+4. Any other fabricated details
 
-                score += 0.5 * accurate_facts
+Respond with a JSON object containing:
+- "hallucinated_items": [list of specific things that were added/fabricated]
+- "accurate_items": [list of things correctly extracted from patient statement]
+- "score": a number from -10 to +10 (-10 = severe hallucination, +10 = perfect accuracy)
 
-                print(
-                    f"[debug reward] #{idx} → hallucinated: {hallucinated_symptoms}, accurate_facts: {accurate_facts}, score: {score}"
-                )
+Example response:
+{{"hallucinated_items": ["dizziness", "repeated vomiting"], "accurate_items": ["17-year-old female", "left-sided headache", "photophobia"], "score": -2}}
+"""
+
+                try:
+                    response = client.chat.completions.create(
+                        model=model,
+                        messages=[{"role": "user", "content": evaluation_prompt}],
+                        temperature=0.1,
+                        max_tokens=500,
+                    )
+
+                    # Parse the response
+                    import json
+
+                    result = json.loads(response.choices[0].message.content)
+                    score = result.get("score", 0.0)
+                    hallucinated = result.get("hallucinated_items", [])
+                    accurate = result.get("accurate_items", [])
+
+                    print(
+                        f"[debug reward] #{idx} → hallucinated: {hallucinated}, accurate: {accurate}, score: {score}"
+                    )
+
+                except Exception as e:
+                    print(
+                        f"[debug reward] #{idx} → ChatGPT error: {e}, defaulting to 0.0"
+                    )
+                    score = 0.0
+
             else:
-                # If we can't extract patient input, give neutral score
                 score = 0.0
         else:
-            # For non-clinical summarizer tasks, give neutral score
             score = 0.0
 
         rewards.append(score)
@@ -192,7 +196,7 @@ trainer = GRPOTrainer(
     model=hf_model,
     args=training_args,
     train_dataset=tokenized,
-    reward_funcs=anti_hallucination_reward,
+    reward_funcs=chatgpt_hallucination_reward,
 )
 print("[debug] Starting trainer.train()…")
 

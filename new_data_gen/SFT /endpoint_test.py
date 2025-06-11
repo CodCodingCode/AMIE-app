@@ -1,5 +1,7 @@
 import requests
 import json
+import os
+from datetime import datetime
 
 # ============================================================================
 # REPLACE THESE WITH YOUR ACTUAL VALUES
@@ -16,7 +18,7 @@ class HuggingFaceInference:
             "Content-Type": "application/json",
         }
 
-    def generate(self, prompt, max_new_tokens=1000):
+    def generate(self, prompt, max_new_tokens=800):
         payload = {
             "inputs": prompt,
             "parameters": {
@@ -55,6 +57,48 @@ class HuggingFaceInference:
 model_client = HuggingFaceInference(ENDPOINT_URL, HF_TOKEN)
 
 
+# JSON logging functionality
+def save_to_json(data, filename="clinical_conversation_log.json"):
+    """Save data to JSON file"""
+    if os.path.exists(filename):
+        with open(filename, "r") as f:
+            existing_data = json.load(f)
+    else:
+        existing_data = []
+
+    existing_data.append(data)
+
+    with open(filename, "w") as f:
+        json.dump(existing_data, f, indent=2)
+
+
+def save_conversation_state(
+    conversation_log, filename="clinical_conversation_log.json"
+):
+    """Save current conversation state to JSON file after each turn"""
+    with open(filename, "w") as f:
+        json.dump(conversation_log, f, indent=2)
+
+
+def extract_thinking_and_answer(raw_output):
+    """Extract THINKING and ANSWER sections from raw output"""
+    thinking = ""
+    answer = ""
+
+    if "THINKING:" in raw_output:
+        thinking_start = raw_output.find("THINKING:") + len("THINKING:")
+        if "ANSWER:" in raw_output:
+            thinking_end = raw_output.find("ANSWER:")
+            thinking = raw_output[thinking_start:thinking_end].strip()
+            answer = raw_output.split("ANSWER:")[-1].strip()
+        else:
+            thinking = raw_output[thinking_start:].strip()
+    else:
+        answer = raw_output.strip()
+
+    return thinking, answer
+
+
 # Test the connection first
 def test_connection():
     try:
@@ -79,6 +123,9 @@ def run_conversation():
     print("🏥 Starting Clinical Conversation")
     print("=" * 60)
 
+    # Initialize conversation log
+    conversation_log = {"timestamp": datetime.now().isoformat(), "iterations": []}
+
     convo = []
     prev_questions = []
     convo.append("Doctor: What brings you in today?")
@@ -89,6 +136,16 @@ def run_conversation():
     for i in range(10):
         print(f"\n{'='*20} Iteration {i+1} {'='*20}")
 
+        iteration_data = {
+            "iteration": i + 1,
+            "clinical_summary": {},
+            "diagnostic_reasoning": {},
+            "question_generation": {},
+            "treatment_plan": {},
+            "patient_response": patient_response,
+            "conversation_history": convo.copy(),
+        }
+
         # 1. Clinical Summary Generation
         input_text = f"""
 Instruction: You are a clinical summarizer. Given a transcript of a doctor–patient dialogue, extract a structured clinical vignette summarizing the key symptoms, relevant history, and any diagnostic clues.
@@ -98,11 +155,16 @@ Output: THINKING:
 
         print("🔄 Generating clinical summary...")
         raw_output = model_client.generate(input_text, max_new_tokens=1000)
-        output = (
-            raw_output.split("ANSWER:")[-1].strip()
-            if "ANSWER:" in raw_output
-            else raw_output
-        )
+        thinking, answer = extract_thinking_and_answer(raw_output)
+
+        iteration_data["clinical_summary"] = {
+            "input": input_text,
+            "raw_output": raw_output,
+            "thinking": thinking,
+            "answer": answer,
+        }
+
+        output = answer if answer else raw_output
         print("📋 Clinical Summary Output:")
         print(raw_output)
         print("\n" + "-" * 50)
@@ -115,12 +177,17 @@ Output: THINKING:
 """
 
         print("🔄 Generating diagnostic reasoning...")
-        raw_output = model_client.generate(input_text2, max_new_tokens=1000)
-        output2 = (
-            raw_output.split("ANSWER:")[-1].strip()
-            if "ANSWER:" in raw_output
-            else raw_output
-        )
+        raw_output = model_client.generate(input_text2, max_new_tokens=800)
+        thinking2, answer2 = extract_thinking_and_answer(raw_output)
+
+        iteration_data["diagnostic_reasoning"] = {
+            "input": input_text2,
+            "raw_output": raw_output,
+            "thinking": thinking2,
+            "answer": answer2,
+        }
+
+        output2 = answer2 if answer2 else raw_output
         print("🩺 Diagnostic Reasoning Output:")
         print(raw_output)
         print("\n" + "-" * 50)
@@ -140,11 +207,16 @@ Output: THINKING:
             print(output2)
             break
 
-        doctor_output = (
-            raw_output.split("ANSWER:")[-1].strip()
-            if "ANSWER:" in raw_output
-            else raw_output
-        )
+        thinking3, answer3 = extract_thinking_and_answer(raw_output)
+
+        iteration_data["question_generation"] = {
+            "input": input_text3,
+            "raw_output": raw_output,
+            "thinking": thinking3,
+            "answer": answer3,
+        }
+
+        doctor_output = answer3 if answer3 else raw_output
         print("❓ Question Generation Output:")
         print(raw_output)
         print("\n" + "-" * 50)
@@ -159,17 +231,31 @@ Input: Diagnosis: {output2} Vignette: {output}
 Output: THINKING:
 """
         raw_output = model_client.generate(input_text4, max_new_tokens=1000)
-        output = (
-            raw_output.split("ANSWER:")[-1].strip()
-            if "ANSWER:" in raw_output
-            else raw_output
-        )
-        print("💊 Treatment Plan Output:" raw_output)
+        thinking4, answer4 = extract_thinking_and_answer(raw_output)
+
+        iteration_data["treatment_plan"] = {
+            "input": input_text4,
+            "raw_output": raw_output,
+            "thinking": thinking4,
+            "answer": answer4,
+        }
+
+        print("💊 Treatment Plan Output:" + raw_output)
+
+        # Save conversation state after each turn
+        save_conversation_state(conversation_log)
+        print(f"💾 Progress saved to clinical_conversation_log.json")
 
         patient_response = str(input("👤 Patient Response: "))
         convo.append(f"Patient: {patient_response}")
         prev_vignette = output
 
+        # Save iteration data to log
+        conversation_log["iterations"].append(iteration_data)
+
+    # Save final conversation log to JSON
+    save_conversation_state(conversation_log)
+    print(f"\n📄 Final conversation log saved to clinical_conversation_log.json")
     print("\n✅ Conversation finished!")
 
 
