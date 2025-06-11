@@ -4,8 +4,8 @@ import json
 # ============================================================================
 # REPLACE THESE WITH YOUR ACTUAL VALUES
 # ============================================================================
-ENDPOINT_URL = "api"  # Your endpoint URL from the screenshot
-HF_TOKEN = "api"  # Your HuggingFace token
+ENDPOINT_URL = "https://glg6vtpv72vt2jad.us-east-1.aws.endpoints.huggingface.cloud"  # Your endpoint URL from the screenshot
+HF_TOKEN = "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"  # Your HuggingFace token
 
 
 class HuggingFaceInference:
@@ -16,7 +16,7 @@ class HuggingFaceInference:
             "Content-Type": "application/json",
         }
 
-    def generate(self, prompt, max_new_tokens=400):
+    def generate(self, prompt, max_new_tokens=1000):
         payload = {
             "inputs": prompt,
             "parameters": {
@@ -97,7 +97,7 @@ Output: THINKING:
 """
 
         print("🔄 Generating clinical summary...")
-        raw_output = model_client.generate(input_text, max_new_tokens=400)
+        raw_output = model_client.generate(input_text, max_new_tokens=1000)
         output = (
             raw_output.split("ANSWER:")[-1].strip()
             if "ANSWER:" in raw_output
@@ -115,7 +115,7 @@ Output: THINKING:
 """
 
         print("🔄 Generating diagnostic reasoning...")
-        raw_output = model_client.generate(input_text2, max_new_tokens=400)
+        raw_output = model_client.generate(input_text2, max_new_tokens=1000)
         output2 = (
             raw_output.split("ANSWER:")[-1].strip()
             if "ANSWER:" in raw_output
@@ -133,7 +133,7 @@ Output: THINKING:
 """
 
         print("🔄 Generating next question...")
-        raw_output = model_client.generate(input_text3, max_new_tokens=400)
+        raw_output = model_client.generate(input_text3, max_new_tokens=1000)
 
         if i == 5:
             print("🏁 Reached iteration limit (5). Final diagnosis:")
@@ -152,6 +152,19 @@ Output: THINKING:
         print(f"\n🩺 Doctor: {doctor_output}")
         convo.append(f"Doctor: {doctor_output}")
         prev_questions.append(doctor_output)
+
+        input_text4 = f"""
+Instruction: You are a board-certified clinician. Based on the provided diagnosis and patient vignette, propose a realistic, evidence-based treatment plan suitable for initiation by a primary care physician or psychiatrist.
+Input: Diagnosis: {output2} Vignette: {output}
+Output: THINKING:
+"""
+        raw_output = model_client.generate(input_text4, max_new_tokens=1000)
+        output = (
+            raw_output.split("ANSWER:")[-1].strip()
+            if "ANSWER:" in raw_output
+            else raw_output
+        )
+        print("💊 Treatment Plan Output:" raw_output)
 
         patient_response = str(input("👤 Patient Response: "))
         convo.append(f"Patient: {patient_response}")
@@ -184,3 +197,16 @@ if __name__ == "__main__":
 
     # Run the full conversation
     run_conversation()
+
+
+files = {
+    "You are a clinical summarizer. Given a transcript of a doctor–patient dialogue, extract a structured clinical vignette summarizing the key symptoms, relevant history, and any diagnostic clues.": "all_summarizer_outputs.json",
+    "You are a behavioral identifying agent. Based on the provided patient responses, please identify and list the key behavioral indicators that could suggest a specific diagnosis.": "all_behavioral_analyses.json",
+    "You are a board-certified clinician. Based on the provided diagnosis and patient vignette, propose a realistic, evidence-based treatment plan suitable for initiation by a primary care physician or psychiatrist.": "all_treatment_outputs.json",
+    "You are a diagnostic reasoning model (Early Stage). Based on the patient vignette and early-stage observations, generate a list of plausible diagnoses with reasoning. Focus on broad differentials, considering common and uncommon conditions.": "ED.json",
+    "You are a diagnostic reasoning model (Middle Stage). Given the current vignette, prior dialogue, and diagnostic hypothesis, refine the list of possible diagnoses with concise justifications for each. Aim to reduce diagnostic uncertainty.": "MD.json",
+    "You are a diagnostic reasoning model (Late Stage). Based on the final patient vignette summary and full conversation, provide the most likely diagnosis with structured reasoning. Confirm diagnostic certainty and include END if no more questioning is necessary.": "LD.json",
+    "You are a questioning agent (Early Stage). Your task is to propose highly relevant early-stage questions that can open the differential diagnosis widely. Use epidemiology, demographics, and vague presenting symptoms as guides.": "E.json",
+    "You are a questioning agent (Middle Stage). Using the current diagnosis, past questions, and patient vignette, generate a specific question to refine the current differential diagnosis. Return your reasoning and next question.": "M.json",
+    "You are a questioning agent (Late Stage). Based on narrowed differentials and previous dialogue, generate a focused question that would help confirm or eliminate the final 1-2 suspected diagnoses.": "L.json",
+}

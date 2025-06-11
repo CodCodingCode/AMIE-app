@@ -10,7 +10,7 @@ from itertools import islice
 import random
 
 # Initialize OpenAI client
-client = OpenAI(api_key="api")
+client = OpenAI(api_key="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")
 model = "gpt-4.1-nano"
 
 treatment_plans = []
