@@ -274,8 +274,11 @@ Checklist:
 ANSWER:
 1. Diagnosis: <Diagnosis Name>
 2. Diagnosis: <Diagnosis Name>
-...
+3. Diagnosis: <Diagnosis Name>
+4. Diagnosis: <Diagnosis Name>
 5. Diagnosis: <Diagnosis Name>
+END
+
 STOP HERE. Do not add notes, recommendations, or additional text."""
 
 
@@ -287,7 +290,7 @@ def get_diagnosis_response(
     if turn_count < 6:  # First 2 turns
         base_prompt = EARLY_DIAGNOSIS_PROMPT
         stage = "early"
-    elif turn_count >= 6 and turn_count < 12:  # Next 2 turns
+    elif turn_count >= 6 and turn_count < 14:  # Next 2 turns
         base_prompt = MIDDLE_DIAGNOSIS_PROMPT
         stage = "middle"
     else:  # Last 1 turn
@@ -364,7 +367,7 @@ This patient would decide to share [specific information] while withholding [spe
 MEDICAL UNDERSTANDING & MISCONCEPTIONS:
 The patient would (not) understand [specific medical aspects] and might think [potential misconceptions]. They would be uncertain about [medical significance] but clear about [personal experience]. They might connect this to [previous health experiences or family history].
 
-ANSWER: [Natural patient response that reflects the specific reasoning above, using age-appropriate language and concerns. RESPOND WITH 1-2 SENTENCES ONLY, FOCUSING ON WHAT THE PATIENT WOULD SAY IN RESPONSE TO THE DOCTOR'S QUESTION. DO NOT ADD ANYTHING ELSE. DO NOT USE MEDICAL TERMINOLOGY OR JARGON. DO NOT EXPLAIN YOUR REASONING HERE. JUST RESPOND AS THE PATIENT WOULD.]"""
+ANSWER: I am a [AGE] [GENDER]. [Natural patient response that reflects the specific reasoning above, using age-appropriate language and concerns. RESPOND WITH 1-2 SENTENCES ONLY, FOCUSING ON WHAT THE PATIENT WOULD SAY IN RESPONSE TO THE DOCTOR'S QUESTION. DO NOT ADD ANYTHING ELSE. DO NOT USE MEDICAL TERMINOLOGY OR JARGON. DO NOT EXPLAIN YOUR REASONING HERE. JUST RESPOND AS THE PATIENT WOULD.]"""
 
     return prompt
 
@@ -397,7 +400,7 @@ def create_simple_questioning_prompt(
         - If associated symptoms missing: Ask about related symptoms
         - If no context: Ask about triggers or recent exposures"""
 
-    elif turn_count >= 6 and turn_count < 12:
+    elif turn_count >= 6 and turn_count < 14:
         base_questioning_role = """You are conducting the FOCUSED CLARIFICATION phase of the clinical interview.
 
         CLARIFICATION OBJECTIVES:
@@ -410,9 +413,11 @@ def create_simple_questioning_prompt(
         - Explore diagnostic criteria for conditions in your differential
         - Investigate quality, timing, and context of symptoms
         - Ask about what makes symptoms better or worse
+        - MAKE SURE YOU GET MORE INFORMATION. ASK QUESTIONS THAT WOULD GET YOU MORE INFORMATION IN THE FOLLOWING TOPICS IN ORDER TO HAVE A BETTER DIAGNOSIS: Time, severity, context, onset, location, duration, family history, medical history, social history, etc.
 
         DIAGNOSTIC FOCUS FOR THIS STAGE:
         Target the biggest gap that would help distinguish between your top diagnoses:
+        EXAMPLE:
         - For eye symptoms: Ask about discharge characteristics, contact history
         - For pain: Ask about quality, radiation, triggers
         - For any symptoms: Ask about previous episodes, family history
@@ -435,7 +440,9 @@ def create_simple_questioning_prompt(
         Ask the question that would confirm or rule out your leading diagnosis:
         - Target specific diagnostic criteria for your #1 diagnosis
         - Ask about red flags or alternative explanations
-        - Confirm key features that distinguish from your #2 diagnosis"""
+        - Confirm key features that distinguish from your #2 diagnosis
+        USING THE LEADING DIAGNOSES, PLEASE ASK QUESTIONS THAT TAILOR TOWARDS FINDING WHICH DISEASE OF THE ONES IN THE DIFFERENTIAL DIAGNOSES IS THE MOST LIKELY DIAGNOSIS. Ask eliminating questions that would help you confirm or rule out the most likely diagnosis.
+        """
 
     return f"""{base_questioning_role}
 
@@ -568,7 +575,7 @@ Demographics: [Only age, gender, and facts explicitly stated]
 History of Present Illness: [Chronological facts as reported by patient, translated to clinical terms]
 Associated Symptoms: [Only symptoms explicitly mentioned by patient]
 Pertinent Negatives: [Only denials explicitly stated by patient]
-Missing Information: [What wasn't discussed, without speculation about content]"""
+Missing Information: [What wasn't discussed, without speculation about content Add family information, social history, time, context, progression, duration, etc.]"""
 
         vignette_result = summarizer.ask(summarizer_input)
         vignette_summary_raw = vignette_result["raw"]
@@ -594,11 +601,11 @@ Missing Information: [What wasn't discussed, without speculation about content]"
         # Diagnosis
         print("Turn count:", turn_count)
         letter = ""
-        if turn_count < 4:
+        if turn_count < 6:
             letter = "E"
-        elif turn_count >= 4 and turn_count < 8:
+        elif turn_count >= 6 and turn_count < 14:
             letter = "M"
-        elif turn_count >= 8:
+        elif turn_count >= 14:
             letter = "L"
 
         diagnosis_result = get_diagnosis_response(
@@ -626,12 +633,11 @@ Missing Information: [What wasn't discussed, without speculation about content]"
         )
 
         # Handle END signal
-        if "END" in diagnosis:
-            if turn_count >= 8:
-                diagnosis_complete = True
-                print(f"✅ Reached END for vignette {idx}. Moving to next.\n")
+        if turn_count >= 20:
+            diagnosis_complete = True
+            print(f"✅ Reached END for vignette {idx}. Moving to next.\n")
 
-                prompt = f"""You are generating training data for a treatment planning reasoning model.
+            prompt = f"""You are generating training data for a treatment planning reasoning model.
 
 Create a THINKING section showing how a treatment reasoning model should develop comprehensive treatment plans with specific clinical reasoning.
 
@@ -692,24 +698,24 @@ PATIENT EDUCATION PRIORITIES:
 • [Specific lifestyle changes] with [specific goals]
 • [Specific follow-up instructions] and [specific contact information]"""
 
-                treatment_result = diagnoser.ask(prompt)
-                raw_treatment = treatment_result["raw"]
+            treatment_result = diagnoser.ask(prompt)
+            raw_treatment = treatment_result["raw"]
 
-                treatment_plans.append(
-                    {
-                        "vignette_index": idx,
-                        "input": f"""DIAGNOSIS: {diagnosis} VIGNETTE: {vignette_summary} CONVERSATION: {json.dumps(conversation)}""",  # Clean input string
-                        "output": raw_treatment,  # Full THINKING + ANSWER
-                        "thinking": split_thinking_answer(raw_treatment)[
-                            0
-                        ],  # Extracted thinking
-                        "answer": split_thinking_answer(raw_treatment)[
-                            1
-                        ],  # Extracted answer
-                        "gold_diagnosis": gold_label,
-                        "turn_count": turn_count,
-                    }
-                )
+            treatment_plans.append(
+                {
+                    "vignette_index": idx,
+                    "input": f"""DIAGNOSIS: {diagnosis} VIGNETTE: {vignette_summary} CONVERSATION: {json.dumps(conversation)}""",  # Clean input string
+                    "output": raw_treatment,  # Full THINKING + ANSWER
+                    "thinking": split_thinking_answer(raw_treatment)[
+                        0
+                    ],  # Extracted thinking
+                    "answer": split_thinking_answer(raw_treatment)[
+                        1
+                    ],  # Extracted answer
+                    "gold_diagnosis": gold_label,
+                    "turn_count": turn_count,
+                }
+            )
 
         # Limit to last 3–5 doctor questions
         previous_questions = [
@@ -757,7 +763,7 @@ Please respond in the following strict format:
 
 THINKING: Describe the patient's thought process using ONLY information from the vignette and the doctor's follow-up question. Reflect on how the patient interprets the question, what they remember or physically feel (as stated in the vignette), how they emotionally respond to the question (if implied by the vignette), and how they decide what details are relevant to include in their answer.
 
-ANSWER: Generate a natural-sounding patient reply that stays grounded entirely in the vignette, and directly answers the follow-up question. Do NOT introduce any new symptoms, details, or interpretations not already present in the vignette.
+ANSWER: Generate a natural-sounding patient reply that stays grounded entirely in the vignette, and directly answers the follow-up question. Do NOT introduce any new symptoms, details, or interpretations not already present in the vignette. DO not use ANY medical terminology or jargon. Not even words like "radiating" or "sharp". Just respond as the patient would, in their own words, based on their understanding of their condition.
 
 CONTEXT:
 - VIGNETTE_TEXT: {vignette_text}
