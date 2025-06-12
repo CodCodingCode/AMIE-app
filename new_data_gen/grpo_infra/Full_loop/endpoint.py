@@ -9,7 +9,10 @@ import re
 # ============================================================================
 # REPLACE THESE WITH YOUR ACTUAL VALUES
 # ============================================================================
-  # Your JSON file with the vignettes
+DOCTOR_ENDPOINT_URL = "https://pawaab86ddo00b8m.us-east-1.aws.endpoints.huggingface.cloud"  # Your clinical/doctor model endpoint
+PATIENT_ENDPOINT_URL = "https://b81l3ho0k7z27sip.us-east-1.aws.endpoints.huggingface.cloud"  # Your patient agent model endpoint
+HF_TOKEN = "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"  # Your HuggingFace token
+VIGNETTES_FILE = "new_data_gen/actual_data_gen/disease_vignettes_from_familydoctor.json"  # Your JSON file with the vignettes
 
 
 class HuggingFaceInference:
@@ -64,9 +67,9 @@ patient_model = HuggingFaceInference(PATIENT_ENDPOINT_URL, HF_TOKEN, "Patient Mo
 def load_vignettes(filename):
     """Load vignettes from JSON file and select 2 per condition"""
     try:
-        with open(filename, 'r') as f:
+        with open(filename, "r") as f:
             data = json.load(f)
-        
+
         selected_vignettes = {}
         for condition, vignettes in data.items():
             cleaned_vignettes = []
@@ -78,8 +81,10 @@ def load_vignettes(filename):
                     cleaned_vignettes.append(str(vignette))
             # Take only first 2 vignettes per condition
             selected_vignettes[condition] = cleaned_vignettes[:2]
-            print(f"📋 Loaded {len(selected_vignettes[condition])} vignettes for {condition}")
-        
+            print(
+                f"📋 Loaded {len(selected_vignettes[condition])} vignettes for {condition}"
+            )
+
         return selected_vignettes
     except FileNotFoundError:
         print(f"❌ Vignettes file {filename} not found!")
@@ -88,21 +93,21 @@ def load_vignettes(filename):
         print(f"❌ Invalid JSON in {filename}")
         return {}
 
+
 def get_random_vignette():
     """Get a random vignette from the loaded vignettes"""
     vignettes_data = load_vignettes(VIGNETTES_FILE)
     if not vignettes_data:
         return "A patient presents with concerning symptoms.", "Unknown Condition"
-    
+
     # Get all vignettes from all conditions with their condition names
     all_vignettes_with_conditions = []
     for condition, vignettes in vignettes_data.items():
         for vignette in vignettes:
             all_vignettes_with_conditions.append((vignette, condition))
-     
+
     selected_vignette, condition = random.choice(all_vignettes_with_conditions)
     return selected_vignette, condition
-
 
 
 # JSON logging functionality
@@ -187,7 +192,7 @@ def run_conversation():
     convo = []
     prev_questions = []
     convo.append("Doctor: What brings you in today?")
-    patient_input = f"### Instruction:\nYou are a patient agent. Please act as if you are a real patient with the following vignette and conversation.\n\n### Input:\n{vignette}\n\n{question}\n\n### Output:"  # MODIFIED THIS LINE
+    patient_input = f"Instruction:\nYou are a patient agent. Please act as if you are a real patient with the following vignette and conversation.\n\n Input:\n{vignette}\n\n{question}\n\n Output: THINKING:"  # MODIFIED THIS LINE
     patient_response = patient_model.generate(
         patient_input, max_new_tokens=700
     )  # Generate initial patient response
@@ -282,6 +287,7 @@ Output: THINKING:
             "thinking": thinking3,
             "answer": answer3,
         }
+        print(answer3)
 
         doctor_output = answer3 if answer3 else raw_output
         print("❓ Question Generation Output:")
@@ -313,7 +319,7 @@ Output: THINKING:
         save_conversation_state(conversation_log)
         print(f"💾 Progress saved to clinical_conversation_log.json")
 
-        patient_input = f"### Instruction:\nYou are a patient agent. Please act as if you are a real patient with the following vignette and conversation.\n\n### Input:\n{vignette}\n\nCONVERSATION HISTORY:\n{chr(10).join(convo[-4:])}\n\nDOCTOR'S QUESTION: {doctor_output}\n\n### Output:"  # MODIFIED THIS LINE
+        patient_input = f"instruction:\nYou are a patient agent. Please act as if you are a real patient with the following vignette and conversation.\n\n input:\n{vignette} {doctor_output} output: THINKING"  # MODIFIED THIS LINE
         patient_response = patient_model.generate(patient_input, max_new_tokens=700)
         print("👤 Patient Response:", patient_response)
         # Clean patient response
@@ -322,6 +328,7 @@ Output: THINKING:
                 -1
             ].strip()  # ADD THIS LINE
         convo.append(f"Patient: {patient_response}")
+        print("Patient Response:", patient_response)
         prev_vignette = output
         question = doctor_output  # Update question for next iteration
 

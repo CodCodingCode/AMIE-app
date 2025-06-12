@@ -18,9 +18,9 @@ print(raw_ds.features, raw_ds[0])
 def format_fn(example):
     return {
         "text": (
-            f"### Instruction:\nYou are a patient agent. Please act as if you are a real patient with the following vignette and conversation.\n\n"
-            f"### Input:\n{example['input']}\n\n"
-            f"### Output:\n{example['output']}"
+            f"instruction:\nYou are a patient agent. Please act as if you are a real patient with the following vignette and conversation.\n\n"
+            f"input:\n{example['input']}\n\n"
+            f"output:\n{example['output']}"
         )
     }
 

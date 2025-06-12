@@ -7,8 +7,8 @@ import re
 # ============================================================================
 # REPLACE THESE WITH YOUR ACTUAL VALUES
 # ============================================================================
-ENDPOINT_URL = "endpoint"  # Your endpoint URL from the screenshot
-HF_TOKEN = "token"  # Your HuggingFace token
+ENDPOINT_URL = "https://glg6vtpv72vt2jad.us-east-1.aws.endpoints.huggingface.cloud"  # Your endpoint URL from the screenshot
+HF_TOKEN = "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"  # Your HuggingFace token
 
 
 class HuggingFaceInference:
@@ -67,9 +67,9 @@ import random
 
 # Initialize OpenAI client
 client = OpenAI(
-    api_key="api"
+    api_key="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"
 )
-model = "gpt-4o-mini"
+model = "gpt-4.1-nano"
 
 
 def chatgpt_hallucination_reward(prompts, completions, **kwargs):
@@ -86,42 +86,52 @@ def chatgpt_hallucination_reward(prompts, completions, **kwargs):
 
                 # Create ChatGPT prompt to evaluate hallucination
                 evaluation_prompt = f"""
-You are an expert clinical fact-checker. Your job is to compare a patient's original statement with a clinical summary and identify any hallucinations or inaccuracies.
+You are an expert clinical fact-checker. Your job is to compare a clinical vignette with a diagnostic reasoning response to identify any hallucinations or inaccuracies.
 
-PATIENT'S ORIGINAL STATEMENT:
-{patient_input}
+CLINICAL VIGNETTE (SOURCE OF TRUTH):
+{clinical_vignette}
 
-CLINICAL SUMMARY TO EVALUATE:
+DIAGNOSTIC REASONING TO EVALUATE:
 {completion}
 
-Please analyze if the clinical summary adds any information that was NOT mentioned by the patient AND if it missed any important information that WAS mentioned by the patient. Look for:
+Please analyze if the diagnostic reasoning adds any information that was NOT in the clinical vignette AND if it missed any important information that WAS in the vignette. Look for:
 
-HALLUCINATIONS (things added that patient never said):
-1. Symptoms the patient never mentioned
-2. Demographic information that contradicts what the patient said
-3. Severity descriptions not provided by the patient
-4. Any other fabricated details
+HALLUCINATIONS (things added that weren't in the vignette):
+1. Symptoms not mentioned in the vignette
+2. Demographic information that contradicts the vignette
+3. Medical history not provided in the vignette
+4. Timeline details not specified in the vignette
+5. Severity descriptions not supported by the vignette
+6. Physical exam findings not mentioned in the vignette
+7. Test results or lab values not provided in the vignette
 
-OMISSIONS (important things the patient said but the summary missed):
-1. Key symptoms mentioned by patient but not included in summary
-2. Important demographic details the patient provided
-3. Relevant history or context the patient shared
-4. Timeline information the patient specified
+OMISSIONS (important things from vignette that diagnosis missed):
+1. Key symptoms from vignette not considered in differential
+2. Important demographic details that affect diagnosis
+3. Relevant medical history that impacts diagnostic reasoning
+4. Timeline information that narrows differential
+5. Physical findings that support or rule out diagnoses
+
+INAPPROPRIATE DIAGNOSTIC REASONING:
+1. Diagnoses that don't match the clinical presentation
+2. Missing common/likely diagnoses for the presentation
+3. Including diagnoses without proper justification from vignette
 
 Respond with a JSON object containing:
-- "hallucinated_items": [list of specific things that were added/fabricated]
-- "omitted_items": [list of important things patient said but summary missed]
-- "accurate_items": [list of things correctly extracted from patient statement]
-- "score": a number from -10 to +10 (-10 = severe hallucination/omissions, +10 = perfect accuracy)
+- "hallucinated_items": [list of specific things added that weren't in vignette]
+- "omitted_items": [list of important vignette details not considered]
+- "accurate_items": [list of diagnoses/reasoning correctly based on vignette]
+- "score": a number from -10 to +10 (-10 = severe hallucination/poor reasoning, +10 = perfect diagnostic reasoning)
 
 Scoring guidance:
-- Deduct 2 points for each hallucinated item
-- Deduct 1 point for each important omitted item  
-- Add 0.5 points for each accurate item
-- Perfect extraction with no hallucinations or omissions = +10
+- Deduct 3 points for each hallucinated clinical detail
+- Deduct 2 points for each inappropriate diagnosis
+- Deduct 1 point for each important omitted consideration
+- Add 1 point for each accurate diagnosis with proper justification
+- Perfect diagnostic reasoning based only on vignette information = +10
 
 Example response:
-{{"hallucinated_items": ["dizziness", "repeated vomiting"], "omitted_items": ["family history of migraines"], "accurate_items": ["17-year-old female", "left-sided headache", "photophobia"], "score": -2}}
+{{"hallucinated_items": ["patient reports chest pain", "history of diabetes"], "omitted_items": ["age consideration for pancreatic cancer"], "accurate_items": ["gallstone obstruction matches jaundice", "abdominal pain fits biliary pathology"], "score": -3}}
 """
 
                 try:

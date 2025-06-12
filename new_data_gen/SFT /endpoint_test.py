@@ -7,7 +7,7 @@ from datetime import datetime
 # REPLACE THESE WITH YOUR ACTUAL VALUES
 # ============================================================================
 ENDPOINT_URL = "url"  # Your endpoint URL from the screenshot
-HF_TOKEN = "api"  # Your HuggingFace token
+HF_TOKEN = "token"  # Your HuggingFace token
 
 
 class HuggingFaceInference:
