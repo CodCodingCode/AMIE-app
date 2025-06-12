@@ -221,12 +221,9 @@ Apply focused diagnostic reasoning:
 
 ANSWER:
 1. Diagnosis: <Diagnosis Name>
-
 2. Diagnosis: <Diagnosis Name>
-
 ...
-
-5. Diagnosis: <Diagnosis Name>
+10. Diagnosis: <Diagnosis Name>
 Justification: <Detailed reasoning: specific symptoms/findings supporting this diagnosis, why included despite lower probability>
 
 STOP HERE. Do not add notes, recommendations, or additional text."""
@@ -275,9 +272,10 @@ Checklist:
 - No further clarification needed for primary diagnosis: <Yes/No with brief reasoning>
 
 ANSWER:
-<Most Probable Diagnosis Name>
-<If both checklist items are 'Yes', append 'END' to signify diagnostic conclusion>
-
+1. Diagnosis: <Diagnosis Name>
+2. Diagnosis: <Diagnosis Name>
+...
+5. Diagnosis: <Diagnosis Name>
 STOP HERE. Do not add notes, recommendations, or additional text."""
 
 
@@ -325,7 +323,7 @@ def clean_patient_input(vignette_text, doctor_question):
 
 
 # Updated prompt generation:
-def generate_patient_prompt(vignette_text, doctor_question):
+def generate_patient_prompt(vignette_text, doctor_question, conversation):
 
     # Clean the vignette text
     clean_vignette = clean_patient_input(vignette_text, doctor_question)
@@ -341,12 +339,15 @@ PATIENT CLINICAL BACKGROUND:
 DOCTOR'S QUESTION: 
 {doctor_question}
 
+CONVERSATION:
+{json.dumps(conversation)}
+
 YOU MUST mention age and biological gender in the first sentence of the ANSWER.
 
 YOU MUST RESPOND IN THE FOLLOWING FORMAT:
 
 THINKING: 
-The patient reasoning model should consider how THIS SPECIFIC patient would process their situation:
+Please EXPLAIN how this patient would respond the doctors question. SOURCE THE VIGNETTE. SOURCE THE QUESTION. SOURCE THE CONVERSATION. 
 
 PATIENT-SPECIFIC CONTEXT:
 This [age] [gender] patient with [relevant medical history] would approach this situation influenced by [age-related concerns], [medical history impact], and [demographic factors]. Given their [specific background], they would be particularly worried about [specific fears].
@@ -370,7 +371,7 @@ ANSWER: [Natural patient response that reflects the specific reasoning above, us
 
 # === SIMPLE QUESTIONING PROMPT ===
 def create_simple_questioning_prompt(
-    turn_count, vignette_summary, diagnosis, previous_questions
+    turn_count, vignette_summary, diagnosis, previous_questions, conversation
 ):
     """Simple questioning prompt based on stage"""
 
@@ -442,19 +443,21 @@ CURRENT CLINICAL PICTURE:
 Vignette: {vignette_summary}
 Leading Diagnoses: {diagnosis}
 Previous Questions: {previous_questions}
+Conversation: {json.dumps(conversation)}
 
 INSTRUCTION: Look at what diagnostic information is missing from the vignette above, then ask the ONE question that would be most helpful for your differential diagnosis at this stage. PLEASE DO NOT ASK PREVIOUSLY ASKED QUESTIONS. 
 
 YOU MUST RESPOND IN THE FOLLOWING FORMAT:
 
 THINKING: 
-DIAGNOSTIC REASONING:
+THIS IS A MUST: Based on the vignette and previous questions, EXPLAIN WHY YOU ARE ASKING A SPECIFIC QUESTION. Be SPECIFIC about each fact. Source the Diagnoses, source the Vignette, and source the Previous Questions. 
+Consider:
 - What key diagnostic information is missing from the current vignette?
 - What key diagnostic information is in the current vignette?
 - Which of my leading diagnoses would this question help distinguish?
 - What is the most important piece of information I need to gather at this stage?
 
-ANSWER: <Your targeted diagnostic question>"""
+ANSWER: <Your targeted diagnostic question - DO NOT REPEAT PREVIOUS QUESTIONS.>"""
 
 
 def split_thinking_answer(text):
@@ -503,7 +506,7 @@ You are NOT trying to impress the doctor with a clear answer — just describe w
 
     # Simple patient prompt
     # With this clean version:
-    clean_prompt = generate_patient_prompt(vignette_text, initial_prompt)
+    clean_prompt = generate_patient_prompt(vignette_text, initial_prompt, conversation)
     patient_result = patient.ask(clean_prompt)
 
     turn_count = 0
@@ -528,7 +531,7 @@ You are NOT trying to impress the doctor with a clear answer — just describe w
 
     while not diagnosis_complete:
         # Simple summarizer without behavioral analysis
-        summarizer2_input = f"CONVERSATION HISTORY:\n{json.dumps(conversation, indent=2)}\n\nPREVIOUS VIGNETTE:\n{prev_vignette_summary}"
+        summarizer2_input = f"CONVERSATION: {json.dumps(conversation)} PREVIOUS VIGNETTE:\n{prev_vignette_summary}"
         summarizer_input = f"""You are generating training data for a clinical summarizer reasoning model.
 
 Create a THINKING section that shows how a summarizer reasoning model should extract and organize ONLY the facts stated in THIS SPECIFIC conversation without adding interpretations or diagnoses.
@@ -540,9 +543,8 @@ PREVIOUS VIGNETTE:
 {prev_vignette_summary}
 
 YOU MUST RESPOND IN THE FOLLOWING FORMAT:
-
 THINKING: 
-The summarizer model should approach this specific conversation by:
+Explain how you would extract and organize the clinical information from the conversation and how that supports the ANSWER's you will give. PLEASE SOURCE CONVERSATION HISTORY, PLEASE SOURCE PREVIOUS VIGNETTES MAKE SURE IT IS DETAILED. Focus on:   
 
 STEP 1 - FACT EXTRACTION:
 The model should identify exactly what the patient stated: "[exact patient words]" and extract only the explicitly mentioned facts: [list only stated facts]. It should NOT infer, assume, or add any information not directly stated by the patient.
@@ -558,37 +560,6 @@ The model should categorize the reported symptoms by system: [symptom category] 
 
 STEP 5 - COMPLETENESS ASSESSMENT:
 The model should identify what information is missing by noting: [specific gaps in history] that were not addressed in the conversation, without suggesting what those gaps might contain.
-
-EXAMPLE THINKING:
-Let me analyze this conversation to extract the key clinical information systematically.
-
-From the doctor's opening question "What brings you in today?", this appears to be the initial chief complaint. The patient's response gives me several important pieces of information that I need to organize properly.
-
-First, I have demographic information: "I'm a 72-year-old man" - this gives me age and gender, which are crucial for differential diagnosis considerations later.
-
-Next, I need to parse the symptom description carefully. The patient says "I suddenly got this really sharp, constant pain in my stomach and back." Let me break this down:
-- Onset: "suddenly" - this indicates acute onset, which is clinically significant
-- Quality: "sharp, constant" - describes the character of the pain
-- Location: "stomach and back" - this could mean abdominal pain with back radiation
-- Duration: The word "got" suggests this started recently, though I don't have exact timing yet
-
-The patient also mentions "I feel dizzy and lightheaded." This is a separate symptom cluster that could be related to the pain or represent a systemic issue.
-
-Since there's no previous vignette, this is my first summary, so I need to establish the basic framework. I should organize this into standard clinical categories:
-
-Demographics: 72-year-old male
-Chief Complaint: Should focus on the primary concern - the pain
-History of Present Illness: Need to capture onset, quality, location, associated symptoms
-Associated Symptoms: Dizziness and lightheadedness are important and separate from the pain
-
-I notice the patient used lay terminology - "stomach" rather than "abdomen" - but I should translate this appropriately while maintaining the essence of their description. "Back pain" is clear.
-
-The combination of sudden abdominal/back pain in an elderly male with associated dizziness could suggest several serious conditions, but as a summarizer, I shouldn't diagnose - just accurately capture what was said.
-
-I should also note what information is still missing: exact timing, pain severity, radiation pattern, aggravating/alleviating factors, past medical history, medications, etc. This will help guide future questioning.
-
-The patient's language suggests they're concerned ("really sharp") and the presentation seems acute, so I should reflect the urgency in my summary tone while remaining objective.
-
 
 ANSWER: 
 IN PARAGRAPH FORM THAT INCLUDES THE FOLLOWING INFORMATION:
@@ -644,7 +615,7 @@ Missing Information: [What wasn't discussed, without speculation about content]"
         diagnosing_doctor_outputs.append(
             {
                 "vignette_index": idx,
-                "input": vignette_summary,
+                "input": f"VIGNETTE: {vignette_summary} CONVERSATION: {json.dumps(conversation)}",
                 "thinking": split_thinking_answer(diagnosis_raw)[0],
                 "answer": split_thinking_answer(diagnosis_raw)[1],
                 "output": diagnosis_raw,
@@ -664,7 +635,7 @@ Missing Information: [What wasn't discussed, without speculation about content]"
 
 Create a THINKING section showing how a treatment reasoning model should develop comprehensive treatment plans with specific clinical reasoning.
 
-FINAL DIAGNOSIS: {diagnosis}
+FINAL DIAGNOSES: {diagnosis}
 
 CLINICAL VIGNETTE SUMMARY: {vignette_summary}
 
@@ -727,7 +698,7 @@ PATIENT EDUCATION PRIORITIES:
                 treatment_plans.append(
                     {
                         "vignette_index": idx,
-                        "input": f"""DIAGNOSIS: {diagnosis} VIGNETTE: {vignette_summary} """,  # Clean input string
+                        "input": f"""DIAGNOSIS: {diagnosis} VIGNETTE: {vignette_summary} CONVERSATION: {json.dumps(conversation)}""",  # Clean input string
                         "output": raw_treatment,  # Full THINKING + ANSWER
                         "thinking": split_thinking_answer(raw_treatment)[
                             0
@@ -753,10 +724,7 @@ PATIENT EDUCATION PRIORITIES:
         )
 
         simple_prompt = create_simple_questioning_prompt(
-            turn_count,
-            vignette_summary,
-            diagnosis,
-            previous_questions,
+            turn_count, vignette_summary, diagnosis, previous_questions, conversation
         )
 
         followup_result = questioner.ask(simple_prompt)
@@ -767,7 +735,7 @@ PATIENT EDUCATION PRIORITIES:
         questioning_doctor_outputs.append(
             {
                 "vignette_index": idx,
-                "input": vignette_summary + diagnosis,
+                "input": f"VIGNETTE: {vignette_summary} DIAGNOSIS: {diagnosis} CONVERSATION: {json.dumps(conversation)}",
                 "output": raw_followup,
                 "letter": letter,
                 "thinking": split_thinking_answer(raw_followup)[0],
@@ -794,6 +762,7 @@ ANSWER: Generate a natural-sounding patient reply that stays grounded entirely i
 CONTEXT:
 - VIGNETTE_TEXT: {vignette_text}
 - FOLLOWUP_QUESTION: {followup_question}
+- CONVERATION: {json.dumps(conversation)}
 """
 
         patient_fb_result = patient.ask(prompt)
@@ -805,7 +774,7 @@ CONTEXT:
         patient_response.append(
             {
                 "vignette_index": idx,
-                "input": f"VIGNETTE: {vignette_text} QUESTION: {followup_question}",
+                "input": f"VIGNETTE: {vignette_text} QUESTION: {followup_question} CONVERSATION: {json.dumps(conversation)}",
                 "output": raw_patient_fb,
                 "thinking": split_thinking_answer(raw_patient_fb)[0],
                 "answer": split_thinking_answer(raw_patient_fb)[1],
