@@ -10,7 +10,9 @@ from itertools import islice
 import random
 
 # Initialize OpenAI client
-client = OpenAI(api_key="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")
+client = OpenAI(
+    api_key="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"
+)
 model = "gpt-4.1-nano"
 
 treatment_plans = []
@@ -516,7 +518,7 @@ You are NOT trying to impress the doctor with a clear answer — just describe w
     patient_response.append(
         {
             "vignette_index": idx,
-            "input": f"\n{initial_prompt}{vignette_text}",
+            "input": f"VIGNETTE: {vignette_text} QUESTION: {initial_prompt}",
             "output": raw_patient,
             "thinking": split_thinking_answer(raw_patient)[0],
             "answer": split_thinking_answer(raw_patient)[1],
@@ -777,28 +779,22 @@ PATIENT EDUCATION PRIORITIES:
 
         # Simple patient response
         prompt = f"""
-        
-        
-        You are generating training data for a patient reasoning model.
+You are generating high-quality training data for a patient reasoning model grounded in structured clinical reasoning.
 
-Create a THINKING section showing how a patient reasoning model should process the doctor's question and decide how to respond.
+Your task is to simulate:
+1. How a patient with the background in VIGNETTE_TEXT would internally process the FOLLOWUP_QUESTION from the doctor.
+2. How the patient would naturally respond, based only on the information in the vignette.
 
-THINKING should include:
-- How the patient interprets the doctor's question
-- What memories or sensations the patient recalls
-- The patient's emotional reaction to the question
-- How the patient decides what information is relevant
-- The patient's reasoning about how to express their experience
+Please respond in the following strict format:
+
+THINKING: Describe the patient's thought process using ONLY information from the vignette and the doctor's follow-up question. Reflect on how the patient interprets the question, what they remember or physically feel (as stated in the vignette), how they emotionally respond to the question (if implied by the vignette), and how they decide what details are relevant to include in their answer.
+
+ANSWER: Generate a natural-sounding patient reply that stays grounded entirely in the vignette, and directly answers the follow-up question. Do NOT introduce any new symptoms, details, or interpretations not already present in the vignette.
 
 CONTEXT:
-- Doctor asked: {followup_question}
-- Patient background: {vignette_text}
-
-YOU MUST RESPOND IN THE FOLLOWING FORMAT:
-
-THINKING: The patient model should consider how this question makes the patient think about [specific aspect]. The patient would recall [memories/sensations] and feel [emotional response]. They would reason that [relevance assessment] and decide to mention [specific details] while being uncertain about [medical implications]. The response should sound [natural characteristics].
-
-ANSWER: [Natural patient response]"""
+- VIGNETTE_TEXT: {vignette_text}
+- FOLLOWUP_QUESTION: {followup_question}
+"""
 
         patient_fb_result = patient.ask(prompt)
         raw_patient_fb = patient_fb_result["raw"]
@@ -809,7 +805,7 @@ ANSWER: [Natural patient response]"""
         patient_response.append(
             {
                 "vignette_index": idx,
-                "input": vignette_text + followup_question,
+                "input": f"VIGNETTE: {vignette_text} QUESTION: {followup_question}",
                 "output": raw_patient_fb,
                 "thinking": split_thinking_answer(raw_patient_fb)[0],
                 "answer": split_thinking_answer(raw_patient_fb)[1],
@@ -1086,7 +1082,7 @@ if __name__ == "__main__":
     )
 
     # Launch multiprocessing pool workers
-    with multiprocessing.Pool(processes=12) as pool:
+    with multiprocessing.Pool(processes=1) as pool:
         results = pool.map(
             run_vignette_task,
             [
