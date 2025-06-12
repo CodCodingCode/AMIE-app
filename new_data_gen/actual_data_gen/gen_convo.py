@@ -367,7 +367,15 @@ This patient would decide to share [specific information] while withholding [spe
 MEDICAL UNDERSTANDING & MISCONCEPTIONS:
 The patient would (not) understand [specific medical aspects] and might think [potential misconceptions]. They would be uncertain about [medical significance] but clear about [personal experience]. They might connect this to [previous health experiences or family history].
 
-ANSWER: I am a [AGE] [GENDER]. [Natural patient response that reflects the specific reasoning above, using age-appropriate language and concerns. RESPOND WITH 1-2 SENTENCES ONLY, FOCUSING ON WHAT THE PATIENT WOULD SAY IN RESPONSE TO THE DOCTOR'S QUESTION. DO NOT ADD ANYTHING ELSE. DO NOT USE MEDICAL TERMINOLOGY OR JARGON. DO NOT EXPLAIN YOUR REASONING HERE. JUST RESPOND AS THE PATIENT WOULD.]"""
+LANGUAGE VALIDATION:
+The patient should NEVER use medical terms like:
+- "radiating" (say "spreading" or "going down to")
+- "sharp" (say "really bad" or "stabbing")
+- "constant" (say "won't stop" or "all the time")
+- "abdominal" (say "stomach" or "belly")
+- Clinical body part names (use lay terms)
+
+ANSWER: I am a [AGE] [GENDER]. [Use simple, non-medical language only and age-appropriate language and concerns. RESPOND WITH 1-2 SENTENCES ONLY, FOCUSING ON WHAT THE PATIENT WOULD SAY IN RESPONSE TO THE DOCTOR'S QUESTION. DO NOT ADD ANYTHING ELSE. DO NOT USE MEDICAL TERMINOLOGY OR JARGON. DO NOT EXPLAIN YOUR REASONING HERE. JUST RESPOND AS THE PATIENT WOULD.]"""
 
     return prompt
 
@@ -463,6 +471,20 @@ Consider:
 - What key diagnostic information is in the current vignette?
 - Which of my leading diagnoses would this question help distinguish?
 - What is the most important piece of information I need to gather at this stage?
+
+QUESTION QUALITY CHECKS:
+- Is this question different from previous questions: {previous_questions}?
+- Is this question open-ended rather than leading to a specific diagnosis?
+- Does this question gather diagnostically valuable information?
+
+FORBIDDEN QUESTION TYPES:
+- Don't ask: "Have you been told you have [specific condition]?" (too leading)
+- Don't repeat similar questions about timing/onset if already asked
+- Don't ask multiple questions in one turn
+
+BETTER QUESTION EXAMPLES:
+- Instead of: "Have you had imaging of your aorta?" 
+- Ask: "Have you had any medical tests or scans recently?"
 
 ANSWER: <Your targeted diagnostic question - DO NOT REPEAT PREVIOUS QUESTIONS.>"""
 
@@ -566,8 +588,18 @@ STEP 4 - SYSTEMATIC ORGANIZATION:
 The model should categorize the reported symptoms by system: [symptom category] - [exactly what patient said], without inferring additional symptoms or clinical significance.
 
 STEP 5 - COMPLETENESS ASSESSMENT:
-The model should identify what information is missing by noting: [specific gaps in history] that were not addressed in the conversation, without suggesting what those gaps might contain.
+The model should identify what information is missing by noting:
+Missing Information: [Organize into clear categories:]
+- Symptom Details: [Duration, onset timing, progression, severity scale]
+- Alleviating/Aggravating Factors: [What makes it better/worse]
+- Medical History: [Previous similar episodes, medications, surgeries]
+- Social History: [Smoking, alcohol, occupation, recent travel]
+- Family History: [Relevant genetic conditions]
+- Systemic Symptoms: [Fever, weight loss, appetite changes]
+- Physical Examination: [Not yet performed]
 
+COMPLETENESS CHECK:
+Before finalizing, verify that ALL patient statements from the conversation are included in the summary. Do not omit any symptom descriptions or patient quotes.
 ANSWER: 
 IN PARAGRAPH FORM THAT INCLUDES THE FOLLOWING INFORMATION:
 Chief Complaint: [Exactly what the patient said brought them in]
@@ -658,6 +690,20 @@ The model should confirm this is [specific diagnosis] based on [specific symptom
 STEP 2 - EVIDENCE-BASED TREATMENT SELECTION:
 The model should select [specific first-line treatment] as the primary intervention based on [specific guideline/evidence]. It should consider patient-specific factors including [age, comorbidities, severity] that modify treatment choice. Key contraindications to consider are [specific contraindications] and cautions include [specific monitoring needs].
 
+# Add this section after STEP 2:
+STEP 2B - SAFETY & MONITORING PRIORITIES:
+For emergency conditions like AAA rupture, the model must include:
+- Blood typing and cross-matching for potential transfusion
+- Continuous cardiac monitoring
+- Large-bore IV access
+- Surgical consultation timing
+- Critical care considerations
+
+STEP 2C - EVIDENCE-BASED VALIDATION:
+- First-line treatments for this specific condition
+- Patient-specific contraindications based on age/comorbidities
+- Monitoring requirements for chosen interventions
+
 STEP 3 - PHARMACOLOGICAL INTERVENTIONS:
 The model should select [specific medication] at [specific dose and frequency] because [specific rationale]. Expected timeline for improvement is [specific timeframe] with [specific endpoints]. Key side effects to monitor include [specific adverse effects] requiring [specific monitoring]. Alternative medications if first-line fails include [specific backup options with rationale].
 
@@ -672,6 +718,7 @@ The model should communicate using [specific approach] because the patient [spec
 
 STEP 7 - COORDINATION & REFERRALS:
 The model should refer to [specific specialists] within [specific timeframe] for [specific reasons]. Other healthcare team members needed include [specific roles]. Community resources should include [specific programs]. Cost/insurance considerations include [specific factors].
+
 
 ANSWER: 
 IMMEDIATE ACTIONS (Today):
@@ -1057,7 +1104,7 @@ if __name__ == "__main__":
     )
 
     # Launch multiprocessing pool workers
-    with multiprocessing.Pool(processes=1) as pool:
+    with multiprocessing.Pool(processes=12) as pool:
         results = pool.map(
             run_vignette_task,
             [

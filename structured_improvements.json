@@ -1,0 +1,138 @@
+{
+  "patient": [
+    {
+      "problem": "Overly detailed or textbook-like answers",
+      "evidence": "\"The pain\u2019s been sharp and steady, and it\u2019s radiating down to my groin.\"",
+      "code_fix": "Revise the patient's dialogue to sound less clinical and more natural. For example, 'The pain is really bad and it's even reaching down to my lower body.'",
+      "priority": "High",
+      "component": "patient"
+    },
+    {
+      "problem": "Inconsistent symptom descriptions",
+      "evidence": "In the first instance, the patient describes the pain as 'sharp, constant pain in my stomach and back', but in the second instance, the pain is described as 'radiating down to my groin.'",
+      "code_fix": "Ensure consistency in symptom descriptions across different instances. If the pain is radiating to the groin, this should be mentioned in all instances.",
+      "priority": "Medium",
+      "component": "patient"
+    }
+  ],
+  "summarizer": [
+    {
+      "problem": "Missing key patient statements",
+      "evidence": "In the second and third summaries, the patient's statement about the pain radiating down to the groin is not included.",
+      "code_fix": "Ensure that the summarizer includes all relevant patient statements, especially those related to symptom description and location.",
+      "priority": "High",
+      "component": "summarizer"
+    },
+    {
+      "problem": "Poor organization or missing sections",
+      "evidence": "In all summaries, the 'Missing Information' section is not well organized. It should be broken down into sub-sections for clarity.",
+      "code_fix": "Reformat the 'Missing Information' section to include sub-sections such as 'Symptom Duration', 'Alleviating/Aggravating Factors', 'Medication Use', 'Past Medical History', and 'Systemic Symptoms'.",
+      "priority": "Medium",
+      "component": "summarizer"
+    },
+    {
+      "problem": "Subjective interpretations instead of objective facts",
+      "evidence": "In the first summary, the phrase 'indicating recent onset' is an interpretation, not a direct statement from the patient.",
+      "code_fix": "Ensure that the summarizer sticks to objective facts and direct patient statements, avoiding interpretation where possible.",
+      "priority": "Medium",
+      "component": "summarizer"
+    }
+  ],
+  "diagnoser": [
+    {
+      "problem": "Inappropriate differential diagnoses",
+      "evidence": "\"Diagnosis: Musculoskeletal Back Strain\nJustification: Sharp back pain common in elderly; unlikely given sudden onset and accompanying symptoms like dizziness.\"",
+      "code_fix": "Remove 'Musculoskeletal Back Strain' from the differential diagnoses list as it is not appropriate given the patient's symptoms and presentation.",
+      "priority": "High",
+      "component": "diagnoser"
+    },
+    {
+      "problem": "Missing critical \"can't miss\" diagnoses",
+      "evidence": "In some instances, 'Pulmonary Embolism' and 'Acute Coronary Syndrome' are not included in the differential diagnoses.",
+      "code_fix": "Ensure that critical diagnoses such as 'Pulmonary Embolism' and 'Acute Coronary Syndrome' are included in the differential diagnoses list, especially when the patient presents with sudden onset of severe pain and dizziness.",
+      "priority": "Critical",
+      "component": "diagnoser"
+    },
+    {
+      "problem": "Gold diagnosis not properly considered",
+      "evidence": "In some instances, the gold diagnosis 'Abdominal Aortic Aneurysm (AAA)' is not given the appropriate consideration or is not ranked as the most likely diagnosis.",
+      "code_fix": "Ensure that the gold diagnosis 'Abdominal Aortic Aneurysm (AAA)' is given the appropriate consideration and is ranked as the most likely diagnosis based on the patient's symptoms and presentation.",
+      "priority": "Critical",
+      "component": "diagnoser"
+    },
+    {
+      "problem": "Weak evidence utilization",
+      "evidence": "In some instances, the justifications provided for the differential diagnoses do not adequately utilize the patient's symptoms and presentation as evidence.",
+      "code_fix": "Improve the utilization of the patient's symptoms and presentation as evidence in the justifications for the differential diagnoses.",
+      "priority": "Medium",
+      "component": "diagnoser"
+    }
+  ],
+  "questioner": [
+    {
+      "problem": "Redundant questioning",
+      "evidence": "The questions 'Have you experienced similar episodes in the past, or is this the first time you've had these symptoms?' and 'Have you noticed any previous episodes of similar pain or symptoms, even if they were milder, or did this pain come on suddenly without warning?' are essentially asking the same thing.",
+      "code_fix": "Remove one of the redundant questions to improve efficiency.",
+      "priority": "High",
+      "component": "questioner"
+    },
+    {
+      "problem": "Leading question",
+      "evidence": "The question 'Have you ever been told you have an abdominal aneurysm or had any recent imaging of your aorta or abdominal vessels?' is leading the patient towards a specific diagnosis.",
+      "code_fix": "Rephrase the question to be more open-ended, such as 'Have you had any recent imaging or tests done?'",
+      "priority": "Medium",
+      "component": "questioner"
+    },
+    {
+      "problem": "Weak reasoning behind question selection",
+      "evidence": "The question 'Do you have any history of regular high blood pressure, known aneurysms, or recent trauma or strenuous activity before these symptoms started?' is not strongly justified by the diagnostic reasoning provided.",
+      "code_fix": "Improve the diagnostic reasoning to better justify the question, or select a different question that is more relevant to the provided reasoning.",
+      "priority": "Medium",
+      "component": "questioner"
+    }
+  ],
+  "treatment": [
+    {
+      "problem": "Missing safety considerations or monitoring",
+      "evidence": "In the first vignette, the treatment plan for a patient with a ruptured Abdominal Aortic Aneurysm (AAA) does not mention the need for blood transfusion or cross-matching, which is a critical aspect in managing such patients.",
+      "code_fix": "Add a step in the immediate actions to cross-match blood and prepare for possible transfusion.",
+      "priority": "Critical",
+      "component": "treatment"
+    },
+    {
+      "problem": "Inappropriate or non-evidence-based treatments",
+      "evidence": "In the second vignette, the treatment plan suggests monitoring vital signs every 4 hours during initial assessment for a patient with an AAA. However, this frequency may not be necessary for a stable, non-ruptured AAA.",
+      "code_fix": "Adjust the frequency of vital signs monitoring to a more appropriate interval, such as every 12 hours, unless the patient's condition changes.",
+      "priority": "Medium",
+      "component": "treatment"
+    },
+    {
+      "problem": "Missing aspects of care (immediate/short-term/long-term)",
+      "evidence": "In the third vignette, the treatment plan for a patient with Abnormal Uterine Bleeding does not mention the need for a pelvic exam, which is an important part of the initial assessment.",
+      "code_fix": "Include a pelvic exam in the immediate actions to assess for any structural abnormalities.",
+      "priority": "High",
+      "component": "treatment"
+    },
+    {
+      "problem": "Vague or non-actionable recommendations",
+      "evidence": "In the first vignette, the treatment plan suggests 'lifestyle modifications' for a patient with a ruptured AAA. However, this is vague and does not provide specific recommendations.",
+      "code_fix": "Provide specific lifestyle modification recommendations, such as quitting smoking and maintaining a healthy diet.",
+      "priority": "Low",
+      "component": "treatment"
+    },
+    {
+      "problem": "Generic plans not tailored to patient context",
+      "evidence": "In the second vignette, the treatment plan suggests a follow-up imaging in 6 months for a patient with an AAA. However, the frequency of follow-up imaging should be tailored to the size of the aneurysm and the patient's overall health status.",
+      "code_fix": "Tailor the frequency of follow-up imaging to the patient's specific context, such as the size of the aneurysm and the patient's overall health status.",
+      "priority": "Medium",
+      "component": "treatment"
+    },
+    {
+      "problem": "Treatments inappropriate for gold diagnosis",
+      "evidence": "In the third vignette, the treatment plan suggests initiating oral tranexamic acid for a patient with Abnormal Uterine Bleeding. However, this medication is not first-line treatment for this condition and may not be appropriate for all patients.",
+      "code_fix": "Consider first-line treatments for Abnormal Uterine Bleeding, such as hormonal therapy or nonsteroidal anti-inflammatory drugs (NSAIDs), before initiating tranexamic acid.",
+      "priority": "High",
+      "component": "treatment"
+    }
+  ]
+}
