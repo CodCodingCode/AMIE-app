@@ -7,8 +7,8 @@ import re
 # ============================================================================
 # REPLACE THESE WITH YOUR ACTUAL VALUES
 # ============================================================================
-ENDPOINT_URL = "https://glg6vtpv72vt2jad.us-east-1.aws.endpoints.huggingface.cloud"  # Your endpoint URL from the screenshot
-HF_TOKEN = "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"  # Your HuggingFace token
+ENDPOINT_URL = "url"  # Your endpoint URL from the screenshot
+HF_TOKEN = "url"  # Your HuggingFace token
 
 
 class HuggingFaceInference:
