@@ -54,7 +54,7 @@ def make_prompt(ex):
     inp = ex.get("input", "").strip()
 
     full = f"""Instruction: {instr} 
-    Input: {("\n" + inp if inp else "")} 
+    Input: {(inp if inp else "")} 
     Output: THINKING: 
     """
     return {"prompt": full}
@@ -99,11 +99,12 @@ print(
 from openai import OpenAI
 from itertools import islice
 import random
-import json 
-
+import json
 
 # Initialize OpenAI client
-client = OpenAI(api_key="api")
+client = OpenAI(
+    api_key="api"
+)
 model = "gpt-4.1-nano"
 
 
@@ -114,69 +115,146 @@ def chatgpt_hallucination_reward(prompts, completions, **kwargs):
         # Extract conversation data if it's a clinical summarizer task
         if "clinical summarizer" in prompt.lower():
             # Extract conversation history
-            conv_match = re.search(r"CONVERSATION HISTORY:\s*(\[.*?\])", prompt, re.DOTALL)
+            conv_match = re.search(
+                r"CONVERSATION HISTORY:\s*(\[.*?\])", prompt, re.DOTALL
+            )
             # Extract previous vignette
-            vignette_match = re.search(r"PREVIOUS VIGNETTE:\s*(.*?)(?:Output:|$)", prompt, re.DOTALL)
-            
+            vignette_match = re.search(
+                r"PREVIOUS VIGNETTE:\s*(.*?)(?:Output:|$)", prompt, re.DOTALL
+            )
+
             if conv_match:
                 conversation_history = conv_match.group(1).strip()
-                previous_vignette = vignette_match.group(1).strip() if vignette_match else ""
+                previous_vignette = (
+                    vignette_match.group(1).strip() if vignette_match else ""
+                )
 
                 # Create ChatGPT prompt to evaluate hallucination
-                evaluation_prompt = f"""You are an expert clinical fact-checker. Compare the conversation + previous vignette with the new clinical summary to find hallucinations.
+                evaluation_prompt = f"""You are an expert clinical fact-checker. Compare the patient conversation with the clinical summary to identify genuine problems.
 
-CONVERSATION HISTORY:
+PATIENT CONVERSATION:
 {conversation_history}
 
-PREVIOUS VIGNETTE:
-{previous_vignette}
-
-NEW CLINICAL SUMMARY TO CHECK:
+CLINICAL SUMMARY TO EVALUATE:
 {completion}
 
-Find if the summary adds information NOT in the conversation or previous vignette.
+IMPORTANT DISTINCTIONS:
 
-JSON response:
-- "hallucinated_items": [things added that weren't in conversation/vignette]
-- "accurate_items": [things correctly from conversation/vignette]  
-- "score": -10 to +10 (-10=bad hallucinations, +10=perfect)
+HALLUCINATIONS (ONLY count these - things that are factually wrong):
+- Symptoms the patient explicitly denied or never mentioned
+- Demographics that contradict patient statements (wrong age, gender, etc.)
+- Specific details that are fabricated (exact frequencies, durations, severity levels not provided)
+- Medical history the patient never mentioned
 
-{{"hallucinated_items": [], "accurate_items": [], "score": 0}}"""
+DO NOT count as hallucinations:
+- Reasonable clinical interpretations ("suggests possible diagnosis")
+- Standard clinical language ("patient reports", "indicates", "appears")
+- Paraphrasing patient statements in clinical terms
+- Clinical observations about communication patterns
+
+CRITICAL OMISSIONS (ONLY count truly important missing information):
+- Major symptoms the patient clearly described but summary completely missed
+- Key demographic information patient provided
+- Significant timeline information (duration, onset) patient specified
+- Important context that changes clinical picture
+
+DO NOT count as omissions:
+- Minor wording differences ("sometimes" vs "occasionally") 
+- Exact quotes vs reasonable paraphrasing
+- Details that don't significantly impact clinical understanding
+- Missing information that patient was vague about
+
+ACCURATE ITEMS (give credit for):
+- Correctly captured symptoms and concerns
+- Accurate demographics and timeline information
+- Appropriate clinical interpretations of patient statements
+- Reasonable paraphrasing that preserves meaning
+
+Respond with ONLY a JSON object:
+{{"hallucinated_items": ["specific fabricated fact 1", "specific fabricated fact 2"], "omitted_items": ["major missing symptom", "important timeline"], "accurate_items": ["correct symptom", "accurate demographic", "appropriate interpretation"], "score": 0}}
+
+Base score calculation: -3 points per hallucination, -1 point per critical omission, +1 point per accurate item. Range: -10 to +10."""
 
                 try:
                     response = client.chat.completions.create(
                         model=model,
                         messages=[{"role": "user", "content": evaluation_prompt}],
                         temperature=0.1,
-                        max_tokens=200,
+                        max_tokens=1000,  # Increased to prevent truncation
                     )
 
-                    # Get raw response and try to extract JSON
-                    raw_content = response.choices[0].message.content
-                    
-                    # Try to extract JSON if wrapped in markdown
-                    json_match = re.search(r'\{.*\}', raw_content, re.DOTALL)
-                    if json_match:
-                        json_str = json_match.group(0)
-                    else:
-                        json_str = raw_content
+                    raw_content = response.choices[0].message.content.strip()
 
-                    result = json.loads(json_str)
-                    score = result.get("score", 0.0)
-                    hallucinated = result.get("hallucinated_items", [])
-                    accurate = result.get("accurate_items", [])
-
-                    print(
-                        f"[debug reward] #{idx} → hallucinated: {hallucinated}, accurate: {accurate}, score: {score}"
-                    )
-
-                except json.JSONDecodeError as e:
-                    print(f"[debug reward] #{idx} → JSON error: {e}, raw: {response.choices[0].message.content}")
+                    # ROBUST JSON EXTRACTION - MULTIPLE STRATEGIES
                     score = 0.0
-                except Exception as e:
-                    print(
-                        f"[debug reward] #{idx} → ChatGPT error: {e}, defaulting to 0.0"
+
+                    # Strategy 1: Try to find complete JSON
+                    json_matches = re.findall(
+                        r"\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}", raw_content, re.DOTALL
                     )
+
+                    for json_candidate in json_matches:
+                        try:
+                            # Clean up the JSON string
+                            cleaned_json = json_candidate.strip()
+                            # Fix common issues
+                            cleaned_json = re.sub(
+                                r",\s*}", "}", cleaned_json
+                            )  # Remove trailing commas
+                            cleaned_json = re.sub(
+                                r",\s*]", "]", cleaned_json
+                            )  # Remove trailing commas in arrays
+
+                            result = json.loads(cleaned_json)
+                            score = float(result.get("score", 0.0))
+                            hallucinated = result.get("hallucinated_items", [])
+                            omitted = result.get("omitted_items", [])
+                            accurate = result.get("accurate_items", [])
+
+                            # CALCULATE EXPECTED SCORE BASED ON YOUR RULES
+                            expected_score = 0
+                            expected_score -= 2 * len(
+                                hallucinated
+                            )  # -2 per hallucination
+                            print(hallucinated)
+                            expected_score -= 1 * len(omitted)  # -1 per omission
+                            print(omitted)
+                            expected_score += 0.5 * len(accurate)  # +0.5 per accurate
+                            print(accurate)
+                            expected_score = max(-10, min(10, expected_score))
+
+                            print(
+                                f"[debug reward] #{idx} → ChatGPT score: {score}, CALCULATED score: {expected_score}, hallucinated: {len(hallucinated)}, omitted: {len(omitted)}, accurate: {len(accurate)}"
+                            )
+
+                            # USE THE CALCULATED SCORE INSTEAD OF CHATGPT'S SCORE
+                            score = expected_score
+                            break  # Success!
+
+                        except json.JSONDecodeError:
+                            continue  # Try next JSON candidate
+
+                    else:
+                        # Strategy 2: Extract just the score if JSON parsing fails
+                        score_match = re.search(
+                            r'"score":\s*(-?\d+(?:\.\d+)?)', raw_content
+                        )
+                        if score_match:
+                            score = float(score_match.group(1))
+                            print(
+                                f"[debug reward] #{idx} → extracted score only: {score}"
+                            )
+                        else:
+                            print(
+                                f"[debug reward] #{idx} → JSON parsing failed, using 0.0"
+                            )
+                            score = 0.0
+
+                    # Ensure score is in valid range
+                    score = max(-10, min(10, score))
+
+                except Exception as e:
+                    print(f"[debug reward] #{idx} → API error: {e}")
                     score = 0.0
 
             else:
