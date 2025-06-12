@@ -6,8 +6,8 @@ from datetime import datetime
 # ============================================================================
 # REPLACE THESE WITH YOUR ACTUAL VALUES
 # ============================================================================
-ENDPOINT_URL = "https://glg6vtpv72vt2jad.us-east-1.aws.endpoints.huggingface.cloud"  # Your endpoint URL from the screenshot
-HF_TOKEN = "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"  # Your HuggingFace token
+ENDPOINT_URL = "url"  # Your endpoint URL from the screenshot
+HF_TOKEN = "token"  # Your HuggingFace token
 
 
 class HuggingFaceInference:
@@ -257,20 +257,6 @@ Output: THINKING:
     save_conversation_state(conversation_log)
     print(f"\n📄 Final conversation log saved to clinical_conversation_log.json")
     print("\n✅ Conversation finished!")
-
-
-# Optional: Test just one generation
-def test_single_generation():
-    test_prompt = """
-Instruction: You are a clinical summarizer. Given a transcript of a doctor–patient dialogue, extract a structured clinical vignette summarizing the key symptoms, relevant history, and any diagnostic clues.
-Input: I am 14. I am a male. I have pain in my stomach. Previous Vignette: 
-Output: THINKING: 
-"""
-
-    print("🧪 Testing single generation...")
-    result = model_client.generate(test_prompt, max_new_tokens=200)
-    print("📝 Result:")
-    print(result)
 
 
 if __name__ == "__main__":

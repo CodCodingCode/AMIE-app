@@ -7,14 +7,14 @@ from trl import GRPOConfig, GRPOTrainer
 import torch
 
 # ─── 0. HF TOKEN ─────────────────────────────────────────────────
-HF_TOKEN = os.getenv("HUGGINGFACE_HUB_TOKEN")
+HF_TOKEN = "token"
 print("[debug] HF_TOKEN:", HF_TOKEN[:8] + "…" if HF_TOKEN else None)
 if not HF_TOKEN:
     raise RuntimeError("Missing HUGGINGFACE_HUB_TOKEN")
 
 # ─── 1. Download model + checkpoint via snapshot_download ────────
-REPO_ID = "CodCodingCode/llama-3.1-8b-clinical-v1.2"
-SUBFOLDER = "checkpoint-4500"
+REPO_ID = "CodCodingCode/llama-3.1-8b-clinical-v1.3"
+SUBFOLDER = "checkpoint-6508"
 print(f"[debug] Downloading {REPO_ID}…")
 cache_dir = snapshot_download(repo_id=REPO_ID, token=HF_TOKEN)
 print("[debug] snapshot_download complete, cache_dir:", cache_dir)
@@ -52,7 +52,11 @@ print("[debug] Filtered dataset size:", len(ds))
 def make_prompt(ex):
     instr = ex["instruction"].strip()
     inp = ex.get("input", "").strip()
-    full = instr + ("\n" + inp if inp else "")
+
+    full = f"""Instruction: {instr} 
+    Input: {("\n" + inp if inp else "")} 
+    Output: THINKING: 
+    """
     return {"prompt": full}
 
 
@@ -93,11 +97,10 @@ print(
 
 # ─── 6. Define your ChatGPT-based anti-hallucination reward fn ────────────────────
 from openai import OpenAI
-import time
-import multiprocessing
-import shutil
 from itertools import islice
 import random
+import json 
+
 
 # Initialize OpenAI client
 client = OpenAI(api_key="api")
@@ -108,51 +111,57 @@ def chatgpt_hallucination_reward(prompts, completions, **kwargs):
     rewards = []
     for idx, (prompt, completion) in enumerate(zip(prompts, completions)):
 
-        # Extract patient input from prompt if it's a clinical summarizer task
+        # Extract conversation data if it's a clinical summarizer task
         if "clinical summarizer" in prompt.lower():
-            input_match = re.search(
-                r"Input:\s*(.*?)\s*(?:Previous Vignette|Output:|$)", prompt, re.DOTALL
-            )
-            if input_match:
-                patient_input = input_match.group(1).strip()
+            # Extract conversation history
+            conv_match = re.search(r"CONVERSATION HISTORY:\s*(\[.*?\])", prompt, re.DOTALL)
+            # Extract previous vignette
+            vignette_match = re.search(r"PREVIOUS VIGNETTE:\s*(.*?)(?:Output:|$)", prompt, re.DOTALL)
+            
+            if conv_match:
+                conversation_history = conv_match.group(1).strip()
+                previous_vignette = vignette_match.group(1).strip() if vignette_match else ""
 
                 # Create ChatGPT prompt to evaluate hallucination
-                evaluation_prompt = f"""
-You are an expert clinical fact-checker. Your job is to compare a patient's original statement with a clinical summary and identify any hallucinations or inaccuracies.
+                evaluation_prompt = f"""You are an expert clinical fact-checker. Compare the conversation + previous vignette with the new clinical summary to find hallucinations.
 
-PATIENT'S ORIGINAL STATEMENT:
-{patient_input}
+CONVERSATION HISTORY:
+{conversation_history}
 
-CLINICAL SUMMARY TO EVALUATE:
+PREVIOUS VIGNETTE:
+{previous_vignette}
+
+NEW CLINICAL SUMMARY TO CHECK:
 {completion}
 
-Please analyze if the clinical summary adds any information that was NOT mentioned by the patient. Look for:
-1. Symptoms the patient never mentioned
-2. Demographic information that contradicts what the patient said
-3. Severity descriptions not provided by the patient
-4. Any other fabricated details
+Find if the summary adds information NOT in the conversation or previous vignette.
 
-Respond with a JSON object containing:
-- "hallucinated_items": [list of specific things that were added/fabricated]
-- "accurate_items": [list of things correctly extracted from patient statement]
-- "score": a number from -10 to +10 (-10 = severe hallucination, +10 = perfect accuracy)
+JSON response:
+- "hallucinated_items": [things added that weren't in conversation/vignette]
+- "accurate_items": [things correctly from conversation/vignette]  
+- "score": -10 to +10 (-10=bad hallucinations, +10=perfect)
 
-Example response:
-{{"hallucinated_items": ["dizziness", "repeated vomiting"], "accurate_items": ["17-year-old female", "left-sided headache", "photophobia"], "score": -2}}
-"""
+{{"hallucinated_items": [], "accurate_items": [], "score": 0}}"""
 
                 try:
                     response = client.chat.completions.create(
                         model=model,
                         messages=[{"role": "user", "content": evaluation_prompt}],
                         temperature=0.1,
-                        max_tokens=500,
+                        max_tokens=200,
                     )
 
-                    # Parse the response
-                    import json
+                    # Get raw response and try to extract JSON
+                    raw_content = response.choices[0].message.content
+                    
+                    # Try to extract JSON if wrapped in markdown
+                    json_match = re.search(r'\{.*\}', raw_content, re.DOTALL)
+                    if json_match:
+                        json_str = json_match.group(0)
+                    else:
+                        json_str = raw_content
 
-                    result = json.loads(response.choices[0].message.content)
+                    result = json.loads(json_str)
                     score = result.get("score", 0.0)
                     hallucinated = result.get("hallucinated_items", [])
                     accurate = result.get("accurate_items", [])
@@ -161,6 +170,9 @@ Example response:
                         f"[debug reward] #{idx} → hallucinated: {hallucinated}, accurate: {accurate}, score: {score}"
                     )
 
+                except json.JSONDecodeError as e:
+                    print(f"[debug reward] #{idx} → JSON error: {e}, raw: {response.choices[0].message.content}")
+                    score = 0.0
                 except Exception as e:
                     print(
                         f"[debug reward] #{idx} → ChatGPT error: {e}, defaulting to 0.0"
