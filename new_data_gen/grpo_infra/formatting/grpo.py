@@ -13,8 +13,8 @@ if not HF_TOKEN:
     raise RuntimeError("Missing HUGGINGFACE_HUB_TOKEN")
 
 # ─── 1. Download model + checkpoint via snapshot_download ────────
-REPO_ID = "CodCodingCode/llama-3.1-8b-clinical-v1.1"
-SUBFOLDER = "checkpoint-2250"
+REPO_ID = "CodCodingCode/llama-3.1-8b-clinical-v1.2"
+SUBFOLDER = "checkpoint-4500"
 print(f"[debug] Downloading {REPO_ID}…")
 cache_dir = snapshot_download(repo_id=REPO_ID, token=HF_TOKEN)
 print("[debug] snapshot_download complete, cache_dir:", cache_dir)
@@ -39,7 +39,7 @@ print("[debug] hf_model loaded. device_map:", hf_model.hf_device_map)
 
 # ─── 3. Load & filter your dataset ────────────────────────────────
 print("[debug] Loading clinical-conversations dataset…")
-ds = load_dataset("CodCodingCode/clinical-conversations", split="train")
+ds = load_dataset("CodCodingCode/clinical-conversations-V1.2", split="train")
 print("[debug] Original dataset size:", len(ds))
 ds = ds.filter(
     lambda ex: ex["instruction"]
@@ -91,21 +91,83 @@ print(
 )
 
 
-# ─── 6. Define your thinking:/answer reward fn ────────────────────
-def thinking_answer_reward(prompts, completions, **kwargs):
+# ─── 6. Define your anti-hallucination reward fn ────────────────────
+def anti_hallucination_reward(prompts, completions, **kwargs):
     rewards = []
-    for idx, text in enumerate(completions):
-        t = text.strip().lower()
-        ok = (
-            t.count("thinking:") == 1
-            and t.count("answer:") == 1
-            and t.find("thinking:") < t.find("answer:")
-        )
-        score = 1.0 if ok else 0.0
-        print(
-            f"[debug reward] #{idx} → thinking_count,answer_count,order ="
-            f" {t.count('thinking:')}, {t.count('answer:')}, {t.find('thinking:') < t.find('answer:')} => {score}"
-        )
+    for idx, (prompt, completion) in enumerate(zip(prompts, completions)):
+        score = 0.0
+
+        # Extract patient input from prompt if it's a clinical summarizer task
+        if "clinical summarizer" in prompt.lower():
+            # Look for patient input after "Input:"
+            input_match = re.search(
+                r"Input:\s*(.*?)\s*(?:Previous Vignette|Output:|$)", prompt, re.DOTALL
+            )
+            if input_match:
+                patient_input = input_match.group(1).strip().lower()
+                completion_lower = completion.lower()
+
+                # Check for hallucinated symptoms not mentioned by patient
+                hallucinated_symptoms = []
+
+                # Common hallucinations we want to penalize
+                if "dizzy" in completion_lower and "dizzy" not in patient_input:
+                    hallucinated_symptoms.append("dizziness")
+                if "tired" in completion_lower and "tired" not in patient_input:
+                    hallucinated_symptoms.append("fatigue")
+                if (
+                    "throwing up repeatedly" in completion_lower
+                    and "repeatedly" not in patient_input
+                ):
+                    hallucinated_symptoms.append("repeated vomiting")
+                if "gender is not specified" in completion_lower and (
+                    "male" in patient_input or "female" in patient_input
+                ):
+                    hallucinated_symptoms.append("incorrect gender statement")
+
+                # Heavy penalty for each hallucinated symptom
+                score -= 2.0 * len(hallucinated_symptoms)
+
+                # Reward for accurate fact extraction
+                accurate_facts = 0
+                if "headache" in patient_input and "headache" in completion_lower:
+                    accurate_facts += 1
+                if "17" in patient_input and "17" in completion_lower:
+                    accurate_facts += 1
+                if "female" in patient_input and "female" in completion_lower:
+                    accurate_facts += 1
+                if "left side" in patient_input and "left" in completion_lower:
+                    accurate_facts += 1
+                if "throbbing" in patient_input and "throbbing" in completion_lower:
+                    accurate_facts += 1
+                if "light hurts" in patient_input and (
+                    "photophobia" in completion_lower or "light" in completion_lower
+                ):
+                    accurate_facts += 1
+                if "loud noises" in patient_input and (
+                    "phonophobia" in completion_lower or "noise" in completion_lower
+                ):
+                    accurate_facts += 1
+                if "threw up once" in patient_input and "vomit" in completion_lower:
+                    accurate_facts += 1
+                if "mom gets migraines" in patient_input and (
+                    "family history" in completion_lower
+                    or "migraine" in completion_lower
+                ):
+                    accurate_facts += 1
+
+                score += 0.5 * accurate_facts
+
+                print(
+                    f"[debug reward] #{idx} → hallucinated: {hallucinated_symptoms}, accurate_facts: {accurate_facts}, score: {score}"
+                )
+            else:
+                # If we can't extract patient input, give neutral score
+                score = 0.0
+        else:
+            # For non-clinical summarizer tasks, give neutral score
+            score = 0.0
+
         rewards.append(score)
     return rewards
 
@@ -130,7 +192,7 @@ trainer = GRPOTrainer(
     model=hf_model,
     args=training_args,
     train_dataset=tokenized,
-    reward_funcs=thinking_answer_reward,
+    reward_funcs=anti_hallucination_reward,
 )
 print("[debug] Starting trainer.train()…")
 

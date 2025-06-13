@@ -1,8 +1,0 @@
-[
-  {
-    "vignette_index": 645,
-    "input": "Corneal abrasion or ocular trauma with conjunctivitis END",
-    "output": "THINKING: Unable to extract thinking content properly\nANSWER: Unable to extract answer content properly",
-    "gold_diagnosis": "Impingement syndrome of shoulder"
-  }
-]

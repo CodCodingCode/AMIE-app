@@ -12,6 +12,7 @@ FOLDERS = [
     "2questioning_doctor_outputs",
     "2summarizer_outputs",
     "2treatment_plans",
+    "2behavioral_analyses",
 ]
 QUESTION_DIR = os.path.join(BASE_DIR, "2questioning_doctor_outputs")
 # ----------------------

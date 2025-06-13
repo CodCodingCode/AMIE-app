@@ -32,7 +32,7 @@ model = AutoModelForCausalLM.from_pretrained(
 print("[debug] Loading tokenizer from original base model...")
 try:
     tokenizer = AutoTokenizer.from_pretrained(
-        "CodCodingCode/llama-3.1-8b-clinical-v1.1", token=HF_TOKEN
+        "CodCodingCode/llama-3.1-8b-clinical-v1.2", token=HF_TOKEN
     )
     print("[success] Tokenizer loaded from base model")
 except Exception as e:
@@ -54,7 +54,7 @@ print(f"[success] Model saved to {final_model_path}")
 # Now push to Hub
 from huggingface_hub import HfApi
 
-HUB_MODEL_NAME = "CodCodingCode/llama-3.1-8b-clinical-thinking-grpo"  # ← CHANGE THIS!
+HUB_MODEL_NAME = "CodCodingCode/llama-3.1-8b-grpo-v1.2"  # ← CHANGE THIS!
 
 api = HfApi()
 
