@@ -8,14 +8,35 @@ import time
 load_dotenv() 
 
 app = Flask(__name__)
-CORS(app)
 
-client = OpenAI()
+# Configure CORS to allow your frontend domains
+if os.environ.get('FLASK_ENV') == 'production':
+    # Production CORS - replace with your actual Vercel domain
+    CORS(app, origins=[
+        "https://demodemodemo-two.vercel.app",
+        "https://demodemodemo-two.vercel.app/ehr"
+    ])
+else:
+    # Development CORS - allow localhost
+    CORS(app, origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "http://localhost:3001"
+    ])
+
+client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
 
 # --- Helper to manage Assistant --- 
 ASSISTANT_ID_FILE = "assistant_id.txt"
+assistant_cache = None  # Cache the assistant to avoid recreating it
 
 def get_or_create_assistant():
+    global assistant_cache
+    
+    # Return cached assistant if we have one
+    if assistant_cache is not None:
+        return assistant_cache
+    
     if os.path.exists(ASSISTANT_ID_FILE):
         with open(ASSISTANT_ID_FILE, "r") as f:
             assistant_id = f.read().strip()
@@ -24,6 +45,7 @@ def get_or_create_assistant():
                     print(f"Attempting to retrieve assistant with ID: {assistant_id}")
                     assistant = client.beta.assistants.retrieve(assistant_id)
                     print(f"Successfully retrieved assistant: {assistant.id}")
+                    assistant_cache = assistant  # Cache it
                     return assistant
                 except Exception as e:
                     print(f"Failed to retrieve assistant {assistant_id}, creating a new one: {e}")
@@ -32,22 +54,34 @@ def get_or_create_assistant():
     else:
         print("Assistant ID file not found, creating a new assistant.")
     
-    assistant = client.beta.assistants.create(
-        name="EHR File Processor",
-        instructions="You are an AI assistant that processes Electronic Health Record (EHR) files. Analyze the content and provide a summary or answer questions based on the file.",
-        model="gpt-4o",
-        tools=[{"type": "file_search"}],
-    )
-    with open(ASSISTANT_ID_FILE, "w") as f:
-        f.write(assistant.id)
-    print(f"Created new assistant with ID: {assistant.id} and saved to {ASSISTANT_ID_FILE}")
-    return assistant
+    try:
+        assistant = client.beta.assistants.create(
+            name="EHR File Processor",
+            instructions="You are an AI assistant that processes Electronic Health Record (EHR) files. Analyze the content and provide a summary or answer questions based on the file.",
+            model="gpt-4o",
+            tools=[{"type": "file_search"}],
+        )
+        with open(ASSISTANT_ID_FILE, "w") as f:
+            f.write(assistant.id)
+        print(f"Created new assistant with ID: {assistant.id} and saved to {ASSISTANT_ID_FILE}")
+        assistant_cache = assistant  # Cache it
+        return assistant
+    except Exception as e:
+        print(f"Error creating OpenAI assistant: {e}")
+        raise e
 
-assistant = get_or_create_assistant()
+# Don't create assistant on startup - wait until it's needed!
+
+@app.route("/", methods=["GET"])
+def health_check():
+    return jsonify({"status": "healthy", "message": "EHR File Processor API is running"})
 
 @app.route("/api/process-file", methods=["POST"])
 def process_file():
-    global assistant # Allow modification of the global assistant object
+    try:
+        assistant = get_or_create_assistant()  # Get assistant when needed
+    except Exception as e:
+        return jsonify({"error": f"Failed to initialize AI assistant: {str(e)}"}), 500
     if 'file' not in request.files:
         return jsonify({"error": "No file part"}), 400
     
@@ -161,5 +195,6 @@ def process_file():
     return jsonify({"error": "File processing failed due to an unknown issue"}), 500
 
 if __name__ == "__main__":
-    # Consider adding host='0.0.0.0' to make it accessible on your network if needed
-    app.run(debug=True, port=5001) 
+    # Production ready configuration
+    port = int(os.environ.get("PORT", 5001))  # Use PORT from environment if available
+    app.run(host='0.0.0.0', debug=False, port=port) 

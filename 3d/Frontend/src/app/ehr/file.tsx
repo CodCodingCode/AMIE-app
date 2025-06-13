@@ -7,6 +7,7 @@ import { IconUpload, IconFile, IconX, IconLoader2, IconAlertCircle, IconCheck } 
 import { useDropzone, FileRejection } from "react-dropzone";
 import { useEhr } from "@/app/contexts/EhrContext";
 import { useRouter } from "next/navigation";
+import { API_CONFIG } from "@/app/lib/api-config";
 
 const FileItem: React.FC<{ file: File; onRemove: () => void }> = ({ file, onRemove }) => (
   <motion.div
@@ -73,7 +74,7 @@ export const FileUpload: React.FC<{ onChange?: (files: File[]) => void }> = ({ o
     formData.append("file", fileToProcess);
 
     try {
-      const response = await fetch("http://127.0.0.1:5001/api/process-file", {
+      const response = await fetch(API_CONFIG.getEndpoint('PROCESS_FILE'), {
         method: "POST",
         body: formData,
       });
