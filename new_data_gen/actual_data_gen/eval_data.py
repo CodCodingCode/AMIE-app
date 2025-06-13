@@ -97,29 +97,62 @@ improvement_function = {
 def analyze_patient_followups(data):
     """Analyze patient followup responses for quality and realism"""
 
-    sample_entries = data
+    sample_entries = data[:10] if len(data) > 10 else data  # Increased sample size
     simplified_data = []
     for entry in sample_entries:
         simplified_data.append(
             {
                 "vignette_index": entry.get("vignette_index"),
                 "answer": entry.get("answer", ""),
-                "thinking_snippet": (entry.get("thinking", "") + "..."),
+                "thinking_snippet": (entry.get("thinking", "")),
                 "gold_diagnosis": entry.get("gold_diagnosis", ""),
+                "turn_count": entry.get("turn_count", 0),
             }
         )
 
-    analysis_prompt = f"""Analyze these patient simulation outputs for quality issues:
+    analysis_prompt = f"""You are an EXTREMELY STRICT clinical training data quality analyst. Your job is to ruthlessly identify EVERY flaw in patient simulation outputs.
 
-DATA: {json.dumps(simplified_data, indent=2)}
+PATIENT SIMULATION DATA:
+{json.dumps(simplified_data, indent=2)}
 
-Find problems with:
-1. Medical jargon in patient speech (patients shouldn't use clinical terms)
-2. Unrealistic responses for the patient's age/background
-3. Overly detailed or textbook-like answers
-4. Inconsistent symptom descriptions
+STRICT EVALUATION CRITERIA:
+Apply these standards with ZERO tolerance:
 
-For each issue found, identify the problem, quote evidence, suggest a code fix, set priority, and mark component as "patient"."""
+1. LANGUAGE AUTHENTICITY:
+- Flag ANY medical terminology that a layperson wouldn't use
+- Flag ANY overly articulate or clinical descriptions
+- Flag ANY responses that sound like they're from a medical textbook
+- Flag ANY age-inappropriate language or sophistication level
+
+2. RESPONSE REALISM:
+- Flag ANY responses that are too detailed for a typical patient
+- Flag ANY responses that show medical knowledge patients shouldn't have
+- Flag ANY responses that are too coherent or well-organized
+- Flag ANY responses that don't reflect appropriate confusion or uncertainty
+
+3. DEMOGRAPHIC CONSISTENCY:
+- Flag ANY language that doesn't match the patient's stated age/background
+- Flag ANY responses that ignore cultural, educational, or generational factors
+- Flag ANY responses that don't reflect realistic health literacy levels
+
+4. SYMPTOM CONSISTENCY:
+- Flag ANY contradictions in symptom descriptions across responses
+- Flag ANY symptom descriptions that are medically implausible
+- Flag ANY responses that add symptoms not mentioned in the source material
+
+5. EMOTIONAL AUTHENTICITY:
+- Flag ANY responses that don't reflect appropriate anxiety, fear, or confusion
+- Flag ANY responses that are too calm or matter-of-fact for serious symptoms
+- Flag ANY responses that don't show realistic patient psychology
+
+INSTRUCTIONS:
+- Examine EVERY response for violations of these criteria
+- Be RUTHLESS - if something seems even slightly off, flag it
+- Look for subtle issues like slightly too-clinical word choices
+- Consider how a REAL patient with these exact characteristics would actually speak
+- Find flaws that would make this data unsuitable for training realistic patient models
+
+For EVERY issue found, provide specific evidence and actionable fixes."""
 
     try:
         response = client.chat.completions.create(
@@ -127,14 +160,14 @@ For each issue found, identify the problem, quote evidence, suggest a code fix, 
             messages=[
                 {
                     "role": "system",
-                    "content": "You are a clinical training data quality analyst. Use the function to report all improvements needed.",
+                    "content": "You are an EXTREMELY STRICT clinical training data quality analyst. Find EVERY flaw, no matter how minor. Be ruthless in your evaluation.",
                 },
                 {"role": "user", "content": analysis_prompt},
             ],
             functions=[improvement_function],
             function_call={"name": "report_improvements"},
-            max_tokens=2000,
-            temperature=0.1,
+            max_tokens=3000,
+            temperature=0.0,
         )
 
         # Extract function call result
@@ -160,7 +193,7 @@ For each issue found, identify the problem, quote evidence, suggest a code fix, 
 def analyze_summarizer_outputs(data):
     """Analyze clinical summarizer outputs for accuracy and completeness"""
 
-    sample_entries = data[:3] if len(data) > 3 else data
+    sample_entries = data[:10] if len(data) > 10 else data
     simplified_data = []
     for entry in sample_entries:
         simplified_data.append(
@@ -168,27 +201,58 @@ def analyze_summarizer_outputs(data):
                 "vignette_index": entry.get("vignette_index"),
                 "turn_count": entry.get("turn_count"),
                 "answer": entry.get("answer", ""),
-                "thinking_snippet": (
-                    entry.get("thinking", "")[:300] + "..."
-                    if len(entry.get("thinking", "")) > 300
-                    else entry.get("thinking", "")
-                ),
+                "thinking_snippet": (entry.get("thinking", "")),
                 "gold_diagnosis": entry.get("gold_diagnosis", ""),
+                "input_snippet": (str(entry.get("input", ""))),
             }
         )
 
-    analysis_prompt = f"""Analyze these clinical summarizer outputs for quality issues:
+    analysis_prompt = f"""You are an EXTREMELY STRICT clinical documentation quality analyst. Your job is to ruthlessly identify EVERY flaw in clinical summarization outputs.
 
-DATA: {json.dumps(simplified_data, indent=2)}
+CLINICAL SUMMARIZER DATA:
+{json.dumps(simplified_data, indent=2)}
 
-Find problems with:
-1. Added information not stated by patient
-2. Missing key patient statements  
-3. Incorrect medical terminology translations
-4. Poor organization or missing sections
-5. Subjective interpretations instead of objective facts
+STRICT EVALUATION CRITERIA:
+Apply these standards with ZERO tolerance:
 
-For each issue found, identify the problem, quote evidence, suggest a code fix, set priority, and mark component as "summarizer"."""
+1. FACTUAL PRECISION:
+- Flag ANY information that wasn't explicitly stated in the source conversation
+- Flag ANY inferences, assumptions, or interpretations added by the summarizer
+- Flag ANY paraphrasing that changes the meaning or adds implications
+- Flag ANY medical interpretations not directly stated by the patient
+
+2. COMPLETENESS VALIDATION:
+- Flag ANY patient statements that are missing from the summary
+- Flag ANY symptom descriptions that are incomplete or abbreviated
+- Flag ANY timeline information that is omitted or unclear
+- Flag ANY demographic or contextual information that's missing
+
+3. TERMINOLOGY ACCURACY:
+- Flag ANY medical terms used when the patient used lay language
+- Flag ANY lay terms converted incorrectly to medical terminology
+- Flag ANY terminology that adds clinical significance not stated by patient
+- Flag ANY diagnostic language that implies conclusions not drawn
+
+4. ORGANIZATIONAL INTEGRITY:
+- Flag ANY information that's placed in wrong sections
+- Flag ANY missing standard sections that should be included
+- Flag ANY poor chronological organization of events
+- Flag ANY unclear or confusing presentation of information
+
+5. OBJECTIVITY MAINTENANCE:
+- Flag ANY subjective assessments or clinical judgments
+- Flag ANY interpretive language that goes beyond patient statements
+- Flag ANY diagnostic reasoning that belongs in clinical assessment, not summary
+- Flag ANY speculation about patient condition or prognosis
+
+INSTRUCTIONS:
+- Examine EVERY summary for violations of these criteria
+- Be RUTHLESS - if information is added, missing, or incorrectly interpreted, flag it
+- Look for subtle bias or interpretation in word choices
+- Consider whether the summary would mislead clinicians about what the patient actually said
+- Find flaws that would make this data unsuitable for training accurate clinical summarizers
+
+For EVERY issue found, provide specific evidence and actionable fixes."""
 
     try:
         response = client.chat.completions.create(
@@ -196,14 +260,14 @@ For each issue found, identify the problem, quote evidence, suggest a code fix, 
             messages=[
                 {
                     "role": "system",
-                    "content": "You are a clinical documentation quality analyst. Use the function to report all improvements needed.",
+                    "content": "You are an EXTREMELY STRICT clinical documentation quality analyst. Find EVERY flaw in clinical summarization, no matter how minor. Be ruthless.",
                 },
                 {"role": "user", "content": analysis_prompt},
             ],
             functions=[improvement_function],
             function_call={"name": "report_improvements"},
-            max_tokens=2000,
-            temperature=0.1,
+            max_tokens=3000,
+            temperature=0.0,
         )
 
         function_call = response.choices[0].message.function_call
@@ -232,10 +296,10 @@ def analyze_diagnosing_outputs(data):
     for stage in ["E", "M", "L"]:
         stage_entries = [d for d in data if d.get("letter") == stage]
         if stage_entries:
-            sample_entries.extend(stage_entries[:2])
+            sample_entries.extend(stage_entries[:4])  # Increased sample
 
     if not sample_entries:
-        sample_entries = data[:3]
+        sample_entries = data[:12] if len(data) > 12 else data
 
     simplified_data = []
     for entry in sample_entries:
@@ -244,28 +308,65 @@ def analyze_diagnosing_outputs(data):
                 "vignette_index": entry.get("vignette_index"),
                 "stage": entry.get("letter", "Unknown"),
                 "answer": entry.get("answer", ""),
-                "thinking_snippet": (
-                    entry.get("thinking", "")[:400] + "..."
-                    if len(entry.get("thinking", "")) > 400
-                    else entry.get("thinking", "")
-                ),
+                "thinking_snippet": (entry.get("thinking", "")),
                 "gold_diagnosis": entry.get("gold_diagnosis", ""),
+                "turn_count": entry.get("turn_count", 0),
+                "input_snippet": (str(entry.get("input", ""))),
             }
         )
 
-    analysis_prompt = f"""Analyze these diagnostic reasoning outputs for quality issues:
+    analysis_prompt = f"""You are an EXTREMELY STRICT clinical diagnostic quality analyst. Your job is to ruthlessly identify EVERY flaw in diagnostic reasoning outputs.
 
-DATA: {json.dumps(simplified_data, indent=2)}
+DIAGNOSTIC REASONING DATA:
+{json.dumps(simplified_data, indent=2)}
 
-Find problems with:
-1. Poor clinical reasoning or flawed logic
-2. Inappropriate differential diagnoses
-3. Missing critical "can't miss" diagnoses
-4. Stage-inappropriate reasoning complexity
-5. Gold diagnosis not properly considered
-6. Weak evidence utilization
+STRICT EVALUATION CRITERIA:
+Apply these standards with ZERO tolerance:
 
-For each issue found, identify the problem, quote evidence, suggest a code fix, set priority, and mark component as "diagnoser"."""
+1. CLINICAL REASONING RIGOR:
+- Flag ANY diagnostic reasoning that lacks proper clinical logic
+- Flag ANY conclusions not supported by the presented evidence
+- Flag ANY reasoning that ignores key clinical features
+- Flag ANY diagnostic approaches that don't follow systematic methodology
+
+2. DIFFERENTIAL DIAGNOSIS QUALITY:
+- Flag ANY diagnoses that are clinically inappropriate for the presentation
+- Flag ANY missing diagnoses that should be considered for this clinical picture
+- Flag ANY diagnoses ranked incorrectly based on probability
+- Flag ANY "can't miss" life-threatening diagnoses that are omitted
+
+3. EVIDENCE UTILIZATION:
+- Flag ANY failure to incorporate key clinical evidence
+- Flag ANY misinterpretation of patient symptoms or signs
+- Flag ANY reasoning that contradicts the available clinical data
+- Flag ANY evidence that's overlooked or dismissed inappropriately
+
+4. STAGE-APPROPRIATE COMPLEXITY:
+- Flag ANY reasoning that's too simple for the diagnostic stage
+- Flag ANY reasoning that's inappropriately complex for early stages
+- Flag ANY failure to build on previous diagnostic iterations
+- Flag ANY stage-inappropriate diagnostic strategies
+
+5. GOLD STANDARD ALIGNMENT:
+- Flag ANY cases where the gold diagnosis isn't properly considered
+- Flag ANY rankings that don't appropriately weight the correct diagnosis
+- Flag ANY reasoning that would lead away from the correct diagnosis
+- Flag ANY failure to recognize key features supporting the gold diagnosis
+
+6. SYSTEMATIC COMPLETENESS:
+- Flag ANY incomplete systematic review of possibilities
+- Flag ANY failure to consider patient demographics in differential
+- Flag ANY missing consideration of urgency or acuity
+- Flag ANY inadequate risk stratification
+
+INSTRUCTIONS:
+- Examine EVERY diagnostic output for violations of these criteria
+- Be RUTHLESS - if reasoning is flawed, incomplete, or misleading, flag it
+- Look for subtle errors in clinical logic or probability assessment
+- Consider whether this reasoning would lead to correct clinical decisions
+- Find flaws that would make this data unsuitable for training competent diagnostic models
+
+For EVERY issue found, provide specific evidence and actionable fixes."""
 
     try:
         response = client.chat.completions.create(
@@ -273,14 +374,14 @@ For each issue found, identify the problem, quote evidence, suggest a code fix, 
             messages=[
                 {
                     "role": "system",
-                    "content": "You are a clinical diagnostic quality analyst. Use the function to report all improvements needed.",
+                    "content": "You are an EXTREMELY STRICT clinical diagnostic quality analyst. Find EVERY flaw in diagnostic reasoning, no matter how minor. Lives depend on diagnostic accuracy - be ruthless.",
                 },
                 {"role": "user", "content": analysis_prompt},
             ],
             functions=[improvement_function],
             function_call={"name": "report_improvements"},
-            max_tokens=2500,
-            temperature=0.1,
+            max_tokens=4000,
+            temperature=0.0,
         )
 
         function_call = response.choices[0].message.function_call
@@ -305,7 +406,7 @@ For each issue found, identify the problem, quote evidence, suggest a code fix, 
 def analyze_questioning_outputs(data):
     """Analyze clinical questioning outputs for diagnostic effectiveness"""
 
-    sample_entries = data[:6] if len(data) > 6 else data
+    sample_entries = data[:15] if len(data) > 15 else data  # Increased sample
     simplified_data = []
     for entry in sample_entries:
         simplified_data.append(
@@ -313,28 +414,64 @@ def analyze_questioning_outputs(data):
                 "vignette_index": entry.get("vignette_index"),
                 "stage": entry.get("letter", "Unknown"),
                 "answer": entry.get("answer", ""),
-                "thinking_snippet": (
-                    entry.get("thinking", "")[:300] + "..."
-                    if len(entry.get("thinking", "")) > 300
-                    else entry.get("thinking", "")
-                ),
+                "thinking_snippet": entry.get("thinking", ""),
                 "gold_diagnosis": entry.get("gold_diagnosis", ""),
+                "input_snippet": str(entry.get("input", "")),
             }
         )
 
-    analysis_prompt = f"""Analyze these clinical questioning outputs for quality issues:
+    analysis_prompt = f"""You are an EXTREMELY STRICT clinical interviewing quality analyst. Your job is to ruthlessly identify EVERY flaw in clinical questioning outputs.
 
-DATA: {json.dumps(simplified_data, indent=2)}
+CLINICAL QUESTIONING DATA:
+{json.dumps(simplified_data, indent=2)}
 
-Find problems with:
-1. Low diagnostic value questions
-2. Stage-inappropriate questioning strategies  
-3. Leading or poorly formulated questions
-4. Weak reasoning behind question selection
-5. Redundant or inefficient questioning
-6. Questions that don't help narrow toward gold diagnosis
+STRICT EVALUATION CRITERIA:
+Apply these standards with ZERO tolerance:
 
-For each issue found, identify the problem, quote evidence, suggest a code fix, set priority, and mark component as "questioner"."""
+1. DIAGNOSTIC VALUE ASSESSMENT:
+- Flag ANY questions that don't advance diagnostic understanding
+- Flag ANY questions that gather irrelevant or low-yield information
+- Flag ANY questions that fail to distinguish between competing diagnoses
+- Flag ANY questions that don't target the most important diagnostic gaps
+
+2. QUESTIONING TECHNIQUE RIGOR:
+- Flag ANY leading questions that bias patient responses
+- Flag ANY compound questions that confuse or overwhelm patients
+- Flag ANY questions that are poorly worded or ambiguous
+- Flag ANY questions that assume facts not in evidence
+
+3. STAGE-APPROPRIATE STRATEGY:
+- Flag ANY questions that are too broad for late-stage interviewing
+- Flag ANY questions that are too narrow for early-stage exploration
+- Flag ANY questions that don't build logically on previous information
+- Flag ANY questions that don't match the diagnostic stage objectives
+
+4. EFFICIENCY AND REDUNDANCY:
+- Flag ANY questions that repeat previously asked information
+- Flag ANY questions that could be combined for better efficiency
+- Flag ANY questions that explore tangential rather than core issues
+- Flag ANY questions that waste limited interview time
+
+5. CLINICAL REASONING QUALITY:
+- Flag ANY questions not justified by sound clinical reasoning
+- Flag ANY questions that ignore the differential diagnosis priorities
+- Flag ANY questions that don't consider the gold diagnosis appropriately
+- Flag ANY questions that show poor understanding of the clinical context
+
+6. PATIENT-CENTERED APPROACH:
+- Flag ANY questions that are insensitive to patient demographics
+- Flag ANY questions that ignore patient's stated concerns
+- Flag ANY questions that use inappropriate medical terminology
+- Flag ANY questions that don't consider patient's emotional state
+
+INSTRUCTIONS:
+- Examine EVERY question for violations of these criteria
+- Be RUTHLESS - if a question is suboptimal, inefficient, or inappropriate, flag it
+- Look for subtle issues like slightly poor wording or missed opportunities
+- Consider whether each question represents the BEST possible choice at that moment
+- Find flaws that would make this data unsuitable for training effective clinical interviewers
+
+For EVERY issue found, provide specific evidence and actionable fixes."""
 
     try:
         response = client.chat.completions.create(
@@ -342,14 +479,14 @@ For each issue found, identify the problem, quote evidence, suggest a code fix, 
             messages=[
                 {
                     "role": "system",
-                    "content": "You are a clinical interviewing quality analyst. Use the function to report all improvements needed.",
+                    "content": "You are an EXTREMELY STRICT clinical interviewing quality analyst. Find EVERY flaw in questioning strategy, no matter how minor. Effective questioning is critical for diagnosis - be ruthless.",
                 },
                 {"role": "user", "content": analysis_prompt},
             ],
             functions=[improvement_function],
             function_call={"name": "report_improvements"},
-            max_tokens=2000,
-            temperature=0.1,
+            max_tokens=3000,
+            temperature=0.0,
         )
 
         function_call = response.choices[0].message.function_call
@@ -374,7 +511,7 @@ For each issue found, identify the problem, quote evidence, suggest a code fix, 
 def analyze_treatment_plans(data):
     """Analyze treatment planning outputs for clinical appropriateness"""
 
-    sample_entries = data[:3] if len(data) > 3 else data
+    sample_entries = data[:8] if len(data) > 8 else data  # Increased sample
     simplified_data = []
     for entry in sample_entries:
         simplified_data.append(
@@ -382,28 +519,70 @@ def analyze_treatment_plans(data):
                 "vignette_index": entry.get("vignette_index"),
                 "turn_count": entry.get("turn_count"),
                 "answer": entry.get("answer", ""),
-                "thinking_snippet": (
-                    entry.get("thinking", "")[:400] + "..."
-                    if len(entry.get("thinking", "")) > 400
-                    else entry.get("thinking", "")
-                ),
+                "thinking_snippet": entry.get("thinking", ""),
                 "gold_diagnosis": entry.get("gold_diagnosis", ""),
+                "input_snippet": str(entry.get("input", "")),
             }
         )
 
-    analysis_prompt = f"""Analyze these treatment planning outputs for quality issues:
+    analysis_prompt = f"""You are an EXTREMELY STRICT clinical treatment planning quality analyst. Your job is to ruthlessly identify EVERY flaw in treatment planning outputs.
 
-DATA: {json.dumps(simplified_data, indent=2)}
+TREATMENT PLANNING DATA:
+{json.dumps(simplified_data, indent=2)}
 
-Find problems with:
-1. Inappropriate or non-evidence-based treatments
-2. Missing aspects of care (immediate/short-term/long-term)
-3. Vague or non-actionable recommendations
-4. Missing safety considerations or monitoring
-5. Generic plans not tailored to patient context
-6. Treatments inappropriate for gold diagnosis
+STRICT EVALUATION CRITERIA:
+Apply these standards with ZERO tolerance:
 
-For each issue found, identify the problem, quote evidence, suggest a code fix, set priority, and mark component as "treatment"."""
+1. EVIDENCE-BASED APPROPRIATENESS:
+- Flag ANY treatments that aren't first-line evidence-based for the condition
+- Flag ANY treatments that contradict established clinical guidelines
+- Flag ANY treatments that are inappropriate for patient demographics
+- Flag ANY treatments that ignore contraindications or precautions
+
+2. CLINICAL SAFETY RIGOR:
+- Flag ANY missing safety monitoring requirements
+- Flag ANY missing contraindication assessments
+- Flag ANY missing drug interaction considerations
+- Flag ANY missing allergy or adverse reaction precautions
+
+3. COMPREHENSIVE CARE COMPLETENESS:
+- Flag ANY missing immediate/acute management steps
+- Flag ANY missing short-term management components
+- Flag ANY missing long-term care considerations
+- Flag ANY missing preventive or maintenance elements
+
+4. SPECIFICITY AND ACTIONABILITY:
+- Flag ANY vague or non-specific recommendations
+- Flag ANY recommendations without clear dosing, timing, or parameters
+- Flag ANY recommendations that can't be practically implemented
+- Flag ANY recommendations without clear success metrics
+
+5. PATIENT-SPECIFIC TAILORING:
+- Flag ANY generic plans that ignore individual patient factors
+- Flag ANY plans that don't consider patient age, comorbidities, or context
+- Flag ANY plans that ignore socioeconomic or practical barriers
+- Flag ANY plans that don't address patient-specific risk factors
+
+6. MULTIDISCIPLINARY COORDINATION:
+- Flag ANY missing specialist referral needs
+- Flag ANY missing care team coordination requirements
+- Flag ANY missing follow-up or monitoring schedules
+- Flag ANY missing patient education or communication needs
+
+7. GOLD DIAGNOSIS ALIGNMENT:
+- Flag ANY treatments inappropriate for the gold diagnosis
+- Flag ANY treatments that don't address the specific pathophysiology
+- Flag ANY treatments that ignore condition-specific considerations
+- Flag ANY treatments that would be suboptimal for the actual diagnosis
+
+INSTRUCTIONS:
+- Examine EVERY treatment plan for violations of these criteria
+- Be RUTHLESS - if any aspect of care is suboptimal, incomplete, or unsafe, flag it
+- Look for subtle omissions in monitoring, follow-up, or safety considerations
+- Consider whether this plan would provide optimal patient outcomes
+- Find flaws that would make this data unsuitable for training safe, effective treatment planners
+
+For EVERY issue found, provide specific evidence and actionable fixes."""
 
     try:
         response = client.chat.completions.create(
@@ -411,14 +590,14 @@ For each issue found, identify the problem, quote evidence, suggest a code fix, 
             messages=[
                 {
                     "role": "system",
-                    "content": "You are a clinical treatment quality analyst. Use the function to report all improvements needed.",
+                    "content": "You are an EXTREMELY STRICT clinical treatment planning quality analyst. Find EVERY flaw in treatment planning, no matter how minor. Patient safety depends on treatment quality - be ruthless.",
                 },
                 {"role": "user", "content": analysis_prompt},
             ],
             functions=[improvement_function],
             function_call={"name": "report_improvements"},
-            max_tokens=2000,
-            temperature=0.1,
+            max_tokens=3000,
+            temperature=0.0,
         )
 
         function_call = response.choices[0].message.function_call
@@ -540,17 +719,20 @@ def analyze_all_outputs():
     report_content = generate_comprehensive_report()
 
     # Save comprehensive report
-    with open("new_data_gen/actual_data_gen/output_quality_analysis.txt", "w") as f:
+    with open("output_quality_analysis.txt", "w") as f:
         f.write(report_content)
 
     # Save structured improvements as JSON for programmatic access
-    with open("new_data_gen/actual_data_gen/structured_improvements.json", "w") as f:
+    with open("structured_improvements.json", "w") as f:
         json.dump(improvement_tracker.get_all_improvements(), f, indent=2)
 
     # Print summary
     print("\n✅ Analysis complete!")
     print(f"📈 Improvement Summary:")
-    for component, improvements in improvement_tracker.get_all_improvements().items():
+    all_improvements = improvement_tracker.get_all_improvements()
+    print(f"\n🔍 DEBUG - Report generation data:")
+    for component, improvements in all_improvements.items():
+        print(f"   {component}: {len(improvements)} improvements")
         count = len(improvements)
         if count > 0:
             critical_count = len(
@@ -568,4 +750,11 @@ def analyze_all_outputs():
 
 
 if __name__ == "__main__":
+    # DEBUG: Print raw tracker data before summary
+    print(f"\n🔍 DEBUG - Console summary data:")
+    raw_data = improvement_tracker.get_all_improvements()
+    for component, improvements in raw_data.items():
+        print(f"   {component}: {len(improvements)} raw improvements")
+
+    all_improvements = improvement_tracker.get_all_improvements()
     analyze_all_outputs()
