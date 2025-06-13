@@ -1,97 +1,201 @@
 COMPREHENSIVE OUTPUT QUALITY ANALYSIS AND IMPROVEMENT PLAN
 ======================================================================
-Total Unique Improvements Identified: 21
+Total Unique Improvements Identified: 47
 
-PATIENT COMPONENT - No improvements needed
-
-SUMMARIZER COMPONENT - 5 Unique Improvements:
+PATIENT COMPONENT - 7 Unique Improvements:
 --------------------------------------------------
-1. [High] Added information not stated by patient
-   Evidence: The answer in turn 2 states that symptoms began "a few hours ago" and have been ongoing since onset, which is not explicitly mentioned by the patient.
-   Fix: Remove or rephrase to only include patient-stated information, e.g., "The patient states he experienced symptoms starting recently."
+1. [Critical] Use of overly clinical or technical language in patient responses.
+   Evidence: Responses such as "radiating down to my groin" and "sharp and steady" are somewhat technical and not typical of layperson speech.
+   Fix: Simplify language to more casual, patient-like expressions, e.g., "it hurts all the way down to my groin" and "it’s been really sharp and constant".
 
-2. [High] Missing key patient statements
-   Evidence: The summaries do not include details about the patient's prior episodes or systemic symptoms, which are relevant for diagnosis.
-   Fix: Ensure the summary captures all key patient statements, including any mention of prior episodes or systemic symptoms if provided.
+2. [Critical] Responses show a high level of coherence and organization that is uncharacteristic of real patient speech.
+   Evidence: Answers are very structured, with clear descriptions of symptoms and timelines, lacking typical patient disorganization or confusion.
+   Fix: Make responses more disorganized, with occasional hesitations, repetitions, or incomplete thoughts to reflect real patient speech patterns.
 
-3. [Medium] Poor organization or missing sections
-   Evidence: The summaries lack a clear section on past medical history and medication use, which are important components.
-   Fix: Add sections for past medical history and medication use if available, or explicitly state their absence.
+3. [Critical] Patient responses contain medical terminology or descriptions that a layperson wouldn't typically use.
+   Evidence: Terms like "radiating," "steady," "pulsating," "throbbing," and "unremitting" are too clinical.
+   Fix: Replace with simpler descriptions, e.g., "it hurts all over," "it’s been really sharp," "I feel a pulsing feeling," "it just won’t go away."
 
-4. [Low] Incorrect medical terminology translations
-   Evidence: The summaries correctly use "Abdominal Aortic Aneurysm (AAA)," so no issue here.
-   Fix: N/A
+4. [Critical] Responses lack appropriate emotional expression, such as anxiety or confusion.
+   Evidence: Many answers are very calm and matter-of-fact, e.g., "I don’t remember having anything like this before," which doesn't reflect the fear or worry a patient would feel.
+   Fix: Add more emotional language, such as "I’m really scared," "I don’t know what’s happening," or "this is really worrying me."
 
-5. [Low] Subjective interpretations instead of objective facts
-   Evidence: The summaries include subjective phrases like "really sharp" and "constant," which are direct patient statements, so this is acceptable.
-   Fix: Ensure all subjective descriptions are clearly attributed to the patient and not interpreted as objective facts.
+5. [Critical] Inconsistent or implausible symptom descriptions across responses.
+   Evidence: Some responses mention symptoms like "pulsating" or "fullness" over weeks, which may not align with the sudden onset of severe pain described elsewhere.
+   Fix: Ensure symptom descriptions are consistent and plausible, e.g., if the pain is sudden and severe, avoid describing gradual or mild symptoms in other responses.
 
-DIAGNOSER COMPONENT - 5 Unique Improvements:
+6. [Critical] Demographic inconsistency: language or tone does not match a 72-year-old male patient.
+   Evidence: The language used is somewhat modern and casual, which may not reflect the speech patterns of an older adult.
+   Fix: Adjust language to be slightly more formal or old-fashioned, e.g., "I have had high blood pressure for some time" instead of "I've had high blood pressure for a while," and avoid slang or overly casual expressions.
+
+7. [Critical] Responses include unnecessary details or irrelevant information that a typical patient wouldn't mention.
+   Evidence: Details like "nothing I’ve done seems to make it better or worse" or "I don’t remember having anything like it" are somewhat extraneous.
+   Fix: Streamline responses to focus on core symptoms and feelings, removing overly detailed or irrelevant statements.
+
+SUMMARIZER COMPONENT - 10 Unique Improvements:
 --------------------------------------------------
-1. [Critical] Missing critical 'can't miss' diagnoses such as ruptured AAA and dissection in initial reasoning stages.
-   Evidence: All answers correctly identify AAA as the gold diagnosis, but some do not emphasize the urgency of dissection or rupture early enough.
-   Fix: Highlight the importance of ruling out AAA rupture and dissection early in the reasoning process, with explicit mention of their life-threatening nature.
+1. [Unknown] The summaries include inferred or assumed information not explicitly stated by the patient, such as 'symptoms have been ongoing since onset' or 'symptoms have remained unchanged since they started,' which are not directly quoted from the conversation.
+   Evidence: Answer: 'Symptoms began abruptly "a few hours ago" and have been ongoing since onset.'
+   Fix: Remove any inferred or assumed statements about symptom duration or persistence; only include what is explicitly stated or directly quoted from the patient.
 
-2. [High] Inconsistent prioritization of diagnoses across stages, with AAA consistently ranked as the top diagnosis despite differential reasoning.
-   Evidence: Multiple answers prioritize AAA as the primary diagnosis, but some reasoning does not sufficiently differentiate it from other vascular emergencies like dissection.
-   Fix: Ensure that differential reasoning explicitly compares the likelihood of AAA versus dissection and other emergencies at each stage, with clear reasoning for prioritization.
+2. [Unknown] The summaries sometimes paraphrase lay language into clinical terms with added implications or severity, such as translating 'really sharp' into 'sharp' without noting the original emphasis, which could imply a different severity.
+   Evidence: Answer: 'The pain is described as "really sharp" and "constant"' becomes 'sharp, constant pain' in the summary.
+   Fix: Use the patient's exact words when paraphrasing, and avoid implying increased severity or clinical interpretation unless explicitly stated.
 
-3. [High] Weak evidence utilization, with some justifications lacking specific clinical features or failing to connect symptoms to diagnoses.
-   Evidence: Justifications often mention symptoms broadly without linking them to specific diagnostic criteria or risk factors.
-   Fix: Strengthen justifications by explicitly connecting clinical features like pain radiation, hypotension, and risk factors to the diagnoses.
+3. [Unknown] The summaries omit specific details about the timing of symptom onset, such as 'a few hours ago,' which is critical for clinical context.
+   Evidence: Answer: 'Symptoms began suddenly "a few hours ago"' is sometimes summarized as 'sudden onset' without specifying 'a few hours ago.'
+   Fix: Include precise timing details from the patient, such as 'symptom onset within the past few hours,' to preserve accuracy.
 
-4. [High] Gold diagnosis is consistently AAA, but the reasoning does not always sufficiently consider alternative diagnoses like dissection or other vascular emergencies.
-   Evidence: While AAA is identified as the gold diagnosis, some reasoning downplays the importance of dissection or other emergencies.
-   Fix: Ensure that differential reasoning appropriately weighs the likelihood of dissection versus AAA, especially in the context of overlapping symptoms.
+4. [Unknown] Demographic information such as age and gender is sometimes missing or not explicitly stated, which is essential for clinical context.
+   Evidence: Answer: 'Demographics: Not specified in the conversation.'
+   Fix: Ensure demographic details like age and gender are explicitly included if provided in the conversation.
 
-5. [Medium] Stage-inappropriate reasoning complexity, especially in early stages, with overly detailed differential lists that are more suitable for later stages.
-   Evidence: Early stage answers list extensive differential diagnoses with detailed justifications, which may be too complex for initial reasoning.
-   Fix: Simplify differential diagnoses at early stages to focus on the most critical and likely conditions, reserving detailed differentials for later stages.
+5. [Unknown] The summaries sometimes incorrectly categorize symptoms or omit relevant categories, such as failing to mention the radiating nature of pain or the positional nature of dizziness.
+   Evidence: Answer: 'radiating down to the groin' or 'especially when standing up' are sometimes omitted or not clearly categorized.
+   Fix: Explicitly include all described symptom characteristics, such as radiation of pain and positional triggers, in the systematic organization.
 
-QUESTIONER COMPONENT - 6 Unique Improvements:
+6. [Unknown] The summaries sometimes include diagnostic language or implications, such as 'possible AAA,' which is not explicitly stated by the patient and could mislead.
+   Evidence: Answer: 'gold_diagnosis' is 'Abdominal Aortic Aneurysm (AAA),' but the summaries do not explicitly state the diagnosis, only the symptoms.
+   Fix: Avoid including diagnostic labels or implications unless explicitly stated or confirmed; focus solely on patient-reported symptoms and findings.
+
+7. [Unknown] The summaries lack a clear, standardized section for 'Past Medical History' and 'Previous Episodes,' which are important for completeness.
+   Evidence: Answer: 'no prior episodes or medical history discussed.'
+   Fix: Add dedicated sections for past medical history and previous episodes, and explicitly state when such information is not available.
+
+8. [Unknown] The summaries sometimes include subjective assessments or judgments, such as 'symptoms have remained unchanged,' which are interpretive and not directly quoted.
+   Evidence: Answer: 'symptoms have remained unchanged since they started.'
+   Fix: Remove subjective assessments or interpretive statements; only include direct quotes or explicitly stated facts.
+
+9. [Unknown] The summaries sometimes combine multiple pieces of information into a single sentence, reducing clarity and increasing potential for misinterpretation.
+   Evidence: Answer: Long, complex sentences that bundle multiple facts.
+   Fix: Break down complex sentences into clear, discrete points to enhance clarity and accuracy.
+
+10. [Unknown] The summaries do not consistently include all relevant symptom details, such as associated symptoms like nausea or vomiting, which are important negatives.
+   Evidence: Answer: 'No mention of additional symptoms such as nausea, vomiting, chest pain, or shortness of breath.'
+   Fix: Explicitly state the absence of common associated symptoms to clarify what was not reported.
+
+DIAGNOSER COMPONENT - 10 Unique Improvements:
 --------------------------------------------------
-1. [High] Questions at the 'E' stage do not sufficiently explore the duration and progression of symptoms, which are critical for diagnosis.
-   Evidence: When exactly did these symptoms first begin, and how have they changed or progressed since then?
-   Fix: Add questions that explicitly ask about the duration, progression, and any changes in symptoms over time.
+1. [Unknown] The reasoning overly emphasizes vascular emergencies (AAA rupture, dissection) without sufficiently considering other critical life-threatening diagnoses such as ruptured visceral aneurysm or intra-abdominal hemorrhage, which are also plausible given the presentation.
+   Evidence: Multiple differential diagnoses are focused on AAA and dissection, but other causes like ruptured visceral aneurysm or intra-abdominal bleeding are not adequately discussed or prioritized.
+   Fix: Expand differential diagnosis to include ruptured visceral aneurysm and intra-abdominal hemorrhage, and explicitly discuss their likelihood based on clinical features.
 
-2. [High] Stage 'E' questions focus on symptom onset and variability but lack depth in exploring associated factors and prior episodes.
-   Evidence: Has the pain been constant since it first started, or have you noticed it coming and going? And have anything made it better or worse?
-   Fix: Include follow-up questions about factors influencing pain, prior similar episodes, and associated systemic symptoms.
+2. [Unknown] The reasoning does not sufficiently incorporate or weigh the key clinical features such as the nature of pain (sharp, constant, radiating), associated symptoms (dizziness, lightheadedness), and demographic risk factors (age, hypertension) in a systematic way.
+   Evidence: The justification for AAA is based on the presence of a pulsatile mass and pain, but the reasoning lacks a structured approach to integrating all clinical features to prioritize diagnoses.
+   Fix: Use a systematic clinical reasoning framework (e.g., pattern recognition, risk factors, symptom analysis) to explicitly rank diagnoses based on the strength of evidence.
 
-3. [High] Stage 'M' questions do not sufficiently gather comprehensive medical history related to vascular risk factors, which are essential for AAA diagnosis.
-   Evidence: Have you experienced similar episodes in the past, or is this the first time you've had these symptoms?
-   Fix: Incorporate questions about past vascular events, family history of aneurysms, and previous imaging studies.
+3. [Unknown] The differential diagnosis includes myocardial infarction and gastrointestinal perforation, but these are dismissed too quickly without detailed consideration of their plausibility or supporting evidence.
+   Evidence: The answer dismisses MI due to absence of chest pain, but elderly patients can present atypically; similarly, GI perforation is dismissed due to lack of nausea/vomiting, but these features are not definitively excluded.
+   Fix: Reassess and include these diagnoses with appropriate probability weighting, considering atypical presentations in elderly patients.
 
-4. [High] Stage 'M' questions about medical history are incomplete, missing key vascular risk factors and recent trauma or exertion.
-   Evidence: Do you have any history of regular high blood pressure, known aneurysms, or recent trauma or strenuous activity before these symptoms started?
-   Fix: Expand questions to include medication use, recent physical activities, and detailed vascular history.
+4. [Unknown] The reasoning does not explicitly mention the importance of urgent imaging (e.g., bedside ultrasound or CT) to confirm the suspected diagnosis, which is critical at this stage.
+   Evidence: The justification states that imaging confirmation is needed but does not emphasize the urgency or the role of specific diagnostic tests.
+   Fix: Highlight the necessity of immediate imaging (e.g., bedside ultrasound, CT scan) to confirm AAA or other vascular emergencies, and incorporate this into the diagnostic plan.
 
-5. [High] Stage 'L' questions about prior imaging and known aneurysms are relevant but lack specificity and depth.
-   Evidence: Have you ever been told you have an abdominal aneurysm or had any recent imaging of your aorta or abdominal vessels?
-   Fix: Add questions about the timing of imaging, findings, and any previous vascular diagnoses.
+5. [Unknown] The reasoning does not sufficiently consider the possibility of multiple concurrent conditions or complications, such as a leaking aneurysm with signs of hypovolemia, which could alter management priorities.
+   Evidence: The reasoning treats the diagnosis as singular and definitive, without discussing the potential for multiple overlapping pathologies.
+   Fix: Address the possibility of concurrent conditions (e.g., leaking aneurysm with intra-abdominal bleeding) and recommend a comprehensive, urgent diagnostic approach.
 
-6. [Medium] Stage 'L' questions about previous episodes and sudden onset are somewhat redundant and could be combined for efficiency.
-   Evidence: Have you noticed any previous episodes of similar pain or symptoms, even if they were milder, or did this pain come on suddenly without warning?
-   Fix: Combine with other questions about onset and prior episodes to streamline the questioning process.
+6. [Unknown] The reasoning does not explicitly mention the importance of assessing hemodynamic stability (e.g., blood pressure, pulse) to guide urgency and differential prioritization.
+   Evidence: The justification mentions symptoms of hypovolemia but does not specify that vital signs should be assessed and used to stratify urgency.
+   Fix: Include assessment of vital signs as a critical step in the diagnostic process to determine hemodynamic stability and urgency of intervention.
 
-TREATMENT COMPONENT - 5 Unique Improvements:
+7. [Unknown] The reasoning does not explicitly state that the classic presentation of AAA rupture includes hypotension or shock, which is vital for clinical suspicion and urgency.
+   Evidence: The justification mentions dizziness and lightheadedness but does not explicitly connect these to hypovolemia or shock, which are key features of rupture.
+   Fix: Explicitly state that hypotension or shock signs increase suspicion for AAA rupture and necessitate immediate action.
+
+8. [Unknown] The reasoning does not consider the importance of patient history beyond hypertension, such as prior vascular disease, smoking, or previous aneurysms, which could influence pre-test probability.
+   Evidence: The history is limited to age and hypertension, missing other risk factors that could refine diagnosis.
+   Fix: Incorporate additional patient history elements (e.g., smoking, prior vascular disease) to better stratify risk and likelihood of AAA.
+
+9. [Unknown] The reasoning does not address the potential for false reassurance if symptoms are less severe or if the patient is hemodynamically stable, which could delay urgent intervention.
+   Evidence: The reasoning assumes high suspicion based on symptoms but does not discuss the importance of rapid assessment and intervention regardless of initial stability.
+   Fix: Emphasize that even in stable patients, high suspicion warrants urgent imaging and preparation for possible intervention.
+
+10. [Unknown] The reasoning does not explicitly mention the need for immediate multidisciplinary management (e.g., surgical consultation, emergency imaging, resuscitation) once the diagnosis is suspected.
+   Evidence: The conclusion states that diagnosis is highly suggestive but does not outline subsequent urgent management steps.
+   Fix: Include recommendations for immediate multidisciplinary coordination, urgent imaging, and resuscitative measures upon suspicion of AAA rupture.
+
+QUESTIONER COMPONENT - 10 Unique Improvements:
 --------------------------------------------------
-1. [High] The treatment plan for vignette 0 includes lifestyle modifications and secondary prevention strategies that are more appropriate for long-term management rather than immediate or short-term emergency care.
-   Evidence: Lifestyle modifications including smoking cessation, blood pressure management, and avoiding strenuous activity until cleared.
-   Fix: Focus immediate and short-term treatments on stabilization, surgical intervention, and acute management. Defer lifestyle modifications and secondary prevention to long-term care planning.
+1. [Critical] Question 1 ('When exactly did these symptoms first begin, and how have they changed or progressed since then?') is too broad and compound, combining onset timing with progression, which can overwhelm the patient and dilute focus on the most critical aspect.
+   Evidence: Question asks for both onset and progression in a single prompt, which can confuse the patient and reduce diagnostic clarity.
+   Fix: Split into two focused questions: 'When did these symptoms first start?' and 'Have they changed or worsened since then?'
 
-2. [High] Vignette 1's plan suggests initiating blood pressure control with a beta-blocker and obtaining imaging within 24 hours, but does not specify urgent surgical consultation or intervention for suspected impending rupture.
-   Evidence: Initiate blood pressure control with beta-blocker (e.g., metoprolol) at an appropriate dose... Obtain abdominal ultrasound or CT angiography within 24 hours to measure aneurysm size and assess for impending rupture.
-   Fix: Include urgent surgical consultation and prepare for possible emergent repair if signs of impending rupture are present.
+2. [Critical] Question 2 ('Has the pain been constant since it first started, or have you noticed it coming and going? And have anything made it better or worse?') is compound, combining pattern and aggravating/alleviating factors, which can be confusing and lead to incomplete answers.
+   Evidence: The question combines two different aspects—pattern over time and factors affecting pain—into one, risking incomplete responses.
+   Fix: Separate into two questions: 'Has the pain been constant or does it come and go?' and 'Have you noticed anything that makes the pain better or worse?'
 
-3. [High] Vignette 2 recommends oral tranexamic acid for menstrual bleeding without clear evidence or consideration of contraindications, and suggests starting combined oral contraceptives without assessing contraindications.
-   Evidence: Initiate oral tranexamic acid 1300 mg TID during menses, to reduce bleeding volume and help stabilize the menstrual blood loss.
-   Fix: Evaluate contraindications before initiating tranexamic acid; consider alternative therapies if contraindicated. Ensure that combined oral contraceptives are appropriate for the patient’s health status.
+3. [Critical] Question 3 ('Have you experienced similar episodes in the past, or is this the first time you've had these symptoms?') is appropriate but could be more specific to distinguish recurrent from first-time events, which is crucial for diagnosis.
+   Evidence: The question is somewhat broad and could be refined to better differentiate between recurrent and new episodes, aiding in diagnosis.
+   Fix: Refine to: 'Have you had similar episodes before, even if they were milder, or is this the first time you’ve experienced these symptoms?'
 
-4. [Medium] All vignettes lack explicit safety monitoring plans during immediate and short-term management, such as specific vital sign thresholds or adverse effect monitoring.
-   Evidence: Monitor vital signs, especially blood pressure and heart rate, every 4 hours during initial assessment.
-   Fix: Add specific safety monitoring parameters, including thresholds for intervention and adverse effect surveillance.
+4. [Critical] Question 5 ('Have you noticed whether your pain has gotten any worse, or has it stayed the same since it first started?') is essential but could be more precise in assessing the progression, especially in the context of vascular emergencies.
+   Evidence: The question is somewhat vague; specifying whether the pain has worsened significantly or changed character would be more informative.
+   Fix: Refine to: 'Since it first started, has your pain become much worse, or has it remained about the same? Have you noticed any new or different symptoms?'
 
-5. [Low] The plans are somewhat generic and do not tailor recommendations based on individual patient context, such as comorbidities, allergies, or specific risk factors.
-   Evidence: General instructions on lifestyle modifications and follow-up without patient-specific considerations.
-   Fix: Incorporate patient-specific factors into treatment planning, including comorbidities, allergies, and social determinants.
+5. [Critical] Question 6 ('Can you tell me how your periods have been regular or irregular over these past six months, and roughly how much blood you usually lose during each period?') is appropriate for gynecologic assessment but is misplaced in a vascular abdominal aneurysm context, indicating a potential misclassification of the vignette.
+   Evidence: This question is irrelevant to the vascular emergency scenario and suggests a mismatch in vignette context.
+   Fix: Remove or replace with questions relevant to abdominal pain or vascular history in the current context.
+
+6. [High] Question 4 ('Do you have any history of regular high blood pressure, known aneurysms, or recent trauma or strenuous activity before these symptoms started?') is good but could be more comprehensive by explicitly asking about recent medical procedures or infections that could influence the diagnosis.
+   Evidence: While it covers trauma and activity, it omits recent surgeries or infections, which are relevant for pseudoaneurysm or infectious causes.
+   Fix: Expand to: 'Do you have any recent surgeries, infections, or trauma in your abdomen or pelvis area, in addition to high blood pressure or known aneurysms?'
+
+7. [High] Question 7 ('Could you tell me your age, gender, and if you've had any previous health issues or similar symptoms before?') is too broad and not stage-appropriate; it overlaps with initial demographic questions and does not build on prior information.
+   Evidence: This information should have been obtained earlier; asking again at this stage is redundant and inefficient.
+   Fix: Omit or rephrase to focus on new relevant details if needed, but ideally gather this info at initial intake.
+
+8. [High] Question 8 ('Have you ever been told you have an abdominal aneurysm or had any recent imaging of your aorta or abdominal vessels?') is appropriate but could be more specific about prior vascular diagnoses or imaging, and should be asked earlier in the interview.
+   Evidence: This question is somewhat redundant if prior history has been explored, and it is better suited earlier in the sequence.
+   Fix: Reposition earlier in the interview or rephrase to specify: 'Have you ever been diagnosed with an abdominal aneurysm or had recent imaging of your aorta or abdominal vessels?'
+
+9. [High] Question 9 ('Are you aware of any issues with your blood vessels, such as aneurysms, arteriosclerosis, or other vascular diseases?') is good but could be more specific about prior vascular events or diagnoses, and should be integrated with other vascular history questions.
+   Evidence: This overlaps with previous questions about vascular history and could be combined for efficiency.
+   Fix: Combine with similar questions into a comprehensive vascular history inquiry: 'Do you have any history of vascular problems, such as aneurysms, arteriosclerosis, or previous vascular surgeries or diagnoses?'
+
+10. [High] Question 10 ('Have you experienced any recent trauma, surgeries, or infections in your abdomen or pelvis area?') is appropriate but should be asked earlier, especially if trauma or recent procedures are relevant to pseudoaneurysm or other causes.
+   Evidence: Timing is suboptimal; it should be part of initial or early assessment rather than late-stage.
+   Fix: Ask this question earlier in the interview, ideally during initial history-taking.
+
+TREATMENT COMPONENT - 10 Unique Improvements:
+--------------------------------------------------
+1. [Critical] Immediate management for suspected AAA rupture lacks explicit blood product preparation and detailed hemodynamic stabilization steps.
+   Evidence: The plan mentions IV fluids and urgent imaging but does not specify blood transfusion readiness or detailed hemodynamic stabilization measures.
+   Fix: Include protocols for blood transfusion readiness, continuous hemodynamic monitoring, and vasopressor support if needed during initial stabilization.
+
+2. [Critical] Long-term management for AAA does not specify detailed blood pressure targets or medication regimens.
+   Evidence: The plan states 'Blood pressure management with antihypertensives' but lacks specific target systolic BP values and medication titration protocols.
+   Fix: Specify target systolic BP (e.g., 100-120 mmHg), preferred antihypertensive agents, and titration protocols.
+
+3. [Critical] No mention of contraindications or allergies assessment prior to initiating medications such as beta-blockers or contrast agents.
+   Evidence: The plan recommends beta-blockers and contrast-enhanced CT but does not specify allergy or contraindication screening.
+   Fix: Include assessment for beta-blocker contraindications (e.g., asthma, bradycardia) and contrast allergies before imaging or medication administration.
+
+4. [Critical] No explicit mention of patient-specific risk factors such as renal function, which influences contrast use and medication choices.
+   Evidence: The plan does not specify renal function assessment prior to contrast imaging or antihypertensive medication selection.
+   Fix: Assess renal function (e.g., serum creatinine, eGFR) before contrast imaging and medication adjustments.
+
+5. [Critical] The plan does not specify criteria for surgical intervention versus continued surveillance based on aneurysm size, growth rate, or patient comorbidities.
+   Evidence: The plan states 'once stabilized' and 'surgical repair' but lacks specific thresholds or decision algorithms.
+   Fix: Include criteria such as aneurysm >5.5 cm, rapid growth (>0.5 cm in 6 months), or symptomatic aneurysm for surgical intervention.
+
+6. [Critical] Monitoring of renal function post-contrast is not specified, risking nephropathy.
+   Evidence: No mention of post-contrast renal function assessment.
+   Fix: Schedule renal function tests (serum creatinine, eGFR) within 48-72 hours post-contrast to monitor for contrast-induced nephropathy.
+
+7. [High] Follow-up imaging schedule for AAA is inconsistent with guidelines; 1 month and annually are mentioned, but the size-based frequency is not clearly aligned.
+   Evidence: The plan states 'Scheduled follow-up imaging at 1 month and then annually' but guidelines recommend more frequent imaging for aneurysms >5.5 cm or rapid growth.
+   Fix: Align follow-up imaging schedule with aneurysm size and growth rate, e.g., every 6 months for aneurysms >5.5 cm or rapidly enlarging.
+
+8. [High] Patient education on AAA does not include detailed instructions on activity restrictions or specific warning signs beyond general symptoms.
+   Evidence: The plan mentions 'notify staff of worsening symptoms' but lacks detailed guidance on activity limitations and specific signs of impending rupture.
+   Fix: Provide detailed activity restrictions (e.g., avoid heavy lifting, strenuous activity) and specific warning signs such as sudden severe pain, hypotension, or loss of pulse in limb.
+
+9. [High] Lack of multidisciplinary team involvement beyond vascular surgery and cardiology; no mention of primary care, anesthesiology, or nursing roles.
+   Evidence: The plan mentions referral but does not specify coordination with primary care, anesthesiology, or ICU teams for perioperative management.
+   Fix: Establish multidisciplinary coordination including primary care, anesthesiology, ICU, and nursing staff for comprehensive perioperative care.
+
+10. [High] Patient education does not include detailed instructions on medication side effects, especially for antihypertensives and contrast agents.
+   Evidence: The plan mentions 'medications such as beta-blockers' but does not specify side effects or management of adverse reactions.
+   Fix: Provide detailed side effect profiles and management strategies for antihypertensives and contrast agents.

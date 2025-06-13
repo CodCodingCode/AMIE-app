@@ -719,11 +719,11 @@ def analyze_all_outputs():
     report_content = generate_comprehensive_report()
 
     # Save comprehensive report
-    with open("output_quality_analysis.txt", "w") as f:
+    with open("new_data_gen/actual_data_gen/output_quality_analysis.txt", "w") as f:
         f.write(report_content)
 
     # Save structured improvements as JSON for programmatic access
-    with open("structured_improvements.json", "w") as f:
+    with open("new_data_gen/actual_data_gen/structured_improvements.json", "w") as f:
         json.dump(improvement_tracker.get_all_improvements(), f, indent=2)
 
     # Print summary
