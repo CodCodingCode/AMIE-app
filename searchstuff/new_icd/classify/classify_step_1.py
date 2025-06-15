@@ -342,8 +342,8 @@ def process_csv_file_parallel(input_file, output_file, batch_size=50, max_worker
         return None, None
 
 def main():
-    input_file = "unclassified_entries.csv"
-    output_file = "another_clean.csv"
+    input_file = "diseases.csv"
+    output_file = "classified_diseases.csv"
     batch_size = 50
     max_workers = 8
     

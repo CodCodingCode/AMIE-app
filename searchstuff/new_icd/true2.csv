@@ -1,0 +1,1064 @@
+code,description,classification
+1A01,Intestinal infection due to other Vibrio,common disease
+1A02,Intestinal infections due to Shigella,common disease
+1A03.0,Enteropathogenic Escherichia coli infection,common disease
+1A03.1,Enterotoxigenic Escherichia coli infection,common disease
+1A03.2,Enteroinvasive Escherichia coli infection,common disease
+1A03.3,Enterohaemorrhagic Escherichia coli infection,common disease
+1A04,Enterocolitis due to Clostridium difficile,common disease
+1A05,Intestinal infections due to Yersinia enterocolitica,common disease
+1A06,Gastroenteritis due to Campylobacter,common disease
+1A08,Paratyphoid Fever,common disease
+1A09,Infections due to other Salmonella,common disease
+1A10,Foodborne staphylococcal intoxication,common disease
+1A12,Foodborne Clostridium perfringens intoxication,common disease
+1A13,Foodborne Bacillus cereus intoxication,common disease
+1A20,Enteritis due to Adenovirus,common disease
+1A21,Gastroenteritis due to Astrovirus,common disease
+1A22,Gastroenteritis due to Rotavirus,common disease
+1A23,Enteritis due to Norovirus,common disease
+1A24,Intestinal infections due to Cytomegalovirus,common disease
+1A30,Infections due to Balantidium coli,common disease
+1A31,Giardiasis,common disease
+1A32,Cryptosporidiosis,common disease
+1A33.0,Cystoisosporiasis of small intestine,common disease
+1A33.1,Cystoisosporiasis of colon,common disease
+1A36.00,Acute amoebiasis,common disease
+1A36.12,Cutaneous amoebiasis,common disease
+1A61.0,Primary genital syphilis,common disease
+1A61.1,Primary anal syphilis,common disease
+1A61.2,Primary syphilis of other sites,common disease
+1A61.3,Secondary syphilis of skin or mucous membranes,common disease
+1A61.4,Secondary syphilis of other sites,common disease
+1A70.00,Gonorrhoea of penis,common disease
+1A72.1,Gonococcal infection of rectum,common disease
+1A72.2,Gonococcal infection of anus,common disease
+1A72.3,Gonococcal pharyngitis,common disease
+1A81.0,Chlamydial infection of lower genitourinary tract,common disease
+1A81.1,Chlamydial infection of internal reproductive organs,common disease
+1A90,Chancroid,common disease
+1A92,Trichomoniasis,common disease
+1A94.0,Herpes simplex infection of genitalia or urogenital tract,common disease
+1A94.1,Herpes simplex infection of perianal skin or rectum,common disease
+1A95.0,Anal warts,common disease
+1A95.1,Genital warts,common disease
+1A95.2,Extragenital condylomata acuminata,common disease
+1B10.0,Respiratory tuberculosis confirmed,common disease
+1B21.0,Pulmonary infection due to non-tuberculosis mycobacterium,common disease
+1B40.0,Rheumatic arthritis acute or subacute,common disease
+1B50,Scarlet fever,common disease
+1B51,Streptococcal pharyngitis,common disease
+1B70.00,Erysipelas of face,common disease
+1B70.01,Erysipelas of external ear,common disease
+1B70.02,Erysipelas of lower limb,common disease
+1B70.1,Streptococcal cellulitis of skin,common disease
+1B70.2,Staphylococcal cellulitis of skin,common disease
+1B70.3,Ascending bacterial lymphangitis,common disease
+1B72.0,Bullous impetigo,common disease
+1B72.1,Non-bullous impetigo,common disease
+1B72.2,Secondary impetiginization of the skin,common disease
+1B73.0,Streptococcal ecthyma,common disease
+1B73.1,Staphylococcal ecthyma,common disease
+1B74.0,Staphylococcus aureus superficial folliculitis,common disease
+1B75.0,Furuncle,common disease
+1B75.1,Carbuncle,common disease
+1B75.2,Furunculosis,common disease
+1B75.3,Pyogenic abscess of the skin,common disease
+1B75.4,Chronic deep bacterial folliculitis,common disease
+1B91,Leptospirosis,common disease
+1B96,Erysipeloid,common disease
+1B98,Cat-scratch disease,common disease
+1B99,Pasteurellosis,common disease
+1C12.0,Whooping cough due to Bordetella pertussis,common disease
+1C12.1,Whooping cough due to Bordetella parapertussis,common disease
+1C19.0,Nonpneumonic Legionnaires' disease,common disease
+1C1A.0,Cutaneous listeriosis,common disease
+1C1G.0,Early cutaneous Lyme borreliosis,common disease
+1C1G.13,Lyme arthritis,common disease
+1C20,Chlamydial conjunctivitis,common disease
+1C40,Campylobacteriosis,common disease
+1D20,Dengue without warning signs,common disease
+1D40,Chikungunya virus disease,common disease
+1D48,Zika virus disease,common disease
+1D80.0,Mumps without complication,common disease
+1D80.1,Orchitis due to mumps virus,common disease
+1D81.0,Mononucleosis due to Epstein-Barr virus,common disease
+1D81.1,Mononucleosis due to cytomegalovirus,common disease
+1D83,Epidemic myalgia,common disease
+1D84.0,Conjunctivitis due to adenovirus,common disease
+1D84.1,Acute epidemic haemorrhagic conjunctivitis,common disease
+1E30,Influenza due to identified seasonal influenza virus,common disease
+1E31,Influenza due to identified zoonotic or pandemic influenza virus,common disease
+1E50.0,Acute hepatitis A,common disease
+1E50.1,Acute hepatitis B,common disease
+1E50.2,Acute hepatitis C,common disease
+1E50.3,Acute hepatitis D,common disease
+1E50.4,Acute hepatitis E,common disease
+1E51.00,Chronic hepatitis B with human immunodeficiency virus co-infection,common disease
+1E51.1,Chronic hepatitis C,common disease
+1E51.2,Chronic hepatitis D,common disease
+1E51.3,Chronic hepatitis E,common disease
+1E76,Molluscum contagiosum,common disease
+1E80.0,Digital or periungual warts,common disease
+1E80.1,Plantar warts,common disease
+1E81,Plane warts,common disease
+1E90.0,Varicella without complication,common disease
+1E91.0,Zoster without complications,common disease
+1E91.1,Ophthalmic zoster,common disease
+1E91.40,Acute trigeminal zoster neuropathy,common disease
+1E91.5,Postherpetic polyneuropathy,common disease
+1F00.00,Herpes simplex infection of skin,common disease
+1F00.01,Herpes simplex labialis,common disease
+1F00.02,Herpes simplex gingivostomatitis,common disease
+1F00.10,Herpes simplex keratitis,common disease
+1F00.11,Herpes simplex infection of eyelid,common disease
+1F01,Roseola infantum,common disease
+1F02.1,Rubella arthritis,common disease
+1F02.2,Rubella without complication,common disease
+1F03.0,Measles without complication,common disease
+1F04,Erythema infectiosum,common disease
+1F05.0,Enteroviral vesicular stomatitis,common disease
+1F05.1,Enteroviral vesicular pharyngitis,common disease
+1F05.2,Enteroviral exanthematous fever,common disease
+1F05.3,Foot and mouth disease,common disease
+1F20.10,Aspergillus otomycosis,common disease
+1F20.11,Chronic aspergillosis of the paranasal sinuses,common disease
+1F20.12,Chronic pulmonary aspergillosis,common disease
+1F20.13,Tonsillar aspergillosis,common disease
+1F20.14,Aspergillus bronchitis,common disease
+1F23.0,Candidosis of lips or oral mucous membranes,common disease
+1F23.10,Vulvovaginal candidosis,common disease
+1F23.11,Candida balanoposthitis,common disease
+1F23.12,Flexural or intertriginous candidosis,common disease
+1F23.13,Candidosis of nail or paronychium,common disease
+1F23.16,Candida otomycosis,common disease
+1F23.2,Candidosis of gastrointestinal tract,common disease
+1F25.01,Chronic pulmonary coccidioidomycosis,common disease
+1F25.11,Primary cutaneous coccidioidomycosis,common disease
+1F28.0,Dermatophytosis of scalp,common disease
+1F28.1,Dermatophytosis of nail,common disease
+1F28.2,Dermatophytosis of foot,common disease
+1F28.3,Genitocrural dermatophytosis,common disease
+1F28.4,Kerion,common disease
+1F2A.0,Pulmonary histoplasmosis capsulati,common disease
+1F2D.0,Pityriasis versicolor,common disease
+1F2D.1,Malassezia folliculitis,common disease
+1F2D.5,Onychomycosis due to non-dermatophyte mould,common disease
+1F41.Z,Plasmodium vivax malaria without complication,common disease
+1F42.Z,Plasmodium malariae malaria without complication,common disease
+1F62,Ascariasis,common disease
+1F65,Enterobiasis,common disease
+1F68.0,Ancylostomiasis,common disease
+1F68.1,Necatoriasis,common disease
+1F68.2,Cutaneous larva migrans,common disease
+1F86.4,Cercarial dermatitis,common disease
+1G00.0,Pediculosis capitis,common disease
+2C31.Z,Cutaneous squamous cell carcinoma,common disease
+2C32.0,Nodular basal cell carcinoma of skin,common disease
+2C32.2,Superficial basal cell carcinoma of skin,common disease
+2E86.0,Leiomyoma of uterus,common disease
+3A00.00,Acute posthaemorrhagic anaemia,common disease
+3A00.01,Chronic posthaemorrhagic anaemia,common disease
+3A00.1,Acquired iron deficiency anaemia due to low intake,common disease
+3A00.2,Acquired iron deficiency anaemia due to decreased absorption,common disease
+3A00.3,Acquired iron deficiency anaemia due to increased requirement,common disease
+3A01.1,Neonatal vitamin B12 deficiency anaemia,common disease
+3A01.2,Vitamin B12 deficiency anaemia due to low intake,common disease
+3A01.30,Pernicious anaemia,common disease
+3A01.4,Vitamin B12 deficiency anaemia due to intestinal disease,common disease
+3A01.5,Drug-induced vitamin B12 deficiency anaemia,common disease
+3A02.1,Folate deficiency anaemia due to low intake,common disease
+3A02.2,Folate deficiency anaemia due to increased requirements,common disease
+3A02.3,Folate deficiency anaemia due to decreased intestinal absorption,common disease
+3A02.4,Drug-induced folate deficiency anaemia,common disease
+3A03.1,Protein deficiency anaemia,common disease
+3A03.2,Scorbutic anaemia,common disease
+3A03.3,Copper deficiency anaemia,common disease
+3A03.40,Acquired pyridoxine deficiency anaemia,common disease
+3A03.41,Acquired riboflavin deficiency anaemia,common disease
+3A03.42,Acquired thiamine deficiency anaemia,common disease
+3A03.5,Acquired vitamin A deficiency anaemia,common disease
+3A03.6,Acquired vitamin E deficiency anaemia,common disease
+3A10.00,Haemolytic anaemia due to glucose-6-phosphate dehydrogenase deficiency,common disease
+3A20.0,Autoimmune haemolytic anaemia warm type,common disease
+3A20.1,Autoimmune haemolytic anaemia cold type,common disease
+3A20.2,Autoimmune haemolytic anaemia mixed type cold and warm,common disease
+3A20.4,Alloimmune haemolytic anaemia,common disease
+3A21.1,Microangiopathic haemolytic anaemia,common disease
+3A81.0,Polycythaemia due to hypoxia including high altitude,common disease
+3A90,Anaemia of acute disease,common disease
+3A93,Acquired methaemoglobinaemia,common disease
+3B51,Acquired fibrinolytic defects,common disease
+3B60.1,Acquired vascular purpura,common disease
+3B61.00,Hyperhomocysteinaemia,common disease
+3B61.1,Acquired thrombophilia,common disease
+3B62.2,Isolated thrombocytopenia,common disease
+3B63.10,Secondary thrombocytosis,common disease
+3B64.10,Immune thrombocytopenic purpura,common disease
+3B64.11,Secondary thrombocytopenic purpura,common disease
+3B64.12,Drug-induced thrombocytopenic purpura,common disease
+3B81.B,Hypersplenism,common disease
+4A80.1,Bronchospasm provoked by allergy to food substance,common disease
+4A81,Allergic or hypersensitivity disorders involving the eye,common disease
+4A82,Allergic or hypersensitivity disorders involving skin or mucous membranes,common disease
+5A10,Type 1 diabetes mellitus,common disease
+5A11,Type 2 diabetes mellitus,common disease
+5A12,Malnutrition-related diabetes mellitus,common disease
+5A13.4,Diabetes mellitus due to drug or chemical,common disease
+5A21.0,Hypoglycaemia in the context of diabetes mellitus without coma,common disease
+5A41,Hypoglycaemia without associated diabetes,common disease
+5A80.1,Polycystic ovary syndrome,common disease
+5A80.3,Anovulation,common disease
+5A80.4,Oligo-ovulation,common disease
+5A91,Delayed puberty,common disease
+5B55.0,Vitamin A deficiency with night blindness,common disease
+5B55.1,Vitamin A deficiency with conjunctival xerosis,common disease
+5B55.2,Vitamin A deficiency with conjunctival xerosis or Bitot's spots,common disease
+5B55.3,Vitamin A deficiency with corneal xerosis,common disease
+5B56.0,Scurvy,common disease
+5B57.0,Vitamin D deficiency rickets,common disease
+5B57.1,Vitamin D deficiency osteomalacia,common disease
+5B5A.00,Dry beriberi,common disease
+5B5A.01,Wet beriberi,common disease
+5B5E,Folate deficiency,common disease
+5B5F,Vitamin B12 deficiency,common disease
+5B5K.0,Iron deficiency,common disease
+5B5K.2,Zinc deficiency,common disease
+5B5K.3,Iodine deficiency,common disease
+5B71,Protein deficiency,common disease
+5B80.00,Overweight in infants children or adolescents,common disease
+5B80.01,Overweight in adults,common disease
+5B81.00,Obesity in children or adolescents,common disease
+5B81.01,Obesity in adults,common disease
+5B81.1,Drug-induced obesity,common disease
+5C51.42,Glucose or galactose intolerance of newborn,common disease
+5C61.60,Primary lactase deficiency,common disease
+5C61.62,Secondary lactase deficiency,common disease
+5C70.0,Dehydration,common disease
+6C00.0,Nocturnal enuresis,common disease
+6C00.1,Diurnal enuresis,common disease
+6C00.2,Nocturnal and diurnal enuresis,common disease
+6C01.0,Encopresis with constipation or overflow incontinence,common disease
+7A41,Obstructive sleep apnoea,common disease
+8A03.30,Ataxia due to alcoholic cerebellar degeneration,common disease
+8A04.0,Enhanced physiological tremor,common disease
+8A04.1,Essential tremor or related tremors,common disease
+8A04.2,Rest tremor,common disease
+8A04.30,Tremor due to metabolic disorders,common disease
+8A04.31,Tremor due to chronic or acute substance use,common disease
+8A04.32,Tremor due to drug withdrawal,common disease
+8A04.4,Functional tremor,common disease
+8A06.21,Chronic hiccups,common disease
+8A61.21,Childhood absence epilepsy,common disease
+8A63.00,Simple febrile seizures,common disease
+8A63.01,Complex febrile seizures,common disease
+8A80.0,Migraine without aura,common disease
+8A80.2,Chronic migraine,common disease
+8A81.0,Infrequent episodic tension-type headache,common disease
+8A81.1,Frequent episodic tension-type headache,common disease
+8A81.2,Chronic tension-type headache,common disease
+8B82.0,Trigeminal neuralgia,common disease
+8B82.1,Atypical facial pain,common disease
+8B88.0,Bell palsy,common disease
+8B92.2,Diabetic lumbosacral plexopathy,common disease
+8B94,Diabetic radiculoplexoneuropathy,common disease
+8C03.0,Diabetic polyneuropathy,common disease
+8C03.1,Polyneuropathy due to infectious diseases,common disease
+8C03.3,Polyneuropathy in nutritional deficiency,common disease
+8C10.0,Carpal tunnel syndrome,common disease
+8C11.1,Meralgia paraesthetica,common disease
+8C11.5,Tarsal tunnel syndrome,common disease
+8E49,Postviral fatigue syndrome,common disease
+9A01.0,Preseptal cellulitis,common disease
+9A01.1,Abscess of eyelid,common disease
+9A01.20,Hordeolum externum,common disease
+9A01.21,Hordeolum internum,common disease
+9A01.3,Infectious blepharitis,common disease
+9A01.4,Infestation of eyelid,common disease
+9A02.00,Chalazion externum,common disease
+9A02.01,Chalazion internum,common disease
+9A02.1,Posterior blepharitis,common disease
+9A02.4,Meibomian Gland Dysfunction,common disease
+9A03.01,Mechanical ptosis of eyelid,common disease
+9A03.02,Myogenic ptosis of eyelid,common disease
+9A03.03,Paralytic ptosis of eyelid,common disease
+9A03.11,Mechanical entropion of eyelid,common disease
+9A03.12,Senile entropion of eyelid,common disease
+9A11.2,Dacryocystitis,common disease
+9A60.00,Giant papillary conjunctivitis,common disease
+9A60.01,Acute atopic conjunctivitis,common disease
+9A60.02,Allergic conjunctivitis,common disease
+9A60.1,Follicular conjunctivitis,common disease
+9A60.2,Cicatrizing conjunctivitis,common disease
+9A60.32,Conjunctivitis due to Koch-Weeks bacillus,common disease
+9A60.33,Acute epidemic conjunctivitis,common disease
+9A60.4,Blepharoconjunctivitis,common disease
+9A60.5,Vernal keratoconjunctivitis,common disease
+9A60.6,Serous conjunctivitis except viral,common disease
+9A61.5,Conjunctival or subconjunctival haemorrhage,common disease
+9A71,Infectious keratitis,common disease
+9A72,Traumatic keratitis,common disease
+9A73,Exposure keratitis,common disease
+9A74,Neurotrophic keratitis,common disease
+9A75,Autoimmune keratitis,common disease
+9A77.0,Contact lens-associated corneal infiltrates,common disease
+9A78.20,Bullous keratopathy,common disease
+9A79,Keratoconjunctivitis sicca,common disease
+9A96.0,Anterior uveitis not associated with systemic conditions,common disease
+9A96.1,Anterior uveitis associated with systemic conditions,common disease
+9A96.2,Infection-associated anterior uveitis,common disease
+9A96.3,Primary anterior uveitis,common disease
+9B71.00,Nonproliferative diabetic retinopathy,common disease
+9B71.01,Proliferative diabetic retinopathy,common disease
+9B71.02,Diabetic macular oedema,common disease
+9B71.1,Hypertensive retinopathy,common disease
+9B71.2,Radiation retinopathy,common disease
+9B72.00,Cytomegaloviral retinitis,common disease
+9B72.01,HIV retinitis,common disease
+9B75.00,Early age related macular degeneration,common disease
+9B75.01,Intermediate age related macular degeneration,common disease
+9B75.02,Advanced age related macular degeneration,common disease
+9B75.2,Central serous chorioretinopathy,common disease
+9C61.01,Ocular hypertension,common disease
+9C83.2,Convergence insufficiency,common disease
+9C83.60,Divergence insufficiency,common disease
+9C84.0,Physiological nystagmus,common disease
+9D00.0,Myopia,common disease
+9D00.1,Hypermetropia,common disease
+9D00.2,Astigmatism,common disease
+9D00.3,Presbyopia,common disease
+9D00.4,Anisometropia,common disease
+9D00.5,Aniseikonia,common disease
+9D00.6,Transient refractive change,common disease
+AA00,Abscess of external ear,common disease
+AA01,Cellulitis of external ear,common disease
+AA03,Otomycosis,common disease
+AA04,Perichondritis of external ear,common disease
+AA10,Seborrhoeic otitis externa,common disease
+AA11,Acute noninfectious otitis externa,common disease
+AA12,Chondrodermatitis nodularis,common disease
+AA13,Chronic otitis externa,common disease
+AA41.0,Cauliflower ear,common disease
+AA42,Impacted cerumen,common disease
+AA80,Acute serous or mucoid otitis media,common disease
+AA81,Acute nonserous nonsuppurative otitis media,common disease
+AA82,Chronic serous or mucoid otitis media,common disease
+AA83,Noninfected otitis media with effusion,common disease
+AA90,Acute suppurative otitis media,common disease
+AA91.0,Chronic tubotympanic suppurative otitis media,common disease
+AA91.1,Chronic atticoantral suppurative otitis media,common disease
+AB00,Acute otitis media,common disease
+AB01,Chronic otitis media,common disease
+AB11.0,Acute mastoiditis,common disease
+AB11.1,Chronic mastoiditis,common disease
+AB14,Acute myringitis,common disease
+AB15,Chronic myringitis,common disease
+AB30.0,Vestibular neuritis,common disease
+AB30.1,Labyrinthitis,common disease
+AB31.0,Meniere disease,common disease
+AB31.1,Vestibular migraine,common disease
+AB31.2,Benign positional paroxysmal vertigo,common disease
+AB31.4,Disembarkment syndrome,common disease
+AB32.0,Persistent Postural-Perceptual Dizziness,common disease
+AB33,Otosclerosis,common disease
+AB51.0,Acquired conductive hearing loss,common disease
+AB51.1,Acquired sensorineural hearing loss,common disease
+AB51.2,Acquired mixed conductive and sensorineural hearing loss,common disease
+AB53,Ototoxic hearing loss,common disease
+AB54,Presbycusis,common disease
+AB55,Sudden idiopathic hearing loss,common disease
+AB70.0,Otorrhoea,common disease
+AB70.1,Otorrhagia,common disease
+AB70.2,Otalgia,common disease
+BA00.0,Combined diastolic and systolic hypertension,common disease
+BA00.1,Isolated diastolic hypertension,common disease
+BA00.2,Isolated systolic hypertension,common disease
+BA01,Hypertensive heart disease,common disease
+BA02,Hypertensive renal disease,common disease
+BA04,Secondary hypertension,common disease
+BA20,Idiopathic hypotension,common disease
+BA21,Orthostatic hypotension,common disease
+BA40.1,Stable angina,common disease
+BA51,Ischaemic cardiomyopathy,common disease
+BB01.5,Cor pulmonale,common disease
+BC43.5,Stress-induced cardiomyopathy,common disease
+BC43.7,Diabetic cardiomyopathy,common disease
+BD40.00,Lower limb atherosclerosis with intermittent claudication,common disease
+BD40.1,Atherosclerosis of aorta,common disease
+BD40.2,Atherosclerosis of renal artery,common disease
+BD54,Diabetic foot ulcer,common disease
+BD70.0,Superficial thrombophlebitis of lower limbs,common disease
+BD70.1,Superficial thrombophlebitis of upper limbs,common disease
+BD90.0,Acute lymphadenitis,common disease
+BD91,Lymphangitis,common disease
+CA00,Acute nasopharyngitis,common disease
+CA01,Acute sinusitis,common disease
+CA02.0,Acute pharyngitis due to other bacteria,common disease
+CA02.10,Pharyngitis due to Adenovirus,common disease
+CA03.0,Streptococcal tonsillitis,common disease
+CA04,Acute laryngopharyngitis,common disease
+CA05.0,Acute laryngitis,common disease
+CA05.1,Acute tracheitis,common disease
+CA05.2,Acute laryngotracheitis,common disease
+CA07.1,Acute upper respiratory infections of multiple sites,common disease
+CA08.00,Allergic rhinitis due to pollen,common disease
+CA08.01,Allergic rhinitis due to other seasonal allergens,common disease
+CA08.02,Allergic rhinitis due to house dust mite,common disease
+CA08.10,Non-allergic rhinitis with eosinophils,common disease
+CA08.2,Mixed rhinitis,common disease
+CA08.3,Vasomotor rhinitis,common disease
+CA08.Y,Mixed allergic and non-allergic rhinitis,common disease
+CA09.0,Chronic rhinitis,common disease
+CA09.1,Chronic nasopharyngitis,common disease
+CA09.2,Chronic pharyngitis,common disease
+CA0G,Chronic laryngitis or laryngotracheitis,common disease
+CA20.0,Acute noninfectious bronchitis,common disease
+CA20.10,Simple chronic bronchitis,common disease
+CA20.11,Mucopurulent chronic bronchitis,common disease
+CA20.12,Mixed simple and mucopurulent chronic bronchitis,common disease
+CA20.13,Protracted bacterial bronchitis,common disease
+CA21.1,Panlobular emphysema,common disease
+CA21.2,Centrilobular emphysema,common disease
+CA23.00,Allergic asthma with exacerbation,common disease
+CA23.02,Allergic asthma uncomplicated,common disease
+CA23.10,Non-allergic asthma with exacerbation,common disease
+CA23.12,Non-allergic asthma uncomplicated,common disease
+CA23.20,Aspirin-induced asthma,common disease
+CA23.21,Exercise-induced bronchospasm,common disease
+CA23.22,Cough variant asthma,common disease
+CA24,Bronchiectasis,common disease
+CA40.00,Pneumonia due to Chlamydophila pneumoniae,common disease
+CA40.01,Pneumonia due to Escherichia coli,common disease
+CA40.02,Pneumonia due to Haemophilus influenzae,common disease
+CA40.03,Pneumonia due to Klebsiella pneumoniae,common disease
+CA40.04,Pneumonia due to Mycoplasma pneumoniae,common disease
+CA40.05,Pneumonia due to Pseudomonas aeruginosa,common disease
+CA40.06,Pneumonia due to Staphylococcus,common disease
+CA40.07,Pneumonia due to Streptococcus pneumoniae,common disease
+CA40.08,Pneumonia due to Beta-haemolytic streptococcus,common disease
+CA40.10,Pneumonia due to Adenovirus,common disease
+CA40.11,Pneumonia due to Respiratory syncytial virus,common disease
+CA40.12,Pneumonia due to parainfluenza virus,common disease
+CA40.13,Pneumonia due to Human metapneumovirus,common disease
+CA40.20,Pneumonia due to pneumocystis,common disease
+CA41.0,Acute bronchiolitis due to respiratory syncytial virus,common disease
+CA42.0,Acute bronchitis due to Streptococcus,common disease
+CA42.1,Acute bronchitis due to Rhinovirus,common disease
+CA42.2,Acute bronchitis due to Respiratory syncytial virus,common disease
+CA42.3,Acute bronchitis due to Parainfluenza virus,common disease
+CA42.4,Acute bronchitis due to Haemophilus influenzae,common disease
+CA42.5,Acute bronchitis due to Coxsackievirus,common disease
+CA82.4,Aspergillus-induced allergic or hypersensitivity conditions,common disease
+CB02.0,Asthmatic pulmonary eosinophilia,common disease
+DA00.0,Cheilitis,common disease
+DA00.3,Lip fissure,common disease
+DA01.10,Oral aphthae or aphtha-like ulceration,common disease
+DA01.11,Oral mucositis,common disease
+DA01.12,Chronic ulcerative stomatitis,common disease
+DA01.14,Drug-induced oral ulcer,common disease
+DA01.15,Mouth ulcers,common disease
+DA01.40,Papillary hyperplasia of oral mucosa,common disease
+DA01.41,Denture hyperplasia,common disease
+DA01.42,Oral fibroepithelial polyp,common disease
+DA02.1,Xerostomia,common disease
+DA02.30,Allergic contact gingivostomatitis,common disease
+DA02.31,Irritant contact gingivostomatitis,common disease
+DA03.0,Glossitis,common disease
+DA03.1,Geographic tongue,common disease
+DA03.2,Atrophy of tongue papillae,common disease
+DA03.3,Median rhomboid glossitis,common disease
+DA03.4,Hypertrophy of tongue papillae,common disease
+DA04.0,Atrophy of salivary gland,common disease
+DA04.1,Hypertrophy of salivary gland,common disease
+DA04.2,Sialoadenitis,common disease
+DA04.4,Sialolithiasis,common disease
+DA04.5,Mucocele of salivary gland,common disease
+DA04.6,Disturbances of salivary secretion,common disease
+DA06.1,Alveolitis of jaw,common disease
+DA06.2,Exostosis of jaw,common disease
+DA07.0,Fluoride related opacities or lesions,common disease
+DA07.1,Nonfluoride enamel opacities,common disease
+DA07.60,Teething syndrome,common disease
+DA08.0,Dental caries,common disease
+DA09.0,Pulpitis,common disease
+DA09.70,Acute apical periodontitis of pulpal origin,common disease
+DA09.71,Chronic apical periodontitis,common disease
+DA0B.0,Allergic gingivitis,common disease
+DA0B.1,Catarrhal gingivitis,common disease
+DA0B.2,Eruptive gingivitis,common disease
+DA0B.3,Atrophic senile gingivitis,common disease
+DA0B.6,Pericoronitis,common disease
+DA0C.1,Aggressive periodontitis,common disease
+DA0C.2,Periodontosis,common disease
+DA0C.5,Linear gingival erythema,common disease
+DA0D.0,Gingival recession,common disease
+DA0D.1,Gingival enlargement,common disease
+DA0D.4,Cotton-roll gingivitis,common disease
+DA0D.5,Gingival ulceration,common disease
+DA0E.4,Food impaction,common disease
+DA0E.8,Temporomandibular joint disorders,common disease
+DA0F.0,Burning mouth syndrome,common disease
+DA22.0,Non-erosive gastro-oesophageal reflux disease,common disease
+DA22.1,Erosive gastro-oesophageal reflux disease,common disease
+DA41.00,Gastroparesis,common disease
+DA41.2,Acid hypersecretion,common disease
+DA41.3,Achlorhydria,common disease
+DA42.1,Helicobacter pylori induced gastritis,common disease
+DA42.5,Gastritis due to duodenogastric reflux,common disease
+DA42.80,Alcoholic gastritis,common disease
+DA42.82,Chemical gastritis,common disease
+DA42.83,Drug-induced gastritis,common disease
+DA51.0,Helicobacter-pylori associated duodenitis,common disease
+DA60.0,Gastric erosion,common disease
+DA60.1,Helicobacter pylori associated gastric ulcer,common disease
+DA60.2,Helicobacter pylori associated and drug-induced gastric ulcer,common disease
+DA60.3,Stress ulcer of stomach,common disease
+DA93.0,Paralytic ileus,common disease
+DA94.1,Drug-induced or toxic enteritis of small intestine,common disease
+DA94.20,IgE mediated allergic enteritis of small intestine,common disease
+DA95,Coeliac disease,common disease
+DA96.00,Bacterial overgrowth syndrome,common disease
+DA96.02,Malabsorption or intolerance of specific nutrients,common disease
+DB10.1,Chronic appendicitis,common disease
+DB32.1,Slow transit constipation,common disease
+DB50.0,Anal fissure,common disease
+DB50.1,Anal fistula,common disease
+DB50.2,Anorectal fistula,common disease
+DB52,Ulcer of anus,common disease
+DB53,Anal prolapse,common disease
+DB60.0,First degree haemorrhoids,common disease
+DB60.1,Second degree haemorrhoids,common disease
+DB60.2,Third degree haemorrhoids,common disease
+DB60.3,Fourth degree haemorrhoids,common disease
+DB61,Perianal venous thrombosis,common disease
+DB72.0,Anal spasm,common disease
+DB92.1,Non-alcoholic steatohepatitis,common disease
+DB93.1,Hepatic cirrhosis,common disease
+DB94.0,Alcoholic fatty liver,common disease
+DB94.3,Alcoholic cirrhosis of liver without hepatitis,common disease
+DB95.11,Drug-induced or toxic liver disease with chronic hepatitis without cirrhosis,common disease
+DB96.0,Autoimmune hepatitis,common disease
+DC70.1,Diverticulitis of small intestine without complication,common disease
+DC71.1,Diverticulosis of small intestine without haemorrhage,common disease
+DC72.1,Diverticulum of small intestine without haemorrhage,common disease
+DC80.1,Diverticulitis of large intestine without complication,common disease
+DC81.1,Diverticulosis of large intestine without haemorrhage,common disease
+DC82.1,Diverticulum of large intestine without haemorrhage,common disease
+DC90,Diverticular disease of small and large intestine,common disease
+DD31.00,Ischaemic colitis,common disease
+DD50.0,Diaphragmatic hernia,common disease
+DD50.1,Pelvic hernia,common disease
+DD50.20,Primary intra-abdominal hernia,common disease
+DD50.21,Secondary intra-abdominal hernia,common disease
+DD51,Inguinal hernia,common disease
+DD52,Femoral hernia,common disease
+DD53,Umbilical hernia,common disease
+DD54,Paraumbilical hernia,common disease
+DD55,Epigastric hernia,common disease
+DD56,Incisional hernia,common disease
+DD57,Parastomal hernia,common disease
+DD70.0,Crohn disease of upper gastrointestinal tract,common disease
+DD70.1,Crohn disease of small intestine,common disease
+DD70.2,Crohn disease of appendix,common disease
+DD70.3,Crohn disease of large intestine,common disease
+DD70.4,Crohn disease of anal region,common disease
+DD70.5,Crohn disease of both small and large intestine,common disease
+DD71.0,Ulcerative pancolitis,common disease
+DD71.1,Left sided ulcerative colitis,common disease
+DD71.2,Ulcerative rectosigmoiditis,common disease
+DD71.3,Ulcerative proctitis,common disease
+DD93.1,Infantile colic,common disease
+EA10,Pityriasis rosea,common disease
+EA80.0,Infantile atopic eczema,common disease
+EA80.1,Childhood atopic eczema,common disease
+EA80.2,Adult atopic eczema,common disease
+EA81.0,Seborrhoeic dermatitis of face,common disease
+EA81.1,Seborrhoeic dermatitis of the scalp,common disease
+EA82,Nummular dermatitis,common disease
+EA83.00,Lichen simplex of vulva,common disease
+EA83.01,Lichen simplex of male genitalia,common disease
+EA83.02,Perianal lichen simplex,common disease
+EA84,Asteatotic eczema,common disease
+EA85.0,Vesicular dermatitis of hands and feet,common disease
+EA85.1,Hyperkeratotic dermatitis of hands and feet,common disease
+EA85.20,Atopic eczema of hands,common disease
+EA85.3,Dermatitis of feet,common disease
+EA86.0,Stasis dermatitis of the lower legs,common disease
+EA87.0,Dermatitis or eczema of male genitalia,common disease
+EA87.1,Dermatitis or eczema of female genitalia,common disease
+EA87.2,Dermatitis or eczema of perianal area,common disease
+EA88.0,Infectious dermatitis,common disease
+EA88.1,Post traumatic eczema,common disease
+EA88.4,Pityriasis alba,common disease
+EB00.0,Acute urticaria,common disease
+EB00.1,Chronic urticaria,common disease
+EB01.0,Dermographism,common disease
+EB01.1,Cold urticaria,common disease
+EB01.2,Delayed pressure urticaria,common disease
+EB01.3,Contact urticaria,common disease
+EB02.0,Cholinergic urticaria,common disease
+EB90.0,Diabetic skin lesions,common disease
+EC91.1,Atopic prurigo,common disease
+ED31,Burning feet syndrome,common disease
+ED54,Xerosis cutis or asteatosis,common disease
+ED56,Keratosis pilaris,common disease
+ED63.0,Vitiligo,common disease
+ED70.0,Male pattern hair loss,common disease
+ED70.1,Female pattern hair loss,common disease
+ED70.30,Acute telogen effluvium,common disease
+ED70.31,Postpartum telogen effluvium,common disease
+ED70.4,Anagen effluvium,common disease
+ED72.1,Hirsutism associated with hyperandrogenaemia,common disease
+ED80.0,Comedonal acne,common disease
+ED80.1,Superficial mixed comedonal and papulopustular acne,common disease
+ED80.2,Papulopustular acne,common disease
+ED80.3,Nodular acne,common disease
+ED80.6,Infantile acne,common disease
+ED90.00,Erythematotelangiectatic rosacea,common disease
+ED90.01,Papulopustular rosacea,common disease
+ED90.1,Periorificial dermatitis,common disease
+ED91.2,Seborrhoea,common disease
+EE00.00,Palmoplantar hyperhidrosis,common disease
+EE00.01,Axillary hyperhidrosis,common disease
+EE00.02,Craniofacial hyperhidrosis,common disease
+EE00.1,Primary generalised hyperhidrosis,common disease
+EE02.0,Neonatal miliaria,common disease
+EE12.0,Acute bacterial paronychia,common disease
+EE12.1,Onychomycosis,common disease
+EE13.10,Ingrowing toenail,common disease
+EE13.11,Infected ingrowing toenail,common disease
+EE13.2,Chronic paronychia,common disease
+EE40.31,Age-related skin fragility,common disease
+EE40.32,Purpura or bruising due to vascular fragility,common disease
+EF02.3,Cellulite,common disease
+EF70,Lower limb venous eczema,common disease
+EG30.0,Scalp folliculitis,common disease
+EG30.2,Pityriasis amiantacea,common disease
+EG40.0,Allergic contact dermatitis of external ear,common disease
+EG4Z,Otitis externa,common disease
+EG60,Anal pruritus,common disease
+EG61,Infections of the anus or perianal skin,common disease
+EG63.0,Sacrococcygeal pilonidal sinus,common disease
+EG63.1,Sacrococcygeal pilonidal cyst,common disease
+EH10,Neonatal viral infections involving the skin,common disease
+EH11,Neonatal pyogenic skin infections,common disease
+EH12,Neonatal fungal infections involving the skin,common disease
+EH40.00,Cradle cap,common disease
+EH40.01,Disseminated infantile seborrhoeic dermatitis,common disease
+EH40.02,Psoriasiform napkin dermatitis,common disease
+EH40.10,Primary irritant napkin dermatitis,common disease
+EH60,Exanthematic drug eruption,common disease
+EH61.0,Drug-induced urticaria,common disease
+EH62,Lichenoid drug eruption,common disease
+EH64,Drug-induced erythroderma,common disease
+EJ30.0,Polymorphic light eruption,common disease
+EJ30.1,Chronic actinic dermatitis,common disease
+EJ40.0,Sunburn erythema,common disease
+EJ40.1,Sunburn with blisters or exudation,common disease
+EK00.0,Allergic contact dermatitis due to clothing or footwear,common disease
+EK00.1,Allergic contact dermatitis due to cosmetics or fragrances,common disease
+EK00.2,Allergic contact dermatitis due to dental materials,common disease
+EK00.3,Allergic contact dermatitis due to food flavours or additives,common disease
+EK00.4,Allergic contact dermatitis due to hairdressing products,common disease
+EK00.5,Allergic contact dermatitis due to industrial biocides cutting oils or disinfectants,common disease
+EK00.6,Allergic contact dermatitis due to metals or metal salts,common disease
+EK00.7,Allergic contact dermatitis due to allergenic haptens derived from plants or organic matter,common disease
+EK00.8,Allergic contact dermatitis due to plastics glues or resin systems,common disease
+EK00.9,Allergic contact dermatitis due to preservatives or biocides,common disease
+EK00.A,Allergic contact dermatitis due to rubber chemicals,common disease
+EK00.B,Allergic contact dermatitis due to systemic medicaments,common disease
+EK00.C,Allergic contact dermatitis due to topical medicaments,common disease
+EK01,Photo-allergic contact dermatitis,common disease
+EK02.00,Irritant contact dermatitis due to wet work,common disease
+EK02.01,Irritant contact dermatitis due to solvents,common disease
+EK02.02,Irritant contact dermatitis due to exposure to acids alkalis or other specified chemical irritants,common disease
+EK02.03,Irritant contact dermatitis due to cosmetics or emollients,common disease
+EK02.04,Irritant contact dermatitis due to topical medicaments or antimicrobials,common disease
+EK02.05,Irritant contact dermatitis due to plants or other vegetable matter,common disease
+EK02.06,Irritant contact dermatitis due to foods,common disease
+EK02.10,Irritant contact dermatitis of external ear,common disease
+EK02.11,Irritant contact blepharoconjunctivitis,common disease
+EK02.12,Irritant contact dermatitis of hands,common disease
+EK02.13,Irritant contact dermatitis of vulva,common disease
+EK02.20,Intertriginous dermatitis due to friction sweating or contact with body fluids,common disease
+EK02.21,Irritant contact dermatitis due to saliva,common disease
+EK02.22,Irritant contact dermatitis due to incontinence,common disease
+EK02.23,Irritant contact dermatitis related to stoma or fistula,common disease
+EK02.24,Irritant contact dermatitis related to skin contact with prostheses or surgical appliances,common disease
+EK10.0,Oral allergy syndrome,common disease
+EK10.1,Contact urticaria due to food allergen,common disease
+EK11,Protein contact dermatitis,common disease
+EK12,Allergic contact sensitisation,common disease
+EK20,Phototoxic reaction to fragrance or cosmetics,common disease
+EK50.00,Papular urticaria,common disease
+EK50.01,Bullous insect bite reaction,common disease
+EK50.02,Persistent insect bite reaction,common disease
+EK70.00,Infected epidermoid cyst,common disease
+EK70.1,Trichilemmal cyst,common disease
+EK71.1,Multiple skin tags,common disease
+EK90.0,Actinic keratosis,common disease
+EL60,Acute radiodermatitis following radiotherapy,common disease
+EL61,Chronic radiodermatitis following radiotherapy,common disease
+FA00.0,Primary osteoarthritis of hip,common disease
+FA00.1,Post traumatic osteoarthritis of hip,common disease
+FA00.2,Other secondary osteoarthritis of hip,common disease
+FA01.0,Primary osteoarthritis of knee,common disease
+FA01.1,Post traumatic osteoarthritis of knee,common disease
+FA01.2,Other secondary osteoarthritis of knee,common disease
+FA02.0,Primary osteoarthritis of wrist and hand,common disease
+FA02.1,Post traumatic osteoarthritis of wrist and hand,common disease
+FA02.2,Other secondary osteoarthritis of wrist and hand,common disease
+FA03.0,Primary osteoarthritis of other specified joint,common disease
+FA03.1,Post traumatic osteoarthritis of other specified joint,common disease
+FA03.2,Other secondary osteoarthritis of other specified joint,common disease
+FA04,Oligoosteoarthritis,common disease
+FA05,Polyosteoarthritis,common disease
+FA10.0,Bacterial infection of joint,common disease
+FA10.1,Viral infection of joint,common disease
+FA10.2,Fungal infection of joint,common disease
+FA12.0,Bacterial postinfectious arthropathy,common disease
+FA12.1,Viral postinfectious arthropathies,common disease
+FA12.2,Fungal postinfectious arthropathies,common disease
+FA12.3,Parasitic postinfectious arthropathies,common disease
+FA13,Infectious spondyloarthritis,common disease
+FA20.0,Seropositive rheumatoid arthritis,common disease
+FA20.1,Seronegative rheumatoid arthritis,common disease
+FA25.0,Primary gout,common disease
+FA25.10,Lead-induced gout,common disease
+FA25.11,Drug-induced gout,common disease
+FA25.20,Tophaceous gout,common disease
+FA27.3,Transient synovitis,common disease
+FA30.1,Hallux rigidus,common disease
+FB30,Infectious myositis,common disease
+FB32.5,Muscle strain or sprain,common disease
+FB40.0,Infectious tenosynovitis,common disease
+FB40.1,Plantar fasciitis,common disease
+FB40.2,Posterior tibial tendonitis,common disease
+FB40.3,Calcific tendinitis,common disease
+FB40.4,Trigger finger,common disease
+FB40.5,Radial styloid tenosynovitis,common disease
+FB50.0,Infectious bursitis,common disease
+FB50.1,Bursitis related to use overuse or pressure,common disease
+FB53.0,Adhesive capsulitis of shoulder,common disease
+FB53.1,Rotator cuff syndrome,common disease
+FB53.2,Impingement syndrome of shoulder,common disease
+FB54.0,Iliac crest spur,common disease
+FB54.1,Iliotibial band syndrome,common disease
+FB54.2,Tibial collateral bursitis,common disease
+FB54.3,Calcaneal spur,common disease
+FB54.4,Metatarsalgia,common disease
+FB55.0,Medial epicondylitis of elbow,common disease
+FB55.1,Lateral epicondylitis of elbow,common disease
+FB55.2,Periarthritis of wrist,common disease
+FB56.2,Myalgia,common disease
+FB56.3,Hypertrophy of infrapatellar fat pad,common disease
+FB82.00,Chondromalacia patellae,common disease
+FB83.01,Postmenopausal osteopenia,common disease
+FB83.02,Senile osteopenia,common disease
+FB83.03,Osteopenia of disuse,common disease
+FB83.11,Postmenopausal osteoporosis,common disease
+FB83.12,Osteoporosis of disuse,common disease
+FB84.2,Subacute osteomyelitis,common disease
+GA00.0,Acute vulvitis,common disease
+GA00.1,Subacute chronic or recurrent vulvitis,common disease
+GA00.3,Genital ulcer of vulva,common disease
+GA00.40,Vulvovaginal ulceration,common disease
+GA01.10,Chronic endometritis,common disease
+GA02.0,Acute vaginitis,common disease
+GA02.1,Inflammatory vaginitis,common disease
+GA02.2,Subacute or chronic vaginitis,common disease
+GA02.3,Genital ulcer disease of vagina,common disease
+GA03.1,Cyst of Bartholin gland,common disease
+GA04,Cervicitis,common disease
+GA05.1,Chronic pelvic inflammatory disease,common disease
+GA07.0,Acute salpingitis and oophoritis,common disease
+GA07.1,Chronic salpingitis and oophoritis,common disease
+GA11,Adenomyosis,common disease
+GA12,Dyspareunia,common disease
+GA14.1,Haematocolpos,common disease
+GA22,Excessive menstruation with irregular cycle,common disease
+GA23,Anovulatory bleeding,common disease
+GA30.02,Excessive bleeding in the premenopausal period,common disease
+GA30.1,Postmenopausal uterine bleeding,common disease
+GA30.2,Postmenopausal atrophic vaginitis,common disease
+GA30.4,Menopausal hot flush,common disease
+GA30.5,Menopausal osteoporosis,common disease
+GA31.00,Primary female infertility of uterine origin,common disease
+GA31.01,Primary female infertility of tubal origin,common disease
+GA31.10,Secondary female infertility of uterine origin,common disease
+GA31.11,Secondary female infertility of tubal origin,common disease
+GA32.1,Bleeding after egg retrieval,common disease
+GA32.2,Infection associated with medically assisted reproduction,common disease
+GA33,Recurrent pregnancy loss,common disease
+GA34.00,Vulval pain,common disease
+GA34.01,Perineal pain,common disease
+GA34.02,Vulvodynia,common disease
+GA34.20,Cyclic pelvic pain,common disease
+GA34.21,Noncyclic pelvic pain,common disease
+GA34.3,Dysmenorrhoea,common disease
+GA34.40,Premenstrual tension syndrome,common disease
+GA34.6,Female genital pain,common disease
+GB40,Nephritic syndrome,common disease
+GB41,Nephrotic syndrome,common disease
+GC00.1,Infectious cystitis,common disease
+GC02.1,Nonspecific urethritis,common disease
+GC50.0,Overactive bladder,common disease
+JA61.4,Haemorrhoids in pregnancy,common disease
+JA62.0,Infections of kidney in pregnancy,common disease
+JA62.1,Infections of bladder in pregnancy,common disease
+JA62.2,Infections of urethra in pregnancy,common disease
+JA62.3,Infections of other parts of urinary tract in pregnancy,common disease
+JA62.4,Infections of the genital tract in pregnancy,common disease
+JA65.11,Pruritus of pregnancy,common disease
+JB40.3,Urinary tract infection following delivery,common disease
+JB41.2,Haemorrhoids in the puerperium,common disease
+JB44.5,Postpartum thyroiditis,common disease
+JB45.0,Abscess of breast associated with childbirth,common disease
+JB45.1,Nonpurulent mastitis associated with childbirth,common disease
+JB46.3,Agalactia,common disease
+JB46.4,Hypogalactia,common disease
+JB46.5,Suppressed lactation,common disease
+JB46.6,Galactorrhoea,common disease
+KA21.20,Low birth weight of newborn 1500-1999g,common disease
+KA21.21,Low birth weight of newborn 2000-2499g,common disease
+KA21.40,Preterm newborn gestational age 28 completed weeks,common disease
+KA21.41,Preterm newborn gestational age 29 completed weeks,common disease
+KA21.42,Preterm newborn gestational age 30 completed weeks,common disease
+KA21.43,Preterm newborn gestational age 31 completed weeks,common disease
+KA21.44,Preterm newborn gestational age 32 completed weeks,common disease
+KA21.45,Preterm newborn gestational age 33 completed weeks,common disease
+KA21.46,Preterm newborn gestational age 34 completed weeks,common disease
+KA21.47,Preterm newborn gestational age 35 completed weeks,common disease
+KA21.48,Preterm newborn gestational age 36 completed weeks,common disease
+KA61.1,Neonatal listeriosis,common disease
+KA65.0,Neonatal conjunctivitis or dacryocystitis,common disease
+KA65.2,Neonatal urinary tract infection,common disease
+KA65.3,Neonatal infectious mastitis,common disease
+KA83.A,Neonatal epistaxis,common disease
+KA87.0,Neonatal hyperbilirubinaemia due to swallowed maternal blood,common disease
+KA87.2,Neonatal hyperbilirubinaemia due to breast milk inhibitor of bilirubin conjugation,common disease
+KA8B,Anaemia of prematurity,common disease
+KA8D,Transient neonatal neutropenia,common disease
+KB23.1,Transient tachypnoea of newborn,common disease
+KB47,Benign or innocent cardiac murmurs in newborn,common disease
+KB61.0,Neonatal hypomagnesaemia,common disease
+KB61.1,Neonatal tetany without calcium or magnesium deficiency,common disease
+KB61.2,Neonatal hypocalcaemia,common disease
+KB61.3,Neonatal osteopenia,common disease
+KB62.0,Transitory neonatal hyperthyroidism,common disease
+KB62.2,Transient hyperthyrotropinaemia,common disease
+KB62.3,Transient hypothyroxinaemia,common disease
+KB63.0,Late metabolic acidosis of newborn,common disease
+KB63.1,Dehydration of newborn,common disease
+KB63.20,Hyponatremia of newborn,common disease
+KB63.21,Hypernatremia of newborn,common disease
+KB63.30,Hypokalemia of newborn,common disease
+KB63.31,Hyperkalemia of newborn,common disease
+KB63.5,Metabolic bone disease of prematurity,common disease
+KB64,Transitory neonatal hypoparathyroidism,common disease
+KB80,Gastro-oesophageal reflux disease in newborn,common disease
+KB87.0,Intestinal obstruction due to inspissated milk,common disease
+KB87.1,Meconium plug without ileus,common disease
+KB87.2,Meconium ileus without perforation,common disease
+KB87.3,Transitory ileus of preterm-newborn,common disease
+KB8C,Noninfectious neonatal diarrhoea,common disease
+KC20.2,Umbilical granuloma of newborn,common disease
+KC21.0,Neonatal acne,common disease
+KC21.1,Neonatal toxic erythema,common disease
+KC21.2,Perianal dermatitis of the newborn,common disease
+KC40.0,Congenital sucking blisters,common disease
+KC40.1,Neonatal milia,common disease
+KC41.0,Breast engorgement of newborn,common disease
+KD11,Fever of newborn,common disease
+KD32.4,Failure to thrive in newborn,common disease
+MB40.1,Allodynia,common disease
+MB40.3,Anaesthesia of skin,common disease
+MB40.4,Tingling fingers or feet or toes,common disease
+MB40.5,Hyperaesthesia,common disease
+MB40.6,Dysesthesia,common disease
+MB40.7,Acroparesthesia,common disease
+MB40.8,Analgesia,common disease
+MB41.0,Anosmia,common disease
+MB41.1,Parosmia,common disease
+MB41.2,Dysgeusia,common disease
+MB41.3,Hyposmia,common disease
+MB44.0,Ataxic gait,common disease
+MB45.2,Atonia,common disease
+MB45.3,Head drop,common disease
+MB45.4,Intention tremor,common disease
+MC13,Epiphora,common disease
+MC14,Eye discharge,common disease
+MC15,Red eye,common disease
+MC18,Ocular pain,common disease
+MC1A,Visual floaters,common disease
+MC41,Tinnitus,common disease
+MC80.00,White coat hypertension,common disease
+MC81.2,Palpitations,common disease
+MC81.3,Paroxysmal tachycardia,common disease
+MC83.0,Benign and innocent cardiac murmurs,common disease
+MC84,Cardiovascular pain,common disease
+MD11.5,Dyspnoea,common disease
+MD11.6,Hiccough,common disease
+MD11.7,Hyperventilation,common disease
+MD11.80,Stertor,common disease
+MD11.9,Nasal congestion,common disease
+MD11.A,Sneezing,common disease
+MD11.B,Stridor,common disease
+MD11.C,Wheezing,common disease
+MD11.D,Yawning,common disease
+MD12,Cough,common disease
+MD20,Epistaxis,common disease
+MD31,Pleurisy,common disease
+MD32,Rales,common disease
+MD36.0,Pain in throat,common disease
+ME05.0,Constipation,common disease
+ME05.1,Diarrhoea,common disease
+ME24.5,Digestive system ulcer,common disease
+ME24.91,Chronic gastrointestinal bleeding not elsewhere classified,common disease
+ME24.A3,Haematochezia,common disease
+ME24.A4,Melaena,common disease
+ME62.0,Acute erythematous skin eruption,common disease
+ME62.1,Acute purpuric skin eruption,common disease
+ME62.2,Acute urticarial skin eruption,common disease
+ME62.3,Acute maculopapular skin eruption,common disease
+ME62.4,Acute papular skin eruption,common disease
+MF50.7,Dysuria,common disease
+MF50.8,Vesical tenesmus,common disease
+MF52,Bladder pain,common disease
+MF55,Polyuria,common disease
+MF56,Renal colic,common disease
+MF58,Urethral discharge,common disease
+MF83,Diabetic glomerular changes,common disease
+MG21,Chills,common disease
+MG22,Fatigue,common disease
+MG30.03,Chronic primary headache or orofacial pain,common disease
+MG30.61,Chronic dental pain,common disease
+MG31.1,Acute headache not elsewhere classified,common disease
+ND14.70,Strain or sprain of calcaneofibular ligament,common disease
+ND14.71,Strain or sprain of deltoid ligament,common disease
+ND14.72,Strain or sprain of tibiofibular ligament,common disease
+ND14.73,Strain or sprain of other ligament of ankle,common disease
+ND14.8,Strain or sprain of toe,common disease
+ND14.90,Strain or sprain of metatarsophalangeal joint of great toe,common disease
+ND14.91,Strain or sprain of interphalangeal joint of great toe,common disease
+ND14.A0,Strain or sprain of metatarsophalangeal joint of lesser toe,common disease
+ND14.A1,Strain or sprain of interphalangeal joints of lesser toe,common disease
+NE81.20,Superficial incisional site infection,common disease
+NE81.21,Deep incisional site infection,common disease
+NE81.22,Organ or organ space surgical site infection,common disease
+NE83.1,Infection arising from device implant or graft not elsewhere classified,common disease
+NE85.4,Infection of amputation stump,common disease
+NF01.1,Heat syncope,common disease
+NF01.2,Heat exhaustion due to fluid depletion,common disease
+NF01.3,Heat fatigue transient,common disease
+NF03.0,Chilblains,common disease
+NF03.1,Immersion hand or foot,common disease
+NF04.0,Otitic barotrauma,common disease
+NF04.1,Sinus barotrauma,common disease
+NF06.1,Post exercise postural hypotension,common disease
+NF06.2,Post exertional dehydration,common disease
+NF06.3,Exercise muscle cramp,common disease
+NF07.2,Exhaustion due to exposure,common disease
+NF08.3,Motion sickness,common disease
+SA55,Diarrhea disorder (TM1),common disease
+SA56,Dysentery disorder (TM1),common disease
+SA57,Constipation disorder (TM1),common disease
+SA60,Common cold disorder (TM1),common disease
+SB31,Impetigo disorder (TM1),common disease
+XN173,Bordetella bronchiseptica,common disease
+XN23B,Bordetella pertussis,common disease
+XN7LQ,Bordetella parapertussis,common disease
+XN0BA,Campylobacter coli,common disease
+XN3EN,Campylobacter fetus,common disease
+XN4Q5,Campylobacter jejuni,common disease
+XN9EE,Chlamydia pneumoniae,common disease
+XN4Q4,Chlamydia trachomatis,common disease
+XN5NF,Enterohaemorrhagic Escherichia coli,common disease
+XN88S,Enteroinvasive Escherichia coli,common disease
+XN2U0,Enteropathogenic Escherichia coli,common disease
+XN81Z,Enterotoxigenic Escherichia coli,common disease
+XN0FG,Haemophilus influenzae type B,common disease
+XN3DY,Helicobacter pylori,common disease
+XN741,Klebsiella pneumoniae,common disease
+XN4NV,Mycoplasma pneumoniae,common disease
+XN59Y,Neisseria gonorrhoeae,common disease
+XN30D,Pasteurella multocida,common disease
+XN9ZF,Proteus mirabilis,common disease
+XN118,Proteus vulgaris,common disease
+XN1K5,Salmonella paratyphi A,common disease
+XN322,Salmonella paratyphi B,common disease
+XN5TR,Salmonella paratyphi C,common disease
+XN5VC,Salmonella enterica,common disease
+XN71D,Serratia spp,common disease
+XN7Y2,Shigella flexneri,common disease
+XN8RN,Shigella boydii,common disease
+XN9M9,Shigella sonnei,common disease
+XN1AA,Vibrio parahaemolyticus,common disease
+XN91V,Yersinia enterocolitica,common disease
+XN8PY,Bacillus cereus,common disease
+XN0SE,Clostridium difficile,common disease
+XN7J5,Clostridium perfringens,common disease
+XN4FJ,Erysipelothrix rhusiopathiae,common disease
+XN1N2,Mycobacterium tuberculosis,common disease
+XN4ZB,Chikungunya virus,common disease
+XN6AD,o'nyong nyong virus,common disease
+XN49A,Ross River virus,common disease
+XN3D4,Semliki Forest virus,common disease
+XN3Y2,Norovirus,common disease
+XN9EH,Sapovirus,common disease
+XN0UA,Human coronavirus 229E,common disease
+XN9KN,Human coronavirus HKU1,common disease
+XN7CX,Human coronavirus OC43,common disease
+XN3MC,Coxsackievirus,common disease
+XN2TU,Echovirus,common disease
+XN19Z,Rhinovirus,common disease
+XN22Z,Dengue virus 1,common disease
+XN4RL,Dengue virus 2,common disease
+XN9XQ,Dengue virus 3,common disease
+XN2EQ,Dengue virus 4,common disease
+XN4E1,West Nile virus,common disease
+XN1H2,Zika virus,common disease
+XN40D,Hepatitis A virus,common disease
+XN0GA,Hepatitis B virus,common disease
+XN1EZ,Hepatitis C virus,common disease
+XN7TG,Hepatitis E virus,common disease
+XN41T,Herpes simplex virus-1,common disease
+XN5V1,Herpes simplex virus-2,common disease
+XN0TA,Varicella zoster virus,common disease
+XN3SQ,Cytomegalovirus,common disease
+XN0R2,Epstein-Barr virus,common disease
+XN8LD,Human immunodeficiency virus type 1,common disease
+XN71W,Human immunodeficiency virus type 2,common disease
+XN297,Influenza A/H1N1 virus,common disease
+XN513,Human metapneumovirus,common disease
+XN186,Measles virus,common disease
+XN22H,Mumps virus,common disease
+XN6CR,Parainfluenza virus,common disease
+XN275,Human respiratory syncytial virus,common disease
+XN7YE,Molluscum contagiosum virus,common disease
+XN6TN,Rotavirus A,common disease
+XN55H,Rotavirus B,common disease
+XN0F5,Rotavirus C,common disease
+XN29P,Rotavirus D,common disease
+XN71N,Rotavirus E,common disease
+XN2WE,Rubella virus,common disease
+XN6B8,Aspergillus flavus,common disease
+XN5Z7,Aspergillus fumigatus,common disease
+XN3CL,Candida,common disease
+XN2T0,Epidermophyton floccosum,common disease
+XN3YF,Microsporum audouinii,common disease
+XN2R2,Microsporum ferrugineum,common disease
+XN8M6,Trichophyton concentricum,common disease
+XN8BW,Trichophyton interdigitale,common disease
+XN2JF,Trichophyton rubrum,common disease
+XN1K6,Trichophyton tonsurans,common disease
+XN5ER,Microsporum canis,common disease
+XN4DQ,Trichophyton mentagrophytes,common disease
+XN25C,Malassezia furfur,common disease
+XN5V8,Ancylostoma duodenal,common disease
+XN97M,Ascaris lumbricoides,common disease
+XN20Y,Dipylidium caninum,common disease
+XN4AR,Enterobius vermicularis,common disease
+XN69Y,Hookworm,common disease
+XN9S5,Hymenolepis nana,common disease
+XM6PS9,Headache cures drugs powders,common disease

@@ -10,14 +10,8 @@ const getApiUrl = (): string => {
     return process.env.NEXT_PUBLIC_API_URL;
   }
   
-  // Fallback logic based on environment
-  if (process.env.NODE_ENV === 'production') {
-    // In production, use your actual Railway URL
-    return 'https://web-production-f5ba7.up.railway.app'; // Your actual Railway URL
-  }
-  
-  // Development fallback
-  return 'http://127.0.0.1:5001';
+  // Always use Railway URL for now (since we don't have local backend)  
+  return 'https://web-production-f5ba7.up.railway.app';
 };
 
 // Define the API configuration type

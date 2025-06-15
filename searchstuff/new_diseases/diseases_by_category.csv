@@ -1,0 +1,99 @@
+name,description,prevalence_percentage,acute_chronic,category
+Bladder Cancer,"Cancer that forms in the bladder, the organ that stores urine.",0.025,Chronic,cancer diseases
+Breast Cancer,"Cancer that forms in the cells of the breasts, most common in women.",0.1,Chronic,cancer diseases
+Colon and Rectal Cancer,"Cancer that begins in the colon or rectum, often referred to as colorectal cancer.",0.047,Chronic,cancer diseases
+Endometrial Cancer,Cancer that begins in the lining of the uterus.,0.021,Chronic,cancer diseases
+Kidney Cancer,"Cancer that starts in the kidneys, often referred to as renal cell carcinoma.",0.024,Chronic,cancer diseases
+Leukemia,"A type of cancer that affects blood and bone marrow, characterized by the overproduction of abnormal white blood cells.",0.02,Both,cancer diseases
+Liver Cancer,"Cancer that originates in the liver, often associated with chronic liver disease.",0.012,Chronic,cancer diseases
+Lung Cancer,"Cancer that begins in the lungs, often linked to smoking and air pollution.",0.068,Chronic,cancer diseases
+Melanoma,"A serious form of skin cancer that begins in the melanocytes, the cells that produce pigment.",0.007,Chronic,cancer diseases
+Non-Hodgkin Lymphoma,A group of blood cancers that includes all types of lymphoma except Hodgkin's lymphoma.,0.017,Both,cancer diseases
+Pancreatic Cancer,"Cancer that starts in the pancreas, often diagnosed at an advanced stage.",0.012,Chronic,cancer diseases
+Prostate Cancer,"Cancer that occurs in the prostate, a small walnut-shaped gland that produces seminal fluid.",0.1,Chronic,cancer diseases
+Thyroid Cancer,"Cancer that forms in the thyroid gland, which is located in the neck.",0.005,Chronic,cancer diseases
+Atrial fibrillation,A heart condition that causes an irregular and often rapid heartbeat.,2.7,Chronic,heart diseases
+Coronary artery disease,"A disease caused by the buildup of plaque in the coronary arteries, leading to reduced blood flow to the heart.",6.7,Chronic,heart diseases
+Heart failure,A condition in which the heart is unable to pump sufficiently to maintain blood flow to meet the body's needs.,6.2,Chronic,heart diseases
+Heart valve disease,"A condition affecting one or more of the heart's valves, which can disrupt blood flow.",2.5,Chronic,heart diseases
+Hypertensive heart disease,Heart problems that occur because of high blood pressure.,7.5,Chronic,heart diseases
+Myocardial infarction,"Commonly known as a heart attack, it occurs when blood flow to a part of the heart is blocked.",3.5,Acute,heart diseases
+Pericarditis,"An inflammation of the pericardium, the fibrous sac surrounding the heart.",0.1,Acute,heart diseases
+Cardiomyopathy,"A disease of the heart muscle that affects its size, shape, and ability to pump blood.",0.5,Chronic,heart diseases
+Congenital heart defects,"Heart problems that are present at birth, affecting the structure of the heart.",1.0,Both,heart diseases
+Arrhythmia,"An irregular heartbeat that can occur in various forms, affecting how the heart beats.",1.0,Both,heart diseases
+Asthma,"A chronic condition that inflames and narrows the airways, causing difficulty in breathing.",8.0,Chronic,lung diseases
+Chronic Obstructive Pulmonary Disease (COPD),A group of lung diseases that block airflow and make it difficult to breathe.,6.4,Chronic,lung diseases
+Acute Bronchitis,"An inflammation of the bronchial tubes, usually caused by a viral infection.",5.0,Acute,lung diseases
+Pulmonary Fibrosis,A lung disease that occurs when lung tissue becomes damaged and scarred.,0.1,Chronic,lung diseases
+Sarcoidosis,"An inflammatory disease that affects multiple organs, primarily the lungs.",0.02,Chronic,lung diseases
+Pneumonia,"An infection that inflames the air sacs in one or both lungs, which may fill with fluid.",1.0,Acute,lung diseases
+Influenza,A viral respiratory infection that can cause mild to severe illness.,5.0,Acute,lung diseases
+Chronic Kidney Disease,A gradual loss of kidney function over time.,15.0,Chronic,kidney diseases
+Acute Kidney Injury,A sudden episode of kidney failure or kidney damage that happens within a few hours or a few days.,5.0,Acute,kidney diseases
+Diabetic Kidney Disease,Kidney damage that occurs as a result of diabetes.,30.0,Chronic,kidney diseases
+Hypertensive Kidney Disease,Kidney damage caused by high blood pressure.,25.0,Chronic,kidney diseases
+Polycystic Kidney Disease,A genetic disorder characterized by the growth of numerous cysts in the kidneys.,0.1,Chronic,kidney diseases
+Glomerulonephritis,An inflammation of the kidney's filtering units (glomeruli).,1.0,Both,kidney diseases
+Kidney Stones,Hard deposits made of minerals and salts that form inside the kidneys.,10.0,Both,kidney diseases
+Nephrotic Syndrome,A kidney disorder that causes the body to excrete too much protein in the urine.,0.2,Both,kidney diseases
+Urinary Tract Infection (UTI),"An infection in any part of the urinary system, including the kidneys.",10.0,Both,kidney diseases
+Crohn's Disease,A type of inflammatory bowel disease that causes inflammation of the digestive tract.,0.2,Chronic,digestive diseases
+Irritable Bowel Syndrome (IBS),"A common disorder affecting the large intestine, causing cramping, abdominal pain, bloating, gas, and diarrhea or constipation.",10.0,Both,digestive diseases
+Celiac Disease,An autoimmune disorder where the ingestion of gluten leads to damage in the small intestine.,1.0,Chronic,digestive diseases
+Gastroesophageal Reflux Disease (GERD),"A digestive disorder that affects the lower esophageal sphincter, causing acid reflux.",20.0,Chronic,digestive diseases
+Peptic Ulcer Disease,A condition where open sores develop on the lining of the stomach or the upper part of the small intestine.,4.0,Both,digestive diseases
+Diverticulitis,An inflammation or infection of small pouches that can form in the intestines.,10.0,Both,digestive diseases
+Gallstones,Solid particles that form from bile cholesterol and bilirubin in the gallbladder.,10.0,Both,digestive diseases
+Constipation,A common digestive issue characterized by infrequent bowel movements or difficulty passing stools.,16.0,Both,digestive diseases
+Diarrhea,"A condition characterized by frequent, loose, or watery bowel movements.",5.0,Both,digestive diseases
+Anemia,A condition in which you lack enough healthy red blood cells to carry adequate oxygen to your body's tissues.,24.8,Chronic,blood disorders
+Hemophilia,A rare disorder in which your blood doesn't clot normally because it lacks sufficient blood-clotting proteins (clotting factors).,0.0001,Chronic,blood disorders
+Sickle Cell Disease,A group of inherited red blood cell disorders characterized by the presence of sickle-shaped red blood cells.,0.1,Chronic,blood disorders
+Thalassemia,An inherited blood disorder in which the body makes an abnormal form or inadequate amount of hemoglobin.,0.3,Chronic,blood disorders
+Polycythemia Vera,A blood cancer that causes the bone marrow to make too many red blood cells.,0.03,Chronic,blood disorders
+Aplastic Anemia,A rare condition that occurs when your body stops producing enough new blood cells.,0.0005,Chronic,blood disorders
+Idiopathic Thrombocytopenic Purpura (ITP),An autoimmune disorder that leads to a decrease in the number of platelets in the blood.,0.01,Chronic,blood disorders
+Hemolytic Anemia,A condition in which red blood cells are destroyed faster than they can be made.,0.1,Acute,blood disorders
+Von Willebrand Disease,"A bleeding disorder caused by a deficiency of von Willebrand factor, a protein that helps blood clot.",0.01,Chronic,blood disorders
+Myelodysplastic Syndromes,A group of disorders caused by poorly formed or dysfunctional blood cells.,0.03,Chronic,blood disorders
+Multiple Sclerosis (MS),"A chronic disease that affects the central nervous system, leading to a range of neurological symptoms.",0.1,Chronic,immune system diseases
+Systemic Lupus Erythematosus,"An autoimmune disease that can affect multiple organs and systems in the body, causing inflammation and damage.",0.1,Chronic,immune system diseases
+Psoriasis,"A chronic autoimmune condition that results in the rapid growth of skin cells, leading to scaling and inflammation.",2.0,Chronic,immune system diseases
+Ulcerative Colitis,A chronic inflammatory bowel disease that causes inflammation and ulcers in the digestive tract.,0.2,Chronic,immune system diseases
+Rheumatoid Arthritis,"A chronic inflammatory disorder affecting many joints, including those in the hands and feet.",0.5,Chronic,immune system diseases
+Hashimoto's Thyroiditis,"An autoimmune disorder that affects the thyroid gland, leading to hypothyroidism.",1.3,Chronic,immune system diseases
+Graves' Disease,An autoimmune disorder that leads to overactivity of the thyroid gland (hyperthyroidism).,0.5,Chronic,immune system diseases
+Type 1 Diabetes,An autoimmune condition where the immune system attacks insulin-producing cells in the pancreas.,0.3,Chronic,immune system diseases
+Sjögren's Syndrome,An autoimmune disorder characterized by dry eyes and dry mouth due to the immune system attacking glands.,0.4,Chronic,immune system diseases
+Type 2 Diabetes,A chronic condition that affects the way the body processes blood sugar (glucose).,10.5,Chronic,metabolic diseases
+Obesity,A complex disease involving an excessive amount of body fat.,42.4,Chronic,metabolic diseases
+Metabolic Syndrome,"A cluster of conditions that increase the risk of heart disease, stroke, and diabetes.",34.2,Chronic,metabolic diseases
+Hypothyroidism,A condition in which the thyroid gland doesn't produce enough thyroid hormones.,4.6,Chronic,metabolic diseases
+Cushing's Syndrome,A hormonal disorder caused by prolonged exposure of the body's tissues to high levels of cortisol.,0.7,Chronic,metabolic diseases
+Gout,"A form of arthritis characterized by severe pain, redness, and tenderness in joints.",3.9,Both,metabolic diseases
+Phenylketonuria (PKU),A rare inherited disorder that causes an amino acid called phenylalanine to build up in the body.,0.01,Chronic,metabolic diseases
+Galactosemia,A genetic disorder that affects how the body processes a simple sugar called galactose.,0.01,Chronic,metabolic diseases
+Cystic Fibrosis,"A genetic disorder that affects the lungs and digestive system, characterized by thick mucus production.",0.03,Chronic,genetic diseases
+Huntington's Disease,"A progressive brain disorder caused by a single defective gene on chromosome 4, leading to movement, cognitive, and psychiatric symptoms.",0.007,Chronic,genetic diseases
+Duchenne Muscular Dystrophy,"A severe type of muscular dystrophy caused by a mutation in the dystrophin gene, leading to muscle degeneration.",0.0002,Chronic,genetic diseases
+Tay-Sachs Disease,"A genetic disorder that results in the destruction of nerve cells in the brain and spinal cord, caused by a deficiency of the enzyme Hex-A.",0.0001,Chronic,genetic diseases
+Marfan Syndrome,"A genetic disorder that affects the body's connective tissue, leading to features such as tall stature and heart problems.",0.0005,Chronic,genetic diseases
+Neurofibromatosis,"A genetic disorder that causes tumors to grow on nerves, leading to skin changes and bone deformities.",0.001,Chronic,genetic diseases
+Albinism,"A genetic condition characterized by the absence of melanin pigment in the skin, hair, and eyes.",0.001,Chronic,genetic diseases
+Down Syndrome,"A genetic disorder caused by the presence of an extra chromosome 21, leading to developmental delays and physical features.",0.001,Chronic,genetic diseases
+Multiple Sclerosis,"A disease that affects the central nervous system, leading to a range of neurological symptoms.",0.1,Chronic,autoimmune diseases
+Lupus,A systemic autoimmune disease that occurs when the body's immune system attacks its own tissues and organs.,0.2,Chronic,autoimmune diseases
+Alzheimer's Disease,"A progressive neurological disorder that causes brain cells to degenerate and die, leading to memory loss and cognitive decline.",6.2,Chronic,neurological diseases
+Parkinson's Disease,"A progressive neurological disorder that affects movement, causing tremors, stiffness, and difficulty with balance and coordination.",1.0,Chronic,neurological diseases
+Dystonia,A movement disorder characterized by involuntary muscle contractions that cause repetitive or twisting movements.,0.1,Chronic,neurological diseases
+Essential Tremor,"A nervous system disorder that causes rhythmic shaking, often affecting the hands, head, and voice.",4.0,Chronic,neurological diseases
+Hydrocephalus,"A condition in which excess cerebrospinal fluid builds up in the brain's ventricles, potentially leading to increased intracranial pressure.",0.5,Both,neurological diseases
+Myasthenia Gravis,"An autoimmune disorder that leads to weakness in the skeletal muscles, which are responsible for breathing and moving parts of the body.",0.02,Chronic,neurological diseases
+Migraine,"A neurological condition characterized by intense, debilitating headaches often accompanied by nausea and sensitivity to light and sound.",12.0,Both,neurological diseases
+Hyperthyroidism,"A condition where the thyroid gland produces too much thyroid hormone, leading to an acceleration of the body's metabolism.",1.2,Chronic,endocrine diseases
+Addison's Disease,"A disorder in which the adrenal glands do not produce enough hormones, leading to symptoms like fatigue, low blood pressure, and darkening of the skin.",0.2,Chronic,endocrine diseases
+Diabetes Mellitus Type 1,"An autoimmune condition where the pancreas produces little or no insulin, leading to high blood sugar levels.",0.5,Chronic,endocrine diseases
+Diabetes Mellitus Type 2,"A chronic condition that affects the way the body processes blood sugar (glucose), often associated with obesity and insulin resistance.",8.4,Chronic,endocrine diseases
+Polycystic Ovary Syndrome (PCOS),"A hormonal disorder causing enlarged ovaries with small cysts, leading to irregular menstrual cycles and other metabolic issues.",6.0,Chronic,endocrine diseases
+Acromegaly,"A disorder caused by excess growth hormone, leading to enlarged bones and tissues, often due to a benign tumor on the pituitary gland.",0.0007,Chronic,endocrine diseases

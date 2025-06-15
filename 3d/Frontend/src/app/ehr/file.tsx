@@ -74,10 +74,17 @@ export const FileUpload: React.FC<{ onChange?: (files: File[]) => void }> = ({ o
     formData.append("file", fileToProcess);
 
     try {
-      const response = await fetch(API_CONFIG.getEndpoint('PROCESS_FILE'), {
+      const endpoint = API_CONFIG.getEndpoint('PROCESS_FILE');
+      console.log('🔍 Trying to fetch:', endpoint);
+      console.log('🔍 Environment:', process.env.NODE_ENV);
+      console.log('🔍 Base URL:', API_CONFIG.BASE_URL);
+      
+      const response = await fetch(endpoint, {
         method: "POST",
         body: formData,
       });
+      
+      console.log('✅ Response received:', response.status);
 
       if (!response.ok) {
         let errorMsg = `HTTP error! status: ${response.status}`;
@@ -95,7 +102,9 @@ export const FileUpload: React.FC<{ onChange?: (files: File[]) => void }> = ({ o
       setEhrSummary(result.response);
       setFiles([]); // Clear file list after successful processing
     } catch (e: any) {
-      console.error("Upload failed:", e);
+      console.error("❌ Upload failed:", e);
+      console.error("❌ Error type:", e.constructor.name);
+      console.error("❌ Error message:", e.message);
       setError(e.message || "Failed to process file. Please try again.");
     } finally {
       setProcessing(false);
@@ -118,6 +127,7 @@ export const FileUpload: React.FC<{ onChange?: (files: File[]) => void }> = ({ o
   const { getRootProps, getInputProps, isDragActive, open } = useDropzone({
     onDrop,
     multiple: false, // Allow only single file upload as per current logic
+    noClick: true, // Disable click to open file dialog
     accept: [
       'application/pdf', '.pdf',
       'text/plain', '.txt',
@@ -192,15 +202,8 @@ export const FileUpload: React.FC<{ onChange?: (files: File[]) => void }> = ({ o
           <>
             <IconUpload className={`w-12 h-12 mb-4 ${isDragActive ? 'text-blue-400' : 'text-neutral-500'} transition-colors`} />
             <p className={`text-lg ${isDragActive ? 'text-blue-300' : 'text-neutral-300'} font-header`}>Drag & Drop File Here</p>
-            <p className="text-sm text-neutral-500 mt-1">or</p>
-            <button 
-              type="button" 
-              onClick={open} 
-              className="mt-3 px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
-            >
-              Browse Files
-            </button>
             <p className="text-xs text-neutral-600 mt-4">Supports PDF, DOCX, TXT (Max 5MB)</p>
+            <p className="text-xs text-neutral-500 mt-2">Drag and drop only - click upload disabled</p>
           </>
         )}
 

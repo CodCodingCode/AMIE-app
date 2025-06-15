@@ -1,0 +1,256 @@
+original_disease,cleaned_disease,prevalence_percentage,category,acute_chronic,verified_classification,common_name
+Enterotoxigenic Escherichia coli infection,Enterotoxigenic Escherichia coli infection,5.0,Infectious Disease,Acute,common disease,Enterotoxigenic Escherichia coli infection
+Giardiasis,Giardiasis,2.5,Infectious Disease,Both,common disease,Giardia infection
+Chlamydial infection,Chlamydial infection,3.0,Infectious Disease,Both,common disease,Chlamydia
+Trichomoniasis,Trichomoniasis,3.7,Infectious Disease,Both,common disease,Trichomoniasis
+Herpes simplex infection,Herpes simplex infection,67.0,Infectious Disease,Chronic,common disease,Herpes
+Streptococcal pharyngitis,Streptococcal pharyngitis,5.0,Infectious Disease,Acute,common disease,Strep throat
+Dengue,Dengue,3.9,Infectious Disease,Acute,common disease,Dengue fever
+Conjunctivitis,Conjunctivitis,6.0,Eye Disorder,Acute,common disease,Pink eye
+Influenza,Influenza,10.0,Infectious Disease,Acute,common disease,Flu
+Acute hepatitis B,Hepatitis B,3.5,Infectious Disease,Acute,common disease,Hepatitis B
+Acute hepatitis E,Hepatitis E,2.5,Infectious Disease,Acute,common disease,Hepatitis E
+Chronic hepatitis B,Chronic hepatitis B,3.5,Infectious Disease,Chronic,common disease,Chronic liver infection
+Digital or periungual warts,Digital Warts,10.0,Dermatological Condition,Both,common disease,Digital warts
+Molluscum contagiosum,Molluscum contagiosum,3.0,Infectious Disease,Both,common disease,Molluscum
+Plantar warts,Plantar warts,10.0,Dermatological Condition,Both,common disease,Plantar warts
+Plane warts,Plane warts,5.0,Dermatological Condition,Both,common disease,Common warts
+Varicella,Varicella,90.0,Infectious Disease,Acute,common disease,Chickenpox
+Zoster,Zoster,30.0,Infectious Disease,Both,common disease,Shingles
+Postherpetic polyneuropathy,Postherpetic polyneuropathy,10.0,Neurological Disorder,Chronic,common disease,Shingles nerve pain
+Herpes simplex labialis,Herpes simplex labialis,67.0,Infectious Disease,Chronic,common disease,Cold sores
+Roseola infantum,Roseola infantum,10.0,Infectious Disease,Acute,common disease,Sixth disease
+Erythema infectiosum,Erythema infectiosum,5.0,Infectious Disease,Acute,common disease,Fifth disease
+Candidosis,Candidosis,7.5,Infectious Disease,Both,common disease,Yeast infection
+Candida balanoposthitis,Candida balanoposthitis,3.5,Infectious Disease,Both,common disease,Yeast infection of the penis
+Dermatophytosis,Dermatophytosis,20.0,Fungal Infection,Both,common disease,Ringworm
+Genitocrural dermatophytosis,Genitocrural dermatophytosis,1.5,Fungal Infection,Both,common disease,Groin ringworm
+Malassezia folliculitis,Malassezia folliculitis,1.5,Dermatological Disorder,Both,common disease,Fungal acne
+Onychomycosis,Onychomycosis,10.0,Fungal Infection,Chronic,common disease,Nail fungus
+Plasmodium vivax malaria,Plasmodium vivax malaria,2.5,Infectious Disease,Both,common disease,Vivax malaria
+Ascariasis,Ascariasis,25.0,Infectious Disease,Both,common disease,Roundworm infection
+Enterobiasis,Enterobiasis,10.0,Infectious Disease,Both,common disease,Pinworm infection
+Pediculosis capitis,Pediculosis capitis,10.0,Infectious Disease,Both,common disease,Head lice
+Leiomyoma,Leiomyoma,20.0,Gynecological Disorder,Chronic,common disease,Uterine fibroid
+Acquired iron deficiency anaemia,Acquired iron deficiency anaemia,20.0,Hematologic Disorder,Chronic,common disease,Iron deficiency anemia
+Vitamin B12 deficiency anaemia,Vitamin B12 deficiency anaemia,6.0,Nutritional Deficiency,Chronic,common disease,Pernicious anemia
+Hyperhomocysteinaemia,Hyperhomocysteinaemia,5.0,Metabolic Disorder,Chronic,common disease,High homocysteine levels
+Type 2 diabetes mellitus,Type 2 diabetes mellitus,8.8,Endocrine Disorder,Chronic,common disease,Type 2 diabetes
+Malnutrition-related diabetes mellitus,Malnutrition-related diabetes mellitus,1.5,Metabolic Disorder,Chronic,common disease,Diabetes from malnutrition
+Polycystic ovary syndrome,Polycystic Ovary Syndrome,6.5,Endocrine Disorder,Chronic,common disease,Polycystic Ovary Syndrome
+Anovulation,Anovulation,10.0,Reproductive Disorder,Chronic,common disease,No ovulation
+Oligo-ovulation,Oligo-ovulation,10.0,Reproductive Disorder,Chronic,common disease,Irregular ovulation
+Vitamin D deficiency osteomalacia,Vitamin D deficiency osteomalacia,10.0,Metabolic Bone Disorder,Chronic,common disease,Bone softening due to vitamin D deficiency
+Vitamin B12 deficiency,Vitamin B12 deficiency,6.0,Nutritional Disorder,Chronic,common disease,B12 deficiency
+Primary lactase deficiency,Primary lactase deficiency,68.0,Gastrointestinal Disorder,Chronic,common disease,Lactose intolerance
+Nocturnal enuresis,Nocturnal enuresis,10.0,Urinary Disorder,Chronic,common disease,Bedwetting
+Encopresis,Encopresis,1.5,Gastrointestinal Disorder,Chronic,common disease,Soiling
+Obstructive sleep apnoea,Obstructive sleep apnoea,4.0,Sleep Disorder,Chronic,common disease,Sleep apnea
+Simple febrile seizures,Simple Febrile Seizures,2.0,Neurological Disorder,Acute,common disease,Febrile seizures
+Migraine,Migraine,14.7,Neurological Disorder,Chronic,common disease,Migraine
+Diabetic radiculoplexoneuropathy,Diabetic radiculoplexoneuropathy,1.5,Neurological Disorder,Chronic,common disease,Diabetic nerve pain
+Diabetic polyneuropathy,Diabetic polyneuropathy,50.0,Neurological Disorder,Chronic,common disease,Diabetic nerve damage
+Carpal tunnel syndrome,Carpal tunnel syndrome,3.8,Musculoskeletal Disorder,Chronic,common disease,Wrist pain syndrome
+Infectious blepharitis,Blepharitis,10.0,Eye Disorder,Both,common disease,Eyelid inflammation
+Meibomian Gland Dysfunction,Meibomian Gland Dysfunction,20.0,Ophthalmic Disorder,Chronic,common disease,Dry eye syndrome
+Acute atopic conjunctivitis,Atopic conjunctivitis,1.5,Allergic Disorder,Both,common disease,Allergic conjunctivitis
+Allergic conjunctivitis,Allergic conjunctivitis,15.0,Eye Disorder,Both,common disease,Allergy eye infection
+Contact lens-associated corneal infiltrates,Contact lens-associated corneal infiltrates,1.5,Ophthalmic Disorder,Both,common disease,Contact lens-related eye infection
+Nonproliferative diabetic retinopathy,Nonproliferative diabetic retinopathy,30.0,Eye Disorder,Chronic,common disease,Diabetic eye disease
+Hypertensive retinopathy,Hypertensive retinopathy,10.0,Eye Disorder,Chronic,common disease,High blood pressure eye disease
+Radiation retinopathy,Radiation retinopathy,5.0,Eye Disorder,Chronic,common disease,Radiation eye damage
+Intermediate age related macular degeneration,Intermediate Age-Related Macular Degeneration,1.5,Eye Disorder,Chronic,common disease,Age-related vision loss
+Age related macular degeneration,Age-related macular degeneration,8.7,Eye Disorder,Chronic,common disease,Macular degeneration
+Ocular hypertension,Ocular hypertension,3.0,Eye Disorder,Chronic,common disease,Eye pressure
+Convergence insufficiency,Convergence insufficiency,2.5,Visual Disorder,Chronic,common disease,Eye teaming problems
+Myopia,Myopia,28.3,Eye Disorder,Chronic,common disease,Nearsightedness
+Hypermetropia,Hypermetropia,25.0,Vision Disorder,Chronic,common disease,Farsightedness
+Astigmatism,Astigmatism,30.0,Vision Disorder,Chronic,common disease,Blurred vision
+Anisometropia,Anisometropia,2.5,Visual Disorder,Chronic,common disease,Unequal vision
+Impacted cerumen,Impacted cerumen,10.0,Ear Disorder,Both,common disease,Earwax blockage
+Acute serous or mucoid otitis media,Otitis Media,10.0,Ear Disorder,Both,common disease,Middle ear infection
+Otitis media with effusion,Otitis media with effusion,5.0,Ear Disorder,Both,common disease,Ear infection with fluid
+Acute otitis media,Acute otitis media,10.0,Infectious Disease,Acute,common disease,Ear infection
+Chronic otitis media,Chronic otitis media,4.0,Ear Disorder,Chronic,common disease,Chronic ear infection
+Benign positional paroxysmal vertigo,Benign positional paroxysmal vertigo,2.4,Neurological Disorder,Both,common disease,BPPV
+Acquired sensorineural hearing loss,Acquired sensorineural hearing loss,5.0,Hearing Disorder,Chronic,common disease,Hearing loss
+Presbycusis,Presbycusis,30.0,Hearing Disorder,Chronic,common disease,Age-related hearing loss
+Otalgia,Otalgia,10.0,Ear Disorder,Both,common disease,Earache
+Isolated diastolic hypertension,Isolated diastolic hypertension,5.0,Cardiovascular Disease,Chronic,common disease,High diastolic blood pressure
+Isolated systolic hypertension,Isolated systolic hypertension,10.0,Cardiovascular Disease,Chronic,common disease,High blood pressure
+Hypertensive heart disease,Hypertensive heart disease,7.5,Cardiovascular Disease,Chronic,common disease,High blood pressure heart disease
+Orthostatic hypotension,Orthostatic hypotension,6.0,Cardiovascular Disorder,Both,common disease,Low blood pressure upon standing
+Stable angina,Stable angina,3.5,Cardiovascular Disease,Chronic,common disease,Chest pain
+Diabetic cardiomyopathy,Diabetic cardiomyopathy,12.0,Cardiovascular Disease,Chronic,common disease,Diabetes-related heart disease
+Lower limb atherosclerosis,Lower limb atherosclerosis,5.0,Cardiovascular Disease,Chronic,common disease,Leg artery disease
+Atherosclerosis,Atherosclerosis,15.0,Cardiovascular Disease,Chronic,common disease,Hardening of the arteries
+Diabetic foot ulcer,Diabetic foot ulcer,6.3,Complications of Diabetes,Chronic,common disease,Foot sore from diabetes
+Acute nasopharyngitis,Acute nasopharyngitis,30.0,Infectious Disease,Acute,common disease,Common cold
+Acute sinusitis,Acute sinusitis,10.0,Respiratory Disorder,Acute,common disease,Sinus infection
+Pharyngitis,Pharyngitis,10.0,Infectious Disease,Acute,common disease,Sore throat
+Acute laryngopharyngitis,Laryngopharyngitis,5.0,Respiratory Disorder,Acute,common disease,Throat infection
+Acute laryngitis,Acute laryngitis,3.5,Respiratory Disorder,Acute,common disease,Laryngitis
+Allergic rhinitis,Allergic rhinitis,10.0,Allergic Disorder,Both,common disease,Hay fever
+Mixed rhinitis,Mixed rhinitis,10.0,Respiratory Disorder,Both,common disease,Allergic rhinitis
+Vasomotor rhinitis,Vasomotor rhinitis,10.0,Respiratory Disorder,Chronic,common disease,Nonallergic rhinitis
+Chronic nasopharyngitis,Chronic nasopharyngitis,1.5,Respiratory Disorder,Chronic,common disease,Chronic sinusitis
+Chronic pharyngitis,Chronic pharyngitis,3.0,Respiratory Disorder,Chronic,common disease,Chronic sore throat
+Acute noninfectious bronchitis,Acute bronchitis,5.0,Respiratory Disease,Acute,common disease,Bronchitis
+Simple chronic bronchitis,Simple chronic bronchitis,4.5,Respiratory Disease,Chronic,common disease,Chronic bronchitis
+Mucopurulent chronic bronchitis,Mucopurulent bronchitis,1.5,Respiratory Disease,Chronic,common disease,Bronchitis with mucus
+Mixed simple and mucopurulent chronic bronchitis,Chronic Bronchitis,3.5,Respiratory Disease,Chronic,common disease,Chronic cough
+Protracted bacterial bronchitis,Protracted bacterial bronchitis,1.5,Respiratory Disorder,Chronic,common disease,Chronic bacterial bronchitis
+Centrilobular emphysema,Centrilobular emphysema,1.5,Respiratory Disease,Chronic,common disease,Smoker's lung
+Allergic asthma,Allergic asthma,10.0,Respiratory Disease,Chronic,common disease,Allergic asthma
+Exercise-induced bronchospasm,Exercise-induced bronchospasm,10.0,Respiratory Disorder,Acute,common disease,Exercise-induced asthma
+Cough variant asthma,Cough variant asthma,5.0,Respiratory Disorder,Chronic,common disease,Cough asthma
+Acute bronchiolitis,Acute bronchiolitis,1.5,Respiratory Disease,Acute,common disease,Bronchiolitis
+Cheilitis,Cheilitis,1.5,Dermatological Disorder,Both,common disease,Chapped lips
+Oral aphthae,Oral aphthae,20.0,Oral Disease,Both,common disease,Canker sores
+Oral mucositis,Oral mucositis,40.0,Gastrointestinal Disorder,Both,common disease,Mouth sores
+Denture hyperplasia,Denture hyperplasia,1.5,Oral Disorder,Chronic,common disease,Denture-induced overgrowth
+Xerostomia,Xerostomia,10.0,Oral Health Disorder,Chronic,common disease,Dry mouth
+Atrophy of tongue papillae,Atrophy of tongue papillae,1.5,Oral Disorder,Both,common disease,Tongue atrophy
+Sialolithiasis,Sialolithiasis,1.2,Gastrointestinal Disorder,Both,common disease,Salivary gland stones
+Fluoride related opacities or lesions,Fluoride Opacities,10.0,Dental Condition,Both,common disease,Fluoride stains
+Nonfluoride enamel opacities,Nonfluoride enamel opacities,5.0,Dental Disorder,Chronic,common disease,White spot lesions
+Acute apical periodontitis,Acute apical periodontitis,5.0,Dental Disorder,Acute,common disease,Tooth abscess
+Pulpitis,Pulpitis,10.0,Dental Disorder,Both,common disease,Toothache
+Catarrhal gingivitis,Catarrhal gingivitis,10.0,Oral Disease,Acute,common disease,Gum disease
+Pericoronitis,Pericoronitis,10.0,Oral Disease,Both,common disease,Wisdom tooth infection
+Gingival recession,Gingival recession,50.0,Oral Health Disorder,Chronic,common disease,Gum recession
+Burning mouth syndrome,Burning Mouth Syndrome,1.5,Oral Disorder,Chronic,common disease,Burning Mouth Syndrome
+Non-erosive gastro-oesophageal reflux disease,Non-erosive gastro-oesophageal reflux disease,20.0,Gastrointestinal Disorder,Chronic,common disease,Acid reflux
+Erosive gastro-oesophageal reflux disease,Erosive gastro-oesophageal reflux disease,10.0,Gastrointestinal Disorder,Chronic,common disease,Acid reflux disease
+Gastritis,Gastritis,10.0,Gastrointestinal Disorder,Both,common disease,Stomach inflammation
+Dental caries,Dental caries,60.0,Oral Disease,Both,common disease,Tooth decay
+Alcoholic gastritis,Alcoholic gastritis,1.5,Gastrointestinal Disorder,Both,common disease,Alcohol-related stomach inflammation
+Chemical gastritis,Chemical gastritis,1.5,Gastrointestinal Disorder,Both,common disease,Chemical gastritis
+Gastric erosion,Gastric erosion,5.0,Gastrointestinal Disorder,Both,common disease,Stomach erosion
+Gastric ulcer,Gastric ulcer,4.5,Gastrointestinal Disorder,Chronic,common disease,Stomach ulcer
+Stress ulcer,Stress ulcer,1.5,Gastrointestinal Disorder,Acute,common disease,Stress ulcer
+Paralytic ileus,Paralytic ileus,1.5,Gastrointestinal Disorder,Both,common disease,Bowel obstruction
+Non-alcoholic steatohepatitis,Non-alcoholic steatohepatitis,3.0,Gastrointestinal Disorder,Chronic,common disease,Fatty liver disease
+Hepatic cirrhosis,Hepatic cirrhosis,1.5,Gastrointestinal Disorder,Chronic,common disease,Liver cirrhosis
+Diverticulitis,Diverticulitis,10.0,Gastrointestinal Disorder,Both,common disease,Diverticulitis
+Diverticulosis,Diverticulosis,10.0,Gastrointestinal Disorder,Chronic,common disease,Diverticulitis
+Inguinal hernia,Inguinal hernia,5.0,Surgical Condition,Both,common disease,Groin hernia
+Chronic apical periodontitis,Chronic apical periodontitis,7.0,Dental Disorder,Chronic,common disease,Tooth root infection
+Umbilical hernia,Umbilical hernia,3.0,Surgical Condition,Both,common disease,Belly button hernia
+Incisional hernia,Incisional hernia,10.0,Surgical Complication,Chronic,common disease,Surgical hernia
+Epigastric hernia,Epigastric hernia,3.0,Surgical Condition,Both,common disease,Stomach hernia
+Parastomal hernia,Parastomal hernia,10.0,Surgical Complication,Chronic,common disease,Stoma hernia
+Infantile atopic eczema,Infantile atopic eczema,15.0,Dermatological Disorder,Chronic,common disease,Baby eczema
+Childhood atopic eczema,Childhood atopic eczema,15.0,Dermatological Disorder,Chronic,common disease,Eczema
+Atopic eczema,Atopic Eczema,15.0,Dermatological Disorder,Chronic,common disease,Allergic eczema
+Seborrhoeic dermatitis,Seborrhoeic dermatitis,3.0,Dermatological Disorder,Both,common disease,Dandruff
+Perianal lichen simplex,Perianal lichen simplex,1.5,Dermatological Disorder,Chronic,common disease,Anal lichen simplex
+Asteatotic eczema,Asteatotic eczema,1.5,Dermatological Disorder,Both,common disease,Dry skin eczema
+Stasis dermatitis,Stasis dermatitis,1.5,Dermatological Disorder,Chronic,common disease,Venous stasis dermatitis
+Pityriasis alba,Pityriasis alba,5.0,Dermatological Disorder,Both,common disease,White spot disease
+Dermographism,Dermographism,4.5,Dermatological Disorder,Chronic,common disease,Skin writing
+Diabetic skin lesions,Diabetic skin lesions,30.0,Dermatological Condition,Chronic,common disease,Diabetic skin sores
+Xerosis cutis,Xerosis cutis,10.0,Dermatological Disorder,Chronic,common disease,Dry skin
+Keratosis pilaris,Keratosis pilaris,40.0,Dermatological Condition,Chronic,common disease,Chicken skin
+Female pattern hair loss,Female pattern hair loss,19.0,Dermatological Disorder,Chronic,common disease,Thinning hair in women
+Postpartum telogen effluvium,Postpartum telogen effluvium,50.0,Hair Loss Disorder,Acute,common disease,Postpartum hair loss
+Hirsutism,Hirsutism,5.0,Endocrine Disorder,Chronic,common disease,Excessive hair growth
+Comedonal acne,Comedonal acne,10.0,Dermatological Disorder,Chronic,common disease,Pimple acne
+Erythematotelangiectatic rosacea,Erythematotelangiectatic rosacea,10.0,Dermatological Disorder,Chronic,common disease,Facial redness
+Neonatal miliaria,Neonatal miliaria,10.0,Dermatological Condition,Acute,common disease,Baby heat rash
+Ingrowing toenail,Ingrowing toenail,2.0,Dermatological Disorder,Both,common disease,Ingrown toenail
+Chronic paronychia,Chronic paronychia,1.5,Dermatological Disorder,Chronic,common disease,Chronic nail infection
+Scalp folliculitis,Scalp folliculitis,1.5,Dermatological Disorder,Both,common disease,Scalp acne
+Lower limb venous eczema,Lower limb venous eczema,1.5,Dermatological Condition,Chronic,common disease,Leg eczema
+Otitis externa,Otitis externa,10.0,Ear Disorder,Both,common disease,Swimmer's ear
+Neonatal pyogenic skin infections,Neonatal pyogenic skin infections,1.5,Infectious Disease,Acute,common disease,Newborn skin infections
+Cradle cap,Cradle cap,10.0,Dermatological Condition,Acute,common disease,Cradle cap
+Exanthematic drug eruption,Exanthematic drug eruption,2.0,Dermatological Disorder,Acute,common disease,Drug rash
+Primary irritant napkin dermatitis,Primary irritant napkin dermatitis,7.0,Dermatological Condition,Acute,common disease,Diaper rash
+Polymorphic light eruption,Polymorphic light eruption,10.0,Dermatological Disorder,Chronic,common disease,Sun allergy
+Allergic contact dermatitis,Allergic contact dermatitis,10.0,Dermatological Disorder,Both,common disease,Allergic skin reaction
+Irritant contact dermatitis,Irritant contact dermatitis,10.0,Dermatological Disorder,Both,common disease,Skin irritation
+Intertriginous dermatitis,Intertriginous dermatitis,3.5,Dermatological Disorder,Both,common disease,Chafing rash
+Papular urticaria,Papular urticaria,10.0,Dermatological Disorder,Acute,common disease,Insect bite allergy
+Acute radiodermatitis,Acute radiodermatitis,5.0,Dermatological Condition,Acute,common disease,Radiation skin burn
+Actinic keratosis,Actinic keratosis,10.0,Dermatological Disorder,Chronic,common disease,Sun damage skin lesion
+Primary osteoarthritis,Primary osteoarthritis,10.0,Musculoskeletal Disorder,Chronic,common disease,Osteoarthritis
+Post traumatic osteoarthritis,Post Traumatic Osteoarthritis,12.5,Musculoskeletal Disorder,Chronic,common disease,Post-injury arthritis
+Osteoarthritis of hip,Osteoarthritis of hip,10.0,Musculoskeletal Disorder,Chronic,common disease,Hip arthritis
+Osteoarthritis of knee,Osteoarthritis,10.0,Musculoskeletal Disorder,Chronic,common disease,Arthritis
+Osteoarthritis of wrist and hand,Osteoarthritis of wrist and hand,5.0,Musculoskeletal Disorder,Chronic,common disease,Wrist and hand arthritis
+Gout,Gout,1.4,Musculoskeletal Disorder,Both,common disease,Gout
+Hallux rigidus,Hallux rigidus,1.5,Musculoskeletal Disorder,Chronic,common disease,Big toe arthritis
+Plantar fasciitis,Plantar fasciitis,10.0,Musculoskeletal Disorder,Chronic,common disease,Heel pain
+Posterior tibial tendonitis,Posterior tibial tendonitis,1.5,Musculoskeletal Disorder,Chronic,common disease,Tendonitis in the ankle
+Calcific tendinitis,Calcific tendinitis,1.5,Musculoskeletal Disorder,Both,common disease,Shoulder calcification
+Trigger finger,Trigger finger,2.6,Musculoskeletal Disorder,Both,common disease,Trigger finger
+Bursitis,Bursitis,1.5,Musculoskeletal Disorder,Both,common disease,Shoulder bursitis
+Adhesive capsulitis,Adhesive capsulitis,2.0,Musculoskeletal Disorder,Chronic,common disease,Frozen shoulder
+Iliotibial band syndrome,Iliotibial band syndrome,1.5,Musculoskeletal Disorder,Both,common disease,Runner's knee
+Calcaneal spur,Calcaneal spur,10.0,Musculoskeletal Disorder,Chronic,common disease,Heel spur
+Metatarsalgia,Metatarsalgia,6.0,Musculoskeletal Disorder,Both,common disease,Foot pain
+Postmenopausal osteopenia,Osteopenia,30.0,Musculoskeletal Disorder,Chronic,common disease,Bone loss
+Acute vulvitis,Acute vulvitis,1.5,Gynecological Disorder,Acute,common disease,Vulvar inflammation
+Chronic endometritis,Chronic endometritis,10.0,Gynecological Disorder,Chronic,common disease,Chronic uterine inflammation
+Acute vaginitis,Acute vaginitis,10.0,Gynecological Disorder,Acute,common disease,Vaginal infection
+Inflammatory vaginitis,Inflammatory vaginitis,5.0,Gynecological Disorder,Both,common disease,Vaginal inflammation
+Cyst of Bartholin gland,Cyst of Bartholin gland,2.0,Gynecological Disorder,Both,common disease,Bartholin cyst
+Cervicitis,Cervicitis,1.5,Reproductive Health Disorder,Both,common disease,Cervical inflammation
+Chronic pelvic inflammatory disease,Chronic pelvic inflammatory disease,3.0,Reproductive Health Disorder,Chronic,common disease,Chronic pelvic pain syndrome
+Chronic salpingitis and oophoritis,Chronic salpingitis and oophoritis,1.5,Reproductive Health Disorder,Chronic,common disease,Chronic pelvic inflammatory disease
+Adenomyosis,Adenomyosis,10.0,Gynecological Disorder,Chronic,common disease,Uterine tissue growth
+Dyspareunia,Dyspareunia,10.0,Sexual Dysfunction,Chronic,common disease,Painful intercourse
+Excessive menstruation,Menorrhagia,10.0,Gynecological Disorder,Chronic,common disease,Heavy menstrual bleeding
+Anovulatory bleeding,Anovulatory bleeding,10.0,Reproductive Health Disorder,Both,common disease,Irregular menstrual bleeding
+Postmenopausal uterine bleeding,Postmenopausal uterine bleeding,10.0,Gynecological Disorder,Both,common disease,Abnormal bleeding after menopause
+Postmenopausal atrophic vaginitis,Atrophic Vaginitis,10.0,Gynecological Disorder,Chronic,common disease,Vaginal atrophy
+Menopausal hot flush,Menopausal hot flush,75.0,Hormonal Disorder,Both,common disease,Hot flash
+Menopausal osteoporosis,Menopausal Osteoporosis,30.0,Musculoskeletal Disorder,Chronic,common disease,Bone loss after menopause
+Vulvodynia,Vulvodynia,8.0,Gynecological Disorder,Chronic,common disease,Vulvar pain syndrome
+Dysmenorrhoea,Dysmenorrhoea,50.0,Gynecological Disorder,Both,common disease,Menstrual cramps
+Premenstrual tension syndrome,Premenstrual Tension Syndrome,50.0,Gynecological Disorder,Both,common disease,PMS
+Infectious cystitis,Cystitis,3.5,Infectious Disease,Acute,common disease,Bladder infection
+Postpartum thyroiditis,Postpartum thyroiditis,5.0,Endocrine Disorder,Both,common disease,Postpartum thyroid inflammation
+Nonpurulent mastitis,Nonpurulent mastitis,1.5,Breast Disorder,Both,common disease,Breast infection
+Hypogalactia,Hypogalactia,1.5,Metabolic Disorder,Chronic,common disease,Low milk supply
+Neonatal hyperbilirubinaemia,Neonatal hyperbilirubinaemia,60.0,Neonatal Disorder,Acute,common disease,Jaundice in newborns
+Neonatal osteopenia,Neonatal osteopenia,10.0,Bone Disorder,Both,common disease,Bone weakness in newborns
+Hypernatremia,Hypernatremia,1.5,Electrolyte Disorder,Both,common disease,High sodium levels
+Hyperkalemia,Hyperkalemia,1.5,Electrolyte Disorder,Both,common disease,High potassium levels
+Neonatal acne,Neonatal acne,20.0,Dermatological Condition,Acute,common disease,Baby acne
+Perianal dermatitis,Perianal dermatitis,1.5,Dermatological Disorder,Both,common disease,Anal dermatitis
+Allodynia,Allodynia,10.0,Neurological Disorder,Chronic,common disease,Painful sensitivity to touch
+Anosmia,Anosmia,5.0,Neurological Disorder,Both,common disease,Loss of smell
+Dysgeusia,Dysgeusia,1.5,Neurological Disorder,Both,common disease,Altered taste sensation
+Hyposmia,Hyposmia,3.5,Neurological Disorder,Chronic,common disease,Reduced sense of smell
+White coat hypertension,White coat hypertension,15.0,Cardiovascular Disorder,Both,common disease,White coat syndrome
+Epistaxis,Epistaxis,60.0,"Ear, Nose, and Throat Disorder",Both,common disease,Nosebleed
+Acute urticarial skin eruption,Urticaria,20.0,Dermatological Disorder,Both,common disease,Hives
+Dysuria,Dysuria,10.0,Urological Disorder,Both,common disease,Painful urination
+Renal colic,Renal colic,12.0,Urological Disorder,Acute,common disease,Kidney stones
+Diabetic glomerular changes,Diabetic glomerular changes,30.0,Kidney Disease,Chronic,common disease,Diabetic kidney disease
+Strain or sprain of calcaneofibular ligament,Strain or sprain of calcaneofibular ligament,1.5,Musculoskeletal Disorder,Acute,common disease,Ankle sprain
+Strain or sprain of metatarsophalangeal joint of great toe,Strain or sprain of metatarsophalangeal joint of great toe,1.5,Musculoskeletal Disorder,Acute,common disease,Toe sprain
+Deep incisional site infection,Deep incisional site infection,2.0,Surgical Complication,Acute,common disease,Surgical site infection
+Infection of amputation stump,Amputation Stump Infection,1.5,Infectious Disease,Both,common disease,Infection of the amputation site
+Post exercise postural hypotension,Post Exercise Postural Hypotension,1.5,Cardiovascular Disorder,Both,common disease,Orthostatic hypotension
+Chlamydia pneumoniae,Chlamydia pneumoniae,5.0,Infectious Disease,Both,common disease,Chlamydia pneumonia
+Helicobacter pylori,Helicobacter pylori,50.0,Infectious Disease,Both,common disease,Stomach bacteria infection
+Mycoplasma pneumoniae,Mycoplasma pneumoniae,1.5,Infectious Disease,Acute,common disease,Walking pneumonia
+Mycobacterium tuberculosis,Tuberculosis,25.0,Infectious Disease,Chronic,common disease,TB
+Sapovirus,Sapovirus,1.5,Infectious Disease,Acute,common disease,Sapovirus infection
+Norovirus,Norovirus,20.0,Infectious Disease,Acute,common disease,Stomach virus
+Herpes simplex virus-2,Herpes simplex virus 2,11.9,Infectious Disease,Chronic,common disease,Genital herpes
+Cytomegalovirus,Cytomegalovirus,60.0,Infectious Disease,Both,common disease,CMV infection
+Epstein-Barr virus,Epstein-Barr virus,90.0,Infectious Disease,Both,common disease,Mono
+Influenza A/H1N1 virus,Influenza A/H1N1 virus,10.0,Infectious Disease,Acute,common disease,Swine flu
+Human metapneumovirus,Human metapneumovirus,5.0,Infectious Disease,Acute,common disease,Common cold virus
+Parainfluenza virus,Parainfluenza virus,5.0,Infectious Disease,Acute,common disease,Parainfluenza infection
+Human respiratory syncytial virus,Human respiratory syncytial virus,30.0,Infectious Disease,Acute,common disease,RSV infection
+Rotavirus A,Rotavirus A,30.0,Infectious Disease,Acute,common disease,Rotavirus infection
+Rotavirus,Rotavirus,5.0,Infectious Disease,Acute,common disease,Stomach flu
+Trichophyton interdigitale,Tinea Pedis,15.0,Fungal Infection,Both,common disease,Athlete's foot
+Trichophyton tonsurans,Tinea Capitis,3.5,Fungal Infection,Acute,common disease,Scalp ringworm
+Malassezia furfur,Malassezia furfur Infection,5.0,Fungal Infection,Both,common disease,Tinea Versicolor
+Hymenolepis nana,Hymenolepiasis,1.5,Infectious Disease,Both,common disease,Tapeworm infection
