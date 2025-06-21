@@ -10,7 +10,7 @@ from transformers import (
 )
 
 # 1) Load and inspect data
-raw_ds = load_dataset("CodCodingCode/clinical-conversations", split="train")
+raw_ds = load_dataset("CodCodingCode/clinical-conversations-V1.3", split="train")
 print(raw_ds.features, raw_ds[0])
 
 

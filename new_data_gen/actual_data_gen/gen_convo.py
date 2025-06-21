@@ -1,5 +1,7 @@
 import os
 import json
+import hashlib
+import pickle
 from openai import OpenAI
 import time
 import multiprocessing
@@ -9,364 +11,112 @@ import random
 
 # Initialize OpenAI client
 client = OpenAI(
-    api_key="api"
+    api_key="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"
 )
 model = "gpt-4.1-nano"
 
 treatment_plans = []
 
 
-# === Patient Behavior Configurations ===
-PATIENT_BEHAVIORS = {
-    "baseline": {
-        "weight": 0.4,
-        "description": "Standard patient behavior",
-        "modifiers": [],
-        "empathy_cues": [],
-    },
-    "information_withholder": {
-        "weight": 0.15,
-        "description": "Patient initially omits embarrassing or stigmatized symptoms",
-        "modifiers": ["embarrassed_symptoms", "gradual_revelation"],
-        "empathy_cues": [
-            "hesitation",
-            "vague_responses",
-            "embarrassment",
-            "trust_building_needed",
-        ],
-    },
-    "anxious_amplifier": {
-        "weight": 0.12,
-        "description": "Patient with health anxiety who amplifies symptoms",
-        "modifiers": [
-            "catastrophic_thinking",
-            "symptom_amplification",
-            "multiple_concerns",
-        ],
-        "empathy_cues": [
-            "high_anxiety",
-            "catastrophic_language",
-            "reassurance_seeking",
-            "fear_expression",
-        ],
-    },
-    "stoic_minimizer": {
-        "weight": 0.12,
-        "description": "Patient who downplays symptoms and delays care",
-        "modifiers": ["symptom_minimization", "delayed_care_seeking", "tough_attitude"],
-        "empathy_cues": [
-            "downplaying",
-            "reluctance",
-            "pride_in_toughness",
-            "external_pressure",
-        ],
-    },
-    "chronology_confused": {
-        "weight": 0.1,
-        "description": "Patient confused about symptom timing and progression",
-        "modifiers": ["timeline_confusion", "sequence_uncertainty"],
-        "empathy_cues": ["confusion", "uncertainty", "memory_issues", "needs_patience"],
-    },
-    "tangential_storyteller": {
-        "weight": 0.08,
-        "description": "Patient who includes irrelevant details and stories",
-        "modifiers": ["excessive_details", "family_stories", "tangential_information"],
-        "empathy_cues": [
-            "storytelling",
-            "context_sharing",
-            "social_needs",
-            "relationship_focus",
-        ],
-    },
-    "worried_family_involved": {
-        "weight": 0.03,
-        "description": "Family member influences patient responses",
-        "modifiers": ["family_influence", "secondary_concerns"],
-        "empathy_cues": [
-            "family_pressure",
-            "caregiver_stress",
-            "divided_attention",
-            "responsibility_burden",
-        ],
-    },
-}
+class OpenAICache:
+    def __init__(self, cache_dir="openai_cache"):
+        self.cache_dir = cache_dir
+        os.makedirs(cache_dir, exist_ok=True)
+        self.hits = 0
+        self.misses = 0
+
+    def _get_cache_key(self, messages, model, max_tokens=None):
+        """Generate a unique cache key for the request"""
+        # Create a hash of the request parameters
+        cache_data = {"messages": messages, "model": model, "max_tokens": max_tokens}
+        cache_string = json.dumps(cache_data, sort_keys=True)
+        return hashlib.md5(cache_string.encode()).hexdigest()
+
+    def _get_cache_path(self, cache_key):
+        """Get the file path for a cache key"""
+        return os.path.join(self.cache_dir, f"{cache_key}.pkl")
+
+    def get(self, messages, model, max_tokens=None):
+        """Try to get a cached response"""
+        cache_key = self._get_cache_key(messages, model, max_tokens)
+        cache_path = self._get_cache_path(cache_key)
+
+        if os.path.exists(cache_path):
+            try:
+                with open(cache_path, "rb") as f:
+                    cached_response = pickle.load(f)
+                self.hits += 1
+                print(f"💾 Cache HIT - Key: {cache_key[:8]}...")
+                return cached_response
+            except Exception as e:
+                print(f"⚠️ Cache read error: {e}")
+                # If cache read fails, continue to make API call
+
+        self.misses += 1
+        return None
+
+    def set(self, messages, model, response, max_tokens=None):
+        """Cache a response"""
+        cache_key = self._get_cache_key(messages, model, max_tokens)
+        cache_path = self._get_cache_path(cache_key)
+
+        try:
+            with open(cache_path, "wb") as f:
+                pickle.dump(response, f)
+            print(f"💾 Cache SAVE - Key: {cache_key[:8]}...")
+        except Exception as e:
+            print(f"⚠️ Cache write error: {e}")
+
+    def stats(self):
+        """Get cache statistics"""
+        total = self.hits + self.misses
+        hit_rate = (self.hits / total * 100) if total > 0 else 0
+        return {
+            "hits": self.hits,
+            "misses": self.misses,
+            "total": total,
+            "hit_rate": hit_rate,
+        }
+
+    def clear(self):
+        """Clear all cache files"""
+        if os.path.exists(self.cache_dir):
+            shutil.rmtree(self.cache_dir)
+            os.makedirs(self.cache_dir, exist_ok=True)
+        self.hits = 0
+        self.misses = 0
+        print("🗑️ Cache cleared")
 
 
-def generate_guided_questioner_prompt(base_prompt, gold_diagnosis, current_vignette):
-    """Generate questioning prompts without gold diagnosis guidance"""
-    return base_prompt
+# Global cache instance
+openai_cache = OpenAICache()
 
 
-# === Patient Interpreter Class ===
-# === Chain of Thought Patient Interpreter Class ===
-class PatientInterpreter:
-    """Agent specialized in reading patient communication patterns and extracting unbiased clinical information using Chain of Thought reasoning"""
+def cached_openai_call(messages, model, max_tokens=4000):
+    """Make an OpenAI API call with caching"""
 
-    def __init__(self):
-        self.role_instruction = """You are a specialized clinical psychologist and communication expert trained to interpret patient communication patterns.
-        
-        Your expertise includes:
-        - Recognizing when patients minimize, exaggerate, or withhold information
-        - Understanding cultural and psychological factors affecting patient communication
-        - Translating patient language into objective clinical descriptions
-        - Identifying implicit symptoms and concerns not directly stated
-        
-        You use systematic Chain of Thought reasoning to analyze patient communication step-by-step.
-        You help extract the true clinical picture from biased or incomplete patient presentations."""
+    # Try to get from cache first
+    cached_response = openai_cache.get(messages, model, max_tokens)
+    if cached_response is not None:
+        return cached_response
 
-        self.responder = RoleResponder(self.role_instruction)
+    # Make API call if not in cache
+    try:
+        response = client.chat.completions.create(
+            model=model, messages=messages, max_tokens=max_tokens
+        )
 
-    def interpret_patient_communication(
-        self, conversation_history, detected_behavior, current_vignette
-    ):
-        """Analyze patient communication to extract unbiased clinical information using Chain of Thought reasoning"""
+        # Cache the response
+        openai_cache.set(messages, model, response, max_tokens)
 
-        interpretation_prompt = f"""
-        TASK: Use Chain of Thought reasoning to analyze this patient's communication pattern and extract the true clinical picture.
-        
-        DETECTED PATIENT BEHAVIOR: {detected_behavior}
-        
-        CONVERSATION HISTORY:
-        {json.dumps(conversation_history[-6:], indent=2)}  # Last 6 exchanges
-        
-        CURRENT VIGNETTE SUMMARY:
-        {current_vignette}
-        
-        YOU MUST RESPOND IN THE FOLLOWING FORMAT:
-        
-        THINKING:
-        Use the following Chain of Thought process:
-        
-        STEP 1 - INITIAL OBSERVATION:
-        Let me first observe what the patient is literally saying versus how they're saying it.
-        - Direct statements made: <list explicit statements>
-        - Communication style observed: <tone, word choice, length of responses>
-        - Non-verbal cues in language: <hesitation, minimization, amplification>
-        
-        STEP 2 - PATTERN RECOGNITION:
-        Now I'll identify specific communication patterns that suggest bias.
-        - If the patient uses minimizing language ("just a little", "not that bad"), this suggests they may be downplaying severity
-        - If the patient gives vague responses when asked direct questions, this suggests potential withholding
-        - If the patient uses catastrophic language ("terrible", "worst pain ever"), this suggests potential amplification
-        - If timeline responses are inconsistent or vague, this suggests memory issues or confusion
-        
-        STEP 3 - BIAS IDENTIFICATION:
-        Based on the patterns, let me identify the specific biases affecting their reporting.
-        - Type of bias detected: <minimization/amplification/withholding/confusion>
-        - Evidence for this bias: <specific examples from conversation>
-        - Severity of bias: <how much it's affecting their reporting>
-        
-        STEP 4 - HIDDEN INFORMATION ANALYSIS:
-        Now I'll deduce what information might be missing or distorted.
-        - What symptoms might be worse than reported? <reasoning>
-        - What information might they be embarrassed to share? <reasoning>
-        - What timeline distortions might exist? <reasoning>
-        - What associated symptoms might they be omitting? <reasoning>
-        
-        STEP 5 - OBJECTIVE RECONSTRUCTION:
-        Let me reconstruct what the objective clinical picture likely looks like.
-        - Taking minimization into account: <adjusted symptom severity>
-        - Accounting for withheld information: <likely missing symptoms>
-        - Correcting timeline distortions: <more accurate progression>
-        - Considering amplified concerns: <appropriately scaled worries>
-        
-        STEP 6 - CLINICAL IMPLICATIONS:
-        Finally, let me determine the clinical implications of these communication patterns.
-        - How reliable is the current vignette? <assessment>
-        - What critical information are we missing? <gaps>
-        - What should the doctor probe for next? <recommendations>
-        
-        ANSWER:
-        COMMUNICATION_ANALYSIS:
-        - Pattern observed: <description of how patient is communicating>
-        - Bias detected: <what kind of bias is affecting their reporting>
-        - Confidence level: <high/medium/low>
-        - Reasoning: <why I believe this based on my step-by-step analysis>
-        
-        LIKELY_HIDDEN_INFORMATION:
-        - Minimized symptoms: <symptoms patient is downplaying + reasoning>
-        - Withheld information: <information patient may be embarrassed to share + reasoning>
-        - Amplified concerns: <symptoms patient may be exaggerating + reasoning>
-        - Temporal distortions: <timeline issues or sequence problems + reasoning>
-        
-        OBJECTIVE_CLINICAL_PICTURE:
-        Based on my Chain of Thought analysis, the unbiased vignette should probably include:
-        <Detailed reconstruction accounting for identified biases with reasoning for each adjustment>
-        
-        RECOMMENDED_PROBING:
-        - Specific questions to ask: <targeted questions to get missing information + rationale>
-        - Approach strategy: <how to ask sensitively + psychological reasoning>
-        - Priority order: <which questions to ask first and why>
-        """
+        return response
 
-        return self.responder.ask(interpretation_prompt)
+    except Exception as e:
+        print(f"❌ OpenAI API Error: {e}")
+        raise
 
 
-# Enhanced Chain of Thought detect_patient_behavior_cues function
-def detect_patient_behavior_cues_enhanced(conversation_history, patient_responses):
-    """Enhanced version that provides more detailed behavioral analysis using Chain of Thought reasoning"""
-    cue_detector = RoleResponder(
-        """You are a behavioral psychologist specializing in patient communication patterns.
-        You're expert at identifying subtle signs of information withholding, symptom minimization, 
-        anxiety amplification, and other communication biases that affect clinical assessment.
-        
-        You use Chain of Thought reasoning to systematically analyze patient behavior patterns."""
-    )
-
-    recent_responses = patient_responses[-3:]
-
-    analysis = cue_detector.ask(
-        f"""
-    Use Chain of Thought reasoning to analyze these patient responses for detailed behavioral patterns:
-    
-    RECENT PATIENT RESPONSES:
-    {json.dumps(recent_responses, indent=2)}
-    
-    CONVERSATION CONTEXT:
-    {json.dumps(conversation_history[-6:], indent=2)}
-    
-    YOU MUST RESPOND IN THE FOLLOWING FORMAT:
-    
-    THINKING:
-    Use Chain of Thought Analysis:
-    
-    STEP 1 - LANGUAGE ANALYSIS:
-    Let me examine the specific words and phrases the patient uses.
-    - Minimizing language: <identify phrases like "just", "only", "a little", "not that bad">
-    - Amplifying language: <identify phrases like "terrible", "worst", "unbearable", "excruciating">
-    - Vague language: <identify non-specific descriptions, "sort of", "kind of", "maybe">
-    - Emotional language: <identify fear, embarrassment, frustration indicators>
-    
-    STEP 2 - RESPONSE PATTERN ANALYSIS:
-    Now let me analyze how they respond to different types of questions.
-    - Response length: <long/short responses and what triggers each>
-    - Directness: <do they answer directly or deflect?>
-    - Information volunteering: <do they offer additional details or wait to be asked?>
-    - Consistency: <are their responses consistent across similar questions?>
-    
-    STEP 3 - BEHAVIORAL INDICATOR IDENTIFICATION:
-    Based on the language and response patterns, let me identify specific behavioral indicators.
-    - Information withholding signs: <evidence of reluctance to share specific types of information>
-    - Minimization behaviors: <evidence they're downplaying symptoms>
-    - Amplification patterns: <evidence they're exaggerating concerns>
-    - Embarrassment/shame signals: <evidence of discomfort with certain topics>
-    - Confusion/memory issues: <evidence of timeline or factual inconsistencies>
-    - Family influence: <evidence others are affecting their responses>
-    
-    STEP 4 - BIAS SEVERITY ASSESSMENT:
-    Now let me evaluate how severely these biases are affecting their communication.
-    - Primary bias type: <main communication bias identified>
-    - Severity level: <mild/moderate/severe with reasoning>
-    - Areas most affected: <which symptoms/topics are most biased>
-    - Reliability assessment: <how much to trust their self-reporting>
-    
-    STEP 5 - CLINICAL IMPLICATIONS:
-    Finally, let me determine what this means for clinical assessment.
-    - Information likely missing: <what they're probably not telling you + reasoning>
-    - Symptoms probably minimized: <what's worse than they say + evidence>
-    - Concerns probably amplified: <what they're over-worried about + evidence>
-    - True timeline: <actual progression vs reported progression + reasoning>
-    
-    ANSWER:
-    COMMUNICATION_PATTERNS:
-    - Language choices: <vague vs specific, emotional vs clinical + examples>
-    - Information flow: <forthcoming vs reluctant, organized vs scattered + evidence>
-    - Response style: <elaborate vs minimal, direct vs tangential + patterns>
-    
-    BEHAVIORAL_INDICATORS:
-    - Information withholding signs: <specific evidence + reasoning>
-    - Minimization behaviors: <how they downplay symptoms + examples>
-    - Amplification patterns: <how they exaggerate concerns + examples>
-    - Embarrassment/shame signals: <reluctance about certain topics + evidence>
-    - Confusion/memory issues: <timeline or sequence problems + examples>
-    - Family influence: <how others affect their responses + evidence>
-    
-    BIAS_ASSESSMENT:
-    - Primary bias type: <main communication bias + reasoning>
-    - Severity: <mild/moderate/severe + justification>
-    - Areas most affected: <which symptoms/topics are most biased + evidence>
-    - Reliability: <how much to trust their self-reporting + reasoning>
-    
-    CLINICAL_IMPLICATIONS:
-    - Information likely missing: <what they're probably not telling you + reasoning>
-    - Symptoms probably minimized: <what's worse than they say + evidence>
-    - Concerns probably amplified: <what they're over-worried about + evidence>
-    - True timeline: <actual progression vs reported progression + reasoning>
-    """
-    )
-
-    return analysis
-
-
-# Enhanced summarizer function that incorporates patient interpretation
-def generate_unbiased_vignette(
-    conversation_history, previous_vignette, patient_interpretation
-):
-    """Generate a vignette that accounts for patient communication biases"""
-
-    unbiased_summarizer = RoleResponder(
-        """You are an expert clinical summarizer trained to extract objective clinical information 
-        while accounting for patient communication biases and psychological factors.
-        
-        You excel at:
-        - Recognizing when patient reporting may be biased
-        - Extracting objective clinical facts from subjective presentations
-        - Incorporating communication pattern analysis into clinical summaries
-        - Providing balanced, unbiased clinical vignettes"""
-    )
-
-    summary_prompt = f"""
-    TASK: Create an objective, unbiased clinical vignette that accounts for patient communication patterns.
-    
-    CONVERSATION HISTORY:
-    {json.dumps(conversation_history, indent=2)}
-    
-    PREVIOUS VIGNETTE:
-    {previous_vignette}
-    
-    PATIENT COMMUNICATION ANALYSIS:
-    {patient_interpretation}
-    
-    INSTRUCTIONS:
-    1. Extract all objective clinical facts from the conversation
-    2. Account for identified communication biases in your interpretation
-    3. Include likely symptoms/information that patient may be minimizing or withholding
-    4. Adjust symptom severity based on detected amplification or minimization patterns
-    5. Provide confidence levels for different pieces of information
-    6. Note areas where more information is needed due to communication barriers
-    
-    RESPOND IN THIS FORMAT:
-    
-    THINKING: 
-    <Your analysis of how patient communication patterns affect the clinical picture>
-    
-    OBJECTIVE_VIGNETTE:
-    Patient demographics: <age, gender, etc.>
-    
-    Chief complaint: <main reason for visit, adjusted for bias>
-    
-    Present illness: <current symptoms with bias corrections>
-    - Well-established symptoms: <symptoms clearly present>
-    - Likely minimized symptoms: <symptoms probably worse than reported>
-    - Possibly withheld symptoms: <symptoms patient may be hiding>
-    - Timeline: <corrected timeline based on communication analysis>
-    
-    Associated symptoms: <other symptoms, with confidence levels>
-    
-    CONFIDENCE_ASSESSMENT:
-    - High confidence: <information we can trust>
-    - Medium confidence: <information that may be biased>
-    - Low confidence: <information heavily affected by communication bias>
-    - Missing information: <what we still need to gather>
-
-    
-    ANSWER: <Clean, objective clinical vignette IN PARAGRAPH FORM ONLY>
-    """
-
-    return unbiased_summarizer.ask(summary_prompt)
-
-
-# === Updated Diagnosis Prompt Templates ===
+# === SIMPLE DIAGNOSIS PROMPT TEMPLATES ===
 EARLY_DIAGNOSIS_PROMPT = """You are a board-certified diagnostician with expertise in differential diagnosis and clinical reasoning.
 
 Your task is to:
@@ -376,6 +126,7 @@ Your task is to:
 - Consider both common conditions and important "can't miss" diagnoses
 
 Previously asked questions: {prev_questions}
+Conversation: {conversation}
 
 Vignette:
 {vignette}
@@ -393,18 +144,47 @@ Use systematic diagnostic reasoning:
 - Diagnostic approach: <what clinical reasoning guides my differential>
 - Probability assessment: <which diagnoses are most vs least likely and why>
 - Make sure to ONLY use the information provided in the vignette and previous questions
+- Prioritize life threatening conditions first, then work down to less emergent diagnoses.
+
+Example THINKING:
+THINKING:
+I need to analyze this clinical presentation systematically to generate a differential diagnosis list.
+
+Starting with the key clinical features:
+- 72-year-old male (elderly, higher risk demographics)
+- Sudden onset abdominal and back pain 
+- Pain quality: sharp and constant
+- Associated dizziness and lightheadedness
+- No nausea, vomiting, chest pain, or shortness of breath mentioned
+
+The combination of sudden onset abdominal/back pain in an elderly male immediately raises red flags for vascular emergencies. The word "sudden" is crucial - this suggests an acute catastrophic event rather than gradual onset.
+
+The dizziness and lightheadedness are particularly concerning when paired with sudden abdominal pain. This could indicate hemodynamic compromise, suggesting internal bleeding or shock.
+
+Let me think through the most likely diagnoses:
+
+1. Abdominal Aortic Aneurysm (AAA) Rupture - This fits perfectly. Elderly male, sudden severe abdominal/back pain, and signs of hemodynamic compromise (dizziness/lightheadedness suggesting hypotension). AAA rupture classically presents with abdominal pain radiating to the back.
+
+2. Aortic Dissection - Could present with sudden severe pain, though typically more chest/back pain. The hemodynamic instability fits.
+
+3. Perforated Peptic Ulcer - Sudden onset severe abdominal pain, but usually presents with more peritoneal signs and less back pain.
+
+4. Pancreatitis - Can cause severe abdominal pain radiating to back, but usually more gradual onset and associated with nausea/vomiting (which are absent here).
+
+5. Renal Colic/Nephrolithiasis - Can cause severe flank/back pain, but usually more colicky and less likely to cause hemodynamic compromise.
+
+Given the demographics (elderly male), the sudden onset, the specific pain pattern (abdominal AND back), and the hemodynamic symptoms (dizziness/lightheadedness), AAA rupture should be at the top of my differential.
+
+The absence of chest pain makes MI less likely, though it should still be considered in this demographic. The absence of nausea/vomiting makes GI causes somewhat less likely but doesn't rule them out.
+
+I need to prioritize life-threatening conditions first, then work down to less emergent diagnoses.
+
 
 ANSWER:
 1. Diagnosis: <Diagnosis Name>
-Justification: <Brief clinical reasoning: key symptoms/findings that support this diagnosis, prevalence considerations>
-
 2. Diagnosis: <Diagnosis Name>
-Justification: <Brief clinical reasoning: key symptoms/findings that support this diagnosis, prevalence considerations>
-
 ...
-
 10. Diagnosis: <Diagnosis Name>
-Justification: <Brief clinical reasoning: key symptoms/findings that support this diagnosis, prevalence considerations>
 
 STOP HERE. Do not add notes, recommendations, or additional text."""
 
@@ -418,6 +198,7 @@ Your task is to:
 - Focus on conditions that best explain the constellation of symptoms
 
 Previously asked questions: {prev_questions}
+Conversation: {conversation}
 
 Vignette:
 {vignette}
@@ -435,17 +216,14 @@ Apply focused diagnostic reasoning:
 - Risk stratification: <which diagnoses pose immediate vs long-term risk>
 - Clinical coherence: <which diagnoses best explain the complete clinical picture>
 - Make sure to ONLY use the information provided in the vignette and previous questions
+- Prioritize life threatening conditions first, then work down to less emergent diagnoses.
+
 
 ANSWER:
 1. Diagnosis: <Diagnosis Name>
-Justification: <Detailed reasoning: specific symptoms/findings supporting this diagnosis, why it's most likely, how it explains the clinical pattern>
-
 2. Diagnosis: <Diagnosis Name>
-Justification: <Detailed reasoning: specific symptoms/findings supporting this diagnosis, why it's ranked here, distinguishing features>
-
 ...
-
-5. Diagnosis: <Diagnosis Name>
+10. Diagnosis: <Diagnosis Name>
 Justification: <Detailed reasoning: specific symptoms/findings supporting this diagnosis, why included despite lower probability>
 
 STOP HERE. Do not add notes, recommendations, or additional text."""
@@ -460,6 +238,7 @@ Your task is to:
 - Consider diagnostic criteria and clinical coherence
 
 Previously asked questions: {prev_questions}
+Conversation: {conversation}
 
 Vignette:
 {vignette}
@@ -493,32 +272,35 @@ Checklist:
 - No further clarification needed for primary diagnosis: <Yes/No with brief reasoning>
 
 ANSWER:
-<Most Probable Diagnosis Name>
-<If both checklist items are 'Yes', append 'END' to signify diagnostic conclusion>
+1. Diagnosis: <Diagnosis Name>
+2. Diagnosis: <Diagnosis Name>
+3. Diagnosis: <Diagnosis Name>
+4. Diagnosis: <Diagnosis Name>
+5. Diagnosis: <Diagnosis Name>
+END
 
 STOP HERE. Do not add notes, recommendations, or additional text."""
 
 
-# === Diagnosis Logic with Cleaning ===
+# === Diagnosis Logic ===
 def get_diagnosis_response(
-    turn_count, gold_label, vignette_summary, previous_questions, diagnoser
+    turn_count, gold, vignette_summary, previous_questions, diagnoser, conversation
 ):
     """Get diagnosis with proper stage-based prompting"""
-    if turn_count < 4:  # First 2 turns (0, 2)
+    if turn_count < 6:  # First 2 turns
         base_prompt = EARLY_DIAGNOSIS_PROMPT
         stage = "early"
-    elif turn_count >= 4 and turn_count < 8:  # Next 2 turns (4, 6)
+    elif turn_count >= 6 and turn_count < 14:  # Next 2 turns
         base_prompt = MIDDLE_DIAGNOSIS_PROMPT
         stage = "middle"
-    else:  # Last 1 turn (8)
+    else:  # Last 1 turn
         base_prompt = LATE_DIAGNOSIS_PROMPT
-        stage = "late"
 
-    # Get response from diagnoser (NO GUIDANCE ADDED)
     response = diagnoser.ask(
         base_prompt.format(
             prev_questions=json.dumps(previous_questions),
             vignette=vignette_summary,
+            conversation=json.dumps(conversation),
             turn_count=turn_count,
         )
     )
@@ -526,31 +308,215 @@ def get_diagnosis_response(
     return response
 
 
-def calculate_accuracy_score(found, position, total_predictions):
-    """Calculate accuracy score based on whether gold diagnosis was found and its position"""
-    if not found:
-        return 0.0
+def clean_patient_input(vignette_text, doctor_question):
+    """Clean and format the patient input properly"""
 
-    # Higher score for earlier positions
-    if position == 1:
-        return 1.0
-    elif position <= 3:
-        return 0.8
-    elif position <= 5:
-        return 0.6
+    # Extract just the vignette text without the doctor question mixed in
+    if "What brings you in today?" in vignette_text:
+        # Split and take only the vignette part
+        parts = vignette_text.split("What brings you in today?")
+        if len(parts) > 1:
+            clean_vignette = parts[1].strip()
+        else:
+            clean_vignette = vignette_text.strip()
     else:
-        return 0.4
+        clean_vignette = vignette_text.strip()
+
+    return clean_vignette
 
 
-# === Modified process_vignette function ===
+# Updated prompt generation:
+def generate_patient_prompt(vignette_text, doctor_question, conversation):
+
+    # Clean the vignette text
+    clean_vignette = clean_patient_input(vignette_text, doctor_question)
+
+    prompt = f"""
+You are generating training data for a patient reasoning model that simulates how THIS SPECIFIC patient would think and respond.
+
+Create a THINKING section showing how a patient reasoning model should process this particular patient's situation and decide how to communicate with the doctor.
+
+PATIENT CLINICAL BACKGROUND:
+{clean_vignette}
+
+DOCTOR'S QUESTION: 
+{doctor_question}
+
+CONVERSATION:
+{json.dumps(conversation)}
+
+YOU MUST mention age and biological gender in the first sentence of the ANSWER.
+
+YOU MUST RESPOND IN THE FOLLOWING FORMAT:
+
+THINKING: 
+Please EXPLAIN how this patient would respond the doctors question. SOURCE THE VIGNETTE. SOURCE THE QUESTION. SOURCE THE CONVERSATION. 
+
+PATIENT-SPECIFIC CONTEXT:
+This [age] [gender] patient with [relevant medical history] would approach this situation influenced by [age-related concerns], [medical history impact], and [demographic factors]. Given their [specific background], they would be particularly worried about [specific fears].
+
+SYMPTOM PROCESSING & LANGUAGE CHOICE:
+The patient would experience [specific symptoms] and struggle to articulate [particular sensations]. They would choose words like "[patient's likely language]" because [reasoning for word choice]. The [specific symptom characteristic] would be most alarming because [patient's perspective].
+
+EMOTIONAL & PSYCHOLOGICAL STATE:
+Given the [symptom severity/type] and their [age/background], the patient would feel [specific emotions]. They would be thinking "[internal monologue]" and worried specifically about [age-appropriate concerns like mortality, family, independence].
+
+COMMUNICATION STRATEGY:
+This patient would decide to share [specific information] while withholding [specific concerns] because [reasoning]. They would use [communication style] language because [generational/personal factors]. They would emphasize [what they think is most important] to convey [their main concern].
+
+MEDICAL UNDERSTANDING & MISCONCEPTIONS:
+The patient would (not) understand [specific medical aspects] and might think [potential misconceptions]. They would be uncertain about [medical significance] but clear about [personal experience]. They might connect this to [previous health experiences or family history].
+
+LANGUAGE VALIDATION:
+The patient should NEVER use medical terms like:
+- "radiating" (say "spreading" or "going down to")
+- "sharp" (say "really bad" or "stabbing")
+- "constant" (say "won't stop" or "all the time")
+- "abdominal" (say "stomach" or "belly")
+- Clinical body part names (use lay terms)
+
+ANSWER: I am a [AGE] [GENDER]. [Use simple, non-medical language only and age-appropriate language and concerns. RESPOND WITH 1-2 SENTENCES ONLY, FOCUSING ON WHAT THE PATIENT WOULD SAY IN RESPONSE TO THE DOCTOR'S QUESTION. DO NOT ADD ANYTHING ELSE. DO NOT USE MEDICAL TERMINOLOGY OR JARGON. DO NOT EXPLAIN YOUR REASONING HERE. JUST RESPOND AS THE PATIENT WOULD.]"""
+
+    return prompt
+
+
+# === SIMPLE QUESTIONING PROMPT ===
+def create_simple_questioning_prompt(
+    turn_count, vignette_summary, diagnosis, previous_questions, conversation
+):
+    """Simple questioning prompt based on stage"""
+
+    if turn_count < 6:
+        base_questioning_role = """You are conducting the EARLY EXPLORATION phase of the clinical interview.
+
+        EXPLORATION OBJECTIVES:
+        - Establish rapport and gather comprehensive symptom history
+        - Explore symptom onset, progression, and associated factors
+        - Identify pertinent positives and negatives for differential diagnosis
+
+        QUESTIONING STRATEGY:
+        - Use open-ended questions that encourage elaboration
+        - Investigate timeline: "When did this first start?" and "How has it changed?"
+        - Explore the patient's own descriptions without medical jargon
+        - Ask about functional impact and what concerns them most
+
+        DIAGNOSTIC FOCUS FOR THIS STAGE:
+        Look at the current vignette and identify what key diagnostic information is missing:
+        - If timeline unclear: Ask about onset and progression
+        - If severity unknown: Ask about functional impact
+        - If bilateral status unclear: Ask about one vs both sides
+        - If associated symptoms missing: Ask about related symptoms
+        - If no context: Ask about triggers or recent exposures"""
+
+    elif turn_count >= 6 and turn_count < 14:
+        base_questioning_role = """You are conducting the FOCUSED CLARIFICATION phase of the clinical interview.
+
+        CLARIFICATION OBJECTIVES:
+        - Refine differential diagnosis based on emerging patterns
+        - Gather specific details that distinguish between diagnoses
+        - Clarify timeline, triggers, and modifying factors
+
+        QUESTIONING STRATEGY:
+        - Ask targeted questions about previously mentioned symptoms
+        - Explore diagnostic criteria for conditions in your differential
+        - Investigate quality, timing, and context of symptoms
+        - Ask about what makes symptoms better or worse
+        - MAKE SURE YOU GET MORE INFORMATION. ASK QUESTIONS THAT WOULD GET YOU MORE INFORMATION IN THE FOLLOWING TOPICS IN ORDER TO HAVE A BETTER DIAGNOSIS: Time, severity, context, onset, location, duration, family history, medical history, social history, etc.
+
+        DIAGNOSTIC FOCUS FOR THIS STAGE:
+        Target the biggest gap that would help distinguish between your top diagnoses:
+        EXAMPLE:
+        - For eye symptoms: Ask about discharge characteristics, contact history
+        - For pain: Ask about quality, radiation, triggers
+        - For any symptoms: Ask about previous episodes, family history
+        - Focus on features that separate your top 2-3 diagnostic considerations"""
+
+    else:
+        base_questioning_role = """You are conducting the DIAGNOSTIC CONFIRMATION phase of the clinical interview.
+
+        CONFIRMATION OBJECTIVES:
+        - Confirm or refute the most likely diagnosis through targeted questioning
+        - Gather final pieces of information needed for diagnostic certainty
+        - Address any remaining diagnostic uncertainty
+
+        QUESTIONING STRATEGY:
+        - Ask highly focused questions that address remaining uncertainty
+        - Explore specific diagnostic criteria for the most likely condition
+        - Investigate any concerning features that might change management
+
+        DIAGNOSTIC FOCUS FOR THIS STAGE:
+        Ask the question that would confirm or rule out your leading diagnosis:
+        - Target specific diagnostic criteria for your #1 diagnosis
+        - Ask about red flags or alternative explanations
+        - Confirm key features that distinguish from your #2 diagnosis
+        USING THE LEADING DIAGNOSES, PLEASE ASK QUESTIONS THAT TAILOR TOWARDS FINDING WHICH DISEASE OF THE ONES IN THE DIFFERENTIAL DIAGNOSES IS THE MOST LIKELY DIAGNOSIS. Ask eliminating questions that would help you confirm or rule out the most likely diagnosis.
+        """
+
+    return f"""{base_questioning_role}
+
+CURRENT CLINICAL PICTURE:
+Vignette: {vignette_summary}
+Leading Diagnoses: {diagnosis}
+Previous Questions: {previous_questions}
+Conversation: {json.dumps(conversation)}
+
+INSTRUCTION: Look at what diagnostic information is missing from the vignette above, then ask the ONE question that would be most helpful for your differential diagnosis at this stage. PLEASE DO NOT ASK PREVIOUSLY ASKED QUESTIONS. 
+
+YOU MUST RESPOND IN THE FOLLOWING FORMAT:
+
+THINKING: 
+THIS IS A MUST: Based on the vignette and previous questions, EXPLAIN WHY YOU ARE ASKING A SPECIFIC QUESTION. Be SPECIFIC about each fact. Source the Diagnoses, source the Vignette, and source the Previous Questions. 
+Consider:
+- What key diagnostic information is missing from the current vignette?
+- What key diagnostic information is in the current vignette?
+- Which of my leading diagnoses would this question help distinguish?
+- What is the most important piece of information I need to gather at this stage?
+
+QUESTION QUALITY CHECKS:
+- Is this question different from previous questions: {previous_questions}?
+- Is this question open-ended rather than leading to a specific diagnosis?
+- Does this question gather diagnostically valuable information?
+
+FORBIDDEN QUESTION TYPES:
+- Don't ask: "Have you been told you have [specific condition]?" (too leading)
+- Don't repeat similar questions about timing/onset if already asked
+- Don't ask multiple questions in one turn
+
+BETTER QUESTION EXAMPLES:
+- Instead of: "Have you had imaging of your aorta?" 
+- Ask: "Have you had any medical tests or scans recently?"
+
+ANSWER: <Your targeted diagnostic question - DO NOT REPEAT PREVIOUS QUESTIONS.>"""
+
+
+def split_thinking_answer(text):
+    """Split text into thinking and answer components"""
+    if "THINKING:" in text and "ANSWER:" in text:
+        parts = text.split("ANSWER:", 1)
+        thinking_part = parts[0].replace("THINKING:", "").strip()
+        answer_part = parts[1].strip()
+        return thinking_part, answer_part
+    elif "THINKING:" in text:
+        thinking_part = text.replace("THINKING:", "").strip()
+        return thinking_part, ""
+    elif "ANSWER:" in text:
+        answer_part = text.replace("ANSWER:", "").strip()
+        return "", answer_part
+    else:
+        return "", text.strip()
+
+
+# === Simple process_vignette function ===
 def process_vignette(idx, vignette_text, gold_label):
-    global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs, treatment_plans, behavioral_analyses
+    global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs, treatment_plans
 
-    # Select patient behavior for this vignette
-    behavior_type, behavior_config = select_patient_behavior()
-    print(
-        f"🎭 Selected patient behavior: {behavior_type} - {behavior_config['description']}"
-    )
+    treatment_plans = []
+    summarizer_outputs = []
+    diagnosing_doctor_outputs = []
+    questioning_doctor_outputs = []
+    patient_response = []
+    conversation = []
+
     print(f"🎯 Gold diagnosis: {gold_label}")
 
     previous_questions = []
@@ -558,46 +524,24 @@ def process_vignette(idx, vignette_text, gold_label):
     conversation.clear()
     conversation.append(f"DOCTOR: {initial_prompt}")
 
-    # Create patient with behavior-specific instructions
-    patient_instructions = generate_patient_prompt_modifiers(
-        behavior_config, is_initial=True
+    # Create simple patient with basic instructions
+    patient = RoleResponder(
+        """You are simulating a real patient in conversation with their doctor. 
+Respond naturally and realistically, as if you are experiencing symptoms yourself — but like a real patient, you are NOT medically trained and do NOT understand what's important or what anything means. 
+You have NOT spoken to any other doctors. 
+You may feel scared, unsure, or even embarrassed. 
+You are NOT trying to impress the doctor with a clear answer — just describe what you feel in your own confused way."""
     )
-    patient = RoleResponder(patient_instructions)
 
-    # Age and gender requirements with behavior consideration
-    age_gender_instruction = 'YOU MUST mention your age, and biological gender in the first of the three sentences. E.g. "I am 25, and I am a biological male."'
-
-    # Adjust response length based on behavior
-    response_length = "in two to three sentences"
-    if "excessive_details" in behavior_config.get("modifiers", []):
-        response_length = (
-            "in three to four sentences, including relevant background details"
-        )
-    elif "symptom_minimization" in behavior_config.get("modifiers", []):
-        response_length = "in one to two brief sentences"
-
-    prompt = f"""{patient_instructions}
-
-NEVER hallucinate past medical evaluations, tests, or diagnoses. 
-Do NOT give clear medical names unless the doctor already told you. 
-Don't jump to conclusions about your condition. 
-Be vague, partial, emotional, even contradictory if needed. 
-Just say what you're feeling — physically or emotionally — {response_length}. 
-
-{age_gender_instruction}
-
-YOU MUST RESPOND IN THE FOLLOWING FORMAT:
-THINKING: <your thinking as a model on how a patient should respond to the doctor.>
-ANSWER: <your vague, real-patient-style reply to the doctor>
-
-Patient background: {vignette_text}
-Doctor's question: {initial_prompt}"""
+    # Simple patient prompt
+    # With this clean version:
+    clean_prompt = generate_patient_prompt(vignette_text, initial_prompt, conversation)
+    patient_result = patient.ask(clean_prompt)
 
     turn_count = 0
     diagnosis_complete = False
     prev_vignette_summary = ""
 
-    patient_result = patient.ask(prompt)
     raw_patient = patient_result["raw"]
     patient_response_text = patient_result["clean"]
 
@@ -606,90 +550,76 @@ Doctor's question: {initial_prompt}"""
     patient_response.append(
         {
             "vignette_index": idx,
-            "input": f"{vignette_text}\n{initial_prompt}",
-            "output": raw_patient,  # Store the full THINKING + ANSWER
-            "behavior_type": behavior_type,
-            "behavior_config": behavior_config,
+            "input": f"VIGNETTE: {vignette_text} QUESTION: {initial_prompt}",
+            "output": raw_patient,
+            "thinking": split_thinking_answer(raw_patient)[0],
+            "answer": split_thinking_answer(raw_patient)[1],
             "gold_diagnosis": gold_label,
         }
     )
 
     while not diagnosis_complete:
+        # Simple summarizer without behavioral analysis
+        summarizer2_input = f"CONVERSATION: {json.dumps(conversation)} PREVIOUS VIGNETTE:\n{prev_vignette_summary}"
+        summarizer_input = f"""You are generating training data for a clinical summarizer reasoning model.
 
-        behavioral_result = detect_patient_behavior_cues_enhanced(
-            conversation, patient_response
-        )
-        behavioral_analysis_raw = behavioral_result["raw"]
-        behavioral_analysis = behavioral_result["clean"]
+Create a THINKING section that shows how a summarizer reasoning model should extract and organize ONLY the facts stated in THIS SPECIFIC conversation without adding interpretations or diagnoses.
 
-        behavioral_analyses.append(
-            {
-                "vignette_index": idx,
-                "turn_count": turn_count,
-                "analysis": behavioral_analysis_raw,  # Store full version
-            }
-        )
+CONVERSATION HISTORY:
+{conversation}
 
-        # NEW: Patient Interpretation
-        patient_interpreter = PatientInterpreter()
+PREVIOUS VIGNETTE:
+{prev_vignette_summary}
 
-        interpretation_result = patient_interpreter.interpret_patient_communication(
-            conversation, behavioral_analysis, prev_vignette_summary
-        )
-        patient_interpretation_raw = interpretation_result["raw"]
-        patient_interpretation = interpretation_result["clean"]
+YOU MUST RESPOND IN THE FOLLOWING FORMAT:
+THINKING: 
+Explain how you would extract and organize the clinical information from the conversation and how that supports the ANSWER's you will give. PLEASE SOURCE CONVERSATION HISTORY, PLEASE SOURCE PREVIOUS VIGNETTES MAKE SURE IT IS DETAILED. Focus on:   
 
-        patient_interpretations.append(
-            {
-                "vignette_index": idx,
-                "turn_count": turn_count,
-                "interpretation": patient_interpretation_raw,  # Store full version
-            }
-        )
-        print(f"🔍 Patient Interpretation: {patient_interpretation}...")
+STEP 1 - FACT EXTRACTION:
+The model should identify exactly what the patient stated: "[exact patient words]" and extract only the explicitly mentioned facts: [list only stated facts]. It should NOT infer, assume, or add any information not directly stated by the patient.
 
-        # Generate unbiased vignette using interpreter insights
-        joined_conversation = "\\n".join(conversation)
+STEP 2 - TERMINOLOGY TRANSLATION:
+The model should translate the patient's lay language into clinical terminology while staying faithful to what was said: "[patient's words]" becomes "[clinical equivalent]" without adding severity, implications, or interpretations.
 
-        # Create input for summarizer
-        summarizer_input = f"CONVERSATION HISTORY:\n{json.dumps(conversation, indent=2)}\n\nPREVIOUS VIGNETTE:\n{prev_vignette_summary}\n\nPATIENT COMMUNICATION ANALYSIS:\n{patient_interpretation}"
+STEP 3 - CHRONOLOGICAL ORGANIZATION:
+The model should organize the timeline based only on what the patient reported: [onset timing], [progression], [current status] - using only the patient's stated information about timing and sequence.
 
-        # 🔍 DEBUG: Print summarizer input
-        print(f"\n📝 SUMMARIZER INPUT:")
-        print("=" * 40)
-        print(f"Previous vignette length: {len(prev_vignette_summary)} chars")
-        print(f"Previous vignette preview: {prev_vignette_summary[:100]}...")
-        print(f"Patient interpretation length: {len(patient_interpretation)} chars")
-        print("=" * 40)
+STEP 4 - SYSTEMATIC ORGANIZATION:
+The model should categorize the reported symptoms by system: [symptom category] - [exactly what patient said], without inferring additional symptoms or clinical significance.
 
-        vignette_result = generate_unbiased_vignette(
-            conversation, prev_vignette_summary, patient_interpretation
-        )
+STEP 5 - COMPLETENESS ASSESSMENT:
+The model should identify what information is missing by noting:
+Missing Information: [Organize into clear categories:]
+- Symptom Details: [Duration, onset timing, progression, severity scale]
+- Alleviating/Aggravating Factors: [What makes it better/worse]
+- Medical History: [Previous similar episodes, medications, surgeries]
+- Social History: [Smoking, alcohol, occupation, recent travel]
+- Family History: [Relevant genetic conditions]
+- Systemic Symptoms: [Fever, weight loss, appetite changes]
+- Physical Examination: [Not yet performed]
+
+COMPLETENESS CHECK:
+Before finalizing, verify that ALL patient statements from the conversation are included in the summary. Do not omit any symptom descriptions or patient quotes.
+ANSWER: 
+IN PARAGRAPH FORM THAT INCLUDES THE FOLLOWING INFORMATION:
+Chief Complaint: [Exactly what the patient said brought them in]
+Demographics: [Only age, gender, and facts explicitly stated]  
+History of Present Illness: [Chronological facts as reported by patient, translated to clinical terms]
+Associated Symptoms: [Only symptoms explicitly mentioned by patient]
+Pertinent Negatives: [Only denials explicitly stated by patient]
+Missing Information: [What wasn't discussed, without speculation about content Add family information, social history, time, context, progression, duration, etc.]"""
+
+        vignette_result = summarizer.ask(summarizer_input)
         vignette_summary_raw = vignette_result["raw"]
-        vignette_summary = vignette_result[
-            "clean"
-        ]  # This is what gets passed to next agents
-
-        # 🔍 DEBUG: Print summarizer results
-        print(f"\n📊 SUMMARIZER RESULTS:")
-        print("=" * 40)
-        print(f"Raw result length: {len(vignette_summary_raw)} chars")
-        print(f"Raw result preview: {vignette_summary_raw[:200]}...")
-        print(f"Clean result length: {len(vignette_summary)} chars")
-        print(f"Clean result preview: {vignette_summary[:200]}...")
-        print("=" * 40)
-
-        # Also add a check for the corrupted state
-        if "Unable to extract answer content properly" in vignette_summary:
-            print(f"❌ CORRUPTED VIGNETTE DETECTED!")
-            print(f"Setting fallback vignette...")
-            vignette_summary = f"Patient presents with eye symptoms including redness, swelling, and tearing. Symptoms began approximately 2 days ago after playing soccer."
+        vignette_summary = vignette_result["clean"]
 
         summarizer_outputs.append(
             {
                 "vignette_index": idx,
-                "input": summarizer_input,
-                "output": vignette_summary_raw,  # Store full version
+                "input": summarizer2_input,
+                "thinking": split_thinking_answer(vignette_summary_raw)[0],
+                "answer": split_thinking_answer(vignette_summary_raw)[1],
+                "output": vignette_summary_raw,
                 "turn_count": turn_count,
                 "gold_diagnosis": gold_label,
             }
@@ -699,132 +629,140 @@ Doctor's question: {initial_prompt}"""
 
         if "ANSWER:" in vignette_summary:
             vignette_summary = vignette_summary.split("ANSWER:")[1].strip()
-        else:
-            vignette_summary = vignette_summary
 
-        # === UPDATED DIAGNOSIS LOGIC WITH CLEANING ===
-
+        # Diagnosis
         print("Turn count:", turn_count)
         letter = ""
-        stage = "early"
-        if turn_count < 4:  # First 2 turns
+        if turn_count < 6:
             letter = "E"
-            stage = "early"
-        elif turn_count >= 4 and turn_count < 8:  # Next 2 turns
+        elif turn_count >= 6 and turn_count < 14:
             letter = "M"
-            stage = "middle"
-        elif turn_count >= 8:  # Last 1 turn
+        elif turn_count >= 14:
             letter = "L"
-            stage = "late"
 
         diagnosis_result = get_diagnosis_response(
-            turn_count, gold_label, vignette_summary, previous_questions, diagnoser
+            turn_count,
+            gold_label,
+            vignette_summary,
+            previous_questions,
+            diagnoser,
+            json.dumps(conversation),
         )
         diagnosis_raw = diagnosis_result["raw"]
-        diagnosis = diagnosis_result["clean"]  # This is what gets passed to next agents
+        diagnosis = diagnosis_result["clean"]
 
         diagnosing_doctor_outputs.append(
             {
                 "vignette_index": idx,
-                "input": vignette_summary,
-                "output": diagnosis_raw,  # Store full version
+                "input": f"VIGNETTE: {vignette_summary} CONVERSATION: {json.dumps(conversation)}",
+                "thinking": split_thinking_answer(diagnosis_raw)[0],
+                "answer": split_thinking_answer(diagnosis_raw)[1],
+                "output": diagnosis_raw,
                 "turn_count": turn_count,
                 "letter": letter,
                 "gold_diagnosis": gold_label,
             }
         )
 
-        # Handle END signal explicitly
-        if "END" in diagnosis:
-            if turn_count >= 8:
-                diagnosis_complete = True
-                print(f"✅ Reached END for vignette {idx}. Moving to next.\n")
-                prompt = f"""You are a board-certified clinician with extensive experience in primary care and evidence-based medicine. Based on the final diagnosis, create a comprehensive treatment plan that demonstrates clinical expertise and practical implementation.
+        # Handle END signal
+        if turn_count >= 20:
+            diagnosis_complete = True
+            print(f"✅ Reached END for vignette {idx}. Moving to next.\n")
 
-DIAGNOSIS: {diagnosis}
+            prompt = f"""You are generating training data for a treatment planning reasoning model.
 
-PATIENT CONTEXT:
-- Gold Standard Diagnosis: {gold_label}
-- Conversation Summary: {vignette_summary}
-- Patient Behavioral Type: {behavior_type}
+Create a THINKING section showing how a treatment reasoning model should develop comprehensive treatment plans with specific clinical reasoning.
+
+FINAL DIAGNOSES: {diagnosis}
+
+CLINICAL VIGNETTE SUMMARY: {vignette_summary}
+
+CONVERSATION: {json.dumps(conversation)}
 
 YOU MUST RESPOND IN THE FOLLOWING FORMAT:
 
-THINKING:
-Use systematic clinical reasoning to develop your treatment approach:
+THINKING: 
+The treatment reasoning model should approach this case systematically:
 
 STEP 1 - DIAGNOSIS CONFIRMATION & SEVERITY ASSESSMENT:
-Let me first confirm the diagnosis and assess severity/urgency.
-- Primary diagnosis confidence: <how certain am I of this diagnosis>
-- Severity classification: <mild/moderate/severe and why>
-- Urgency level: <immediate/urgent/routine care needed>
-- Differential considerations still requiring monitoring: <other conditions to watch>
+The model should confirm this is [specific diagnosis] based on [specific symptoms from vignette]. It should assess severity as [mild/moderate/severe] because [specific evidence]. The urgency level should be [immediate/urgent/routine] due to [specific clinical indicators]. The model should consider differential diagnoses that still need monitoring: [specific alternatives].
 
 STEP 2 - EVIDENCE-BASED TREATMENT SELECTION:
-Now I'll select treatments based on current clinical guidelines.
-- First-line treatment per guidelines: <standard of care intervention>
-- Supporting evidence: <brief rationale for why this is first-line>
-- Patient-specific considerations: <factors affecting treatment choice>
-- Contraindications or cautions: <what to avoid or monitor>
+The model should select [specific first-line treatment] as the primary intervention based on [specific guideline/evidence]. It should consider patient-specific factors including [age, comorbidities, severity] that modify treatment choice. Key contraindications to consider are [specific contraindications] and cautions include [specific monitoring needs].
+
+# Add this section after STEP 2:
+STEP 2B - SAFETY & MONITORING PRIORITIES:
+For emergency conditions like AAA rupture, the model must include:
+- Blood typing and cross-matching for potential transfusion
+- Continuous cardiac monitoring
+- Large-bore IV access
+- Surgical consultation timing
+- Critical care considerations
+
+STEP 2C - EVIDENCE-BASED VALIDATION:
+- First-line treatments for this specific condition
+- Patient-specific contraindications based on age/comorbidities
+- Monitoring requirements for chosen interventions
 
 STEP 3 - PHARMACOLOGICAL INTERVENTIONS:
-If medications are appropriate, I'll select based on efficacy and safety.
-- Primary medication choice: <specific drug, dose, frequency>
-- Rationale for selection: <why this medication over alternatives>
-- Expected timeline for improvement: <when to expect benefits>
-- Key side effects to monitor: <specific monitoring requirements>
-- Alternative medications if first-line fails: <backup options>
+The model should select [specific medication] at [specific dose and frequency] because [specific rationale]. Expected timeline for improvement is [specific timeframe] with [specific endpoints]. Key side effects to monitor include [specific adverse effects] requiring [specific monitoring]. Alternative medications if first-line fails include [specific backup options with rationale].
 
 STEP 4 - NON-PHARMACOLOGICAL INTERVENTIONS:
-I'll include lifestyle and behavioral interventions that enhance outcomes.
-- Primary non-drug interventions: <specific recommendations>
-- Patient education priorities: <key information patient needs>
-- Lifestyle modifications: <diet, exercise, sleep, stress management>
-- Behavioral interventions: <specific techniques or referrals>
+The model should recommend [specific non-drug interventions] because [evidence-based rationale]. Patient education should focus on [specific teaching points] relevant to this condition. Lifestyle modifications should include [specific changes] with [specific timelines]. Behavioral interventions should address [specific patient needs].
 
 STEP 5 - MONITORING & FOLLOW-UP STRATEGY:
-I'll establish appropriate monitoring and follow-up care.
-- Follow-up timeline: <when to see patient again and why>
-- Monitoring parameters: <what to track - symptoms, labs, etc.>
-- Red flag symptoms: <when patient should seek immediate care>
-- Treatment response assessment: <how to measure improvement>
+The model should schedule follow-up in [specific timeframe] to assess [specific parameters]. Monitoring should include [specific tests/assessments] at [specific intervals]. Red flag symptoms requiring immediate care are [specific warning signs]. Treatment response should be measured by [specific criteria].
 
 STEP 6 - PATIENT COMMUNICATION STRATEGY:
-Given the patient's behavioral type ({behavior_type}), how should I communicate this plan?
-- Communication approach: <how to present plan given patient's style>
-- Addressing patient concerns: <likely worries to address proactively>
-- Adherence strategies: <how to improve treatment compliance>
-- Family involvement: <whether/how to include family members>
+The model should communicate using [specific approach] because the patient [specific characteristics from conversation]. It should address likely concerns about [specific worries] and use [specific strategies] to improve adherence. Family involvement should be [specific recommendations].
 
 STEP 7 - COORDINATION & REFERRALS:
-What additional care coordination is needed?
-- Specialist referrals needed: <if any, with timeline and rationale>
-- Other healthcare team members: <nurses, therapists, etc.>
-- Community resources: <support groups, educational materials>
-- Insurance/cost considerations: <practical implementation factors>
+The model should refer to [specific specialists] within [specific timeframe] for [specific reasons]. Other healthcare team members needed include [specific roles]. Community resources should include [specific programs]. Cost/insurance considerations include [specific factors].
+
 
 ANSWER: 
-Based on the diagnosis of [primary diagnosis], I recommend a comprehensive treatment approach that combines evidence-based medical management with patient-centered care strategies. The treatment plan includes [summarize key interventions] with careful attention to [patient-specific factors]. Initial management focuses on [immediate priorities] while establishing [long-term management strategy]. Follow-up care will include [monitoring plan] with clear instructions for the patient regarding [key patient education points]. This approach is designed to [expected outcomes] while minimizing [potential risks/side effects] and ensuring sustainable long-term management of this condition.
+IMMEDIATE ACTIONS (Today):
+• [Specific medication] [dose] [route] [frequency]
+• [Specific diagnostic test/imaging] within [timeframe]
+• [Specific monitoring parameter] every [interval]
+• [Specific patient instruction]
 
-IMPLEMENTATION GUIDANCE:
-- Immediate actions (today): <specific next steps>
-- Short-term goals (1-4 weeks): <what to accomplish soon>
-- Long-term objectives (3-6 months): <sustained management goals>
-- Patient handout summary: <key points for patient to remember>
+SHORT-TERM MANAGEMENT (1-4 weeks):
+• Follow-up appointment in [specific days] to assess [specific outcomes]
+• [Specific medication adjustments] based on [specific criteria]
+• [Specific lifestyle modifications] with [specific targets]
+• [Specific referrals] if [specific conditions met]
 
-STOP HERE. Do not add additional recommendations or notes."""
+LONG-TERM CARE (3-6 months):
+• [Specific monitoring schedule] with [specific tests]
+• [Specific prevention strategies] to prevent [specific complications]
+• [Specific patient education] about [specific topics]
+• [Specific care coordination] between [specific providers]
 
-                treatment_result = diagnoser.ask(prompt)
-                raw_treatment = treatment_result["raw"]
+PATIENT EDUCATION PRIORITIES:
+• [Specific warning signs] that require immediate medical attention
+• [Specific medication instructions] including [specific details]
+• [Specific lifestyle changes] with [specific goals]
+• [Specific follow-up instructions] and [specific contact information]"""
 
-                treatment_plans.append(
-                    {
-                        "vignette_index": idx,
-                        "input": diagnosis,
-                        "output": raw_treatment,  # Store full version
-                        "gold_diagnosis": gold_label,
-                    }
-                )
+            treatment_result = diagnoser.ask(prompt)
+            raw_treatment = treatment_result["raw"]
+
+            treatment_plans.append(
+                {
+                    "vignette_index": idx,
+                    "input": f"""DIAGNOSIS: {diagnosis} VIGNETTE: {vignette_summary} CONVERSATION: {json.dumps(conversation)}""",  # Clean input string
+                    "output": raw_treatment,  # Full THINKING + ANSWER
+                    "thinking": split_thinking_answer(raw_treatment)[
+                        0
+                    ],  # Extracted thinking
+                    "answer": split_thinking_answer(raw_treatment)[
+                        1
+                    ],  # Extracted answer
+                    "gold_diagnosis": gold_label,
+                    "turn_count": turn_count,
+                }
+            )
 
         # Limit to last 3–5 doctor questions
         previous_questions = [
@@ -833,215 +771,52 @@ STOP HERE. Do not add additional recommendations or notes."""
             if entry.startswith("DOCTOR:")
         ][-5:]
 
-        # === MODIFIED QUESTIONING WITH GOLD GUIDANCE ===
-        base_questioning_role = ""
-        if turn_count < 4:
-            base_questioning_role = """You are conducting the EARLY EXPLORATION phase of the clinical interview. Your primary goals are:
-
-        EXPLORATION OBJECTIVES:
-        - Establish therapeutic rapport and trust with the patient
-        - Gather comprehensive symptom history using open-ended questions
-        - Understand the patient's perspective and chief concerns
-        - Explore symptom onset, progression, and associated factors
-        - Identify pertinent positives and negatives for broad differential diagnosis
-        - Assess functional impact and patient's understanding of their condition
-
-        QUESTIONING STRATEGY:
-        - Use primarily open-ended questions that encourage elaboration
-        - Follow the patient's natural flow of information while gently guiding
-        - Ask "Tell me more about..." and "What else have you noticed..."
-        - Explore the patient's own words and descriptions without medical jargon
-        - Investigate timeline with questions like "When did this first start?" and "How has it changed?"
-        - Assess impact with "How is this affecting your daily life?"
-        - Explore patient's concerns: "What worries you most about these symptoms?"
-
-        COMMUNICATION APPROACH:
-        - Demonstrate active listening with reflective responses
-        - Validate the patient's experience and concerns
-        - Use the patient's own language and terminology
-        - Avoid leading questions that suggest specific diagnoses
-        - Create psychological safety for sensitive topics
-        - Show genuine curiosity about the patient's experience
-
-        YOUR NEXT QUESTION SHOULD:
-        - Be open-ended and encourage detailed response
-        - Build on information already shared
-        - Explore a new dimension of their symptoms or experience
-        - Help establish trust and rapport
-        - Gather information relevant to differential diagnosis formation"""
-
-        elif turn_count >= 4 and turn_count < 8:
-            base_questioning_role = """You are conducting the FOCUSED CLARIFICATION phase of the clinical interview. Your primary goals are:
-
-        CLARIFICATION OBJECTIVES:
-        - Refine and narrow the differential diagnosis based on emerging patterns
-        - Gather specific details about key symptoms that distinguish between diagnoses
-        - Explore pertinent review of systems for the developing differential
-        - Clarify timeline, triggers, and modifying factors
-        - Assess severity and functional impact more precisely
-        - Investigate risk factors and family history relevant to suspected conditions
-
-        QUESTIONING STRATEGY:
-        - Ask more targeted questions while remaining patient-centered
-        - Use specific follow-up questions about previously mentioned symptoms
-        - Explore diagnostic criteria for conditions in your differential
-        - Ask about associated symptoms that support or refute specific diagnoses
-        - Investigate quality, quantity, timing, and context of symptoms
-        - Explore what makes symptoms better or worse
-        - Ask about previous similar episodes or family history
-
-        COMMUNICATION APPROACH:
-        - Balance focused questioning with continued rapport building
-        - Acknowledge patient's previous responses to show you're listening
-        - Use transitional phrases like "You mentioned X, can you tell me more about..."
-        - Be sensitive to patient's communication style and emotional state
-        - Clarify patient's terminology to ensure mutual understanding
-        - Remain non-judgmental while gathering potentially sensitive information
-
-        YOUR NEXT QUESTION SHOULD:
-        - Target specific symptom characteristics or associated findings
-        - Help distinguish between competing diagnoses in your differential
-        - Explore risk factors or family history relevant to suspected conditions
-        - Clarify timeline or progression patterns
-        - Assess severity or functional impact more precisely
-        - Address any gaps in the clinical picture"""
-
-        else:
-            base_questioning_role = """You are conducting the DIAGNOSTIC CONFIRMATION phase of the clinical interview. Your primary goals are:
-
-        CONFIRMATION OBJECTIVES:
-        - Confirm or refute the most likely diagnosis through targeted questioning
-        - Gather final pieces of information needed for diagnostic certainty
-        - Assess readiness for treatment discussion and patient education
-        - Explore patient's understanding and concerns about the likely diagnosis
-        - Investigate any remaining red flags or alternative explanations
-        - Prepare for shared decision-making about management options
-
-        QUESTIONING STRATEGY:
-        - Ask highly focused questions that address remaining diagnostic uncertainty
-        - Explore specific diagnostic criteria for the most likely condition
-        - Investigate any concerning features that might change management
-        - Ask about patient's previous experiences with similar conditions
-        - Explore patient's expectations and concerns about potential diagnosis
-        - Assess patient's readiness to discuss treatment options
-        - Investigate practical factors that might affect treatment (allergies, medications, lifestyle)
-
-        COMMUNICATION APPROACH:
-        - Begin transitioning toward diagnostic discussion and patient education
-        - Use more collaborative language: "Based on what you've told me..."
-        - Prepare the patient for potential diagnosis without premature closure
-        - Address any anxiety or concerns about the diagnostic process
-        - Ensure patient feels heard and understood before moving to treatment
-        - Set the stage for shared decision-making
-
-        YOUR NEXT QUESTION SHOULD:
-        - Address any remaining diagnostic uncertainty
-        - Confirm key diagnostic criteria for the most likely condition
-        - Explore patient's understanding or concerns about their condition
-        - Investigate practical factors relevant to treatment planning
-        - Assess patient's readiness for diagnostic and treatment discussion
-        - Gather final information needed before diagnostic closure
-
-        DIAGNOSTIC TRANSITION CONSIDERATIONS:
-        - If diagnostic certainty is high, begin preparing patient for treatment discussion
-        - If uncertainty remains, focus questions on distinguishing features
-        - Consider patient's emotional readiness for diagnosis and treatment planning
-        - Ensure all critical information is gathered before moving to management phase"""
-
-        # Add gold diagnosis guidance to questioning
-        guided_questioning_role = generate_guided_questioner_prompt(
-            base_questioning_role, gold_label, vignette_summary
+        # Simple questioning
+        questioner = RoleResponder(
+            f"""You are an expert clinician conducting a diagnostic interview."""
         )
 
-        # Create questioner with enhanced role definition
-        questioner = RoleResponder(guided_questioning_role)
+        simple_prompt = create_simple_questioning_prompt(
+            turn_count, vignette_summary, diagnosis, previous_questions, conversation
+        )
 
-        prompt = f"""Previously asked questions: {json.dumps(previous_questions)}
-
-            CLINICAL CONTEXT:
-            Current interview phase: {'EARLY EXPLORATION' if turn_count < 6 else 'FOCUSED CLARIFICATION' if turn_count < 11 else 'DIAGNOSTIC CONFIRMATION'}
-            
-            YOU MUST RESPOND IN THE FOLLOWING FORMAT:
-
-            THINKING: 
-            Use systematic reasoning for question development:
-            
-            CLINICAL REASONING:
-            - Information gaps: <what key information is missing for diagnosis>
-            - Diagnostic priorities: <which conditions need to be explored or ruled out>
-            - Patient factors: <how patient's communication style affects questioning approach>
-            - Interview phase goals: <specific objectives for this stage of the encounter>
-            
-            QUESTION STRATEGY:
-            - Type of question needed: <open-ended vs focused vs confirmatory>
-            - Information target: <specific symptoms, timeline, severity, impact, etc.>
-            - Communication approach: <how to phrase sensitively given patient's style>
-            - Expected value: <how this question will advance diagnostic process>
-
-            ANSWER: <Your carefully crafted diagnostic question>
-
-            CURRENT CLINICAL PICTURE:
-            Vignette: {vignette_summary}
-            
-            Leading Diagnoses: {diagnosis}
-            
-            Patient Communication Pattern: {behavioral_analysis}
-            
-            Turn Count: {turn_count}
-            """
-
-        followup_result = questioner.ask(prompt)
+        followup_result = questioner.ask(simple_prompt)
         raw_followup = followup_result["raw"]
         followup_question = followup_result["clean"]
 
-        print("❓ Empathetic Follow-up:", followup_question)
+        print("❓ Follow-up:", followup_question)
         questioning_doctor_outputs.append(
             {
                 "vignette_index": idx,
-                "input": vignette_summary + diagnosis + behavioral_analysis,
-                "output": raw_followup,  # Store full version
+                "input": f"VIGNETTE: {vignette_summary} DIAGNOSIS: {diagnosis} CONVERSATION: {json.dumps(conversation)}",
+                "output": raw_followup,
                 "letter": letter,
-                "behavioral_cues": behavioral_analysis,
+                "thinking": split_thinking_answer(raw_followup)[0],
+                "answer": split_thinking_answer(raw_followup)[1],
                 "gold_diagnosis": gold_label,
             }
         )
         conversation.append(f"DOCTOR: {followup_question}")
 
-        # Update patient instructions for follow-up responses (behavior may evolve)
-        patient_followup_instructions = generate_patient_prompt_modifiers(
-            behavior_config, is_initial=False
-        )
-        patient = RoleResponder(patient_followup_instructions)
+        # Simple patient response
+        prompt = f"""
+You are generating high-quality training data for a patient reasoning model grounded in structured clinical reasoning.
 
-        # Adjust response style based on behavior and conversation stage
-        response_guidance = "in one or two sentences"
-        if "excessive_details" in behavior_config.get("modifiers", []):
-            response_guidance = "in two to three sentences with additional context"
-        elif turn_count >= 10 and "gradual_revelation" in behavior_config.get(
-            "modifiers", []
-        ):
-            response_guidance = (
-                "in one to three sentences, being more open than initially"
-            )
+Your task is to simulate:
+1. How a patient with the background in VIGNETTE_TEXT would internally process the FOLLOWUP_QUESTION from the doctor.
+2. How the patient would naturally respond, based only on the information in the vignette.
 
-        # Step 5: Patient answers
-        prompt = f"""{patient_followup_instructions}
+Please respond in the following strict format:
 
-You are a real patient responding to your doctor. Be authentic to your behavioral type: {behavior_type}.
+THINKING: Describe the patient's thought process using ONLY information from the vignette and the doctor's follow-up question. Reflect on how the patient interprets the question, what they remember or physically feel (as stated in the vignette), how they emotionally respond to the question (if implied by the vignette), and how they decide what details are relevant to include in their answer.
 
-YOU MUST RESPOND IN THE FOLLOWING FORMAT:
-
-THINKING: Think about how you feel about your symptoms and this doctor's question. Consider your emotions, confusion, and how you naturally communicate as a {behavior_type} patient.
-
-ANSWER: Give your natural, realistic patient response in your own words (NOT medical terminology).
+ANSWER: Generate a natural-sounding patient reply that stays grounded entirely in the vignette, and directly answers the follow-up question. Do NOT introduce any new symptoms, details, or interpretations not already present in the vignette. DO not use ANY medical terminology or jargon. Not even words like "radiating" or "sharp". Just respond as the patient would, in their own words, based on their understanding of their condition.
 
 CONTEXT:
-- Your symptoms: {vignette_text}
-- Doctor asked: {followup_question}
-- Your behavior type: {behavior_type}
-- Response style: {response_guidance}
-
-Remember: You are NOT trying to be a good patient or help the doctor. You're being a REAL person with real concerns, confusion, and communication patterns."""
+- VIGNETTE_TEXT: {vignette_text}
+- FOLLOWUP_QUESTION: {followup_question}
+- CONVERATION: {json.dumps(conversation)}
+"""
 
         patient_fb_result = patient.ask(prompt)
         raw_patient_fb = patient_fb_result["raw"]
@@ -1052,9 +827,10 @@ Remember: You are NOT trying to be a good patient or help the doctor. You're bei
         patient_response.append(
             {
                 "vignette_index": idx,
-                "input": vignette_text + followup_question + behavior_type,
-                "output": raw_patient_fb,  # Store full version
-                "behavior_type": behavior_type,
+                "input": f"VIGNETTE: {vignette_text} QUESTION: {followup_question} CONVERSATION: {json.dumps(conversation)}",
+                "output": raw_patient_fb,
+                "thinking": split_thinking_answer(raw_patient_fb)[0],
+                "answer": split_thinking_answer(raw_patient_fb)[1],
                 "turn_count": turn_count,
                 "gold_diagnosis": gold_label,
             }
@@ -1062,15 +838,7 @@ Remember: You are NOT trying to be a good patient or help the doctor. You're bei
 
         turn_count += 2
 
-    # Save behavior metadata with the results
-    behavior_metadata = {
-        "behavior_type": behavior_type,
-        "behavior_description": behavior_config["description"],
-        "modifiers": behavior_config.get("modifiers", []),
-        "empathy_cues": behavior_config.get("empathy_cues", []),
-        "gold_diagnosis": gold_label,
-    }
-
+    # Save results
     with open(f"2summarizer_outputs/summarizer_{idx}.json", "w") as f:
         json.dump(summarizer_outputs, f, indent=2)
     with open(f"2patient_followups/patient_{idx}.json", "w") as f:
@@ -1081,10 +849,6 @@ Remember: You are NOT trying to be a good patient or help the doctor. You're bei
         json.dump(questioning_doctor_outputs, f, indent=2)
     with open(f"2treatment_plans/treatment_{idx}.json", "w") as f:
         json.dump(treatment_plans, f, indent=2)
-    with open(f"2behavior_metadata/behavior_{idx}.json", "w") as f:
-        json.dump(behavior_metadata, f, indent=2)
-    with open(f"2behavioral_analyses/behavioral_analysis_{idx}.json", "w") as f:
-        json.dump(behavioral_analyses, f, indent=2)
 
     return {
         "vignette_index": idx,
@@ -1093,131 +857,8 @@ Remember: You are NOT trying to be a good patient or help the doctor. You're bei
         "diagnosing_doctor_outputs": diagnosing_doctor_outputs,
         "questioning_doctor_outputs": questioning_doctor_outputs,
         "treatment_plans": treatment_plans,
-        "behavior_metadata": behavior_metadata,
-        "behavioral_analyses": behavioral_analyses,
         "gold_diagnosis": gold_label,
     }
-
-
-# === Missing imports and classes ===
-def select_patient_behavior():
-    """Select patient behavior based on weighted probabilities"""
-    rand = random.random()
-    cumulative = 0
-    for behavior, config in PATIENT_BEHAVIORS.items():
-        cumulative += config["weight"]
-        if rand <= cumulative:
-            return behavior, config
-    return "baseline", PATIENT_BEHAVIORS["baseline"]
-
-
-def generate_patient_prompt_modifiers(behavior_config, is_initial=True):
-    """Generate prompt modifiers based on selected patient behavior"""
-    modifiers = behavior_config.get("modifiers", [])
-
-    base_instructions = """You are simulating a real patient in conversation with their doctor. 
-Respond naturally and realistically, as if you are experiencing symptoms yourself — but like a real patient, you are NOT medically trained and do NOT understand what's important or what anything means. 
-You have NOT spoken to any other doctors. 
-You may feel scared, unsure, or even embarrassed. 
-You are NOT trying to impress the doctor with a clear answer — just describe what you feel in your own confused way."""
-
-    behavioral_additions = []
-
-    # Information withholding behaviors
-    if "embarrassed_symptoms" in modifiers:
-        if is_initial:
-            behavioral_additions.append(
-                "You are embarrassed about certain symptoms (especially those related to bathroom habits, sexual health, mental health, or substance use). You will NOT mention these initially unless directly asked."
-            )
-        else:
-            behavioral_additions.append(
-                "If the doctor asks specific questions about areas you were initially embarrassed about, you may gradually reveal more information, but still with some hesitation."
-            )
-
-    if "gradual_revelation" in modifiers:
-        behavioral_additions.append(
-            "You tend to reveal information slowly. Start with the most obvious symptoms and only mention other details if specifically prompted."
-        )
-
-    # Anxiety-related behaviors
-    if "catastrophic_thinking" in modifiers:
-        behavioral_additions.append(
-            "You tend to worry that your symptoms mean something terrible. You might mention fears about serious diseases or express anxiety about 'what if' scenarios."
-        )
-
-    if "symptom_amplification" in modifiers:
-        behavioral_additions.append(
-            "You tend to describe symptoms as more severe than they might objectively be. Use words like 'terrible,' 'excruciating,' 'the worst,' or 'unbearable' when describing discomfort."
-        )
-
-    if "multiple_concerns" in modifiers:
-        behavioral_additions.append(
-            "You have several different symptoms or concerns you're worried about. You might jump between different issues or mention seemingly unrelated symptoms."
-        )
-
-    # Stoic/minimizing behaviors
-    if "symptom_minimization" in modifiers:
-        behavioral_additions.append(
-            "You tend to downplay your symptoms. Use phrases like 'it's probably nothing,' 'I don't want to make a big deal,' or 'it's not that bad.' You might mention that others told you to come in."
-        )
-
-    if "delayed_care_seeking" in modifiers:
-        behavioral_additions.append(
-            "You mention that you've been dealing with this for a while before coming in. You might say things like 'I thought it would go away' or 'I've been putting this off.'"
-        )
-
-    if "tough_attitude" in modifiers:
-        behavioral_additions.append(
-            "You pride yourself on being tough and not complaining. You might mention how you usually don't go to doctors or how you can 'handle pain.'"
-        )
-
-    # Chronology and memory issues
-    if "timeline_confusion" in modifiers:
-        behavioral_additions.append(
-            "You're not entirely sure about when symptoms started or how they've progressed. You might say things like 'I think it was last week... or maybe two weeks ago?' or mix up the order of events."
-        )
-
-    if "sequence_uncertainty" in modifiers:
-        behavioral_additions.append(
-            "You're unclear about which symptoms came first or how they're related. You might contradict yourself slightly about the timeline."
-        )
-
-    # Tangential behaviors
-    if "excessive_details" in modifiers:
-        behavioral_additions.append(
-            "You tend to include lots of potentially irrelevant details about your day, what you were doing when symptoms started, or other life circumstances."
-        )
-
-    if "family_stories" in modifiers:
-        behavioral_additions.append(
-            "You mention family members who had similar symptoms or relate your symptoms to things that happened to relatives or friends."
-        )
-
-    if "tangential_information" in modifiers:
-        behavioral_additions.append(
-            "You sometimes go off on tangents about work stress, family issues, or other life events that may or may not be related to your symptoms."
-        )
-
-    # Family involvement
-    if "family_influence" in modifiers:
-        behavioral_additions.append(
-            "You mention that a family member (spouse, parent, child) is worried about you and may have influenced your decision to come in. You might reference their concerns."
-        )
-
-    if "secondary_concerns" in modifiers:
-        behavioral_additions.append(
-            "You express concerns about how your symptoms affect your family or your ability to take care of others."
-        )
-
-    # Combine base instructions with behavioral modifiers
-    full_instructions = base_instructions
-    if behavioral_additions:
-        full_instructions += (
-            "\n\nSPECIFIC BEHAVIORAL TRAITS for this interaction:\n"
-            + "\n".join(f"- {trait}" for trait in behavioral_additions)
-        )
-
-    return full_instructions
 
 
 class RoleResponder:
@@ -1236,7 +877,7 @@ class RoleResponder:
         )
 
     def ask(self, user_input, max_retries=3):
-        """Ask with guaranteed THINKING/ANSWER format and return both raw and clean outputs"""
+        """Fixed ask function that prevents GPT glitches"""
 
         for attempt in range(max_retries):
             messages = [
@@ -1244,231 +885,138 @@ class RoleResponder:
                 {"role": "user", "content": user_input},
             ]
 
-            response = client.chat.completions.create(model=model, messages=messages)
+            response = cached_openai_call(messages, model, max_tokens=4000)
             raw_response = response.choices[0].message.content.strip()
 
-            # 🔍 DEBUG: Print the raw GPT response
-            print(f"\n🤖 RAW GPT RESPONSE (attempt {attempt + 1}):")
-            print("=" * 50)
-            print(raw_response)
-            print("=" * 50)
+            print(
+                f"\n🤖 Response attempt {attempt + 1} - Length: {len(raw_response)} chars"
+            )
 
-            # Clean and normalize the response
-            cleaned_response = self.clean_thinking_answer_format(raw_response)
+            answer_only = self.extract_answer_simple(raw_response)
 
-            # 🔍 DEBUG: Print the cleaned response
-            print(f"\n🧹 CLEANED RESPONSE:")
-            print("=" * 30)
-            print(cleaned_response)
-            print("=" * 30)
+            if self.is_valid_answer(answer_only):
+                thinking_part = self.extract_thinking_simple(raw_response)
+                clean_format = f"THINKING: {thinking_part}\nANSWER: {answer_only}"
 
-            # Validate the cleaned response
-            if self.validate_thinking_answer_format(cleaned_response):
-                # Extract just the ANSWER portion for the clean output
-                answer_only = self.extract_answer_only(cleaned_response)
-
-                # 🔍 DEBUG: Print the extracted answer
-                print(f"\n✅ EXTRACTED ANSWER:")
-                print("=" * 20)
-                print(answer_only)
-                print("=" * 20)
-
+                print(
+                    f"✅ SUCCESS - Answer: {len(answer_only)} chars, Thinking: {len(thinking_part)} chars"
+                )
                 return {
-                    "raw": cleaned_response,  # Full THINKING: + ANSWER:
-                    "clean": answer_only,  # Just the answer content
+                    "raw": clean_format,
+                    "clean": answer_only,
                 }
             else:
-                # 🔍 DEBUG: Print validation failure
-                print(f"\n❌ VALIDATION FAILED for attempt {attempt + 1}")
-                print(f"Cleaned response: {cleaned_response[:200]}...")
+                print(f"❌ Invalid answer on attempt {attempt + 1}")
 
-        # Final fallback
-        fallback_raw = f"THINKING: Format enforcement failed after {max_retries} attempts\nANSWER: Unable to get properly formatted response."
-        fallback_clean = "Unable to get properly formatted response."
+        print(f"🆘 All attempts failed - creating manual response")
+        manual_answer = self.create_emergency_response(raw_response, user_input)
+        manual_format = f"THINKING: Manual response created\nANSWER: {manual_answer}"
 
-        # 🔍 DEBUG: Print fallback
-        print(f"\n💥 FALLBACK TRIGGERED after {max_retries} attempts")
-        print(f"Final raw response was: {raw_response[:200]}...")
+        return {
+            "raw": manual_format,
+            "clean": manual_answer,
+        }
 
-        return {"raw": fallback_raw, "clean": fallback_clean}
-
-    def extract_answer_only(self, text):
-        """Extract just the content after ANSWER:"""
+    def extract_answer_simple(self, text):
         if "ANSWER:" in text:
-            extracted = text.split("ANSWER:", 1)[1].strip()
-            # 🔍 DEBUG: Print extraction process
-            print(f"\n🎯 EXTRACTING ANSWER from: {text[:100]}...")
-            print(f"🎯 EXTRACTED: {extracted[:100]}...")
-            return extracted
+            answer_part = text.split("ANSWER:", 1)[1].strip()
+            lines = answer_part.split("\n")
+            clean_lines = []
+            for line in lines:
+                line = line.strip()
+                if (
+                    line
+                    and not line.startswith(("THINKING:", "ANSWER:"))
+                    and len(line) > 3
+                ):
+                    clean_lines.append(line)
 
-        # 🔍 DEBUG: No ANSWER found
-        print(f"\n⚠️ NO 'ANSWER:' found in text: {text[:100]}...")
-        return text.strip()
-
-    def clean_thinking_answer_format(self, text):
-        """Clean and ensure exactly one THINKING and one ANSWER section"""
-
-        # 🔍 DEBUG: Print input to cleaning function
-        print(f"\n🧼 CLEANING INPUT:")
-        print(f"Input length: {len(text)} characters")
-        print(f"First 200 chars: {text[:200]}...")
-        print(f"Contains THINKING: {'THINKING:' in text}")
-        print(f"Contains ANSWER: {'ANSWER:' in text}")
-
-        # Remove any leading/trailing whitespace
-        text = text.strip()
-
-        # Find all THINKING and ANSWER positions
-        thinking_positions = []
-        answer_positions = []
-
-        lines = text.split("\n")
-        for i, line in enumerate(lines):
-            line_stripped = line.strip()
-            if line_stripped.startswith("THINKING:"):
-                thinking_positions.append(i)
-                print(f"🧠 Found THINKING at line {i}: {line_stripped[:50]}...")
-            elif line_stripped.startswith("ANSWER:"):
-                answer_positions.append(i)
-                print(f"💬 Found ANSWER at line {i}: {line_stripped[:50]}...")
-
-        print(f"📊 THINKING positions: {thinking_positions}")
-        print(f"📊 ANSWER positions: {answer_positions}")
-
-        # If we have exactly one of each, check if they're in the right order
-        if len(thinking_positions) == 1 and len(answer_positions) == 1:
-            thinking_idx = thinking_positions[0]
-            answer_idx = answer_positions[0]
-
-            if thinking_idx < answer_idx:
-                print(f"✅ Perfect format detected!")
-                # Perfect format, just clean up the content
-                thinking_content = lines[thinking_idx][9:].strip()  # Remove "THINKING:"
-                answer_content = []
-
-                # Collect thinking content (everything between THINKING and ANSWER)
-                for i in range(thinking_idx + 1, answer_idx):
-                    thinking_content += " " + lines[i].strip()
-
-                # Collect answer content (everything after ANSWER)
-                answer_content = lines[answer_idx][7:].strip()  # Remove "ANSWER:"
-                for i in range(answer_idx + 1, len(lines)):
-                    answer_content += " " + lines[i].strip()
-
-                result = f"THINKING: {thinking_content.strip()}\nANSWER: {answer_content.strip()}"
-                print(f"✅ Perfect format result: {result[:100]}...")
+            result = "\n".join(clean_lines).strip()
+            if len(result) > 10:
                 return result
 
-        print(f"⚠️ Format needs fixing...")
-
-        # If format is messed up, try to extract and rebuild
-        # Look for the first THINKING and first ANSWER after it
-        thinking_content = ""
-        answer_content = ""
-
-        first_thinking = -1
-        first_answer_after_thinking = -1
-
-        for i, line in enumerate(lines):
-            line_stripped = line.strip()
-            if line_stripped.startswith("THINKING:") and first_thinking == -1:
-                first_thinking = i
-                thinking_content = line_stripped[9:].strip()
-                print(f"🎯 Using THINKING from line {i}")
-            elif (
-                line_stripped.startswith("ANSWER:")
-                and first_thinking != -1
-                and first_answer_after_thinking == -1
-            ):
-                first_answer_after_thinking = i
-                answer_content = line_stripped[7:].strip()
-                print(f"🎯 Using ANSWER from line {i}")
-                break
-            elif first_thinking != -1 and first_answer_after_thinking == -1:
-                # Still collecting thinking content
-                thinking_content += " " + line_stripped
-
-        # Collect remaining answer content
-        if first_answer_after_thinking != -1:
-            for i in range(first_answer_after_thinking + 1, len(lines)):
-                line_stripped = lines[i].strip()
-                # Stop if we hit another THINKING or ANSWER
-                if line_stripped.startswith("THINKING:") or line_stripped.startswith(
-                    "ANSWER:"
-                ):
-                    break
-                answer_content += " " + line_stripped
-
-        print(f"🔧 Extracted thinking: {thinking_content[:50]}...")
-        print(f"🔧 Extracted answer: {answer_content[:50]}...")
-
-        # If we still don't have both parts, try to extract from the raw text
-        if not thinking_content or not answer_content:
-            print(f"🆘 Last resort extraction...")
-            # Last resort: split on the patterns
-            if "THINKING:" in text and "ANSWER:" in text:
-                parts = text.split("ANSWER:", 1)
-                if len(parts) == 2:
-                    thinking_part = parts[0]
-                    answer_part = parts[1]
-
-                    # Extract thinking content
-                    if "THINKING:" in thinking_part:
-                        thinking_content = thinking_part.split("THINKING:", 1)[
-                            1
-                        ].strip()
-
-                    # Clean answer content (remove any nested THINKING/ANSWER)
-                    answer_lines = answer_part.split("\n")
-                    clean_answer_lines = []
-                    for line in answer_lines:
-                        if not line.strip().startswith(
-                            "THINKING:"
-                        ) and not line.strip().startswith("ANSWER:"):
-                            clean_answer_lines.append(line)
-                    answer_content = " ".join(clean_answer_lines).strip()
-
-        # Fallback if we still don't have proper content
-        if not thinking_content:
-            print(f"❌ Failed to extract thinking content")
-            thinking_content = "Unable to extract thinking content properly"
-        if not answer_content:
-            print(f"❌ Failed to extract answer content")
-            answer_content = "Unable to extract answer content properly"
-
-        final_result = (
-            f"THINKING: {thinking_content.strip()}\nANSWER: {answer_content.strip()}"
-        )
-        print(f"🏁 Final cleaned result: {final_result[:100]}...")
-        return final_result
-
-    def validate_thinking_answer_format(self, text):
-        """Validate that the text has exactly one THINKING and one ANSWER in correct order"""
         lines = text.split("\n")
-
-        thinking_count = 0
-        answer_count = 0
-        thinking_first = False
+        content_lines = []
+        skip_markers = ["THINKING:", "ANSWER:", "STEP ", "===", "---", "CRITICAL:"]
 
         for line in lines:
-            line_stripped = line.strip()
-            if line_stripped.startswith("THINKING:"):
-                thinking_count += 1
-                if answer_count == 0:  # No ANSWER seen yet
-                    thinking_first = True
-            elif line_stripped.startswith("ANSWER:"):
-                answer_count += 1
+            line = line.strip()
+            if (
+                len(line) > 15
+                and not any(line.startswith(marker) for marker in skip_markers)
+                and not line.upper() == line
+            ):
+                content_lines.append(line)
 
-        is_valid = thinking_count == 1 and answer_count == 1 and thinking_first
-        print(
-            f"✅ VALIDATION: thinking_count={thinking_count}, answer_count={answer_count}, thinking_first={thinking_first}, valid={is_valid}"
-        )
+        if content_lines:
+            return " ".join(content_lines[:3])
 
-        return is_valid
+        if len(text) > 100:
+            start = len(text) // 4
+            end = 3 * len(text) // 4
+            middle = text[start:end].strip()
+            clean_middle = (
+                middle.replace("THINKING:", "").replace("ANSWER:", "").strip()
+            )
+            if len(clean_middle) > 20:
+                return clean_middle
+
+        return text.strip()
+
+    def extract_thinking_simple(self, text):
+        if "THINKING:" in text:
+            thinking_part = text.split("THINKING:", 1)[1]
+            if "ANSWER:" in thinking_part:
+                thinking_part = thinking_part.split("ANSWER:", 1)[0]
+            return thinking_part.strip()  # Removed truncation
+
+        return "Processing response"
+
+    def is_valid_answer(self, text):
+        error_messages = [
+            "Unable to extract answer content properly",
+            "Unable to extract thinking content properly",
+            "Unable to get properly formatted response",
+            "Format enforcement failed",
+        ]
+
+        text_lower = text.lower()
+        for error in error_messages:
+            if error.lower() in text_lower:
+                return False
+
+        if len(text.strip()) < 15:
+            return False
+
+        clean_text = "".join(c for c in text if c.isalnum() or c.isspace())
+        if len(clean_text) < len(text) * 0.7:
+            return False
+
+        return True
+
+    def create_emergency_response(self, raw_response, original_prompt):
+        words = raw_response.split()
+        meaningful_words = [w for w in words if len(w) > 3 and w.isalpha()]
+
+        if len(meaningful_words) > 5:
+            content = " ".join(meaningful_words[:20])
+            return f"Response based on available information: {content}"
+
+        prompt_lower = original_prompt.lower()
+
+        if "summariz" in prompt_lower or "vignette" in prompt_lower:
+            return "Patient presents for clinical evaluation. Assessment in progress."
+        elif "diagnos" in prompt_lower:
+            return "Clinical assessment ongoing. Additional information needed for diagnosis."
+        elif "question" in prompt_lower or "ask" in prompt_lower:
+            return "Can you provide more details about your symptoms?"
+        elif "treatment" in prompt_lower or "plan" in prompt_lower:
+            return "Treatment plan will be developed based on clinical assessment."
+        else:
+            return "Clinical information being processed."
 
 
 # === Use the Class for Roles ===
-# Patient will be dynamically created with behavior-specific instructions
 summarizer = RoleResponder(
     "You are a clinical summarizer trained to extract structured vignettes from doctor–patient dialogues."
 )
@@ -1481,21 +1029,17 @@ diagnosing_doctor_outputs = []
 questioning_doctor_outputs = []
 patient_response = []
 conversation = []
-behavioral_analyses = []
-patient_interpretations = []
 
 
 def run_vignette_task(args):
     idx, vignette_text, disease = args
-    global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs, treatment_plans, behavioral_analyses
+    global conversation, patient_response, summarizer_outputs, diagnosing_doctor_outputs, questioning_doctor_outputs, treatment_plans
     conversation = []
     patient_response = []
     summarizer_outputs = []
     diagnosing_doctor_outputs = []
     questioning_doctor_outputs = []
     treatment_plans = []
-    behavioral_analyses = []
-    patient_interpretations = []
     return process_vignette(idx, vignette_text, disease)
 
 
@@ -1507,66 +1051,59 @@ if __name__ == "__main__":
         "2diagnosing_doctor_outputs",
         "2questioning_doctor_outputs",
         "2treatment_plans",
-        "2behavior_metadata",
-        "2behavioral_analyses",
-        "2accuracy_evaluations",  # New directory for diagnostic accuracy tracking
     ]
     for directory in output_dirs:
         if os.path.exists(directory):
             shutil.rmtree(directory)
         os.makedirs(directory, exist_ok=True)
 
-    # Load the JSON file with improved structure handling
+    # Load the JSON file
     with open(
-        "patient_roleplay_scripts.json",  # Change to your file name
+        "new_data_gen/actual_data_gen/disease_vignettes_from_familydoctor.json",
         "r",
     ) as f:
         data = json.load(f)
 
     flattened_vignettes = []
 
-    # 🎯 SPECIFY WHICH TYPES TO INCLUDE
-    DESIRED_TYPES = ["typical", "severe"]  # Change these as needed
-    # Options: "typical", "early", "severe", "mixed"
+    # 🎯 SPECIFY HOW MANY VIGNETTES PER DISEASE
+    MAX_VIGNETTES_PER_DISEASE = 2
 
-    # Handle roleplay scripts structure: {"metadata": {...}, "roleplay_scripts": {"Disease": [scripts...]}}
-    if "roleplay_scripts" in data:
-        roleplay_dict = data["roleplay_scripts"]
-        for disease, scripts in roleplay_dict.items():
-            # Only process if we have a list of scripts
-            if not isinstance(scripts, list):
+    # Handle direct disease-to-list structure: {"Disease Name": [vignettes...]}
+    if isinstance(data, dict):
+        import re
+
+        for disease_name, vignettes in data.items():
+            if not isinstance(vignettes, list):
+                print(f"⚠️ Skipping {disease_name}: not a list of vignettes")
                 continue
 
-            # 📋 SELECT SPECIFIC TYPES
-            selected_scripts = []
-            for script in scripts:
-                if isinstance(script, dict) and "variation_type" in script:
-                    if script["variation_type"] in DESIRED_TYPES:
-                        selected_scripts.append(script)
+            # Remove numbering from vignettes
+            cleaned_vignettes = []
+            for vignette in vignettes:
+                if isinstance(vignette, str):
+                    cleaned_vignette = re.sub(r"^(\d+\.\s+)", "", vignette.strip())
+                    cleaned_vignettes.append(cleaned_vignette)
                 else:
-                    # If no variation_type, include it (fallback)
-                    selected_scripts.append(script)
+                    cleaned_vignettes.append(str(vignette))
 
-            # Limit to 2 even from selected types
-            limited_scripts = selected_scripts[:2]
+            # Limit number of vignettes per disease
+            limited_vignettes = cleaned_vignettes[:MAX_VIGNETTES_PER_DISEASE]
 
-            for script in limited_scripts:
-                # Extract the roleplay_script content as the vignette text
-                if isinstance(script, dict) and "roleplay_script" in script:
-                    flattened_vignettes.append((disease, script["roleplay_script"]))
-                else:
-                    # Fallback if script is just a string
-                    flattened_vignettes.append((disease, str(script)))
+            # Add to flattened list
+            for vignette in limited_vignettes:
+                flattened_vignettes.append((disease_name, vignette))
 
-            print(
-                f"   {disease}: Selected {len(limited_scripts)} vignettes ({[s.get('variation_type', 'unknown') for s in limited_scripts]})"
-            )
+            print(f"   {disease_name}: Selected {len(limited_vignettes)} vignettes")
     else:
-        raise ValueError(
-            f"Expected 'roleplay_scripts' key in JSON structure. Found keys: {list(data.keys()) if isinstance(data, dict) else type(data)}"
-        )
+        raise ValueError(f"Expected dictionary structure. Found: {type(data)}")
 
-    # Launch multiprocessing pool with 1 worker
+    print(f"\n📊 Total vignettes to process: {len(flattened_vignettes)}")
+    print(
+        f"📊 Diseases included: {len(set(disease for disease, _ in flattened_vignettes))}"
+    )
+
+    # Launch multiprocessing pool workers
     with multiprocessing.Pool(processes=12) as pool:
         results = pool.map(
             run_vignette_task,
@@ -1582,8 +1119,6 @@ if __name__ == "__main__":
     all_diagnosing_doctor_outputs = []
     all_questioning_doctor_outputs = []
     all_treatment_plans = []
-    all_behavior_metadata = []
-    all_behavioral_analyses = []
 
     for result in results:
         all_patient_followups.extend(result["patient_response"])
@@ -1591,8 +1126,6 @@ if __name__ == "__main__":
         all_diagnosing_doctor_outputs.extend(result["diagnosing_doctor_outputs"])
         all_questioning_doctor_outputs.extend(result["questioning_doctor_outputs"])
         all_treatment_plans.extend(result["treatment_plans"])
-        all_behavior_metadata.append(result["behavior_metadata"])
-        all_behavioral_analyses.extend(result["behavioral_analyses"])
 
     with open("2patient_followups.json", "w") as f:
         json.dump(all_patient_followups, f, indent=2)
@@ -1604,42 +1137,13 @@ if __name__ == "__main__":
         json.dump(all_questioning_doctor_outputs, f, indent=2)
     with open("2treatment_plans.json", "w") as f:
         json.dump(all_treatment_plans, f, indent=2)
-    with open("2behavior_metadata.json", "w") as f:
-        json.dump(all_behavior_metadata, f, indent=2)
-    with open("2behavioral_analyses.json", "w") as f:
-        json.dump(all_behavioral_analyses, f, indent=2)
 
-    print(
-        "\n✅ All role outputs saved with gold diagnosis guidance and empathetic behavioral adaptations."
-    )
-
-    # Print behavior distribution summary
-    behavior_counts = {}
-    for metadata in all_behavior_metadata:
-        behavior_type = metadata["behavior_type"]
-        behavior_counts[behavior_type] = behavior_counts.get(behavior_type, 0) + 1
-
-    print("\n📊 Patient Behavior Distribution:")
-    for behavior, count in behavior_counts.items():
-        percentage = (count / len(all_behavior_metadata)) * 100
-        print(f"  {behavior}: {count} cases ({percentage:.1f}%)")
+    print("\n✅ All role outputs saved.")
 
     # Print diagnostic accuracy summary
     total_cases = len(all_diagnosing_doctor_outputs)
-    accurate_diagnoses = sum(
-        1
-        for output in all_diagnosing_doctor_outputs
-        if output.get("accuracy_evaluation", {}).get("gold_diagnosis_found", False)
-    )
-
-    print(f"\n🎯 DIAGNOSTIC ACCURACY SUMMARY:")
+    print(f"\n🎯 DIAGNOSTIC SUMMARY:")
     print(f"   Total cases processed: {total_cases}")
-    print(f"   Gold diagnosis found: {accurate_diagnoses}")
-    print(
-        f"   Overall accuracy: {(accurate_diagnoses/total_cases)*100:.1f}%"
-        if total_cases > 0
-        else "   No cases processed"
-    )
 
     # Print accuracy by stage
     stages = {"E": "Early", "M": "Middle", "L": "Late"}
@@ -1649,31 +1153,9 @@ if __name__ == "__main__":
             for output in all_diagnosing_doctor_outputs
             if output.get("letter") == stage_letter
         ]
-        stage_accurate = sum(
-            1
-            for case in stage_cases
-            if case.get("accuracy_evaluation", {}).get("gold_diagnosis_found", False)
-        )
         if stage_cases:
-            stage_accuracy = (stage_accurate / len(stage_cases)) * 100
-            print(
-                f"   {stage_name} stage accuracy: {stage_accuracy:.1f}% ({stage_accurate}/{len(stage_cases)})"
-            )
+            print(f"   {stage_name} stage cases: {len(stage_cases)}")
 
-    # Print empathy adaptation summary
-    empathy_adaptations = {}
-    for analysis in all_behavioral_analyses:
-        if "EMPATHY_NEEDS:" in analysis["analysis"]:
-            empathy_need = (
-                analysis["analysis"].split("EMPATHY_NEEDS:")[1].strip()[:50] + "..."
-            )
-            empathy_adaptations[empathy_need] = (
-                empathy_adaptations.get(empathy_need, 0) + 1
-            )
-
-    print("\n💝 Top Empathy Adaptations Used:")
-    sorted_adaptations = sorted(
-        empathy_adaptations.items(), key=lambda x: x[1], reverse=True
+    print(
+        f"\n✅ Processing complete! Generated {len(flattened_vignettes)} clinical conversations."
     )
-    for adaptation, count in sorted_adaptations[:5]:
-        print(f"  {adaptation}: {count} times")

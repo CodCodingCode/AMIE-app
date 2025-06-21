@@ -1,0 +1,158 @@
+{
+  "patient": [],
+  "summarizer": [
+    {
+      "problem": "Added information not stated by patient",
+      "evidence": "The answer in turn 2 states that symptoms began \"a few hours ago\" and have been ongoing since onset, which is not explicitly mentioned by the patient.",
+      "code_fix": "Remove or rephrase to only include patient-stated information, e.g., \"The patient states he experienced symptoms starting recently.\"",
+      "priority": "High",
+      "component": "summarizer"
+    },
+    {
+      "problem": "Missing key patient statements",
+      "evidence": "The summaries do not include details about the patient's prior episodes or systemic symptoms, which are relevant for diagnosis.",
+      "code_fix": "Ensure the summary captures all key patient statements, including any mention of prior episodes or systemic symptoms if provided.",
+      "priority": "High",
+      "component": "summarizer"
+    },
+    {
+      "problem": "Incorrect medical terminology translations",
+      "evidence": "The summaries correctly use \"Abdominal Aortic Aneurysm (AAA),\" so no issue here.",
+      "code_fix": "N/A",
+      "priority": "Low",
+      "component": "summarizer"
+    },
+    {
+      "problem": "Poor organization or missing sections",
+      "evidence": "The summaries lack a clear section on past medical history and medication use, which are important components.",
+      "code_fix": "Add sections for past medical history and medication use if available, or explicitly state their absence.",
+      "priority": "Medium",
+      "component": "summarizer"
+    },
+    {
+      "problem": "Subjective interpretations instead of objective facts",
+      "evidence": "The summaries include subjective phrases like \"really sharp\" and \"constant,\" which are direct patient statements, so this is acceptable.",
+      "code_fix": "Ensure all subjective descriptions are clearly attributed to the patient and not interpreted as objective facts.",
+      "priority": "Low",
+      "component": "summarizer"
+    }
+  ],
+  "diagnoser": [
+    {
+      "problem": "Inconsistent prioritization of diagnoses across stages, with AAA consistently ranked as the top diagnosis despite differential reasoning.",
+      "evidence": "Multiple answers prioritize AAA as the primary diagnosis, but some reasoning does not sufficiently differentiate it from other vascular emergencies like dissection.",
+      "code_fix": "Ensure that differential reasoning explicitly compares the likelihood of AAA versus dissection and other emergencies at each stage, with clear reasoning for prioritization.",
+      "priority": "High",
+      "component": "diagnoser"
+    },
+    {
+      "problem": "Stage-inappropriate reasoning complexity, especially in early stages, with overly detailed differential lists that are more suitable for later stages.",
+      "evidence": "Early stage answers list extensive differential diagnoses with detailed justifications, which may be too complex for initial reasoning.",
+      "code_fix": "Simplify differential diagnoses at early stages to focus on the most critical and likely conditions, reserving detailed differentials for later stages.",
+      "priority": "Medium",
+      "component": "diagnoser"
+    },
+    {
+      "problem": "Missing critical 'can't miss' diagnoses such as ruptured AAA and dissection in initial reasoning stages.",
+      "evidence": "All answers correctly identify AAA as the gold diagnosis, but some do not emphasize the urgency of dissection or rupture early enough.",
+      "code_fix": "Highlight the importance of ruling out AAA rupture and dissection early in the reasoning process, with explicit mention of their life-threatening nature.",
+      "priority": "Critical",
+      "component": "diagnoser"
+    },
+    {
+      "problem": "Weak evidence utilization, with some justifications lacking specific clinical features or failing to connect symptoms to diagnoses.",
+      "evidence": "Justifications often mention symptoms broadly without linking them to specific diagnostic criteria or risk factors.",
+      "code_fix": "Strengthen justifications by explicitly connecting clinical features like pain radiation, hypotension, and risk factors to the diagnoses.",
+      "priority": "High",
+      "component": "diagnoser"
+    },
+    {
+      "problem": "Gold diagnosis is consistently AAA, but the reasoning does not always sufficiently consider alternative diagnoses like dissection or other vascular emergencies.",
+      "evidence": "While AAA is identified as the gold diagnosis, some reasoning downplays the importance of dissection or other emergencies.",
+      "code_fix": "Ensure that differential reasoning appropriately weighs the likelihood of dissection versus AAA, especially in the context of overlapping symptoms.",
+      "priority": "High",
+      "component": "diagnoser"
+    }
+  ],
+  "questioner": [
+    {
+      "problem": "Questions at the 'E' stage do not sufficiently explore the duration and progression of symptoms, which are critical for diagnosis.",
+      "evidence": "When exactly did these symptoms first begin, and how have they changed or progressed since then?",
+      "code_fix": "Add questions that explicitly ask about the duration, progression, and any changes in symptoms over time.",
+      "priority": "High",
+      "component": "questioner"
+    },
+    {
+      "problem": "Stage 'E' questions focus on symptom onset and variability but lack depth in exploring associated factors and prior episodes.",
+      "evidence": "Has the pain been constant since it first started, or have you noticed it coming and going? And have anything made it better or worse?",
+      "code_fix": "Include follow-up questions about factors influencing pain, prior similar episodes, and associated systemic symptoms.",
+      "priority": "High",
+      "component": "questioner"
+    },
+    {
+      "problem": "Stage 'M' questions do not sufficiently gather comprehensive medical history related to vascular risk factors, which are essential for AAA diagnosis.",
+      "evidence": "Have you experienced similar episodes in the past, or is this the first time you've had these symptoms?",
+      "code_fix": "Incorporate questions about past vascular events, family history of aneurysms, and previous imaging studies.",
+      "priority": "High",
+      "component": "questioner"
+    },
+    {
+      "problem": "Stage 'M' questions about medical history are incomplete, missing key vascular risk factors and recent trauma or exertion.",
+      "evidence": "Do you have any history of regular high blood pressure, known aneurysms, or recent trauma or strenuous activity before these symptoms started?",
+      "code_fix": "Expand questions to include medication use, recent physical activities, and detailed vascular history.",
+      "priority": "High",
+      "component": "questioner"
+    },
+    {
+      "problem": "Stage 'L' questions about previous episodes and sudden onset are somewhat redundant and could be combined for efficiency.",
+      "evidence": "Have you noticed any previous episodes of similar pain or symptoms, even if they were milder, or did this pain come on suddenly without warning?",
+      "code_fix": "Combine with other questions about onset and prior episodes to streamline the questioning process.",
+      "priority": "Medium",
+      "component": "questioner"
+    },
+    {
+      "problem": "Stage 'L' questions about prior imaging and known aneurysms are relevant but lack specificity and depth.",
+      "evidence": "Have you ever been told you have an abdominal aneurysm or had any recent imaging of your aorta or abdominal vessels?",
+      "code_fix": "Add questions about the timing of imaging, findings, and any previous vascular diagnoses.",
+      "priority": "High",
+      "component": "questioner"
+    }
+  ],
+  "treatment": [
+    {
+      "problem": "The treatment plan for vignette 0 includes lifestyle modifications and secondary prevention strategies that are more appropriate for long-term management rather than immediate or short-term emergency care.",
+      "evidence": "Lifestyle modifications including smoking cessation, blood pressure management, and avoiding strenuous activity until cleared.",
+      "code_fix": "Focus immediate and short-term treatments on stabilization, surgical intervention, and acute management. Defer lifestyle modifications and secondary prevention to long-term care planning.",
+      "priority": "High",
+      "component": "treatment"
+    },
+    {
+      "problem": "Vignette 1's plan suggests initiating blood pressure control with a beta-blocker and obtaining imaging within 24 hours, but does not specify urgent surgical consultation or intervention for suspected impending rupture.",
+      "evidence": "Initiate blood pressure control with beta-blocker (e.g., metoprolol) at an appropriate dose... Obtain abdominal ultrasound or CT angiography within 24 hours to measure aneurysm size and assess for impending rupture.",
+      "code_fix": "Include urgent surgical consultation and prepare for possible emergent repair if signs of impending rupture are present.",
+      "priority": "High",
+      "component": "treatment"
+    },
+    {
+      "problem": "Vignette 2 recommends oral tranexamic acid for menstrual bleeding without clear evidence or consideration of contraindications, and suggests starting combined oral contraceptives without assessing contraindications.",
+      "evidence": "Initiate oral tranexamic acid 1300 mg TID during menses, to reduce bleeding volume and help stabilize the menstrual blood loss.",
+      "code_fix": "Evaluate contraindications before initiating tranexamic acid; consider alternative therapies if contraindicated. Ensure that combined oral contraceptives are appropriate for the patient\u2019s health status.",
+      "priority": "High",
+      "component": "treatment"
+    },
+    {
+      "problem": "All vignettes lack explicit safety monitoring plans during immediate and short-term management, such as specific vital sign thresholds or adverse effect monitoring.",
+      "evidence": "Monitor vital signs, especially blood pressure and heart rate, every 4 hours during initial assessment.",
+      "code_fix": "Add specific safety monitoring parameters, including thresholds for intervention and adverse effect surveillance.",
+      "priority": "Medium",
+      "component": "treatment"
+    },
+    {
+      "problem": "The plans are somewhat generic and do not tailor recommendations based on individual patient context, such as comorbidities, allergies, or specific risk factors.",
+      "evidence": "General instructions on lifestyle modifications and follow-up without patient-specific considerations.",
+      "code_fix": "Incorporate patient-specific factors into treatment planning, including comorbidities, allergies, and social determinants.",
+      "priority": "Low",
+      "component": "treatment"
+    }
+  ]
+}

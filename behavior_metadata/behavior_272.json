@@ -1,0 +1,16 @@
+{
+  "behavior_type": "anxious_amplifier",
+  "behavior_description": "Patient with health anxiety who amplifies symptoms",
+  "modifiers": [
+    "catastrophic_thinking",
+    "symptom_amplification",
+    "multiple_concerns"
+  ],
+  "empathy_cues": [
+    "high_anxiety",
+    "catastrophic_language",
+    "reassurance_seeking",
+    "fear_expression"
+  ],
+  "gold_diagnosis": "Other specified primary open-angle glaucoma"
+}

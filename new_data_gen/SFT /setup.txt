@@ -3,7 +3,7 @@
 #    • CUDA 12.8 + cuDNN (confirmed)
 
 # 2) Create & activate a Python venv
-cd ~/project
+cd ~/train
 python3 -m venv llama3-ft
 source llama3-ft/bin/activate
 pip install --upgrade pip setuptools wheel
