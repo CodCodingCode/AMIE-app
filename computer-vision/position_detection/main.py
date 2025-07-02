@@ -40,7 +40,6 @@ def draw_results(frame, detections, min_box_height=400, max_box_height=800):
                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,0), 2)
 
     return frame
-
 # Initialize camera
 cap = cv2.VideoCapture(0)
 
