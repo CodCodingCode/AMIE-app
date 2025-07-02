@@ -7,25 +7,11 @@ import requests
 from PIL import Image, ImageTk
 import json
 from datetime import datetime
-
-# Try importing the appropriate camera library
-try:
-    # For newer Raspberry Pi OS with libcamera
-    from picamera2 import Picamera2
-    CAMERA_TYPE = "picamera2"
-    print("✅ Using picamera2")
-except ImportError:
-    try:
-        # For older Raspberry Pi OS
-        import picamera
-        CAMERA_TYPE = "picamera"
-        print("✅ Using picamera (legacy)")
-    except ImportError:
-        print("❌ No camera library found! Install picamera2 or picamera")
-        CAMERA_TYPE = None
+from picamera2 import Picamera2
+CAMERA_TYPE = "picamera2"
 
 # Server URL - UPDATE THIS TO YOUR GPU SERVER IP
-UNIFIED_SERVER = "http://YOUR_GPU_SERVER_IP:7860"
+UNIFIED_SERVER = "http://104.171.203.124:7860"
 
 class MedicalScannerApp:
     def __init__(self, root):
@@ -39,12 +25,14 @@ class MedicalScannerApp:
         self.session_id = None
         self.conversation_history = []
         self.camera = None
+        self.current_iteration = 0
         
         # Setup fonts
         self.title_font = font.Font(family="Arial", size=24, weight="bold")
         self.instruction_font = font.Font(family="Arial", size=18)
         self.button_font = font.Font(family="Arial", size=16, weight="bold")
         self.question_font = font.Font(family="Arial", size=16)
+        self.status_font = font.Font(family="Arial", size=14)
         
         self.setup_ui()
         self.initialize_camera()
@@ -69,12 +57,12 @@ class MedicalScannerApp:
         self.status_label = tk.Label(
             main_frame,
             text="Ready to scan",
-            font=self.instruction_font,
+            font=self.status_font,
             fg='#3498db',
             bg='#2c3e50',
             wraplength=600
         )
-        self.status_label.pack(pady=(0, 20))
+        self.status_label.pack(pady=(0, 10))
         
         # Main instruction/question display
         self.instruction_label = tk.Label(
@@ -88,6 +76,16 @@ class MedicalScannerApp:
         )
         self.instruction_label.pack(pady=(0, 30))
         
+        # Progress indicator
+        self.progress_label = tk.Label(
+            main_frame,
+            text="",
+            font=self.status_font,
+            fg='#f39c12',
+            bg='#2c3e50'
+        )
+        self.progress_label.pack(pady=(0, 20))
+        
         # Button frame
         button_frame = tk.Frame(main_frame, bg='#2c3e50')
         button_frame.pack(pady=20)
@@ -95,7 +93,7 @@ class MedicalScannerApp:
         # Start scan button
         self.start_button = tk.Button(
             button_frame,
-            text="Start Scan",
+            text="🔍 Start Scan",
             font=self.button_font,
             bg='#27ae60',
             fg='white',
@@ -107,7 +105,23 @@ class MedicalScannerApp:
         )
         self.start_button.pack(side=tk.LEFT, padx=10)
         
-        # Response input (for patient responses)
+        # Reset button
+        self.reset_button = tk.Button(
+            button_frame,
+            text="🔄 New Scan",
+            font=self.button_font,
+            bg='#f39c12',
+            fg='white',
+            activebackground='#f4d03f',
+            activeforeground='white',
+            padx=20,
+            pady=15,
+            command=self.reset_conversation,
+            state=tk.DISABLED
+        )
+        self.reset_button.pack(side=tk.LEFT, padx=10)
+        
+        # Response input frame (for patient responses)
         self.response_frame = tk.Frame(main_frame, bg='#2c3e50')
         self.response_frame.pack(pady=20, fill=tk.X)
         
@@ -119,16 +133,29 @@ class MedicalScannerApp:
             bg='#2c3e50'
         )
         
+        # Text input with scrollbar
+        text_frame = tk.Frame(self.response_frame, bg='#2c3e50')
+        
         self.response_entry = tk.Text(
-            self.response_frame,
-            height=3,
+            text_frame,
+            height=4,
             font=self.question_font,
-            wrap=tk.WORD
+            wrap=tk.WORD,
+            bg='#ecf0f1',
+            fg='#2c3e50',
+            insertbackground='#2c3e50'
         )
         
+        scrollbar = tk.Scrollbar(text_frame, orient="vertical", command=self.response_entry.yview)
+        self.response_entry.configure(yscrollcommand=scrollbar.set)
+        
+        self.response_entry.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        
+        # Submit button
         self.submit_button = tk.Button(
             self.response_frame,
-            text="Submit Response",
+            text="📤 Submit Response",
             font=self.button_font,
             bg='#3498db',
             fg='white',
@@ -142,10 +169,24 @@ class MedicalScannerApp:
         # Initially hide response widgets
         self.hide_response_input()
         
+        # Bottom frame for exit and info
+        bottom_frame = tk.Frame(main_frame, bg='#2c3e50')
+        bottom_frame.pack(side=tk.BOTTOM, fill=tk.X, pady=10)
+        
+        # Connection status
+        self.connection_label = tk.Label(
+            bottom_frame,
+            text="Checking server connection...",
+            font=self.status_font,
+            fg='#95a5a6',
+            bg='#2c3e50'
+        )
+        self.connection_label.pack(side=tk.LEFT)
+        
         # Exit button
         exit_button = tk.Button(
-            main_frame,
-            text="Exit",
+            bottom_frame,
+            text="❌ Exit",
             font=self.button_font,
             bg='#e74c3c',
             fg='white',
@@ -155,7 +196,10 @@ class MedicalScannerApp:
             pady=10,
             command=self.exit_app
         )
-        exit_button.pack(side=tk.BOTTOM, pady=10)
+        exit_button.pack(side=tk.RIGHT)
+        
+        # Check server connection on startup
+        threading.Thread(target=self.check_server_connection, daemon=True).start()
         
     def initialize_camera(self):
         """Initialize the camera based on available library"""
@@ -177,10 +221,30 @@ class MedicalScannerApp:
             else:
                 print("❌ No camera available")
                 self.camera = None
+                self.update_status("⚠️ No camera detected - Check camera connection")
                 
         except Exception as e:
             print(f"❌ Camera initialization failed: {e}")
             self.camera = None
+            self.update_status(f"⚠️ Camera error: {str(e)}")
+            
+    def check_server_connection(self):
+        """Check if server is reachable"""
+        try:
+            response = requests.get(f"{UNIFIED_SERVER}/", timeout=5)
+            if response.status_code == 200:
+                self.root.after(0, lambda: self.connection_label.config(
+                    text="🟢 Server connected", fg='#27ae60'
+                ))
+            else:
+                self.root.after(0, lambda: self.connection_label.config(
+                    text="🟡 Server responding with errors", fg='#f39c12'
+                ))
+        except Exception as e:
+            self.root.after(0, lambda: self.connection_label.config(
+                text="🔴 Server disconnected", fg='#e74c3c'
+            ))
+            print(f"❌ Cannot connect to server: {e}")
             
     def capture_image(self):
         """Capture image using appropriate camera library"""
@@ -218,10 +282,16 @@ class MedicalScannerApp:
         if self.scanning:
             return
             
+        if not self.camera:
+            messagebox.showerror("Error", "No camera available. Please check camera connection and restart.")
+            return
+            
         self.scanning = True
         self.start_button.config(state=tk.DISABLED)
-        self.update_status("Preparing camera...")
+        self.reset_button.config(state=tk.DISABLED)
+        self.update_status("🔄 Preparing camera...")
         self.update_instruction("Please position your skin condition in front of the camera")
+        self.update_progress("")
         
         # Start scanning in separate thread
         threading.Thread(target=self.scan_process, daemon=True).start()
@@ -231,52 +301,62 @@ class MedicalScannerApp:
         try:
             # Countdown
             for i in range(3, 0, -1):
-                self.update_status(f"Scanning in {i}...")
+                self.update_status(f"📸 Capturing in {i}...")
+                self.update_progress(f"{'●' * (4-i)}{'○' * (i-1)}")
                 time.sleep(1)
                 
-            self.update_status("Capturing image...")
+            self.update_status("📸 Capturing image...")
+            self.update_progress("●●●●")
             
             # Capture image
             image_stream = self.capture_image()
             
-            self.update_status("Analyzing image...")
+            self.update_status("🔍 Analyzing image with AI...")
+            self.update_progress("Processing...")
             
             # Send to unified server for analysis
             files = {'image': ('image.jpg', image_stream, 'image/jpeg')}
             response = requests.post(
                 f"{UNIFIED_SERVER}/analyze_frame",
                 files=files,
-                timeout=30
+                timeout=60  # Increased timeout for AI processing
             )
             
             if response.status_code == 200:
                 result = response.json()
                 
                 if result['object_detected']:
-                    self.update_status("Object detected! Processing medical analysis...")
+                    confidence = result['detection_confidence']
+                    self.update_status(f"✅ Object detected ({confidence:.1%} confidence)")
                     
                     if result['analysis']:
+                        self.update_status("🩺 Starting medical consultation...")
                         # Start conversation with clinical AI
                         self.start_clinical_conversation(result['analysis'])
                     else:
-                        self.update_status("Analysis failed")
+                        self.update_status("❌ Medical analysis failed")
                         self.reset_ui()
                 else:
-                    self.update_status("No object detected. Please try again.")
+                    self.update_status("❌ No object detected. Please position yourself clearly in front of camera.")
+                    self.update_instruction("Make sure your skin condition is clearly visible and try again.")
                     self.reset_ui()
             else:
-                self.update_status(f"Server error: {response.status_code}")
+                error_msg = response.json().get('error', f'Server error: {response.status_code}')
+                self.update_status(f"❌ Server error: {error_msg}")
                 self.reset_ui()
                 
+        except requests.exceptions.Timeout:
+            self.update_status("⏱️ Request timed out. Server may be busy.")
+            self.reset_ui()
         except Exception as e:
             print(f"❌ Scan process error: {e}")
-            self.update_status(f"Error: {str(e)}")
+            self.update_status(f"❌ Error: {str(e)}")
             self.reset_ui()
             
     def start_clinical_conversation(self, image_analysis):
         """Start conversation with clinical AI server"""
         try:
-            self.update_status("Starting medical consultation...")
+            self.update_status("🩺 Initializing medical consultation...")
             
             # Initialize conversation
             payload = {
@@ -287,7 +367,7 @@ class MedicalScannerApp:
             response = requests.post(
                 f"{UNIFIED_SERVER}/start_conversation",
                 json=payload,
-                timeout=30
+                timeout=60
             )
             
             if response.status_code == 200:
@@ -296,17 +376,21 @@ class MedicalScannerApp:
                 first_question = result['question']
                 
                 # Update UI to show question and response input
-                self.update_status("Medical consultation started")
-                self.update_instruction(first_question)
+                self.update_status("✅ Medical consultation started")
+                self.update_instruction(f"Doctor: {first_question}")
+                self.update_progress("Question 1/6")
+                self.current_iteration = 1
                 self.show_response_input()
+                self.reset_button.config(state=tk.NORMAL)
                 
             else:
-                self.update_status("Failed to start consultation")
+                error_msg = response.json().get('error', 'Unknown error')
+                self.update_status(f"❌ Failed to start consultation: {error_msg}")
                 self.reset_ui()
                 
         except Exception as e:
             print(f"❌ Clinical conversation error: {e}")
-            self.update_status(f"Consultation error: {str(e)}")
+            self.update_status(f"❌ Consultation error: {str(e)}")
             self.reset_ui()
             
     def submit_response(self):
@@ -322,7 +406,7 @@ class MedicalScannerApp:
             return
             
         try:
-            self.update_status("Processing your response...")
+            self.update_status("🤔 AI is thinking...")
             self.submit_button.config(state=tk.DISABLED)
             
             payload = {
@@ -330,11 +414,11 @@ class MedicalScannerApp:
                 "patient_response": response_text
             }
             
-            # This endpoint would need to be implemented in the clinical server
+            # Continue conversation
             response = requests.post(
                 f"{UNIFIED_SERVER}/continue_conversation",
                 json=payload,
-                timeout=30
+                timeout=60
             )
             
             if response.status_code == 200:
@@ -342,38 +426,65 @@ class MedicalScannerApp:
                 
                 if result.get('conversation_complete'):
                     # Show final diagnosis/summary
-                    self.update_instruction(f"Consultation complete.\n\n{result.get('summary', '')}")
+                    summary = result.get('summary', 'Consultation completed.')
+                    self.update_status("✅ Consultation completed")
+                    self.update_instruction(f"📋 Final Assessment:\n\n{summary}")
+                    self.update_progress("Complete!")
                     self.hide_response_input()
-                    self.reset_ui(delay=10)
+                    
+                    # Auto-reset after showing results
+                    self.root.after(15000, self.reset_conversation)  # Reset after 15 seconds
+                    
                 else:
                     # Show next question
                     next_question = result.get('question', 'Thank you for your response.')
-                    self.update_instruction(next_question)
+                    iteration = result.get('iteration', self.current_iteration + 1)
+                    self.current_iteration = iteration
+                    
+                    self.update_instruction(f"Doctor: {next_question}")
+                    self.update_progress(f"Question {iteration}/6")
                     self.response_entry.delete("1.0", tk.END)
                     
-                self.update_status("Ready for your response")
+                self.update_status("💬 Ready for your response")
                 self.submit_button.config(state=tk.NORMAL)
                 
             else:
-                self.update_status("Failed to process response")
+                error_msg = response.json().get('error', 'Unknown error')
+                self.update_status(f"❌ Failed to process response: {error_msg}")
                 self.submit_button.config(state=tk.NORMAL)
                 
+        except requests.exceptions.Timeout:
+            self.update_status("⏱️ Response timed out. AI may be busy.")
+            self.submit_button.config(state=tk.NORMAL)
         except Exception as e:
             print(f"❌ Response submission error: {e}")
-            self.update_status(f"Error: {str(e)}")
+            self.update_status(f"❌ Error: {str(e)}")
             self.submit_button.config(state=tk.NORMAL)
             
     def show_response_input(self):
         """Show response input widgets"""
-        self.response_label.pack(pady=(10, 5))
-        self.response_entry.pack(fill=tk.X, pady=5)
+        self.response_label.pack(pady=(20, 5))
+        text_frame = self.response_entry.master
+        text_frame.pack(fill=tk.X, pady=5)
         self.submit_button.pack(pady=10)
+        
+        # Focus on text input
+        self.response_entry.focus_set()
         
     def hide_response_input(self):
         """Hide response input widgets"""
         self.response_label.pack_forget()
-        self.response_entry.pack_forget()
+        text_frame = self.response_entry.master
+        text_frame.pack_forget()
         self.submit_button.pack_forget()
+        
+    def reset_conversation(self):
+        """Reset to start a new conversation"""
+        self.session_id = None
+        self.current_iteration = 0
+        self.conversation_history = []
+        self.scanning = False
+        self.reset_ui(delay=0)
         
     def reset_ui(self, delay=3):
         """Reset UI to initial state"""
@@ -381,7 +492,6 @@ class MedicalScannerApp:
             if delay > 0:
                 time.sleep(delay)
             self.scanning = False
-            self.session_id = None
             self.root.after(0, self._reset_ui_main_thread)
             
         if delay > 0:
@@ -392,8 +502,11 @@ class MedicalScannerApp:
     def _reset_ui_main_thread(self):
         """Reset UI components (must run in main thread)"""
         self.start_button.config(state=tk.NORMAL)
+        self.reset_button.config(state=tk.DISABLED)
+        self.submit_button.config(state=tk.NORMAL)
         self.update_status("Ready to scan")
         self.update_instruction("Touch 'Start Scan' to begin analyzing your skin condition")
+        self.update_progress("")
         self.hide_response_input()
         
     def update_status(self, text):
@@ -403,6 +516,10 @@ class MedicalScannerApp:
     def update_instruction(self, text):
         """Update instruction label (thread-safe)"""
         self.root.after(0, lambda: self.instruction_label.config(text=text))
+        
+    def update_progress(self, text):
+        """Update progress label (thread-safe)"""
+        self.root.after(0, lambda: self.progress_label.config(text=text))
         
     def exit_app(self):
         """Clean up and exit"""
@@ -434,8 +551,16 @@ def main():
     root = tk.Tk()
     app = MedicalScannerApp(root)
     
-    # Bind escape key to exit (for testing)
+    # Bind escape key to exit (for testing without touchscreen)
     root.bind('<Escape>', lambda e: app.exit_app())
+    
+    # Bind Enter key to submit response when text widget has focus
+    def on_enter(event):
+        if app.submit_button['state'] == tk.NORMAL and app.response_entry.winfo_viewable():
+            app.submit_response()
+            return 'break'
+    
+    root.bind('<Control-Return>', on_enter)  # Ctrl+Enter to submit
     
     try:
         root.mainloop()
@@ -443,4 +568,17 @@ def main():
         app.exit_app()
 
 if __name__ == "__main__":
+    # Configuration check
+    if "YOUR_GPU_SERVER_IP" in UNIFIED_SERVER:
+        print("⚠️  WARNING: Please update UNIFIED_SERVER with your actual GPU server IP!")
+        print(f"Current setting: {UNIFIED_SERVER}")
+        print("Example: UNIFIED_SERVER = 'http://192.168.1.100:7860'")
+        print("")
+    
+    print("🚀 Medical Skin Scanner - Raspberry Pi Client")
+    print(f"📡 Server: {UNIFIED_SERVER}")
+    print(f"📷 Camera: {CAMERA_TYPE if CAMERA_TYPE else 'Not available'}")
+    print("🖥️  Starting touchscreen interface...")
+    print("")
+    
     main()
