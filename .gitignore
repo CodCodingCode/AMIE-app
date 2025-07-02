@@ -234,3 +234,9 @@ output.csv
 Disease Relationships Data.csv
 onlyCUIs.csv
 MRCONSO.RRF
+
+# CV
+emotion_dataset_1percent
+emotion_dataset_5percent
+emotion_dataset_1percent_yolo
+full_emotion_dataset
