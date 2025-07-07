@@ -73,3 +73,6 @@ while True:
 # Clean up
 cap.release()
 cv2.destroyAllWindows()
+
+
+# scp computer-vision/fullpicode/pi_controlled_code.py jerryhuang@192.168.50.249:/home/jerryhuang/

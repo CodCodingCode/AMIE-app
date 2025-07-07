@@ -192,10 +192,7 @@ export default function ConsultationsPage() {
           Back
         </button>
         <h1 className="text-xl text-gray-100 font-header">My Consultations</h1>
-        <button onClick={() => router.push('/book-consultation')} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center">
-          <IconPlus size={18} className="mr-2" />
-          Book New
-        </button>
+        {/* Removed Book New button */}
       </div>
 
       <div className="flex-1 flex gap-4 p-4 overflow-hidden">
@@ -240,8 +237,7 @@ export default function ConsultationsPage() {
             <EmptyState 
               title="No Consultation Selected" 
               message="Select a consultation to view details."
-              actionText="Book New Consultation"
-              onAction={() => router.push('/book-consultation')}
+              /* Removed actionText and onAction for booking new consultation */
             />
           ) : (
             <>
